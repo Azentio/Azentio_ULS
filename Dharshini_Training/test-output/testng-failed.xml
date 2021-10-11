@@ -5,7 +5,8 @@
     <classes>
       <class name="tests.LoginTest">
         <methods>
-          <include name="login" invocation-numbers="1"/>
+          <include name="login" invocation-numbers="0"/>
+          <include name="OpenApplication"/>
           <include name="closure"/>
         </methods>
       </class> <!-- tests.LoginTest -->
