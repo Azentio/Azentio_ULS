@@ -29,6 +29,7 @@ ExtentReports extentReport=ExtentReporter.getExtentReport();
 
 ExtentTest extentTest;
 
+
 @BeforeMethod
 public void OpenApplication() throws IOException {
 	log = LogManager.getLogger(LoginTest.class.getName());
@@ -71,7 +72,7 @@ public void OpenApplication() throws IOException {
 		  		log.error("Error: We are in wrong page");
 		 }
 		Assert.assertEquals(actualResult, expectedResult);
-		 
+		 Assert.assertTrue(false);
 }
 	@AfterMethod
 	public void closure() {

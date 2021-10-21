@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Oct 08 17:04:12 IST 2021</td>
+<td>Started on:</td><td>Tue Oct 12 12:27:10 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>12 seconds (12560 ms)</td>
+<tr><td>Total time:</td><td>5 seconds (5738 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,18 +67,25 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.LoginTest.login()'><b>login</b><br>Test class: tests.LoginTest<br>Parameters: dharshiniselvaraj23@gmail.com, Selvaraj23!, Successful</td>
-<td></td>
-<td>6</td>
-<td>tests.LoginTest@3bd323e9</td></tr>
+<td title='Runner.Runner.runScenario()'><b>runScenario</b><br>Test class: Runner.Runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with valid credentials", "Application Login"</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;this.extentTest&quot; is null
+	at resources.BaseClass.initializeDriver(BaseClass.java:70)
+	at stepdefinitions.login.openBrowser(login.java:35)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1337289706", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1337289706'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;this.extentTest&quot; is null
+	at resources.BaseClass.initializeDriver(BaseClass.java:70)
+	at stepdefinitions.login.openBrowser(login.java:35)
+</pre></div></td>
+<td>5</td>
+<td>Runner.Runner@6c1a5b54</td></tr>
 </table><p>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class Listeners extends BaseClass implements ITestListener{
 	@Override
 	public void onTestStart(ITestResult result) {
 		
-		extentTest = extentReport.createTest(result.getName()+" execution started");
+		extentTest = extentReport.createTest(result.getName()+" Execution started");
 	
 	}
 
@@ -33,7 +33,7 @@ public class Listeners extends BaseClass implements ITestListener{
 	@Override
 	public void onTestFailure(ITestResult result) {
 
-	
+
 		extentTest.fail(result.getThrowable());
 		String testMethodName = result.getName();
 		

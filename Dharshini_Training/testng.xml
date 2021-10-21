@@ -4,11 +4,27 @@
 <listeners>
      <listener class-name="listeners.Listeners"/>
   </listeners>
-  <test thread-count="5" name="Fourtest">
+  <test thread-count="5" name="Login">
     <classes>
-      <class name="tests.FourTest"/>
+      <class name="tests.LoginTest"/>
     </classes>
   </test> <!-- Test -->
    
-         
+         <test thread-count="5" name="Four">
+    <classes>
+  
+      <class name="tests.FourTest"/>
+    </classes>
+  </test> <!-- Test -->
+   <test thread-count="5" name="Three">
+    <classes>
+      <class name="tests.ThreeTest"/>
+    </classes>
+  </test> <!-- Test -->
+   <test thread-count="5" name="Two">
+    <classes>
+      <class name="tests.TwoTest"/>
+    </classes>
+  </test> <!-- Test -->
+   
 </suite> <!-- Suite -->

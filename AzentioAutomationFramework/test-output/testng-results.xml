@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-10-21T09:46:36 IST" name="Suite" finished-at="2021-10-21T09:47:13 IST" duration-ms="37169">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@50b0bc4c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2021-10-21T09:46:36 IST" name="Login" finished-at="2021-10-21T09:47:13 IST" duration-ms="37169">
+      <class name="Runner.TestApplication">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@50b0bc4c]" started-at="2021-10-21T09:46:36 IST" name="setUpClass" finished-at="2021-10-21T09:46:36 IST" duration-ms="245" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@50b0bc4c]" started-at="2021-10-21T09:46:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-10-21T09:46:59 IST" duration-ms="22671" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Application Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@50b0bc4c]" started-at="2021-10-21T09:46:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-10-21T09:47:12 IST" duration-ms="13218" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Register an account with valid details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Registratio Tests"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[User has not registered]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: User has not registered
+at org.testng.Assert.fail(Assert.java:99)
+at stepdefinitions.register.user_should_get_successfully_registered(register.java:81)
+at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/eclipse-workspace/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:14)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@50b0bc4c]" started-at="2021-10-21T09:47:13 IST" name="tearDownClass" finished-at="2021-10-21T09:47:13 IST" duration-ms="307" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- Runner.TestApplication -->
+    </test> <!-- Login -->
+  </suite> <!-- Suite -->
+</testng-results>
