@@ -45,22 +45,7 @@ public class BaseClass {
 	   public static WebDriver driver;
 	
 	
-public  void takeScreenshot(String testName,WebDriver driver) throws IOException {
-		
-		File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\"+testName+".png";
-		FileUtils.copyFile(SourceFile,new File(destinationFilePath));
-	
-	}
-public static String takeScreenshotForReport(String testName,WebDriver driver) throws IOException {
-	
-	File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\fail.png";
-	FileUtils.copyFile(SourceFile,new File(destinationFilePath));
-	return destinationFilePath;
 
-
-}
 public WebDriver initializeDriver( )throws IOException {
 	
 	 prop=new Properties();
@@ -97,7 +82,31 @@ public WebDriver initializeDriver( )throws IOException {
 	return driver;
 }
 
-
+public  void takeScreenshot(String testName,WebDriver driver) throws IOException {
 	
+	File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\"+testName+".png";
+	FileUtils.copyFile(SourceFile,new File(destinationFilePath));
+
+}
+public static String takeScreenshotForFailureReport(String testName,WebDriver driver) throws IOException {
+
+File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\fail.png";
+FileUtils.copyFile(SourceFile,new File(destinationFilePath));
+return destinationFilePath;
+
+
+}
+
+public static String takeScreenshotForPassedReport(String testName,WebDriver driver) throws IOException {
+
+File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\pass.png";
+FileUtils.copyFile(SourceFile,new File(destinationFilePath));
+return destinationFilePath;
+
+
+}	
 }
 

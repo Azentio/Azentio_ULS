@@ -19,6 +19,7 @@ import io.cucumber.java.en.When;
 import pageobjects.LandingPage;
 import pageobjects.LoginPage;
 import resources.BaseClass;
+import resources.ExcelReader;
 import utilities.ExtentReporter;
 import utilities.ExtentTestManager;
 
@@ -30,7 +31,7 @@ public class login extends BaseClass {
 
 	ExtentReports extentReport = ExtentReporter.getExtentReport();
 	ExtentTest extentTest;
-
+	ExcelReader reader = new ExcelReader(System.getProperty("user.dir")+"\\Test-data\\TestData.xlsx");
 	
 	
 	@Given("^Open any Browser$")
@@ -54,12 +55,15 @@ public class login extends BaseClass {
 	@When("^User enters usernamea and password in their respective fields$")
 	public void user_enters_usernamea_and_password_in_their_respective_fields() {
 		loginPage = new LoginPage(driver);
-		loginPage.emailAddressField().sendKeys(prop.getProperty("email"));
+		String email=reader.getCellData("Login","Username", 2);
+		String password=reader.getCellData("Login","Password",2);
+		loginPage.emailAddressField().sendKeys(email);
 		ExtentTestManager.getTest().info("User Enters username");
-		loginPage.passwordField().sendKeys(prop.getProperty("password"));
+		loginPage.passwordField().sendKeys(password);
 		ExtentTestManager.getTest().info("User enters valid password");
 
 	}
+
 
 	@And("^User clicks on Login button$")
 	public void user_clicks_on_login_button() throws InterruptedException {

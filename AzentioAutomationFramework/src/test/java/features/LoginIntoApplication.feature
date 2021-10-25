@@ -1,7 +1,7 @@
 Feature: Application Login
 
 
-@register
+@login
 Scenario: Login with valid credentials
 Given Open any Browser
 And Navigate to Login page

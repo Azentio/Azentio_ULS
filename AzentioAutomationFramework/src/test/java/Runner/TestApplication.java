@@ -13,8 +13,8 @@ import io.cucumber.testng.CucumberOptions;
 		plugin= {"pretty","html:target//cucumber_html_report.html"} ,//to ipmort the reprt
 		
 				//dryRun = false,  //to check compilation errors
-		        strict = true,
-		tags={"@register"}
+		        strict = true
+		//tags={"@login"}
 				//@Listeners({com.coveros.utilities.Listener.class})
 				//tags = {"@login "@register"}
 		
