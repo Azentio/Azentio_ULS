@@ -24,6 +24,7 @@ public class ExcelReader {
 	private XSSFRow row = null;
 	private XSSFCell cell = null;
 
+	//Excel constructor
 	public ExcelReader(String path) {
 
 		this.path = path;
