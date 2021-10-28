@@ -1,9 +1,9 @@
 Feature: Registratio Tests
-
+Background:
+Given User navigates to Registration page
 @register
 Scenario: Register an account with valid details
-	Given User navigates to Registration page
-	When User provies the following details into the input fields
+When User provies the following details into the input fields
 		|firstName|arun											|
 		|lastName |motoori									|
 		|email		|arun.motoori@yahoo.co.in	|

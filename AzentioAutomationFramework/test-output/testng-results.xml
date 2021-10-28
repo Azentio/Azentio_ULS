@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-25T12:00:07 IST" name="Suite" finished-at="2021-10-25T12:00:36 IST" duration-ms="29744">
+  <suite started-at="2021-10-28T10:11:28 IST" name="Suite" finished-at="2021-10-28T10:12:21 IST" duration-ms="53355">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@85ec632]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-10-25T12:00:07 IST" name="Login" finished-at="2021-10-25T12:00:36 IST" duration-ms="29744">
+    <test started-at="2021-10-28T10:11:28 IST" name="Login" finished-at="2021-10-28T10:12:21 IST" duration-ms="53355">
       <class name="Runner.TestApplication">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-25T12:00:07 IST" name="setUpClass" finished-at="2021-10-25T12:00:07 IST" duration-ms="203" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-28T10:11:28 IST" name="setUpClass" finished-at="2021-10-28T10:11:28 IST" duration-ms="263" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-25T12:00:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-10-25T12:00:24 IST" duration-ms="17425" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-28T10:11:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-10-28T10:12:04 IST" duration-ms="36172" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,7 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-25T12:00:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-10-25T12:00:36 IST" duration-ms="10924" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-28T10:12:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-10-28T10:12:20 IST" duration-ms="15584" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -51,14 +51,14 @@
               <![CDATA[java.lang.AssertionError: User has not registered
 at org.testng.Assert.fail(Assert.java:99)
 at stepdefinitions.register.user_should_get_successfully_registered(register.java:81)
-at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/git/repository/AzentioAutomationFramework/AzentioAutomationFramework/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:14)
+at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/git/repository2/AzentioAutomationFramework/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:14)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-25T12:00:36 IST" name="tearDownClass" finished-at="2021-10-25T12:00:36 IST" duration-ms="582" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@85ec632]" started-at="2021-10-28T10:12:21 IST" name="tearDownClass" finished-at="2021-10-28T10:12:21 IST" duration-ms="388" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
