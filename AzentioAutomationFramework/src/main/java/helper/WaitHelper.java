@@ -1,5 +1,6 @@
 package helper;
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
@@ -25,24 +26,26 @@ public class WaitHelper {
 		
 	}
 
-	// setImplicitWait
-	public void setImplicitWait(long timeout, TimeUnit unit) {
+	// setImplicitWait 
+	public void setImplicitWait(long timeout) {
 		Log.info(timeout);
-		driver.manage().timeouts().implicitlyWait(timeout, unit == null ? TimeUnit.SECONDS : unit);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeout));
+		//driver.manage().timeouts().implicitlyWait(timeout, unit == null ? TimeUnit.SECONDS : unit);
 		ExtentTestManager.getTest().info("Setted implicit wait for this element");
 	}
-
+      
 	// setPageLoadTimeout wait
 	public void setPageLoadTimeout(long timeout, TimeUnit unit) {
 		Log.info(timeout);
 		driver.manage().timeouts().pageLoadTimeout(timeout, unit == null ? TimeUnit.SECONDS : unit);
+		//WebDriver.Timeouts pageLoadTimeout(long timeout1,java.util.concurrent.TimeUnit unit)
 		ExtentTestManager.getTest().info("Setting wait for page load");
 	}
 
 	// set explicit wait
 	private WebDriverWait getWait(int timeOutInSeconds, int pollingEveryInMiliSec) {
 		Log.debug("");
-		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
 		// wait.pollingEvery(pollingEveryInMiliSec, TimeUnit.MILLISECONDS);
 		wait.ignoring(NoSuchElementException.class);
 		wait.ignoring(ElementNotVisibleException.class);
@@ -62,15 +65,18 @@ public class WaitHelper {
 
 	// wait for one element
 	public void waitForElement(WebDriver driver, WebElement element, long timeout) {
-		WebDriverWait wait = new WebDriverWait(driver, timeout);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 		wait.until(ExpectedConditions.visibilityOf(element));
 		Log.info("element found..." + element.getText());
 		ExtentTestManager.getTest().info("Setted wait untill the element is visible");
 	}
 
 	// wait for element to be clickable
+
 	public WebElement waitForElement(WebDriver driver, long time, WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, time);
+		
+		//WebDriverWait wait = new WebDriverWait(driver, time);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
 		ExtentTestManager.getTest().info("Setted wait untill the element is clickable");
 		return wait.until(ExpectedConditions.elementToBeClickable(element));
 
