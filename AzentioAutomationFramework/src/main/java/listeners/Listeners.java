@@ -43,7 +43,7 @@ public class Listeners extends BaseClass implements ITestListener {
 	//Method called before every steps
 	public void onTestStart(ITestResult result) {
 		System.out.println(("*** Running test method " + result.getMethod().getMethodName() + "..."));
-		ExtentTestManager.startTest(result.getMethod().getMethodName());
+		ExtentTestManager.startTest(result.getMethod().getDescription());
 		System.out.println(result);
 	}
 	//Method called after  steps is it gets passed
