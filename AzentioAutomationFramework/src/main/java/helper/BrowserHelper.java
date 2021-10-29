@@ -24,20 +24,20 @@ public class BrowserHelper {
 	// Going back to previous page
 	public void goBack() {
 		driver.navigate().back();
-		ExtentTestManager.getTest().info("Going back to previous page");
+		//ExtentTestManager.getTest().info("Going back to previous page");
 
 	}
 
 //Move to next page
 	public void goForward() {
 		driver.navigate().forward();
-		ExtentTestManager.getTest().info("Move to next page");
+		//ExtentTestManager.getTest().info("Move to next page");
 	}
 
 	// Refreshing the page
 	public void refresh() {
 		driver.navigate().refresh();
-		ExtentTestManager.getTest().info("Refreshing the page");
+		//ExtentTestManager.getTest().info("Refreshing the page");
 	}
 
 //Get window handles
@@ -56,7 +56,7 @@ public class BrowserHelper {
 		}
 		driver.switchTo().window(windowsId.get(index));
 		Log.info(index);
-		ExtentTestManager.getTest().info("Switched to window");
+		//ExtentTestManager.getTest().info("Switched to window");
 	}
 
 //Switched to parent window
@@ -64,7 +64,7 @@ public class BrowserHelper {
 		LinkedList<String> windowsId = new LinkedList<String>(getWindowHandles());
 		driver.switchTo().window(windowsId.get(0));
 		Log.info("");
-		ExtentTestManager.getTest().info("Switched to parent window");
+		//ExtentTestManager.getTest().info("Switched to parent window");
 	}
 
 	public void switchToParentWithChildClose() {
@@ -73,7 +73,7 @@ public class BrowserHelper {
 		for (int i = 1; i < windowsId.size(); i++) {
 			Log.info(windowsId.get(i));
 			driver.switchTo().window(windowsId.get(i));
-			ExtentTestManager.getTest().info("Switched to window");
+			//ExtentTestManager.getTest().info("Switched to window");
 			driver.close();
 		}
 
@@ -83,7 +83,7 @@ public class BrowserHelper {
 	// switching to frame
 	public void switchToFrame(String nameOrId) {
 		driver.switchTo().frame(nameOrId);
-		ExtentTestManager.getTest().info("Switched to frame" + nameOrId);
+		//ExtentTestManager.getTest().info("Switched to frame" + nameOrId);
 		Log.info(nameOrId);
 	}
 }

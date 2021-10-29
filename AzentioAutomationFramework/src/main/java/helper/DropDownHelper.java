@@ -25,14 +25,14 @@ public class DropDownHelper {
 		Select select = new Select(element);
 		select.selectByVisibleText(visibleValue);
 		Log.info("Locator : " + element + " Value : " + visibleValue);
-		ExtentTestManager.getTest().info("The  value" + visibleValue + "selected from dropdown");
+		//ExtentTestManager.getTest().info("The  value" + visibleValue + "selected from dropdown");
 	}
 
 	// Returns selected value from dropdown
 	public String getSelectedValue(WebElement element) {
 		String value = new Select(element).getFirstSelectedOption().getText();
 		Log.info("WebELement : " + element + " Value : " + value);
-		ExtentTestManager.getTest().info("The  value " + value + "selecetd from dropdown");
+		//ExtentTestManager.getTest().info("The  value " + value + "selecetd from dropdown");
 		return value;
 
 	}
@@ -42,7 +42,7 @@ public class DropDownHelper {
 		Select select = new Select(element);
 		select.selectByIndex(index);
 		Log.info("Locator : " + element + " Value : " + index);
-		ExtentTestManager.getTest().info("The  index" + index + "selected from dropdown");
+		//ExtentTestManager.getTest().info("The  index" + index + "selected from dropdown");
 	}
 
 	// Selecting the element from dropdown using text
@@ -50,7 +50,7 @@ public class DropDownHelper {
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
 		Log.info("Locator : " + element + " Value : " + text);
-		ExtentTestManager.getTest().info("The  Text" + text + "selected from dropdown");
+		//ExtentTestManager.getTest().info("The  Text" + text + "selected from dropdown");
 	}
 
 	// Returns all the available values in dropdown
@@ -63,7 +63,7 @@ public class DropDownHelper {
 			Log.info(element.getText());
 			valueList.add(element.getText());
 		}
-		ExtentTestManager.getTest().info("The  values are " + valueList);
+		//ExtentTestManager.getTest().info("The  values are " + valueList);
 		return valueList;
 	}
 }

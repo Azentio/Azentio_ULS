@@ -22,7 +22,7 @@ public class ClicksAndActionsHelper {
 	//Webdriver click
 	public void clickOnElement(WebElement element) {
 		element.click();
-		ExtentTestManager.getTest().info("Clicked on the element" +element);
+		//ExtentTestManager.getTest().info("Clicked on the element" +element);
 		
 	}
 	
@@ -36,7 +36,7 @@ public void moveToElement(WebElement element) {
 	Actions action = new Actions(driver);
 
 	action.moveToElement(element).perform();
-	ExtentTestManager.getTest().info("Moved to the element" +element);
+	//ExtentTestManager.getTest().info("Moved to the element" +element);
 }
 	
 //hovering to element and selecting from options
@@ -45,7 +45,7 @@ public void clickUsingActionClass(WebElement hoveringelelement,WebElement clicki
 
 		action.moveToElement(hoveringelelement).perform();
 		action.moveToElement(clickingelement).click().build().perform();
-		ExtentTestManager.getTest().info("Moved to the element" +hoveringelelement+ "and clicked" +clickingelement);
+		//ExtentTestManager.getTest().info("Moved to the element" +hoveringelelement+ "and clicked" +clickingelement);
 	}
 	
 	
@@ -53,7 +53,7 @@ public void clickUsingActionClass(WebElement hoveringelelement,WebElement clicki
 	
 		Actions action = new Actions(driver);
 		action.contextClick(element).perform();
-		ExtentTestManager.getTest().info("Right clicked on the element" +element);
+		//ExtentTestManager.getTest().info("Right clicked on the element" +element);
 		
 		
 	}
@@ -61,14 +61,14 @@ public void clickUsingActionClass(WebElement hoveringelelement,WebElement clicki
 	
 		Actions action = new Actions(driver);
 		action.doubleClick(element).perform();
-		ExtentTestManager.getTest().info("Double clicked on the element" +element);
+		//ExtentTestManager.getTest().info("Double clicked on the element" +element);
 	}
 	
 	//drag and drop
 	public void DragAndDrop(WebElement DragElement, WebElement DropElement) {
 	Actions actions = new Actions(driver);
 	actions.dragAndDrop(DragElement, DropElement);
-	ExtentTestManager.getTest().info("Dragged and droped");
+	//ExtentTestManager.getTest().info("Dragged and droped");
 	}
 }
 

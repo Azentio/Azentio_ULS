@@ -20,7 +20,7 @@ public class VerificationHelper {
 		catch(Exception ex) {
 			Log.error("Element not found " + ex);
 		}
-		ExtentTestManager.getTest().info("Element present");
+		//ExtentTestManager.getTest().info("Element present");
 		return isDispalyed;
 	}
 	

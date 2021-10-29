@@ -1,6 +1,7 @@
 Feature: Registratio Tests
 Background:
 Given User navigates to Registration page
+
 @register
 Scenario: Register an account with valid details
 When User provies the following details into the input fields

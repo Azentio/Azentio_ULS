@@ -39,10 +39,10 @@ import org.apache.logging.log4j.Logger;
 public class BaseClass {
 	Logger log = LogManager.getLogger(BaseClass.class.getName());
 	public Properties prop;
-	ExtentReports extentReport=ExtentReporter.getExtentReport();
+
 	
-	ExtentTest extentTest;
-	   public static WebDriver driver;
+
+	 public static WebDriver driver;
 	
 	
 
@@ -50,7 +50,7 @@ public WebDriver initializeDriver( )throws IOException {
 	
 	 prop=new Properties();
 	String proppath= System.getProperty("user.dir")+"\\src\\main\\java\\resources\\data.properties";
-	//System.out.println(proppath);
+
 	FileInputStream fis =new FileInputStream(proppath);
 	prop.load(fis);
 	String browserName = prop.getProperty("browser");
@@ -82,31 +82,6 @@ public WebDriver initializeDriver( )throws IOException {
 	return driver;
 }
 
-public  void takeScreenshot(String testName,WebDriver driver) throws IOException {
-	
-	File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\"+testName+".png";
-	FileUtils.copyFile(SourceFile,new File(destinationFilePath));
 
-}
-public static String takeScreenshotForFailureReport(String testName,WebDriver driver) throws IOException {
-
-File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\fail.png";
-FileUtils.copyFile(SourceFile,new File(destinationFilePath));
-return destinationFilePath;
-
-
-}
-
-public static String takeScreenshotForPassedReport(String testName,WebDriver driver) throws IOException {
-
-File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\pass.png";
-FileUtils.copyFile(SourceFile,new File(destinationFilePath));
-return destinationFilePath;
-
-
-}	
 }
 

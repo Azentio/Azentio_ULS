@@ -30,12 +30,12 @@ public class GenericHelper {
 		}
 
 		if (!displayed) {
-			ExtentTestManager.getTest().info("Element not displayed");
+			//ExtentTestManager.getTest().info("Element not displayed");
 			return null;
 		}
 		String text = element.getText();
 		Log.info("weblement valus is.." + text);
-		ExtentTestManager.getTest().info("Element value is " + text);
+		//ExtentTestManager.getTest().info("Element value is " + text);
 		return text;
 	}
 
@@ -43,16 +43,16 @@ public class GenericHelper {
 	//Reading the Value from particular attribute
 	public String readValueFromInput(WebElement element) {
 		if (null == element) {
-			ExtentTestManager.getTest().info("Element value is null");
+			//ExtentTestManager.getTest().info("Element value is null");
 			return null;
 		}
 		if (!isDisplayed(element)) {
-			ExtentTestManager.getTest().info("Element value is null");
+			//ExtentTestManager.getTest().info("Element value is null");
 			return null;
 		}
 		String value = element.getAttribute("value");
 		Log.info("weblement valus is.." + value);
-		ExtentTestManager.getTest().info("Attribute  value is " + value);
+		//ExtentTestManager.getTest().info("Attribute  value is " + value);
 		return value;
 	}
 
@@ -62,12 +62,12 @@ public class GenericHelper {
 		try {
 			element.isDisplayed();
 			Log.info("element is displayed.." + element);
-			ExtentTestManager.getTest().info("Element displayed");
+			//ExtentTestManager.getTest().info("Element displayed");
 			return true;
 		} catch (Exception e) {
 			Log.info(e);
 			Reporter.log(e.fillInStackTrace().toString());
-			ExtentTestManager.getTest().info("Element not displayed" + e.fillInStackTrace().toString());
+			//ExtentTestManager.getTest().info("Element not displayed" + e.fillInStackTrace().toString());
 			return false;
 		}
 	}
@@ -76,12 +76,12 @@ public class GenericHelper {
 		try {
 			element.isDisplayed();
 			Log.info("element is displayed.." + element);
-			ExtentTestManager.getTest().info("Element not displayed");
+			//ExtentTestManager.getTest().info("Element not displayed");
 			return false;
 		} catch (Exception e) {
 			Log.error(e);
 			Reporter.log(e.fillInStackTrace().toString());
-			ExtentTestManager.getTest().info("Element  displayed" + e.fillInStackTrace().toString());
+			//ExtentTestManager.getTest().info("Element  displayed" + e.fillInStackTrace().toString());
 			return true;
 		}
 	}

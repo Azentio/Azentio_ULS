@@ -11,14 +11,14 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
+import helper.ScreenshotHelper;
 import resources.BaseClass;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
 public class Listeners extends BaseClass implements ITestListener {
-	public WebDriver driver;
-	ExtentTest extentTest;
 
+	ScreenshotHelper  screenshotHelper=new ScreenshotHelper(driver);
 	
 	//Method called before every execution
 	public void onStart(ITestContext context) {
@@ -30,7 +30,7 @@ public class Listeners extends BaseClass implements ITestListener {
 	public void onFinish(ITestContext context) {
 		System.out.println(("*** Test Suite " + context.getName() + " ending ***"));
 		try {
-			takeScreenshot("ScreencaptureWhiletestEnds", BaseClass.driver);
+			screenshotHelper.takeScreenshot("ScreencaptureWhiletestEnds", BaseClass.driver);
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class Listeners extends BaseClass implements ITestListener {
 		ExtentTestManager.getTest().log(Status.PASS, "Test passed");
 		System.out.println(result);
 		try {
-			String screenshotPath = takeScreenshotForPassedReport(result.getName(), BaseClass.driver);
+			String screenshotPath = screenshotHelper.takeScreenshotForPassedReport(result.getName(), BaseClass.driver);
 			ExtentTestManager.getTest().log(Status.PASS, "Screenshot: ",
 					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 			System.out.println(screenshotPath);
@@ -76,7 +76,7 @@ public class Listeners extends BaseClass implements ITestListener {
 		}
 
 		try {
-			takeScreenshot(testMethodName, BaseClass.driver);
+			screenshotHelper.takeScreenshot(testMethodName, BaseClass.driver);
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class Listeners extends BaseClass implements ITestListener {
 		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
 		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
 		try {
-			String screenshotPath = takeScreenshotForFailureReport(result.getName(), BaseClass.driver);
+			String screenshotPath = screenshotHelper.takeScreenshotForFailureReport(result.getName(), BaseClass.driver);
 			ExtentTestManager.getTest().log(Status.FAIL, "Screenshot: ",
 					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 			System.out.println(screenshotPath);
