@@ -27,6 +27,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.model.Media;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import dataProvider.ConfigFileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import utilities.ExtentReporter;
@@ -48,12 +49,8 @@ public class BaseClass {
 
 public WebDriver initializeDriver( )throws IOException {
 	
-	 prop=new Properties();
-	String proppath= System.getProperty("user.dir")+"\\src\\main\\java\\resources\\data.properties";
-
-	FileInputStream fis =new FileInputStream(proppath);
-	prop.load(fis);
-	String browserName = prop.getProperty("browser");
+	ConfigFileReader configFileReader=new ConfigFileReader();
+	String browserName =configFileReader.getBrowser();
 	
 	if(browserName.equalsIgnoreCase("chrome")) {
 		

@@ -1,11 +1,12 @@
 package stepdefinitions;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import dataProvider.ConfigFileReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,12 +28,9 @@ public class login extends BaseClass {
 
 	@And("^Navigate to Login page$")
 	public void navigate_to_login_page() throws InterruptedException, IOException {
-		prop = new Properties();
-		String proppath = System.getProperty("user.dir") + "\\src\\main\\java\\resources\\data.properties";
-
-		FileInputStream fis = new FileInputStream(proppath);
-		prop.load(fis);
-		driver.get(prop.getProperty("url"));
+ConfigFileReader configFileReader=new ConfigFileReader();
+		
+		driver.get(configFileReader.getApplicationUrl());
 	    landingPage = new LandingPage(driver);
 		landingPage.myAccountDropdown().click();
 		// ExtentTestManager.getTest().info("User clicks on my account dropdown");
