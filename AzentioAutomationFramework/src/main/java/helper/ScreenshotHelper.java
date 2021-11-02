@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ScreenshotHelper {
 	
-	private WebDriver driver;
+	 WebDriver driver;
 	Logger Log = LogManager.getLogger(WaitHelper.class.getName());
 
 	// Click helper constrcutor

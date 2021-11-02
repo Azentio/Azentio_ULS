@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import utilities.ExtentTestManager;
-
 public class ClicksAndActionsHelper {
 	private WebDriver driver;
 	Logger Log = LogManager.getLogger(WaitHelper.class.getName());

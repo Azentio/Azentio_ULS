@@ -2,8 +2,6 @@ package helper;
 
 import org.openqa.selenium.WebDriver;
 
-import utilities.ExtentTestManager;
-
 import java.util.LinkedList;
 
 import java.util.Set;

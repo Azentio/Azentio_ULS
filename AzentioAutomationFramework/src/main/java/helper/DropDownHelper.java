@@ -9,10 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import utilities.ExtentTestManager;
-
 public class DropDownHelper {
-	private WebDriver driver;
+ WebDriver driver;
 	Logger Log = LogManager.getLogger(DropDownHelper.class.getName());
 
 	// calling constructor

@@ -11,23 +11,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 
 import pageobjects.LandingPage;
 import pageobjects.LoginPage;
 import resources.BaseClass;
-import utilities.ExtentReporter;
+
 
 public class LoginTest extends BaseClass {
 WebDriver driver;
 
 Logger log;
 
-ExtentReports extentReport=ExtentReporter.getExtentReport();
 
-ExtentTest extentTest;
 
 
 @BeforeMethod

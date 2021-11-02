@@ -1,20 +1,14 @@
 package tests;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import helper.AlertHelper;
 import helper.DropDownHelper;
 import helper.GenericHelper;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import resources.BaseClass;
 
 public class helpercheck extends BaseClass { 
@@ -30,7 +24,7 @@ public class helpercheck extends BaseClass {
 		    driver=initializeDriver();
 		    driver.get("http://omayo.blogspot.com/");
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+			
 			
 		
 			////****Dropdown helper checking

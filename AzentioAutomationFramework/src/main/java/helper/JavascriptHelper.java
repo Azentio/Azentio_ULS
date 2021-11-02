@@ -6,8 +6,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import utilities.ExtentTestManager;
-
 public class JavascriptHelper {
 	private WebDriver driver;
 	Logger Log = LogManager.getLogger(JavascriptHelper.class.getName());
