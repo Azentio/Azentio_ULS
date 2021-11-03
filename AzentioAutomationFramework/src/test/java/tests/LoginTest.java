@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
+import dataProvider.ConfigFileReader;
 import pageobjects.LandingPage;
 import pageobjects.LoginPage;
 import resources.BaseClass;
@@ -29,7 +29,9 @@ Logger log;
 public void OpenApplication() throws IOException {
 	log = LogManager.getLogger(LoginTest.class.getName());
 	   driver= initializeDriver();
-		 driver.get(prop.getProperty("url"));
+	   ConfigFileReader configFileReader=new ConfigFileReader();
+		
+		driver.get(configFileReader.getApplicationUrl());
 		 log.debug("Navigated to application URL");
 		 
 		 //extentTest.info("Navigated to application URL");

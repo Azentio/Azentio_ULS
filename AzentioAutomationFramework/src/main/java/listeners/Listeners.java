@@ -17,15 +17,15 @@ import utilities.ExtentTestManager;
 
 public class Listeners extends BaseClass implements ITestListener {
 
-	ScreenshotHelper  screenshotHelper=new ScreenshotHelper(driver);
-	
-	//Method called before every execution
+	ScreenshotHelper screenshotHelper = new ScreenshotHelper(driver);
+
+	// Method called before every execution
 	public void onStart(ITestContext context) {
-	
+
 		System.out.println("*** Test Suite " + context.getName() + " started ***");
 	}
-	
-	//Method called after every execution
+
+	// Method called after every execution
 	public void onFinish(ITestContext context) {
 		System.out.println(("*** Test Suite " + context.getName() + " ending ***"));
 		try {
@@ -39,13 +39,14 @@ public class Listeners extends BaseClass implements ITestListener {
 		ExtentManager.getInstance().flush();
 	}
 
-	//Method called before every steps
+	// Method called before every steps
 	public void onTestStart(ITestResult result) {
 		System.out.println(("*** Running test method " + result.getMethod().getMethodName() + "..."));
 		ExtentTestManager.startTest(result.getMethod().getDescription());
 		System.out.println(result);
 	}
-	//Method called after  steps is it gets passed
+
+	// Method called after steps is it gets passed
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("*** Executed " + result.getMethod().getMethodName() + " test successfully...");
 		ExtentTestManager.getTest().log(Status.PASS, "Test passed");
@@ -60,7 +61,8 @@ public class Listeners extends BaseClass implements ITestListener {
 			e.printStackTrace();
 		}
 	}
-	//Method called after  steps is it gets failed
+
+	// Method called after steps is it gets failed
 	public void onTestFailure(ITestResult result) {
 
 		String testMethodName = result.getName();

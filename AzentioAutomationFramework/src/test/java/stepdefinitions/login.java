@@ -17,25 +17,23 @@ import resources.ExcelReader;
 
 public class login extends BaseClass {
 	public Properties prop;
-	WebDriver driver=BaseClass.driver;
+	WebDriver driver = BaseClass.driver;
 	LandingPage landingPage;
 	LoginPage loginPage;
 
-
 	ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "\\Test-data\\TestData.xlsx");
-
-	
 
 	@And("^Navigate to Login page$")
 	public void navigate_to_login_page() throws InterruptedException, IOException {
-ConfigFileReader configFileReader=new ConfigFileReader();
-		
+		ConfigFileReader configFileReader = new ConfigFileReader();
+
 		driver.get(configFileReader.getApplicationUrl());
-	    landingPage = new LandingPage(driver);
+		landingPage = new LandingPage(driver);
 		landingPage.myAccountDropdown().click();
 		// ExtentTestManager.getTest().info("User clicks on my account dropdown");
 		landingPage.loginOption().click();
-		// ExtentTestManager.getTest().info("User clicks on login option from dropdown");
+		// ExtentTestManager.getTest().info("User clicks on login option from
+		// dropdown");
 
 	}
 

@@ -15,8 +15,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 @SuppressWarnings("deprecation")
 public class ExcelReader {
 
-
-
 	public String path;
 	public FileInputStream fis = null;
 	public FileOutputStream fileOut = null;
@@ -25,7 +23,7 @@ public class ExcelReader {
 	private XSSFRow row = null;
 	private XSSFCell cell = null;
 
-	//Excel constructor
+	// Excel constructor
 	public ExcelReader(String path) {
 
 		this.path = path;
@@ -35,7 +33,7 @@ public class ExcelReader {
 			sheet = workbook.getSheetAt(0);
 			fis.close();
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
 	}
@@ -53,7 +51,6 @@ public class ExcelReader {
 		}
 
 	}
-
 
 	// returns the data from a cell
 	public String getCellData(String sheetName, String colName, int rowNum) {
@@ -85,7 +82,7 @@ public class ExcelReader {
 			if (cell == null)
 				return "";
 
-			//System.out.println(cell.getCellType().name());
+			// System.out.println(cell.getCellType().name());
 			//
 			if (cell.getCellType().name().equals("STRING"))
 				return cell.getStringCellValue();
@@ -122,7 +119,6 @@ public class ExcelReader {
 			return "row " + rowNum + " or column " + colName + " does not exist in xls";
 		}
 	}
-
 
 	// returns the data from a cell
 	public String getCellData(String sheetName, int colNum, int rowNum) {
@@ -476,4 +472,3 @@ public class ExcelReader {
 	}
 
 }
-

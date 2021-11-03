@@ -1,7 +1,7 @@
 package resources;
 
 import java.io.IOException;
-import java.util.Properties;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -15,15 +15,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 	Logger log = LogManager.getLogger(BaseClass.class.getName());
-	public Properties prop;
-
+	public static WebDriver driver;
 	
-
-	 public static WebDriver driver;
-	
-	
-
-public WebDriver initializeDriver( )throws IOException {
+	public WebDriver initializeDriver( )throws IOException {
 	
 	ConfigFileReader configFileReader=new ConfigFileReader();
 	String browserName =configFileReader.getBrowser();
@@ -50,7 +44,7 @@ public WebDriver initializeDriver( )throws IOException {
 	driver.manage().window().maximize();
 	
 
-	//ExtentTestManager.getTest().info(prop.getProperty("browser") +"Browser Initiated");
+	
 	
 	return driver;
 }
