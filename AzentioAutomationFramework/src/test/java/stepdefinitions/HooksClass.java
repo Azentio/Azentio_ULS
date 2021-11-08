@@ -52,6 +52,7 @@ public class HooksClass extends BaseClass {
 		String name=scenario.getName();
 		System.out.println("Scenario : **"+ name + "** Stopped executing");
 		io.cucumber.java.Status status=scenario.getStatus();
+		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
 		if (status.equals("FAILED")) {
 			try {
 				System.out.println("ENTERRED");
