@@ -61,14 +61,15 @@ public class register extends BaseClass {
 		String url = driver.getCurrentUrl();
 
 		if (url.equals("http://tutorialsninja.com/demo/index.php?route=account/success")) {
-			Assert.fail("User has  registered");
+			
 			// Assert.assertEquals("http://tutorialsninja.com/demo/index.php?route=account/success",
 			// url);
+			Assert.fail("User has  registered");
 
 		} else {
 
 			System.out.println("User has not registered which is expected");
-
+			
 		}
 
 	}
