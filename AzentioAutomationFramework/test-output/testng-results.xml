@@ -2,19 +2,23 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-08T12:27:40 IST" name="Default suite" finished-at="2021-11-08T12:27:48 IST" duration-ms="7674">
+  <suite started-at="2021-11-08T17:12:09 IST" name="Default suite" finished-at="2021-11-08T17:13:05 IST" duration-ms="55708">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.FailedRun@3e8c3cb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@53045c6c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-11-08T12:27:40 IST" name="Default test" finished-at="2021-11-08T12:27:48 IST" duration-ms="7674">
-      <class name="Runner.FailedRun">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.FailedRun@3e8c3cb]" started-at="2021-11-08T12:27:40 IST" name="setUpClass" finished-at="2021-11-08T12:27:40 IST" duration-ms="312" status="PASS">
+    <test started-at="2021-11-08T17:12:09 IST" name="Default test" finished-at="2021-11-08T17:13:05 IST" duration-ms="55708">
+      <class name="Runner.TestApplication">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@53045c6c]" started-at="2021-11-08T17:12:09 IST" name="beforeExecution" finished-at="2021-11-08T17:12:09 IST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeExecution -->
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@53045c6c]" started-at="2021-11-08T17:12:09 IST" name="setUpClass" finished-at="2021-11-08T17:12:16 IST" duration-ms="7368" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.FailedRun@3e8c3cb]" started-at="2021-11-08T12:27:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-11-08T12:27:48 IST" duration-ms="7318" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@53045c6c]" started-at="2021-11-08T17:12:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-11-08T17:12:56 IST" duration-ms="39759" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,19 +38,23 @@
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: User has  registered
 at org.testng.Assert.fail(Assert.java:99)
-at stepdefinitions.register.user_should_get_successfully_registered(register.java:71)
-at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/git/repository3/AzentioAutomationFramework/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:15)
+at stepdefinitions.register.user_should_get_successfully_registered(register.java:73)
+at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/git/ExtentReportsExample/AzentioAutomationFramework/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:15)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.FailedRun@3e8c3cb]" started-at="2021-11-08T12:27:48 IST" name="tearDownClass" finished-at="2021-11-08T12:27:48 IST" duration-ms="9" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@53045c6c]" started-at="2021-11-08T17:12:56 IST" name="tearDownClass" finished-at="2021-11-08T17:13:05 IST" duration-ms="8321" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- Runner.FailedRun -->
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@53045c6c]" started-at="2021-11-08T17:13:05 IST" name="afterExecution" finished-at="2021-11-08T17:13:05 IST" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterExecution -->
+      </class> <!-- Runner.TestApplication -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

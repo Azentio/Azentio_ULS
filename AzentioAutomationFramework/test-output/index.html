@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\dharshini.4312\AppData\Local\Temp\testng-eclipse--1562623808\testng-customsuite.xml</span>
+                    <span>C:\Users\dharshini.4312\AppData\Local\Temp\testng-eclipse-1605480337\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Runner.FailedRun" class="method navigator-link" hash-for-method="runScenario(&quot;Register an account with valid details&quot;, &quot;Optional[Registratio Tests]&quot;)">runScenario("Register an account with valid details", "Optional[Registratio Tests]")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Runner.TestApplication" class="method navigator-link" hash-for-method="runScenario(&quot;Register an account with valid details&quot;, &quot;Optional[Registratio Tests]&quot;)">runScenario("Register an account with valid details", "Optional[Registratio Tests]")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,7 +122,7 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">Runner.FailedRun</span>
+              <span class="class-name">Runner.TestApplication</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -133,8 +133,8 @@
                   <span class="parameters">("Register an account with valid details", "Optional[Registratio Tests]")</span>
                   <div class="stack-trace">java.lang.AssertionError: User has  registered
 	at org.testng.Assert.fail(Assert.java:99)
-	at stepdefinitions.register.user_should_get_successfully_registered(register.java:71)
-	at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/git/repository3/AzentioAutomationFramework/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:15)
+	at stepdefinitions.register.user_should_get_successfully_registered(register.java:73)
+	at ✽.User should get successfully registered(file:///C:/Users/dharshini.4312/git/ExtentReportsExample/AzentioAutomationFramework/AzentioAutomationFramework/src/test/java/features/RegisterAsNewMember.feature:15)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -146,7 +146,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dharshini.4312\AppData\Local\Temp\testng-eclipse--1562623808\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dharshini.4312\AppData\Local\Temp\testng-eclipse-1605480337\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -155,7 +155,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Runner.FailedRun&quot;/&gt;
+      &lt;class name=&quot;Runner.TestApplication&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -206,13 +206,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
-data.setCell(0, 2, 'Runner.FailedRun')
-data.setCell(0, 3, 7318);
+data.setCell(0, 2, 'Runner.TestApplication')
+data.setCell(0, 3, 39759);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -238,21 +238,29 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Runner.FailedRun</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Runner.TestApplication</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">beforeExecution</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">setUpClass</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">24 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("Register an account with valid details", "Optional[Registratio Tests]")</span>
-                <span class="method-start">325 ms</span>
+                <span class="method-start">7618 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">7648 ms</span>
+                <span class="method-start">47393 ms</span>
               </div> <!-- configuration-class after -->
+              <div class="configuration-suite after">
+                <span class="method-name">afterExecution</span>
+                <span class="method-start">55788 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

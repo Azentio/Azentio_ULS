@@ -29,7 +29,7 @@ public  void takeScreenshot(String testName,WebDriver driver) throws IOException
 	FileUtils.copyFile(SourceFile,new File(destinationFilePath));
 
 }
-public static String takeScreenshotForFailureReport(String testName,WebDriver driver) throws IOException {
+public String takeScreenshotForFailureReport(String testName,WebDriver driver) throws IOException {
 
 File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 String destinationFilePath = System.getProperty("user.dir")+"\\screenshots\\fail.png";

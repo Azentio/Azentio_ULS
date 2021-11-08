@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
+import io.cucumber.core.backend.TestCaseState;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,6 +16,7 @@ import pageobjects.LandingPage;
 import pageobjects.LoginPage;
 import resources.BaseClass;
 import resources.ExcelReader;
+import utilities.ExtentTestManager;
 
 public class login extends BaseClass {
 	public Properties prop;
@@ -23,6 +26,7 @@ public class login extends BaseClass {
 
 	ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "\\Test-data\\TestData.xlsx");
 
+
 	@And("^Navigate to Login page$")
 	public void navigate_to_login_page() throws InterruptedException, IOException {
 		ConfigFileReader configFileReader = new ConfigFileReader();
@@ -30,9 +34,9 @@ public class login extends BaseClass {
 		driver.get(configFileReader.getApplicationUrl());
 		landingPage = new LandingPage(driver);
 		landingPage.myAccountDropdown().click();
-		// ExtentTestManager.getTest().info("User clicks on my account dropdown");
+		 ExtentTestManager.getTest().info("User clicks on my account dropdown");
 		landingPage.loginOption().click();
-		// ExtentTestManager.getTest().info("User clicks on login option from
+		ExtentTestManager.getTest().info("User clicks on login option from");
 		// dropdown");
 
 	}
@@ -43,9 +47,9 @@ public class login extends BaseClass {
 		String email = reader.getCellData("Login", "Username", 2);
 		String password = reader.getCellData("Login", "Password", 2);
 		loginPage.emailAddressField().sendKeys(email);
-		// ExtentTestManager.getTest().info("User Enters username");
+		ExtentTestManager.getTest().info("User Enters username");
 		loginPage.passwordField().sendKeys(password);
-		// ExtentTestManager.getTest().info("User enters valid password");
+		 ExtentTestManager.getTest().info("User enters valid password");
 
 	}
 
@@ -53,8 +57,7 @@ public class login extends BaseClass {
 	public void user_clicks_on_login_button() throws InterruptedException {
 		Thread.sleep(2000);
 		loginPage.loginButton().click();
-		// ExtentTestManager.getTest().info("User clicks login button after entering
-		// credentials");
+		 ExtentTestManager.getTest().info("User clicks login button after entering credentials");
 
 	}
 
@@ -62,8 +65,7 @@ public class login extends BaseClass {
 	public void verify_user_is_able_to_successfully_login() {
 
 		Assert.assertTrue(loginPage.EditYourAccountInfo().isDisplayed());
-		// ExtentTestManager.getTest().info("User verifies the account page is
-		// displayed");
+		ExtentTestManager.getTest().info("User verifies the account page is displayed");
 
 	}
 

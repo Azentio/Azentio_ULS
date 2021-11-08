@@ -5,6 +5,8 @@ import org.testng.annotations.BeforeSuite;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import utilities.ExtentManager;
+import utilities.ExtentTestManager;
 
 @CucumberOptions(features = "src/test/java/features", 
                  glue = "stepdefinitions",
@@ -12,8 +14,8 @@ import io.cucumber.testng.CucumberOptions;
 		         plugin = { "pretty",
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"}, 
-				dryRun = false //to check compilation errors
-				// tags="@register"
+				dryRun = false ,//to check compilation errors
+				 tags="@register"
 
 )
 public class TestApplication extends AbstractTestNGCucumberTests {
@@ -31,5 +33,7 @@ public class TestApplication extends AbstractTestNGCucumberTests {
 	@AfterSuite
 	public void afterExecution() {
 		System.out.println("*** Test Execution Finished ***");
+		ExtentTestManager.endTest();
+		ExtentManager.getInstance().flush();
 	}
 }

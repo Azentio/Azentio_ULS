@@ -11,16 +11,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import resources.BaseClass;
+import utilities.ExtentTestManager;
 
 public class register extends BaseClass {
 	WebDriver driver;
 
 	@Given("^User navigates to Registration page$")
 	public void user_navigates_to_Registration_page() throws IOException {
-		// driver= initializeDriver();
+		
 		driver = BaseClass.driver;
 		driver.get("http://tutorialsninja.com/demo/index.php?route=account/register");
-		// ExtentTestManager.getTest().info("User Navigated to required url");
+		ExtentTestManager.getTest().info("User Navigated to required url");
 
 	}
 
@@ -35,7 +36,7 @@ public class register extends BaseClass {
 		driver.findElement(By.id("input-telephone")).sendKeys(map.get("phone"));
 		driver.findElement(By.id("input-password")).sendKeys(map.get("password"));
 		driver.findElement(By.id("input-confirm")).sendKeys(map.get("password"));
-		// ExtentTestManager.getTest().info("Users enters the data in required field");
+		 ExtentTestManager.getTest().info("Users enters the data in required field");
 
 	}
 
@@ -43,7 +44,7 @@ public class register extends BaseClass {
 	public void selects_the_privacy_policy_option() {
 
 		driver.findElement(By.name("agree")).click();
-		// ExtentTestManager.getTest().info("User agrees on privacy option");
+		ExtentTestManager.getTest().info("User agrees on privacy option");
 
 	}
 
@@ -51,24 +52,25 @@ public class register extends BaseClass {
 	public void clicks_on_Continue_button() {
 
 		driver.findElement(By.cssSelector("input[type='submit'][value='Continue']")).click();
-		// ExtentTestManager.getTest().info("User clicks continue button");
+		 ExtentTestManager.getTest().info("User clicks continue button");
 
 	}
 
 	@Then("^User should get successfully registered$")
 	public void user_should_get_successfully_registered() {
-		// ExtentTestManager.getTest().info("user verifying succesful registration");
+		 ExtentTestManager.getTest().info("user verifying succesful registration");
 		String url = driver.getCurrentUrl();
 
 		if (url.equals("http://tutorialsninja.com/demo/index.php?route=account/success")) {
 			
 			// Assert.assertEquals("http://tutorialsninja.com/demo/index.php?route=account/success",
 			// url);
-			Assert.fail("User has  registered");
+			
 
 		} else {
 
 			System.out.println("User has not registered which is expected");
+			Assert.fail("User has  registered");
 			
 		}
 
