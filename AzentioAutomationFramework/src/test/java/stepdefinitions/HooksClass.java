@@ -18,15 +18,14 @@ import resources.BaseClass;
 public class HooksClass extends BaseClass {
 	WebDriver driver;
 
-	@BeforeSuite
-	public void beforeExecution() {
-		System.out.println("*** Test Execution started ***");
-	}
+	
 
 	@Before
-	public void browserSetup() throws IOException {
+	public void browserSetup(Scenario scenario) throws IOException {
 		driver = initializeDriver();
 		System.out.println("Driver Initiated");
+		String name=scenario.getName();
+		System.out.println("Scenario : **"+ name + "** Started executing");
 
 	}
 
@@ -40,14 +39,12 @@ public class HooksClass extends BaseClass {
 	}
 
 	@After
-	public void TearDown() {
+	public void TearDown(Scenario scenario) {
 		driver = BaseClass.driver;
 		driver.close();
 		System.out.println("Browser closed");
+		String name=scenario.getName();
+		System.out.println("Scenario : **"+ name + "** Stopped executing");
 	}
 
-	@AfterSuite
-	public void afterExecution() {
-		System.out.println("*** Test Execution Finished ***");
-	}
 }
