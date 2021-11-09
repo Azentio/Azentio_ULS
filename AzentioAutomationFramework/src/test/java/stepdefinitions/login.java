@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
+import dataProvider.JsonReader;
 import io.cucumber.core.backend.TestCaseState;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
@@ -16,6 +17,8 @@ import pageobjects.LandingPage;
 import pageobjects.LoginPage;
 import resources.BaseClass;
 import resources.ExcelReader;
+import testDataType.Logindata;
+import testDataType.RegisterData;
 import utilities.ExtentTestManager;
 
 public class login extends BaseClass {
@@ -26,6 +29,7 @@ public class login extends BaseClass {
 
 	ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "\\Test-data\\TestData.xlsx");
 
+	JsonReader jsonReader=new JsonReader();
 
 	@And("^Navigate to Login page$")
 	public void navigate_to_login_page() throws InterruptedException, IOException {
@@ -44,13 +48,17 @@ public class login extends BaseClass {
 	@When("^User enters usernamea and password in their respective fields$")
 	public void user_enters_usernamea_and_password_in_their_respective_fields() {
 		loginPage = new LoginPage(driver);
-		String email = reader.getCellData("Login", "Username", 2);
-		String password = reader.getCellData("Login", "Password", 2);
-		loginPage.emailAddressField().sendKeys(email);
+		String Username="dharshini";
+		//String email = reader.getCellData("Login", "Username", 2);
+		//String password = reader.getCellData("Login", "Password", 2);
+		 Logindata login =jsonReader.getLoginByName(Username);
+		loginPage.emailAddressField().sendKeys(login.Email);
 		ExtentTestManager.getTest().info("User Enters username");
-		loginPage.passwordField().sendKeys(password);
+		loginPage.passwordField().sendKeys(login.Password);
 		 ExtentTestManager.getTest().info("User enters valid password");
 
+		 
+		
 	}
 
 	@And("^User clicks on Login button$")

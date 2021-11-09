@@ -58,4 +58,12 @@ public class ConfigFileReader {
 			return Boolean.valueOf(windowSize);
 		return true;
 	}
-}
+	public String getJsonPath() {
+		String jsonPath = properties.getProperty("jsonPath");
+		if (jsonPath != null)
+			return jsonPath;
+		else
+			throw new RuntimeException("jsonPath not specified in the Configuration.properties file.");
+	}
+	}
+

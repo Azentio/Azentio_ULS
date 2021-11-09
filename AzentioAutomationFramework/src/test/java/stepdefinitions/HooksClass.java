@@ -21,6 +21,7 @@ import resources.BaseClass;
 import utilities.ExtentTestManager;
 
 
+
 public class HooksClass extends BaseClass {
 	WebDriver driver;
 
@@ -44,26 +45,25 @@ public class HooksClass extends BaseClass {
 		
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@After
-	public void TearDown(Scenario scenario) {
+	public void TearDown(Scenario scenario) throws IOException {
 		driver = BaseClass.driver;
 		driver.close();
 		System.out.println("Browser closed");
 		String name=scenario.getName();
 		System.out.println("Scenario : **"+ name + "** Stopped executing");
-		io.cucumber.java.Status status=scenario.getStatus();
+		 io.cucumber.java.Status status=scenario.getStatus();
+		 System.out.println(status);
 		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
 		if (status.equals("FAILED")) {
-			try {
+			
 				System.out.println("ENTERRED");
 				String screenshotPath = screenshotHelper.takeScreenshotForFailureReport(name, BaseClass.driver);
 				ExtentTestManager.getTest().log(Status.FAIL, "Screenshot: ",
 						MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 				System.out.println(screenshotPath);
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
+			
 		}
 	}
 			
