@@ -17,7 +17,7 @@ public class ClicksAndActionsHelper {
 		
 	}
 	
-	//Webdriver click
+	///Webdriver click
 	public void clickOnElement(WebElement element) {
 		element.click();
 		//ExtentTestManager.getTest().info("Clicked on the element" +element);
