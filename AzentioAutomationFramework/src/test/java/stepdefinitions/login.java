@@ -30,10 +30,11 @@ public class login extends BaseClass {
 	ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "\\Test-data\\TestData.xlsx");
 
 	JsonReader jsonReader=new JsonReader();
+	ConfigFileReader configFileReader = new ConfigFileReader();
 
 	@And("^Navigate to Login page$")
 	public void navigate_to_login_page() throws InterruptedException, IOException {
-		ConfigFileReader configFileReader = new ConfigFileReader();
+		
 
 		driver.get(configFileReader.getApplicationUrl());
 		landingPage = new LandingPage(driver);
