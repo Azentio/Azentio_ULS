@@ -1,0 +1,27 @@
+[
+
+	{
+		"Budgetcode"  : "BUD001",
+		"Budgetname":"xxx",
+		"Budgettype":"xxx",
+		"Budgetyear":"2021-2022",
+		"Branch":"CO",
+		"Budgetamount":"xxx",
+		"Currency":"RUP",
+		"":""
+
+
+
+	}
+
+]
+
+//Yearly
+[
+	{
+		"BudgetType": "Yearly",
+		"BudgetAmount": "1000000"
+	}
+]
+
+
