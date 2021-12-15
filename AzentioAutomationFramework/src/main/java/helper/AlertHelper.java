@@ -18,7 +18,7 @@ public class AlertHelper {
 
 	}
 
-	// Switching to alert
+	/// Switching to alert
 	public Alert getAlert() {
 
 		//ExtentTestManager.getTest().info("Switched to alert");
