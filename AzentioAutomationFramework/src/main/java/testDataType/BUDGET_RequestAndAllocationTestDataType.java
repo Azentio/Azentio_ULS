@@ -11,7 +11,7 @@ public class BUDGET_RequestAndAllocationTestDataType {
 
 	
 	
-	public String Yearly;
+	public String BudgetPeriod;
 	public String BudgetAmounT;
 
 }

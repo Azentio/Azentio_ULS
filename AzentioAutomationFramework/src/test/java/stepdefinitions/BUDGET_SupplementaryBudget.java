@@ -4,7 +4,8 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import dataProvider.ConfigFileReader;
-import dataProvider.JsonReader;
+import dataProvider.JsonConfig;
+
 import helper.DropDownHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -25,7 +26,7 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 	KUBS_MakerObj bUDGET_MakerLandingPageObj;
 	BUDGET_SupplementarybudgetTestDataType bUDGET_SupplementaryBudgetTestDataType;
 
-	JsonReader jsonReader=new JsonReader();
+	JsonConfig jsonReader=new JsonConfig();
 	ConfigFileReader reader = new ConfigFileReader();
 
 	@Given("^maker should navigate to the url and login with valid credentials$")

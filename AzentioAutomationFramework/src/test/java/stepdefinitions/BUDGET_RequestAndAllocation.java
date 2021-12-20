@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import dataProvider.ConfigFileReader;
-import dataProvider.JsonReader;
+import dataProvider.JsonConfig;
+
 import helper.DropDownHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,7 +21,7 @@ import pageobjects.BUDGET_RequestAndAllocationObj;
 public class BUDGET_RequestAndAllocation extends BaseClass { 	
 
 		WebDriver driver = BaseClass.driver;
-		JsonReader jsonReader = new JsonReader();
+		JsonConfig jsonReader = new JsonConfig();
 		BUDGET_RequestAndAllocationObj  requestAndAllocation;
 		DropDownHelper dropDownHelper;		
 		BUDGET_RequestAndAllocationTestDataType RequestAndAllocationTestData;

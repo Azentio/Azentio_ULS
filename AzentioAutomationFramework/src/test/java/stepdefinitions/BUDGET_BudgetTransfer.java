@@ -5,7 +5,7 @@ import java.util.Properties;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import dataProvider.JsonReader;
+import dataProvider.JsonConfig;
 import helper.DropDownHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -21,7 +21,7 @@ public class BUDGET_BudgetTransfer {
 	BUDGET_BudgetTransferObj budgetTransferobj;
 
 	ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "\\Test-data\\TestData.xlsx");
-	JsonReader jsonReader = new JsonReader();
+	JsonConfig jsonReader = new JsonConfig();
 	DropDownHelper dropDownHelper = new DropDownHelper(driver);
 	BUDGET_BudgetTransferTestDataType budgetTransferData = jsonReader.getBudgetTransferdata("Maker");
 

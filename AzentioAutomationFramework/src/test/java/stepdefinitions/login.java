@@ -7,7 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
-import dataProvider.JsonReader;
+import dataProvider.JsonConfig;
+
 import io.cucumber.core.backend.TestCaseState;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
@@ -29,7 +30,7 @@ public class login extends BaseClass {
 
 	ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "\\Test-data\\TestData.xlsx");
 
-	JsonReader jsonReader=new JsonReader();
+	JsonConfig jsonReader=new JsonConfig();
 	ConfigFileReader configFileReader = new ConfigFileReader();
 
 	@And("^Navigate to Login page$")

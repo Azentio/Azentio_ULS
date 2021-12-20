@@ -3,7 +3,8 @@ package stepdefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import dataProvider.ConfigFileReader;
-import dataProvider.JsonReader;
+import dataProvider.JsonConfig;
+
 import helper.BrowserHelper;
 import helper.DropDownHelper;
 import helper.VerificationHelper;
@@ -23,7 +24,7 @@ public class BUDGET_BudgetCreation {
 	public class BudgetCreation extends BaseClass {
 
 		WebDriver driver = BaseClass.driver;
-		JsonReader json = new JsonReader();
+		JsonConfig json = new JsonConfig();
 		ConfigFileReader config = new ConfigFileReader();
 		KUBS_Login login = new KUBS_Login(driver);
 		DropDownHelper dropDownHelper;

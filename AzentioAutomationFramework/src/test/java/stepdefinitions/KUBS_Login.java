@@ -2,7 +2,9 @@ package stepdefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import dataProvider.JsonReader;
+
+import dataProvider.JsonConfig;
+
 import pageobjects.KUBS_LoginObj;
 
 import testDataType.KUBS_LoginTestDataType;
@@ -11,7 +13,7 @@ public class KUBS_Login {
 
 	WebDriver driver;
 	
-	JsonReader reader = new JsonReader();
+	JsonConfig reader = new JsonConfig();
 	KUBS_LoginObj login;
 
 	public KUBS_Login(WebDriver driver) {

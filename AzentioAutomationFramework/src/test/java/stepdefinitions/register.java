@@ -12,7 +12,8 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 import dataProvider.ConfigFileReader;
-import dataProvider.JsonReader;
+import dataProvider.JsonConfig;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -24,7 +25,7 @@ import utilities.ExtentTestManager;
 
 public class register extends BaseClass {
 	WebDriver driver;
-	JsonReader jsonReader=new JsonReader();
+	JsonConfig jsonReader=new JsonConfig();
 
 	@Given("^User navigates to Registration page$")
 	public void user_navigates_to_Registration_page() throws IOException {

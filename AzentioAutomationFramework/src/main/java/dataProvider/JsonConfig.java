@@ -4,10 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 
 import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
@@ -17,7 +19,7 @@ import testDataType.KUBS_LoginTestDataType;
 import testDataType.Logindata;
 import testDataType.RegisterData;
 
-public class JsonReader {
+public class JsonConfig {
 	ConfigFileReader configFileReader = new ConfigFileReader();
 	
 	//Examples
@@ -30,7 +32,7 @@ public class JsonReader {
 	
 	
 	//Users_Login
-	private final String AzentioLoginDataPath = configFileReader.getJsonPath() + "AzentioCredentials.json";
+	private final String AzentioLoginDataPath = configFileReader.getJsonPath() + "KUBS_LoginDataJSON.json";
 	private List<KUBS_LoginTestDataType> credentialslist;
 
 	
@@ -38,13 +40,13 @@ public class JsonReader {
 	private final String AllocationFilePath = configFileReader.getJsonPath() + "BUDGET_RequestAndAllocationJSON.json";
 	private List<BUDGET_RequestAndAllocationTestDataType> AllocationList;
 
-private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype.json";
+private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_RequestAndAllocationJSON.json";
 	private List<BUDGET_RequestAndAllocationTestDataType> BudtypeList;
 
 	
 	//Budget_BudgetCreation
-	private final String BudgetCreationPath = configFileReader.getJsonPath() + "LoginJson.json";
-	private List<BUDGET_BudgetCreationTestDataType> BudgetList;
+	private final String BudgetCreationPath = configFileReader.getJsonPath() + "BUDGET_BudgetCreationJSON.json";
+	private List<BUDGET_BudgetCreationTestDataType> BudgetCreationList;
 
 	
 	//Budget_SupplementaryBudget
@@ -53,20 +55,20 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 	private List<BUDGET_SupplementarybudgetTestDataType> SupplementaryBudgetList;
 	
 	//Budget_BudgetTransfer
-	private final String BudgetTransferFilePath = configFileReader.getJsonPath() + "BudgetTransferJSON.json";
+	private final String BudgetTransferFilePath = configFileReader.getJsonPath() + "BUDGET_BudgetTransferJSON.json";
 	private List<BUDGET_BudgetTransferTestDataType> BudgetTransferList;
 
 
 
 
-	public JsonReader() {
+	public JsonConfig() {
 		RegisterList = getRegisterData();
 		LoginList = getLoginList();
 
-		AllocationList = getAllocationList();		
-		BudtypeList = getBudtypeList();
+		//AllocationList = getAllocationList();		
+		//BudtypeList = getBudtypeList();
 
-		BudgetList = getBudgetList();
+		BudgetCreationList = getBudgetList();
 		credentialslist = getAzentioCredentialsList();
 		
 		SupplementaryBudgetList = getSupplementaryBudgetList();
@@ -75,9 +77,14 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 
 
 	}
+	
 
 	private List<RegisterData> getRegisterData() {
-		Gson gson = new Gson();
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(RegisterFilePath));
+		 reader.setLenient(true);
+
+
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(RegisterFilePath));
@@ -95,7 +102,9 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 	}
 
 	private List<Logindata> getLoginList() {
-		Gson gson = new Gson();
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(LoginFilePath));
+		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(LoginFilePath));
@@ -112,8 +121,10 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 		}
 	}
 
-	private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
-		Gson gson = new Gson();
+private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(AllocationFilePath));
+		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(AllocationFilePath));
@@ -132,7 +143,9 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 
 
 	private List<BUDGET_RequestAndAllocationTestDataType> getBudtypeList() {
-		Gson gson = new Gson();
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(BudtypeFilepath));
+		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(BudtypeFilepath));
@@ -151,7 +164,9 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 	}
 
 	private List<BUDGET_BudgetCreationTestDataType> getBudgetList() {
-		Gson gson = new Gson();
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(BudgetCreationPath));
+		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(BudgetCreationPath));
@@ -170,7 +185,9 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 	}
 
 	private List<KUBS_LoginTestDataType> getAzentioCredentialsList() {
-		Gson gson = new Gson();
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(AzentioLoginDataPath));
+		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(AzentioLoginDataPath));
@@ -188,7 +205,9 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 	}
 	
 	private List<BUDGET_SupplementarybudgetTestDataType> getSupplementaryBudgetList() {
-		Gson gson = new Gson();
+		 Gson gson = new Gson();
+		 JsonReader reader = new JsonReader(new StringReader(BudgetFilePath));
+		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(BudgetFilePath));
@@ -236,11 +255,11 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "Budtype
 	}
 
 	public final BUDGET_RequestAndAllocationTestDataType getBudtypeByName(String Budtype) {
-		return BudtypeList.stream().filter(x -> x.Yearly.equalsIgnoreCase(Budtype)).findAny().get();
+		return BudtypeList.stream().filter(x -> x.BudgetPeriod.equalsIgnoreCase(Budtype)).findAny().get();
 	}
 
 	public final BUDGET_BudgetCreationTestDataType getBudgetdataByName(String UName) {
-		return BudgetList.stream().filter(x -> x.UserName.equalsIgnoreCase(UName)).findAny().get();
+		return BudgetCreationList.stream().filter(x -> x.UserName.equalsIgnoreCase(UName)).findAny().get();
 		// return RegisterList.stream().filter(x ->
 		// x.FirstName.equalsIgnoreCase(customerName)).findAny().get();
 	}
