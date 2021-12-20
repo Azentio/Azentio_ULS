@@ -1,17 +1,17 @@
 package testDataType;
 
 public class BUDGET_RequestAndAllocationTestDataType {
-	public String Budgetcode;
-	public String Budgetname;
-	public String Budgettype;
-	public String Budgetyear;
+	public String BudgetCode;
+	public String BudgetName;
+	public String BudgetType;
+	public String BudgetYear;
 	public String Branch;
-	public String Budgetamount;
+	public String BudgetAmount;
 	public String Currency;
 
 	
 	
 	public String Yearly;
-	public String BudgetAmount;
+	public String BudgetAmounT;
 
 }

@@ -4,135 +4,129 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 public class BUDGET_BudgetCreationObj {
 
-	
-	
-	
+	WebDriver driver;
 
-		WebDriver driver;
+	public BUDGET_BudgetCreationObj(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 
-		public BUDGET_BudgetCreationObj(WebDriver driver) {
-			this.driver = driver;
-			PageFactory.initElements(driver, this);
-
-		}
-
-		@FindBy(xpath = "//ion-button[@ng-reflect-router-link='/tabs/list/datagrid-view/219']")
-		private WebElement eyeicon;
-		public WebElement eyeIcon() {
-			return eyeicon;
-
-		}
-
-		@FindBy(xpath = "//ion-fab-button[@id='addBtn']")
-		private WebElement addbtn;
-
-		public WebElement addBtn() {
-			return addbtn;
-		}
-
-		@FindBy(xpath = "//input[@name='budgetCode']")
-		private WebElement bdgcode;
-		public WebElement budgetCode() {
-			return bdgcode;
-
-		}
-
-		@FindBy(xpath = "//ng-select[@class='ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-invalid ng-select-bottom ng-touched']")
-		private WebElement bdg_type;
-
-		public WebElement bdgType() {
-			return bdg_type;
-		}
-
-		@FindBy(xpath = "//input[@name='warningPercentage']")
-		private WebElement warning_percentage;
-		public WebElement warningPercentage() {
-			return warning_percentage;
-
-		}
-
-		@FindBy(xpath = "//input[@name='budgetName']")
-		private WebElement budget_name;
-
-		public WebElement budgetName() {
-			return budget_name;
-
-		}
-
-		@FindBy(xpath = "//input[@name='remarks']")
-		private WebElement remarks;
-
-		public WebElement remarks() {
-			return remarks;
-
-		}
-
-		@FindBy(xpath = "//ion-button[@class='ion-color ion-color-primary md button button-clear in-toolbar ion-activatable ion-focusable hydrated']")
-		private WebElement savebtn;
-
-		public WebElement saveBtn() {
-			return savebtn;
-
-		}
-
-		@FindBy(xpath = "//ion-textarea[@name='remarks']")
-		private WebElement enter_remarks;
-
-		public WebElement enterRemarks() {
-			return enter_remarks;
-		}
-
-		@FindBy(xpath = "//ion-button[@ng-reflect-router-link='/tabs/list/datagrid/36']")
-		private WebElement notebtn;
-
-		public WebElement noteBtn() {
-			return notebtn;
-
-		}
-
-		@FindBy(xpath = "//ion-button[contains(text(),'Submit')]")
-		private WebElement submit_button;
-
-		public WebElement submitButton() {
-			return submit_button;
-		}
-
-		@FindBy(xpath = "//span[contains(text(),'Submit')]")
-		private WebElement first_submit_button;
-
-		public WebElement firstSubmitButton() {
-			return first_submit_button;
-
-		}
-	    @FindBy(xpath="//span[contains(text(),'Cancel')]")
-	    private WebElement cancel_button;
-	    public WebElement cancelButton()
-	    {
-			return cancel_button;
-	    	
-	    }
-	    @FindBy(xpath="//ion-button[@class='ng-star-inserted ion-color ion-color-primary md button button-clear in-toolbar ion-activatable ion-focusable hydrated ion-activated']")
-		private WebElement save_button;
-	    public WebElement saveButton()
-	    {
-			return save_button;
-	    	
-	    }
-	    @FindBy(xpath = "//div[@id='toast-container']")
-		private WebElement reviewer_id;
-
-		public WebElement reviewerId() {
-			return reviewer_id;
-		}
-		@FindBy(xpath="//ion-label[contains(text(),'anant')]")
-		private WebElement logout_button;
-		public WebElement logoutButton()
-		{
-			return logout_button;
-			
-		}
 	}
 
+	@FindBy(xpath = "//ion-button[@ng-reflect-router-link='/tabs/list/datagrid-view/219']")
+	private WebElement budget_creation_eyeIcon;
 
+	public WebElement budgetCreation_EyeIcon() {
+		return budget_creation_eyeIcon;
+
+	}
+
+	@FindBy(xpath = "//ion-fab-button[@id='addBtn']")
+	private WebElement budget_creation_addbutton;
+
+	public WebElement budgetCreation_AddButton() {
+		return budget_creation_addbutton;
+	}
+
+	@FindBy(xpath = "//input[@name='budgetCode']")
+	private WebElement budget_creation_budgetcode;
+
+	public WebElement budgetCreation_BudgetCode() {
+		return budget_creation_budgetcode;
+
+	}
+
+	@FindBy(xpath = "//ion-col[3]//ng-select/div/div/div/input")
+	private WebElement budget_creation_budget_type;
+
+	public WebElement budgetCreation_BudgetType() {
+		return budget_creation_budget_type;
+	}
+
+	@FindBy(xpath = "//input[@name='warningPercentage']")
+	private WebElement budget_creation_warning_percentage;
+
+	public WebElement budgetCreation_WarningPercentage() {
+		return budget_creation_warning_percentage;
+
+	}
+
+	@FindBy(xpath = "//input[@name='budgetName']")
+	private WebElement budget_creation_budget_name;
+
+	public WebElement budgetCreation_BudgetName() {
+		return budget_creation_budget_name;
+
+	}
+
+	@FindBy(xpath = "//input[@name='remarks']")
+	private WebElement budget_creation_remarks;
+
+	public WebElement budgetCreation_Remarks() {
+		return budget_creation_remarks;
+
+	}
+
+	@FindBy(xpath = "//ion-icon[@name='save']")
+	private WebElement budget_creation_save_button;
+
+	public WebElement budgetCreation_saveButton() {
+		return budget_creation_save_button;
+
+	}
+
+	@FindBy(xpath = "//ion-textarea[@name='remarks']")
+	private WebElement budget_creation_alert_remarks;
+
+	public WebElement budgetCreation_AlertRemarks() {
+		return budget_creation_alert_remarks;
+	}
+
+	@FindBy(xpath = "//ion-button[@ng-reflect-router-link='/tabs/list/datagrid/36']")
+	private WebElement budget_creation_action_button;
+
+	public WebElement budgetCreation_ActionButton() {
+		return budget_creation_action_button;
+
+	}
+
+	@FindBy(xpath = "//ion-button[contains(text(),'Submit')]")
+	private WebElement budget_creation_alert_submit_button;
+
+	public WebElement budgetCreation_AlertsubmitButton() {
+		return budget_creation_alert_submit_button;
+	}
+
+	@FindBy(xpath = "//span[contains(text(),'Submit')]")
+	private WebElement budget_creation_submit_button;
+
+	public WebElement budgetCreation_SubmitButton() {
+		return budget_creation_submit_button;
+
+	}
+
+	@FindBy(xpath = "//span[contains(text(),'Cancel')]")
+	private WebElement budget_creation_cancel_button;
+
+	public WebElement budgetCreation_CancelButton() {
+		return budget_creation_cancel_button;
+
+	}
+
+	@FindBy(xpath = "//div[@id='toast-container']")
+	private WebElement budget_creation_reviewer_id;
+
+	public WebElement budgetCreation_ReviewerId() {
+		return budget_creation_reviewer_id;
+	}
+
+	@FindBy(xpath = "//ion-label[contains(text(),'anant')]")
+	private WebElement budget_creation_logout_button;
+
+	public WebElement budgetCreation_LogoutButton() {
+		return budget_creation_logout_button;
+
+	}
+}

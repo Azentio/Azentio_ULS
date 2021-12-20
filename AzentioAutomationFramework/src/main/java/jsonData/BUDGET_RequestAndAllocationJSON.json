@@ -1,17 +1,13 @@
 [
 
 	{
-		"Budgetcode"  : "BUD001",
-		"Budgetname":"xxx",
-		"Budgettype":"xxx",
-		"Budgetyear":"2021-2022",
+		"BudgetCode"  : "BUD001",
+		"BudgetName":"xxx",
+		"BudgetType":"xxx",
+		"BudgetYear":"2021-2022",
 		"Branch":"CO",
-		"Budgetamount":"xxx",
-		"Currency":"RUP",
-		"":""
-
-
-
+		"BudgetAmount":"xxx",
+		"Currency":"RUP"
 	}
 
 ]
@@ -20,7 +16,7 @@
 [
 	{
 		"BudgetType": "Yearly",
-		"BudgetAmount": "1000000"
+		"BudgetAmounT": "1000000"
 	}
 ]
 

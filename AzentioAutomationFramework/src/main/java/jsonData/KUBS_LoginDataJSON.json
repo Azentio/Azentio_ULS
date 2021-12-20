@@ -1,15 +1,19 @@
 [
 {
+"UserType":"Maker",
 "UserName":"1002435",
 "PassWord":"Admin@@11"
 },
 {
+"UserType":"Reviewer",
 "UserName":"1002436",
 "PassWord":"admin"
 },
 {
+"UserType":"Checker",
 "UserName":"1002437",
 "PassWord":"admin"
 }
 
 ]
+

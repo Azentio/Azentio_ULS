@@ -17,60 +17,62 @@ import resources.BaseClass;
 import testDataType.BUDGET_RequestAndAllocationTestDataType;
 import pageobjects.BUDGET_RequestAndAllocationObj;
 
-public class BUDGET_RequestAndAllocation extends BaseClass { 
-
-	
+public class BUDGET_RequestAndAllocation extends BaseClass { 	
 
 		WebDriver driver = BaseClass.driver;
 		JsonReader jsonReader = new JsonReader();
 		BUDGET_RequestAndAllocationObj  requestAndAllocation;
-		DropDownHelper dhelper;
-		
-		BUDGET_RequestAndAllocationTestDataType data;
-
+		DropDownHelper dropDownHelper;		
+		BUDGET_RequestAndAllocationTestDataType RequestAndAllocationTestData;
 		ConfigFileReader configFileReader = new ConfigFileReader();
-		 
-
+		KUBS_Login login;
+		
+		@Given("^Open Azentio login$")
+		public void Open_Azentio_login() {
+			login=new KUBS_Login(driver);
+			driver.get(configFileReader.getApplicationUrl());
+			//login.loginToAzentioApp("1003524");
+		}
 		@And("^Click the Dirction icon$")
 		public void click_the_dirction_icon() {
-			requestAndAllocation.DirctionIcon().click();
+			requestAndAllocation.budget_requestAndAllocation_DirctionIcon().click();
 		}
 
 		@When("^Select the budget Field$")
 		public void select_the_budget_field() {
-			requestAndAllocation.Budget().click();
+			requestAndAllocation.budget_requestAndAllocation_BudgetField().click();
 		}
 
 		@And("^Click the Budget request & allocation Eye icon$")
 		public void click_the_budget_request_allocation_eye_icon() {
-			requestAndAllocation.Budgeteye().click();
+			requestAndAllocation.budget_requestAndAllocation_BudgetEyeIcon().click();
 		}
 
 		@And("^Curser click the add icon$")
 		public void curser_click_the_add_icon() {
-			requestAndAllocation.addicon().click();
+			requestAndAllocation.budget_requestAndAllocation_Addicon().click();
 		}
 
 		@And("^Select budget code$")
 		public void select_budget_code() {
-			dhelper = new DropDownHelper(driver);
-			dhelper.SelectUsingVisibleText(requestAndAllocation.Budgetcode(), data.Budgetcode);
+			dropDownHelper = new DropDownHelper(driver);
+			dropDownHelper.SelectUsingVisibleText(requestAndAllocation.budget_requestAndAllocation_Budgetcode(), RequestAndAllocationTestData.BudgetCode);
 		}
 
 		@And("^Select budget year$")
 		public void select_budget_year() {
-			dhelper.SelectUsingVisibleText(requestAndAllocation.Budgetyear(), data.Budgetyear);
+			dropDownHelper.SelectUsingVisibleText(requestAndAllocation.budget_requestAndAllocation_Budgetyear(), RequestAndAllocationTestData.BudgetYear);
 		}
 
 		@And("^Select budget branch$")
 		public void select_budget_branch() {
-			dhelper.SelectUsingVisibleText(requestAndAllocation.Budgetbranch(), data.Branch);
-			requestAndAllocation.branchOK().click();
+			dropDownHelper.SelectUsingVisibleText(requestAndAllocation.budget_requestAndAllocation_Budgetbranch(), RequestAndAllocationTestData.Branch);
+			requestAndAllocation.budget_requestAndAllocation_branchOK().click();
 		}
 
 		@Then("^Enter budget amount$")
 		public void enter_budget_amount() {
-			String budgettype = requestAndAllocation.Budgettype().getText();
+			String budgettype = requestAndAllocation.budget_requestAndAllocation_Budgettype().getText();
 			String before_xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='";
 			String after_xpath = "']";
 			String before_xpath_for_remark = "//datatable-body-cell[3]/div/input[@id='"; // datatable-body-cell[3]/div/input[@id='3']
@@ -78,10 +80,10 @@ public class BUDGET_RequestAndAllocation extends BaseClass {
 			
 			if (budgettype.equalsIgnoreCase("Yearly")) {
 				String budtype = "Yearly";
-				data = new BUDGET_RequestAndAllocationTestDataType();
-				data = jsonReader.getBudtypeByName(budtype);
-				requestAndAllocation.Budgetyear().sendKeys(data.BudgetAmount); // budreq.Budgetyear().sendKeys("10000");
-				requestAndAllocation.Budremark().sendKeys("Ok");
+				RequestAndAllocationTestData = new BUDGET_RequestAndAllocationTestDataType();
+				RequestAndAllocationTestData = jsonReader.getAllowcationByName(budtype);
+				requestAndAllocation.budget_requestAndAllocation_Budgetyearly().sendKeys(RequestAndAllocationTestData.BudgetAmount); // budreq.Budgetyear().sendKeys("10000");
+				requestAndAllocation.budget_requestAndAllocation_Budgetremark().sendKeys("Ok");
 			} else if (budgettype.equalsIgnoreCase("Monthly")) {
 
 				for (int i = 0; i <= 11; i++) {
@@ -93,16 +95,6 @@ public class BUDGET_RequestAndAllocation extends BaseClass {
 						budget_remark.sendKeys("Ok");
 					}
 				}
-
-				/*
-				 * years = new Monthlyobj(driver); years.mon1().sendKeys("1000");
-				 * years.mon2().sendKeys("1000"); years.mon3().sendKeys("1000");
-				 * years.mon4().sendKeys("1000"); years.mon5().sendKeys("1000");
-				 * years.mon6().sendKeys("1000"); years.mon7().sendKeys("1000");
-				 * years.mon8().sendKeys("1000"); years.mon9().sendKeys("1000");
-				 * years.mon10().sendKeys("1000"); years.mon11().sendKeys("1000");
-				 * years.mon12().sendKeys("1000");
-				 */
 			} else if (budgettype.equalsIgnoreCase("Quaterly")) {
 
 				for (int i = 0; i <= 3; i++) {
@@ -115,10 +107,6 @@ public class BUDGET_RequestAndAllocation extends BaseClass {
 					}
 
 				}
-				/*
-				 * years.Quar0().sendKeys("1000"); years.Quar1().sendKeys("1000");
-				 * years.Quar2().sendKeys("1000"); years.Quar3().sendKeys("1000");
-				 */
 			} else if (budgettype.equalsIgnoreCase("Halfyearly")) {
 				for (int i = 0; i <= 1; i++) {
 					WebElement budget_amount = driver.findElement(By.xpath(before_xpath + i + after_xpath));
@@ -130,34 +118,31 @@ public class BUDGET_RequestAndAllocation extends BaseClass {
 					}
 
 				}
-				/*
-				 * years.Hy1().sendKeys("1000"); years.Hy2().sendKeys("1000");
-				 */
 			}
 		}
 
 		@And("^Select currency$")
 		public void select_currency() throws Throwable {
-			dhelper.SelectUsingVisibleText(requestAndAllocation.amountcurr(), data.Currency);
+			dropDownHelper.SelectUsingVisibleText(requestAndAllocation.budget_requestAndAllocation_Amountcurruncy(), RequestAndAllocationTestData.Currency);
 		}
 
 		@And("^Click the save button$")
 		public void click_the_save_button() throws Throwable {
-			requestAndAllocation.AllowSave().click();
+			requestAndAllocation.budget_requestAndAllocation_AllowSave().click();
 		}
 
 		@And("^Click the action button in table$")
 		public void click_the_action_button_in_table() {
-			data = new BUDGET_RequestAndAllocationTestDataType();
+			RequestAndAllocationTestData = new BUDGET_RequestAndAllocationTestDataType();
 			String befr_action = "//span[contains(text(),'";
 			String aftr_action = "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button\")";
-			driver.findElement(By.xpath(befr_action + data.Budgetcode + aftr_action)).click();
+			driver.findElement(By.xpath(befr_action + RequestAndAllocationTestData.BudgetCode + aftr_action)).click();
 		}
 
 		@And("^Submit the record$")
 		public void submit_the_record() {
-			requestAndAllocation.Subsave().click();
-			requestAndAllocation.Submit().click();
+			requestAndAllocation.budget_requestAndAllocation_Budgetsave().click();
+			requestAndAllocation.budget_requestAndAllocation_BudgetSubmit().click();
 		}
 
 	}

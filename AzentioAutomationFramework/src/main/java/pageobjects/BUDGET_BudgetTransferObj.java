@@ -1,4 +1,5 @@
 package pageobjects;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,117 +13,120 @@ public class BUDGET_BudgetTransferObj {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-menu[1]/ion-content[1]/custom-side-menu[1]/ion-list[1]/div[2]/ion-menu-toggle[3]/ion-item[1]/ion-buttons[1]/ion-button[2]/ion-icon[1]")
-	private WebElement budgtTrnsfrEyeButtn;
-	
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/app-data-grid[1]/ion-content[1]/ion-fab[1]/ion-fab-button[1]/ion-icon[1]")
-	private WebElement budgtTrnsfrAddButtn;
 
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[1]/ion-col[2]/app-kub-lov[1]/span[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
-	private WebElement budgtTrnsfrBudgtCodeDropDown;
+	@FindBy(xpath = "//ion-button[@ng-reflect-router-link='/tabs/list/datagrid-view/224']")
+	private WebElement budget_BudgetTransfer_EyeButton;
 
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[1]/ion-col[5]/app-kub-lov[1]/span[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
-	private WebElement  budgtTrnsfrBudgtYearDropdown;
+	public WebElement budget_BudgetTransfer_EyeButton() {
+		return budget_BudgetTransfer_EyeButton;
 
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[1]/ion-col[6]/app-kub-lov[1]/span[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
-	private WebElement budgtTrnsfrBranch;
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[1]/ion-col[7]/app-kub-lov[1]/span[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
-	private WebElement  budgtTrnsfrTransferToBudgtCode;
+	}
+
+	@FindBy(xpath = "//ion-icon[@ng-reflect-name='add']")
+	private WebElement budget_BudgetTransfer_AddButton;
+
+	public WebElement budget_BudgetTransfer_AddButton() {
+		return budget_BudgetTransfer_AddButton;
+
+	}
+
+	@FindBy(xpath = "//input[@autocomplete='aa0150548686'] ")
+	private WebElement budget_BudgetTransfer_BudgetCodeDropDown;
+
+	public WebElement budget_BudgetTransfer_BudgetCodeDropDown() {
+		return budget_BudgetTransfer_BudgetCodeDropDown;
+
+	}
+
+	@FindBy(xpath = "//input[@autocomplete='afee39f55b46'] ")
+	private WebElement budget_BudgetTransfer_BudgetYearDropdown;
+
+	public WebElement budget_BudgetTransfer_BudgetYearDropdown() {
+		return budget_BudgetTransfer_BudgetYearDropdown;
+
+	}
+
+	@FindBy(xpath = "//input[@autocomplete='ab8339d8a9a3'] ")
+	private WebElement budget_BudgetTransfer_Branch;
+
+	public WebElement budget_BudgetTransfer_Branch() {
+		return budget_BudgetTransfer_Branch;
+
+	}
+
+	@FindBy(xpath = "//input[@autocomplete='a573dc6c9804'] ")
+	private WebElement budget_BudgetTransfer_TransferToBudgetCode;
+
+	public WebElement budget_BudgetTransfer_TransferToBudgetCode() {
+		return budget_BudgetTransfer_TransferToBudgetCode;
+
+	}
+
 	@FindBy(xpath = "//input[@id='totalBudgetAmount']")
-	private WebElement budgtTrnsfrTotalBudgtAmt;
+	private WebElement budget_BudgetTransfer_TotalBudgetAmount;
+
+	public WebElement budget_BudgetTransfer_TotalBudgetAmount() {
+		return budget_BudgetTransfer_TotalBudgetAmount;
+
+	}
+
 	@FindBy(xpath = "//input[@id='trxAmt']")
-	private WebElement budgtTrnsfrTransferAmt;
-	@FindBy(xpath = "//body/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[1]/ion-col[11]/app-kub-lov[1]/span[1]/ng-select[1]/div[1]/div[1]/div[3]/input[1]")
-	private WebElement budgtTrnsfrCurrencyChange;
-	@FindBy(xpath = "//body[1]/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[2]/ion-col[1]/div[1]/ngx-datatable[1]/div[1]/datatable-body[1]/datatable-selection[1]/datatable-scroller[1]/datatable-row-wrapper[1]/datatable-body-row[1]/div[2]/datatable-body-cell[3]/div[1]/app-kub-currency[1]/input[1]")
-	private WebElement budgtTrnsfrApportionedAmountA;
-	@FindBy(xpath = "//body[1]/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[2]/ion-col[1]/div[1]/ngx-datatable[1]/div[1]/datatable-body[1]/datatable-selection[1]/datatable-scroller[1]/datatable-row-wrapper[1]/datatable-body-row[1]/div[2]/datatable-body-cell[4]/div[1]/app-kub-currency[1]/input[1]")
-	private WebElement budgtTrnsfrNewAmtA;
-	
-	@FindBy(xpath = "//body[1]/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[2]/ion-col[2]/div[1]/ngx-datatable[1]/div[1]/datatable-body[1]/datatable-selection[1]/datatable-scroller[1]/datatable-row-wrapper[1]/datatable-body-row[1]/div[2]/datatable-body-cell[3]/div[1]/app-kub-currency[1]/input[1]")
-	private WebElement budgtTrnsfrApportionedAmountB;
-	@FindBy(xpath = "//body[1]/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[2]/ion-col[2]/div[1]/ngx-datatable[1]/div[1]/datatable-body[1]/datatable-selection[1]/datatable-scroller[1]/datatable-row-wrapper[1]/datatable-body-row[1]/div[2]/datatable-body-cell[4]/div[1]/app-kub-currency[1]/input[1]")
-	private WebElement budgtTrnsfrNewAmtB;
-	@FindBy(xpath = "//body[1]/app-root[1]/ion-app[1]/ion-split-pane[1]/ion-router-outlet[1]/app-tabs[1]/ion-tabs[1]/div[1]/ion-router-outlet[1]/page-budget-transfer-update[1]/div[1]/ion-header[1]/ion-toolbar[1]/ion-buttons[2]/ion-button[1]")
-	private WebElement budgtTrnsfrSaveButton;
-	
-	
+	private WebElement budget_BudgetTransfer_TransferAmount;
 
-	public WebElement budgtTrnsfrSaveButton() {
-		return budgtTrnsfrSaveButton;
+	public WebElement budget_BudgetTransfer_TransferAmount() {
+		return budget_BudgetTransfer_TransferAmount;
 
 	}
-	
 
-	public WebElement budgtTrnsfrNewAmtB() {
-		return budgtTrnsfrNewAmtB;
+	@FindBy(xpath = "//input[@autocomplete=\"adfd9fb7b543\"] ")
+	private WebElement budget_BudgetTransfer_CurrencyChange;
 
-	}
-	
-
-	public WebElement budgtTrnsfrApportionedAmountB() {
-		return budgtTrnsfrApportionedAmountB;
+	public WebElement budget_BudgetTransfer_CurrencyChange() {
+		return budget_BudgetTransfer_CurrencyChange;
 
 	}
-	
 
-	public WebElement budgtTrnsfrNewAmtA() {
-		return budgtTrnsfrNewAmtA;
+	@FindBy(xpath = "//input[@class='datatable ng-valid ng-star-inserted ng-dirty ng-touched']")
+	private WebElement budget_BudgetTransfer_ApportionedAmountA;
 
-	}
-	
-
-	public WebElement budgtTrnsfrApportionedAmountA() {
-		return budgtTrnsfrApportionedAmountA;
+	public WebElement budget_BudgetTransfer_ApportionedAmountA() {
+		return budget_BudgetTransfer_ApportionedAmountA;
 
 	}
-	
 
-	public WebElement budgtTrnsfrCurrencyChange() {
-		return budgtTrnsfrCurrencyChange;
+	@FindBy(xpath = "(//input[@class='datatable ng-untouched ng-pristine ng-valid ng-star-inserted'])[1]")
+	private WebElement budget_BudgetTransfer_fromNewAmountA;
 
-	}
-	
-
-	public WebElement budgtTrnsfrTransferAmt() {
-		return budgtTrnsfrTransferAmt;
+	public WebElement budget_BudgetTransfer_fromNewAmountA() {
+		return budget_BudgetTransfer_fromNewAmountA;
 
 	}
-	
-	public WebElement budgtTrnsfrTotalBudgtAmt() {
-		return budgtTrnsfrTotalBudgtAmt;
+
+	@FindBy(xpath = "(//input[@class='datatable ng-valid ng-star-inserted ng-dirty ng-touched'])[2]")
+	private WebElement budget_BudgetTransfer_ApportionedAmountB;
+
+	public WebElement budget_BudgetTransfer_ApportionedAmountB() {
+		return budget_BudgetTransfer_ApportionedAmountB;
 
 	}
-	
-	
-	public WebElement budgtTrnsfrTransferToBudgtCode() {
-		return budgtTrnsfrTransferToBudgtCode;
+
+	@FindBy(xpath = "(//input[@class='datatable ng-untouched ng-pristine ng-valid ng-star-inserted'])[2]")
+	private WebElement budget_BudgetTransfer_NewAmountB;
+
+	public WebElement budget_BudgetTransfer_NewAmountB() {
+		return budget_BudgetTransfer_NewAmountB;
 
 	}
-	
-	
-	public WebElement budgtTrnsfrBranch() {
-		return budgtTrnsfrBranch;
+
+	@FindBy(xpath = "//ion-button[@class=\"ng-star-inserted ion-color ion-color-primary md button button-clear in-toolbar ion-activatable ion-focusable hydrated\"]")
+	private WebElement budget_BudgetTransfer_SaveButton;
+
+	public WebElement budget_BudgetTransfer_SaveButton() {
+		return budget_BudgetTransfer_SaveButton;
 
 	}
-	
-	public WebElement budgtTrnsfrBudgtYearDropdown() {
-		return budgtTrnsfrBudgtYearDropdown;
-
-	}
-	
-	public WebElement budgtTrnsfrBudgtCodeDropDown() {
-		return budgtTrnsfrBudgtCodeDropDown;
-
-	}
-	public WebElement budgtTrnsfrAddButtn() {
-		return budgtTrnsfrAddButtn;
-
-	}
-	public WebElement budgtTrnsfrEyeButtn() {
-		return budgtTrnsfrEyeButtn;
-
-	}
-	
 
 }
+
+
+

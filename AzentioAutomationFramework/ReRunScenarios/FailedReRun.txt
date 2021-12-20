@@ -1,0 +1,2 @@
+file:src/test/java/features/LoginIntoApplication.feature:6
+file:src/test/java/features/RegisterAsNewMember.feature:6
