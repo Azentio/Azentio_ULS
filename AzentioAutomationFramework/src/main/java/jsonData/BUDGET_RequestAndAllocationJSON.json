@@ -1,22 +1,14 @@
 [
-
 	{
-		"BudgetCode"  : "BUD001",
-		"BudgetName":"xxx",
-		"BudgetType":"xxx",
-		"BudgetYear":"2021-2022",
-		"Branch":"CO",
-		"BudgetAmount":"xxx",
-		"Currency":"RUP"
+		"UserType": "Maker",
+		"BudgetCode": "BUD0010",
+		"BudgetName": "xxx",
+		"BudgetType": "xxx",
+		"BudgetYear": "2021-2022",
+		"Branch": "CO",
+		"BudgetAmount": "100000",
+		"Currency": "RUP",
+		"Remark": "OK"
 	}
 
 ]
-,
-//Yearly
-[
-	{
-		"BudgetPeriod": "Yearly",
-		"BudgetAmounT": "1000000"
-	}
-]
-

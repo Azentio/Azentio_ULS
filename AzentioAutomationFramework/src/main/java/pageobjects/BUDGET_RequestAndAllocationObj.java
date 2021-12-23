@@ -22,7 +22,7 @@ public class BUDGET_RequestAndAllocationObj {
 		return requestAndAllocation_FinanceOption;
 	}
 
-	@FindBy(xpath = "//ion-segment-button[@ng-reflect-value='txn_bnk']")
+	@FindBy(xpath = "//ion-segment/ion-segment-button[2]")
 	private WebElement requestAndAllocation_DirctionIcon;
 
 	public WebElement  budget_requestAndAllocation_DirctionIcon() {
@@ -57,7 +57,7 @@ public class BUDGET_RequestAndAllocationObj {
 		return requestAndAllocation_Addicon;
 	}
 
-	@FindBy(xpath = "//ion-col[2]/app-kub-lov/span/ng-select/div/div/div[2]")
+	@FindBy(xpath = "//ion-col[2]/app-kub-lov/span/ng-select/div/div/div[2]/input")
 	private WebElement requestAndAllocation_Budgetcode;
 
 	public WebElement  budget_requestAndAllocation_Budgetcode() {
@@ -73,7 +73,7 @@ public class BUDGET_RequestAndAllocationObj {
 		return requestAndAllocation_Budgetname;
 	}
 
-	@FindBy(xpath = "//ion-col[4]/app-kub-lov/span/ng-select/div/div/div[2]")
+	@FindBy(xpath = "//ion-col[4]/app-kub-lov/span/ng-select/div/div/div[2]/span[2]")
 	private WebElement requestAndAllocation_Budgettype;
 
 	public WebElement  budget_requestAndAllocation_Budgettype() {
@@ -87,14 +87,20 @@ public class BUDGET_RequestAndAllocationObj {
 		return requestAndAllocation_Budgetyear;
 	}
 
-	@FindBy(xpath = "//ion-select[@ng-reflect-name='branch']")
+	@FindBy(xpath = "//ion-col[6]//ion-select[@ng-reflect-name='branch']")
 	private WebElement requestAndAllocation_Budgetbranch;
 
 	public WebElement  budget_requestAndAllocation_Budgetbranch() {
 		return requestAndAllocation_Budgetbranch;
-	}
+	} 
 
-	@FindBy(xpath = "//span[contains(text(),'OK')]")
+	@FindBy(xpath = "//ion-alert[1]/div/div[3]/button[3]")
+	private WebElement requestAndAllocation_branch_co;
+
+	public WebElement  requestAndAllocation_branch_co() {
+		return requestAndAllocation_branch_co;
+	}
+	@FindBy(xpath = "//ion-alert[1]/div/div[4]/button[2]")
 	private WebElement requestAndAllocation_branchOK;
 
 	public WebElement  budget_requestAndAllocation_branchOK() {
@@ -130,7 +136,7 @@ public class BUDGET_RequestAndAllocationObj {
 	}
 
 	// Budget Type Yearly
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']") // datatable-body-cell[2]/div/app-kub-currency[@id='0']
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']/input") 
 	private WebElement requestAndAllocation_Budgetyearly;
 
 	public WebElement  budget_requestAndAllocation_Budgetyearly() {
@@ -144,8 +150,6 @@ public class BUDGET_RequestAndAllocationObj {
 		return requestAndAllocation_Budgetremark;
 	}
 
-	// span[contains(text(),' AR12345
-	// ')]/../../../datatable-body-cell/div/ion-buttons/ion-button
 	@FindBy(xpath = "//span[contains(text(),'newone')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button")
 	private WebElement requestAndAllocation_Budgetaction;
 
@@ -183,14 +187,14 @@ public class BUDGET_RequestAndAllocationObj {
 
 	// Halfyearly
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']/input")
 	private WebElement requestAndAllocation_BudgetHy1;
 
 	public WebElement  budget_requestAndAllocation_BudgetHy1() {
 		return requestAndAllocation_BudgetHy1;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='1']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='1']/input")
 	private WebElement requestAndAllocation_BudgetHy2;
 
 	public WebElement  budget_requestAndAllocation_BudgetHy2() {
@@ -214,28 +218,28 @@ public class BUDGET_RequestAndAllocationObj {
 
 	// Quaterly
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']/input")
 	private WebElement requestAndAllocation_BudgetQuaterly0;
 
 	public WebElement  budget_requestAndAllocation_BudgetQuaterly0() {
 		return requestAndAllocation_BudgetQuaterly0;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='1']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='1']/input")
 	private WebElement requestAndAllocation_BudgetQuaterly1;
 
 	public WebElement  budget_requestAndAllocation_BudgetQuaterly1() {
 		return requestAndAllocation_BudgetQuaterly1;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='2']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='2']/input")
 	private WebElement requestAndAllocation_BudgetQuaterly2;
 
 	public WebElement  budget_requestAndAllocation_BudgetQuaterly2() {
 		return requestAndAllocation_BudgetQuaterly2;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='3']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='3']/input")
 	private WebElement requestAndAllocation_BudgetQuaterly3;
 
 	public WebElement  budget_requestAndAllocation_BudgetQuaterly3() {
@@ -273,84 +277,84 @@ public class BUDGET_RequestAndAllocationObj {
 	}
 	// Monthly
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='0']/input")
 	private WebElement requestAndAllocation_Budgetmonth1;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth1() {
 		return requestAndAllocation_Budgetmonth1;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='1']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='1']/input")
 	private WebElement requestAndAllocation_Budgetmonth2;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth2() {
 		return requestAndAllocation_Budgetmonth2;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='2']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='2']/input")
 	private WebElement requestAndAllocation_Budgetmonth3;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth3() {
 		return requestAndAllocation_Budgetmonth3;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='3']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='3']/input")
 	private WebElement requestAndAllocation_Budgetmonth4;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth4() {
 		return requestAndAllocation_Budgetmonth4;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='4']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='4']/input")
 	private WebElement requestAndAllocation_Budgetmonth5;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth5() {
 		return requestAndAllocation_Budgetmonth5;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='5']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='5']/input")
 	private WebElement requestAndAllocation_Budgetmonth6;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth6() {
 		return requestAndAllocation_Budgetmonth6;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='6']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='6']/input")
 	private WebElement requestAndAllocation_Budgetmonth7;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth7() {
 		return requestAndAllocation_Budgetmonth7;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='7']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='7']/input")
 	private WebElement requestAndAllocation_Budgetmonth8;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth8() {
 		return requestAndAllocation_Budgetmonth8;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='8']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='8']/input")
 	private WebElement requestAndAllocation_Budgetmonth9;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth9() {
 		return requestAndAllocation_Budgetmonth9;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='9']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='9']/input")
 	private WebElement requestAndAllocation_Budgetmonth10;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth10() {
 		return requestAndAllocation_Budgetmonth10;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='10']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='10']/input")
 	private WebElement requestAndAllocation_Budgetmonth11;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth11() {
 		return requestAndAllocation_Budgetmonth11;
 	}
 
-	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='11']")
+	@FindBy(xpath = "//datatable-body-cell[2]/div/app-kub-currency[@id='11']/input")
 	private WebElement requestAndAllocation_Budgetmonth12;
 
 	public WebElement  budget_requestAndAllocation_Budgetmonth12() {

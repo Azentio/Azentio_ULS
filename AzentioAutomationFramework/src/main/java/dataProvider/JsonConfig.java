@@ -14,6 +14,7 @@ import com.google.gson.stream.JsonReader;
 import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
 import testDataType.BUDGET_RequestAndAllocationTestDataType;
+import testDataType.BUDGET_RequestandallocationBUDTYPEDATA;
 import testDataType.BUDGET_SupplementarybudgetTestDataType;
 import testDataType.KUBS_LoginTestDataType;
 import testDataType.Logindata;
@@ -23,11 +24,11 @@ public class JsonConfig {
 	ConfigFileReader configFileReader = new ConfigFileReader();
 	
 	//Examples
-	private final String RegisterFilePath = configFileReader.getJsonPath() + "RegisterJson.json";
+/*	private final String RegisterFilePath = configFileReader.getJsonPath() + "RegisterJson.json";
 	private List<RegisterData> RegisterList;
 
 	private final String LoginFilePath = configFileReader.getJsonPath() + "LoginJson.json";
-	private List<Logindata> LoginList;
+	private List<Logindata> LoginList;*/
 
 	
 	
@@ -40,8 +41,8 @@ public class JsonConfig {
 	private final String AllocationFilePath = configFileReader.getJsonPath() + "BUDGET_RequestAndAllocationJSON.json";
 	private List<BUDGET_RequestAndAllocationTestDataType> AllocationList;
 
-private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_RequestAndAllocationJSON.json";
-	private List<BUDGET_RequestAndAllocationTestDataType> BudtypeList;
+private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_RequestandallocationBUDTYPE.json";
+	private List<BUDGET_RequestandallocationBUDTYPEDATA> BudtypeList;
 
 	
 	//Budget_BudgetCreation
@@ -62,11 +63,11 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 
 
 	public JsonConfig() {
-		RegisterList = getRegisterData();
-		LoginList = getLoginList();
+		/*RegisterList = getRegisterData();
+		LoginList = getLoginList();*/
 
-		//AllocationList = getAllocationList();		
-		//BudtypeList = getBudtypeList();
+		AllocationList = getAllocationList();		
+		BudtypeList = getBudtypeList();
 
 		BudgetCreationList = getBudgetList();
 		credentialslist = getAzentioCredentialsList();
@@ -79,7 +80,7 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 	}
 	
 
-	private List<RegisterData> getRegisterData() {
+	/*private List<RegisterData> getRegisterData() {
 		 Gson gson = new Gson();
 		 JsonReader reader = new JsonReader(new StringReader(RegisterFilePath));
 		 reader.setLenient(true);
@@ -119,7 +120,7 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 			} catch (IOException ignore) {
 			}
 		}
-	}
+	}*/
 
 private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 		 Gson gson = new Gson();
@@ -142,15 +143,15 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 	}
 
 
-	private List<BUDGET_RequestAndAllocationTestDataType> getBudtypeList() {
+	private List<BUDGET_RequestandallocationBUDTYPEDATA> getBudtypeList() {
 		 Gson gson = new Gson();
 		 JsonReader reader = new JsonReader(new StringReader(BudtypeFilepath));
 		 reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(BudtypeFilepath));
-			BUDGET_RequestAndAllocationTestDataType[] type = gson.fromJson(bufferReader,
-					BUDGET_RequestAndAllocationTestDataType[].class);
+			BUDGET_RequestandallocationBUDTYPEDATA[] type = gson.fromJson(bufferReader,
+					BUDGET_RequestandallocationBUDTYPEDATA[].class);
 			return Arrays.asList(type);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException("Json file not found at path : " + BudtypeFilepath);
@@ -242,19 +243,19 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 
 
 
-	public final RegisterData getRegisterByName(String customerName) {
+	/*public final RegisterData getRegisterByName(String customerName) {
 		return RegisterList.stream().filter(x -> x.FirstName.equalsIgnoreCase(customerName)).findAny().get();
 	}
 
 	public final Logindata getLoginByName(String UserName) {
 		return LoginList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
 	}
-
-	public final BUDGET_RequestAndAllocationTestDataType getAllowcationByName(String Budgetallow) {
-		return AllocationList.stream().filter(x -> x.BudgetCode.equalsIgnoreCase(Budgetallow)).findAny().get();
+*/
+	public final BUDGET_RequestAndAllocationTestDataType getAllowcationByName(String user) {
+		return AllocationList.stream().filter(x -> x.UserType.equalsIgnoreCase(user)).findAny().get();
 	}
 
-	public final BUDGET_RequestAndAllocationTestDataType getBudtypeByName(String Budtype) {
+	public final BUDGET_RequestandallocationBUDTYPEDATA getBudtypeByName(String Budtype) {
 		return BudtypeList.stream().filter(x -> x.BudgetPeriod.equalsIgnoreCase(Budtype)).findAny().get();
 	}
 

@@ -24,7 +24,7 @@ import testDataType.RegisterData;
 import utilities.ExtentTestManager;
 
 public class register extends BaseClass {
-	WebDriver driver;
+	/*WebDriver driver;
 	JsonConfig jsonReader=new JsonConfig();
 
 	@Given("^User navigates to Registration page$")
@@ -50,7 +50,7 @@ public class register extends BaseClass {
 		driver.findElement(By.id("input-password")).sendKeys(map.get("password"));
 		driver.findElement(By.id("input-confirm")).sendKeys(map.get("password"));
 		 ExtentTestManager.getTest().info("Users enters the data in required field");
-		 */
+		
 
 	}
 
@@ -104,6 +104,6 @@ public class register extends BaseClass {
 			
 		}
 
-	}
+	}*/
 
 }

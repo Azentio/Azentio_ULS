@@ -35,7 +35,7 @@ public class KUBS_CheckerObj {
 		return checker_action_icon;
 	}
 
-	@FindBy(xpath = "//ion-icon[@ng-reflect-name='notifications-circle']")
+	@FindBy(xpath = "//ion-button[@ng-reflect-router-link='/inbox']")
 	private WebElement checker_notification_icon;
 
 	public WebElement checkerNotificationIcon() {

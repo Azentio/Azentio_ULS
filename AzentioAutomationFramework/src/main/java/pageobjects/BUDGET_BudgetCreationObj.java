@@ -69,7 +69,7 @@ public class BUDGET_BudgetCreationObj {
 
 	}
 
-	@FindBy(xpath = "//ion-icon[@name='save']")
+	@FindBy(xpath = "//div[1]/ion-header[1]/ion-toolbar[1]/ion-buttons[2]/ion-button[1]")
 	private WebElement budget_creation_save_button;
 
 	public WebElement budgetCreation_saveButton() {
@@ -77,7 +77,7 @@ public class BUDGET_BudgetCreationObj {
 
 	}
 
-	@FindBy(xpath = "//ion-textarea[@name='remarks']")
+	@FindBy(xpath = "//ion-textarea/div/textarea[@name='remarks']")
 	private WebElement budget_creation_alert_remarks;
 
 	public WebElement budgetCreation_AlertRemarks() {
@@ -115,7 +115,7 @@ public class BUDGET_BudgetCreationObj {
 
 	}
 
-	@FindBy(xpath = "//div[@id='toast-container']")
+	@FindBy(xpath = "//div[@id='toast-container']/div/div[@role='alertdialog']")
 	private WebElement budget_creation_reviewer_id;
 
 	public WebElement budgetCreation_ReviewerId() {
@@ -128,5 +128,13 @@ public class BUDGET_BudgetCreationObj {
 	public WebElement budgetCreation_LogoutButton() {
 		return budget_creation_logout_button;
 
+	}  
+	@FindBy(xpath = "//ng-dropdown-panel//div[4]")
+	private WebElement budget_creation_Yearly_budget;
+
+	public WebElement budgetCreationYearlyBudget() {
+		return budget_creation_Yearly_budget;
+
 	}
+	
 }

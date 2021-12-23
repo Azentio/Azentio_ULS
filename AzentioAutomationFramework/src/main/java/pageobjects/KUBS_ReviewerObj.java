@@ -43,7 +43,7 @@ public class KUBS_ReviewerObj {
 		return reviewer_return_button;
 	}
 
-	@FindBy(xpath = "//input[@name='budgetCode']")
+	@FindBy(xpath = "//ion-input/input[@name='budgetCode']")
 	private WebElement reviewer_budget_code;
 
 	public WebElement reviewerGetBudgetCode() {

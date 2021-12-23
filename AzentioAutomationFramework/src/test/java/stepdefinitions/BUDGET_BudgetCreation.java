@@ -39,18 +39,20 @@ public class BUDGET_BudgetCreation {
 
 		// VerificationHelper vhelper;
 		@Given("^navigate to the url and user should login as a maker$")
-		public void navigate_to_the_url_and_user_should_login_as_a_maker() {
-			login.loginToAzentioApp("Maker");
+		public void navigate_to_the_url_and_user_should_login_as_a_maker() throws InterruptedException {
+			login = new KUBS_Login(driver);
+			driver.get(config.getApplicationUrl());
+			 login.loginToAzentioApp("Maker");
 		}
 
-		@And("^choose finance in configuration page$")
+		/*@And("^choose finance in configuration page$")
 		public void choose_finance_in_configuration_page() {
 			budgdata = json.getBudgetdataByName("Maker");
 			dropDownHelper = new DropDownHelper(driver);
 			budgetCreationObj = new BUDGET_BudgetCreationObj(driver);
 			kubsMakerObj = new KUBS_MakerObj(driver);
 			dropDownHelper.SelectUsingVisibleText(kubsMakerObj.kubsFinaceOption(), "Finance");
-		}
+		}*/
 
 		@Then("^Choose Budget creation menu$")
 		public void choose_budget_creation_menu() {
@@ -101,7 +103,7 @@ public class BUDGET_BudgetCreation {
 		}
 
 		@Then("^click logout button and login as a reviewer$")
-		public void click_logout_button_and_login_as_a_reviewer() {
+		public void click_logout_button_and_login_as_a_reviewer() throws InterruptedException {
 			budgetCreationObj.budgetCreation_LogoutButton().click();
 			login.loginToAzentioApp(reviwerId.substring(10, 16));
 		}
@@ -134,7 +136,7 @@ public class BUDGET_BudgetCreation {
 		}
 
 		@Then("^logout from the reviewer and login from checker$")
-		public void logout_from_the_reviewer_and_login_from_checker() {
+		public void logout_from_the_reviewer_and_login_from_checker() throws InterruptedException {
 			login.loginToAzentioApp("Checker");
 			kubsCheckerObj = new KUBS_CheckerObj(driver);
 			kubsCheckerObj.checkerSecurityManagement().click();

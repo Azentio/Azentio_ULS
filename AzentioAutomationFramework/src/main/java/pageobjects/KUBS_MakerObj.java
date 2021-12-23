@@ -14,13 +14,18 @@ public class KUBS_MakerObj {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//ion-select[@class='datagrid-lov ng-pristine ng-valid md hydrated ng-touched ion-pristine ion-valid ion-touched']")
+	@FindBy(xpath = "//custom-side-menu/ion-select")
 	private WebElement maker_finance_option;
 
 	public WebElement kubsFinaceOption() {
 		return maker_finance_option;
 	}
-
+    @FindBy(xpath="//ion-item[2]/ion-radio")
+    private WebElement finance_option;
+    public WebElement FinanceOption() {
+		return finance_option;
+    	
+    }
 	@FindBy(xpath = "//ion-segment/ion-segment-button[1]")
 	private WebElement maker_tool_icon;
 

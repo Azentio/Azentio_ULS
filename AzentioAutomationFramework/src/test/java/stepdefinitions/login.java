@@ -53,10 +53,10 @@ public class login extends BaseClass {
 		String Username="dharshini";
 		//String email = reader.getCellData("Login", "Username", 2);
 		//String password = reader.getCellData("Login", "Password", 2);
-		 Logindata login =jsonReader.getLoginByName(Username);
-		loginPage.emailAddressField().sendKeys(login.Email);
+		 //Logindata login =jsonReader.getLoginByName(Username);
+		//loginPage.emailAddressField().sendKeys(login.Email);
 		ExtentTestManager.getTest().info("User Enters username");
-		loginPage.passwordField().sendKeys(login.Password);
+		//loginPage.passwordField().sendKeys(login.Password);
 		 ExtentTestManager.getTest().info("User enters valid password");
 
 		 
