@@ -1,6 +1,5 @@
 package resources;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,8 +14,8 @@ public class JsonDataReaderWriter {
 	JSONObject jsonobject = new JSONObject();
 	FileWriter filewriter;
 
-	public void addData(String id) throws IOException {
-		jsonobject.put("ReviewerID", id);
+	public void addData(String revID) throws IOException {
+		jsonobject.put("ReviewerID", revID);
 		filewriter = new FileWriter(path);
 		filewriter.write(jsonobject.toJSONString());
 		filewriter.close();

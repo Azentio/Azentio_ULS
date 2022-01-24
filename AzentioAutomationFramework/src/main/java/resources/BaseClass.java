@@ -24,8 +24,8 @@ public class BaseClass {
 	
 	if(browserName.equalsIgnoreCase("chrome")) {
 		
-		System.setProperty("webdriver.chrome.driver","Drivers/chromedriver.exe");
-		 driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
 		
 	}else if(browserName.equalsIgnoreCase("firefox")) {
 		

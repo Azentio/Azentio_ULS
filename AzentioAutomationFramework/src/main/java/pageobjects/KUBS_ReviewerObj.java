@@ -84,12 +84,64 @@ public class KUBS_ReviewerObj {
 	public WebElement reviewerAlertRemarks() {
 		return reviewer_alert_remarks;
 	}
-
+       //@FindBy(xpath="//div[@id='toast-container']/div/div[@role='alertdialog']")
+	
+	
+       // public WebElement approvalStatus()
+	
+        //{
+	
+           //    return approval_status;
+	
+        //}
+	
+        
 	@FindBy(xpath = "//ion-button[contains(text(),'Submit')]")
 	private WebElement reviewer_alert_submit_button;
 
 	public WebElement reviewerAlertSubmitButton() {
 		return reviewer_alert_submit_button;
 	}
+        @FindBy(xpath="//div[@id='toast-container']/div/div[@role='alertdialog']")
+	
+        private WebElement approval_status;
+	
+        public WebElement approvalStatus()
+	
+        {
+	
+                return approval_status;
+	
+        }
+	
+        
+	@FindBy(xpath = "//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[1]//ion-button")
+	private WebElement reviewer_action_button;
 
+	public WebElement reviewerActionButton() {
+		return reviewer_action_button;
+
+	}
+
+	@FindBy(xpath = "//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[2]//span")
+	private WebElement reviewer_reference_id;
+
+	public WebElement reviewerReferenceID() {
+		return reviewer_reference_id;
+
+	}
+
+	@FindBy(xpath="//div[@id='toast-container']/div/div[@role='alertdialog']")
+	private WebElement reviewer_approval_status;
+	public WebElement reviewerApprovalStatus()
+	{
+		return reviewer_approval_status;
+	}
+	@FindBy(xpath="//ion-col[3]//ng-select/div/div/div/span[2]")
+	private WebElement budget_type;
+	public WebElement budgetType()
+	{
+		return budget_type;
+		
+	}
 }

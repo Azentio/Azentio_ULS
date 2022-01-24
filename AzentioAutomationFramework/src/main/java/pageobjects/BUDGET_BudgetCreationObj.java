@@ -22,7 +22,20 @@ public class BUDGET_BudgetCreationObj {
 		return budget_creation_eyeIcon;
 
 	}
-
+    @FindBy(xpath="//ion-icon[@title='Enable Search']")
+    private WebElement budget_creation_search_icon;
+    public WebElement budgetCreationSearchIcon()
+    {
+		return budget_creation_search_icon;
+    	
+    }
+    @FindBy(xpath="//input[@placeholder='Search Budget Code']")
+    private WebElement budget_creation_search_budget_code;
+    public WebElement budgetCreationSearchBudgetCode()
+    {
+		return budget_creation_search_budget_code;
+    	
+    }
 	@FindBy(xpath = "//ion-fab-button[@id='addBtn']")
 	private WebElement budget_creation_addbutton;
 
@@ -128,7 +141,16 @@ public class BUDGET_BudgetCreationObj {
 	public WebElement budgetCreation_LogoutButton() {
 		return budget_creation_logout_button;
 
-	}  
+	}
+
+	@FindBy(xpath = "//div[contains(text(),'success')]")
+	private WebElement budget_save_status;
+
+	public WebElement budgetSaveStatus() {
+		return budget_save_status;
+
+	}
+
 	@FindBy(xpath = "//ng-dropdown-panel//div[4]")
 	private WebElement budget_creation_Yearly_budget;
 
@@ -136,5 +158,61 @@ public class BUDGET_BudgetCreationObj {
 		return budget_creation_Yearly_budget;
 
 	}
-	
+
+	@FindBy(xpath = "//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[1]//ion-button[2]")
+	private WebElement budget_creation_pencil_icon;
+
+	public WebElement budgetCreationPencilIcon() {
+		return budget_creation_pencil_icon;
+	}
+	@FindBy(xpath="//ion-toolbar[1]/ion-buttons[2]/ion-button[2]")
+	private WebElement budget_creation_notification_icon;
+	public WebElement budgetCreationNotificationIcon()
+	{
+		return budget_creation_notification_icon;
+	}
+	@FindBy(xpath="//app-inbox//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[2]//span")
+	private WebElement budget_creation_first_reference_id;
+	public WebElement budgetCreationFirstReferenceId()
+	{
+		return budget_creation_first_reference_id;
+		
+	}
+	@FindBy(xpath="//app-inbox//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[1]//ion-button")
+	private WebElement budget_creation_first_record;
+	public WebElement budgetCreationFirstRecord()
+	{
+		return budget_creation_first_record;
+		
+	}
+   @FindBy(xpath="//datatable-pager[1]/ul[1]/li[8]/a[1]/i[1]")
+   private WebElement budget_creation_next_button;
+   public WebElement budgetCreationNextButton()
+   {
+	   return budget_creation_next_button;
+   }
+   @FindBy(xpath="//span[contains(text(),'Approve')]")
+   private WebElement budget_creation_approve_button;
+   public WebElement budgetCreationApproveButton()
+   {
+	   return budget_creation_approve_button;
+   }
+   @FindBy(xpath = "//div[@id='toast-container']/div/div[@role='alertdialog']")
+	private WebElement budget_creation_approval_status;
+
+	public WebElement budgetCreationApprovalStatus() {
+		return budget_creation_approval_status;
+	}
+	@FindBy(xpath="//div[@id='toast-container']//button")
+	private WebElement alert_close;
+	public WebElement checkerAlertClose()
+	{
+		return alert_close;
+	}
+    @FindBy(xpath="//ion-col[3]//ng-select[1]/div[1]/div[1]/div[2]/span[2]")
+    private WebElement get_budget_type;
+    public WebElement getBudgetType()
+    {
+    	return get_budget_type;
+    }
 }

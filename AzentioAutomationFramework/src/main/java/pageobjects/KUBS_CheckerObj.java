@@ -112,5 +112,36 @@ public class KUBS_CheckerObj {
 	public WebElement checkersubmitButton() {
 		return checker_alert_submit_button;
 	}
+	@FindBy(xpath="//ion-col[3]//ng-select/div/div/div/span[2]")
+	private WebElement budget_type;
+	public WebElement budgetType()
+	{
+		return budget_type;
+		
+	}
+	@FindBy(xpath="//div[@id='toast-container']//button")
+	private WebElement alert_close;
+	public WebElement checkerAlertClose()
+	{
+		return alert_close;
+	}
+        @FindBy(xpath = "//div[@id='toast-container']//button")
+	private WebElement checker_alert_close;
 
+	public WebElement checker_alert_close() {
+		return checker_alert_close;
+	}
+	@FindBy(xpath="//div[@id='toast-container']/div/div[@role='alertdialog']")
+	private WebElement checker_approval_status;
+	public WebElement checkerApprovalStatus()
+	{
+		return checker_approval_status;
+	}
+        //TOTAST - CONTAINER
+	@FindBy(xpath="//div[@id='toast-container']/div/div[@role='alertdialog']")
+	private WebElement Popup_status;
+	public WebElement Popup_status()
+	{
+		return Popup_status;
+	}
 }

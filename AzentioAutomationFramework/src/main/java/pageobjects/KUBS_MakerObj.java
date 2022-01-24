@@ -24,7 +24,7 @@ public class KUBS_MakerObj {
     private WebElement finance_option;
     public WebElement FinanceOption() {
 		return finance_option;
-    	
+
     }
 	@FindBy(xpath = "//ion-segment/ion-segment-button[1]")
 	private WebElement maker_tool_icon;
@@ -180,7 +180,7 @@ public class KUBS_MakerObj {
 		return maker_dir_bank_recon;
 
 	}
-	
+
 	// Click on Supplymentary budget eye icon
 		@FindBy(xpath = "//ion-label[contains(text(),' Supplementary budget ')]/../ion-buttons/ion-button[2]/ion-icon[@name='eye']")
 		private WebElement budget_SupplementaryBudget_SupplementaryBudgetEyeIcon;
