@@ -144,4 +144,10 @@ public class KUBS_ReviewerObj {
 		return budget_type;
 		
 	}
+       @FindBy(xpath = "//div[contains(text(),'Record REJECTED Successfully')]")
+	private WebElement reviewer_reject_toast;
+
+	public WebElement reviewer_reject_toast() {
+		return reviewer_reject_toast;
+	}
 }

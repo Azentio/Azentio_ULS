@@ -1,20 +1,29 @@
 [
 	{
-		"User": "Maker"
-	},
-	{
-		"BudgetCode": "AR12345"
-	},
-	{
-		"Branch": "AZENT-MAIN"
-	},
-	{
-		"TransferToBudgetCode": "BCD_HYR_1"
-	},
-	{
-		"ApportionedAmountA": "1000000"
-	},
-	{
-		"ApportionedAmountB": "1000000"
+		"UserName"					: "Maker",
+		"User"						: "Maker",
+		"BudgetCode"				: "AR12345",
+		"BudgetType"				: "YEARLY",
+		"BudgetYear"				: "2022-2023",
+		"Branch"					: "AZENT-MAIN",
+		"Currency"					: "RUP",
+		"TransferToBudgetCode"		: "BDG01",
+		"ApportionedAmountA"		: "100.00",
+		"ApportionedAmountB"		: "100.00",
+		"Comment"					: "ok",
+		"RemarkByMaker"				: "Submit by maker",
+		"ApproveByMaker"			: "Approve by maker",
+		"RemarkByRemarkByReviewer"	: "Approved by reviewer",
+		"ApprovedByChecker"			: "Approved by checker",
+		"RejectedByChecker"			: "Rejected by checker",
+		"ReturnedByChecker"			: "Returned by checker",
+		"ReturnedByReviewer"		: "Returned by Reviewer",
+        "BudgetName"				:"SAM",
+        "ApportionedAmountAExcessive":"1000000001",
+		"Status"					:"Active",
+		"InvalidBranch"				:"CO",
+		"InvalidTransferToBudgetCode":"BDG02",
+		"Remark"					:"ok",
+		"CheckerRemark"             : "Approved by checker"
 	}
 ]

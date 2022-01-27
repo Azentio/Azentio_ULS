@@ -18,6 +18,8 @@ import testDataType.BUDGET_RequestandallocationBUDTYPEDATA;
 import testDataType.BUDGET_CommentsFromApprover;
 import testDataType.BUDGET_SupplementarybudgetTestDataType;
 import testDataType.KUBS_LoginTestDataType;
+import testDataType.Logindata;
+import testDataType.RegisterData;
 
 public class JsonConfig {
 	ConfigFileReader configFileReader = new ConfigFileReader();
@@ -237,13 +239,14 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 	}
 
 
-	public final BUDGET_BudgetTransferTestDataType getBudgetTransferdata(String UserType){
+	/*public final BUDGET_BudgetTransferTestDataType getBudgetTransferdata(String UserType){
 		 return BudgetTransferList.stream().filter(x->x.User.equalsIgnoreCase(UserType)).findAny().get();
-}
+}*/
 
 	public final BUDGET_CommentsFromApprover getApproverData(String UserName){
 		 return reviewerCommentsList.stream().filter(x->x.UserType.equalsIgnoreCase(UserName)).findAny().get();
 }
-//public final BUDGET_BudgetTransferTestDataType getBudgetTransferdata(String UserName) {
-		//return BudgetTransferList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
+public final BUDGET_BudgetTransferTestDataType getBudgetTransferdata(String UserName) {
+		return BudgetTransferList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
+}
 }
