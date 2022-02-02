@@ -9,22 +9,22 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import pageobjects.KUBS_CheckerObj;
+import pageobjects.Azentio_CheckerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 
-public class KUBS_checker extends BaseClass {
+public class Azentiochecker extends BaseClass {
 	WebDriver driver = BaseClass.driver;
-	KUBS_Login login;
+	AzentioLogin login;
 	ConfigFileReader config = new ConfigFileReader();
-	KUBS_CheckerObj kubschecker;
+	Azentio_CheckerObj kubschecker;
 	WaitHelper waithelper;
 	JsonDataReaderWriter reader = new JsonDataReaderWriter();
 	JavascriptHelper javascript;
 
 	@Given("^Navigate to Url and login as a Checker$")
 	public void navigate_to_url_and_login_as_a_checker() throws Throwable {
-		login = new KUBS_Login(driver);
+		login = new AzentioLogin(driver);
 		driver.get(config.getApplicationUrl());
 		login.loginToAzentioAppAsChecker("Checker");
 
@@ -33,7 +33,7 @@ public class KUBS_checker extends BaseClass {
 	@Then("^Click the Notification icon$")
 	public void click_the_notification_icon() throws Throwable {
 		waithelper = new WaitHelper(driver);
-		kubschecker = new KUBS_CheckerObj(driver);
+		kubschecker = new Azentio_CheckerObj(driver);
 		//waithelper.waitForElement(driver, 3000, kubschecker.checkerNotificationIcon());
 		//kubschecker.checkerNotificationIcon().click();
 

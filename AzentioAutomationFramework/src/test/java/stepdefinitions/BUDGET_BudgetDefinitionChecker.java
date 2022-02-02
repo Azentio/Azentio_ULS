@@ -15,7 +15,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjects.KUBS_CheckerObj;
+import pageobjects.Azentio_CheckerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
@@ -24,9 +24,9 @@ import testDataType.BUDGET_CommentsFromApprover;
 public class BUDGET_BudgetDefinitionChecker extends BaseClass {
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader config = new ConfigFileReader();
-	KUBS_Login kubsLogin;
+	AzentioLogin kubsLogin;
 	String user = "checker";
-	KUBS_CheckerObj kubsCheckerObj;
+	Azentio_CheckerObj kubsCheckerObj;
 	JsonConfig jsonconfig = new JsonConfig();
 	WaitHelper waitHelper;
 	JsonDataReaderWriter ReferenceIDReader = new JsonDataReaderWriter();
@@ -39,7 +39,7 @@ public class BUDGET_BudgetDefinitionChecker extends BaseClass {
 	public void navigate_to_url_and_login_as_a_checker() throws InterruptedException {
        
 		driver.get(config.getApplicationUrl());
-		kubsLogin = new KUBS_Login(driver);
+		kubsLogin = new AzentioLogin(driver);
 		// This step launch the URL login with the user we mentiond
 		kubsLogin.loginToAzentioAppAsChecker(user);
 		
@@ -47,7 +47,7 @@ public class BUDGET_BudgetDefinitionChecker extends BaseClass {
 
 	@Then("^click on security management menu$")
 	public void click_on_security_management_menu() {
-		kubsCheckerObj = new KUBS_CheckerObj(driver);
+		kubsCheckerObj = new Azentio_CheckerObj(driver);
 		//This step is for clicking the security management
 		kubsCheckerObj.checkerSecurityManagement().click();
 

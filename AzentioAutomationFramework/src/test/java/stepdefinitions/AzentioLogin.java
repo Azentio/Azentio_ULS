@@ -7,30 +7,30 @@ import org.testng.Assert;
 import dataProvider.JsonConfig;
 import helper.DropDownHelper;
 import helper.WaitHelper;
-import pageobjects.KUBS_LoginObj;
-import pageobjects.KUBS_MakerObj;
+import pageobjects.Azentio_LoginObj;
+import pageobjects.Azentio_MakerObj;
 import testDataType.KUBS_LoginTestDataType;
 
-public class KUBS_Login {
+public class AzentioLogin {
 
 	WebDriver driver;
 	WaitHelper waithelper;
-	KUBS_MakerObj makerobj;
+	Azentio_MakerObj makerobj;
 	DropDownHelper dropdownhelper;
 
 	JsonConfig reader = new JsonConfig();
-	KUBS_LoginObj login;
+	Azentio_LoginObj login;
 
-	public KUBS_Login(WebDriver driver) {
+	public AzentioLogin(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void loginToAzentioApp(String user) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		dropdownhelper = new DropDownHelper(driver);
-		makerobj = new KUBS_MakerObj(driver);
+		makerobj = new Azentio_MakerObj(driver);
 		KUBS_LoginTestDataType logindata = reader.getLoginCredentialsByName(user);
-		login = new KUBS_LoginObj(driver);
+		login = new Azentio_LoginObj(driver);
 		waithelper.waitForElement(driver, 2000, login.Login_userName());
 		login.Login_userName().sendKeys(logindata.UserName);
 		login.Login_goButton().click();
@@ -51,9 +51,9 @@ public class KUBS_Login {
 	public void loginToAzentioAppUAT(String user) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		dropdownhelper = new DropDownHelper(driver);
-		makerobj = new KUBS_MakerObj(driver);
+		makerobj = new Azentio_MakerObj(driver);
 		KUBS_LoginTestDataType logindata = reader.getLoginCredentialsByName(user);
-		login = new KUBS_LoginObj(driver);
+		login = new Azentio_LoginObj(driver);
 		waithelper.waitForElement(driver, 2000, login.Login_userName());
 		login.Login_userName().sendKeys(logindata.UserName);
 		login.Login_goButton().click();
@@ -74,7 +74,7 @@ public class KUBS_Login {
 	public void logintoAzentioappReviewer(String user, String id) {
 		waithelper = new WaitHelper(driver);
 		KUBS_LoginTestDataType logindata = reader.getLoginCredentialsByName(user);
-		login = new KUBS_LoginObj(driver);
+		login = new Azentio_LoginObj(driver);
 
 		if (id.equals("12345")) {
 
@@ -101,10 +101,10 @@ public class KUBS_Login {
 			Assert.assertTrue(login.Login_loginStatus().isDisplayed());
 
 		} else if (id.equals("1992")) {
-			login.Login_userName().sendKeys(logindata.UserName2);
+			login.Login_userName().sendKeys(logindata.UserName3);
 			login.Login_goButton().click();
 			waithelper.waitForElement(driver, 2000, login.Login_passWord());
-			login.Login_passWord().sendKeys(logindata.PassWord2);
+			login.Login_passWord().sendKeys(logindata.PassWord3);
 			String otp = login.Login_getOtp().getText();
 			driver.findElement(By.xpath("//ng-otp-input/div/input[1]")).sendKeys(otp.substring(7));
 			waithelper.waitForElement(driver, 2000, login.Login_signIn());
@@ -113,14 +113,27 @@ public class KUBS_Login {
 			Assert.assertTrue(login.Login_loginStatus().isDisplayed());
 
 		}
+		else if (id.equals("1002436")) {
+			login.Login_userName().sendKeys(logindata.UserName4);
+			login.Login_goButton().click();
+			waithelper.waitForElement(driver, 2000, login.Login_passWord());
+			login.Login_passWord().sendKeys(logindata.PassWord4);
+			String otp = login.Login_getOtp().getText();
+			driver.findElement(By.xpath("//ng-otp-input/div/input[1]")).sendKeys(otp.substring(7));
+			waithelper.waitForElement(driver, 2000, login.Login_signIn());
+			login.Login_signIn().click();
+			waithelper.waitForElement(driver, 2000, login.Login_loginStatus());
+			Assert.assertTrue(login.Login_loginStatus().isDisplayed());
+		}
 	}
 
 	public void loginToAzentioAppAsChecker(String user) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		dropdownhelper = new DropDownHelper(driver);
-		makerobj = new KUBS_MakerObj(driver);
+		makerobj = new Azentio_MakerObj(driver);
+		
 		KUBS_LoginTestDataType logindata = reader.getLoginCredentialsByName(user);
-		login = new KUBS_LoginObj(driver);
+		login = new Azentio_LoginObj(driver);
 		login.Login_userName().sendKeys(logindata.UserName);
 		login.Login_goButton().click();
 		waithelper.waitForElement(driver, 2000, login.Login_passWord());
@@ -136,9 +149,9 @@ public class KUBS_Login {
 	public void loginToUATAzentioAppAsChecker(String user) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		dropdownhelper = new DropDownHelper(driver);
-		makerobj = new KUBS_MakerObj(driver);
+		makerobj = new Azentio_MakerObj(driver);
 		KUBS_LoginTestDataType logindata = reader.getLoginCredentialsByName(user);
-		login = new KUBS_LoginObj(driver);
+		login = new Azentio_LoginObj(driver);
 		login.Login_userName().sendKeys(logindata.UserName);
 		login.Login_goButton().click();
 		waithelper.waitForElement(driver, 2000, login.Login_passWord());

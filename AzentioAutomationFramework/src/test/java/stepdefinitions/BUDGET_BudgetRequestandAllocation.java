@@ -16,8 +16,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageobjects.BUDGET_RequestAndAllocationObj;
-import pageobjects.KUBS_CheckerObj;
-import pageobjects.KUBS_ReviewerObj;
+import pageobjects.Azentio_CheckerObj;
+import pageobjects.Azentio_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_RequestAndAllocationTestDataType;
@@ -26,7 +26,7 @@ import testDataType.BUDGET_RequestandallocationBUDTYPEDATA;
 public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader configFileReader = new ConfigFileReader();
-	KUBS_Login login;
+	AzentioLogin login;
 	BUDGET_RequestAndAllocationObj requestAndAllocation;
 	WaitHelper waitHelper = new WaitHelper(driver);
 	String reviwerId;
@@ -36,10 +36,10 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 	BUDGET_RequestandallocationBUDTYPEDATA requestAndAllocationBudtype = new BUDGET_RequestandallocationBUDTYPEDATA();
 	JavascriptHelper javaHelper = new JavascriptHelper();
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
-	KUBS_ReviewerObj reviewerObj = new KUBS_ReviewerObj(driver);
+	Azentio_ReviewerObj reviewerObj = new Azentio_ReviewerObj(driver);
 	String referance_id;
 	BrowserHelper browserHelper;
-	KUBS_CheckerObj kubsChecker = new KUBS_CheckerObj(driver);
+	Azentio_CheckerObj kubsChecker = new Azentio_CheckerObj(driver);
 
 	// -----------------------AZENTIO COMMON LOGIN STEPS--------------------------//
 
@@ -47,7 +47,7 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 	public void navigate_the_azentio_maker_url() throws Throwable {
 
 		// ---------LOGIN THE MAKER USER--------------//
-		login = new KUBS_Login(driver);
+		login = new AzentioLogin(driver);
 		driver.get(configFileReader.getApplicationUrl());
 		login.loginToAzentioApp("Maker");
 		Thread.sleep(2000);
@@ -57,7 +57,7 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 	public void navigate_the_azentio_url_login_as_reviewer() throws Throwable {
 
 		// ----------LOGIN AS REVIEWER---------------//
-		login = new KUBS_Login(driver);
+		login = new AzentioLogin(driver);
 		driver.get(configFileReader.getApplicationUrl());
 		login.logintoAzentioappReviewer("Reviewer", json.readdata());
 	}
@@ -66,7 +66,7 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 	public void navigate_the_azentio_url_login_as_checker() throws Throwable {
 
 		// ----------LOGIN AS CHECKER----------------//
-		login = new KUBS_Login(driver);
+		login = new AzentioLogin(driver);
 		driver.get(configFileReader.getApplicationUrl());
 		login.loginToAzentioAppAsChecker("Checker");
 	}
@@ -119,14 +119,14 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 		requestAndAllocation.budget_requestAndAllocation_Budgetyear().sendKeys(Keys.DOWN);
 	}
 
-	@And("^click on save button$")
+	/*@And("^click on save button$")
 	public void click_on_save_button() throws Throwable {
 
 		// ------------TO SAVE THE RECORD--------------------//
 		waitHelper.waitForElement(driver, 3000, requestAndAllocation.budget_requestAndAllocation_AllowSave());
 		requestAndAllocation.budget_requestAndAllocation_AllowSave().click();
 
-	}
+	}*/
 
 	@Then("^Click on Branch$")
 	public void click_on_branch() throws Throwable {
@@ -186,7 +186,7 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 	public void click_on_notification_icon() throws Throwable {
 
 		// ------------------------CLICK ON REVIEWER NOTIFICATION-----------------------//
-		reviewerObj = new KUBS_ReviewerObj(driver);
+		reviewerObj = new Azentio_ReviewerObj(driver);
 		waitHelper.waitForElement(driver, 2000, reviewerObj.reviewerNotidicationIcon());
 		reviewerObj.reviewerNotidicationIcon().click();
 	}
@@ -730,7 +730,7 @@ public class BUDGET_BudgetRequestandAllocation extends BaseClass {
 
 	@Then("^Capture to Notification icon$")
 	public void Capture_to_Notification_icon() throws Throwable {
-		reviewerObj = new KUBS_ReviewerObj(driver);
+		reviewerObj = new Azentio_ReviewerObj(driver);
 		waitHelper.waitForElement(driver, 2000, reviewerObj.reviewerNotidicationIcon());
 		reviewerObj.reviewerNotidicationIcon().click();
 		waitHelper.waitForElement(driver, 2000, reviewerObj.reviewerReferenceID());

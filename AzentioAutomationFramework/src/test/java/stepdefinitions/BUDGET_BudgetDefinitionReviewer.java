@@ -15,7 +15,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjects.KUBS_ReviewerObj;
+import pageobjects.Azentio_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
@@ -24,9 +24,9 @@ import testDataType.BUDGET_CommentsFromApprover;
 public class BUDGET_BudgetDefinitionReviewer extends BaseClass {
 	WebDriver driver = BaseClass.driver;
 	JsonConfig jsonconfig = new JsonConfig();
-	KUBS_Login kubsLogin;
+	AzentioLogin kubsLogin;
 	ConfigFileReader configFileReader = new ConfigFileReader();
-	KUBS_ReviewerObj kubsReviewerObj;
+	Azentio_ReviewerObj kubsReviewerObj;
 	JsonDataReaderWriter jsonDataReader = new JsonDataReaderWriter();
 	String user = "Reviewer";
 	BUDGET_CommentsFromApprover commentsFromapprover = jsonconfig.getApproverData(user);
@@ -37,7 +37,7 @@ public class BUDGET_BudgetDefinitionReviewer extends BaseClass {
 	@Given("^navigate to URL and login as a reviewer$")
 	public void navigate_to_URL_and_login_as_a_reviewer() throws IOException, ParseException {
 		driver.get(configFileReader.getApplicationUrl());
-		kubsLogin = new KUBS_Login(driver);
+		kubsLogin = new AzentioLogin(driver);
 		// This step we have to login with the mentioned user ID and password
 		kubsLogin.logintoAzentioappReviewer(user, jsonDataReader.readdata());
 
@@ -45,7 +45,7 @@ public class BUDGET_BudgetDefinitionReviewer extends BaseClass {
 
 	@Then("^click on notification icon$")
 	public void click_on_notification_icon() {
-		kubsReviewerObj = new KUBS_ReviewerObj(driver);
+		kubsReviewerObj = new Azentio_ReviewerObj(driver);
 		// At the first step we have to click on notification first
 		waitHelper.waitForElement(driver, 3000, kubsReviewerObj.reviewerNotidicationIcon());
 		kubsReviewerObj.reviewerNotidicationIcon().click();

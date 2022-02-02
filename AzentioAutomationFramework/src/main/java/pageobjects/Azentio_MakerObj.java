@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class KUBS_MakerObj {
+public class Azentio_MakerObj {
 
 	WebDriver driver;
 
-	public KUBS_MakerObj(WebDriver driver) {
+	public Azentio_MakerObj(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

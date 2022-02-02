@@ -12,27 +12,28 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import pageobjects.KUBS_ReviewerObj;
+import pageobjects.Azentio_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetCreationTestDataType;
+import testDataType.BUDGET_BudgetDefinitionTestDataType;
 
-public class KUBS_reviewer extends BaseClass {
+public class Azentioreviewer extends BaseClass {
 	WebDriver driver=BaseClass.driver;
-	KUBS_Login login;
+	AzentioLogin login;
 	ConfigFileReader config=new ConfigFileReader();
-	KUBS_ReviewerObj reviewer;
+	Azentio_ReviewerObj reviewer;
 	WaitHelper waithelper;
 	BrowserHelper browserHelper;
 	String referance_id;
 	JsonDataReaderWriter reader;
-	BUDGET_BudgetCreationTestDataType budgetdata;
+	BUDGET_BudgetDefinitionTestDataType budgetdata;
 	JsonConfig jsonconfig=new JsonConfig();
 	
 	 @Given("^Navigate to Url and login as a reviewer$")
 	    public void navigate_to_url_and_login_as_a_reviewer() throws Throwable {
 		  reader=new JsonDataReaderWriter();
-			login = new KUBS_Login(driver);
+			login = new AzentioLogin(driver);
 			driver.get(config.getApplicationUrl());
 			 login.logintoAzentioappReviewer("Reviewer", reader.readdata());
 	    }
@@ -40,7 +41,7 @@ public class KUBS_reviewer extends BaseClass {
 	    @Then("^Click on Notification button$")
 	    public void click_on_notification_button() throws Throwable {
 	    	waithelper=new WaitHelper(driver);
-	    	reviewer=new KUBS_ReviewerObj(driver);
+	    	reviewer=new Azentio_ReviewerObj(driver);
 	    	waithelper.waitForElement(driver, 2000, reviewer.reviewerNotidicationIcon());
 	    	reviewer.reviewerNotidicationIcon().click();
 	      
@@ -58,7 +59,7 @@ public class KUBS_reviewer extends BaseClass {
 			String before_xpath = "//datatable-row-wrapper[";
 			String after_xpath = "]/datatable-body-row/div/datatable-body-cell[2]";
 			String after_xpath_for_action="]/datatable-body-row/div/datatable-body-cell[1]/div/ion-buttons/ion-button";
-			//reviewer = new KUBS_ReviewerObj(driver);
+			//reviewer = new Azentio_ReviewerObj(driver);
 			//reviewer.reviewerNotidicationIcon().click();
 			for (int i = 1; i < 10; i++) {
 				waithelper.waitForElement(driver, 10000, driver.findElement(By.xpath(before_xpath + i + after_xpath)));

@@ -23,9 +23,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.BUDGET_BudgetCreationObj;
 import pageobjects.BUDGET_SupplementaryBudgetObj;
-import pageobjects.KUBS_CheckerObj;
-import pageobjects.KUBS_MakerObj;
-import pageobjects.KUBS_ReviewerObj;
+import pageobjects.Azentio_CheckerObj;
+import pageobjects.Azentio_MakerObj;
+import pageobjects.Azentio_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetCreationTestDataType;
@@ -37,10 +37,10 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 	DropDownHelper dropDownHelper;
 	BUDGET_SupplementaryBudgetObj bUDGET_SupplementaryBudgetObj=new BUDGET_SupplementaryBudgetObj(driver);
 	BUDGET_BudgetCreationObj bUDGET_BudgetCreationObj=new BUDGET_BudgetCreationObj(driver);
-	KUBS_CheckerObj kubschecker= new KUBS_CheckerObj(driver);
-	KUBS_MakerObj kubsMakerObj = new KUBS_MakerObj(driver);
+	Azentio_CheckerObj kubschecker= new Azentio_CheckerObj(driver);
+	Azentio_MakerObj kubsMakerObj = new Azentio_MakerObj(driver);
 	BUDGET_SupplementarybudgetTestDataType bUDGET_SupplementaryBudgetTestDataType;
-	KUBS_Login login;
+	AzentioLogin login;
 	ConfigFileReader config = new ConfigFileReader();
 	WaitHelper waithelper =new WaitHelper(driver);
 	JsonDataReaderWriter jsonWriter = new JsonDataReaderWriter();
@@ -50,7 +50,7 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 	//Checker//
 	JsonDataReaderWriter reader = new JsonDataReaderWriter();
 	JavascriptHelper javascript;
-	KUBS_ReviewerObj reviewer;
+	Azentio_ReviewerObj reviewer;
 	BrowserHelper browserHelper;
 	String referance_id;
 	BUDGET_BudgetCreationTestDataType budgetdata;
@@ -322,7 +322,7 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 
 	@Given("^maker should navigate to the url and login with valid credentials$")
     public void maker_should_navigate_to_the_url_and_login_with_valid_credentials() throws InterruptedException  {
-		login = new KUBS_Login(driver);
+		login = new AzentioLogin(driver);
 		driver.get(config.getApplicationUrl());
 		login.loginToAzentioApp("Maker");
     }
@@ -405,7 +405,7 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 
 	 @Then("^Navigate  to URL and login to Checker1$")
 	    public void navigate_to_url_and_login_to_checker1() throws Throwable {
-		  login = new KUBS_Login(driver);
+		  login = new AzentioLogin(driver);
 			driver.get(config.getApplicationUrl());
 			login.loginToAzentioAppAsChecker("Checker");
 	    }
@@ -413,7 +413,7 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 	    @When("^Click  on the Security management$")
 	    public void click_on_security_management() throws Throwable {
 	    	waithelper = new WaitHelper(driver);
-			kubschecker = new KUBS_CheckerObj(driver);
+			kubschecker = new Azentio_CheckerObj(driver);
 			waithelper.waitForElement(driver,3000, kubschecker.checkerSecurityManagement());
 	    	kubschecker.checkerSecurityManagement().click();
 	    }
@@ -1168,13 +1168,17 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
 
 	    	    @Then("^Click  on action button of record user want to reject$")
 	    	    public void click_on_action_button_of_record_user_want_to_reject() throws Throwable {
-	    	 //   	waithelper.waitForElement(driver, 3000, driver.findElement(By.xpath("//span[contains(text(),'" + reader.readReferancedata() + "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button")));
-	    	//		driver.findElement(By.xpath("//span[contains(text(),'" + reader.readReferancedata() + "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button")).click();
-//	    	    	   String before_xpath="//span[contains(text(),'";
-//	    	    	   String after_xpath="')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell//ion-button";
-//	    	    	    
-//	    	    	   waithelper.waitForElement(driver, 2000, driver.findElement(By.xpath(before_xpath +reader.readReferancedata()+after_xpath)));
-//	    	    	   driver.findElement(By.xpath(before_xpath +reader.readReferancedata() +after_xpath)).click();	
+					waithelper.waitForElement(driver, 3000, driver.findElement(By.xpath("//span[contains(text(),'"
+							+ reader.readReferancedata()
+							+ "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button")));
+					driver.findElement(By.xpath("//span[contains(text(),'" + reader.readReferancedata()
+							+ "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button"))
+							.click();
+					String before_xpath = "//span[contains(text(),'";
+					String after_xpath = "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell//ion-button";
+					waithelper.waitForElement(driver, 2000,
+							driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)));
+					driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)).click();
 	    	    }
 
 	    	    @Then("^Click  on the reject button$")
@@ -1369,14 +1373,14 @@ public class BUDGET_SupplementaryBudget extends BaseClass {
     
     @Given("^navigate to kubs url and login as maker user$")
     public void navigate_to_kubs_url_and_login_as_maker_user() throws InterruptedException {
-    	login = new KUBS_Login(driver);
+    	login = new AzentioLogin(driver);
 		driver.get(config.getApplicationUrl());
 		login.loginToAzentioApp("Maker");
     }
 
     @Then("^select budget menu$")
     public void select_budget_menu() throws InterruptedException  {
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
     	waithelper.waitForElement(driver, 3000, bUDGET_SupplementaryBudgetObj.budget_SupplementaryBudget_DirectionIcon());
     	bUDGET_SupplementaryBudgetObj.budget_SupplementaryBudget_DirectionIcon().click();
     	

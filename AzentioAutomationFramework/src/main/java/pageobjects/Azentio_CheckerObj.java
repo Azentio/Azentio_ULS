@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class KUBS_CheckerObj {
+public class Azentio_CheckerObj {
 
 	WebDriver driver;
 
-	public KUBS_CheckerObj(WebDriver driver) {
+	public Azentio_CheckerObj(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

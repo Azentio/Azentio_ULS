@@ -17,17 +17,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.BUDGET_BudgetCreationObj;
-import pageobjects.KUBS_MakerObj;
+import pageobjects.Azentio_MakerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
 
 public class BUDGET_BudgetDefinition extends BaseClass {
 	WebDriver driver = BaseClass.driver;
-	KUBS_Login kubsLogin;
+	AzentioLogin kubsLogin;
 	ConfigFileReader configFileReader = new ConfigFileReader();
 	JsonConfig jsonConfig = new JsonConfig();
-	KUBS_MakerObj kubsMakerObj = new KUBS_MakerObj(driver);
+	Azentio_MakerObj kubsMakerObj = new Azentio_MakerObj(driver);
 	String user = "Maker";
 	WaitHelper waitHelper = new WaitHelper(driver);
 	BUDGET_BudgetCreationObj budgetCreationObj = new BUDGET_BudgetCreationObj(driver);
@@ -41,9 +41,9 @@ public class BUDGET_BudgetDefinition extends BaseClass {
         // to get a URL from property file(data.properties)
 		driver.get(configFileReader.getApplicationUrl());
 
-		// function from KUBS_Login class and user should login as a maker
-		kubsLogin = new KUBS_Login(driver);
-       // function from KUBS_Login this user argument denote the which type of user we have to login
+		// function from AzentioLogin class and user should login as a maker
+		kubsLogin = new AzentioLogin(driver);
+       // function from AzentioLogin this user argument denote the which type of user we have to login
 		kubsLogin.loginToAzentioApp(user);
 		javascripthelper.JavaScriptHelper(driver);
 

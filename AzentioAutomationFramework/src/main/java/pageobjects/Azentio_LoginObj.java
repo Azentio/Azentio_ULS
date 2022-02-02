@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class KUBS_LoginObj {
+public class Azentio_LoginObj {
 
 	WebDriver driver;
 
-	public KUBS_LoginObj(WebDriver driver) {
+	public Azentio_LoginObj(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

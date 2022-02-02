@@ -194,7 +194,7 @@ Then Maker fill the details and save
 Then Maker  click on the notification icon
 Then Maker submit the budget transfer record 
 Then user login to checker1
-And click on notification icon
+And click on the notification icon
 
 And click on action button button of the record which we want to approve
 Then user approve the record
