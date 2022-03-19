@@ -17,10 +17,16 @@ import testDataType.BUDGET_RequestAndAllocationTestDataType;
 import testDataType.BUDGET_RequestandallocationBUDTYPEDATA;
 import testDataType.BUDGET_CommentsFromApprover;
 import testDataType.BUDGET_SupplementarybudgetTestDataType;
+import testDataType.INVENTORY_EnquiryGLTestDataType;
+import testDataType.INVENTORY_MAINTENANCE_DenominationMasterTestDataType;
+import testDataType.INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType;
+import testDataType.InventoryMaintenanceTestDataType;
+import testDataType.InventoryManagementTestDataType;
+import testDataType.InventoryManagement_InventoryStockReceiptTestDataType;
 import testDataType.KUBS_LoginTestDataType;
 import testDataType.Logindata;
 import testDataType.RegisterData;
-
+//master
 public class JsonConfig {
 	ConfigFileReader configFileReader = new ConfigFileReader();
 
@@ -58,8 +64,30 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 	private final String BudgetReviewerCommentFilePath = configFileReader.getJsonPath() + "BUDGET_ReviewerRemarks.json";
 	private List<BUDGET_CommentsFromApprover> reviewerCommentsList;
 
+//InventoryMaintenance
+	private final String InventoryMaintenanceFilePath = configFileReader.getJsonPath() + "InventoryMaintenanceJson.json";
+	private List<InventoryMaintenanceTestDataType> InventoryMaintenanceList;
 
 
+//InventoryManagement_InventoryStockReceipt
+	private final String InventoryStockReceiptFilePath = configFileReader.getJsonPath() + "InventoryManagement_InventoryStockReceiptJSON.json";
+	private List<InventoryManagement_InventoryStockReceiptTestDataType> InventoryStockReceiptList;
+		
+//Inventory_EnquiryGL
+	private final String InventoryEnquiryGLFilePath = configFileReader.getJsonPath() + "INVENTORY_EnquiryGLJSON.json";
+	private List<INVENTORY_EnquiryGLTestDataType> InventoryEnquiryGLList;
+//InventoryManagement Tushar
+	private final String InventoryManagementFilePath = configFileReader.getJsonPath() + "InventoryManagementJSON.json";
+	private List<InventoryManagementTestDataType>InventoryManagementList;
+			
+// INVENTORY_MAINTENANCE_DenominationMaster
+	private final String DenominationMasterPath = configFileReader.getJsonPath() + "INVENTORY_MAINTENANCE_DenominationMasterJSON.json";
+	private List<INVENTORY_MAINTENANCE_DenominationMasterTestDataType> DenominationMasterList;
+		
+// INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation
+	private final String PurchaseRequisitionConfirmationPath = configFileReader.getJsonPath() + "INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationJSON.json";
+	private List<INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType> PurchaseRequisitionConfirmationList;
+		
 	public JsonConfig() {
 		/*RegisterList = getRegisterData();
 		LoginList = getLoginList();*/
@@ -74,8 +102,13 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 
 		BudgetTransferList=getBudgetTransferData();
 		reviewerCommentsList=getApproverCommentsData();
-
-
+		InventoryMaintenanceList = getInventoryMaintenanceListData();
+		InventoryStockReceiptList = getInventoryStockReceiptListData();
+		InventoryEnquiryGLList = getInventoryEnquiryGLListData();
+		InventoryManagementList =getInventoryManagementList();
+		DenominationMasterList = getDenominationMasterList();
+		PurchaseRequisitionConfirmationList = getPurchaseRequisitionConfirmationList();
+		
 	}
 
 
@@ -214,7 +247,111 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 			}
 
 
+			//InventoryMaintenance
+			private List<InventoryMaintenanceTestDataType> getInventoryMaintenanceListData() {
+				Gson gson = new Gson();
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(InventoryMaintenanceFilePath));
+					InventoryMaintenanceTestDataType[] InventoryMaintenance = gson.fromJson(bufferReader, InventoryMaintenanceTestDataType[].class);
+					return Arrays.asList(InventoryMaintenance);
+					}catch(FileNotFoundException e) {
+						throw new RuntimeException("Json file not found at path : " + InventoryMaintenanceFilePath );
+					}finally {
+						try { if(bufferReader != null) bufferReader.close();}
+						catch (IOException ignore) {}
+					}
+				
+			}
 
+			private List<InventoryManagement_InventoryStockReceiptTestDataType> getInventoryStockReceiptListData() {
+				Gson gson = new Gson();
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(InventoryStockReceiptFilePath));
+					InventoryManagement_InventoryStockReceiptTestDataType[] InventoryStockReceipt = gson.fromJson(bufferReader, InventoryManagement_InventoryStockReceiptTestDataType[].class);
+					return Arrays.asList(InventoryStockReceipt);
+					}catch(FileNotFoundException e) {
+						throw new RuntimeException("Json file not found at path : " + InventoryStockReceiptFilePath );
+					}finally {
+						try { if(bufferReader != null) bufferReader.close();}
+						catch (IOException ignore) {}
+					}
+			}
+			
+			
+			private List<INVENTORY_EnquiryGLTestDataType> getInventoryEnquiryGLListData() {
+				Gson gson = new Gson();
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(InventoryEnquiryGLFilePath));
+					INVENTORY_EnquiryGLTestDataType[] InventoryEnquiryGL = gson.fromJson(bufferReader, INVENTORY_EnquiryGLTestDataType[].class);
+					return Arrays.asList(InventoryEnquiryGL);
+					}catch(FileNotFoundException e) {
+						throw new RuntimeException("Json file not found at path : " + InventoryEnquiryGLFilePath );
+					}finally {
+						try { if(bufferReader != null) bufferReader.close();}
+						catch (IOException ignore) {}
+					}
+				
+			}
+			//InventoryManagement
+			private List<InventoryManagementTestDataType> getInventoryManagementList() {
+				Gson gson = new Gson();
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(InventoryManagementFilePath));
+					InventoryManagementTestDataType[] InventoryManagement = gson.fromJson(bufferReader, InventoryManagementTestDataType[].class);
+					return Arrays.asList(InventoryManagement);
+				}catch(FileNotFoundException e) {
+					throw new RuntimeException("Json file not found at path : " + InventoryManagementFilePath);
+				}finally {
+					try { if(bufferReader != null) bufferReader.close();}
+					catch (IOException ignore) {}
+				}
+			}
+			private List<INVENTORY_MAINTENANCE_DenominationMasterTestDataType> getDenominationMasterList() {
+				Gson gson = new Gson();
+				JsonReader reader = new JsonReader(new StringReader(DenominationMasterPath));
+				reader.setLenient(true);
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(DenominationMasterPath));
+					INVENTORY_MAINTENANCE_DenominationMasterTestDataType[] login = gson.fromJson(bufferReader,
+							INVENTORY_MAINTENANCE_DenominationMasterTestDataType[].class);
+					return Arrays.asList(login);
+				} catch (FileNotFoundException e) {
+					throw new RuntimeException("Json file not found at path : " + DenominationMasterPath);
+				} finally {
+					try {
+						if (bufferReader != null)
+							bufferReader.close();
+					} catch (IOException ignore) {
+					}
+				}
+			}
+			
+			private List<INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType> getPurchaseRequisitionConfirmationList() {
+				Gson gson = new Gson();
+				JsonReader reader = new JsonReader(new StringReader(PurchaseRequisitionConfirmationPath));
+				reader.setLenient(true);
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(PurchaseRequisitionConfirmationPath));
+					INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType[] login = gson.fromJson(bufferReader,
+							INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType[].class);
+					return Arrays.asList(login);
+				} catch (FileNotFoundException e) {
+					throw new RuntimeException("Json file not found at path : " + PurchaseRequisitionConfirmationPath);
+				} finally {
+					try {
+						if (bufferReader != null)
+							bufferReader.close();
+					} catch (IOException ignore) {
+					}
+				}
+			}
+			
 	
 	public final BUDGET_RequestAndAllocationTestDataType getAllowcationByName(String user) {
 		return AllocationList.stream().filter(x -> x.UserType.equalsIgnoreCase(user)).findAny().get();
@@ -244,9 +381,34 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 }*/
 
 	public final BUDGET_CommentsFromApprover getApproverData(String UserName){
-		 return reviewerCommentsList.stream().filter(x->x.UserType.equalsIgnoreCase(UserName)).findAny().get();
+	return reviewerCommentsList.stream().filter(x->x.UserType.equalsIgnoreCase(UserName)).findAny().get();
 }
-public final BUDGET_BudgetTransferTestDataType getBudgetTransferdata(String UserName) {
-		return BudgetTransferList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
+    public final BUDGET_BudgetTransferTestDataType getBudgetTransferdata(String UserName) {
+	return BudgetTransferList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
 }
+    //InventoryMaintenance
+	public final InventoryMaintenanceTestDataType getInventoryMaintenanceByName(String UserName){
+	return InventoryMaintenanceList.stream().filter(x->x.User.equalsIgnoreCase(UserName)).findAny().get();
+}
+	//InventoryManagement
+	public final InventoryManagement_InventoryStockReceiptTestDataType getInventoryStockReceiptByName(String UserName){
+	return InventoryStockReceiptList.stream().filter(x->x.User.equalsIgnoreCase(UserName)).findAny().get();
+}
+		
+   //InventoryManagement
+   public final INVENTORY_EnquiryGLTestDataType getInventoryEnquiryGLByName(String UserName){
+   return InventoryEnquiryGLList.stream().filter(x->x.User.equalsIgnoreCase(UserName)).findAny().get();
+}
+   //InventoryManagement Tushar
+   public final InventoryManagementTestDataType getInventoryManagementByName(String UserName){
+		 return InventoryManagementList.stream().filter(x->x.User.equalsIgnoreCase(UserName)).findAny().get();
+}
+   public final INVENTORY_MAINTENANCE_DenominationMasterTestDataType getDenominationMasterdata(String UserName) {
+		return DenominationMasterList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
+	}
+	
+	public final INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType getPurchaseRequisitionConfirmationdata(String UserName) {
+		return PurchaseRequisitionConfirmationList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
+	}
+
 }
