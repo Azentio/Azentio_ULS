@@ -18,6 +18,7 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.ACCOUNTSPAYABLE_VendorContractsObj;
 //import pageobjects.ACCOUNTSPAYABLE_VendorContractsObj;
 import pageobjects.INVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj;
 import pageobjects.KUBS_CheckerObj;
@@ -31,7 +32,7 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
 	KUBS_Login login = new KUBS_Login(driver);
 	ConfigFileReader config = new ConfigFileReader();
 	JsonConfig jsonReader = new JsonConfig();
-	//ACCOUNTSPAYABLE_VendorContractsObj aCCOUNTSPAYABLE_VendorContractsObj = new ACCOUNTSPAYABLE_VendorContractsObj(driver);
+	ACCOUNTSPAYABLE_VendorContractsObj aCCOUNTSPAYABLE_VendorContractsObj = new ACCOUNTSPAYABLE_VendorContractsObj(driver);
 	INVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj iNVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj = new INVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj(driver);
 	WaitHelper waithelper = new WaitHelper(driver);
 	//ACCOUNTSPAYABLE_VendorContractsTestDataType aCCOUNTSPAYABLE_VendorContractsTestDataType=jsonReader.getVendorContractdata("Maker");
@@ -163,4 +164,12 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
     	System.out.println(" Unique Indent Reference Number is -: " +indentrefnumber);
        
     }
+    @And("^maker should logout$")
+    public void checker_should_logout()  {
+		waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_ProfileName());
+		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_ProfileName().click();
+		waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_Logout());
+		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_Logout();
+    }
+	
 }

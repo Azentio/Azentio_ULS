@@ -73,17 +73,22 @@ public class InventoryManagament extends BaseClass {
 	public void click_on_finance() throws Throwable {
 		waithelper = new WaitHelper(driver);
 		budgetTransferObj = new BUDGET_BudgetTransferObj(driver);
-		
 
-	}
+	} 
+	
+	 @Then("^Click on the Finance$")
+	    public void click_on_the_finance() throws Throwable {
+	    	System.out.println("Click on finance");
+	    }
 
-	@Then("^Click on Direction$")
+	@Then("^Click on the Direction$")
 	public void click_on_direction() throws Throwable {
 
 		waithelper.waitForElement(driver, 2000, budgetTransferObj.budget_BudgetTransfer_DirectionIcon());
 		budgetTransferObj.budget_BudgetTransfer_DirectionIcon().click();
 
-	}
+	} 
+	
 
 	@Then("^Click on Inventory Management$")
 	public void click_on_inventory_management() throws Throwable {
@@ -655,6 +660,263 @@ public class InventoryManagament extends BaseClass {
 				//clicksAndActionHelper.clickOnElement(save);
 				Thread.sleep(2000);
 		    }
+		    
+		    @Then("^Click on the Notification$")
+		    public void click_on_the_notification() throws Throwable {
+		    	waithelper.waitForElement(driver, 3000, budgetTransferObj.budget_BudgetTransfer_NotificationIcon());
+				budgetTransferObj.budget_BudgetTransfer_NotificationIcon().click();
+
+		    }
+
+		    @Then("^Select the record which we saved$")
+		    public void select_the_record_which_we_saved() throws Throwable {
+		    	// Reference
+				waithelper.waitForElement(driver, 2000, budgetTransferObj.budget_BudgetTransfer_FirstReferenceId());
+				String id = budgetTransferObj.budget_BudgetTransfer_FirstReferenceId().getText();
+				jsonWriter.addReferanceData(id);
+				System.out.println("Reference ID:" + id);
+				for (int i = 1; i <= 35; i++) {
+					try {
+						waithelper.waitForElement(driver, 3000, driver.findElement(By.xpath("//span[contains(text(),'" + jsonWriter.readReferancedata() + "')]")));
+						WebElement referanceID = driver.findElement(By.xpath("//span[contains(text(),'" + jsonWriter.readReferancedata() + "')]"));
+						referanceID.click();
+						System.out.println(referanceID);
+						// Assert.assertTrue(referanceID.isDisplayed());
+						break;
+					} catch (NoSuchElementException e) {
+						waithelper.waitForElement(driver, 4000, budgetTransferObj.maker_notification_next_button());
+
+						budgetTransferObj.maker_notification_next_button().click();
+					}
+
+				}
+				budgetTransferObj.budget_BudgetTransfer_FirstReferenceId().click();
+
+				// Action-Pencil
+				String before_xpath = "//span[contains(text(),'";
+				String after_xpath = "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell//ion-button";
+
+				waithelper.waitForElement(driver, 10000,driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)));
+				driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)).click();
+
+		    }
+		    
+		    @Then("^Submit record$")
+		    public void submit_record() throws Throwable {
+		    	// Submit button
+				//Thread.sleep(2000);
+				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.accountPayable_SubmitButton());
+				inventoryManagamentObj.accountPayable_SubmitButton().click();
+				//budgetTransferObj.budget_BudgetTransfer_Submit().click();
+				javahelper.JavaScriptHelper(driver);
+				// Remark
+				//javahelper.JSEClick(inventoryManagamentObj.accountPayable_SubmitButton());
+				/*inventoryManagamentObj.accountPayable_SubmitButton().isDisplayed();
+				boolean result = inventoryManagamentObj.accountPayable_SubmitButton().isEnabled();
+				System.out.println(result);
+				while(true) {
+					try {
+				//inventoryManagamentObj.accountPayable_SubmitButton().click();
+					WebElement submitButton =	(WebElement) javahelper.executeScript("return document.getElementsByClassName('ion-color ion-color-primary md button button-clear in-toolbar ion-activatable ion-focusable hydrated')[1]");
+					submitButton.click();	
+					break;
+					}
+					catch(ElementNotInteractableException e)
+					{
+						System.out.println(e.getMessage());
+					}
+					}*/
+				waithelper.waitForElement(driver, 3000, budgetTransferObj.budget_BudgetTransfer_RemarkField());
+				
+				//javahelper.JSEClick(budgetTransferObj.budget_BudgetTransfer_RemarkField());
+				budgetTransferObj.budget_BudgetTransfer_RemarkField().click();
+				waithelper.waitForElement(driver, 2000, budgetTransferObj.budget_BudgetTransfer_RemarkField());
+				Thread.sleep(2000);
+				budgetTransferObj.budget_BudgetTransfer_RemarkField().sendKeys("ok");
+				budgetTransferObj.budget_BudgetTransfer_RemarkField().sendKeys(Keys.ENTER);
+				
+				Thread.sleep(2000);
+				// Remark Submit
+				waithelper.waitForElement(driver, 2000, budgetTransferObj.budget_BudgetTransfer_SubmitByMaker());
+				budgetTransferObj.budget_BudgetTransfer_SubmitByMaker().click();
+				Thread.sleep(2000);
+				WebElement recordstatus = budgetTransferObj.budget_BudgetTransfer_RecordStatus();
+
+				clicksAndActionHelper.moveToElement(recordstatus);
+				String message = budgetTransferObj.budget_BudgetTransfer_RecordStatus().getText();
+				System.out.println(message);
+				budgetTransferObj.budget_BudgetTransfer_RecordStatus().click();
+				String t = "";
+				String ar[] = message.split(" ");
+				Thread.sleep(2000);
+				for (int i = ar.length - 1; i >= 0; i--) {
+					t = ar[ar.length - 1];
+				}
+				String reviewerId = "";
+				for (int i = 0; i < t.length() - 1; i++) {
+					if (t.charAt(i) == '.') {
+					} else {
+						reviewerId = reviewerId + t.charAt(i);
+					}
+				}
+				System.out.println(reviewerId);
+				jsonWriter = new JsonDataReaderWriter();
+				jsonWriter.addData(reviewerId);
+
+		    }
+		    @Then("^Open the Reviewer account$")
+		    public void open_the_reviewer_account() throws Throwable {
+		    	reader = new JsonDataReaderWriter();
+				login = new AzentioLogin(driver);
+				driver.get(config.getApplicationUrl());
+				login.logintoAzentioappReviewer("Reviewer", reader.readdata());
+				waithelper = new WaitHelper(driver);
+				reviewer = new KUBS_ReviewerObj(driver);
+				waithelper.waitForElement(driver, 2000, reviewer.reviewerNotidicationIcon());
+				reviewer.reviewerNotidicationIcon().click();
+				browserHelper = new BrowserHelper(driver);
+				budgetdata = jsonconfig.getBudgetdataByName("Maker");
+				javascript = new JavascriptHelper();
+				Thread.sleep(2000);
+				waithelper = new WaitHelper(driver);
+				for (int i = 1; i <= 35; i++) {
+					try {
+						waithelper.waitForElement(driver, 3000,driver.findElement(By.xpath("//span[contains(text(),'" + reader.readReferancedata() + "')]")));
+						WebElement referanceID = driver.findElement(By.xpath("//span[contains(text(),'"+reader.readReferancedata()+"')]"));
+						referanceID.click();
+
+						Assert.assertTrue(referanceID.isDisplayed());
+						break;
+					} catch (NoSuchElementException e) {
+						waithelper.waitForElement(driver, 4000, kubschecker.checker_notification_next_button());
+
+						kubschecker.checker_notification_next_button().click();
+					}
+				}
+				String before_xpath = "//span[contains(text(),'";
+				String after_xpath = "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell//ion-button";
+				Thread.sleep(2000);
+				waithelper.waitForElement(driver, 10000,driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)));
+				driver.findElement(By.xpath(before_xpath+reader.readReferancedata()+after_xpath)).click();
+
+		    }
+		    @Then("^Approve the record which we submitted from maker$")
+		    public void approve_the_record_which_we_submitted_from_maker() throws Throwable {
+		    	Thread.sleep(3000);
+		    	 
+		    	browserHelper = new BrowserHelper(driver);
+				budgetdata =  jsonReader.getBudgetdataByName("Maker");
+				javascripthelper = new JavascriptHelper();
+				javascripthelper.JavaScriptHelper(driver);
+				Thread.sleep(1000);
+				for (int i = 1; i <= 35; i++) {
+					try {
+						waithelper.waitForElement(driver, 3000, driver.findElement(
+
+							By.xpath("//span[contains(text(),'" + reader.readReferancedata() + "')]")));
+						WebElement referanceID = driver.findElement(
+								By.xpath("//span[contains(text(),'" +reader.readReferancedata()+ "')]"));
+						referanceID.click();
+						Assert.assertTrue(referanceID.isDisplayed());
+						break;
+					} catch (NoSuchElementException e) {
+						waithelper.waitForElement(driver, 4000, kubschecker.checker_notification_next_button());
+
+						kubschecker.checker_notification_next_button().click();
+					}
+				}
+				String before_xpath = "//span[contains(text(),'";
+				String after_xpath = "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell//ion-button";
+
+				waithelper.waitForElement(driver, 5000,
+						driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)));
+				driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)).click();
+
+				
+
+		    	waithelper.waitForElement(driver, 2000, reviewer.reviewerApproveButton());
+				reviewer.reviewerApproveButton().click();
+				Thread.sleep(2000);
+				waithelper.waitForElement(driver, 2000, reviewer.reviewerAlertRemarks());
+				javahelper.JSEClick(reviewer.reviewerAlertRemarks());
+				Thread.sleep(2000);
+				reviewer.reviewerAlertRemarks().sendKeys("ok");
+				Thread.sleep(3000);
+				waithelper.waitForElement(driver, 2000, reviewer.reviewerAlertSubmitButton());
+				reviewer.reviewerAlertSubmitButton().click();
+				Thread.sleep(3000);
+			
+		    }
+
+		    @Then("^Go to Checker login$")
+		    public void go_to_checker_login() throws Throwable {
+		    	login = new AzentioLogin(driver);
+				driver.get(config.getApplicationUrl());
+				login.loginToAzentioAppAsChecker("Checker");
+				ExtentTestManager.getTest().info("User Navigated to required url & login as reviewer1");
+
+			
+		    }
+
+		    @Then("^Clam record$")
+		    public void clam_record() throws Throwable {
+		    	waithelper = new WaitHelper(driver);
+				kubschecker = new KUBS_CheckerObj(driver);
+				waithelper.waitForElement(driver, 3000, kubschecker.checkerSecurityManagement());
+				kubschecker.checkerSecurityManagement().click();
+				waithelper.waitForElement(driver, 3000, kubschecker.checkerActionIcon());
+
+				kubschecker.checkerActionIcon().click();
+				Thread.sleep(1000);
+				String before_xpath = "//span[contains(text(),'";
+				String after_xpath_claim = "')]/parent::div/parent::datatable-body-cell/preceding-sibling::datatable-body-cell[2]/div/ion-buttons/ion-button";
+				waithelper.waitForElement(driver, 5000,driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath_claim)));
+				driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath_claim)).click();
+				waithelper.waitForElement(driver, 3000, kubschecker.checkerAlertClose());
+				kubschecker.checkerAlertClose().click();
+	 
+		    }
+
+		    @Then("^Click on the notification and approve the record$")
+		    public void click_on_the_notification_and_approve_the_record() throws Throwable {
+		    	javascript = new JavascriptHelper();
+				Thread.sleep(1000);
+				waithelper.waitForElement(driver, 3000, kubschecker.checkerNotificationIcon());
+
+				kubschecker.checkerNotificationIcon().click();
+				Thread.sleep(1000);
+				for (int i = 1; i <= 35; i++) {
+					try {
+						waithelper.waitForElement(driver, 3000,driver.findElement(By.xpath("//span[contains(text(),'" + reader.readReferancedata() + "')]")));
+						WebElement referanceID = driver.findElement(By.xpath("//span[contains(text(),'" + reader.readReferancedata() + "')]"));
+						referanceID.click();
+
+						Assert.assertTrue(referanceID.isDisplayed());
+						break;
+					} catch (NoSuchElementException e) {
+						waithelper.waitForElement(driver, 4000, kubschecker.checker_notification_next_button());
+
+						kubschecker.checker_notification_next_button().click();
+					}
+				}
+				String before_xpath = "//span[contains(text(),'";
+				String after_xpath = "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell//ion-button";
+
+				waithelper.waitForElement(driver, 10000,driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)));
+				driver.findElement(By.xpath(before_xpath + reader.readReferancedata() + after_xpath)).click();
+
+				waithelper.waitForElement(driver, 4000, kubschecker.checkerApproveButton());
+
+				kubschecker.checkerApproveButton().click();
+				waithelper.waitForElement(driver, 2000, reviewer.reviewerAlertRemarks());
+				reviewer.reviewerAlertRemarks().sendKeys("ok");
+				Thread.sleep(1000);
+				waithelper.waitForElement(driver, 2000, reviewer.reviewerAlertSubmitButton());
+				reviewer.reviewerAlertSubmitButton().click();
+				Thread.sleep(4000);
+			 
+		    }
+		    
 		    @And("^Submit the record in maker stage$")
 		    public void submit_the_record_in_maker_stage() throws Throwable {
 		    	waithelper.waitForElement(driver, 2000,inventoryManagamentObj.accountPayable_GRNNotificationSubmitButton());
@@ -662,7 +924,7 @@ public class InventoryManagament extends BaseClass {
 		    	inventoryManagamentObj.accountPayable_GRNNotificationSubmitButton().click();
 		    } 
 		    
-		    
+		   
 		    
 		//-----------priyankaaa-----------------
 		 

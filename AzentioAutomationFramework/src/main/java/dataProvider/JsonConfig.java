@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.ACCOUNTSPAYABLE_VendorContractsTestDataType;
 import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
@@ -465,4 +466,12 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 			public final INVENTORY_InventoryManagement_DataType getStockReturnBranchByName(String user) {
 				return StockReturnBranchList.stream().filter(x -> x.Usertype.equalsIgnoreCase(user)).findAny().get();
 			}
+		
+	public final ACCOUNTSPAYABLE_VendorContractsTestDataType getVendorContractdata(String UserName) {
+	return VendorContractsList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
+			}
+	
+	// ACCOUNTSPAYABLE_VendorContract
+		private final String VendorContractsPath = configFileReader.getJsonPath() + "ACCOUNTSPAYABLE_VendorContractsJSON.json";
+		private List<ACCOUNTSPAYABLE_VendorContractsTestDataType> VendorContractsList;
 }

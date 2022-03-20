@@ -6,7 +6,7 @@ Scenario: Create a request for inventory
 
 Given Navigate to URL and user should login as a maker
 Then Click on Finance
-Then Click on Direction
+Then Click on the Direction
 Then Click on Inventory Management
 And Click on the eye icon of Inventory Request
 Then Click on Add button

@@ -62,6 +62,17 @@ public class InventoryMaintenance extends BaseClass{
 			login.loginToAzentioApp("Maker");
 		       
 		    }
+		 
+		//getVendorPurchaseOrderyByName
+			
+		/* @Then("^Click on Direction icon$")
+		 public void click_on_direction_icon() throws InterruptedException {
+		 waithelper = new WaitHelper(driver) ;
+		Thread.sleep(2000);
+		 waithelper.waitForElement(driver, 4000, accountPayable_VendorPurchaseOrderObj.accountsPayable_VendorPurchaseOrder_DirectionIcon());
+		 accountPayable_VendorPurchaseOrderObj.accountsPayable_VendorPurchaseOrder_DirectionIcon().click();
+    
+		    }*/
 		 	@Then("^Click on Direction Left$")
 		    public void click_on_direction_left() {
 		 	waithelper = new WaitHelper(driver) ;
