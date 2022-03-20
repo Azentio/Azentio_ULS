@@ -17,10 +17,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjects.ACCOUNTSPAYABLE_InvoiceBookingObj;
-import pageobjects.ACCOUNTSPAYABLE_VendorContractsObj;
+//import pageobjects.ACCOUNTSPAYABLE_InvoiceBookingObj;
+//import pageobjects.ACCOUNTSPAYABLE_VendorContractsObj;
 import pageobjects.INVENTORY_MAINTENANCE_DenominationMasterObj;
-import pageobjects.KUBS_CheckerObj;
+//import pageobjects.KUBS_CheckerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.INVENTORY_MAINTENANCE_DenominationMasterTestDataType;
@@ -28,12 +28,12 @@ import testDataType.INVENTORY_MAINTENANCE_DenominationMasterTestDataType;
 public class INVENTORY_MAINTENANCE_DenominationMaster {
 	
 	WebDriver driver = BaseClass.driver;
-	KUBS_Login login = new KUBS_Login(driver);
+	//KUBS_Login login = new KUBS_Login(driver);
 	ConfigFileReader config = new ConfigFileReader();
 	JsonConfig jsonReader = new JsonConfig();
 	WaitHelper waithelper = new WaitHelper(driver);
-	ACCOUNTSPAYABLE_VendorContractsObj aCCOUNTSPAYABLE_VendorContractsObj = new ACCOUNTSPAYABLE_VendorContractsObj(driver);
-	ACCOUNTSPAYABLE_InvoiceBookingObj aCCOUNTSPAYABLE_InvoiceBookingObj = new ACCOUNTSPAYABLE_InvoiceBookingObj(driver);
+	//ACCOUNTSPAYABLE_VendorContractsObj aCCOUNTSPAYABLE_VendorContractsObj = new ACCOUNTSPAYABLE_VendorContractsObj(driver);
+	//ACCOUNTSPAYABLE_InvoiceBookingObj aCCOUNTSPAYABLE_InvoiceBookingObj = new ACCOUNTSPAYABLE_InvoiceBookingObj(driver);
 	INVENTORY_MAINTENANCE_DenominationMasterObj iNVENTORY_MAINTENANCE_DenominationMasterObj = new INVENTORY_MAINTENANCE_DenominationMasterObj(driver);
 	INVENTORY_MAINTENANCE_DenominationMasterTestDataType iNVENTORY_MAINTENANCE_DenominationMasterTestDataType=jsonReader.getDenominationMasterdata("Maker");
 	JavascriptHelper javascripthelper = new JavascriptHelper();
@@ -41,13 +41,13 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
 	ClicksAndActionsHelper clicksAndActionHelper = new ClicksAndActionsHelper(driver);
 	JsonDataReaderWriter reader;
 	BrowserHelper browserHelper;
-	KUBS_CheckerObj kubschecker = new KUBS_CheckerObj(driver);
+	//KUBS_CheckerObj kubschecker = new KUBS_CheckerObj(driver);
 
 	@Given("^User should navigate to the kubs url and login as a maker user$")
 	public void user_should_navigate_to_the_kubs_url_and_login_as_a_maker_user() throws InterruptedException {
-		login = new KUBS_Login(driver);
+		//login = new KUBS_Login(driver);
 		driver.get(config.getApplicationUrl());
-		login.loginToAzentioApp("Maker");
+		//login.loginToAzentioApp("Maker");
 	}
 	
 	@And("^user should navigate to denomination master menu$")
@@ -109,13 +109,13 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
 				.toString();
 		System.out.println("Message:" + str);
 		
-		waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationButton());
-		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationButton().click();
+		//waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationButton());
+		//aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationButton().click();
 		
-		waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_FirstReferenceId());
-		String id=aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_FirstReferenceId().getText();
-		jsonWriter.addReferanceData(id);
-		System.out.println("Reference ID:" +id);
+		//waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_FirstReferenceId());
+		//String id=aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_FirstReferenceId().getText();
+		//jsonWriter.addReferanceData(id);
+		//System.out.println("Reference ID:" +id);
     	for (int i = 1; i <= 35; i++) {
 			try {
 		    	waithelper.waitForElement(driver, 3000,driver.findElement(By.xpath("//span[contains(text(),'" +jsonWriter.readReferancedata()+ "')]")));	
@@ -126,8 +126,8 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
 //				Assert.assertTrue(referanceID.isDisplayed());
 				break;
 			} catch (NoSuchElementException e) {
-				waithelper.waitForElement(driver,4000,aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationNextButton());
-				aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationNextButton().click();
+				//waithelper.waitForElement(driver,4000,aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationNextButton());
+				//aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_NotificationNextButton().click();
 			}
 		}
     	String before_xpath="//span[contains(text(),'";
@@ -135,7 +135,7 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
     	waithelper.waitForElement(driver, 10000, driver.findElement(By.xpath(before_xpath +jsonWriter.readReferancedata()+after_xpath)));
     	driver.findElement(By.xpath(before_xpath +jsonWriter.readReferancedata() +after_xpath)).click();
     	
-    	waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_SubmitButton());
+    	/*waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_SubmitButton());
     	aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_SubmitButton().click(); 
     	Thread.sleep(1000);
     	waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RemarkField());
@@ -152,12 +152,12 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
     	
     	String message = aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus().getText();
     	System.out.println(message);
-    	aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus().click();
+    	aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus().click();*/
     	String t = "";
-		String ar[] = message.split(" ");
-		for (int i = ar.length - 1; i >= 0; i--) {
+		//String ar[] = message.split(" ");
+		/*for (int i = ar.length - 1; i >= 0; i--) {
 			t = ar[ar.length - 1];
-		}
+		}*/
 		String reviewerId = "";
 		for (int i = 0; i < t.length() - 1; i++) {
 			if (t.charAt(i) == '.') {
@@ -181,7 +181,7 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
 				+ "')]/ancestor::datatable-body-cell/preceding-sibling::datatable-body-cell/div/ion-buttons/ion-button"))
 				.click();
 
-		waithelper.waitForElement(driver, 2000,
+		/*waithelper.waitForElement(driver, 2000,
 				aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_Approve_Button());
 		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_Approve_Button().click();
 
@@ -198,7 +198,7 @@ public class INVENTORY_MAINTENANCE_DenominationMaster {
 		clicksAndActionHelper.moveToElement(recordstatus);
 		String message = aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus().getText();
 		System.out.println(message);
-		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus().click();
+		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus().click();*/
 
 	}
 	@And("^checker should logout$")

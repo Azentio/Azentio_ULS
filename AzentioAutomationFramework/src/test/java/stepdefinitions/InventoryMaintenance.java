@@ -26,6 +26,7 @@ import pageobjects.Azentio_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetCreationTestDataType;
+import testDataType.BUDGET_BudgetDefinitionTestDataType;
 import testDataType.InventoryMaintenanceTestDataType;
 
 
@@ -52,7 +53,7 @@ public class InventoryMaintenance extends BaseClass{
 		String referance_id;
 		String user = "Maker";
 		Azentio_CheckerObj kubschecker = new Azentio_CheckerObj(driver) ;
-		BUDGET_BudgetCreationTestDataType budgetdata;
+		BUDGET_BudgetDefinitionTestDataType budgetdata;
 		
 		 @Given("^Maker Navigate to UAT URL login$")
 		    public void maker_navigate_to_uat_url_login() throws InterruptedException {

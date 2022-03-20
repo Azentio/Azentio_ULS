@@ -28,6 +28,7 @@ import pageobjects.KUBS_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetCreationTestDataType;
+import testDataType.BUDGET_BudgetDefinitionTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
 import testDataType.InventoryManagementTestDataType;
 import utilities.ExtentTestManager;
@@ -40,7 +41,7 @@ public class InventoryManagament extends BaseClass {
 
 	JsonConfig jsonconfig = new JsonConfig();
 	BrowserHelper browserHelper;
-	BUDGET_BudgetCreationTestDataType budgetdata;
+	BUDGET_BudgetDefinitionTestDataType budgetdata;
 	JavascriptHelper javahelper = new JavascriptHelper();
 	JsonConfig jsonReader = new JsonConfig();
 	WaitHelper waithelper = new WaitHelper(driver);

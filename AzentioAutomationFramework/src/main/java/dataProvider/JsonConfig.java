@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
 import testDataType.BUDGET_RequestAndAllocationTestDataType;
@@ -18,6 +19,9 @@ import testDataType.BUDGET_RequestandallocationBUDTYPEDATA;
 import testDataType.BUDGET_CommentsFromApprover;
 import testDataType.BUDGET_SupplementarybudgetTestDataType;
 import testDataType.INVENTORY_EnquiryGLTestDataType;
+import testDataType.INVENTORY_EnquiryGlTestData;
+import testDataType.INVENTORY_InventoryManagement_DataType;
+import testDataType.INVENTORY_InventoryStockIssueTestData;
 import testDataType.INVENTORY_MAINTENANCE_DenominationMasterTestDataType;
 import testDataType.INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType;
 import testDataType.InventoryMaintenanceTestDataType;
@@ -26,6 +30,8 @@ import testDataType.InventoryManagement_InventoryStockReceiptTestDataType;
 import testDataType.KUBS_LoginTestDataType;
 import testDataType.Logindata;
 import testDataType.RegisterData;
+
+
 //master
 public class JsonConfig {
 	ConfigFileReader configFileReader = new ConfigFileReader();
@@ -64,6 +70,22 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 	private final String BudgetReviewerCommentFilePath = configFileReader.getJsonPath() + "BUDGET_ReviewerRemarks.json";
 	private List<BUDGET_CommentsFromApprover> reviewerCommentsList;
 
+	//Inventory stock issue
+		private final String InventoryStockIssueFilePath = configFileReader.getJsonPath() + "INVENTORY_InventoryStockIssue.json";
+		private List<INVENTORY_InventoryStockIssueTestData> inventoryStockIssueTestData;
+		
+	//InventoryGL 
+	private final String InventoryGlFilePath = configFileReader.getJsonPath() + "INVENTORY_EnquiryGlJSON.json";
+	private List<INVENTORY_EnquiryGlTestData> inventoryGlReportTestData;
+	
+	public final INVENTORY_EnquiryGlTestData getInventoryGlUATTestData(String username) {
+		return inventoryGlReportTestData.stream().filter(x->x.userType.equalsIgnoreCase(username)).findAny().get();
+	}
+	
+	// Inventory_StockReturnBranch
+			private final String StockReturnBranchFilePath = configFileReader.getJsonPath() + "INVENTORY_InventoryManagement.json";
+			private List<INVENTORY_InventoryManagement_DataType> StockReturnBranchList;
+	
 //InventoryMaintenance
 	private final String InventoryMaintenanceFilePath = configFileReader.getJsonPath() + "InventoryMaintenanceJson.json";
 	private List<InventoryMaintenanceTestDataType> InventoryMaintenanceList;
@@ -109,6 +131,7 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 		DenominationMasterList = getDenominationMasterList();
 		PurchaseRequisitionConfirmationList = getPurchaseRequisitionConfirmationList();
 		
+
 	}
 
 
@@ -331,6 +354,27 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 				}
 			}
 			
+			private List<INVENTORY_InventoryStockIssueTestData> getInventoryStockIssueTestData() {
+				Gson gson = new Gson();
+				JsonReader reader = new JsonReader(new StringReader(InventoryStockIssueFilePath));
+				reader.setLenient(true);
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(InventoryStockIssueFilePath));
+					INVENTORY_InventoryStockIssueTestData[] inventoryStockIssueTestData = gson.fromJson(bufferReader,
+							INVENTORY_InventoryStockIssueTestData[].class);
+					return Arrays.asList(inventoryStockIssueTestData);
+				} catch (FileNotFoundException e) {
+					throw new RuntimeException("Json file not found at path : " + InventoryStockIssueFilePath);
+				} finally {
+					try {
+						if (bufferReader != null)
+							bufferReader.close();
+					} catch (IOException ignore) {
+					}
+				}
+			}
+			
 			private List<INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType> getPurchaseRequisitionConfirmationList() {
 				Gson gson = new Gson();
 				JsonReader reader = new JsonReader(new StringReader(PurchaseRequisitionConfirmationPath));
@@ -366,6 +410,8 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 		
 	}
 
+	
+	
 	public final KUBS_LoginTestDataType getLoginCredentialsByName(String Username) {
 		return credentialslist.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
@@ -410,5 +456,13 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 	public final INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType getPurchaseRequisitionConfirmationdata(String UserName) {
 		return PurchaseRequisitionConfirmationList.stream().filter(x -> x.User.equalsIgnoreCase(UserName)).findAny().get();
 	}
-
+	
+	public final INVENTORY_InventoryStockIssueTestData getInventoryStockIssueUATTestData(String username) {
+		return inventoryStockIssueTestData.stream().filter(x->x.userType.equalsIgnoreCase(username)).findAny().get();
+	}
+	
+	//Inventory - StockReturnBranch
+			public final INVENTORY_InventoryManagement_DataType getStockReturnBranchByName(String user) {
+				return StockReturnBranchList.stream().filter(x -> x.Usertype.equalsIgnoreCase(user)).findAny().get();
+			}
 }

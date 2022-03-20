@@ -18,12 +18,12 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjects.ACCOUNTSPAYABLE_VendorContractsObj;
+//import pageobjects.ACCOUNTSPAYABLE_VendorContractsObj;
 import pageobjects.INVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj;
 import pageobjects.KUBS_CheckerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
-import testDataType.ACCOUNTSPAYABLE_VendorContractsTestDataType;
+//import testDataType.ACCOUNTSPAYABLE_VendorContractsTestDataType;
 import testDataType.INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType;
 
 public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
@@ -31,10 +31,10 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
 	KUBS_Login login = new KUBS_Login(driver);
 	ConfigFileReader config = new ConfigFileReader();
 	JsonConfig jsonReader = new JsonConfig();
-	ACCOUNTSPAYABLE_VendorContractsObj aCCOUNTSPAYABLE_VendorContractsObj = new ACCOUNTSPAYABLE_VendorContractsObj(driver);
+	//ACCOUNTSPAYABLE_VendorContractsObj aCCOUNTSPAYABLE_VendorContractsObj = new ACCOUNTSPAYABLE_VendorContractsObj(driver);
 	INVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj iNVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj = new INVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj(driver);
 	WaitHelper waithelper = new WaitHelper(driver);
-	ACCOUNTSPAYABLE_VendorContractsTestDataType aCCOUNTSPAYABLE_VendorContractsTestDataType=jsonReader.getVendorContractdata("Maker");
+	//ACCOUNTSPAYABLE_VendorContractsTestDataType aCCOUNTSPAYABLE_VendorContractsTestDataType=jsonReader.getVendorContractdata("Maker");
 	INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmationTestDataType PurchaseRequisitionConfirmationTestDataType=jsonReader.getPurchaseRequisitionConfirmationdata("Maker");
 	JavascriptHelper javascripthelper = new JavascriptHelper();
 	JsonDataReaderWriter jsonWriter = new JsonDataReaderWriter();
@@ -46,8 +46,8 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
 	@And("^user should navigate to inventory management$")
     public void user_should_navigate_to_inventory_management(){
 		
-		waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_DirectionButton());
-		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_DirectionButton().click();
+		/*waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_DirectionButton());
+		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_DirectionButton().click();*/
 		waithelper.waitForElement(driver, 2000, iNVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj.inventoryManagementMenu());
 		iNVENTORY_MANAGEMENT_PurchaseRequitionConfirmationObj.inventoryManagementMenu().click();
     }
@@ -82,7 +82,7 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
 				.toString();
 		System.out.println("Message:" + str);
 		
-    	waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus());
+    	/*waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus());
     	WebElement recordstatus0 = aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RecordStatus();
     	clicksAndActionHelper.moveToElement(recordstatus0);
     	
@@ -116,7 +116,7 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
     	waithelper.waitForElement(driver, 10000, driver.findElement(By.xpath(before_xpath +jsonWriter.readReferancedata()+after_xpath)));
     	driver.findElement(By.xpath(before_xpath +jsonWriter.readReferancedata() +after_xpath)).click();
     	
-    	waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_SubmitButton());
+    	/*waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_SubmitButton());
     	aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_SubmitButton().click(); 
     	
     	waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_RemarkField());
@@ -148,7 +148,7 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
 		}
 		System.out.println(reviewerId);
 		jsonWriter=new JsonDataReaderWriter();
-		jsonWriter.addData(reviewerId);
+		jsonWriter.addData(reviewerId);*/
 		
     }
     
@@ -156,8 +156,8 @@ public class INVENTORY_MANAGEMENT_PurchaseRequisitionConfirmation {
     public void click_on_first_eye_button_to_get_the_indent_reference_number() throws InterruptedException {
 		javascripthelper.JavaScriptHelper(driver);
 		
-		waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_ContractCodeEyeButton());
-		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_ContractCodeEyeButton().click();
+		/*waithelper.waitForElement(driver, 2000, aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_ContractCodeEyeButton());
+		aCCOUNTSPAYABLE_VendorContractsObj.accountPayable_VendorContracts_ContractCodeEyeButton().click();*/
 		Thread.sleep(2000);
 		String indentrefnumber = javascripthelper.executeScript("return document.getElementsByClassName('native-input sc-ion-input-md')[6].value").toString();
     	System.out.println(" Unique Indent Reference Number is -: " +indentrefnumber);
