@@ -63,7 +63,7 @@ public class Azentiochecker extends BaseClass {
 
 	}
 
-	@Then("^click on notification$")
+	/*@Then("^click on notification$")
 	public void click_on_notification() throws Throwable {
 		javascript=new JavascriptHelper();
 		
@@ -71,7 +71,7 @@ public class Azentiochecker extends BaseClass {
 		
 		kubschecker.checkerNotificationIcon().click();
 
-	}
+	}*/
 
 	@Then("^approve the records$")
 	public void approve_the_records() throws Throwable {

@@ -7,5 +7,5 @@ Then click on report segment button
 And click on enquiry menu
 Then click on edit icon of fiancial transaction menu
 And fill the mandtory field 
-And click on view button
+And click view button
 

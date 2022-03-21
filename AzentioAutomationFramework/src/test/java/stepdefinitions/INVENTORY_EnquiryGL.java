@@ -37,7 +37,7 @@ public class INVENTORY_EnquiryGL extends BaseClass {
 	
 	
 
-	 @Then("^click on report segment button$")
+	/* @Then("^click on report segment button$")
 	    public void click_on_report_segment_button() throws Throwable {
 		 Thread.sleep(2000);
 		 waithelper.waitForElement(driver, 3000, iNVENTORY_EnquiryGLObj.inventory_ReportIcon());
@@ -45,7 +45,7 @@ public class INVENTORY_EnquiryGL extends BaseClass {
 		 waithelper.waitForElement(driver, 3000, iNVENTORY_EnquiryGLObj.inventory_EnquiryMenu());
 		 Assert.assertTrue(iNVENTORY_EnquiryGLObj.inventory_EnquiryMenu().isDisplayed());
 		
-	}
+	}*/
 
 	 @And("^click on enquiry menu$")
 	    public void click_on_enquiry_menu()  {
@@ -121,8 +121,8 @@ public class INVENTORY_EnquiryGL extends BaseClass {
 		clicksAndActionHelper.doubleClick(FinalDay2);
 	}
 
-	@And("^click on view button$")
-	public void click_on_view_button() {
+	@And("^click view button$")
+	public void click_view_button() {
 		iNVENTORY_EnquiryGLObj.inventory_ViewButton().click();
 
 	}

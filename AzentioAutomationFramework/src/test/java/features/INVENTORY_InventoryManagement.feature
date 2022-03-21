@@ -90,7 +90,7 @@ Then Enter the Remark and submit from checker End
 Given Azentio Maker user url
 Then Click on Inventory Maintance module
 And click on Master Item eye icon
-Then click on search icon
+Then click on the search icon
 And Give Item description value and Click Edit icon
 When validate the quantity of the Item
 

@@ -36,7 +36,7 @@ public class INVENTORY_EnquiryGl1 extends BaseClass {
 		kubsLogin.loginToAzentioApp("Maker");
 	}
 
-	@Then("^click on report segment button$")
+	/*@Then("^click on report segment button$")
 	public void click_on_report_segment_button() throws Throwable {
 		waitHelper.waitForElement(driver, 3000, inventoryEnquiryGlObj.inventoryReportIcon());
 		inventoryEnquiryGlObj.inventoryReportIcon().click();
@@ -53,7 +53,7 @@ public class INVENTORY_EnquiryGl1 extends BaseClass {
 		waitHelper.waitForElement(driver, 3000, inventoryEnquiryGlObj.inventoryFinancialTransactionIcon());
 		Assert.assertTrue(inventoryEnquiryGlObj.inventoryFinancialTransactionIcon().isDisplayed());
 		
-	}
+	}*/
 
 	@Then("^click on edit icon near by fiancial transaction menu$")
 	public void click_on_edit_icon_near_by_fiancial_transaction_menu() throws Throwable {
@@ -133,12 +133,12 @@ public class INVENTORY_EnquiryGl1 extends BaseClass {
 		clickAndActionHelper.doubleClick(FinalDay);
 	}
 
-	@And("^click on view button$")
+	/*@And("^click on view button$")
 	public void click_on_view_button() throws Throwable {
 		
 		inventoryEnquiryGlObj.inventoryViewButton().click();
         Thread.sleep(1000);
 		
-	}
+	}*/
 
 }

@@ -14,7 +14,7 @@ Then Click on Add button
 And Fill all the mandatory fields
 
 Then Click on save button
-Then Click on Notification button
+Then Click  notification button
 And Select record which we saved
 And Submit the record
 Then Open Reviewer account
@@ -67,7 +67,7 @@ Then Click on Add button
 Then Fill all the details
 
 Then Click on save button on instrument code master
-Then Click on Notification button
+Then Click Notification button
 And Select record which we saved
 And Submit the record
 Then Open Reviewer account
@@ -90,7 +90,7 @@ Then Fill all the required field for issuing inventories
 Then Click on issue checkbox
 
 Then Click on save button in inventory Access Master
-Then Click on Notification button
+Then Click  notification button
 And Select record which we saved
 And Submit the record
 Then Open Reviewer account
@@ -114,7 +114,7 @@ Then Fill all the required field for receiving inventories
 Then Click on Recive checkbox
 
 Then Click on save button in inventory Access Master
-Then Click on Notification button
+Then Click  notification button
 And Select record which we saved
 And Submit the record
 Then Open Reviewer account
@@ -136,7 +136,7 @@ Then Fill all the required field for ordering inventories
 Then Click on Place Order checkbox
 
 Then Click on save button in inventory Access Master
-Then Click on Notification button
+Then Click  notification button
 And Select record which we saved
 And Submit the record
 Then Open Reviewer account
@@ -158,7 +158,7 @@ Then Fill all the required field for requesting inventories
 Then Click on Place Request checkbox
 
 Then Click on save button in inventory Access Master
-Then Click on Notification button
+Then Click Notification button
 And Select record which we saved
 And Submit the record
 Then Open Reviewer account
@@ -175,13 +175,13 @@ Scenario: Check the accounting entries
 Given Navigate to URL and user should login as a maker
 Then click on report segment button
 And click on equiry menu
-Then click on edit icon near by fiancial transaction menu
-And choose branch code
-And choose Gl code
-And click on transaction from date calender icon
-Then choose the from date
-And click on the transaction to date calender icon
-Then choose the to date
+Then click on edit icon near fiancial transaction menu
+And choose the branch code
+And choose the Gl code
+And click transaction from date calender icon
+Then choose from date
+And click on transaction to date calender icon
+Then choose to date
 And click on view button
 
 @KUBS_INV_MGMT_UAT_005_002
@@ -190,13 +190,13 @@ Scenario: Check accounting entries
 Given Navigate to URL and user should login as a maker
 Then click on report segment button
 And click on equiry menu
-Then click on edit icon near by fiancial transaction menu
-And choose branch code
-And choose Gl code
-And click on transaction from date calender icon
-Then choose the from date
-And click on the transaction to date calender icon
-Then choose the to date
+Then click on edit icon near fiancial transaction menu
+And choose the branch code
+And choose the Gl code
+And click transaction from date calender icon
+Then choose from date
+And click on transaction to date calender icon
+Then choose to date
 And click on view button
 
 @KUBS_INV_MGMT_UAT_005_001
@@ -241,7 +241,7 @@ And Click on First record eye icon
 Then Get the New Request Referance No
 Then Click on Inventory stock confirmation eye icon
 And Sub module Inventory stock confirmation click Add icon
-Then Enter Request Referance Number
+Then Enter the Request Referance Number
 And Enter Item code Number
 Then Accept the status in checkbox
 And click the save icon for StockConfirm
@@ -262,11 +262,11 @@ Then click on report button
 And click Enquiry menu
 Then click on Edit icon near by financial transaction
 And choose branch code Id
-Then choose Gl code Id
+Then choose the Gl code Id
 And click on transaction from date in calender icon
-Then choose from date in calender
+Then choose from date in the calender
 And click on the transaction to date in calender icon
-Then choose the To date in calender
+Then choose the To date in the calender
 And click on view button to see the Record
 
 @KUBS_INV_MGMT_UAT_007_005
@@ -279,8 +279,8 @@ Then Click on Report Tab
 Then Click on Stock Confirmation edit button
 Then Fill the details of stock confirmation
 
-And click on transaction from date calender icon
-Then choose the from date
+And click transaction from date calender icon
+Then choose from date
 
 Then Click on View button
 Then verify the approved record is available in the report
@@ -407,9 +407,9 @@ Then click on Edit icon near by financial transaction
 And choose branch code Id
 
 And click on transaction from date in calender icon
-Then choose from date in calender
+Then choose from date in the calender
 And click on the transaction to date in calender icon
-Then choose the To date in calender
+Then choose the To date in the calender
 And click on view button to see the Record
 
 Then validate voucher number

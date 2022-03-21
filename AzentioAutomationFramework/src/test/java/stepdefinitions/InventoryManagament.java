@@ -90,12 +90,12 @@ public class InventoryManagament extends BaseClass {
 	} 
 	
 
-	@Then("^Click on Inventory Management$")
+	/*@Then("^Click on Inventory Management$")
 	public void click_on_inventory_management() throws Throwable {
 
 		waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventoryManagament_button());
 		inventoryManagamentObj.inventoryManagament_button().click();
-	}
+	}*/
 
 	@And("^Click on the eye icon of Inventory Request$")
 	public void click_on_the_eye_icon_of_inventory_request() throws Throwable {
@@ -150,8 +150,8 @@ public class InventoryManagament extends BaseClass {
 
 	}
 
-	@Then("^Click on Notification button$")
-	public void click_on_notification_button() throws Throwable {
+	@Then("^Click Notification button$")
+    public void click_notification_button() throws Throwable {
 		waithelper.waitForElement(driver, 3000, budgetTransferObj.budget_BudgetTransfer_NotificationIcon());
 		budgetTransferObj.budget_BudgetTransfer_NotificationIcon().click();
 
@@ -948,34 +948,34 @@ public class InventoryManagament extends BaseClass {
 				
 			}
 
-			@Then("^click on edit icon near by fiancial transaction menu$")
-			public void click_on_edit_icon_near_by_fiancial_transaction_menu() throws Throwable {
+			@Then("^click on edit icon near fiancial transaction menu$")
+			public void click_on_edit_icon_near_fiancial_transaction_menu() throws Throwable {
 				inventoryManagamentObj.inventoryFinancialTransactionIcon().click();
 
 			}
 
-			@And("^choose branch code$")
-			public void choose_branch_code() throws Throwable {
+			@And("^choose the branch code$")
+			public void choose_the_branch_code() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				inventoryManagamentObj.inventoryBranchCode().sendKeys(inventoryManagementTestDataType.BranchCode);
 				inventoryManagamentObj.inventoryBranchCode().sendKeys(Keys.ENTER);
 			}
 
-			@And("^choose Gl code$")
-			public void choose_gl_code() throws Throwable {
+			@And("^choose the Gl code$")
+			public void choose_the_gl_code() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				inventoryManagamentObj.inventoryGlCode().sendKeys(inventoryManagementTestDataType.gLCode);
 				inventoryManagamentObj.inventoryGlCode().sendKeys(Keys.ENTER);
 			}
 
-			@And("^click on transaction from date calender icon$")
-			public void click_on_transaction_from_date_calender_icon() throws Throwable {
+			@And("^click transaction from date calender icon$")
+			public void click_transaction_from_date_calender_icon() throws Throwable {
 				inventoryManagamentObj.inventoryFromDate().click();
 
 			}
 
-			@Then("^choose the from date$")
-			public void choose_the_from_date() throws Throwable {
+			@Then("^choose from date$")
+			public void choose_from_date() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				javascripthelper.JavaScriptHelper(driver);
 				while(true)
@@ -997,16 +997,16 @@ public class InventoryManagament extends BaseClass {
 				clicksAndActionHelper.doubleClick(FinalDay);
 			}
 
-			@And("^click on the transaction to date calender icon$")
-			public void click_on_the_transaction_to_date_calender_icon() throws Throwable {
+			@And("^click on transaction to date calender icon$")
+			public void click_on_transaction_to_date_calender_icon() throws Throwable {
 
 				waithelper.waitForElement(driver, 3000, inventoryManagamentObj.inventoryToDate());
 				inventoryManagamentObj.inventoryToDate().click();
 			
 			}
 
-			@Then("^choose the to date$")
-			public void choose_the_to_date() throws Throwable {
+			@Then("^choose to date$")
+			public void choose_to_date() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				while(true)
 		        {
@@ -1204,8 +1204,8 @@ public class InventoryManagament extends BaseClass {
 		    	inventoryManagamentObj.inventory_MasterItemEye().click();
 		    }
 		    
-		    @Then("^click on search icon$")
-		    public void click_on_search_icon() throws Throwable {
+		    @Then("^click on the search icon$")
+		    public void click_on_the_search_icon() throws Throwable {
 		    	waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_SearchIcon());
 		    	inventoryManagamentObj.inventory_SearchIcon().click();
 		    }
@@ -1272,16 +1272,16 @@ public class InventoryManagament extends BaseClass {
 				inventoryManagamentObj.inventory_StockConfirmEye().click();
 			}
 
-			@And("^Sub module Inventory stock confirmation click Add icon$")
+			/*@And("^Sub module Inventory stock confirmation click Add icon$")
 			public void sub_module_inventory_stock_confirmation_click_add_icon() throws Throwable {
 
 				// ---------TO VIEW THE stock return from branch Add icon----------//
 				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventoryStockConfirmAdd());
 				inventoryManagamentObj.inventoryStockConfirmAdd().click();
-			}
+			}*/
 
-			@Then("^Enter Request Referance Number$")
-			public void enter_request_referance_number() throws Throwable {
+			@Then("^Enter the Request Referance Number$")
+			public void enter_the_request_referance_number() throws Throwable {
 				
 				// -----------ENTER THE REQUEST REFERANCE NUMBER---------//
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
@@ -1302,15 +1302,15 @@ public class InventoryManagament extends BaseClass {
 			
 			}
 
-			@Then("^Accept the status in checkbox$")
+			/*@Then("^Accept the status in checkbox$")
 			public void accept_the_status_in_checkbox() throws Throwable {
 
 				// ----------ACCEPT THE STATUS----------//
 				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.StockConfirm_AcceptCheckBox());
 				inventoryManagamentObj.StockConfirm_AcceptCheckBox().click();
-			}
+			}*/
 
-			@And("^click the save icon for StockConfirm$")
+			/*@And("^click the save icon for StockConfirm$")
 			public void click_the_save_icon_for_stockconfirm() throws Throwable {
 
 				// ----------SAVE THE RECORD----------//
@@ -1318,7 +1318,7 @@ public class InventoryManagament extends BaseClass {
 				inventoryManagamentObj.StockConfirm_Save().click();
 				Thread.sleep(2000);
 				inventoryManagamentObj.StockConfirm_Notification_Close().click();
-			}
+			}*/
 
 			@And("^goto maker Notification icon$")
 			public void goto_maker_notification_icon() throws Throwable {
@@ -1382,12 +1382,12 @@ public class InventoryManagament extends BaseClass {
 
 			}
 
-			@Then("^click on Edit icon near by financial transaction$")
+			/*@Then("^click on Edit icon near by financial transaction$")
 			public void click_on_edit_icon_near_by_financial_transaction() throws Throwable {
 				//-----------CLICK ON FINANCIAL EDIT------------//
 				inventoryManagamentObj.inventoryFinancialTransactionIcon().click();
 
-			}
+			}*/
 
 			@And("^choose branch code Id$")
 			public void choose_branch_code_id() throws Throwable {
@@ -1397,8 +1397,8 @@ public class InventoryManagament extends BaseClass {
 				inventoryManagamentObj.inventoryBranchCode().sendKeys(Keys.ENTER);
 			}
 
-			@And("^choose Gl code Id$")
-			public void choose_gl_code_id() throws Throwable {
+			@And("^choose the Gl code Id$")
+			public void choose_the_gl_code_id() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				//-----------CLICK ON GL CODE--------------//
 				inventoryManagamentObj.inventoryGlCode().sendKeys(inventoryManagementTestDataType.gLCode);
@@ -1411,8 +1411,8 @@ public class InventoryManagament extends BaseClass {
 				inventoryManagamentObj.inventoryFromDate().click();
 			}
 
-			@Then("^choose from date in calender$")
-			public void choose_from_date_in_calender() throws Throwable {
+			@Then("^choose from date in the calender$")
+			public void choose_from_date_in_the_calender() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				//----------CLICK ON FROM DATE--------------//
 				javascripthelper.JavaScriptHelper(driver);
@@ -1443,8 +1443,8 @@ public class InventoryManagament extends BaseClass {
 
 			}
 
-			@Then("^choose the To date in calender$")
-			public void choose_the_to_date_in_calender() throws Throwable {
+			@Then("^choose the To date in the calender$")
+			public void choose_the_to_date_in_the_calender() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				while (true) {
 					try {

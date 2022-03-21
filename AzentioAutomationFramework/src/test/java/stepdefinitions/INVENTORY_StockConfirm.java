@@ -62,15 +62,15 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		Thread.sleep(1000);
 	}
 
-	@Then("^Inventory Second direction icon$")
+	/*@Then("^Inventory Second direction icon$")
 	public void inventory_second_direction_icon() throws Throwable {
 
 		// ---------TO VIEW THE TRANFER AMOUNT BUDGET----------//
 		waitHelper.waitForElement(driver, 2000, stockConfirmationObj.inventoryTransfericon());
 		stockConfirmationObj.inventoryTransfericon().click();
-	}
+	}*/
 
-	@And("^Inventory Management Module$")
+	/*@And("^Inventory Management Module$")
 	public void inventory_management_module() throws Throwable {
 
 		// ---------TO VIEW THE Inventory Management----------//
@@ -85,15 +85,15 @@ public class INVENTORY_StockConfirm extends BaseClass{
     	waitHelper.waitForElement(driver, 2000, stockConfirmationObj.inventory_StockissueEye());
     	stockConfirmationObj.inventory_StockissueEye().click();
  
-    }
+    }*/
 
-    @And("^Click on First record eye icon$")
+    /*@And("^Click on First record eye icon$")
     public void click_on_first_record_eye_icon() throws Throwable {
        	waitHelper.waitForElement(driver, 2000, stockConfirmationObj.inventory_StockissueGridEye());
     	stockConfirmationObj.inventory_StockissueGridEye().click();
-    }
+    }*/
     
-    @Then("^Get the New Request Referance No$")
+    /*@Then("^Get the New Request Referance No$")
     public void get_the_new_request_referance_no() throws Throwable {
          RefNo = stockConfirmationObj.inventory_StockissueRefNo().getText();
         System.out.println("Request Referance No =" +RefNo);
@@ -105,7 +105,7 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		// ---------TO VIEW THE stock return from branch Eye icon----------//
 		waitHelper.waitForElement(driver, 2000, stockConfirmationObj.inventory_StockConfirmEye());
 		stockConfirmationObj.inventory_StockConfirmEye().click();
-	}
+	}*/
 
 	@And("^Sub module Inventory stock confirmation click Add icon$")
 	public void sub_module_inventory_stock_confirmation_click_add_icon() throws Throwable {
@@ -166,12 +166,12 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		stockConfirmationObj.StockConfirm_ActionButton().click();
 	}
 
-	@Then("^Click Submit button to Inventory Record$")
+	/*@Then("^Click Submit button to Inventory Record$")
 	public void click_submit_button_to_inventory_record() throws Throwable {
 		// -----------Submit Icon Inventory-----------//
 		waitHelper.waitForElement(driver, 2000, stockConfirmationObj.StockConfirm_Submit());
 		stockConfirmationObj.StockConfirm_Submit().click();
-	}
+	}*/
 
 	@And("^Give Remark and submit to reviewer$")
 	public void give_remark_and_submit_to_reviewer() throws Throwable {
@@ -344,7 +344,7 @@ public class INVENTORY_StockConfirm extends BaseClass{
 
 	}
 
-	@And("^click Enquiry menu$")
+	/*@And("^click Enquiry menu$")
 	public void click_Enquiry_menu() throws Throwable {
 		//------------CLICK ON ENQUIRY ICON--------------//
 		waitHelper.waitForElement(driver, 3000, stockConfirmGlObj.inventoryEnquiryMenu());
@@ -352,7 +352,7 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		waitHelper.waitForElement(driver, 3000, stockConfirmGlObj.inventoryFinancialTransactionIcon());
 		Assert.assertTrue(stockConfirmGlObj.inventoryFinancialTransactionIcon().isDisplayed());
 
-	}
+	}*/
 
 	@Then("^click on Edit icon near by financial transaction$")
 	public void click_on_edit_icon_near_by_financial_transaction() throws Throwable {
@@ -375,11 +375,11 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		stockConfirmGlObj.inventoryGlCode().sendKeys(Keys.ENTER);
 	}
 
-	@And("^click on transaction from date in calender icon$")
+	/*@And("^click on transaction from date in calender icon$")
 	public void click_on_transaction_from_date_calender_in_calender_icon() throws Throwable {
 		//-----------CLICK ON CALANDER--------------//
 		stockConfirmGlObj.inventoryFromDate().click();
-	}
+	}*/
 
 	@Then("^choose from date in calender$")
 	public void choose_from_date_in_calender() throws Throwable {
@@ -404,13 +404,13 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		clickAndActionHelper.doubleClick(FinalDay);
 	}
 
-	@And("^click on the transaction to date in calender icon$")
+	/*@And("^click on the transaction to date in calender icon$")
 	public void click_on_the_transaction_to_date_calender_in_calender_icon() throws Throwable {
 		//----------CLICK ON TRANSACTION TO DATE--------//
 		waitHelper.waitForElement(driver, 3000, stockConfirmGlObj.inventoryToDate());
 		stockConfirmGlObj.inventoryToDate().click();
 
-	}
+	}*/
 
 	@Then("^choose the To date in calender$")
 	public void choose_the_to_date_in_calender() throws Throwable {
@@ -433,12 +433,12 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		clickAndActionHelper.doubleClick(FinalDay);
 	}
 
-	@And("^click on view button to see the Record$")
+	/*@And("^click on view button to see the Record$")
 	public void click_on_view_button_to_see_the_record() throws Throwable {
 		//----------CLICK ON VIEW BUTTON----------//
 		stockConfirmGlObj.inventoryViewButton().click();
 
-	}
+	}*/
 
 
 }
