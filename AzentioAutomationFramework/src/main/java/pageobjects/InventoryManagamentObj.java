@@ -14,7 +14,7 @@ public class InventoryManagamentObj {
 		PageFactory.initElements(driver, this);
 	}
 
-	// InventoryManagament Button
+	/*InventoryManagament Button*/
 	@FindBy(xpath = "//ion-label[contains(text(),'Inventory management')]")
 	private WebElement inventoryManagament_button;
 
