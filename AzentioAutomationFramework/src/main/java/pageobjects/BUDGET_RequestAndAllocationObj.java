@@ -116,7 +116,12 @@ public class BUDGET_RequestAndAllocationObj {
 	public WebElement budget_requestAndAllocation_Budgetcodesearch() {
 		return requestAndAllocation_Budgetcodesearch;
 	}
-
+	@FindBy(xpath="//ion-alert[1]/div/div[3]/button[11]")
+	private WebElement budget_BudgetReqAndAllocationAzentMainBranch;
+	public WebElement budgetBudgetReqAndAllocationAzentMainBranch()
+	{
+		return budget_BudgetReqAndAllocationAzentMainBranch;
+	}
 	@FindBy(xpath = "//ion-icon[@name='add']")
 	private WebElement requestAndAllocation_Addicon;
 

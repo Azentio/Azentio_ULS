@@ -135,13 +135,13 @@ public class BUDGET_BudgetCreationObj {
 		return budget_creation_reviewer_id;
 	}
 
-	@FindBy(xpath = "//ion-label[contains(text(),'anant')]")
-	private WebElement budget_creation_logout_button;
-
-	public WebElement budgetCreation_LogoutButton() {
-		return budget_creation_logout_button;
-
-	}
+//	@FindBy(xpath = "//ion-label[contains(text(),'anant')]")
+//	private WebElement budget_creation_logout_button;
+//
+//	public WebElement budgetCreation_LogoutButton() {
+//		return budget_creation_logout_button;
+//
+//	}
 
 	@FindBy(xpath = "//div[contains(text(),'success')]")
 	private WebElement budget_save_status;
@@ -215,4 +215,24 @@ public class BUDGET_BudgetCreationObj {
     {
     	return get_budget_type;
     }
+    
+    @FindBy(xpath="//ion-header/ion-toolbar[1]/ion-buttons[2]/ion-button[4]")
+    private WebElement budget_creation_user_name;
+    public WebElement budgetCreationUserName()
+    {
+    	return budget_creation_user_name;
+    }
+    @FindBy(xpath="//ion-label[contains(text(),'Logout')]")
+    private WebElement budget_creation_logout_button;
+    public WebElement budgetCreationLogoutButton()
+    {
+		return budget_creation_logout_button;
+    	
+    }
+    @FindBy(xpath="//div[@id='toast-container']//button")
+	private WebElement budget_creation_alert_close;
+	public WebElement budgetCreationAlertClose()
+	{
+		return budget_creation_alert_close;
+	}
 }

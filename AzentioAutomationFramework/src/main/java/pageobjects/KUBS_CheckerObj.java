@@ -70,7 +70,13 @@ public class KUBS_CheckerObj {
 	public WebElement checkerGetBudgetCode() {
 		return checker_budget_code;
 	}
+	@FindBy(xpath = "//ion-col[3]//ng-select/div/div/div/span[2]")
+	private WebElement budget_type;
 
+	public WebElement budgetType() {
+		return budget_type;
+
+	}
 	@FindBy(xpath = "//ion-col[3]/app-kub-lov/span/ng-select/div/div/div[2]")
 	private WebElement checker_budget_year;
 
@@ -162,4 +168,19 @@ public class KUBS_CheckerObj {
 	{
 		return Popup_status;
 	}
+	
+	
+	@FindBy(xpath="//ion-header/ion-toolbar[1]/ion-buttons[2]/ion-button[4]")
+    private WebElement checker_user_name;
+    public WebElement checkerUserName()
+    {
+    	return checker_user_name;
+    }
+    @FindBy(xpath="//ion-label[contains(text(),'Logout')]")
+    private WebElement checker_logout_button;
+    public WebElement checkerLogoutButton()
+    {
+		return checker_logout_button;
+    	
+    }
 }

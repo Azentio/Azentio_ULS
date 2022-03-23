@@ -125,16 +125,16 @@ public class INVENTORY_StockConfirm extends BaseClass{
 		stockConfirmationObj.StockConfirm_RequestReferanceNumber().sendKeys(Keys.ENTER);
 	}
 
-	@And("^Enter Item code Number$")
-	public void enter_item_code_number() throws Throwable {
-		
-		// ---------ENTER THE ITEM CODE--------//
-		waitHelper.waitForElement(driver, 2000, stockConfirmationObj.StockConfirm_ItemCode());
-		stockConfirmationObj.StockConfirm_ItemCode().click();
-		stockConfirmationObj.StockConfirm_ItemCode().sendKeys(Keys.DOWN);
-		stockConfirmationObj.StockConfirm_ItemCode().sendKeys(Keys.ENTER);
-	
-	}
+//	@And("^Enter Item code Number$")
+//	public void enter_item_Code_number() throws Throwable {
+//		
+//		// ---------ENTER THE ITEM CODE--------//
+//		waitHelper.waitForElement(driver, 2000, stockConfirmationObj.StockConfirm_ItemCode());
+//		stockConfirmationObj.StockConfirm_ItemCode().click();
+//		stockConfirmationObj.StockConfirm_ItemCode().sendKeys(Keys.DOWN);
+//		stockConfirmationObj.StockConfirm_ItemCode().sendKeys(Keys.ENTER);
+//	
+//	}
 
 	@Then("^Accept the status in checkbox$")
 	public void accept_the_status_in_checkbox() throws Throwable {
@@ -361,8 +361,8 @@ public class INVENTORY_StockConfirm extends BaseClass{
 
 	}
 
-	@And("^choose branch code Id$")
-	public void choose_branch_code_id() throws Throwable {
+	@And("^choose branch code ID$")
+	public void choose_branch_code_ID() throws Throwable {
 		//-----------CLICK ON BRANCH CODE------------//
 		stockConfirmGlObj.inventoryBranchCode().sendKeys(inventoryData.branchCode);
 		stockConfirmGlObj.inventoryBranchCode().sendKeys(Keys.ENTER);

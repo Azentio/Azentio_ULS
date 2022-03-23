@@ -1,14 +1,11 @@
 package stepdefinitions;
 
-import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
@@ -27,7 +24,6 @@ import pageobjects.KUBS_CheckerObj;
 import pageobjects.KUBS_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
-import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
 import testDataType.InventoryManagementTestDataType;
@@ -1038,13 +1034,13 @@ public class InventoryManagament extends BaseClass {
 	//-------arshat KUBS_INV_MGMT_UAT_005_001----
 			
 		    
-			@Then("^Click on Second icon page$")
-			public void click_on_second_icon_page() throws Throwable {
-
-				// ---------TO VIEW THE TRANFER AMOUNT BUDGET----------//
-				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventoryTransfericon());
-				inventoryManagamentObj.inventoryTransfericon().click();
-			}
+//			@Then("^Click on Second icon page$")
+//			public void click_on_second_icon_page() throws Throwable {
+//
+//				// ---------TO VIEW THE TRANFER AMOUNT BUDGET----------//
+//				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventoryTransfericon());
+//				inventoryManagamentObj.inventoryTransfericon().click();
+//			}
 
 			@And("^Click Inventory Management module$")
 			public void click_inventory_management_module() throws Throwable {
@@ -1160,13 +1156,13 @@ public class InventoryManagament extends BaseClass {
 
 			}
 
-			@Then("^Click Submit icon to Inventory Record$")
-			public void click_submit_icon_to_inventory_record() throws Throwable {
-
-				// -----------Submit Icon Inventory-----------//
-				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_Submit());
-				inventoryManagamentObj.inventory_Submit().click();
-			}
+//			@Then("^Click Submit icon to Inventory Record$")
+//			public void click_submit_icon_to_inventory_record() throws Throwable {
+//
+//				// -----------Submit Icon Inventory-----------//
+//				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_Submit());
+//				inventoryManagamentObj.inventory_Submit().click();
+//			}
 
 			@And("^Give Remark and submit Inventory field$")
 			public void give_remark_and_submit_inventory_field() throws Throwable {
@@ -1210,20 +1206,20 @@ public class InventoryManagament extends BaseClass {
 		    	inventoryManagamentObj.inventory_SearchIcon().click();
 		    }
 
-		    @And("^Give Item description value and Click Edit icon$")
-		    public void give_item_description_value_and_click_edit_icon() throws Throwable {
-		    	waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_Itemvalue());
-		    	inventoryManagamentObj.inventory_Itemvalue().click();
-		    	inventoryManagamentObj.inventory_Itemvalue().sendKeys("STAPLERS");
-		    }
+//		    @And("^Give Item description value and Click Edit icon$")
+//		    public void give_item_description_value_and_click_edit_icon() throws Throwable {
+//		    	waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_Itemvalue());
+//		    	inventoryManagamentObj.inventory_Itemvalue().click();
+//		    	inventoryManagamentObj.inventory_Itemvalue().sendKeys("STAPLERS");
+//		    }
 		    
-		    @When("^validate the quantity of the Item$")
-		    public void validate_the_quantity_of_the_item() throws Throwable {
-		    	waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_CurrentQuantity());
-		    	String Quantity = inventoryManagamentObj.inventory_CurrentQuantity().getText();
-		    	System.out.println("The Branch Available Quantity is: "+Quantity);
-		    }  
-		    
+//		    @When("^validate the quantity of the Item$")
+//		    public void validate_the_quantity_of_the_item() throws Throwable {
+//		    	waithelper.waitForElement(driver, 2000, inventoryManagamentObj.inventory_CurrentQuantity());
+//		    	String Quantity = inventoryManagamentObj.inventory_CurrentQuantity().getText();
+//		    	System.out.println("The Branch Available Quantity is: "+Quantity);
+//		    }  
+//		    
 		    //---------------KUBS_INV_MGMT_UAT_004_StockConfirm
 		    
 		    
@@ -1292,7 +1288,7 @@ public class InventoryManagament extends BaseClass {
 			}
 
 			@And("^Enter Item code Number$")
-			public void enter_item_code_number() throws Throwable {
+			public void enter_item_Code_Number() throws Throwable {
 				
 				// ---------ENTER THE ITEM CODE--------//
 				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.StockConfirm_ItemCode());
@@ -1320,8 +1316,8 @@ public class InventoryManagament extends BaseClass {
 				inventoryManagamentObj.StockConfirm_Notification_Close().click();
 			}*/
 
-			@And("^goto maker Notification icon$")
-			public void goto_maker_notification_icon() throws Throwable {
+			@And("^goto maker Notification Icon$")
+			public void goto_maker_notification_Icon() throws Throwable {
 				// ------------Maker Notification icon---------//
 				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.StockConfirm_MakerNotification());
 				inventoryManagamentObj.StockConfirm_MakerNotification().click();
@@ -1339,8 +1335,8 @@ public class InventoryManagament extends BaseClass {
 				inventoryManagamentObj.StockConfirm_Submit().click();
 			}
 
-			@And("^Give Remark and submit to reviewer$")
-			public void give_remark_and_submit_to_reviewer() throws Throwable {
+			@And("^Give Remark and submit to Reviewer$")
+			public void give_remark_and_submit_to_Reviewer() throws Throwable {
 				// ----------ENTER THE REMARK AND SUBMIT THE RECORD-------------//
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				waithelper.waitForElement(driver, 2000, inventoryManagamentObj.StockConfirm_Remark());
@@ -1362,15 +1358,15 @@ public class InventoryManagament extends BaseClass {
 		 //---------------------KUBS_INV_MGMT_UAT_004_GL-------------
 			
 		    
-			@Then("^click on report button$")
-			public void click_on_report_button() throws Throwable {
-				//-----------CLICK ON REPORT ICON----------------//
-				waithelper.waitForElement(driver, 3000, inventoryManagamentObj.inventoryReportIcon());
-				inventoryManagamentObj.inventoryReportIcon().click();
-				waithelper.waitForElement(driver, 3000, inventoryManagamentObj.inventoryEnquiryMenu());
-				Assert.assertTrue(inventoryManagamentObj.inventoryEnquiryMenu().isDisplayed());
-
-			}
+//			@Then("^click on report button$")
+//			public void click_on_report_button() throws Throwable {
+//				//-----------CLICK ON REPORT ICON----------------//
+//				waithelper.waitForElement(driver, 3000, inventoryManagamentObj.inventoryReportIcon());
+//				inventoryManagamentObj.inventoryReportIcon().click();
+//				waithelper.waitForElement(driver, 3000, inventoryManagamentObj.inventoryEnquiryMenu());
+//				Assert.assertTrue(inventoryManagamentObj.inventoryEnquiryMenu().isDisplayed());
+//
+//			}
 
 			@And("^click Enquiry menu$")
 			public void click_Enquiry_menu() throws Throwable {
@@ -1390,7 +1386,7 @@ public class InventoryManagament extends BaseClass {
 			}*/
 
 			@And("^choose branch code Id$")
-			public void choose_branch_code_id() throws Throwable {
+			public void choose_branch_code_Id() throws Throwable {
 				inventoryManagementTestDataType = jsonReader.getInventoryManagementByName("Maker");
 				//-----------CLICK ON BRANCH CODE------------//
 				inventoryManagamentObj.inventoryBranchCode().sendKeys(inventoryManagementTestDataType.BranchCode);

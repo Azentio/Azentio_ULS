@@ -110,9 +110,9 @@ Then Enter Request Referance Number
 And Enter Item code Number
 Then Accept the status in checkbox
 And click the save icon for StockConfirm
-And goto maker Notification icon
+And goto maker Notification Icon
 Then Click Submit button to Inventory Record
-And Give Remark and submit to reviewer
+And Give Remark and submit to Reviewer
 Given Login As Reviewer
 And Goto Reviewer Notification
 Then open the submitted Record from maker

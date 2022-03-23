@@ -139,13 +139,13 @@ public class INVENTORY_InventoryStcokIssue extends BaseClass {
 		inventoryStockIssue.inventoryStockIssueSaveButton().click();		
 	}
 
-	@Then("^click on notification$")
-    public void click_on_notification() throws Throwable {
-		waitHelper.waitForElement(driver, 3000, inventoryStockIssue.inventoryStockIssueAlertClose());
-    	inventoryStockIssue.inventoryStockIssueAlertClose().click();
-		inventoryStockIssue.inventoryStockIssueNotificationIcon().click();
-       
-    }
+//	@Then("^click on notification$")
+//    public void click_on_notification() throws Throwable {
+//		waitHelper.waitForElement(driver, 3000, inventoryStockIssue.inventoryStockIssueAlertClose());
+//    	inventoryStockIssue.inventoryStockIssueAlertClose().click();
+//		inventoryStockIssue.inventoryStockIssueNotificationIcon().click();
+//       
+//    }
 	@And("^select the first record in notification$")
     public void select_the_first_record_in_notification() throws Throwable {
 		waitHelper.waitForElement(driver, 3000, inventoryStockIssue.inventoryStockIssueFirstReferenceId());

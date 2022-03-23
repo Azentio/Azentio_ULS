@@ -14,6 +14,7 @@ import com.google.gson.stream.JsonReader;
 import testDataType.ACCOUNTSPAYABLE_VendorContractsTestDataType;
 import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
+import testDataType.BUDGET_BudgetDefinitionUATTestDataType;
 import testDataType.BUDGET_BudgetTransferTestDataType;
 import testDataType.BUDGET_RequestAndAllocationTestDataType;
 import testDataType.BUDGET_RequestandallocationBUDTYPEDATA;
@@ -57,7 +58,10 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 	//Budget_BudgetCreation
 	private final String BudgetCreationPath = configFileReader.getJsonPath() + "BUDGET_BudgetCreationJSON.json";
 	private List<BUDGET_BudgetDefinitionTestDataType> BudgetCreationList;
-
+ 
+	//UAT Budget Definition 
+	private final String BudgetDefinitionUATFilePath = configFileReader.getJsonPath() + "BUDGET_BudgetDefinitionUATJSON.json";
+	private List<BUDGET_BudgetDefinitionUATTestDataType> budgetDefinitionUATTestData;
 
 	//Budget_SupplementaryBudget
 
@@ -200,6 +204,29 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 		}
 	}
 
+	
+	// UAT budget definition test data Function 
+	private List<BUDGET_BudgetDefinitionUATTestDataType> getBudgetDefinitionUATTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(BudgetDefinitionUATFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(BudgetDefinitionUATFilePath));
+			BUDGET_BudgetDefinitionUATTestDataType[] budgetDefinitionUAtTestData = gson.fromJson(bufferReader,
+					BUDGET_BudgetDefinitionUATTestDataType[].class);
+			return Arrays.asList(budgetDefinitionUAtTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + BudgetDefinitionUATFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
 	private List<KUBS_LoginTestDataType> getAzentioCredentialsList() {
 		 Gson gson = new Gson();
 		 JsonReader reader = new JsonReader(new StringReader(AzentioLoginDataPath));
@@ -409,6 +436,11 @@ private List<BUDGET_RequestAndAllocationTestDataType> getAllocationList() {
 	public final BUDGET_BudgetDefinitionTestDataType getBudgetdataByName(String UName) {
 		return BudgetCreationList.stream().filter(x->x.userName.equalsIgnoreCase(UName)).findAny().get();
 		
+	}
+	
+	//UAT Budget Definition test data main function 
+	public final BUDGET_BudgetDefinitionUATTestDataType getUATBudgetDefinitionTestData(String username) {
+		return budgetDefinitionUATTestData.stream().filter(x ->x.usertType.equalsIgnoreCase(username)).findAny().get();
 	}
 
 	
