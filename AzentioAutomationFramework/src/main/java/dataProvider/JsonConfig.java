@@ -119,6 +119,8 @@ private final String BudtypeFilepath = configFileReader.getJsonPath() + "BUDGET_
 		/*RegisterList = getRegisterData();
 		LoginList = getLoginList();*/
 
+		budgetDefinitionUATTestData=getBudgetDefinitionUATTestData();
+		
 		AllocationList = getAllocationList();
 		BudtypeList = getBudtypeList();
 

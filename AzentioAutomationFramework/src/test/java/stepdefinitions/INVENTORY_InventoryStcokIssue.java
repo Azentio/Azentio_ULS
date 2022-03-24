@@ -45,10 +45,10 @@ public class INVENTORY_InventoryStcokIssue extends BaseClass {
 		javascriptHelper.JavaScriptHelper(driver);
 	}
 
-	@Then("^click on second Segment button$")
-	public void click_on_second_segment_button() throws Throwable {
-		kubsMakerObj.kubsDirectionIcon().click();
-	}
+//	@Then("^click on second Segment button$")
+//	public void click_on_second_segment_button() throws Throwable {
+//		kubsMakerObj.kubsDirectionIcon().click();
+//	}
 	@And("^click on inventory management main menu$")
 	public void click_on_inventory_management_main_menu() throws Throwable {
 

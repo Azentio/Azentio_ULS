@@ -35,8 +35,7 @@ public class BUDGET_UAT_BudgetDefinition extends BaseClass {
 	JsonConfig jsonConfig = new JsonConfig();
 	KUBS_MakerObj kubsMakerObj = new KUBS_MakerObj(driver);
 	WaitHelper waitHelper = new WaitHelper(driver);
-	BUDGET_BudgetDefinitionUATTestDataType budgetDefinitionUATTestData = jsonConfig
-			.getUATBudgetDefinitionTestData(user);
+	BUDGET_BudgetDefinitionUATTestDataType budgetDefinitionUATTestData = jsonConfig.getUATBudgetDefinitionTestData(user);
 	BUDGET_BudgetCreationObj budgetCreationObj = new BUDGET_BudgetCreationObj(driver);
 	JsonDataReaderWriter jsonReaderWriter = new JsonDataReaderWriter();
 	KUBS_ReviewerObj kubsReviewerObj = new KUBS_ReviewerObj(driver);

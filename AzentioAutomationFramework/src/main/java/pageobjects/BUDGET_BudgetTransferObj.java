@@ -395,4 +395,86 @@ public class BUDGET_BudgetTransferObj {
 	public WebElement budget_BudgetTransfer_NotificationIcon() {
 		return budget_BudgetTransfer_NotificationIcon;
 }
+	@FindBy(xpath="//ion-row[2]/ion-col[1]//ion-label")
+	private WebElement budgetTransfer_FromBudget;
+	public WebElement budgetTransferFromBudget()
+	{
+		return budgetTransfer_FromBudget;
+	}
+	@FindBy(xpath="//page-budget-transfer-update[1]/ion-content[1]/ion-infinite-scroll[1]/form[1]/ion-grid[1]/ion-row[2]/ion-col[2]//ion-label")
+    private WebElement  budgetTransfer_ToBudget;
+	public WebElement budgetTransferToBudget()
+	{
+		return budgetTransfer_ToBudget;
+	}
+    @FindBy(xpath="//ion-button[@ng-reflect-router-link='tabs/entities/transfer-of-budg']")
+    private WebElement transferBudgetdetailsReport_TempView;
+    public WebElement transferbudgetDetailsReportTempView()
+    {
+    	return transferBudgetdetailsReport_TempView;
+    }
+    @FindBy(xpath="//button[@aria-label='Next month']")
+    private WebElement budgetTransfer_NextMonth;
+    public WebElement budgetTransferNextMonth()
+    {
+    	return budgetTransfer_NextMonth;
+    }
+    @FindBy(xpath="//tbody/tr[2]/td[7]/input[1]")
+	private WebElement budgetTransferReport_NextRecord;
+	public WebElement budgetTransferReportNextRecord()
+	{
+	   return budgetTransferReport_NextRecord;
+	}
+	@FindBy(xpath="//span[@id='totalPage']")
+	private WebElement budgetTransferTotal_NumberOfPage;
+	public WebElement budgetTransferTotalNumberofPage()
+	{
+		return budgetTransferTotal_NumberOfPage;
+	}
+	@FindBy(xpath="//a[contains(text(),'View')]")
+    private WebElement budgetTransferReport_ViewButton;
+    public WebElement budgetTransferReportViewButton()
+    {
+ 	   return budgetTransferReport_ViewButton;
+    }
+	@FindBy(xpath="//app-data-grid[1]//datatable-row-wrapper[1]//datatable-body-cell[1]//ion-button[1]")
+	private WebElement budgetTransfer_Approved_Record;
+	public WebElement budgetTransferApprovedRecord()
+	{
+		return budgetTransfer_Approved_Record;
+	}
+	
+	//report
+	
+	@FindBy(xpath="//ion-label[contains(text(),'Reports')]")
+    private WebElement report_Report;
+    public WebElement reportReortMainMenu()
+    {
+ 	   return report_Report;
+    }
+    @FindBy(xpath="//span[@class='input-calendar']")
+	private WebElement budgetTransfer_DateAsOn;
+	public WebElement budgetTransferDateAsOn()
+	{
+		return budgetTransfer_DateAsOn;
+	}
+	@FindBy(xpath="//ion-col[3]//input")
+	private WebElement accountsPayableReport_PayableStatus;
+	public WebElement accountsPayablePayableStatus()
+	{
+		return accountsPayableReport_PayableStatus;
+	}
+//	@FindBy(xpath="//tbody/tr[2]/td[7]/input[1]")
+//	private WebElement budgetTransfer_NextRecord;
+//	public WebElement budgetTransferReportNextRecord()
+//	{
+//		return budgetTransfer_NextRecord;
+//	}
+	@FindBy(xpath="//ion-button[@ng-reflect-router-link='tabs/entities/account-payable-']")
+	private WebElement budgetTransfer_TempView;
+	public WebElement budgetTransferTempView()
+	{
+		return budgetTransfer_TempView;
+	}
+    
 }

@@ -15,4 +15,8 @@ public class BUDGET_BudgetDefinitionUATTestDataType {
 	public String approvalCommentsFromReviewer;
 	public String approvalCommentsFromChecker;
 	public String uatCurrentFinancialBudgetCode;
+	public String Month;
+	public String FullMonth;
+	public String Year;
+	public String Day;
 }

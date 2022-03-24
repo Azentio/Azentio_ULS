@@ -30,13 +30,13 @@ public class KUBS_reviewer extends BaseClass {
 	BUDGET_BudgetDefinitionTestDataType budgetdata;
 	JsonConfig jsonconfig=new JsonConfig();
 	
-	 @Given("^Navigate to Url and login as a reviewer$")
-	    public void navigate_to_url_and_login_as_a_reviewer() throws Throwable {
-		  reader=new JsonDataReaderWriter();
-			login = new KUBS_Login(driver);
-			driver.get(config.getApplicationUrl());
-			 login.logintoAzentioappReviewer("Reviewer", reader.readdata());
-	    }
+//	 @Given("^Navigate to Url and login as a reviewer$")
+//	    public void navigate_to_url_and_login_as_a_reviewer() throws Throwable {
+//		  reader=new JsonDataReaderWriter();
+//			login = new KUBS_Login(driver);
+//			driver.get(config.getApplicationUrl());
+//			 login.logintoAzentioappReviewer("Reviewer", reader.readdata());
+//	    }
 
 	    @Then("^Click on Notification button$")
 	    public void click_on_notification_button() throws Throwable {
@@ -47,10 +47,10 @@ public class KUBS_reviewer extends BaseClass {
 	      
 	    }
 
-	    @Then("^Click on action button$")
-	    public void click_on_action_button() throws IOException{
-
-	    }
+//	    @Then("^Click on action button$")
+//	    public void click_on_action_button() throws IOException{
+//
+//	    }
 
 	    @And("^Find the budget code which submitted from maker$")
 	    public void find_the_budget_code_which_submitted_from_maker() throws Throwable {

@@ -13,6 +13,15 @@
 		"uatHalfYearlyBudgetType": "Departments",
 		"uatQuarterlyBudgetType": "Revenue Budget",
 		"approvalCommentsFromReviewer": "Approved from Reviewer",
-		"approvalCommentsFromChecker": "Approved from Checker"
+		"approvalCommentsFromChecker": "Approved from Checker",
+		
+		
+		
+		
+		//Budget Transfer Report
+		"Month":"Oct",
+	"FullMonth":"October",
+	"Year":"2022",
+	"Day":"31"
 	}
 ]

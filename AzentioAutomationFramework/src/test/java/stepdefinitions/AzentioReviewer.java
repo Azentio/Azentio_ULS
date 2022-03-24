@@ -18,7 +18,7 @@ import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_BudgetCreationTestDataType;
 import testDataType.BUDGET_BudgetDefinitionTestDataType;
 
-public class Azentioreviewer extends BaseClass {
+public class AzentioReviewer extends BaseClass {
 	WebDriver driver=BaseClass.driver;
 	AzentioLogin login;
 	ConfigFileReader config=new ConfigFileReader();
