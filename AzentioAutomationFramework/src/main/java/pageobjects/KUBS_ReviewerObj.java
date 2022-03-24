@@ -26,7 +26,14 @@ public class KUBS_ReviewerObj {
 	public WebElement reviewer_action_button1() {
 		return reviewer_action_button1;
 	}
+	
+	@FindBy(xpath = "//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[1]//ion-button")
+	private WebElement reviewer_action_button;
 
+	public WebElement reviewer_action_button() {
+		return reviewer_action_button;
+	} 
+	
 	@FindBy(xpath = "//span/ion-button[3]")
 	private WebElement reviewer_reject_button;
 
@@ -105,10 +112,10 @@ public class KUBS_ReviewerObj {
 		return reviewer_reject_toast;
 	}
 @FindBy(xpath = "//datatable-row-wrapper[1]/datatable-body-row/div/datatable-body-cell[1]//ion-button")
-	private WebElement reviewer_action_button;
+	private WebElement reviewerActionButton;
 
 	public WebElement reviewerActionButton() {
-		return reviewer_action_button;
+		return reviewerActionButton;
 
 	}
 

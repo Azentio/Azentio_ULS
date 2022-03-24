@@ -269,7 +269,7 @@ public class BUDGET_UAT_BudgetDefinition extends BaseClass {
     public void choose_branch_as_azentio_main() throws Throwable {
     	javascriptHelper.JavaScriptHelper(driver);
     	requestAndAllocationObj.budget_requestAndAllocation_Budgetbranch().click();
-    	javascriptHelper.scrollIntoViewAndClick(requestAndAllocationObj.budgetBudgetReqAndAllocationAzentMainBranch());
+    	//javascriptHelper.scrollIntoViewAndClick(requestAndAllocationObj.budgetBudgetReqAndAllocationAzentMainBranch());
     	//requestAndAllocationObj.budgetBudgetReqAndAllocationAzentMainBranch().click();
     	requestAndAllocationObj.budget_requestAndAllocation_branchOK().click();
     }

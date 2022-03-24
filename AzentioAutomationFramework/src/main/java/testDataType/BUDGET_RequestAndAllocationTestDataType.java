@@ -9,6 +9,8 @@ public class BUDGET_RequestAndAllocationTestDataType {
 	public String BudgetYear1;
 	public String Branch;
 	public String BudgetAmount;
+	public String BudgetAmount1;
+	public String Budgettype;
 	public String Currency;
 	public String Remark;	
 	public String SearchCode;
@@ -20,6 +22,13 @@ public class BUDGET_RequestAndAllocationTestDataType {
 	public String Quarterly;
 	public String Halfyearly;
 	public String Yearly;
-	
+	public String Budgetcancel;
+	public String BudgetAllocate;
+	public String BudgetCodeUat;
+	public String BudgetApprove;
+	public String Date;
+	public String Month;
+	public String Year;
+	public String FullMonth;
 
 }

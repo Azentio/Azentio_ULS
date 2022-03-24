@@ -15,8 +15,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageobjects.BUDGET_RequestAndAllocationObj;
-import pageobjects.Azentio_CheckerObj;
-import pageobjects.Azentio_ReviewerObj;
+import pageobjects.KUBS_CheckerObj;
+import pageobjects.KUBS_ReviewerObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
 import testDataType.BUDGET_RequestAndAllocationTestDataType;
@@ -26,7 +26,7 @@ public class BUDGET_Auto_Auth_RequestandAllocation extends BaseClass{
 
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader configFileReader = new ConfigFileReader();
-	AzentioLogin login;
+	KUBS_Login login;
 	BUDGET_RequestAndAllocationObj requestAndAllocation;
 	WaitHelper waitHelper;
 	String reviwerId;
@@ -36,8 +36,8 @@ public class BUDGET_Auto_Auth_RequestandAllocation extends BaseClass{
 	BUDGET_RequestandallocationBUDTYPEDATA requestandallocationbudtype = new BUDGET_RequestandallocationBUDTYPEDATA();
 	JavascriptHelper javaHelper = new JavascriptHelper();
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
-	Azentio_ReviewerObj reviewerObj = new Azentio_ReviewerObj(driver);
-	Azentio_CheckerObj kubsChecker = new Azentio_CheckerObj(driver);
+	KUBS_ReviewerObj reviewerObj = new KUBS_ReviewerObj(driver);
+	KUBS_CheckerObj kubsChecker = new KUBS_CheckerObj(driver);
 	
 	// -----------------------AZENTIO COMMON LOGIN STEPS--------------------------//
 
@@ -45,7 +45,7 @@ public class BUDGET_Auto_Auth_RequestandAllocation extends BaseClass{
 	public void navigate_azentio_maker_url() throws Throwable {
 
 		// ---------LOGIN THE MAKER USER--------------//
-		login = new AzentioLogin(driver);
+		login = new KUBS_Login(driver);
 		driver.get(configFileReader.getApplicationUrl());
 		login.loginToAzentioApp("Maker");
 		Thread.sleep(2000);
