@@ -11,45 +11,36 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
-import testDataType.KUBS_LoginTestDataType;
-
+import testDataType.KULS_Login_TestDataType;
 
 //master
 public class JsonConfig {
 	ConfigFileReader configFileReader = new ConfigFileReader();
 
-	
-
-
-
-	//Users_Login
-	private final String AzentioLoginDataPath = configFileReader.getJsonPath() + "KUBS_LoginDataJSON.json";
-	private List<KUBS_LoginTestDataType> credentialslist;
-
+	// ULS Login
+	private final String KULSLoginDataPath = configFileReader.getJsonPath() + "KULS_Login_dataJSON.json";
+	private List<KULS_Login_TestDataType> loginCredentials;
 
 	public JsonConfig() {
-		/*RegisterList = getRegisterData();
-		LoginList = getLoginList();*/
+		/*
+		 * RegisterList = getRegisterData(); LoginList = getLoginList();
+		 */
 
-		
-		credentialslist = getAzentioCredentialsList();
+		loginCredentials = getKULSCredentialsList();
 
-		
 	}
 
-
-	
-	private List<KUBS_LoginTestDataType> getAzentioCredentialsList() {
-		 Gson gson = new Gson();
-		 JsonReader reader = new JsonReader(new StringReader(AzentioLoginDataPath));
-		 reader.setLenient(true);
+	private List<KULS_Login_TestDataType> getKULSCredentialsList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(KULSLoginDataPath));
+		reader.setLenient(true);
 		BufferedReader bufferReader = null;
 		try {
-			bufferReader = new BufferedReader(new FileReader(AzentioLoginDataPath));
-			KUBS_LoginTestDataType[] credentials = gson.fromJson(bufferReader, KUBS_LoginTestDataType[].class);
+			bufferReader = new BufferedReader(new FileReader(KULSLoginDataPath));
+			KULS_Login_TestDataType[] credentials = gson.fromJson(bufferReader, KULS_Login_TestDataType[].class);
 			return Arrays.asList(credentials);
 		} catch (FileNotFoundException e) {
-			throw new RuntimeException("Json file not found at path : " + AzentioLoginDataPath);
+			throw new RuntimeException("Json file not found at path : " + KULSLoginDataPath);
 		} finally {
 			try {
 				if (bufferReader != null)
@@ -59,14 +50,8 @@ public class JsonConfig {
 		}
 	}
 
-	
-	
-	
-	
-	
-	public final KUBS_LoginTestDataType getLoginCredentialsByName(String Username) {
-		return credentialslist.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	public final KULS_Login_TestDataType getKULSLoginCredentialsByName(String Username) {
+		return loginCredentials.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
-
 
 }
