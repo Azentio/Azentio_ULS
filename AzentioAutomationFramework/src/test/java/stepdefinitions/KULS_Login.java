@@ -25,9 +25,9 @@ public class KULS_Login {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
 
 		driver.get(kulsApplicationUrl);
-		kulsLogin.loginUlsApplicationAsMaker(kulsLoginData.Username, kulsLoginData.Password);
+		//kulsLogin.loginUlsApplicationAsMaker(kulsLoginData.Username, kulsLoginData.Password);
 		kulsLogin.ulSApplicationLoginAsAChecker(jsonDataReaderWriter.readdata());
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
 	}
 

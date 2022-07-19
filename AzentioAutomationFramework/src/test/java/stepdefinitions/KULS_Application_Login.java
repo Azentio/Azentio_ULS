@@ -1,7 +1,8 @@
 package stepdefinitions;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import dataProvider.JsonConfig;
 import helper.JavascriptHelper;
@@ -36,17 +37,9 @@ public class KULS_Application_Login {
 		loginObj.password().sendKeys(password);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
-		String currentUrl = driver.getCurrentUrl();
-		for (int i = 0; i <= 200; i++) {
-			try {
-				Assert.assertEquals(currentUrl, "http://10.1.56.122:8680/cob-qc/menu/tabs/kubs/dashboard");
-				break;
-			} catch (AssertionError e) {
-				if (i == 200) {
-					Assert.fail("Login Failed....!");
-				}
-			}
-		}
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+		assertEquals(loginObj.configuration().isDisplayed(), true);
+
 	}
 
 	public void ulSApplicationLoginAsAChecker(String userID) {
@@ -66,22 +59,10 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword1);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+			assertEquals(loginObj.configuration().isDisplayed(), true);
 
-			for (int i = 0; i <= 200; i++) {
-				String currentUrl = driver.getCurrentUrl();
-				System.out.println(currentUrl);
-				try {
-					Assert.assertEquals(currentUrl, "http://10.1.56.122:8680/cob-qc/menu/tabs/kubs/dashboard");
-					break;
-				} catch (AssertionError e) {
-					if (i == 200) {
-						Assert.fail("Login Failed....!");
-					}
-				}
-			}
-			break;
-		default:
-			Assert.fail("User ID doesn't match with the Json File");
 		}
+
 	}
 }

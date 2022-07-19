@@ -31,5 +31,10 @@ public class KULS_LoginObj {
 	public WebElement signIn() {
 		return signIn;
 	}
+	@FindBy(xpath="//ion-segment-button[@ng-reflect-text='Configuration']")
+	private WebElement configuration;
+	public WebElement configuration() {
+		return configuration;
+	}
 	
 }
