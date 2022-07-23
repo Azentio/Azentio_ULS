@@ -1,0 +1,23 @@
+[
+ {
+	"User":"Maker",
+	"Record1BeforeApproved":"depo30",
+	"ProductDescription1":"desc11",
+	
+	"Record1AfterApproved":"dep05",
+	"ProductDescription2":"desc11",
+	
+	"MakerSubmitRemark":"ok",
+	"CheckerApproveRemark":"Approve",
+	"CheckerRejectRemark":"Reject",
+	"CheckerReturnRemark":"Return",
+	
+	"Record1ForApprove":"dep10",
+	"Record2ForReject":"dep11",
+	"Record3ForReturn":"dep12",
+	
+	"ApproveReferenceID":"5657",
+	"RejectReferenceID":"5658",
+	"ReturnReferenceID":"5659"
+ }
+]
