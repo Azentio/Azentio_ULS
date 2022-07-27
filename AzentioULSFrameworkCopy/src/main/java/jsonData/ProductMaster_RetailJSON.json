@@ -4,7 +4,7 @@
 	"Record1BeforeApproved":"depo30",
 	"ProductDescription1":"desc11",
 	
-	"Record1AfterApproved":"dep05",
+	"Record1AfterApproved":"dep60",
 	"ProductDescription2":"desc11",
 	
 	"MakerSubmitRemark":"ok",
@@ -12,12 +12,12 @@
 	"CheckerRejectRemark":"Reject",
 	"CheckerReturnRemark":"Return",
 	
-	"Record1ForApprove":"dep10",
-	"Record2ForReject":"dep11",
-	"Record3ForReturn":"dep12",
+	"Record1ForApprove":"",
+	"Record2ForReject":"dep006",
+	"Record3ForReturn":"dep003",
 	
-	"ApproveReferenceID":"5657",
-	"RejectReferenceID":"5658",
-	"ReturnReferenceID":"5659"
+	"ApproveReferenceID":"5792",
+	"RejectReferenceID":"5892",
+	"ReturnReferenceID":"5795"
  }
 ]

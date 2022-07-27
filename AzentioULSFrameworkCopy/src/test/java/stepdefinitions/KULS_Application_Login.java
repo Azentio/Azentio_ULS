@@ -49,7 +49,7 @@ public class KULS_Application_Login {
 		javaScriptHelper = new JavascriptHelper(driver);
 		ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
 		switch (userID) {
-		case "in01589":
+		case "in01951":
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
 			loginObj.userId().click();
 			loginObj.userId().sendKeys(ulsUserLoginCredentials.CheckerUserName1);

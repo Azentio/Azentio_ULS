@@ -3,13 +3,18 @@ package stepdefinitions;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
+import helper.BrowserHelper;
 import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
@@ -32,6 +37,7 @@ public class ProductMaster_Retail {
 	KULS_Login_TestDataType ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper = new JavascriptHelper(driver);
+	BrowserHelper browserHelper = new BrowserHelper(driver);
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	ProductMaster_RetailObj productMaster_RetailObj = new ProductMaster_RetailObj(driver);
@@ -51,18 +57,15 @@ public class ProductMaster_Retail {
 
     @Then("^click on edit button of record to modify$")
     public void click_on_edit_button_of_record_to_modify() throws Throwable {
-//    	(//span[contains(text(),'98303275')]/../../../td[1]/span[1]/button[1]/span[1])[1]
-       while (true) {
-			try {
-				String beforexpath = "(//span[contains(text(),'";
-				String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
-				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).click();
-				break;
-			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
-			}
-		}
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Search());
+    	productMaster_RetailObj.productMaster_Product_Search().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInputField().sendKeys(productMaster_RetailTestDataType.Record1BeforeApproved);
+//      xpath-	(//span[contains(text(),'depo30')]/../../../td[1]/span[1]/button[1]/span[1])[1]
+    	String beforexpath = "(//span[contains(text(),'";
+		String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).click();
     }
 
     @Then("^user should verify the buttons available on screen while modify$")
@@ -99,10 +102,16 @@ public class ProductMaster_Retail {
 
     @Then("^verify system should modify already approved record$")
     public void verify_system_should_modify_already_approved_record() throws Throwable {
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Search());
+        productMaster_RetailObj.productMaster_Product_Search().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInputField());
+        productMaster_RetailObj.productMaster_Product_SearchInputField().sendKeys(productMaster_RetailTestDataType.Record1AfterApproved);
     	String beforexpath = "(//span[contains(text(),'";
-        String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
-        waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.Record1AfterApproved+ afterxpath)));
-        driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.Record1AfterApproved+ afterxpath)).click();
+		String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
+//      xpath-	(//span[contains(text(),'dep55')]/../../../td[1]/span[1]/button[1]/span[1])[1]
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.Record1AfterApproved+ afterxpath)).click();
+    	
         waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_ProductDescription());
         clicksAndActionsHelper.doubleClick(productMaster_RetailObj.productMaster_ProductDescription());
         waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_ProductDescription());
@@ -134,48 +143,40 @@ public class ProductMaster_Retail {
     
     @Then("^select the modified record from inbox to approve$")
     public void select_the_modified_record_from_inbox_to_approve() throws Throwable {
-//    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_FirstModifiedRecord());
-//    	productMaster_RetailObj.productMaster_Product_FirstModifiedRecord().click();
-//    	
-//    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_FirstReferenceID());
-//    	String referenceID1 = productMaster_RetailObj.productMaster_Product_FirstReferenceID().getText();
-//    	jsonDataReaderWriter.addReferanceData(referenceID1);
-    	
-    	//span[contains(text(),'5640')]/../../td/button
+//    	xpath - //span[contains(text(),'5640')]/../../td/button
+    	productMaster_RetailObj.productMaster_Product_SearchInbox().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInboxInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInboxInputField().sendKeys(productMaster_RetailTestDataType.ApproveReferenceID);
     	String beforexpath = "//span[contains(text(),'";
-    	String afterxpath = "')]/../../td/button";
-    	waithelper.waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ApproveReferenceID+ afterxpath)), 20 , 3);
-    	driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ApproveReferenceID+ afterxpath)).click();
+		String afterxpath = "')]/../../td/button";
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ApproveReferenceID+ afterxpath)).click();
     }
     
     @Then("^select the modified record from inbox to reject$")
     public void select_the_modified_record_from_inbox_to_reject() throws Throwable {
-//    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_FirstModifiedRecord());
-//    	productMaster_RetailObj.productMaster_Product_FirstModifiedRecord().click();
-//    	
-//    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_FirstReferenceID());
-//    	String referenceID2 = productMaster_RetailObj.productMaster_Product_FirstReferenceID().getText();
-//    	jsonDataReaderWriter.addReferance2Data(referenceID2);
-    	
-    	//span[contains(text(),'5640')]/../../td/button
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInbox());
+    	productMaster_RetailObj.productMaster_Product_SearchInbox().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInboxInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInboxInputField().sendKeys(productMaster_RetailTestDataType.RejectReferenceID);
     	String beforexpath = "//span[contains(text(),'";
-    	String afterxpath = "')]/../../td/button";
-    	waithelper.waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.RejectReferenceID+ afterxpath)), 20 , 3);
-    	driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.RejectReferenceID+ afterxpath)).click();
+		String afterxpath = "')]/../../td/button";
+//		xpath - //span[contains(text(),'5767')]/../../td/button
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.RejectReferenceID+ afterxpath)).click();
     }
     
     @Then("^select the modified record from inbox to return$")
     public void select_the_modified_record_from_inbox_to_return() throws Throwable {
-//    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_FirstModifiedRecord());
-//    	productMaster_RetailObj.productMaster_Product_FirstModifiedRecord().click();
-//    	String referenceID3 = productMaster_RetailObj.productMaster_Product_FirstReferenceID().getText();
-//    	jsonDataReaderWriter.addReferance3Data(referenceID3);
-    	
-    	//span[contains(text(),'5640')]/../../td/button
+//    	xpath - //span[contains(text(),'5640')]/../../td/button
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInbox());
+    	productMaster_RetailObj.productMaster_Product_SearchInbox().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInboxInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInboxInputField().sendKeys(productMaster_RetailTestDataType.ReturnReferenceID);
     	String beforexpath = "//span[contains(text(),'";
-    	String afterxpath = "')]/../../td/button";
-    	waithelper.waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ReturnReferenceID+ afterxpath)), 20 , 3);
-    	driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ReturnReferenceID+ afterxpath)).click();
+		String afterxpath = "')]/../../td/button";
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ReturnReferenceID+ afterxpath)).click();
     }
 
     @Then("^click on submit button$")
@@ -197,50 +198,60 @@ public class ProductMaster_Retail {
     	productMaster_RetailObj.productMaster_Product_ConfirmationMessage().isDisplayed();
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton());
     	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().isDisplayed();
-    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton());
-    	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
     	System.out.println("System is displaying confirmation message after submit");
+    }
+    
+    @Then("^capture checker ID$")
+    public void capture_checker_ID() throws Throwable {
+    	String message = productMaster_RetailObj.productMaster_Product_ConfirmationMessage().getText();
+    	String emptystring = "";
+		String ar[] = message.split(" ");
+		emptystring=ar[ar.length-1];
+		String checkerID=emptystring.replaceAll("[/.]", "");
+		System.out.println(checkerID);
+		jsonDataReaderWriter.addData(checkerID);
+		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton());
+    	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
+    }
+    
+    @Then("^logout user$")
+    public void logout_user() throws Throwable {
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_LogoutUser());
+    	productMaster_RetailObj.productMaster_Product_LogoutUser().click();
     }
     
     @Then("^click on edit button of record2 to modify$")
     public void click_on_edit_button_of_record2_to_modify() throws Throwable {
-//    	(//span[contains(text(),'98303275')]/../../../td[1]/span[1]/button[1]/span[1])[2]
-//    	(//span[contains(text(),'desc17')]/../../../td[1]/span[1]/button[1]/span[1])[1]
-		while (true) {
-			try {
-				String beforexpath = "(//span[contains(text(),'";
-				String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
-				Thread.sleep(1000);
-				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record2ForReject + afterxpath)).click();
-				break;
-			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
-			}
-		}
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Search());
+    	productMaster_RetailObj.productMaster_Product_Search().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInputField().sendKeys(productMaster_RetailTestDataType.Record2ForReject);
+    	String beforexpath = "(//span[contains(text(),'";
+		String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
+//    	xpath - (//span[contains(text(),'desc17')]/../../../td[1]/span[1]/button[1]/span[1])[1]
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record2ForReject + afterxpath)).click();
+    	
     }
     
     @Then("^click on edit button of record3 to modify$")
     public void click_on_edit_button_of_record3_to_modify() throws Throwable {
-//    	(//span[contains(text(),'98303275')]/../../../td[1]/span[1]/button[1]/span[1])[3]
-    	while (true) {
-			try {
-				String beforexpath = "(//span[contains(text(),'";
-				String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
-				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record3ForReturn + afterxpath)).click();
-				break;
-			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
-			}
-		}
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Search());
+    	productMaster_RetailObj.productMaster_Product_Search().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInputField().sendKeys(productMaster_RetailTestDataType.Record3ForReturn);
+    	String beforexpath = "(//span[contains(text(),'";
+		String afterxpath = "')]/../../../td[1]/span[1]/button[1]/span[1])[1]";
+//    	xpath - (//span[contains(text(),'depo30')]/../../../td[1]/span[1]/button[1]/span[1])[1]
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record3ForReturn + afterxpath)).click();
     }
     
 ////////////////////////////////////////////////////////////////////////////////
    
     @And("^User Login as checker$")
     public void user_login_as_checker() throws Throwable {
-		kulsLogin.ulSApplicationLoginAsAChecker(ulsUserLoginCredentials.CheckerUserName1);
+		kulsLogin.ulSApplicationLoginAsAChecker(jsonDataReaderWriter.readdata());
     }
     
     @Then("^click on menu button$")
@@ -251,11 +262,16 @@ public class ProductMaster_Retail {
     
     @Then("^select the modified record to approve$")
     public void select_the_modified_record_to_approve() throws Throwable {
-    	//span[contains(text(),'5550')]/../../td[1]/button
-    	String beforexpath="//span[contains(text(),'";
-    	String afterxpath="')]/../../td[1]/button";
-//    	driver.findElement(By.xpath(beforexpath +jsonDataReaderWriter.readReferancedata()+ afterxpath)).click();
-    	driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ApproveReferenceID+ afterxpath)).click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInbox());
+    	productMaster_RetailObj.productMaster_Product_SearchInbox().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInboxInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInboxInputField().sendKeys(productMaster_RetailTestDataType.ApproveReferenceID);
+    	String beforexpath = "//span[contains(text(),'";
+		String afterxpath = "')]/../../td/button";
+//		xpath - //span[contains(text(),'5550')]/../../td[1]/button
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ApproveReferenceID+ afterxpath)).click();
+    
     }
 
     @Then("^select approve button$")
@@ -287,11 +303,15 @@ public class ProductMaster_Retail {
     
     @Then("^select the modified record to reject$")
     public void select_the_modified_record_to_reject() throws Throwable {
-    	//span[contains(text(),'5550')]/../../td[1]/button
-    	String beforexpath="//span[contains(text(),'";
-    	String afterxpath="')]/../../td[1]/button";
-//    	driver.findElement(By.xpath(beforexpath +jsonDataReaderWriter.readReferance2data()+ afterxpath)).click();
-    	driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.RejectReferenceID+ afterxpath)).click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInbox());
+    	productMaster_RetailObj.productMaster_Product_SearchInbox().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInboxInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInboxInputField().sendKeys(productMaster_RetailTestDataType.RejectReferenceID);
+    	String beforexpath = "//span[contains(text(),'";
+		String afterxpath = "')]/../../td/button";
+//		xpath - //span[contains(text(),'5550')]/../../td[1]/button
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.RejectReferenceID+ afterxpath)).click();
     }
 
     @Then("^select reject button$")
@@ -322,11 +342,16 @@ public class ProductMaster_Retail {
     
     @Then("^select the modified record to return$")
     public void select_the_modified_record_to_return() throws Throwable {
-    	//span[contains(text(),'5550')]/../../td[1]/button
-    	String beforexpath="//span[contains(text(),'";
-    	String afterxpath="')]/../../td[1]/button";
-//    	driver.findElement(By.xpath(beforexpath +jsonDataReaderWriter.readReferance3data()+ afterxpath)).click();
-    	driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ReturnReferenceID+ afterxpath)).click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInbox());
+    	productMaster_RetailObj.productMaster_Product_SearchInbox().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SearchInboxInputField());
+    	productMaster_RetailObj.productMaster_Product_SearchInboxInputField().sendKeys(productMaster_RetailTestDataType.ReturnReferenceID);
+    	String beforexpath = "//span[contains(text(),'";
+		String afterxpath = "')]/../../td/button";
+//		xpath - //span[contains(text(),'5550')]/../../td[1]/button
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath +productMaster_RetailTestDataType.ReturnReferenceID+ afterxpath)).click();
+    
     }
 
     @Then("^select return button$")
@@ -361,10 +386,13 @@ public class ProductMaster_Retail {
     public void verify_proper_validation_message_for_blank_field_should_display() throws Throwable {
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_ProductDescription());
     	clicksAndActionsHelper.doubleClick(productMaster_RetailObj.productMaster_ProductDescription());
+    	productMaster_RetailObj.productMaster_ProductDescription().sendKeys(Keys.BACK_SPACE);
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Save());
     	productMaster_RetailObj.productMaster_Product_Save().click();
-    	String str = javaScriptHelper.executeScript("return document.querySelector(\"ion-toast\").shadowRoot.querySelector(\"div[class='toast-message']\").innerText").toString();
-    	System.out.println("Validation Message - "+str);
+    	
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_ProductDescriptionFieldValidation());
+    	productMaster_RetailObj.productMaster_Product_ProductDescriptionFieldValidation().isDisplayed();
+   
     }
 
     @Then("^verify system should not allow to enter invalid datatypes while modification$")
@@ -392,14 +420,19 @@ public class ProductMaster_Retail {
 				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).isDisplayed();
 				break;
 			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				try{
+					waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
+					productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				}catch(Exception ee) {
+					System.out.println("Record is not available");
+					break;
+				}
 			}
 		}
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_DisplayStatus());
     	productMaster_RetailObj.productMaster_Product_DisplayStatus().isDisplayed();
     	String status = productMaster_RetailObj.productMaster_Product_DisplayStatus().getText();
-    	System.out.println("Status : "+status);
+    	System.out.println("Status of the record " +productMaster_RetailTestDataType.Record1BeforeApproved+ " in list view : "+status);
     	
     }
 
@@ -413,8 +446,13 @@ public class ProductMaster_Retail {
 				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).click();
 				break;
 			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				try{
+					waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
+					productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				}catch(Exception ee) {
+					System.out.println("Record is not available");
+					break;
+				}
 			}
 		}
 		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Status());
@@ -430,12 +468,17 @@ public class ProductMaster_Retail {
 				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).isDisplayed();
 				break;
 			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				try{
+					waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
+					productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				}catch(Exception ee) {
+					System.out.println("Record is not available");
+					break;
+				}
 			}
 		}
 		String status = productMaster_RetailObj.productMaster_Product_DisplayStatus().getText();
-    	System.out.println("Status : "+status);
+    	System.out.println("User changed Status to : "+status);
     }
     
 
@@ -449,8 +492,13 @@ public class ProductMaster_Retail {
 				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).click();
 				break;
 			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				try{
+					waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
+					productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				}catch(Exception ee) {
+					System.out.println("Record is not available");
+					break;
+				}
 			}
 		}
 		
@@ -467,12 +515,17 @@ public class ProductMaster_Retail {
 				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).isDisplayed();
 				break;
 			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				try{
+					waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
+					productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				}catch(Exception ee) {
+					System.out.println("Record is not available");
+					break;
+				}
 			}
 		}
 		String status = productMaster_RetailObj.productMaster_Product_DisplayStatus().getText();
-    	System.out.println("Status : "+status);
+    	System.out.println("User changed Status to : "+status);
     }
 
     @Then("^verify the functionality of back button$")
@@ -484,8 +537,13 @@ public class ProductMaster_Retail {
 				driver.findElement(By.xpath(beforexpath + productMaster_RetailTestDataType.Record1BeforeApproved + afterxpath)).click();
 				break;
 			} catch (Exception e) {
-				waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
-				productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				try{
+					waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_NextButtonListView());
+					productMaster_RetailObj.productMaster_Product_NextButtonListView().click();
+				}catch(Exception ee) {
+					System.out.println("Record is not available");
+					break;
+				}
 			}
 		}
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Back());
@@ -538,7 +596,8 @@ public class ProductMaster_Retail {
     	productMaster_RetailObj.productMaster_AddButton().click();
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Save());
     	productMaster_RetailObj.productMaster_Product_Save().isDisplayed();
-    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Back());
+//    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Back());
+    	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Back(), 10, 2);
     	productMaster_RetailObj.productMaster_Product_Back().click();
     }
 
@@ -576,10 +635,15 @@ public class ProductMaster_Retail {
     	productMaster_RetailObj.productMaster_Product_Export().click();
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_PdfFile());
     	productMaster_RetailObj.productMaster_Product_PdfFile().click();
+    	browserHelper.SwitchToWindow(1);
+    	browserHelper.switchToParentWithChildClose();
     }
 
     @Then("^click on export to excel button system should download Excel file$")
     public void click_on_export_to_excel_button_system_should_download_excel_file() throws Throwable {
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Export());
+    	productMaster_RetailObj.productMaster_Product_Export().click();
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_XlsFile());
     	productMaster_RetailObj.productMaster_Product_XlsFile().click();
     }
 

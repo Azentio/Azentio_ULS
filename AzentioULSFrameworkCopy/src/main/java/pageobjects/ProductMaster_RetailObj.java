@@ -155,6 +155,38 @@ public class ProductMaster_RetailObj {
 		return productMaster_Product_Save;
 	}
 	
+	//product group required field validation
+	@FindBy(xpath = "//ion-row[1]/ion-col[2]/div[1]/span[1]/div[1]/digital-form-error[1]/ion-badge[1]")
+	private WebElement productMaster_Product_ProductGroupFieldValidation;
+	
+	public WebElement productMaster_Product_ProductGroupFieldValidation() {
+		return productMaster_Product_ProductGroupFieldValidation;
+	}
+	
+	//ProductCode required field validation
+	@FindBy(xpath = "//ion-row[1]/ion-col[3]/div[1]/span[1]/div[1]/digital-form-error[1]/ion-badge[1]")
+	private WebElement productMaster_Product_ProductCodeFieldValidation;
+	
+	public WebElement productMaster_Product_ProductCodeFieldValidation() {
+		return productMaster_Product_ProductCodeFieldValidation;
+	}
+	
+	//ProductDescription required field validation
+	@FindBy(xpath = "//ion-row[1]/ion-col[4]/div[1]/span[1]/div[1]/digital-form-error[1]/ion-badge[1]")
+	private WebElement productMaster_Product_ProductDescriptionFieldValidation;
+	
+	public WebElement productMaster_Product_ProductDescriptionFieldValidation() {
+		return productMaster_Product_ProductDescriptionFieldValidation;
+	}
+	
+	//RetailandCorporate required field validation
+	@FindBy(xpath = "//ion-row[1]/ion-col[5]/div[1]/span[1]/div[1]/digital-form-error[1]/ion-badge[1]")
+	private WebElement productMaster_Product_RetailandCorporateFieldValidation;
+	
+	public WebElement productMaster_Product_RetailandCorporateFieldValidation() {
+		return productMaster_Product_RetailandCorporateFieldValidation;
+	}
+	
 	//save success message
 	@FindBy(xpath = "(//body/div/div/div/div[1])[1]")
 	private WebElement productMaster_Product_SaveConfirmationMessage;
@@ -190,6 +222,30 @@ public class ProductMaster_RetailObj {
 
 	public WebElement productMaster_Product_Search() {
 		return productMaster_Product_Search;
+	}
+	
+	//search inbox
+	@FindBy(xpath = "//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
+	private WebElement productMaster_Product_SearchInbox;
+	
+	public WebElement productMaster_Product_SearchInbox() {
+		return productMaster_Product_SearchInbox;
+	}
+	
+	//search inbox input fields
+	@FindBy(xpath = "//p-table/div/div/div/span/input")
+	private WebElement productMaster_Product_SearchInboxInputField;
+	
+	public WebElement productMaster_Product_SearchInboxInputField() {
+		return productMaster_Product_SearchInboxInputField;
+	}
+	
+	//search inbox input fields
+	@FindBy(xpath = "//p-table/div/div/div/span/i")
+	private WebElement productMaster_Product_SearchInboxCloseButton;
+	
+	public WebElement productMaster_Product_SearchInboxCloseButton() {
+		return productMaster_Product_SearchInboxCloseButton;
 	}
 	
 	//search input field
@@ -309,20 +365,38 @@ public class ProductMaster_RetailObj {
 	
 	// Next button list view
 //	@FindBy(xpath = "(//div/button[3])[1]")
-	@FindBy(xpath = "//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/button[3]/span[1]")
+//	@FindBy(xpath = "//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/button[3]/span[1]")
+	@FindBy(xpath = "(//button[@class='p-ripple p-element p-paginator-next p-paginator-element p-link']/span)[1]")
 	private WebElement productMaster_Product_NextButtonListView;
 	
 	public WebElement productMaster_Product_NextButtonListView() {
 		return productMaster_Product_NextButtonListView;
 	}
 	
-	// Next button
-	@FindBy(xpath = "(//div/button[3]/span)[2]")
+//	// disabled Next button list view
+//	@FindBy(xpath = "//kub-prime-table/p-table/div/p-paginator/div/button[3][@disabled='']/span")
+//	private WebElement productMaster_Product_DisabledNextButtonListView;
+//	
+//	public WebElement productMaster_Product_DisabledNextButtonListView() {
+//		return productMaster_Product_DisabledNextButtonListView;
+//	}
+
+	// Next button inbox
+//	@FindBy(xpath = "(//div/button[3]/span)[2]")
+	@FindBy(xpath = "(//button[@class='p-ripple p-element p-paginator-next p-paginator-element p-link']/span)[2]")
 	private WebElement productMaster_Product_NextButtonInbox;
 	
 	public WebElement productMaster_Product_NextButtonInbox() {
 		return productMaster_Product_NextButtonInbox;
 	}
+	
+//	// Disabled Next button inbox
+//	@FindBy(xpath = "//ion-card-content/p-table/div/p-paginator/div/button[3][@disabled='']/span")
+//	private WebElement productMaster_Product_DisabledNextButtonInbox;
+//	
+//	public WebElement productMaster_Product_DisabledNextButtonInbox() {
+//		return productMaster_Product_DisabledNextButtonInbox;
+//	}
 
 	@FindBy(xpath = "//button/span[contains(text(),'Cancel')]")
 	private WebElement productMaster_Product_Cancel;
@@ -557,6 +631,14 @@ public class ProductMaster_RetailObj {
 	
 	public WebElement productMaster_Product_ProductMasterTitle() {
 		return productMaster_Product_ProductMasterTitle;
+	}
+	
+	// logout
+	@FindBy(xpath = "//ion-label/div/div[2]/ion-icon")
+	private WebElement productMaster_Product_LogoutUser;
+	
+	public WebElement productMaster_Product_LogoutUser() {
+		return productMaster_Product_LogoutUser;
 	}
 	
 }
