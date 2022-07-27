@@ -1,23 +1,38 @@
 [
  {
 	"User":"Maker",
-	"Record1BeforeApproved":"depo30",
-	"ProductDescription1":"desc11",
+	"Record1BeforeApproved"	:	"depo30",
+	"ProductDescription1"	:	"desc11",
 	
-	"Record1AfterApproved":"dep60",
-	"ProductDescription2":"desc11",
+	"Record1AfterApproved"	:	"dep60",
+	"ProductDescription2"	:	"desc11",
 	
-	"MakerSubmitRemark":"ok",
-	"CheckerApproveRemark":"Approve",
-	"CheckerRejectRemark":"Reject",
-	"CheckerReturnRemark":"Return",
+	"MakerSubmitRemark"		:	"ok",
+	"CheckerApproveRemark"	:	"Approve",
+	"CheckerRejectRemark"	:	"Reject",
+	"CheckerReturnRemark"	:	"Return",
 	
-	"Record1ForApprove":"",
-	"Record2ForReject":"dep006",
-	"Record3ForReturn":"dep003",
+	"Record1ForApprove"		:	"",
+	"Record2ForReject"		:	"dep006",
+	"Record3ForReturn"		:	"dep003",
 	
-	"ApproveReferenceID":"5792",
-	"RejectReferenceID":"5892",
-	"ReturnReferenceID":"5795"
+	"ApproveReferenceID"	:	"5792",
+	"RejectReferenceID"		:	"5892",
+	"ReturnReferenceID"		:	"5795",
+	
+//	----------------------------------------   //
+
+	"ProductCode" 			: 	"PR38",
+	"DescriptionEnglish"	:	"Loan",
+	"DescriptionFrench"		:	"d'accord",
+	"DescriptionGerman"		:	"OK",
+	"DescriptionArabic"		:	"موافق",
+	"DMCode"				:	"Loan",
+	"Remarks"				:	"HomeLoan",
+	"NumericRemark"			:	"123",
+	"SymbolicRemark"		:	"@#$&",
+	"ProductCodeReturn"		:	"PR40",
+	"ProductCodeReject"		:	"PR39",
+	"EventCode" 			:	"PRODUCT_MST"
  }
 ]

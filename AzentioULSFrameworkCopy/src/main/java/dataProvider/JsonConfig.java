@@ -13,6 +13,7 @@ import com.google.gson.stream.JsonReader;
 
 import testDataType.KULS_Login_TestDataType;
 import testDataType.ProductMaster_RetailTestDataType;
+import testDataType.Product_RetailMasterTestData;
 
 //master
 public class JsonConfig {
@@ -26,6 +27,7 @@ public class JsonConfig {
 		
 		loginCredentials = getKULSCredentialsList();
 		ProductMasterRetailList = getProductMasterRetailList();
+		productRetailData=getProductMasterRetail();
 		
 	}
 	
@@ -85,5 +87,33 @@ public class JsonConfig {
 	public final ProductMaster_RetailTestDataType getProductMasterRetailByName(String Username) {
 		return ProductMasterRetailList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
 	}
-
+	
+//	ProductRetail_Master
+	private final String ProductRetailPath = configFileReader.getJsonPath() + "Product_MasterRetail.json";
+	private List<Product_RetailMasterTestData> productRetailData;
+	
+	//product retail
+	private List<Product_RetailMasterTestData> getProductMasterRetail() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ProductRetailPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ProductRetailPath));
+			Product_RetailMasterTestData[] productRetailMaster = gson.fromJson(bufferReader, Product_RetailMasterTestData[].class);
+			return Arrays.asList(productRetailMaster);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ProductRetailPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	//product retail
+	public final Product_RetailMasterTestData getProductMasterRetailByName1(String Username) {
+		return productRetailData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
 }
