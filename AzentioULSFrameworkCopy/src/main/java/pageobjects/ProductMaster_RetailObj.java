@@ -204,7 +204,7 @@ public class ProductMaster_RetailObj {
 		return productMaster_Product_SaveConfirmationMessageCloseButton;
 	}
 
-	@FindBy(xpath = "//button[@ng-reflect-text='Go Back']")
+	@FindBy(xpath = "//button[@ng-reflect-text='Go Back']/span[1]")
 	private WebElement productMaster_Product_Back;
 
 	public WebElement productMaster_Product_Back() {

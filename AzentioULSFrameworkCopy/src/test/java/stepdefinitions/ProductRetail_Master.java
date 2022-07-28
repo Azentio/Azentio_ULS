@@ -70,9 +70,16 @@ public class ProductRetail_Master {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				productMasterRetailObj.exportIcon(), 60, 2);
 		productMasterRetailObj.exportIcon().click();
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				productMasterRetailObj.xlsOption(), 60, 3);
-		Assert.assertEquals(productMasterRetailObj.xlsOption().isDisplayed(), true);
+//		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+//				productMasterRetailObj.xlsOption(), 60, 3);
+		for (int i = 0; i < 20; i++) {
+			try {
+				Assert.assertEquals(productMasterRetailObj.xlsOption().isDisplayed(), true);
+				break;
+			} catch (Exception e) {
+
+			}
+		}
 	}
 
 	@And("^user verify product group is displayed in screen$")

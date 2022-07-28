@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
@@ -17,6 +18,7 @@ public class KULS_Application_Login {
 	WaitHelper waithelper;
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper;
+	ConfigFileReader configFileReader = new ConfigFileReader();
 
 	public KULS_Application_Login(WebDriver driver) {
 		this.driver = driver;
@@ -39,8 +41,26 @@ public class KULS_Application_Login {
 		loginObj.password().sendKeys(password);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
-		assertEquals(loginObj.configuration().isDisplayed(), true);
+		while (true) {
+			try {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
+				assertEquals(loginObj.configuration().isDisplayed(), true);
+				break;
+			} catch (Exception e) {
+				String kulsApplicationUrl = configFileReader.getApplicationUrl();
+				driver.get(kulsApplicationUrl);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+				loginObj.userId().click();
+				loginObj.userId().sendKeys(username);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+				loginObj.continueButton().click();
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+				loginObj.password().click();
+				loginObj.password().sendKeys(password);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+				loginObj.signIn().click();
+			}
+		}
 	}
 
 	public void ulSApplicationLoginAsAChecker(String userID) {
@@ -60,9 +80,60 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword1);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
-			assertEquals(loginObj.configuration().isDisplayed(), true);
-
+			while (true) {
+				try {
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
+					assertEquals(loginObj.configuration().isDisplayed(), true);
+					break;
+				} catch (Exception e) {
+					String kulsApplicationUrl = configFileReader.getApplicationUrl();
+					driver.get(kulsApplicationUrl);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+					loginObj.userId().click();
+					loginObj.userId().sendKeys(ulsUserLoginCredentials.CheckerUserName1);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+					loginObj.continueButton().click();
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+					loginObj.password().click();
+					loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword1);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+					loginObj.signIn().click();
+				}
+			}
+			break;
+			
+		case "in01589":
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+			loginObj.userId().click();
+			loginObj.userId().sendKeys(ulsUserLoginCredentials.CheckerUserName2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+			loginObj.continueButton().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+			loginObj.password().click();
+			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+			loginObj.signIn().click();
+			while (true) {
+				try {
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
+					assertEquals(loginObj.configuration().isDisplayed(), true);
+					break;
+				} catch (Exception e) {
+					String kulsApplicationUrl = configFileReader.getApplicationUrl();
+					driver.get(kulsApplicationUrl);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+					loginObj.userId().click();
+					loginObj.userId().sendKeys(ulsUserLoginCredentials.CheckerUserName2);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+					loginObj.continueButton().click();
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+					loginObj.password().click();
+					loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword2);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+					loginObj.signIn().click();
+				}
+			}
+			break;
 		}
 
 	}

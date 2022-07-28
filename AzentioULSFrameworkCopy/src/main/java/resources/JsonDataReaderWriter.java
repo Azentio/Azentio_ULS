@@ -15,8 +15,8 @@ public class JsonDataReaderWriter {
 	JSONObject jsonobject = new JSONObject();
 	FileWriter filewriter;
 
-	public void addData(String revID) throws IOException {
-		jsonobject.put("ReviewerID", revID);
+	public void addData(String cheID) throws IOException {
+		jsonobject.put("CheckerID", cheID);
 		filewriter = new FileWriter(path);
 		filewriter.write(jsonobject.toJSONString());
 		filewriter.close();
@@ -27,8 +27,8 @@ public class JsonDataReaderWriter {
 		FileReader filereader = new FileReader(path);
 		Object obj = jsonparser.parse(filereader);
 		jsonobject = (JSONObject) obj;
-		String reviewerID = (String) jsonobject.get("ReviewerID");
-		return reviewerID;
+		String CheckerID = (String) jsonobject.get("CheckerID");
+		return CheckerID;
 	}
 
 	// ---reference1---//

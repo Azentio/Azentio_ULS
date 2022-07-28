@@ -536,8 +536,14 @@ public class ProductMaster_Retail {
 				}
 			}
 		}
-		String status = productMaster_RetailObj.productMaster_Product_DisplayStatus().getText();
-    	System.out.println("User changed Status to : "+status);
+    	while (true) {
+			try {
+				String status = productMaster_RetailObj.productMaster_Product_DisplayStatus().getText();
+				System.out.println("User changed Status to : " + status);
+				break;
+			} catch (Exception e) {
+			}
+		}
     }
 
     @Then("^verify the functionality of back button of product master$")
@@ -605,6 +611,7 @@ public class ProductMaster_Retail {
 
     @Then("^verify add button should allow to create new record$")
     public void verify_add_button_should_allow_to_create_new_record() throws Throwable {
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_AddButton());
     	productMaster_RetailObj.productMaster_AddButton().click();
     	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_Save());
     	productMaster_RetailObj.productMaster_Product_Save().isDisplayed();
@@ -1040,6 +1047,8 @@ public class ProductMaster_Retail {
     productMaster_RetailObj.productMaster_Product_SuccessValidation().isDisplayed();
     String msg = productMaster_RetailObj.productMaster_Product_SuccessValidation().getText();
 	System.out.println(msg);
+	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SaveConfirmationMessageCloseButton());
+	productMaster_RetailObj.productMaster_Product_SaveConfirmationMessageCloseButton().click();
     }
     
     @Then("^click on Menu$")
@@ -1105,7 +1114,7 @@ public class ProductMaster_Retail {
     
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Submit(), 60, 2);
     productMaster_RetailObj.productMaster_Product_Submit().click();
-        
+    
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_SubmitRemark(), 60, 2);
     productMaster_RetailObj.productMaster_Product_SubmitRemark().click();
         
@@ -1141,7 +1150,8 @@ public class ProductMaster_Retail {
     	String afterXpath = "')]/../../td/button";
     	WebElement firstRecord = driver.findElement(By.xpath(beforeXpath+jsonDataReaderWriter.readReferancedata()+afterXpath));
         waithelper.waitForElementToVisibleWithFluentWait(driver, firstRecord, 60, 2);
-        for (int i = 0; i<20; i++)
+//        for (int i = 0; i<20; i++)
+        while(true){
         {
         	try {
         		firstRecord.click(); 
@@ -1150,7 +1160,7 @@ public class ProductMaster_Retail {
         	catch(Exception e) { 
         		
         	}
-        }
+        }}
     	
     }
     

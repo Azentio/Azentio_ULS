@@ -22,7 +22,7 @@
 	
 //	----------------------------------------   //
 
-	"ProductCode" 			: 	"PR38",
+	"ProductCode" 			: 	"PR46",
 	"DescriptionEnglish"	:	"Loan",
 	"DescriptionFrench"		:	"d'accord",
 	"DescriptionGerman"		:	"OK",
@@ -31,8 +31,8 @@
 	"Remarks"				:	"HomeLoan",
 	"NumericRemark"			:	"123",
 	"SymbolicRemark"		:	"@#$&",
-	"ProductCodeReturn"		:	"PR40",
-	"ProductCodeReject"		:	"PR39",
+	"ProductCodeReturn"		:	"PR47",
+	"ProductCodeReject"		:	"PR48",
 	"EventCode" 			:	"PRODUCT_MST"
  }
 ]
