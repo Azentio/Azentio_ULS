@@ -99,7 +99,7 @@ public class WaitHelper {
     .withTimeout(Duration.ofSeconds(timeOut))
     .pollingEvery(Duration.ofSeconds(pollingTime))
     .ignoring(Exception.class);
-    WebElement element1 = wait.until(ExpectedConditions.visibilityOf(element));
+    WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(element));
     return element1;
   
     }

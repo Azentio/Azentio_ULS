@@ -14,6 +14,9 @@ import com.google.gson.stream.JsonReader;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.Product_RetailMasterTestData;
 import testDataType.SubProductMaster_RetailTestData;
+import testDataType.SubProductRetailParameterNegativeTestDataType;
+import testDataType.SubProductRetailParameterTestDataType;
+import testDataType.SubproductMasterRetail_Testdata;
 
 //master
 public class JsonConfig {
@@ -26,6 +29,14 @@ public class JsonConfig {
 	private List<Product_RetailMasterTestData> productRetailData;
 	private final String SubProductRetailPath = configFileReader.getJsonPath() + "SubProductMasterRetail.json";
 	private List<SubProductMaster_RetailTestData> SubProductRetailData;
+	private final String SubProductRetailPath1 = configFileReader.getJsonPath() + "Subproduct_MasterRetailJson.json";
+	private List<SubproductMasterRetail_Testdata> SubproductRetail;
+	private final String SubProductparameterPath = configFileReader.getJsonPath()
+			+ "SubProductMasterRetailParameterJSON.json";
+	private List<SubProductRetailParameterTestDataType> SubproductRetailparameter;
+	private final String ParameternegativeDataPath = configFileReader.getJsonPath()
+			+ "SubProductRetailMasterParameterNegativeJSON.json";
+	private List<SubProductRetailParameterNegativeTestDataType> SubParameternegative;
 
 	public JsonConfig() {
 		/*
@@ -33,8 +44,54 @@ public class JsonConfig {
 		 */
 
 		loginCredentials = getKULSCredentialsList();
-		productRetailData=getProductMasterRetail();
-		SubProductRetailData=getSubProductMasterRetail();
+		productRetailData = getProductMasterRetail();
+		SubProductRetailData = getSubProductMasterRetail();
+		SubproductRetail = getSubproductRetail();
+		SubproductRetailparameter = getSubproductRetailparameter();
+		SubParameternegative = getSubParameterNegativeList();
+
+	}
+
+	private List<SubProductRetailParameterTestDataType> getSubproductRetailparameter() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(SubProductparameterPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(SubProductparameterPath));
+			SubProductRetailParameterTestDataType[] credentials = gson.fromJson(bufferReader,
+					SubProductRetailParameterTestDataType[].class);
+			return Arrays.asList(credentials);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + SubProductparameterPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+	private List<SubproductMasterRetail_Testdata> getSubproductRetail() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(SubProductRetailPath1));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(SubProductRetailPath1));
+			SubproductMasterRetail_Testdata[] credentials = gson.fromJson(bufferReader,
+					SubproductMasterRetail_Testdata[].class);
+			return Arrays.asList(credentials);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + SubProductRetailPath1);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 
 	private List<KULS_Login_TestDataType> getKULSCredentialsList() {
@@ -56,7 +113,8 @@ public class JsonConfig {
 			}
 		}
 	}
-	//product retail
+
+	// product retail
 	private List<Product_RetailMasterTestData> getProductMasterRetail() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(ProductRetailPath));
@@ -64,7 +122,8 @@ public class JsonConfig {
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(ProductRetailPath));
-			Product_RetailMasterTestData[] productRetailMaster = gson.fromJson(bufferReader, Product_RetailMasterTestData[].class);
+			Product_RetailMasterTestData[] productRetailMaster = gson.fromJson(bufferReader,
+					Product_RetailMasterTestData[].class);
 			return Arrays.asList(productRetailMaster);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException("Json file not found at path : " + ProductRetailPath);
@@ -76,6 +135,7 @@ public class JsonConfig {
 			}
 		}
 	}
+
 	// sub product retail
 	private List<SubProductMaster_RetailTestData> getSubProductMasterRetail() {
 		Gson gson = new Gson();
@@ -84,7 +144,8 @@ public class JsonConfig {
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(SubProductRetailPath));
-			SubProductMaster_RetailTestData[] subProductRetailMaster = gson.fromJson(bufferReader, SubProductMaster_RetailTestData[].class);
+			SubProductMaster_RetailTestData[] subProductRetailMaster = gson.fromJson(bufferReader,
+					SubProductMaster_RetailTestData[].class);
 			return Arrays.asList(subProductRetailMaster);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException("Json file not found at path : " + SubProductRetailPath);
@@ -96,16 +157,51 @@ public class JsonConfig {
 			}
 		}
 	}
+
+	private List<SubProductRetailParameterNegativeTestDataType> getSubParameterNegativeList() {
+		Gson gson2 = new Gson();
+		JsonReader reader2 = new JsonReader(new StringReader(ParameternegativeDataPath));
+		reader2.setLenient(true);
+		BufferedReader bufferReader1 = null;
+		try {
+			bufferReader1 = new BufferedReader(new FileReader(ParameternegativeDataPath));
+			SubProductRetailParameterNegativeTestDataType[] SubParameternegative = gson2.fromJson(bufferReader1,
+					SubProductRetailParameterNegativeTestDataType[].class);
+			return Arrays.asList(SubParameternegative);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ParameternegativeDataPath);
+		} finally {
+			try {
+				if (bufferReader1 != null)
+					bufferReader1.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
 	public final KULS_Login_TestDataType getKULSLoginCredentialsByName(String Username) {
 		return loginCredentials.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
-	//product retail
+
+	// product retail
 	public final Product_RetailMasterTestData getProductMasterRetailByName(String Username) {
 		return productRetailData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
+
 	// sub product retail
 	public final SubProductMaster_RetailTestData getSubProductMasterRetailByName(String Username) {
 		return SubProductRetailData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 
+	// Subproduct Master Retail - Arshath
+	public final SubproductMasterRetail_Testdata getSubproductRetailByName(String User) {
+		return SubproductRetail.stream().filter(x -> x.Username.equalsIgnoreCase(User)).findAny().get();
+	}
+
+	public final SubProductRetailParameterTestDataType getSubParameterListByName(String User) {
+		return SubproductRetailparameter.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}
+	public final SubProductRetailParameterNegativeTestDataType getSubParameterNegativeListByName(String Username) {
+    return SubParameternegative.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
 }

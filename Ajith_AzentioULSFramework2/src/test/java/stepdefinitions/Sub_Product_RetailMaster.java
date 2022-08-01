@@ -27,8 +27,9 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
 	SubProductMasterRetail_Obj subMasterRetailObj = new SubProductMasterRetail_Obj(driver);
 	 KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
-	 JsonDataReaderWriter reader = new JsonDataReaderWriter();
+	 JsonDataReaderWriter json = new JsonDataReaderWriter();
 	 SubProductMaster_RetailTestData subProductMasterRetailData = jsonConfig.getSubProductMasterRetailByName("Maker");
+	 
 	@Given("^user log in as uls application maker$")
     public void user_log_in_as_uls_application_maker() throws Throwable {
         String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -37,11 +38,11 @@ public class Sub_Product_RetailMaster extends BaseClass {
         
     }
 
-    @When("^user click product set up menu$")
-    public void user_click_product_set_up_menu() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.productSetup(),60,2);
-        subMasterRetailObj.productSetup().click();
-    }
+//    @When("^user click product set up menu$")
+//    public void user_click_product_set_up_menu() throws Throwable {
+//    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.productSetup(),60,2);
+//        subMasterRetailObj.productSetup().click();
+//    }
     @And("^user click edit icon of sub product retail$")
     public void user_click_edit_icon_of_sub_product_retail() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.subProductEditIcon(),60,2);
@@ -113,10 +114,18 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
     @And("^user enter and modify sub product code$")
     public void user_enter_and_modify_sub_product_code() throws Throwable {
-        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.subProductCode(),60, 2);
-        subMasterRetailObj.subProductCode().click();
-        subMasterRetailObj.subProductCode().clear();
-        subMasterRetailObj.subProductCode().sendKeys(subProductMasterRetailData.SubProductCode);
+        //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.subProductCode(),60, 2);
+    	for (int i = 0; i <20; i++) {
+			try {
+				subMasterRetailObj.subProductCode().click();
+		        subMasterRetailObj.subProductCode().clear();
+		        subMasterRetailObj.subProductCode().sendKeys(subProductMasterRetailData.SubProductCode);
+		        break;
+			} catch (Exception e) {
+				
+			}
+		}
+        
     }
 
     @And("^user enter and modify sub product description$")
@@ -135,9 +144,21 @@ public class Sub_Product_RetailMaster extends BaseClass {
        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().clear();
        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().sendKeys(subProductMasterRetailData.AllocationSequenceNumber);
        
-       
     }
-
+    @And("^user enter and modify allocation sequence number for reject$")
+    public void user_enter_and_modify_allocation_sequence_number_for_reject() throws Throwable {
+    	seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.Sub_Product_Alloation_Sequence_Number());
+        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().click();
+        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().clear();
+        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().sendKeys(subProductMasterRetailData.AllocationSequenceNumbeforReturn);
+    }
+    @And("^user enter and modify allocation sequence number for return$")
+    public void user_enter_and_modify_allocation_sequence_number_for_return() throws Throwable {
+    	seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.Sub_Product_Alloation_Sequence_Number());
+        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().click();
+        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().clear();
+        subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().sendKeys(subProductMasterRetailData.AllocationSequenceNumberforReject);
+    }
     @And("^user click the save button for updation$")
     public void user_click_the_save_button_for_updation() throws Throwable {
     	seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.SubProductUpdate());
@@ -165,6 +186,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
         //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Subproduct_InboxView_Search(),30,2);
        for (int i = 0; i <20; i++) {
 		try {
+        //seleniumactions.getClickAndActionsHelper().moveToElement(subMasterRetailObj.Subproduct_InboxView_Search());
 			subMasterRetailObj.Subproduct_InboxView_Search().click();
 			break;
 		} catch (Exception e) {
@@ -175,10 +197,22 @@ public class Sub_Product_RetailMaster extends BaseClass {
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Subproduct_InboxView_SearchText(),60,2);
         subMasterRetailObj.Subproduct_InboxView_SearchText().click();
         subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(subProductMasterRetailData.SearchSubProductInbox);
+        String reference = null;
+        for (int i = 0; i < 200; i++) {
+			try {
+			 reference = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
+			 break;
+			} catch (Exception e) {
+				
+			}
+		}
+        
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.firstEditIconInListView(),40, 2);
         subMasterRetailObj.firstEditIconInListView().click();
-        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Sub_Producr_Product_ReferanceId(),40, 2);
-        String reference = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
+        
+        //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Sub_Producr_Product_ReferanceId(),40, 2);
+        
+        json.addReferanceData(reference);
         System.out.println(reference);
         
         
@@ -201,9 +235,38 @@ public class Sub_Product_RetailMaster extends BaseClass {
         String split[] = sucessmgs.split(" ");
         Space=split[split.length-1];
         String popupID = Space.replaceAll("[/.]", "");
-        reader.addData(popupID);
+        json.addData(popupID);
         System.out.println(popupID);
         
+    }
+    @Then("^User validate the updated record in list view$")
+    public void user_validate_the_updated_record_in_list_view() throws Throwable {
+    	//seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath("//span[contains(text(),'" + subProductMasterRetailData.ProductCode + "')]")), 60, 2);
+		for (int i = 0; i <20; i++) {
+			try {
+				String validate = driver.findElement(By.xpath("//span[contains(text(),'"+subProductMasterRetailData.ProductCode+"')]"))
+						.getText();
+				System.out.println(validate);
+				Assert.assertEquals(validate, subProductMasterRetailData.ProductCode);
+				break;
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
+    	
+
+		//seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath("//span[contains(text(),'" + subProductMasterRetailData.SubProductCode + "')]")), 60, 2);
+		for (int i = 0; i <20; i++) {
+			try {
+				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + subProductMasterRetailData.SubProductCode + "')]")).getText();
+				System.out.println(validate1);
+				Assert.assertEquals(validate1, subProductMasterRetailData.SubProductCode);
+				break;
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
+		
     }
 
     @And("^user verify all modified details are present on post save the record$")
@@ -400,11 +463,52 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
     }
+    @And("^user select and modify interest Amortization Method for reject$")
+    public void user_select_and_modify_interest_amortization_method_for_reject() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.intAmortizationMethod(),30, 2);
+    	subMasterRetailObj.intAmortizationMethod().click();
+
+		String xpath2 = "//ion-label[contains(text(),'" + subProductMasterRetailData.IntAmortizationMethodReject +"')]//following-sibling::ion-radio";
+		for (int i = 1; i < 20; i++) {
+			try {
+				driver.findElement(By.xpath(xpath2)).click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    }
+    @And("^user select and modify interest Amortization Method for return$")
+    public void user_select_and_modify_interest_amortization_method_for_return() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.intAmortizationMethod(),30, 2);
+    	subMasterRetailObj.intAmortizationMethod().click();
+
+		String xpath2 = "//ion-label[contains(text(),'" + subProductMasterRetailData.IntAmortizationMethodReturn +"')]//following-sibling::ion-radio";
+		for (int i = 1; i < 20; i++) {
+			try {
+				driver.findElement(By.xpath(xpath2)).click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    }
 
     @And("^User select and Modify Compute Installment on$")
     public void user_select_and_modify_compute_installment_on() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.computeInstallmentOn(),30, 2);
-    	subMasterRetailObj.computeInstallmentOn().click();
+    	for (int i = 1; i < 200; i++) {
+			try {
+				subMasterRetailObj.computeInstallmentOn().click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    	
 
 		String xpath3 = "//ion-label[contains(text(),'" + subProductMasterRetailData.ComputeInstallmentOn +"')]//following-sibling::ion-radio";
 		for (int i = 1; i < 20; i++) {
@@ -418,11 +522,36 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
     }
+    @And("^User select and Modify Compute Installment on for approved$")
+    public void user_select_and_modify_compute_installment_on_for_approved() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.computeInstallmentOn(),30, 2);
+    	subMasterRetailObj.computeInstallmentOn().click();
+
+		String xpath3 = "//ion-label[contains(text(),'" + subProductMasterRetailData.ComputeInstallmentOnApproved +"')]//following-sibling::ion-radio";
+		for (int i = 1; i < 20; i++) {
+			try {
+				driver.findElement(By.xpath(xpath3)).click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    }
 
     @And("^User select and Modify Interest Due date method$")
     public void user_select_and_modify_interest_due_date_method() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.instDueDateMethod(),30, 2);
-    	subMasterRetailObj.instDueDateMethod().click();
+    	//seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.instDueDateMethod(),30, 2);
+    	for (int i = 1; i < 200; i++) {
+			try {
+				subMasterRetailObj.instDueDateMethod().click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    	
 
 		String xpath4 = "//ion-label[contains(text(),'" + subProductMasterRetailData.InstDueDateMethod +"')]//following-sibling::ion-radio";
 		for (int i = 1; i < 20; i++) {
@@ -473,9 +602,15 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
     @And("^User select and Modify Loan Eligibility Calculation$")
     public void user_select_and_modify_loan_eligibility_calculation() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.loanElegibilityCalc(),30, 2);
-    	subMasterRetailObj.loanElegibilityCalc().click();
-
+    	for (int i = 0; i <20; i++) {
+    		try {
+        		subMasterRetailObj.loanElegibilityCalc().click();
+        		break;
+    		} catch (Exception e) {
+    			
+    		}
+		}
+    	
 		String xpath7 = "//ion-label[contains(text(),'" + subProductMasterRetailData.LoanElegibilityCalc +"')]//following-sibling::ion-radio";
 		for (int i = 1; i < 20; i++) {
 			try {
@@ -612,7 +747,15 @@ public class Sub_Product_RetailMaster extends BaseClass {
     @And("^User select and Modify Round off$")
     public void user_select_and_modify_round_off() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.roundOff(),30, 2);
-    	subMasterRetailObj.roundOff().click();
+    	for (int i = 1; i < 20; i++) {
+			try {
+				subMasterRetailObj.roundOff().click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+    	
 
 		String xpath14 = "//ion-label[contains(text(),'" + subProductMasterRetailData.RoundOff +"')]//following-sibling::ion-radio";
 		for (int i = 1; i < 20; i++) {
@@ -723,8 +866,16 @@ public class Sub_Product_RetailMaster extends BaseClass {
     @And("^User select and Modify BPI recovery$")
     public void user_select_and_modify_bpi_recovery() throws Throwable {
     	seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.bpiRecovery());
-    	subMasterRetailObj.bpiRecovery().click();
+    	
+    	for (int i = 1; i < 20; i++) {
+			try {
+				subMasterRetailObj.bpiRecovery().click();
+				break;
 
+			} catch (Exception e) {
+
+			}
+		}
 		String xpath20 = "//ion-label[contains(text(),'" + subProductMasterRetailData.BpiRecovery +"')]//following-sibling::ion-radio";
 		for (int i = 1; i < 20; i++) {
 			try {
@@ -1186,6 +1337,100 @@ public class Sub_Product_RetailMaster extends BaseClass {
         System.out.println("System does not allow to save the record with bank fields");
         
     }
+    @And("^user verify the rejected record removed from the system$")
+    public void user_verify_the_rejected_record_removed_from_the_system() throws Throwable {
+    	for (int i = 0; i <20; i++) {
+    		try {
+    			subMasterRetailObj.Subproduct_InboxView_Search().click();
+    			break;
+    		} catch (Exception e) {
+    			
+    		}
+    	}
+        	
+            seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Subproduct_InboxView_SearchText(),60,2);
+            subMasterRetailObj.Subproduct_InboxView_SearchText().click();
+            subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(json.readReferancedata());
+            String xpath ="//span[contains(text(),'"+json.readReferancedata()+"')]";
+            for (int i = 0; i < 200; i++) {
+				try {
+					Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(), false);
+					break;
+				} catch (NoSuchElementException e) {
+					
+				}
+			}
+            
+    }
+    @And("^user verify the returned record removed from the system$")
+    public void user_verify_the_returned_record_removed_from_the_system() throws Throwable {
+    	for (int i = 0; i <20; i++) {
+    		try {
+    			subMasterRetailObj.Subproduct_InboxView_Search().click();
+    			break;
+    		} catch (Exception e) {
+    			
+    		}
+    	}
+        	
+            seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Subproduct_InboxView_SearchText(),60,2);
+            subMasterRetailObj.Subproduct_InboxView_SearchText().click();
+            subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(json.readReferancedata());
+            String xpath ="//span[contains(text(),'"+json.readReferancedata()+"')]";
+            for (int i = 0; i < 200; i++) {
+				try {
+					Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(), true);
+					break;
+				} catch (NoSuchElementException e) {
+					
+				}
+			}
+    }
+    @And("^user select Product code under product details for parameter Updation$")
+    public void user_select_product_code_under_product_details_for_parameter_updation() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 60, 2);
+    	subMasterRetailObj.productCode().click();
+		System.out.println(subProductMasterRetailData.ProductCodecParameterUpdation);
+		for (int i = 0; i < 200; i++) {
+			try {
+				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath("//ion-label[contains(text(),'"+subProductMasterRetailData.ProductCodecParameterUpdation+"')]/following-sibling::ion-radio")));
+				driver.findElement(By.xpath("//ion-label[contains(text(),'"+subProductMasterRetailData.ProductCodecParameterUpdation+"')]/following-sibling::ion-radio")).click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+    }
+    @And("^user select Product code under product details for parameter Validation$")
+    public void user_select_product_code_under_product_details_for_parameter_validation() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 60, 2);
+    	subMasterRetailObj.productCode().click();
+		System.out.println(subProductMasterRetailData.ProductCodecParameterValidation);
+		for (int i = 0; i < 200; i++) {
+			try {
+				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath("//ion-label[contains(text(),'"+subProductMasterRetailData.ProductCodecParameterValidation+"')]/following-sibling::ion-radio")));
+				driver.findElement(By.xpath("//ion-label[contains(text(),'"+subProductMasterRetailData.ProductCodecParameterValidation+"')]/following-sibling::ion-radio")).click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+    }
+
+    @And("^user enter sub product code under sub product for parameter Validation$")
+    public void user_enter_sub_product_code_under_sub_product_for_parameter_validation() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 60, 2);
+    	subMasterRetailObj.subProductCode().click();
+    	subMasterRetailObj.subProductCode().sendKeys(subProductMasterRetailData.SubProductCodeParameterValidation);
+    }
+
+    @And("^user enter sub product code under sub product for parameter Updation$")
+    public void user_enter_sub_product_code_under_sub_product_for_parameter_updation() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 60, 2);
+    	subMasterRetailObj.subProductCode().click();
+    	subMasterRetailObj.subProductCode().sendKeys(subProductMasterRetailData.SubProductCodeParameterUpdation);
+    }
+
 
 
 

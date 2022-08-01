@@ -138,6 +138,16 @@ public class SubProductMasterRetail_Obj {
     	return statusSwitchButton;
     }
     
+    @FindBy(xpath = "//table[1]/tbody[1]/tr[2]/td[4]/p-celleditor[1]") 
+    private WebElement Maker_Listview_Prdcode;
+    public WebElement Maker_Listview_Prdcode() {
+        return Maker_Listview_Prdcode;
+    }
+    @FindBy(xpath = "//table[1]/tbody[1]/tr[2]/td[6]/p-celleditor[1]") 
+    private WebElement Maker_Listview_subPrdcode;
+    public WebElement Maker_Listview_subPrdcode() {
+        return Maker_Listview_subPrdcode;
+    }
     
     
     
@@ -271,7 +281,7 @@ public class SubProductMasterRetail_Obj {
     public WebElement Sub_Product_Inbox() {
         return Sub_Product_Inbox;
     }  
-    @FindBy(xpath = "//table[1]/tbody[1]/tr[1]/td[2]/span[1]") 
+    @FindBy(xpath = "(//td[contains(text(),'SUB_PRD_MAST')])[1]//preceding-sibling::td[1]//child::span") 
     private WebElement Sub_Product_ReferanceId;
     public WebElement Sub_Producr_Product_ReferanceId() {
         return Sub_Product_ReferanceId;

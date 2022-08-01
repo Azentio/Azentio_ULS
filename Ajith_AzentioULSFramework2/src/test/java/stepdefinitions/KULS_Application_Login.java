@@ -61,7 +61,21 @@ public class KULS_Application_Login {
 			loginObj.signIn().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
-
+			break;
+		case "in01589":
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+			loginObj.userId().click();
+			loginObj.userId().sendKeys(ulsUserLoginCredentials.CheckerUserName2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+			loginObj.continueButton().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+			loginObj.password().click();
+			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+			assertEquals(loginObj.configuration().isDisplayed(), true);
+			break;
 		}
 
 	}

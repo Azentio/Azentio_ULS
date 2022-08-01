@@ -1,25 +1,8 @@
 package testDataType;
 
-public class SubProductMaster_RetailTestData {
+public class SubProductRetailParameterNegativeTestDataType {
 	public String UserType;
-	public String ProductCodecParameterUpdation;
-	public String SubProductCodeParameterUpdation;
-	public String ProductCodecParameterValidation;
-	public String SubProductCodeParameterValidation;
-	public String IntAmortizationMethodReject;
-	public String IntAmortizationMethodReturn;
-	public String ComputeInstallmentOnApproved;
-	public String ProjecttGroup;
-	public String ProductCode;
-	public String SubProductCode;
-	public String SubProductDescription;
-	public String AllocationSequenceNumber;
-	public String AllocationSequenceNumberforReject;
-	public String AllocationSequenceNumbeforReturn;
-	public String SearchSubProductInbox;
-	public String InvalidTestData;
-	public String StatusSwitchToggle;
-	public String Remark;
+	public String Username;
 	public String LoanCurrency;
 	public String IndexationCurrency;
 	public String MinFinanceAmount;
@@ -36,6 +19,7 @@ public class SubProductMaster_RetailTestData {
 	public String InterestRepaymentFrequency;  
 	public String InstRoundingLogic;
 	public String LoanElegibilityCalc;  
+	public String Remark;
 	public String IncludeGuarantorInc;  
 	public String DuePeriodRequired;  
 	public String MaxCoApplication;
@@ -102,4 +86,3 @@ public class SubProductMaster_RetailTestData {
 
 
 }
-

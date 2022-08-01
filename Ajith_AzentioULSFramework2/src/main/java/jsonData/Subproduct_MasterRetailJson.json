@@ -1,0 +1,51 @@
+[
+	{
+	//PRODUCT
+		"Username"	:"Maker",
+		"ProductGroup" : "Deposits",      //1
+		"ProductCode"  : "HOMPUR 3",//2
+		"RejectProductCode"  : "depo37",
+	// change product code for every run for parameter invalid
+	"ProductCodeParameter":"depo39", //3
+	"SubproductcodeParameter":"ParameterInvalidData1", //4
+	//SUBPRODUCT DEFINITION
+	
+		"Subproductcode":"Deposits1", //5
+		"RejectSubproductcode":"subprd126",
+		"Specialchar":"@#$%",
+		"SupproductDescription":"DepositslDescription14", //6
+		
+	//FACILITY
+		
+		"FacilityType":"Loan",
+		"Individual_Corporate":"Individual",
+		"LoanPurpose":"Construction Finance",
+		"InstallmentBased":"Yes",
+		"ContinueExistingLoanNumber":"YES",
+		"FinancingConcept":"Islamic",
+		"DisbursementLocking":"Current",
+		"TopupAllowed":"Yes",
+		
+	//ASSET FINANCED
+	
+		"Collateralized":"Yes",
+		"FinanceAgainstExistingAsset":"Yes",
+		"IsMultiAssetFinanceAllowed":"Yes",
+		
+	//FLOATING RATE
+	
+		"ImpactOn":"EMI",
+		"ResetLogic":"Immediate",
+		"FloatRateEffectiverDate":"12th of the month",
+		"FloatRateEffectiveFrequesncy":"Yearly",
+		"EMICap":"16",
+		"TenorTolerance":"8",
+		
+	//LEGACY CODES
+	
+		"LegacyCode1":"Tax legacy",
+		"LegacyCode2":"Tax legacy",
+		"DMCode":"DM Codes",
+		"AllocationSequenceNumber":"6"
+	}
+]
