@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import testDataType.KULS_Login_TestDataType;
+import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.ULS_ProjectMasterTestData;
 import testDataType.ULS_SchemeMasterTestDataType;
 
@@ -28,6 +29,8 @@ public class JsonConfig {
 	private final String KULS_ProjectMasterFilePath = configFileReader.getJsonPath() + "ULS_ProjectMasterJSON.json";
 	private List<ULS_ProjectMasterTestData> projectMasterTestData;
 
+	private final String KULS_UnderWriterOffSetControl = configFileReader.getJsonPath() + "KULS_UnderWriterOffSetControlJSON.json";
+	private List<KULS_UnderWriterOffSetControlTestData> underWriterOffSetControlTestData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -36,10 +39,34 @@ public class JsonConfig {
 		loginCredentials = getKULSCredentialsList();
 		schemeMasterTestData=getUlsSchemeMasterTestData();
 		projectMasterTestData=getUlsProjectMasterTestData();
+		underWriterOffSetControlTestData=getUnderWriterOffSetControlTestData();
 
 	}
 
 	
+
+	private List<KULS_UnderWriterOffSetControlTestData> getUnderWriterOffSetControlTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(KULS_UnderWriterOffSetControl));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(KULS_UnderWriterOffSetControl));
+			KULS_UnderWriterOffSetControlTestData[] underWriterOffSetControlTestData = gson.fromJson(bufferReader, KULS_UnderWriterOffSetControlTestData[].class);
+			return Arrays.asList(underWriterOffSetControlTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + KULS_UnderWriterOffSetControl);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}	
+	}
+
+
 
 	private List<ULS_ProjectMasterTestData> getUlsProjectMasterTestData() {
 		// TODO Auto-generated method stub
@@ -112,5 +139,8 @@ public class JsonConfig {
 	public final ULS_ProjectMasterTestData getUlsProjectMasterTestDataByName(String Username) {
 		return projectMasterTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
-
+	//KULS_UnderWriterOffSetControlTestData> underWriterOffSetControlTestData
+	public final KULS_UnderWriterOffSetControlTestData getUlsUnderWriterOffSetControlTestDataByName(String Username) {
+		return underWriterOffSetControlTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
 }

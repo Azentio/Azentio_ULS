@@ -1,0 +1,28 @@
+[
+{
+"UserType":"Maker",
+"MinimumValue":"1000",
+"MaximumValue":"100000",
+"MinimumValueForCheckerReject":"2000",
+"MaximumValueForCheckerReject":"200000",
+"MinimumValueForCheckerReturn":"3000",
+"MaximumValueForCheckerReturn":"300000",
+"MinimumValueAlphabetInput":"abcd",
+"MaximumValueAlphabetInput":"abcd",
+"MinimumValueSpeciaCharacterInput":"!@#$%",
+"MaximumValueSpecialCharacterInput":"!@#$%",
+"UpdatedMinimumValue":"55555",
+"UpdatedMaximumValue":"55555555",
+"approvedRecordUpdateMinimumValue":"66666",
+"approvedRecordUpdateMaximumValue":"6666666",
+"approvedRecordUpdateMinimumValueForCheckerReject":"7777",
+"approvedRecordUpdateMaximumValueForCheckerReject":"777777",
+"approvedRecordUpdateMinimumValueForCheckerReturn":"8888",
+"approvedRecordUpdateMaximumValueForCheckerReturn":"888888",
+"eventCode":"UW_OFFSET_CONTROL",
+"MakerSubmitRemark":"Submitted from maker",
+"CheckerRemarkforApprove":"Record Approved from checker",
+"CheckerRemarkforReject":"Record Rejected from checker",
+"CheckerRemarkforReturn":"Record Returned from checker"
+}
+]
