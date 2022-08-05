@@ -1,0 +1,49 @@
+[
+	{
+	//PRODUCT
+		"Username"	:"Maker",
+		"ProductGroup" : "Deposits",
+		"ProductCode"  : "PR16",
+		"RejectProductCode"  : "depo37",
+		
+	//SUBPRODUCT DEFINITION
+	
+		"Subproductcode":"Deposit",
+		"RejectSubproductcode":"subprd123",
+		"Specialchar":"@#$%",
+		"SupproductDescription":"DeposiDescription",
+		
+	//FACILITY
+		
+		"FacilityType":"Loan",
+		"Individual_Corporate":"Individual",
+		"LoanPurpose":"Construction Finance",
+		"InstallmentBased":"Yes",
+		"ContinueExistingLoanNumber":"YES",
+		"FinancingConcept":"Islamic",
+		"DisbursementLocking":"Current",
+		"TopupAllowed":"Yes",
+		
+	//ASSET FINANCED
+	
+		"Collateralized":"Yes",
+		"FinanceAgainstExistingAsset":"Yes",
+		"IsMultiAssetFinanceAllowed":"Yes",
+		
+	//FLOATING RATE
+	
+		"ImpactOn":"EMI",
+		"ResetLogic":"Immediate",
+		"FloatRateEffectiverDate":"12th of the month",
+		"FloatRateEffectiveFrequesncy":"Yearly",
+		"EMICap":"15",
+		"TenorTolerance":"7",
+		
+	//LEGACY CODES
+	
+		"LegacyCode1":"Tax legacy",
+		"LegacyCode2":"Tax legacy",
+		"DMCode":"DM Codes",
+		"AllocationSequenceNumber":"5"
+	}
+]

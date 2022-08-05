@@ -1,0 +1,30 @@
+[
+	{
+		"user"			: "Maker",
+		"Description"	: "Azentio1_Description",
+		"Address"		: "Azentio1 Azentio",
+		"AddressReject" : "Azentio1 Reject",
+		"AddressReturn" : "Azentio1 Return",
+		"country"		: "INDIA",
+		"State"			: "Maharastra",
+		"Location"		: "Thane",
+		"Zipcode"		: "PIN57938",
+		"Phone"			: "9638527410",
+		"Fax"			: "01470258369",
+		"Email"			: "wareazentio1@gmail.com",
+		"EmailReject"   : "Warereject1@gmail.com",
+		"EmailReturn"   : "Warereturn1@gmail.com",
+		"Contactperson" : "Azentio",
+		"Validation"	: "abcd1234",
+		
+	//Modification
+		"DescriptionModify" : "Modify_Description",
+		"AddressModify"	: "Modify_Address",
+		"DescriptionReModify" : "Re_Modify_Description",
+		"AddressReModify" : "Re_Modify_Address",
+		"DescriptionModifyReject" : "Modify_Reject_Description",
+		"AddressModifyReject"	: "Modify_Reject_Address",
+		"DescriptionReModifyReturn" : "Modify_Return_Description",
+		"AddressReModifyReturn" : "Modify_Return_Address"
+	}
+]
