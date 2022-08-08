@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
@@ -257,9 +258,9 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 	@And("^click on menu button$")
 	public void click_on_menu_button() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				underWriterOffSetControlObj.underWriterOffSetControlCheckerMenuBar(), 5, 1);
-		underWriterOffSetControlObj.underWriterOffSetControlCheckerMenuBar().click();
+//		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+//				underWriterOffSetControlObj.underWriterOffSetControlCheckerMenuBar(), 5, 1);
+//		underWriterOffSetControlObj.underWriterOffSetControlCheckerMenuBar().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlMailBox(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlMailBox().click();
@@ -484,7 +485,8 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, underWriterOffSetControlObj.underWriterOffSetControlToastAlertClose(), 5, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlToastAlertClose(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlToastAlertClose().click();
 	}
 
@@ -538,11 +540,13 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, underWriterOffSetControlObj.underWriterOffSetControlToastAlertClose(), 5, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlToastAlertClose(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlToastAlertClose().click();
 	}
+
 	@Then("^verify approved record is updated with our input data$")
-    public void verify_approved_record_is_updated_with_our_input_data() throws Throwable {
+	public void verify_approved_record_is_updated_with_our_input_data() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder(), 5, 1);
 		String minimumValue = underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder()
@@ -551,9 +555,10 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				.getAttribute("ng-reflect-model");
 		Assert.assertEquals(minimumValue, underWriterOffSetControlTestData.approvedRecordUpdateMinimumValue);
 		Assert.assertEquals(maximumValue, underWriterOffSetControlTestData.approvedRecordUpdateMaximumValue);
-    }
+	}
+
 	@Then("^update the already approved record for checker reject$")
-    public void update_the_already_approved_record_for_checker_reject() throws Throwable {
+	public void update_the_already_approved_record_for_checker_reject() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().click();
@@ -576,22 +581,25 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				.getAttribute("ng-reflect-model");
 		underWriterData.put("minimumValue", minimumValue);
 		underWriterData.put("maximumValue", maximumValue);
-    }
+	}
 
-    @Then("^verify approved record is updated with our input data for checker reject$")
-    public void verify_approved_record_is_updated_with_our_input_data_for_checker_reject() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver,
+	@Then("^verify approved record is updated with our input data for checker reject$")
+	public void verify_approved_record_is_updated_with_our_input_data_for_checker_reject() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder(), 5, 1);
 		String minimumValue = underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder()
 				.getAttribute("ng-reflect-model");
 		String maximumValue = underWriterOffSetControlObj.underWriterOffSetControlMaximumValueDataHolder()
 				.getAttribute("ng-reflect-model");
-		Assert.assertEquals(minimumValue, underWriterOffSetControlTestData.approvedRecordUpdateMinimumValueForCheckerReject);
-		Assert.assertEquals(maximumValue, underWriterOffSetControlTestData.approvedRecordUpdateMaximumValueForCheckerReject);
-    }
-    @Then("^update the already approved record for checker return$")
-    public void update_the_already_approved_record_for_checker_return() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver,
+		Assert.assertEquals(minimumValue,
+				underWriterOffSetControlTestData.approvedRecordUpdateMinimumValueForCheckerReject);
+		Assert.assertEquals(maximumValue,
+				underWriterOffSetControlTestData.approvedRecordUpdateMaximumValueForCheckerReject);
+	}
+
+	@Then("^update the already approved record for checker return$")
+	public void update_the_already_approved_record_for_checker_return() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().click();
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().clear();
@@ -613,17 +621,69 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				.getAttribute("ng-reflect-model");
 		underWriterData.put("minimumValue", minimumValue);
 		underWriterData.put("maximumValue", maximumValue);
-    }
+	}
 
-    @Then("^verify approved record is updated with our input data for checker return$")
-    public void verify_approved_record_is_updated_with_our_input_data_for_checker_return() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver,
+	@Then("^verify approved record is updated with our input data for checker return$")
+	public void verify_approved_record_is_updated_with_our_input_data_for_checker_return() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder(), 5, 1);
 		String minimumValue = underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder()
 				.getAttribute("ng-reflect-model");
 		String maximumValue = underWriterOffSetControlObj.underWriterOffSetControlMaximumValueDataHolder()
 				.getAttribute("ng-reflect-model");
-		Assert.assertEquals(minimumValue, underWriterOffSetControlTestData.approvedRecordUpdateMinimumValueForCheckerReturn);
-		Assert.assertEquals(maximumValue, underWriterOffSetControlTestData.approvedRecordUpdateMaximumValueForCheckerReturn);
-    }
+		Assert.assertEquals(minimumValue,
+				underWriterOffSetControlTestData.approvedRecordUpdateMinimumValueForCheckerReturn);
+		Assert.assertEquals(maximumValue,
+				underWriterOffSetControlTestData.approvedRecordUpdateMaximumValueForCheckerReturn);
+	}
+
+	@Then("^clear the input box value$")
+	public void clear_the_input_box_value() throws Throwable {
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder(), 5, 1);
+		String minimumValue = underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder()
+				.getAttribute("ng-reflect-model");
+		String maximumValue = underWriterOffSetControlObj.underWriterOffSetControlMaximumValueDataHolder()
+				.getAttribute("ng-reflect-model");
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
+		
+		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().click();
+		for(int i=0;i<=minimumValue.length();i++)
+		{
+		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().sendKeys(Keys.BACK_SPACE);
+		}
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox(), 5, 1);
+		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().click();
+		for(int i=0;i<=maximumValue.length();i++)
+		{
+		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().sendKeys(Keys.BACK_SPACE);
+		}
+	
+	}
+
+	@Then("^click on save button after enter the alphabet input for updation record$")
+	public void click_on_save_button_after_enter_the_alphabet_input_for_updation_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton(), 5, 1);
+		underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
+	}
+
+	@And("^click on save button before entering mendatory details in updation record$")
+	public void click_on_save_button_before_entering_mendatory_details_in_updation_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton(), 5, 1);
+		clicksAndActionsHelper.clickOnElement(underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton());
+		//underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
+	}
+
+	@And("^click on save button after enter special characters for updation record$")
+	public void click_on_save_button_after_enter_special_characters_for_updation_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton(), 5, 1);
+		underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
+	}
 }

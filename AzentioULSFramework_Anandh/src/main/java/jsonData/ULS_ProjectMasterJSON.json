@@ -1,7 +1,7 @@
 [
 {
 "UserType":"Maker",
-"ProjectType":"APF",
+"ProjectType":"NON APF",
 "SoucingBranch":"ABCD BRANCH",
 "ProjectCode":"12345",
 "BuilderGroup":"AZNE",
@@ -34,7 +34,7 @@
 "PlanApprovedDate":"07/10/2021",
 //
 "RuralUrbanClasification":"RURAL",
-"builtArea":"1",
+"builtArea":"Maharastra",
 "AnyChargeOnProject":"No",
 "basicSalesPriceDistanceUnit":"10",
 "chargeByNOCToBeTakenFrom":"PNBHFL",

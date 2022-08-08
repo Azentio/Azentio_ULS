@@ -3,6 +3,7 @@ Feature: To verify under writer offset control module fields and creation and up
 Scenario:To verify user can able to create the under writer off set record
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
@@ -34,6 +35,7 @@ Then verify checker user can able to see the approve pop up after approving the 
 Scenario:To verify user can able to create the under writer off set record
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
@@ -66,6 +68,7 @@ Then verify checker user can able to see the reject pop up after rejecting the u
 Scenario:To verify user can able to create the under writer off set record
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
@@ -98,6 +101,7 @@ Then verify checker user can able to see the reject pop up after returning the u
 Scenario: To verify maker user can able to create the record with invalid input
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
@@ -116,6 +120,7 @@ Then verify functionality of back button
 Scenario: To verify maker user can able to update the under writer record beore approval
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
@@ -153,6 +158,7 @@ Then verify checker user can able to see the approve pop up after approving the 
 Scenario: To verify maker user can able to update the under writer record which is approved from checkr
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then select the record to do updation which is approved from checker user
@@ -179,6 +185,7 @@ Then verify checker user can able to see the approve pop up after approving the 
 Scenario: To verify maker user can able to update the under writer record which is approved from checkr
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then select the record to do updation which is approved from checker user
@@ -206,6 +213,7 @@ Then verify checker user can able to see the reject pop up after rejecting the u
 Scenario: To verify maker user can able to update the under writer record which is approved from checkr
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on business rules main module
 And click on under writer off set control view button
 Then select the record to do updation which is approved from checker user
@@ -228,3 +236,62 @@ And click on return button in checker stage to return the under writer off set c
 And give the checker remark in alert pop up for return the under writer record
 And click on return button in remark pop up for return the under writer record
 Then verify checker user can able to see the reject pop up after returning the under writer record
+@AT_UOC_T005.1
+Scenario: To verify maker user can able to update the under writer record beore approval
+Given Navigate to ULS application URL
+Then login with valid maker credentials
+And go to configuration main menu
+And click on business rules main module
+And click on under writer off set control view button
+Then click on add button to create under writer off set record
+Then verify back button and save buttons are visible when user click on add button
+Then verify minimum value input box should be mendatory and field should be text box
+And user can able to enter the minimum value input box for checker reject
+Then verify maximum value input box should be mendatory and field should be text box
+And user can able to enter the maximum value input box for checker reject
+Then verify available field should be non mendatory and field should be display only
+Then verify selected field should be non mendatory and field should be display only
+Then click on save button in under writer off set screen
+When click on mail box after saving the under writer record
+Then click on search button to search the under writer off set record
+And click on first under writer off set record
+And update the minimum and maximum value fields 
+Then click on save button after updating the under writer off set screen
+When click on mail box after saving the under writer record
+#Then click on search button to search the under writer off set record
+And click on first under writer off set record
+Then verify record is updated or not
+And submit the under writer off set record
+Then give alert remark and click on submit in alert
+Then store the checker id
+@AT_UOC_T002.2
+Scenario: To verify checker user can able to approve the under writer off set control record
+Given Navigate to ULS application URL
+Then login with checker user
+And click on menu button
+Then select the under writer record in checker stage
+And click on approve button in checker stage to approve the under writer off set control record
+And give the checker remark in alert pop up for approve the under writer record
+And click on approve button in remark pop up for approve the under writer record
+Then verify checker user can able to see the approve pop up after approving the under writer record
+@AT_UOC_T010
+Scenario: To verify maker user can not able to update the under writer record with invalid inputs
+Given Navigate to ULS application URL
+Then login with valid maker credentials
+And go to configuration main menu
+And click on business rules main module
+And click on under writer off set control view button
+Then select the record to do updation which is approved from checker user 
+Then clear the input box value
+And fill the alphabets in minimum and maximum value input box
+Then click on save button after enter the alphabet input for updation record
+Then verify system should not allow user to save the record 
+Then clear the input box value
+And click on save button before entering mendatory details in updation record
+Then verify system should show the validation for minimum and maximum value mendatory fields
+Then fill the minimum and maximum input as special characters
+And click on save button after enter special characters for updation record
+Then verify system should not allow user to save the record
+Then clear the input box value
+Then verify functionality of back button
+

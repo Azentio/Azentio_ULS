@@ -1208,7 +1208,13 @@ public class SchemeMasterObject {
 	public WebElement uLS_SchemeMaster_FinalSubmitCancelButton() {
 		return uLS_SchemeMaster_FinalSubmitCancelButton1;
 	}
-
+    @FindBy(xpath="//span[text()='Configurations']")
+    private WebElement ULS_ConfigurationMainMenu;
+    public WebElement ULSConfigurationMainMenu()
+    {
+    	return ULS_ConfigurationMainMenu;
+    }
+    
 
 
 }

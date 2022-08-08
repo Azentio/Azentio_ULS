@@ -13,13 +13,13 @@ public class ULS_UnderWriterOffSetControlObj {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//h4[text()='Business Rules']")
+	@FindBy(xpath="//ion-label[text()='Business Rules']")
 	private WebElement uls_BusinessRulesMainModule;
 	public WebElement ulsBusinessRulesMainModule()
 	{
 		return uls_BusinessRulesMainModule;
 	}
-	@FindBy(xpath="//h4[text()='UnderwriterOffsetControl']/parent::ion-label/following-sibling::ion-buttons//ion-button[2]")
+	@FindBy(xpath="//ion-label[text()='UnderwriterOffsetControl']//following-sibling::ion-buttons//ion-button[2]")
 	private WebElement underWriterOffSetControl_ViewButton;
 	public WebElement underWriterOffSetControlViewButton()
 	{
@@ -96,7 +96,7 @@ public class ULS_UnderWriterOffSetControlObj {
 		return underWriterOffSetControl_SearchTextBox;
 	}
 
-	@FindBy(xpath = "//ion-icon[@aria-label='mail outline']")
+	@FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']")
 	private WebElement underWriterOffSetControl_mailBox;
 
 	public WebElement underWriterOffSetControlMailBox() {

@@ -8,6 +8,7 @@ Feature: To verify fields in project master input fields and record flow
 Scenario: To verify maker user can able to fill the project master fields and save the data
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And go to project setup main menu
 Then click on project master view button
 And click on add button to add the new project record

@@ -13,6 +13,8 @@ import com.google.gson.stream.JsonReader;
 
 import testDataType.KULS_Login_TestDataType;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
+import testDataType.KULS_WareHouseMasterTestData;
+import testDataType.ULS_AssetCollateralTypeTestData;
 import testDataType.ULS_ProjectMasterTestData;
 import testDataType.ULS_SchemeMasterTestDataType;
 
@@ -31,6 +33,12 @@ public class JsonConfig {
 
 	private final String KULS_UnderWriterOffSetControl = configFileReader.getJsonPath() + "KULS_UnderWriterOffSetControlJSON.json";
 	private List<KULS_UnderWriterOffSetControlTestData> underWriterOffSetControlTestData;
+	
+	private final String KULS_WareHouseFilePath = configFileReader.getJsonPath() + "ULS_WareHouseJSON.json";
+	private List<KULS_WareHouseMasterTestData> wareHouseTestData;
+	
+	private final String ULS_AssetCollateralJSONFilePath = configFileReader.getJsonPath() + "ULS_AssetCollateralTypeJSON.json";
+	private List<ULS_AssetCollateralTypeTestData> assetCollateratTypeTestdata;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -40,10 +48,57 @@ public class JsonConfig {
 		schemeMasterTestData=getUlsSchemeMasterTestData();
 		projectMasterTestData=getUlsProjectMasterTestData();
 		underWriterOffSetControlTestData=getUnderWriterOffSetControlTestData();
-
+		wareHouseTestData= getWareHouseTestData();
+		assetCollateratTypeTestdata=getAssetCollateralTypeTestData();
 	}
 
 	
+
+	private List<ULS_AssetCollateralTypeTestData> getAssetCollateralTypeTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ULS_AssetCollateralJSONFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ULS_AssetCollateralJSONFilePath));
+			ULS_AssetCollateralTypeTestData[] assetCollateralTypeTestData = gson.fromJson(bufferReader, ULS_AssetCollateralTypeTestData[].class);
+			return Arrays.asList(assetCollateralTypeTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ULS_AssetCollateralJSONFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
+
+	private List<KULS_WareHouseMasterTestData> getWareHouseTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(KULS_WareHouseFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(KULS_WareHouseFilePath));
+			KULS_WareHouseMasterTestData[] wareHouseTestData = gson.fromJson(bufferReader, KULS_WareHouseMasterTestData[].class);
+			return Arrays.asList(wareHouseTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + KULS_WareHouseFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
 
 	private List<KULS_UnderWriterOffSetControlTestData> getUnderWriterOffSetControlTestData() {
 		// TODO Auto-generated method stub
@@ -142,5 +197,13 @@ public class JsonConfig {
 	//KULS_UnderWriterOffSetControlTestData> underWriterOffSetControlTestData
 	public final KULS_UnderWriterOffSetControlTestData getUlsUnderWriterOffSetControlTestDataByName(String Username) {
 		return underWriterOffSetControlTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//KULS_WareHouseMasterTestData> wareHouseTestData
+	public final KULS_WareHouseMasterTestData getUlsWareHouseTestDataByName(String Username) {
+		return wareHouseTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//ULS_AssetCollateralTypeTestData> assetCollateratTypeTestdata
+	public final ULS_AssetCollateralTypeTestData getAssetCollateralTypeTestDataByName(String Username) {
+		return assetCollateratTypeTestdata.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

@@ -13,14 +13,14 @@ public class ULS_ProjectMasterObj {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//h4[text()='Project Setup']")
+	@FindBy(xpath = "//ion-label[text()='Project Setup']")
 	private WebElement uls_ProjectSetUpMainMenu;
 
 	public WebElement ulsProjectSetUpMainMenu() {
 		return uls_ProjectSetUpMainMenu;
 	}
 
-	@FindBy(xpath = "//h4[text()='Project Master']/parent::ion-label/following-sibling::ion-buttons/ion-button[2]")
+	@FindBy(xpath = "//ion-label[text()='Project Master']//following-sibling::ion-buttons/ion-button[2]")
 	private WebElement uls_ProjectMasterViewButton;
 
 	public WebElement ulsProjectMasterViewButton() {
@@ -995,7 +995,7 @@ public class ULS_ProjectMasterObj {
 		return projectMaster_SearchTextBox;
 	}
 
-	@FindBy(xpath = "//ion-icon[@aria-label='mail outline']")
+	@FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']")
 	private WebElement projectMaster_mailBox;
 
 	public WebElement projectMasterMailBox() {
