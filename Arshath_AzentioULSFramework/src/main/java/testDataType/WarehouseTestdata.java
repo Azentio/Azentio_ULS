@@ -26,4 +26,5 @@ public class WarehouseTestdata {
 	public String AddressModifyReject;
 	public String DescriptionReModifyReturn;
 	public String AddressReModifyReturn;
+	public String InvalidFax;
 }

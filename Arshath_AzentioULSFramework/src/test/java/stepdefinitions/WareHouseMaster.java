@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
@@ -35,8 +36,15 @@ public class WareHouseMaster extends BaseClass {
 	WarehouseTestdata warehousedata = jsonConfig.getwarehouseListByName("Maker");
 	String Toast;
 
-	@When("^user click Config Managert menu$")
-	public void user_click_config_managert_menu() throws Throwable {
+	
+    @Then("^user click on configurations Tab$")
+    public void user_click_on_configurations_tab() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Configurations(), 60, 2);
+    	warehousrobj.Configurations().click();
+    }
+    
+	@When("^user click Config Manager menu$")
+	public void user_click_config_manager_menu() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.ConfigManager(), 60, 2);
 		warehousrobj.ConfigManager().click();
 	}
@@ -508,6 +516,24 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Address().sendKeys(warehousedata.AddressReModify);
     }
 	
+    @Then("^User validate the WareHouse Modify approved record in list view$")
+    public void user_validate_the_warehouse_modify_approved_record_in_list_view() throws Throwable {
+		for (int i = 0; i < 50; i++) {
+			try {
+				String validate = driver.findElement(By.xpath("//span[contains(text(),'" + warehousedata.AddressReModify + "')]")).getText();
+				System.out.println(validate);
+				Assert.assertEquals(validate, warehousedata.AddressReModify);
+
+				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + warehousedata.DescriptionReModify + "')]")).getText();
+				System.out.println(validate1);
+				Assert.assertEquals(validate1, warehousedata.DescriptionReModify);
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+    }
+    
   //********************@AT_WHM_T007_Modification_Reject******************//    
     
     @And("^user Enter the value in description and Modify Reject it$")
@@ -526,6 +552,24 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().clear();
 		warehousrobj.Warehouse_Address().sendKeys(warehousedata.AddressModifyReject);
+    }
+    
+    @Then("^User validate the WareHouse Modify Rejected record in list view$")
+    public void user_validate_the_warehouse_modify_rejected_record_in_list_view() throws Throwable {
+		for (int i = 0; i < 50; i++) {
+			try {
+				String validate = driver.findElement(By.xpath("//span[contains(text(),'" + warehousedata.AddressModifyReject + "')]")).getText();
+				System.out.println(validate);
+				Assert.assertEquals(validate, warehousedata.AddressReModify);
+
+				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + warehousedata.DescriptionModifyReject + "')]")).getText();
+				System.out.println(validate1);
+				Assert.assertEquals(validate1, warehousedata.DescriptionReModify);
+				break;
+			} catch (Exception e) {
+
+			}
+		}
     }
     
   //********************@AT_WHM_T008_Modification_Return******************//    
@@ -548,18 +592,50 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Address().sendKeys(warehousedata.AddressReModifyReturn);
     } 
     
+    @Then("^User validate the WareHouse Modify Retured record in list view$")
+    public void user_validate_the_warehouse_modify_retured_record_in_list_view() throws Throwable {
+		for (int i = 0; i < 50; i++) {
+			try {
+				String validate = driver.findElement(By.xpath("//span[contains(text(),'" + warehousedata.AddressReModifyReturn + "')]")).getText();
+				System.out.println(validate);
+				Assert.assertEquals(validate, warehousedata.AddressReModifyReturn);
+
+				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + warehousedata.DescriptionReModifyReturn + "')]")).getText();
+				System.out.println(validate1);
+				Assert.assertEquals(validate1, warehousedata.DescriptionReModify);
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+    }
+    
+    
+  //******************@AT_WHM_T006_Invalid******************//
+    
+    @And("^user Enter Invalid Data in warehouse Master$")
+    public void user_enter_invalid_data_in_warehouse_master() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax(), 60, 2);
+		warehousrobj.Warehouse_Fax().isDisplayed();
+		warehousrobj.Warehouse_Fax().click();
+		warehousrobj.Warehouse_Fax().clear();
+		warehousrobj.Warehouse_Fax().sendKeys(warehousedata.InvalidFax);
+        waitHelper.waitForElementToVisibleWithFluentWait(driver,  driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]")), 60, 2);
+        WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]"));
+        String expectedErrorText = "Maximum 50 characters are allowed";
+        String actualErrorText = errorPopUp.getText();
+        if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
+            System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is" + actualErrorText);
+        } else {
+            System.out.println("The actual and expected result are not same.The Popup validation message is" + actualErrorText);
+        }
+        Assert.assertEquals(actualErrorText, "Maximum 50 characters are allowed");
+    } 
     
     
     
+    //******************@AT_WHM_T009_Active_Deactive******************//
     
-    
-    
-    
-    
-    
-    
-    
-    //******************@AT-WHM-T009_Active_Deactive******************//
     
     @And("^user click on First Record Edit icon$")
     public void user_click_on_first_record_edit_icon() throws Throwable {

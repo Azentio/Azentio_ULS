@@ -13,20 +13,27 @@ public class Warehouse_MasterObj {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(xpath = "//span[contains(text(),'Configurations')]")
+	private WebElement Configurations;
 
-	@FindBy(xpath = "//h4[contains(text(),'Config Manager')]")
+	public WebElement Configurations() {
+		return Configurations;
+	}
+
+	@FindBy(xpath = "//ion-label[contains(text(),'Config Manager')]")
 	private WebElement ConfigManager;
 
 	public WebElement ConfigManager() {
 		return ConfigManager;
 	}
-	@FindBy(xpath = "//h4[contains(text(),'Warehouse Master')]/parent::ion-label[1]/following-sibling::ion-buttons/ion-button[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Warehouse Master')]/parent::ion-item[1]//ion-buttons[1]/ion-button[2]")
 	private WebElement Warehouse_Edit_Icon;
 
 	public WebElement Warehouse_Edit_Icon() {
 		return Warehouse_Edit_Icon;
 	}
-	@FindBy(xpath = "//h4[contains(text(),'Warehouse Master')]/parent::ion-label[1]/following-sibling::ion-buttons/ion-button[2]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Warehouse Master')]/parent::ion-item[1]//ion-buttons[1]/ion-button[1]")
 	private WebElement Warehouse_Eye_Icon;
 
 	public WebElement Warehouse_Eye_Icon() {
@@ -131,7 +138,7 @@ public class Warehouse_MasterObj {
 		return Warehouse_Back;
 	}
 
-	@FindBy(xpath = "//ion-icon[@aria-label='mail outline']")
+	@FindBy(xpath = "//ion-icon[@ng-reflect-name='mail-unread-outline']")
 	private WebElement Warehouse_Inbox;
 
 	public WebElement Warehouse_Inbox() {
@@ -224,7 +231,7 @@ public class Warehouse_MasterObj {
         return Checker_toggle;
     } 
   
-    @FindBy(xpath = "//ion-item[@ng-reflect-text='Inbox']/ion-icon[1]") 
+    @FindBy(xpath = "//ion-icon[@ng-reflect-name='mail-unread-outline']") 
     private WebElement Checker_Inbox;
     public WebElement Checker_Inbox() {
         return Checker_Inbox;
