@@ -987,7 +987,12 @@ public class ULS_ProjectMasterObj {
 	public WebElement projectMasterSaveButton() {
 		return projectMaster_SaveButton;
 	}
-
+//	@FindBy(xpath="//div[@id='toast-container']//div[@role='alert']")
+//	private WebElement projectMaster_submitToastAlert;
+//	public WebElement projectMastersubmitToastAlert()
+//	{
+//		return projectMaster_submitToastAlert;
+//	}
 	@FindBy(xpath = "//input[@mode='ios']")
 	private WebElement projectMaster_SearchTextBox;
 

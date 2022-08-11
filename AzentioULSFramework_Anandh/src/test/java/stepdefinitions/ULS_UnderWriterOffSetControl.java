@@ -155,14 +155,14 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 	@Then("^select the under writer record in checker stage$")
 	public void select_the_under_writer_record_in_checker_stage() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 30; i++) {
 			try {
 				driver.findElement(By.xpath(
 						"//span[text()='" + jsondataReaderWriter.readReferancedata() + "']/ancestor::tr/td[1]/button"))
 						.click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 30) {
 					Assert.fail(e.getMessage());
 				}
 			}

@@ -6,6 +6,7 @@ Feature: To verify the ULS master screen
 Scenario: To verify maker user can able to create and submit the scheme master record
 Given Navigate to ULS application URL
 Then login with valid maker credentials
+And go to configuration main menu
 And click on product defenition main module
 Then choose scheme master view button
 And click on add button to create the scheme master record
