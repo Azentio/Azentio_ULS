@@ -3,6 +3,7 @@ Scenario: To verify the Product Master List view of records
 # M11 test case includes following functionality PM_05_01 PM_05_02 PM_05_03 PM_05_04 
 # PM_05_05 PM_05_06 PM_05_07 PM_05_08 PM_05_09 PM_05_10 PM_05_11 PM_05_12
 Given user log in as uls application maker
+When user click the configuration menu for asset auto creation 
 When user click product set up menu
 And user click temp view in product master retail
 And user verify add button is displayed in screen

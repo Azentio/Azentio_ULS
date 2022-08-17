@@ -2,6 +2,7 @@ Feature: To check the functionalities of sub product retail master
 @M1_SubPrdMst_Creation
 Scenario: Creation of Sub product retail master with valid data
 Given user log in as uls application maker
+When user click the configuration menu for sub product retail
 When user click product set up menu
 And user click list view icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -842,7 +843,7 @@ And user Click on Return icon
 And user Enter the remarks for Return the Record
 Then user Click on Remarks button for Return confirmation
 Then user verify the Record got Return
-@M1_SubPrdMst_Creation
+@M1.0_SubPrdMst_Creation
 Scenario: Creation of Sub product retail master with valid data
 Given user log in as uls application maker
 When user click product set up menu

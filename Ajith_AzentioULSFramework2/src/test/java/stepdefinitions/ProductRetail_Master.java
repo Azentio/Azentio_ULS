@@ -3,6 +3,7 @@ package stepdefinitions;
 import java.io.File;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -28,6 +29,7 @@ public class ProductRetail_Master {
 	public void user_click_temp_view_in_product_master_retail() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				productMasterRetailObj.productEditIcon(), 60, 3);
+		seleniumactions.getJavascriptHelper().scrollIntoView(productMasterRetailObj.productEditIcon());
 		productMasterRetailObj.productEditIcon().click();
 	}
 
@@ -172,8 +174,13 @@ public class ProductRetail_Master {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				driver.findElement(By.xpath(xpath)), 60, 2);
 		for (int i = 0; i < 20; i++) {
-
-			productcode = driver.findElement(By.xpath(xpath)).getText();
+            try {
+            	productcode = driver.findElement(By.xpath(xpath)).getText();
+            	break;
+			} catch (Exception e) {
+				
+			}
+			
 		}
 		System.out.println(productcode);
 
@@ -197,11 +204,9 @@ public class ProductRetail_Master {
 		String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
 		for (int i = 0; i < 200; i++) {
 			try {
-				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-						driver.findElement(By.xpath(xpath)), 60, 2);
 				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), productMasterRetailTestData.UnmatchedDataError);
 				break;
-			} catch (Exception e) {
+			} catch (NoSuchElementException e) {
 
 			}
 		}
@@ -210,7 +215,7 @@ public class ProductRetail_Master {
 
 	}
 
-	@And("^user verify post clicking pdf option pdf file will be downloaded$")
+
 	public void user_verify_post_clicking_pdf_option_pdf_file_will_be_downloaded() throws Throwable {
 		for (int i = 0; i < 20; i++) {
 			try {

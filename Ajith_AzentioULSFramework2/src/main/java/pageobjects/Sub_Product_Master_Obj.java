@@ -14,7 +14,11 @@ public class Sub_Product_Master_Obj {
 	}
 	
 	//***********Maker Stage***********//
-	
+	@FindBy(xpath="//span[text()='Configurations']//following-sibling::ion-icon")
+	private WebElement configurationOptions;
+	public WebElement configurationOptions() {
+		return configurationOptions;
+	}
 	@FindBy(xpath="(//ion-title[contains(text(),'Subproduct Master')])[2]")
 	private WebElement  Sub_Product;
 	public WebElement  Sub_Product() {
@@ -25,17 +29,17 @@ public class Sub_Product_Master_Obj {
 	public WebElement addIcon() {
 		return addIcon;
 	}
-	@FindBy(xpath="//h4[text()='Product Setup']")
+	@FindBy(xpath="//ion-label[text()='Product Setup']//following-sibling::ion-icon")
 	private WebElement productSetup;
 	public WebElement productSetup() {
 		return productSetup;
 	}
-	@FindBy(xpath="//h4[text()='Sub Product Master']//parent::ion-label//following-sibling::ion-buttons//ion-button[1]")
+	@FindBy(xpath="//ion-label[text()='Sub Product Master']//following-sibling::ion-buttons//child::ion-button[1]")
 	private WebElement subProductEditIcon;
 	public WebElement subProductEditIcon() {
 		return subProductEditIcon;
 	}
-	@FindBy(xpath="//h4[text()='Sub Product Master']//parent::ion-label//following-sibling::ion-buttons//ion-button[2]")
+	@FindBy(xpath="//ion-label[text()='Sub Product Master']//following-sibling::ion-buttons//child::ion-button[2]")
 	private WebElement subProductViewIcon;
 	public WebElement subProductViewIcon() {
 		return subProductViewIcon;
@@ -129,7 +133,7 @@ public class Sub_Product_Master_Obj {
 		return  Sub_Product_Subproduct_Definition ;
 	}	
 	
-	@FindBy(xpath="(//ion-label[contains(text(),'Facility')])[1]")
+	@FindBy(xpath="(//ion-label[contains(text(),'Facility')])[2]")
 	private WebElement  Sub_Product_Facility;
 	public WebElement  Sub_Product_Facility() {
 		return  Sub_Product_Facility ;
@@ -224,7 +228,7 @@ public class Sub_Product_Master_Obj {
     public WebElement Sub_Product_TempView_Edit() {
         return Sub_Product_TempView_Edit;
     }
-    @FindBy(xpath = "//ion-icon[@aria-label='mail outline']") 
+    @FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']") 
     private WebElement Sub_Product_Inbox;
     public WebElement Sub_Product_Inbox() {
         return Sub_Product_Inbox;
@@ -296,7 +300,7 @@ public class Sub_Product_Master_Obj {
     public WebElement Subproduct_InboxView_Search() {
         return Subproduct_InboxView_Search;
     }  
-    @FindBy(xpath = "//p-table[1]/div[1]/div[1]/div[1]/span[2]/input[1]") 
+    @FindBy(xpath = "//span[text()=' Inbox ']//parent::div//child::span[2]/input") 
     private WebElement Subproduct_InboxView_SearchText;
     public WebElement Subproduct_InboxView_SearchText() {
         return Subproduct_InboxView_SearchText;
@@ -315,7 +319,7 @@ public class Sub_Product_Master_Obj {
         return Checker_toggle;
     } 
   
-    @FindBy(xpath = "//ion-item[@ng-reflect-text='Inbox']/ion-icon[1]") 
+    @FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']") 
     private WebElement Checker_Inbox;
     public WebElement Checker_Inbox() {
         return Checker_Inbox;
@@ -337,7 +341,7 @@ public class Sub_Product_Master_Obj {
     public WebElement Checker_Final_Approve() {
         return Checker_Final_Approve;
     }
-    @FindBy(xpath = "//button[@label='Reject']/span[contains(text(),'Reject')]") 
+    @FindBy(xpath = "//kub-workflow-decision//child::button[@label='Reject']") 
     private WebElement Checker_Reject;
     public WebElement Checker_Reject() {
         return Checker_Reject;
@@ -354,7 +358,7 @@ public class Sub_Product_Master_Obj {
     public WebElement Checker_Final_Reject() {
         return Checker_Final_Reject;
     }
-    @FindBy(xpath = "//button[@label='Return']/span[contains(text(),'Return')]") 
+    @FindBy(xpath = "//kub-workflow-decision//child::button[@label='Return']") 
     private WebElement Checker_Return;
     public WebElement Checker_Return() {
         return Checker_Return;

@@ -3,17 +3,17 @@
 	//PRODUCT
 		"Username"	:"Maker",
 		"ProductGroup" : "Deposits",      //1
-		"ProductCode"  : "HOMPUR 3",//2
-		"RejectProductCode"  : "depo37",
+		"ProductCode"  : "RMM",//2
+		"RejectProductCode"  : "test3",
 	// change product code for every run for parameter invalid
-	"ProductCodeParameter":"depo39", //3
-	"SubproductcodeParameter":"ParameterInvalidData1", //4
+	"ProductCodeParameter":"PR60", //3
+	"SubproductcodeParameter":"ParameterInvalidData2", //4
 	//SUBPRODUCT DEFINITION
 	
-		"Subproductcode":"Deposits1", //5
-		"RejectSubproductcode":"subprd126",
+		"Subproductcode":"Deposits2", //5
+		"RejectSubproductcode":"subprd127",
 		"Specialchar":"@#$%",
-		"SupproductDescription":"DepositslDescription14", //6
+		"SupproductDescription":"DepositslDescription15", //6
 		
 	//FACILITY
 		

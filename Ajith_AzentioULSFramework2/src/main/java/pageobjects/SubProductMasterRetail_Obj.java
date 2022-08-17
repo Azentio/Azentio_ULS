@@ -21,12 +21,12 @@ public class SubProductMasterRetail_Obj {
 	public WebElement productSetup() {
 		return productSetup;
 	}
-	@FindBy(xpath="//h4[text()='Sub Product Master']//parent::ion-label//following-sibling::ion-buttons//ion-button[1]")
+	@FindBy(xpath="//ion-label[text()='Sub Product Master']//following-sibling::ion-buttons//child::ion-button[1]")
 	private WebElement subProductEditIcon;
 	public WebElement subProductEditIcon() {
 		return subProductEditIcon;
 	}
-	@FindBy(xpath="//h4[text()='Sub Product Master']//parent::ion-label//following-sibling::ion-buttons//ion-button[2]")
+	@FindBy(xpath="//ion-label[text()='Sub Product Master']//following-sibling::ion-buttons//child::ion-button[2]")
 	private WebElement subProductViewIcon;
 	public WebElement subProductViewIcon() {
 		return subProductViewIcon;
@@ -111,7 +111,7 @@ public class SubProductMasterRetail_Obj {
     public WebElement firstEditIcon() {
     	return firstEditIcon;
     } 
-    @FindBy(xpath="(//div[@role=\"alert\"])[2]")
+    @FindBy(xpath="(//div[@role='alert'])[2]")
     private WebElement successMgs;
     public WebElement successMgs() {
     	return successMgs;
@@ -276,7 +276,7 @@ public class SubProductMasterRetail_Obj {
     public WebElement Sub_Product_TempView_Edit() {
         return Sub_Product_TempView_Edit;
     }
-    @FindBy(xpath = "//ion-icon[@aria-label='mail outline']") 
+    @FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']") 
     private WebElement Sub_Product_Inbox;
     public WebElement Sub_Product_Inbox() {
         return Sub_Product_Inbox;
@@ -851,6 +851,7 @@ public class SubProductMasterRetail_Obj {
 	public WebElement closeButtonInSummary() {
 		return closeButtonInSummary;
 	}
+	
 	
 	
 

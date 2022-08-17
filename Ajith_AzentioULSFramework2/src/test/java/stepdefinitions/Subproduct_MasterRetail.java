@@ -59,6 +59,12 @@ public class Subproduct_MasterRetail extends BaseClass {
 		subPrdMst.productSetup().click();
 	}
 
+    @When("^user click the configuration menu for sub product retail$")
+    public void user_click_the_configuration_menu_for_sub_product_retail() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver,subPrdMst.configurationOptions(), 30, 2);
+    	subPrdMst.configurationOptions().click();
+    }
+
 	@And("^user click list view icon of sub product retail$")
 	public void user_click_list_view_icon_of_sub_product_retail() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.subProductViewIcon(), 60, 2);
@@ -156,9 +162,17 @@ public class Subproduct_MasterRetail extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.Sub_Product_Subproduct_Definition(), 60, 2);
 		Tab = subPrdMst.Sub_Product_Subproduct_Definition().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.subProductCode(), 60, 2);
-		subPrdMst.subProductCode().click();
-		subPrdMst.subProductCode().sendKeys(subprdMstData.Subproductcode);
+		//waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.subProductCode(), 60, 2);
+		for (int i = 0; i <30; i++) {
+			try {
+				subPrdMst.subProductCode().click();
+				subPrdMst.subProductCode().sendKeys(subprdMstData.Subproductcode);
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+		
 	}
 
 	@And("^user enter sub product codes under sub product definition details and verify fields$")
@@ -741,7 +755,7 @@ public class Subproduct_MasterRetail extends BaseClass {
 
 	@Then("^user Click on Remarks button for Return confirmation$")
 	public void user_click_on_remarks_button_for_return_confirmation() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.Checker_Alert_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.Checker_Final_Return(), 60, 2);
 		subPrdMst.Checker_Final_Return().click();
 	}
 

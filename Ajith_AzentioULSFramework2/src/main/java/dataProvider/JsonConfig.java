@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.AssetAutoMaster_TestData;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.Product_RetailMasterTestData;
 import testDataType.SubProductMaster_RetailTestData;
@@ -25,8 +26,10 @@ public class JsonConfig {
 	// ULS Login
 	private final String KULSLoginDataPath = configFileReader.getJsonPath() + "KULS_Login_dataJSON.json";
 	private List<KULS_Login_TestDataType> loginCredentials;
+	//product retail
 	private final String ProductRetailPath = configFileReader.getJsonPath() + "Product_MasterRetail.json";
 	private List<Product_RetailMasterTestData> productRetailData;
+	//sub product retail
 	private final String SubProductRetailPath = configFileReader.getJsonPath() + "SubProductMasterRetail.json";
 	private List<SubProductMaster_RetailTestData> SubProductRetailData;
 	private final String SubProductRetailPath1 = configFileReader.getJsonPath() + "Subproduct_MasterRetailJson.json";
@@ -38,6 +41,9 @@ public class JsonConfig {
 			+ "SubProductRetailMasterParameterNegativeJSON.json";
 	private List<SubProductRetailParameterNegativeTestDataType> SubParameternegative;
 
+	// assetauto master
+	private final String assetAutoMasterPath = configFileReader.getJsonPath() + "AssetAutoMaster.json";
+	private List<AssetAutoMaster_TestData> assetAutoMasterData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -49,9 +55,32 @@ public class JsonConfig {
 		SubproductRetail = getSubproductRetail();
 		SubproductRetailparameter = getSubproductRetailparameter();
 		SubParameternegative = getSubParameterNegativeList();
-
+		assetAutoMasterData =getAssetAutoMaster();
 	}
-
+	// asset auto master
+	private List<AssetAutoMaster_TestData> getAssetAutoMaster() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(assetAutoMasterPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(assetAutoMasterPath));
+			AssetAutoMaster_TestData[] assetAutoMaster = gson.fromJson(bufferReader,
+					AssetAutoMaster_TestData[].class);
+			return Arrays.asList(assetAutoMaster);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + assetAutoMasterPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	
+	// sub product retail
 	private List<SubProductRetailParameterTestDataType> getSubproductRetailparameter() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(SubProductparameterPath));
@@ -204,4 +233,8 @@ public class JsonConfig {
 	public final SubProductRetailParameterNegativeTestDataType getSubParameterNegativeListByName(String Username) {
     return SubParameternegative.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
+	// asset auto master
+	public final AssetAutoMaster_TestData getAssetAutoMasterListByName(String Username) {
+	    return assetAutoMasterData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+		}
 }
