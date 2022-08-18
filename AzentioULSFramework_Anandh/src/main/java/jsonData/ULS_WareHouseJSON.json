@@ -6,5 +6,9 @@
 	"downloadFileLocation":"C:\\Users\\inindc00076",
 	"FileNameForXlsFile":"WarehouseDataFile_export_",
 	"FileNameForPDFFile":"WarehouseDataFile"
+	},
+	{
+	"UserType":"Checker",
+	"checkerRemark":"Approved from checker"
 	}
 ]

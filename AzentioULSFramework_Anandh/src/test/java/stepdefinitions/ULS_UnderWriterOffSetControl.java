@@ -204,7 +204,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 	public void give_alert_remark_and_click_on_submit_in_alert() throws Throwable {
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				underWriterOffSetControlObj.underWriterOffSetControlalertRemark(), 5, 1);
+				underWriterOffSetControlObj.underWriterOffSetControlalertRemark(), 60, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlalertRemark().click();
 		underWriterOffSetControlObj.underWriterOffSetControlalertRemark()
 				.sendKeys(underWriterOffSetControlTestData.MakerSubmitRemark);

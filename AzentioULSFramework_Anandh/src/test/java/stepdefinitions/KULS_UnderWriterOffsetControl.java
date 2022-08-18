@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
+import helper.JavascriptHelper;
 import helper.Selenium_Actions;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
@@ -25,6 +26,7 @@ public class KULS_UnderWriterOffsetControl {
 	ConfigFileReader configFileReader = new ConfigFileReader();
 
 	KULS_Application_Login login = new KULS_Application_Login(driver);
+	JavascriptHelper javascriptHelper= new JavascriptHelper(driver);
 	JsonConfig jsonConfig = new JsonConfig();
 	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
 	underWriterOffsetControlObj underwriteroffsetcontrolObj = new underWriterOffsetControlObj(driver);
@@ -119,7 +121,8 @@ public class KULS_UnderWriterOffsetControl {
 				underwriteroffsetcontrolObj.underwriteroffsetcontrolBackIcon(), 60, 2);
 		for (int i = 0; i <= 50; i++) {
 			try {
-				underwriteroffsetcontrolObj.underwriteroffsetcontrolBackIcon().click();
+				javascriptHelper.JSEClick(underwriteroffsetcontrolObj.underwriteroffsetcontrolBackIcon());
+				//underwriteroffsetcontrolObj.underwriteroffsetcontrolBackIcon().click();
 
 				break;
 			} catch (Exception e) {

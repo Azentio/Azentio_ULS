@@ -1048,7 +1048,7 @@ public class ULS_ProjectMasterObj {
 		return projectMaster_SubmitButton;
 	}
 
-	@FindBy(xpath = "(//textarea)[2]")
+	@FindBy(xpath = "//textarea")
 	private WebElement projectMaster_alertRemark;
 
 	public WebElement projectMasteralertRemark() {

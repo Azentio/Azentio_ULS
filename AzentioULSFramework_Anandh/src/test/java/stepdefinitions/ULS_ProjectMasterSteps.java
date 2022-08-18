@@ -314,8 +314,8 @@ public class ULS_ProjectMasterSteps extends BaseClass {
 		Assert.assertFalse(statusOfRemark);
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, projectMasterObj.projectMasterRemark2TextBox(), 5, 1);
 		projectMasterObj.projectMasterRemark2TextBox().click();
-		//projectMasterObj.projectMasterRemark2TextBox().clear();
-		// projectMasterObj.projectMasterRemark2TextBox().sendKeys(ulsProjectMasterTestData.Remarks);
+		projectMasterObj.projectMasterRemark2TextBox().clear();
+		projectMasterObj.projectMasterRemark2TextBox().sendKeys(ulsProjectMasterTestData.Remarks);
 	}
 
 	@Then("^verify address1 field should be mendatory field type should be text$")

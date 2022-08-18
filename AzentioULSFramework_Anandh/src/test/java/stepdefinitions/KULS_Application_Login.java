@@ -39,10 +39,20 @@ public class KULS_Application_Login {
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
 		loginObj.password().click();
 		loginObj.password().sendKeys(password);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
-		loginObj.signIn().click();
+		for (int i = 0; i <= 200; i++) {
+			String otp = javaScriptHelper.executeScript("return document.querySelector('input[id^=otp_0_]').value")
+					.toString();
+			if (!(otp.isEmpty())) {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 20, 5);
+				loginObj.signIn().click();
+				break;
+			}
+		}
+		
 		while (true) {
 			try {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.makerMenuBar(), 10, 1);
+				loginObj.makerMenuBar().click();
 				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
 				assertEquals(loginObj.configuration().isDisplayed(), true);
 				break;
@@ -82,7 +92,7 @@ public class KULS_Application_Login {
 			loginObj.signIn().click();
 			while (true) {
 				try {
-					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
 					assertEquals(loginObj.configuration().isDisplayed(), true);
 					break;
 				} catch (Exception e) {

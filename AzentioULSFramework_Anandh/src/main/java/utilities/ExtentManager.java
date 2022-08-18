@@ -37,7 +37,7 @@ public class ExtentManager {
 		extent.attachReporter(htmlReporter);
 		// Set environment details
 		extent.setSystemInfo("Operating System", "Windows 10");
-		extent.setSystemInfo("Tested By", "Dharshini");
+		extent.setSystemInfo("Tested By", "Anandh");
 
 		return extent;
 	}

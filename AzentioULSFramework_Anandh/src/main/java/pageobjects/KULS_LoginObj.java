@@ -36,5 +36,10 @@ public class KULS_LoginObj {
 	public WebElement configuration() {
 		return configuration;
 	}
-	
+	@FindBy(xpath="//ion-card-content//ion-col[1]//div//ion-button")
+	private WebElement maker_MenuBar;
+	public WebElement makerMenuBar()
+	{
+		return maker_MenuBar;
+	}
 }
