@@ -13,7 +13,7 @@ public class ULS_SchemeMasterObj {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//h4[text()='Product Definitions']")
+	@FindBy(xpath = "//ion-label[text()='Product Definitions']")
 	private WebElement ULS_ProductDefenitionMainMenu;
 
 	public WebElement ulsProductDefenitionMainMenu() {
@@ -34,14 +34,14 @@ public class ULS_SchemeMasterObj {
 		return schemeMaster_SaveButton;
 	}
 
-	@FindBy(xpath = "//h4[text()='SchemeMaster']/parent::ion-label/following-sibling::ion-buttons/ion-button[2]")
+	@FindBy(xpath = "//ion-label[text()='SchemeMaster']/parent::ion-item//ion-buttons//ion-button[2]")
 	private WebElement uLS_SchemeMaster_ViewIcon;
 
 	public WebElement ulsSchemeAMasterViewIcon() {
 		return uLS_SchemeMaster_ViewIcon;
 	}
 
-	@FindBy(xpath = "//h4[text()='SchemeMaster']/parent::ion-label/following-sibling::ion-buttons/ion-button[1]")
+	@FindBy(xpath = "//ion-label[text()='SchemeMaster']/parent::ion-item//ion-buttons//ion-button[1]")
 	private WebElement uLS_SchemeMaster_TempView;
 
 	public WebElement ulsSchemeAMasterTempView() {
