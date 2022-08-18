@@ -35,12 +35,14 @@ public class ProjectMaster_UnitDetails extends BaseClass{
 	
     @When("^user click on Project set up menu$")
     public void user_click_on_project_set_up_menu() throws Throwable {
+    	javaHelper.scrollIntoView(PrdMstObj.ProjectSetup());
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.ProjectSetup(), 60, 2);
     	PrdMstObj.ProjectSetup().click();
     }
 
     @And("^user click on project master List view icon$")
     public void user_click_on_project_master_list_view_icon() throws Throwable {
+    	javaHelper.scrollIntoView(PrdMstObj.Prd_Mst_Eye());
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Eye(), 60, 2);
     	PrdMstObj.Prd_Mst_Eye().click();
     }

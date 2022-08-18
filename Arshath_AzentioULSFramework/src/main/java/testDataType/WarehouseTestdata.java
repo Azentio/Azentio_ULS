@@ -27,4 +27,10 @@ public class WarehouseTestdata {
 	public String DescriptionReModifyReturn;
 	public String AddressReModifyReturn;
 	public String InvalidFax;
+	public String searchingWithMatchData;
+	public String searchingWithUnmatchedData;
+	public String downloadFileLocation;
+	public String FileName;
+	public String FileNameForXlsFile;
+	public String FileNameForPDFFile;
 }

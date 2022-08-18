@@ -63,7 +63,7 @@ Then user Click on Action Icon
 And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T002_Reject
-Scenario: verify Checker user is able to Approve the record
+Scenario: verify Checker user is able to Reject the record
 Given user log in as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
@@ -74,7 +74,7 @@ Then user Click on Remarks button for Reject confirmation Alert
 Then user verify the Record got Rejected in checker stage
 
 @AT_WHM_T002_Reject_ListView
-Scenario: Record should get approved and display in the system under Approved List view
+Scenario: Record should get approved and display in the system under Reject List view
 Given user log in as uls application maker
 Then user click on configurations Tab
 When user click Config Manager menu
@@ -296,7 +296,7 @@ Scenario: verify the functionality of Activate/Deactivate button
 Given user log in as uls application maker
 Then user click on configurations Tab
 When user click Config Manager menu
-And user click list view icon of Warehouse Master
+#And user click list view icon of Warehouse Master
 And user click Temp view icon of Warehouse Master
 And user click on First Record Edit icon
 And user verify the status button
@@ -305,6 +305,88 @@ And user click on the update button
 And user click Temp view icon of Warehouse Master
 And user verify the status is Deactive
 #And user verify the Back button and click
+
+@wareHouse1_AT-WHM-T010
+Scenario: To verify list view of wareHouse master
+Given user log in as uls application maker
+And go to configuration main menu
+And Go to config manager main menu
+And click on view button in ware house master
+Then verify list view records are non editable
+Then verify user can able to add the record in to the ware house master screen
+
+@WareHouse2_AT-WHM-T011
+Scenario:  TO verify user can able to serach the list view record with matching and un matching input and user can able to download the the xls and pdf format file
+Given user log in as uls application maker
+And go to configuration main menu
+And Go to config manager main menu
+And click on view button in ware house master
+And click on search button in ware house list view
+And enter the matching data in search test box
+Then verify user can able to see the matching record
+And enter invalid text inputin search box
+Then verify system should not show the result for the un matched record
+And click on export button
+And choose xls format to download the Xls file
+Then verify xls file is downloded in download section
+And click on export button
+And choose pdf format to download pdf file
+Then verify pdf file is downloded in download section
+
+@WareHouse3_AT-WHM-T012
+Scenario: To verify the list view data in wareHouse master
+Given user log in as uls application maker
+Then user click on configurations Tab
+When user click Config Manager menu
+And click on view button in ware house master
+And select the first approved record
+And Get The approved record data
+Then verify System should display the currect description value
+Then verify system should display the currect address value
+#Then verify System should display the currect country value
+#Then verify system should display the currect state value
+#Then verify system should display the currect city value
+#Then verify system should display the currect zip code value
+Then verify system should display the currect phone 1 value
+Then verify system should display the currect fax value
+Then verify system should display the currect mail value
+Then verify system shoudl display the currect contarct person value
+Then verify system shoudl display the exact status of the record
+
+@WareHouse4_AT-WHM-T013
+Scenario: To verify the list view of WIP Record
+Given user log in as uls application maker
+And go to configuration main menu
+And Go to config manager main menu
+And click on temp view in wareHouse master screen
+Then verify WIP list view records are non editable
+Then verify user can able to add the record in to the ware house master screen
+And click on search button in ware house list view
+And enter the matching data in search test box
+Then verify user can able to see the matching record
+And enter invalid text inputin search box
+Then verify system should not show the result for the un matched record
+And click on export button
+And choose xls format to download the Xls file
+Then verify xls file is downloded in download section
+And click on export button
+And choose pdf format to download pdf file
+Then verify pdf file is downloded in download section
+And click on temp view in wareHouse master screen
+And select the first record in WIP
+And Get The WIP record data
+Then verify System should display the currect description value
+Then verify system should display the currect address value
+#Then verify System should display the currect country value
+#Then verify system should display the currect state value
+#Then verify system should display the currect city value
+#Then verify system should display the currect zip code value
+Then verify system should display the currect phone 1 value
+Then verify system should display the currect fax value
+Then verify system should display the currect mail value
+Then verify system shoudl display the currect contarct person value
+Then verify system shoudl display the exact status of the record
+
 
 
 

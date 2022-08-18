@@ -2,6 +2,7 @@ Feature: Check the functionality of the Project Ubit Details
 @AT_PM_T015
 Scenario: verify the Unit details Parameter details List view
 Given user log in as uls application maker
+Then user click on configurations Tab
 When user click on Project set up menu
 And user click on project master List view icon
 And user click on List view Edit Icon
@@ -20,6 +21,7 @@ And User verify the list view Record is Non-Editable
 @AT_PM_T022
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 Given user log in as uls application checker
+Then user click on configurations Tab
 And user Click on Menu icon
 And user Click on Mailbox icon
 And Search the respective reference id and click on Action button
@@ -31,6 +33,7 @@ Then user verify the Record got Return
 @AT_PM_T022_1
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user click on configurations Tab
 When user click product set up menu
 And user click Edit view icon of sub product retail
 Then User validate the Returned record in list view
@@ -38,6 +41,7 @@ Then User validate the Returned record in list view
 @AT_PM_T023
 Scenario: verify user is able to add new Unit details record in the system by entering valid data
 Given user log in as uls application maker
+Then user click on configurations Tab
 When user click on Project set up menu
 And user click on project master List view icon
 And user click on List view Edit Icon

@@ -14,21 +14,21 @@ public class ProjectMaster_Obj {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//h4[text()='Project Setup']")
+	@FindBy(xpath = "//ion-label[contains(text(),'Project Setup')]")
 	private WebElement ProjectSetup;
 
 	public WebElement ProjectSetup() {
 		return ProjectSetup;
 	}
 
-	@FindBy(xpath = "//ion-item[1]/ion-buttons[1]/ion-button[2]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Project Master')]/parent::ion-item[1]//ion-buttons[1]/ion-button[2]")
 	private WebElement Prd_Mst_Eye;
 
 	public WebElement Prd_Mst_Eye() {
 		return Prd_Mst_Eye;
 	}
 
-	@FindBy(xpath = "//ion-item[1]/ion-buttons[1]/ion-button[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Project Master')]/parent::ion-item[1]//ion-buttons[1]/ion-button[1]")
 	private WebElement Prd_Mst_Edit;
 
 	public WebElement Prd_Mst_Edit() {

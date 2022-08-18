@@ -1,33 +1,40 @@
 [
 	{
 		"user"			: "Maker",
-		"Description"	: "Masterware_Description",
-		"Address"		: "Masterware KULS",
-		"AddressReject" : "Masterware Reject",
-		"AddressReturn" : "Masterware Return",
+		"Description"	: "RBI_Description",
+		"Address"		: "RBI KULS",
+		"AddressReject" : "RBI Reject",
+		"AddressReturn" : "RBI Return",
 		"country"		: "INDIA",
-		"State"			: "Maharastra",
-		"Location"		: "Thane",
-		"Zipcode"		: "PIN57938",
+		"State"			: "Karnataka",
+		"Location"		: "Bangalore",
+		"Zipcode"		: "PIN57946",
 		"Phone"			: "9638527410",
 		"Fax"			: "01470258369",
-		"Email"			: "wareMasterware@gmail.com",
+		"Email"			: "RBI@gmail.com",
 		"EmailReject"   : "Warereject1@gmail.com",
-		"EmailReturn"   : "Warereturn1@gmail.com",
-		"Contactperson" : "KULS",
+		"EmailReturn"   : "RBIreturn1@gmail.com",
+		"Contactperson" : "DURGA",
 		"Validation"	: "abcd1234",
 		
-	//Modification
-		"DescriptionModify"		 	: "Modify_Description",
-		"AddressModify"			 	: "Modify_Address",
-		"DescriptionReModify" 	 	: "Re_Modify_Description",
-		"AddressReModify" 		 	: "Re_Modify_Address",
-		"DescriptionModifyReject"	: "Modify_Reject_Description",
-		"AddressModifyReject"	 	: "Modify_Reject_Address",
-		"DescriptionReModifyReturn" : "Modify_Return_Description",
-		"AddressReModifyReturn" 	: "Modify_Return_Address",
+	//RBI_Mdfy_
+		"DescriptionModify"		 	: "RBI_Mdfy_Description",
+		"AddressModify"			 	: "RBI_Mdfy_Address",
+		"DescriptionReModify" 	 	: "ReModify_RBI_Description",
+		"AddressReModify" 		 	: "ReModify_RBI_Address",
+		"DescriptionModifyReject"	: "RBI_Mdfy_Reject_Description",
+		"AddressModifyReject"	 	: "RBI_Mdfy_Reject_Address",
+		"DescriptionReModifyReturn" : "RBI_Mdfy_Return_Description",
+		"AddressReModifyReturn" 	: "RBI_Mdfy_Return_Address",
 		
 	//Invalid data
-		"InvalidFax"	: "123456789987654321032154789987654321032165487321654897"
+		"InvalidFax"	: "123456789987654321032154789987654321032165487321654897",
+		
+	// Validation
+		"searchingWithMatchData"	:"ReModify_Amazon_Description",
+		"searchingWithUnmatchedData":"poiuytrewq",
+		"downloadFileLocation"		:"C:\\Users\\inindc00075",
+		"FileNameForXlsFile"		:"WarehouseDataFile_export_",
+		"FileNameForPDFFile"		:"WarehouseDataFile"
 	}
 ]
