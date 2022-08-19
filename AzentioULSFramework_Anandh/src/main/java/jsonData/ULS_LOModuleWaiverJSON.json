@@ -1,0 +1,17 @@
+[
+{
+"UserType":"Maker",
+"WaiverTypeForDocumentWaiver":"Document Waiver",
+"WaiverTypeForFIFCULegalWaiver":"FI/FCU Legal Waiver",
+"WaiverTypeForPDWaiver":"Personal Discussion Waiver",
+"WaiverTypeForROIChangeWaiver":"ROI Change Waiver",
+"WaiverTypeForValuationWaiver":"Valuation Waiver",
+"DocumentCategory":"Financial Documents",
+"DocumentType":"Sagar",
+"WaivingAuthority":"",
+"VerificationType":"FCU Verification",
+"PDType":"PD1",
+"ValuationType":"Valuation Report",
+"loModuleEventCode":"MST_LOWAIVER",
+"makerAlertRemark":"Submitted from maker"
+}]

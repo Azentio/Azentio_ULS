@@ -92,6 +92,8 @@ public class KULS_Application_Login {
 			loginObj.signIn().click();
 			while (true) {
 				try {
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.makerMenuBar(), 3, 2);
+					loginObj.makerMenuBar().click();
 					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
 					assertEquals(loginObj.configuration().isDisplayed(), true);
 					break;
@@ -125,6 +127,8 @@ public class KULS_Application_Login {
 			loginObj.signIn().click();
 			while (true) {
 				try {
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.makerMenuBar(), 3, 2);
+					loginObj.makerMenuBar().click();
 					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
 					assertEquals(loginObj.configuration().isDisplayed(), true);
 					break;

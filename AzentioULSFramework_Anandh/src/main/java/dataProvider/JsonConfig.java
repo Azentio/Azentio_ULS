@@ -15,6 +15,7 @@ import testDataType.KULS_Login_TestDataType;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.KULS_WareHouseMasterTestData;
 import testDataType.ULS_AssetCollateralTypeTestData;
+import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.ULS_ProjectMasterTestData;
 import testDataType.ULS_SchemeMasterTestDataType;
 
@@ -39,6 +40,9 @@ public class JsonConfig {
 	
 	private final String ULS_AssetCollateralJSONFilePath = configFileReader.getJsonPath() + "ULS_AssetCollateralTypeJSON.json";
 	private List<ULS_AssetCollateralTypeTestData> assetCollateratTypeTestdata;
+	
+	private final String uls_LoModuleWaiverJsonFile = configFileReader.getJsonPath() + "ULS_LOModuleWaiverJSON.json";
+	private List<ULS_LoModuleWaiverTestData> loModuleWaiverTestData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -50,9 +54,33 @@ public class JsonConfig {
 		underWriterOffSetControlTestData=getUnderWriterOffSetControlTestData();
 		wareHouseTestData= getWareHouseTestData();
 		assetCollateratTypeTestdata=getAssetCollateralTypeTestData();
+		loModuleWaiverTestData=getLoModuleWaiverTestData();
 	}
 
 	
+
+	private List<ULS_LoModuleWaiverTestData> getLoModuleWaiverTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_LoModuleWaiverJsonFile));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_LoModuleWaiverJsonFile));
+			ULS_LoModuleWaiverTestData[] loModuleWaiverTestData = gson.fromJson(bufferReader, ULS_LoModuleWaiverTestData[].class);
+			return Arrays.asList(loModuleWaiverTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_LoModuleWaiverJsonFile);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
 
 	private List<ULS_AssetCollateralTypeTestData> getAssetCollateralTypeTestData() {
 		// TODO Auto-generated method stub
@@ -205,5 +233,9 @@ public class JsonConfig {
 	//ULS_AssetCollateralTypeTestData> assetCollateratTypeTestdata
 	public final ULS_AssetCollateralTypeTestData getAssetCollateralTypeTestDataByName(String Username) {
 		return assetCollateratTypeTestdata.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//ULS_LoModuleWaiverTestData> loModuleWaiverTestData
+	public final ULS_LoModuleWaiverTestData getLoModuleWaiverTestDataByName(String Username) {
+		return loModuleWaiverTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }
