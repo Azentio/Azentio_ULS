@@ -323,7 +323,7 @@ And Go to config manager main menu
 And click on view button in ware house master
 And click on search button in ware house list view
 And enter the matching data in search test box
-Then verify user can able to see the matching record
+Then verify user can able to see the matching records
 And enter invalid text inputin search box
 Then verify system should not show the result for the un matched record
 And click on export button

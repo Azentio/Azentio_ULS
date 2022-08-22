@@ -218,7 +218,7 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 60, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println(RefId);
+		System.out.println("Referance ID : " +RefId);
 		json.addReferanceData(RefId);
 
 	}
@@ -246,7 +246,7 @@ public class WareHouseMaster extends BaseClass {
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
 		json.addData(popupID);
-		System.out.println(popupID);
+		System.out.println("Checker ID : " +popupID);
 	}
 
 	// *********************Checker Approve***********************//
@@ -674,17 +674,12 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Fax().click();
 		warehousrobj.Warehouse_Fax().clear();
 		warehousrobj.Warehouse_Fax().sendKeys(warehousedata.InvalidFax);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]")), 60,
-				2);
-		WebElement errorPopUp = driver
-				.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]"));
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]")), 60,2);
+		WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]"));
 		String expectedErrorText = "Maximum 50 characters are allowed";
 		String actualErrorText = errorPopUp.getText();
 		if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
-			System.out.println(
-					"The system was not allow the record to save as we enter the invalid details.The Popup validation message is"
-							+ actualErrorText);
+			System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is"+ actualErrorText);
 		} else {
 			System.out.println(
 					"The actual and expected result are not same.The Popup validation message is" + actualErrorText);
@@ -893,7 +888,7 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseSearchTextBox(), 50, 1);
 		clicksAndActionsHelper.moveToElement(warehousrobj.wareHouseSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(warehousrobj.wareHouseSearchTextBox());
-		warehousrobj.wareHouseSearchTextBox().sendKeys(warehousedata.searchingWithMatchData);
+		warehousrobj.wareHouseSearchTextBox().sendKeys(warehousedata.searchingWithMatchData1);
 	}
 
 	@Then("^verify user can able to see the matching record$")
@@ -914,6 +909,23 @@ public class WareHouseMaster extends BaseClass {
 		Assert.assertTrue(status);
 	}
 
+	@Then("^verify user can able to see the matching records$")
+	public void verify_user_can_able_to_see_the_matching_records() throws Throwable {
+		boolean status = false;
+		for (int i = 0; i <= 150; i++) {
+			try {
+				status = driver.findElement(By.xpath("//span[text()='" + warehousedata.searchingWithMatchData1 + " ']")).isDisplayed();
+				break;
+
+			} catch (Exception e) {
+				if (i == 150) {
+					Assert.fail(e.getMessage());
+				}
+
+			}
+		}
+		Assert.assertTrue(status);
+	}
 	@And("^enter invalid text inputin search box$")
 	public void enter_invalid_text_inputin_search_box() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseTextBoxCloseButton(), 50, 1);

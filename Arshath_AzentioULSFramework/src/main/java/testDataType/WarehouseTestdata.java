@@ -28,6 +28,7 @@ public class WarehouseTestdata {
 	public String AddressReModifyReturn;
 	public String InvalidFax;
 	public String searchingWithMatchData;
+	public String searchingWithMatchData1;
 	public String searchingWithUnmatchedData;
 	public String downloadFileLocation;
 	public String FileName;
