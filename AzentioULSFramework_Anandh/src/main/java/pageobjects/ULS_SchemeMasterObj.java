@@ -461,7 +461,7 @@ public class ULS_SchemeMasterObj {
 		return schemeMaster_RechedulementLockinStartsFromDropDown;
 	}
 
-	@FindBy(xpath = "//ion-select[@aria-label='Select,    Bulk payment *']")
+	@FindBy(xpath = "//ion-select[@aria-label='Select,  Bulk Payment *']")
 	private WebElement schemeMaster_BulkPaymentDropDown;
 
 	public WebElement schemeMasterBulkPaymentDropDown() {

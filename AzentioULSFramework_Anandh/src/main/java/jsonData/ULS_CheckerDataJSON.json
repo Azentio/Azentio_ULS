@@ -1,0 +1,8 @@
+[
+{
+"UserType":"checker",
+"CheckerApproveRemark":"Approved From Checker",
+"CheckerRejectRemark":"Rejected from checker",
+"CheckerReturnRemark":"Returned from checker"
+}
+]

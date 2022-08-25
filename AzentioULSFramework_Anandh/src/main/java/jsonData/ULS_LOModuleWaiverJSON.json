@@ -6,6 +6,7 @@
 "WaiverTypeForPDWaiver":"Personal Discussion Waiver",
 "WaiverTypeForROIChangeWaiver":"ROI Change Waiver",
 "WaiverTypeForValuationWaiver":"Valuation Waiver",
+"WaiverTypeFOrInvalidInput":"Select",
 "DocumentCategory":"Financial Documents",
 "DocumentType":"Sagar",
 "WaivingAuthority":"",

@@ -1,8 +1,8 @@
 [
 {
 "UserType":"Maker",
-"MinimumValue":"9000",
-"MaximumValue":"900000",
+"MinimumValue":"11000",
+"MaximumValue":"1100000",
 "MinimumValueForCheckerReject":"2000",
 "MaximumValueForCheckerReject":"200000",
 "MinimumValueForCheckerReturn":"3000",

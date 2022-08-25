@@ -1335,8 +1335,16 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	@And("^verify max bulk payment value field should be mendatory user can able to enter the data in it$")
 	public void verify_max_bulk_payment_value_field_should_be_mendatory_user_can_able_to_enter_the_data_in_it()
 			throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				ulsSchemeMasterObj.BulkPayment_MaxBulkPaymentValueastrick(), 3, 1);
+		for (int i = 0; i <= 30; i++) {
+			try {
+				javascriptHelper.scrollIntoView(ulsSchemeMasterObj.BulkPayment_MaxBulkPaymentValueastrick());
+				break;
+			} catch (Exception e) {
+				if (i == 30) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 		String mendatoryField = ulsSchemeMasterObj.BulkPayment_MaxBulkPaymentValueastrick().getText();
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterMaxBulkPaymentValueTextBox().click();
@@ -1759,7 +1767,8 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				5, 1);
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesMasterChargeDropDown().getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
-		Assert.assertTrue(ulsSchemeMasterObj.schemeChargesMasterChargeDropDown().getAttribute("ng-reflect-placeholder").contains("Select"));
+		Assert.assertTrue(ulsSchemeMasterObj.schemeChargesMasterChargeDropDown().getAttribute("ng-reflect-placeholder")
+				.contains("Select"));
 		ulsSchemeMasterObj.schemeChargesMasterChargeDropDown().click();
 		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MasterCharge + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
@@ -1782,7 +1791,8 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeChargeChargeDropDwon(), 5, 1);
 		String mendatoryField = ulsSchemeMasterObj.schemeChargeChargeDropDwon().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
-		Assert.assertTrue(ulsSchemeMasterObj.schemeChargeChargeDropDwon().getAttribute("ng-reflect-placeholder").contains("Select"));
+		Assert.assertTrue(ulsSchemeMasterObj.schemeChargeChargeDropDwon().getAttribute("ng-reflect-placeholder")
+				.contains("Select"));
 		ulsSchemeMasterObj.schemeChargeChargeDropDwon().click();
 		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.charge + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
@@ -2470,11 +2480,12 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	public void select_the_record_from_the_notification_list() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterinboxSearch(), 5, 1);
 		ulsSchemeMasterObj.schemeMasterinboxSearch().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox(), 5, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox(), 5,
+				1);
 		clicksAndActionsHelper.moveToElement(ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox());
 		clicksAndActionsHelper.clickOnElement(ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox());
 		ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox().sendKeys(ulSchemeMasterTestData.moduleCode);
-		 waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterreferenceID(), 5, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterreferenceID(), 5, 1);
 		String referenceID = ulsSchemeMasterObj.schemeMasterreferenceID().getText();
 		System.out.println("Reference ID is " + referenceID);
 		jsonDataReadertWriter.addReferanceData(referenceID);

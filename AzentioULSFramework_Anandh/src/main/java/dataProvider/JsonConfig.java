@@ -15,8 +15,10 @@ import testDataType.KULS_Login_TestDataType;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.KULS_WareHouseMasterTestData;
 import testDataType.ULS_AssetCollateralTypeTestData;
+import testDataType.ULS_CheckerTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.ULS_ProjectMasterTestData;
+import testDataType.ULS_ReportMasterTestData;
 import testDataType.ULS_SchemeMasterTestDataType;
 
 //master
@@ -43,6 +45,11 @@ public class JsonConfig {
 	
 	private final String uls_LoModuleWaiverJsonFile = configFileReader.getJsonPath() + "ULS_LOModuleWaiverJSON.json";
 	private List<ULS_LoModuleWaiverTestData> loModuleWaiverTestData;
+	private final String uls_CheckerUserTestDataPath = configFileReader.getJsonPath() + "ULS_CheckerDataJSON.json";
+	private List<ULS_CheckerTestData> uls_CheckerUserTestData;
+	
+	private final String uls_ReportMasterTestDataPath = configFileReader.getJsonPath() + "ULS_ReportMasterTestDataJSON.json";
+	private List<ULS_ReportMasterTestData> uls_ReportMasterTestData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -55,9 +62,57 @@ public class JsonConfig {
 		wareHouseTestData= getWareHouseTestData();
 		assetCollateratTypeTestdata=getAssetCollateralTypeTestData();
 		loModuleWaiverTestData=getLoModuleWaiverTestData();
+		uls_CheckerUserTestData=getCheckerUserTestData();
+		uls_ReportMasterTestData=getReportMasterTestData();
 	}
 
 	
+
+	private List<ULS_ReportMasterTestData> getReportMasterTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_ReportMasterTestDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_ReportMasterTestDataPath));
+			ULS_ReportMasterTestData[] uls_ReportMasterTestData = gson.fromJson(bufferReader, ULS_ReportMasterTestData[].class);
+			return Arrays.asList(uls_ReportMasterTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_ReportMasterTestDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
+
+	private List<ULS_CheckerTestData> getCheckerUserTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_CheckerUserTestDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_CheckerUserTestDataPath));
+			ULS_CheckerTestData[] ulsCheckerTestData = gson.fromJson(bufferReader, ULS_CheckerTestData[].class);
+			return Arrays.asList(ulsCheckerTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_CheckerUserTestDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
 
 	private List<ULS_LoModuleWaiverTestData> getLoModuleWaiverTestData() {
 		// TODO Auto-generated method stub
@@ -237,5 +292,13 @@ public class JsonConfig {
 	//ULS_LoModuleWaiverTestData> loModuleWaiverTestData
 	public final ULS_LoModuleWaiverTestData getLoModuleWaiverTestDataByName(String Username) {
 		return loModuleWaiverTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//ULS_CheckerTestData> uls_CheckerUserTestData;
+	public final ULS_CheckerTestData getLoCheckerUserTestDataByName(String Username) {
+		return uls_CheckerUserTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//ULS_ReportMasterTestData> uls_ReportMasterTestData
+	public final ULS_ReportMasterTestData getReportMasterTestDataByName(String Username) {
+		return uls_ReportMasterTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

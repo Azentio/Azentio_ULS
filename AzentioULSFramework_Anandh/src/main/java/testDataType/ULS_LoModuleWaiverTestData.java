@@ -7,6 +7,7 @@ public class ULS_LoModuleWaiverTestData {
 	public String WaiverTypeForPDWaiver;
 	public String WaiverTypeForROIChangeWaiver;
 	public String WaiverTypeForValuationWaiver;
+	public String WaiverTypeFOrInvalidInput;
 	public String DocumentCategory;
 	public String DocumentType;
 	public String WaivingAuthority;

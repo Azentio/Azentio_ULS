@@ -553,4 +553,41 @@ loModuleWaiverObj.LoModuleWaiveraleralertSubmitButton().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, loModuleWaiverObj.loModuleWaiverfirstRecord(), 5, 1);
 		loModuleWaiverObj.loModuleWaiverfirstRecord().click();
 	}
+	@And("^keep mendatory field as blank and click on save button$")
+    public void keep_mendatory_field_as_blank_and_click_on_save_button() throws Throwable {
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, loModuleWaiverObj.loModuleWaiverSaveButton(), 10, 1);
+     loModuleWaiverObj.loModuleWaiverSaveButton().click();
+	}
+	@Then("^verify system should through the validation for balnk field$")
+    public void verify_system_should_through_the_validation_for_balnk_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, loModuleWaiverObj.waiverTypeRequiredFieldVerification(), 10, 1);   
+    Assert.assertTrue(loModuleWaiverObj.waiverTypeRequiredFieldVerification().isDisplayed());
+	}
+	@Then("^click on save button to verify system allowing to user to save or not$")
+    public void click_on_save_button_to_verify_system_allowing_to_user_to_save_or_not() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, loModuleWaiverObj.loModuleWaiverSaveButton(), 10, 1);
+	     loModuleWaiverObj.loModuleWaiverSaveButton().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, loModuleWaiverObj.waiverTypeRequiredFieldVerification(), 10, 1);   
+	    Assert.assertTrue(loModuleWaiverObj.waiverTypeRequiredFieldVerification().isDisplayed());	
+	}
+
+    @And("^in waiver type dropdown select the invalid input$")
+    public void in_waiver_type_dropdown_select_the_invalid_input() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, loModuleWaiverObj.loModuleWaiverWaiverTypeDropDown(), 10, 1);
+		loModuleWaiverObj.loModuleWaiverWaiverTypeDropDown().click();
+		String xpath = "//ion-label[text()=' " + loModuleWaiverTestData.WaiverTypeFOrInvalidInput + " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+    }
+
 }

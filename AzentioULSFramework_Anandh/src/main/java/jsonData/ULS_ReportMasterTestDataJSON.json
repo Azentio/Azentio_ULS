@@ -1,0 +1,11 @@
+[
+{
+"UserType":"Maker",
+"SpecialCharacterInput":"!@#$%",
+"CharecterInputs":"abcABC12",
+"SpecialCharecterValidationMessage":"Alphanumeric characters allowed",
+"NumericInput":"123",
+"TemplateIDInput":"Language Id",
+"isMandatory":"No"
+}
+]

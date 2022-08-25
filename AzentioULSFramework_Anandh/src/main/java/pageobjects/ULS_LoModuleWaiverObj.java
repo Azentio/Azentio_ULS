@@ -286,5 +286,11 @@ public class ULS_LoModuleWaiverObj {
 	public WebElement loModuleWaiverValuationTypeDropDown() {
 		return loModuleWaiver_ValuationTypeDropDown;
 	}
+@FindBy(xpath="//ion-label[text()=' Waiver Type ']//ancestor::digital-select-layout//parent::ion-col//div//ion-badge[contains(text(),'Required field')]")
+private WebElement waiverType_RequiredFieldVerification;
+public WebElement waiverTypeRequiredFieldVerification()
+{
+	return waiverType_RequiredFieldVerification;
+}
 
 }
