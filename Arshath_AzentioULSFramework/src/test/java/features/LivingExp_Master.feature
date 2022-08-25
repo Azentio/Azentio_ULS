@@ -397,3 +397,17 @@ And user Goto the Temp view screen of living Expense
 And user Click on First Record Eye icon
 And user click on Living Expenses Parameter
 Then User validate the Living Expense Parameter Returned record in list view
+
+@AT_LE_016_Parameter_Invalid
+Scenario: Creation of Living Expense Parameter record with invalid data
+Given user log in as uls application maker
+Then user click on configurations Tab
+And user click on Other Masters Tab
+And user Goto the Temp view screen of living Expense
+And user click on First record in living Expense
+And user click on Living Expenses Parameter
+And user click on Add Icon for Living Expenses
+And user Enter Invalid value in Description and verify it
+And Validate the Message and verify it
+And user save the Record in Living Expenses
+And user verify the Blank field in Living Expense
