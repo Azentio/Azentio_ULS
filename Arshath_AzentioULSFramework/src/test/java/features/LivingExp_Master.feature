@@ -411,3 +411,25 @@ And user Enter Invalid value in Description and verify it
 And Validate the Message and verify it
 And user save the Record in Living Expenses
 And user verify the Blank field in Living Expense
+
+@AT-LE-022_Modification_Return
+Scenario: verify Checker user is able to Approve the record
+Given user log in as uls application checker
+#And user Click on Chcker Menu icon
+And user Click on Checker Mailbox icon
+And user Search the respective reference id and click on Action button
+And user Click on Return icon button
+And user Enter the remarks for Return the Record in checker
+Then user Click on Remarks button for Return confirmation Alert
+Then user verify the Record got Returned in checker stage
+
+@AT-LE-022_Modification_Return_ListView
+Scenario: Record should get approved and display in the system under Approved List view
+Given user log in as uls application maker
+Then user click on configurations Tab
+And user click on Other Masters Tab
+And user Goto the Temp view screen of living Expense
+#Then User validate the Living Expense Returned record in list view
+
+
+
