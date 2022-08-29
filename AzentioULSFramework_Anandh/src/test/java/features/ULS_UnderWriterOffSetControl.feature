@@ -119,6 +119,29 @@ Then fill the minimum and maximum input as special characters
 And click on save button after enter special characters
 Then verify system should not allow user to save the record
 Then verify functionality of back button
+
+#UOC_03_06,UOC_03_07,UOC_03_08,UOC_03_09,UOC_03_10,UOC_03_11,UOC_03_12
+@AT_UOC_T010
+Scenario: To verify maker user can not able to update the under writer record with invalid inputs
+Given Navigate to ULS application URL
+Then login with valid maker credentials
+And go to configuration main menu
+And click on business rules main module
+And click on under writer off set control view button
+Then select the record to do updation which is approved from checker user 
+Then clear the input box value
+And fill the alphabets in minimum and maximum value input box
+Then click on save button after enter the alphabet input for updation record
+Then verify system should not allow user to save the record 
+Then clear the input box value
+And click on save button before entering mendatory details in updation record
+Then verify system should show the validation for minimum and maximum value mendatory fields
+Then fill the minimum and maximum input as special characters
+And click on save button after enter special characters for updation record
+Then verify system should not allow user to save the record
+Then clear the input box value
+Then verify functionality of back button
+
 #UOC_03_01,UOC_03_02,UOC_03_04(3)
 @AT_UOC_T005.1
 Scenario: To verify maker user can able to update the under writer record beore approval
@@ -283,27 +306,7 @@ And click on approve button in checker stage to approve the under writer off set
 And give the checker remark in alert pop up for approve the under writer record
 And click on approve button in remark pop up for approve the under writer record
 Then verify checker user can able to see the approve pop up after approving the under writer record
-#UOC_03_06,UOC_03_07,UOC_03_08,UOC_03_09,UOC_03_10,UOC_03_11,UOC_03_12
-@AT_UOC_T010
-Scenario: To verify maker user can not able to update the under writer record with invalid inputs
-Given Navigate to ULS application URL
-Then login with valid maker credentials
-And go to configuration main menu
-And click on business rules main module
-And click on under writer off set control view button
-Then select the record to do updation which is approved from checker user 
-Then clear the input box value
-And fill the alphabets in minimum and maximum value input box
-Then click on save button after enter the alphabet input for updation record
-Then verify system should not allow user to save the record 
-Then clear the input box value
-And click on save button before entering mendatory details in updation record
-Then verify system should show the validation for minimum and maximum value mendatory fields
-Then fill the minimum and maximum input as special characters
-And click on save button after enter special characters for updation record
-Then verify system should not allow user to save the record
-Then clear the input box value
-Then verify functionality of back button
+
 
 @UnderWriter_OffsetConrolM11
 Scenario: validate the list view and WIP fields of under writer offset control

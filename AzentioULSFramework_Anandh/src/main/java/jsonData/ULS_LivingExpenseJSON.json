@@ -1,0 +1,14 @@
+[
+{
+"UserType":"Maker",
+"defaultSelectValue":"Select",
+"specialCharacterInput":"!@#$%^&*(",
+"MandatoryValidation":"Required field",
+"SpecialCharecterValidation":"Alphanumeric characters allowed",
+"UpdatedDescription":"UpNewDescription",
+"UpdatedCodeValue":"AVGINC",
+"UpdatedValue":"UpJohn",
+"EventCode":"LIV_EXP",
+"submitAlertRemark":"Approved from maker"
+}
+]

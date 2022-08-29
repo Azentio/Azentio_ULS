@@ -16,6 +16,7 @@ import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.KULS_WareHouseMasterTestData;
 import testDataType.ULS_AssetCollateralTypeTestData;
 import testDataType.ULS_CheckerTestData;
+import testDataType.ULS_LivingExpenseTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.ULS_ProjectMasterTestData;
 import testDataType.ULS_ReportMasterTestData;
@@ -50,6 +51,9 @@ public class JsonConfig {
 	
 	private final String uls_ReportMasterTestDataPath = configFileReader.getJsonPath() + "ULS_ReportMasterTestDataJSON.json";
 	private List<ULS_ReportMasterTestData> uls_ReportMasterTestData;
+
+	private final String uls_LivingExpenseTestDataPath = configFileReader.getJsonPath() + "ULS_LivingExpenseJSON.json";
+	private List<ULS_LivingExpenseTestData> uls_LivingExpenseTestData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -64,9 +68,32 @@ public class JsonConfig {
 		loModuleWaiverTestData=getLoModuleWaiverTestData();
 		uls_CheckerUserTestData=getCheckerUserTestData();
 		uls_ReportMasterTestData=getReportMasterTestData();
+		uls_LivingExpenseTestData= getLivingExpenseTestData();
 	}
 
 	
+
+	private List<ULS_LivingExpenseTestData> getLivingExpenseTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_LivingExpenseTestDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_LivingExpenseTestDataPath));
+			ULS_LivingExpenseTestData[] uls_LivingExpenseTestData = gson.fromJson(bufferReader, ULS_LivingExpenseTestData[].class);
+			return Arrays.asList(uls_LivingExpenseTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_LivingExpenseTestDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
 
 	private List<ULS_ReportMasterTestData> getReportMasterTestData() {
 		// TODO Auto-generated method stub
@@ -300,5 +327,9 @@ public class JsonConfig {
 	//ULS_ReportMasterTestData> uls_ReportMasterTestData
 	public final ULS_ReportMasterTestData getReportMasterTestDataByName(String Username) {
 		return uls_ReportMasterTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//ULS_LivingExpenseTestData> uls_LivingExpenseTestData
+	public final ULS_LivingExpenseTestData getLivingExpenseTestDataByName(String Username) {
+		return uls_LivingExpenseTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }
