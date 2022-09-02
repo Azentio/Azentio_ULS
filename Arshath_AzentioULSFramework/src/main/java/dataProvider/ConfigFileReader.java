@@ -43,13 +43,23 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
-public String getApplicationUATUrl() {
+
+	public String getApplicationUATUrl() {
 		String url = properties.getProperty("uat");
 		if (url != null)
 			return url;
 		else
 			throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
+
+	public String getApplicationULSUrl() {
+		String uls = properties.getProperty("uls");
+		if (uls != null)
+			return uls;
+		else
+			throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+
 	public String getBrowser() {
 		String browser = properties.getProperty("browser");
 		if (browser != null)
@@ -64,6 +74,7 @@ public String getApplicationUATUrl() {
 			return Boolean.valueOf(windowSize);
 		return true;
 	}
+
 	public String getJsonPath() {
 		String jsonPath = properties.getProperty("jsonPath");
 		if (jsonPath != null)
@@ -71,4 +82,4 @@ public String getApplicationUATUrl() {
 		else
 			throw new RuntimeException("jsonPath not specified in the Configuration.properties file.");
 	}
-	}
+}
