@@ -754,6 +754,55 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation().getText());
+		
+	javascriptHelper.scrollIntoView(customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsGenderFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsGenderFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsEducationLevelFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsEducationLevelFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsLanguageFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsLanguageFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.noOfDependetntsFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.noOfDependetntsFieldValidation().getText());
+		
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation().getText());
+		
+		
 	}
 
 }

@@ -1,4 +1,5 @@
 Feature: To Test the customer personal details Screen
+@AT_CEL_001
 Scenario: To verify maker can able to submit the customer personal Details record
 Given navigate to uls application 
 And login with maker credentials

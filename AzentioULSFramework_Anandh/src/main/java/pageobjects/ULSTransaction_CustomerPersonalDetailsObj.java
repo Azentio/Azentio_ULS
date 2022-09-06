@@ -239,6 +239,12 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	public WebElement customerPersonalDetailsNoOfChildrenInputBox() {
 		return customerPersonalDetails_NoOfChildrenInputBox;
 	}
+	@FindBy(xpath="//ion-label[text()=' No of Dependents ']//ancestor::digital-text-box//parent::ion-col//ion-badge")
+	private WebElement noOfDependents_FieldValidation;
+	public WebElement noOfDependetntsFieldValidation()
+	{
+		return noOfDependents_FieldValidation;
+	}
 
 	@FindBy(xpath = "//ion-label[text()=' Spouse Status ']//following-sibling::ion-select")
 	private WebElement customerPersonalDetails_SpouseStatusInputBox;
@@ -449,6 +455,7 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	{
 		return customerPersonalDetails_EducationLevelFieldValidation;
 	}
+	
 	@FindBy(xpath="//ion-label[text()=' Residential Status ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
 	private WebElement customerPersonalDetails_ResidentialStatusFieldValidation;
 	public WebElement customerPersonalDetailsResidentialStatusFieldValidation()
