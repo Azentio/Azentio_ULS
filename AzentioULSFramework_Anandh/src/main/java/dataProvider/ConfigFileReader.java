@@ -43,6 +43,14 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
+	
+	public String getULSApplicationCenBankUrl() {
+		String url = properties.getProperty("ulsCenbankURL");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
 public String getApplicationUATUrl() {
 		String url = properties.getProperty("uat");
 		if (url != null)

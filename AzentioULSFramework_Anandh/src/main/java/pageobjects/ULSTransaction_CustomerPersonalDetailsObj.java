@@ -26,6 +26,12 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	public WebElement ulsApplicationManagerMainMenu() {
 		return uls_ApplicationManagerMainMenu;
 	}
+	@FindBy(xpath="//ion-label[text()='Customer details']/parent::ion-segment-button")
+	private WebElement uls_CustomerDetailsTab;
+	public WebElement ulsCustomerDetailsTab()
+	{
+		return uls_CustomerDetailsTab;
+	}
 
 	@FindBy(xpath = "//ion-label[text()='Application Details']//parent::ion-item//ion-buttons//ion-button[1]")
 	public WebElement uls_ApplicationDetailsTempView;
@@ -96,6 +102,38 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	public WebElement customerDetailsDateOfBirthInputCalendar() {
 		return customerDetails_DateOfBirthCalendar;
 	}
+	@FindBy(xpath="//button[starts-with(@class,'p-datepicker-year')]")
+	private WebElement customerDetails_YearSelection;
+	public WebElement customerDetailsYearSelection()
+	{
+		return customerDetails_YearSelection;
+	}
+	@FindBy(xpath="//button[starts-with(@class,'p-datepicker-month')]")
+	private WebElement calendar_MonthSelection;
+	public WebElement calendarMonthSelection()
+	{
+		return calendar_MonthSelection;
+	}
+	
+	@FindBy(xpath="//div[starts-with(@class,'p-datepicker-group-container')]//button[1]")
+	private WebElement calendar_PreviousButton;
+	public WebElement calendarPreviousButton()
+	{
+		return calendar_PreviousButton;
+	}
+	@FindBy(xpath="//div[starts-with(@class,'p-datepicker-group-container')]//button[2]")
+	private WebElement calendar_NextButton;
+	public WebElement calendarNextButton()
+	{
+		return calendar_NextButton;
+	}
+	@FindBy(xpath="//div[starts-with(@class,'p-yearpicker')]//span[1]")
+	private WebElement calendar_FirstYear;
+	public WebElement calendarFirstYear()
+	{
+		return calendar_FirstYear;
+	}
+	
 
 	@FindBy(xpath = "//ion-label[text()=' Email ID ']//following-sibling::ion-input//input")
 	private WebElement customerDetails_EmailIDInputBox;
@@ -287,10 +325,10 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	}
 
 	@FindBy(xpath = "//ion-label[text()=' Type of Residence ']/following-sibling::ion-select")
-	private WebElement customerPersonalDetails_TypeOfResidenceInputBox;
+	private WebElement customerPersonalDetails_TypeOfResidenceDropDown;
 
-	public WebElement customerPersonalDetailsTypeOfResidenceInputBox() {
-		return customerPersonalDetails_TypeOfResidenceInputBox;
+	public WebElement customerPersonalDetailsTypeOfResidenceDropDown() {
+		return customerPersonalDetails_TypeOfResidenceDropDown;
 	}
 
 	@FindBy(xpath = "//ion-label[text()=' Category of Client ']/following-sibling::ion-select")
@@ -362,5 +400,83 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 
 	public WebElement customerPersonalDetailsPreferedTimeForContactInputBox() {
 		return customerPersonalDetails_PreferedTimeForContactInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Customer Type ']//ancestor::digital-select-layout/parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_CustomerTypeFieldValidation;
+	public WebElement customerPersonalDetailsCustomerTypeFieldValidation()
+	{
+		return customerPersonalDetails_CustomerTypeFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Applicant Type ']//ancestor::digital-select-layout/parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_ApplicantTypeFieldValidation;
+	public WebElement customerPersonalDetailsApplicantTypeFieldValidation()
+	{
+		return customerPersonalDetails_ApplicantTypeFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Salutation ']//ancestor::digital-select-layout/parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_SalutationValidation;
+	public WebElement customerPersonalDetailsSalutationValidation()
+	{
+		return customerPersonalDetails_SalutationValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' First Name ']//ancestor::digital-text-box/parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_FirstNameFieldValidation;
+	public WebElement customerPersonalDetailsFirstNameFieldValidation()
+	{
+		return customerPersonalDetails_FirstNameFieldValidation;
+	}	
+	@FindBy(xpath="//ion-label[text()=' Last Name ']//ancestor::digital-text-box/parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_LastNameFieldValidation;
+	public WebElement customerPersonalDetailsLastNameFieldValidation()
+	{
+		return customerPersonalDetails_LastNameFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Date of Birth ']//ancestor::digital-prime-date//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_DateOfBirthFieldValidation;
+	public WebElement customerPersonalDetailsDateOfBirthFieldValidation()
+	{
+		return customerPersonalDetails_DateOfBirthFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Gender ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_GenderFieldValidation;
+	public WebElement customerPersonalDetailsGenderFieldValidation()
+	{
+		return customerPersonalDetails_GenderFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Education Level ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_EducationLevelFieldValidation;
+	public WebElement customerPersonalDetailsEducationLevelFieldValidation()
+	{
+		return customerPersonalDetails_EducationLevelFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Residential Status ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_ResidentialStatusFieldValidation;
+	public WebElement customerPersonalDetailsResidentialStatusFieldValidation()
+	{
+		return customerPersonalDetails_ResidentialStatusFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Language ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_LanguageFieldValidation;
+	public WebElement customerPersonalDetailsLanguageFieldValidation()
+	{
+		return customerPersonalDetails_LanguageFieldValidation;
+	}	
+	@FindBy(xpath="//ion-label[text()=' Mothers Maiden Name ']//ancestor::digital-text-box//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_MothersMaidenNameFieldValidation;
+	public WebElement customerPersonalDetailsMothersMaidenNameFieldValidation()
+	{
+		return customerPersonalDetails_MothersMaidenNameFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Type of Residence ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_TypeOfResidenceFieldValidation;
+	public WebElement customerPersonalDetailsTypeOfResidenceFieldValidation()
+	{
+		return customerPersonalDetails_TypeOfResidenceFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Category of Client ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_CategoryOfClientFieldValidation;
+	public WebElement customerPersonalDetailsCategoryOfClientFieldValidation()
+	{
+		return customerPersonalDetails_CategoryOfClientFieldValidation;
 	}
 }

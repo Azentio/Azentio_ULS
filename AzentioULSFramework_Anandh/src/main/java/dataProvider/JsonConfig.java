@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.CustomerPerssonalDetailsTestData;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.KULS_WareHouseMasterTestData;
@@ -54,6 +55,10 @@ public class JsonConfig {
 
 	private final String uls_LivingExpenseTestDataPath = configFileReader.getJsonPath() + "ULS_LivingExpenseJSON.json";
 	private List<ULS_LivingExpenseTestData> uls_LivingExpenseTestData;
+	
+	private final String uls_CustomerPersonalDetailsestDataPath = configFileReader.getJsonPath() + "ULS_CustomerPersonalDetailsJSON.json";
+	private List<CustomerPerssonalDetailsTestData> uls_CustomerPersonalDetailsTestData;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -69,9 +74,33 @@ public class JsonConfig {
 		uls_CheckerUserTestData=getCheckerUserTestData();
 		uls_ReportMasterTestData=getReportMasterTestData();
 		uls_LivingExpenseTestData= getLivingExpenseTestData();
+		
+		uls_CustomerPersonalDetailsTestData=getCustomerPersonalDetailsTestData();
 	}
 
 	
+
+	private List<CustomerPerssonalDetailsTestData> getCustomerPersonalDetailsTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_CustomerPersonalDetailsestDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_CustomerPersonalDetailsestDataPath));
+			CustomerPerssonalDetailsTestData[] uls_CustomerPersonalDetailsTestData = gson.fromJson(bufferReader, CustomerPerssonalDetailsTestData[].class);
+			return Arrays.asList(uls_CustomerPersonalDetailsTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_CustomerPersonalDetailsestDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
 
 	private List<ULS_LivingExpenseTestData> getLivingExpenseTestData() {
 		Gson gson = new Gson();
@@ -332,4 +361,9 @@ public class JsonConfig {
 	public final ULS_LivingExpenseTestData getLivingExpenseTestDataByName(String Username) {
 		return uls_LivingExpenseTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
+	//CustomerPerssonalDetailsTestData> uls_CustomerPersonalDetailsTestData
+	public final CustomerPerssonalDetailsTestData getCustomerPersonalDetailsTestDataByName(String Username) {
+		return uls_CustomerPersonalDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
 }
