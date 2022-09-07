@@ -36,6 +36,13 @@
 "ContactDetailsMobileNumber":"9087654321",
 "ContactTime":"10:30",
 "PreferedContactMethod":"Mobile",
-"BlankInputValidation":""
+"BlankInputValidation":"Required field",
+"DefaultSelectValue":"Select",
+"SpecialCharacterInput":"1234",
+"NumericIInput":"!@#$",
+"NumericSpecialCharecterValidation":"Alphabets allowed",
+"alphaNumericInput":"12abc",
+"negativeInput":"-1",
+"negativeInputValidation":"Minimum No of Dependents allowed is 0"
 }
 ]

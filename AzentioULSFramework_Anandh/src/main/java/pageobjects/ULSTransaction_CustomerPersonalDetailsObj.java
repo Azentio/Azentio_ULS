@@ -486,4 +486,22 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	{
 		return customerPersonalDetails_CategoryOfClientFieldValidation;
 	}
+	@FindBy(xpath="//ion-label[text()=' Marital Status ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_MaritalStatusFieldValidation;
+	public WebElement customerPersonalDetailsMaritalStatusFieldValidation()
+	{
+		return customerPersonalDetails_MaritalStatusFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Nationality ']//ancestor::digital-select-layout//parent::ion-col//ion-badge")
+	private WebElement customerPersonalDetails_NationalityFieldValidation;
+	public WebElement customerPersonalDetailsNationalityFieldValidation()
+	{
+		return customerPersonalDetails_NationalityFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' No of Dependents ']//following-sibling::ion-input")
+	private WebElement customerPersonalDetails_NoOfDependentsDataHolder;
+	public WebElement customerPersonalDetailsNoOfDependentsDataHolder()
+	{
+		return customerPersonalDetails_NoOfDependentsDataHolder;
+	}
 }

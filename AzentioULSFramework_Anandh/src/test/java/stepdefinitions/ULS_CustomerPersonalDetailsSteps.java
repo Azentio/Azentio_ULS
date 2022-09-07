@@ -733,76 +733,341 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 
 	@And("^click on save button before enter the mandatory field$")
 	public void click_on_save_button_before_enter_the_mandatory_field() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, commonElement.ulsSaveButton(), 20, 1);
-		commonElement.ulsSaveButton().click();
+		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
+		// commonElement.ulsSaveButton(), 20, 1);
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper.scrollIntoView(commonElement.ulsSaveButton());
+				commonElement.ulsSaveButton().click();
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 	}
 
-	@Then("^verify fields showing validation for the mandatory field$")
-	public void verify_fields_showing_validation_for_the_mandatory_field() throws Throwable {
+	@And("^set maritail status fild as blank field$")
+	public void set_maritail_status_fild_as_blank_field() throws Throwable {
+		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
+		// customerPersonalDetailsObj.customerPersonalDetailsMaritalStatusDropDown(),
+		// 30, 1);
+		for (int j = 0; j <= 30; j++) {
+			try {
+				javascriptHelper
+						.scrollIntoView(customerPersonalDetailsObj.customerPersonalDetailsMaritalStatusDropDown());
+				customerPersonalDetailsObj.customerPersonalDetailsMaritalStatusDropDown().click();
+				break;
+			} catch (Exception e) {
+				if (j == 30) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		String xpath = "//ion-label[text()=' " + customerPersonalDetailsTestData.DefaultSelectValue
+				+ " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 15; i++) {
+			try {
+				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+				break;
+			} catch (Exception e) {
+				if (i == 15) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+
+	}
+
+	@And("^set nationality field as blank field$")
+	public void set_nationality_field_as_blank_field() throws Throwable {
+		for (int j = 0; j <= 30; j++) {
+			try {
+				javascriptHelper
+						.scrollIntoView(customerPersonalDetailsObj.customerPersonalDetailsNationalityDropDown());
+				customerPersonalDetailsObj.customerPersonalDetailsNationalityDropDown().click();
+				break;
+			} catch (Exception e) {
+				if (j == 30) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		String xpath = "//ion-label[text()=' " + customerPersonalDetailsTestData.DefaultSelectValue
+				+ " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 15; i++) {
+			try {
+				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+				break;
+			} catch (Exception e) {
+				if (i == 15) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+	}
+
+	@Then("^verify customertype field should show the blank field validation message$")
+	public void verify_customertype_field_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsCustomerTypeFieldValidation(), 20, 1);
 
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsCustomerTypeFieldValidation().getText());
+	}
 
+	@Then("^verify applicant type field should show the blank field validation message$")
+	public void verify_applicant_type_field_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsApplicantTypeFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsApplicantTypeFieldValidation().getText());
-		
+	}
+
+	@Then("^verify salutation field should show the blank field validation message$")
+	public void verify_salutation_field_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation().getText());
-		
+	}
+
+	@Then("^verify first name should show the blank field validation message$")
+	public void verify_first_name_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsSalutationValidation().getText());
-		
-	javascriptHelper.scrollIntoView(customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation());
-		
+	}
+
+	@Then("^verify last name should show the blank field validation message$")
+	public void verify_last_name_should_show_the_blank_field_validation_message() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation().getText());
+	}
+
+	@Then("^verify date of birth should show the blank field validation message$")
+	public void verify_date_of_birth_should_show_the_blank_field_validation_message() throws Throwable {
+		javascriptHelper.scrollIntoView(customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation());
+
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsDateOfBirthFieldValidation().getText());
-		
+	}
+
+	@Then("^verify gender should show the blank field validation message$")
+	public void verify_gender_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsGenderFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsGenderFieldValidation().getText());
-		
+	}
+
+	@Then("^verify educational level should show the blank field validation message$")
+	public void verify_educational_level_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsEducationLevelFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsEducationLevelFieldValidation().getText());
-		
+	}
+
+	@Then("^verify Marital status should show the blank field validation message$")
+	public void verify_marital_status_should_show_the_blank_field_validation_message() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsMaritalStatusFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsMaritalStatusFieldValidation().getText());
+	}
+
+	@Then("^verify nationality should show the blank field validation message$")
+	public void verify_nationality_should_show_the_blank_field_validation_message() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsNationalityFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsNationalityFieldValidation().getText());
+	}
+
+	@Then("^verify residencial status should show the blank field validation message$")
+	public void verify_residencial_status_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation().getText());
-		
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation(), 20, 1);
-		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
-				customerPersonalDetailsObj.customerPersonalDetailsResidentialStatusFieldValidation().getText());
-		
+	}
+
+	@Then("^verify language should show the blank field validation message$")
+	public void verify_language_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsLanguageFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsLanguageFieldValidation().getText());
-		
+	}
+
+	@Then("^verify no of dependents should show the blank field validation message$")
+	public void verify_no_of_dependents_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.noOfDependetntsFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.noOfDependetntsFieldValidation().getText());
-		
+	}
+
+	@Then("^verify Mothers maiden name should show the blank field validation message$")
+	public void verify_mothers_maiden_name_should_show_the_blank_field_validation_message() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation(), 20, 1);
 		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation().getText());
-		
-		
+	}
+
+	@Then("^verify type of residence should show the blank field validation message$")
+	public void verify_type_of_residence_should_show_the_blank_field_validation_message() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsTypeOfResidenceFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsTypeOfResidenceFieldValidation().getText());
+	}
+
+	@Then("^verify category of client should show the blank field validation message$")
+	public void verify_category_of_client_should_show_the_blank_field_validation_message() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsCategoryOfClientFieldValidation(), 20, 1);
+		Assert.assertEquals(customerPersonalDetailsTestData.BlankInputValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsCategoryOfClientFieldValidation().getText());
+	}
+
+	@Then("^verify first name field should not allow numeric values$")
+	public void verify_first_name_field_should_not_allow_numeric_values() throws Throwable {
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper
+						.scrollIntoViewAndClick(customerPersonalDetailsObj.customerPersonalDetailsFirstNameinputBox());
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		customerPersonalDetailsObj.customerPersonalDetailsFirstNameinputBox()
+				.sendKeys(customerPersonalDetailsTestData.NumericIInput);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsFirstNameFieldValidation(), 20, 1);
+		customerPersonalDetailsObj.customerPersonalDetailsFirstNameFieldValidation().getText();
+		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsFirstNameFieldValidation().getText());
+
+	}
+
+	@Then("^verify first name field should not allow special charecters$")
+	public void verify_first_name_field_should_not_allow_special_charecters() throws Throwable {
+		customerPersonalDetailsObj.customerPersonalDetailsFirstNameinputBox().clear();
+		customerPersonalDetailsObj.customerPersonalDetailsFirstNameinputBox()
+				.sendKeys(customerPersonalDetailsTestData.SpecialCharacterInput);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsFirstNameFieldValidation(), 20, 1);
+		customerPersonalDetailsObj.customerPersonalDetailsFirstNameFieldValidation().getText();
+		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsFirstNameFieldValidation().getText());
+	}
+
+	@Then("^verify last name field should not allow numeric values$")
+	public void verify_last_name_field_should_not_allow_numeric_values() throws Throwable {
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper
+						.scrollIntoViewAndClick(customerPersonalDetailsObj.customerPersonalDetailsLastNameInputBox());
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		customerPersonalDetailsObj.customerPersonalDetailsLastNameInputBox()
+				.sendKeys(customerPersonalDetailsTestData.NumericIInput);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation(), 20, 1);
+		customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation().getText();
+		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation().getText());
+	}
+
+	@Then("^verify last name field should not allow special charecters$")
+	public void verify_last_name_field_should_not_allow_special_charecters() throws Throwable {
+		customerPersonalDetailsObj.customerPersonalDetailsLastNameInputBox().clear();
+		customerPersonalDetailsObj.customerPersonalDetailsLastNameInputBox()
+				.sendKeys(customerPersonalDetailsTestData.SpecialCharacterInput);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation(), 20, 1);
+		customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation().getText();
+		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsLastNameFieldValidation().getText());
+	}
+
+	@Then("^verify no of dependents field should not allow to enter numeric values$")
+	public void verify_no_of_dependents_field_should_not_allow_to_enter_numeric_values() throws Throwable {
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper.scrollIntoViewAndClick(
+						customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsInputBox());
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsInputBox()
+				.sendKeys(customerPersonalDetailsTestData.alphaNumericInput);
+		String aplphaNumericInput = customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsDataHolder()
+				.getText();
+		char[] charArray = aplphaNumericInput.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			if (Character.isAlphabetic(charArray[i])) {
+				Assert.fail("no of dependents field allow plphabets");
+			}
+		}
+
+	}
+
+	@Then("^verify user can not enter negative input$")
+	public void verify_user_can_not_enter_negative_input() throws Throwable {
+		customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsInputBox().clear();
+		customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsInputBox()
+				.sendKeys(customerPersonalDetailsTestData.negativeInput);
+		Assert.assertEquals(customerPersonalDetailsTestData.negativeInputValidation,
+				customerPersonalDetailsObj.noOfDependetntsFieldValidation().getText());
+	}
+
+	@Then("^verify mothers maiden name field should not allow numeric values$")
+	public void verify_mothers_maiden_name_field_should_not_allow_numeric_values() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox(), 20, 1);
+		customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox().click();
+		customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox()
+				.sendKeys(customerPersonalDetailsTestData.NumericIInput);
+		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation().getText());
+	}
+
+	@Then("^verify mothers maiden name field should not allow special charecters$")
+	public void verify_mothers_maiden_name_field_should_not_allow_special_charecters() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox(), 20, 1);
+		customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox().clear();
+		customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox().click();
+		customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameInputBox()
+				.sendKeys(customerPersonalDetailsTestData.SpecialCharacterInput);
+		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
+				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation().getText());
 	}
 
 }

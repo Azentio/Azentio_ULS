@@ -39,5 +39,12 @@ public class CustomerPerssonalDetailsTestData {
 	public String ContactTime;
 	public String PreferedContactMethod;
 	public String BlankInputValidation;
+	public String DefaultSelectValue;
+	public String SpecialCharacterInput;
+	public String NumericIInput;
+	public String NumericSpecialCharecterValidation;
+	public String alphaNumericInput;
+	public String negativeInput;
+	public String negativeInputValidation;
 
 }
