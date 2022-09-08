@@ -14,6 +14,7 @@ import com.google.gson.stream.JsonReader;
 import testDataType.Charge_Master_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
+import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.ProjectMaster_UnitDetailsTestdata;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
@@ -45,6 +46,9 @@ public class JsonConfig {
 	private final String LivExppath = configFileReader.getJsonPath() + "Living_ExpJson.json";
 	private List<LivExp_Testdata> LivExpMst;
 	
+	private final String PerDetailpath = configFileReader.getJsonPath() + "PersonalDetailsAppDataEntry.json";
+	private List<PersonalaDetailsDataEntryTestdata> PerDetailEntry;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -57,7 +61,29 @@ public class JsonConfig {
 		unitdetail = getunitdetail();
 		warehouse= getwarehouse();
 		LivExpMst=getLivExpMst();
+		PerDetailEntry=getPerDetailEntry();
 	}
+
+	private List<PersonalaDetailsDataEntryTestdata> getPerDetailEntry() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(PerDetailpath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(PerDetailpath));
+			PersonalaDetailsDataEntryTestdata[] PerDetailpath = gson.fromJson(bufferReader, PersonalaDetailsDataEntryTestdata[].class);
+			return Arrays.asList(PerDetailpath);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + PerDetailpath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
 
 	private List<LivExp_Testdata> getLivExpMst() {
 		Gson gson = new Gson();
@@ -78,7 +104,6 @@ public class JsonConfig {
 			}
 		}
 	}
-	
 	private List<WarehouseTestdata> getwarehouse() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(Warehousepath));
@@ -217,6 +242,9 @@ public class JsonConfig {
 	}
 	public final LivExp_Testdata getLivExpListByName(String User) {
 		return LivExpMst.stream().filter(x -> x.USername.equalsIgnoreCase(User)).findAny().get();
+	}
+	public final PersonalaDetailsDataEntryTestdata getPerDetailDataByName(String User) {
+		return PerDetailEntry.stream().filter(x -> x.Users.equalsIgnoreCase(User)).findAny().get();
 	}
 
 }

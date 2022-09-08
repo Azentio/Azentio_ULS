@@ -68,6 +68,13 @@ public class PersonalDetails_AppDataEntry_Obj {
 		return Customer_details_Tab;
 	}		
 	
+	@FindBy(xpath="//button[@ng-reflect-text='Add']")
+	private WebElement Customer_details_Add;
+	public WebElement Customer_details_Add()
+	{ 
+		return Customer_details_Add;
+	}	
+	
 	@FindBy(xpath="//tbody/tr[1]/td[2]/span[1]/button[1]")
 	private WebElement Customer_details_Edit;
 	public WebElement Customer_details_Edit()
@@ -285,7 +292,228 @@ public class PersonalDetails_AppDataEntry_Obj {
 		return customerDetails_Remark;
 	}
 
+	// Creation part
 	
 	
+	@FindBy(xpath = "//customer-search[1]/ion-row[1]/ion-col[1]/div[1]/button[2]")
+	private WebElement customerDetails_Customer_search;
+
+	public WebElement customerDetails_Customer_search() {
+		return customerDetails_Customer_search;
+	}
 	
+	
+	@FindBy(xpath = "//button[contains(text(),'Create New Request')]")
+	private WebElement customerDetails_Customer_CreateNewReq;
+
+	public WebElement customerDetails_Customer_CreateNewReq() {
+		return customerDetails_Customer_CreateNewReq;
+	}
+	
+	@FindBy(xpath = "//ion-label[text()=' Customer Type ']//following-sibling::ion-select")
+	private WebElement customerDetails_CustomerTypeDropDown;
+
+	public WebElement customerDetailsCustomerTypeDropDown() {
+		return customerDetails_CustomerTypeDropDown;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' CIF ID ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_CIFIDInputBox;
+
+	public WebElement customerDetailsCIfInputBox() {
+		return customerDetails_CIFIDInputBox;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' ID Type ']//following-sibling::ion-select")
+	private WebElement customerDetails_IDTypeDropDown;
+
+	public WebElement customerDetailsIDTypeDropDown() {
+		return customerDetails_IDTypeDropDown;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' ID Number ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_IDNumberInputBox;
+
+	public WebElement customerDetailsIDNumberInputBox() {
+		return customerDetails_IDNumberInputBox;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' Company Name ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_CompanyNameInputBox;
+
+	public WebElement customerDetailsCompanyNameInputBox() {
+		return customerDetails_CompanyNameInputBox;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' Application Number ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_ApplicationNumberInputBox;
+
+	public WebElement customerDetailsApplicationNumberInputBox() {
+		return customerDetails_ApplicationNumberInputBox;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' Customer Name ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_CustomerNameInputBox;
+
+	public WebElement customerDetailsCustomerNameInputBox() {
+		return customerDetails_CustomerNameInputBox;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' Mobile Number ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_MobileNumberInputBox;
+
+	public WebElement customerDetailsMobileNumberInputBox() {
+		return customerDetails_MobileNumberInputBox;
+	}
+
+	@FindBy(xpath = "//ion-label[text()=' Date of Birth ']//parent::div//following-sibling::p-calendar//button")
+	private WebElement customerDetails_DateOfBirthCalendar;
+
+	public WebElement customerDetailsDateOfBirthInputCalendar() {
+		return customerDetails_DateOfBirthCalendar;
+	}
+	@FindBy(xpath="//button[starts-with(@class,'p-datepicker-year')]")
+	private WebElement customerDetails_YearSelection;
+	public WebElement customerDetailsYearSelection()
+	{
+		return customerDetails_YearSelection;
+	}
+	@FindBy(xpath="//button[starts-with(@class,'p-datepicker-month')]")
+	private WebElement calendar_MonthSelection;
+	public WebElement calendarMonthSelection()
+	{
+		return calendar_MonthSelection;
+	}
+	
+	@FindBy(xpath="//div[starts-with(@class,'p-datepicker-group-container')]//button[1]")
+	private WebElement calendar_PreviousButton;
+	public WebElement calendarPreviousButton()
+	{
+		return calendar_PreviousButton;
+	}
+	@FindBy(xpath="//div[starts-with(@class,'p-datepicker-group-container')]//button[2]")
+	private WebElement calendar_NextButton;
+	public WebElement calendarNextButton()
+	{
+		return calendar_NextButton;
+	}
+	@FindBy(xpath="//div[starts-with(@class,'p-yearpicker')]//span[1]")
+	private WebElement calendar_FirstYear;
+	public WebElement calendarFirstYear()
+	{
+		return calendar_FirstYear;
+	}
+	
+
+	@FindBy(xpath = "//ion-label[text()=' Email ID ']//following-sibling::ion-input//input")
+	private WebElement customerDetails_EmailIDInputBox;
+
+	public WebElement customerDetailsEmailIDInputBox() {
+		return customerDetails_EmailIDInputBox;
+	}
+	
+	@FindBy(xpath="//ion-label[text()=' Phone number ']//following-sibling::ion-input//input")
+	private WebElement customerPersonalDetails_PhoneNumberInputBox;
+
+	public WebElement customerPersonalDetailsPhoneNumberInputBox() {
+		return customerPersonalDetails_PhoneNumberInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Mobile Number (Primary) ']//following-sibling::ion-input//input")
+	private WebElement customerPersonalDetails_MobileNumberPrimaryInputBox;
+
+	public WebElement customerPersonalDetailsMobileNumberPrimaryInputBox() {
+		return customerPersonalDetails_MobileNumberPrimaryInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Mobile Number (Secondary) ']//following-sibling::ion-input//input")
+	private WebElement customerPersonalDetails_MobileNumberSecondaryInputBox;
+
+	public WebElement customerPersonalDetailsMobileNumberSecondaryInputBox() {
+		return customerPersonalDetails_MobileNumberSecondaryInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' EMAIL ']//following-sibling::ion-input//input")
+	private WebElement customerPersonalDetails_EMAILInputBox;
+
+	public WebElement customerPersonalDetailsEMAILInputBox() {
+		return customerPersonalDetails_EMAILInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Prefered Contact method ']//following-sibling::ion-select")
+	private WebElement customerPersonalDetails_PerfectContactMethodDropDown;
+
+	public WebElement customerPersonalDetailsPerfectContactMethodDropDown() {
+		return customerPersonalDetails_PerfectContactMethodDropDown;
+	}
+	@FindBy(xpath="//ion-label[text()=' Prefered time for contact ']//following-sibling::ion-input//input")
+	private WebElement customerPersonalDetails_PreferedTimeForContactInputBox;
+
+	public WebElement customerPersonalDetailsPreferedTimeForContactInputBox() {
+		return customerPersonalDetails_PreferedTimeForContactInputBox;
+	}
+	
+	@FindBy(xpath="//button[@ng-reflect-text='Save']")
+	private WebElement customerPersonalDetails_Save;
+
+	public WebElement customerPersonalDetails_Save() {
+		return customerPersonalDetails_Save;
+	}
+	
+	@FindBy(xpath="//button[@ng-reflect-text='Update']")
+	private WebElement customerPersonalDetails_Update;
+
+	public WebElement customerPersonalDetails_Update() {
+		return customerPersonalDetails_Update;
+	}
+	
+	@FindBy(xpath="//div[@aria-label='Success']")
+	private WebElement customerPersonalDetails_Alert;
+
+	public WebElement customerPersonalDetails_Alert() {
+		return customerPersonalDetails_Alert;
+	}
+	
+	//List view
+	
+	
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[4]//span[1]")
+	private WebElement customerPersonalDetails_Listview_CIFID;
+	public WebElement customerPersonalDetails_Listview_CIFID() {
+		return customerPersonalDetails_Listview_CIFID;
+	}
+	
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[5]//span[1]")
+	private WebElement customerPersonalDetails_Listview_FirstName;
+	public WebElement customerPersonalDetails_Listview_FirstName() {
+		return customerPersonalDetails_Listview_FirstName;
+	}
+	
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[6]//span[1]")
+	private WebElement customerPersonalDetails_Listview_MiddleName;
+	public WebElement customerPersonalDetails_Listview_MiddleName() {
+		return customerPersonalDetails_Listview_MiddleName;
+	}	
+	
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[7]//span[1]")
+	private WebElement customerPersonalDetails_Listview_LastName;
+	public WebElement customerPersonalDetails_Listview_LastName() {
+		return customerPersonalDetails_Listview_LastName;
+	}	
+	
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[8]//span[1]")
+	private WebElement customerPersonalDetails_Listview_CustType;
+	public WebElement customerPersonalDetails_Listview_CustType() {
+		return customerPersonalDetails_Listview_CustType;
+	}
+
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[9]//span[1]")
+	private WebElement customerPersonalDetails_Listview_AppliType;
+	public WebElement customerPersonalDetails_Listview_AppliType() {
+		return customerPersonalDetails_Listview_AppliType;
+	}
+	
+	@FindBy(xpath="(//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[10]//span[1])[2]")
+	private WebElement customerPersonalDetails_Listview_Status;
+	public WebElement customerPersonalDetails_Listview_Status() {
+		return customerPersonalDetails_Listview_Status;
+	}
+	
+			
 }
