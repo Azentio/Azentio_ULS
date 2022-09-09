@@ -137,7 +137,7 @@ Then clear the input box value
 And click on save button before entering mendatory details in updation record
 Then verify system should show the validation for minimum and maximum value mendatory fields
 Then fill the minimum and maximum input as special characters
-And click on save button after enter special characters for updation record
+And click on save button after enter special characters
 Then verify system should not allow user to save the record
 Then clear the input box value
 Then verify functionality of back button

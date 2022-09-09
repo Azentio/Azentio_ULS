@@ -87,3 +87,22 @@ Then verify no of dependents field should not allow to enter numeric values
 Then verify user can not enter negative input
 Then verify mothers maiden name field should not allow numeric values
 Then verify mothers maiden name field should not allow special charecters
+
+@AT-CEL-005
+Scenario: To verify list view of customer personal details record
+Given navigate to uls application 
+And login with maker credentials
+And click on mail box icon
+And search the new application record
+And select the new application record in mail box
+And click on customer details tab 
+And store the form data which is available in the list view
+Then verify CIF ID field is available in screen and field should be read only mode
+Then verify first name field is available in screen and field should be read only mode
+Then verify middle name field is available in screen and field should be read only mode
+Then verify last name field is available and read only mode in screen
+Then verify customer type field i available and should be in read only mode
+Then verify applicant type field should be available and read only mode
+Then verify status field should be available and field should be read only mode
+Then verify back button is available is screen and field should be read only mode
+Then verify save button is available in the screen and field should be read only mode

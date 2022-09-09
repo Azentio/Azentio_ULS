@@ -504,4 +504,81 @@ public class ULSTransaction_CustomerPersonalDetailsObj {
 	{
 		return customerPersonalDetails_NoOfDependentsDataHolder;
 	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[4]//p-celleditor//span")
+	private WebElement customerDetails_CIFIDListView;
+	public WebElement customerDetailsCIFIDListView()
+	{
+		return customerDetails_CIFIDListView;
+	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[5]//p-celleditor//span")
+	private WebElement customerDetails_FirstnameListView;
+	public WebElement customerDetailsFirstnameListView()
+	
+	{
+		return customerDetails_FirstnameListView;
+	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[6]//p-celleditor//span")
+	private WebElement customerDetails_MiddlenameListView;
+	public WebElement customerDetailsMiddlenameListView()
+	
+	{
+		return customerDetails_MiddlenameListView;
+	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[7]//p-celleditor//span")
+	private WebElement customerDetails_LastNameListView;
+	
+	public WebElement customerDetailsLastNameListView()
+	{
+		return customerDetails_LastNameListView;
+	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[8]//p-celleditor//span")
+	private WebElement customerDetails_CustomerTypeListView;
+	
+	public WebElement customerDetailsCustomerTypeListView()
+	{
+		return customerDetails_CustomerTypeListView;
+	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[9]//p-celleditor//span")
+	private WebElement customerDetails_ApplicantTypeListView;
+	public WebElement customerDetailsApplicantTypeListView()
+	{
+		return customerDetails_ApplicantTypeListView;
+	}
+	@FindBy(xpath="//table//tbody//tr[1]//td[10]//p-celleditor//span//span")
+	private WebElement customerDetails_StatusListView;
+	public WebElement customerDetailsStatusListView()
+	{
+		return customerDetails_StatusListView;
+	}
+	@FindBy(xpath="//ion-label[text()=' First Name ']//following-sibling::ion-input")
+	private WebElement customerDetails_FirstnamedataHolder;
+	public WebElement customerDetailsFirstnamedtaHolder()
+	{
+		return customerDetails_FirstnamedataHolder;
+	}
+	@FindBy(xpath="//ion-label[text()=' Middle Name ']//following-sibling::ion-input")
+	private WebElement customerDetails_MiddleNamedataHolder;
+	public WebElement customerDetailsMiddleNamedataHolder()
+	{
+		return customerDetails_MiddleNamedataHolder;
+	}
+	@FindBy(xpath="//ion-label[text()=' Last Name ']//following-sibling::ion-input")
+	private WebElement customerDetails_LastNamedataHolder;
+	public WebElement customerDetailsLastNamedataHolder()
+	{
+		return customerDetails_LastNamedataHolder;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Edit']")
+	private WebElement customerDetails_ListViewEditIcon;
+	public WebElement customerDetailsListViewEditIcon()
+	{
+		return customerDetails_ListViewEditIcon;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Go Back']")
+	private WebElement customerDetails_BackButton;
+	public WebElement customerDetailsBackButton()
+	{
+		return customerDetails_BackButton;
+	}
+	
 }

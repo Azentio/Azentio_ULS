@@ -444,6 +444,9 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		Assert.assertEquals(
 				underWriterOffSetControlObj.underWriterOffSetControlMinimumValueValidationMessage().getText(),
 				"Alphanumeric characters allowed");
+		Assert.assertEquals(
+				underWriterOffSetControlObj.underWriterOffSetControlMaximumValueValidationMessage().getText(),
+				"Alphanumeric characters allowed");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlSaveButton(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlSaveButton().click();

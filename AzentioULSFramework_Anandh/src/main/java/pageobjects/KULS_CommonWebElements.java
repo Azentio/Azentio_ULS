@@ -89,6 +89,11 @@ public class KULS_CommonWebElements {
     {
     	return uls_NotificationAddButton;
     }
-  //  @FindBy(xpath="")
+    @FindBy(xpath="//ion-label[text()='Customer details']//parent::ion-segment-button")
+    private WebElement uls_CustomerDetailsTabnewApp;
+    public WebElement ulsCustomerDetailsTabnewApp()
+    {
+    	return uls_CustomerDetailsTabnewApp;
+    }
     
 }

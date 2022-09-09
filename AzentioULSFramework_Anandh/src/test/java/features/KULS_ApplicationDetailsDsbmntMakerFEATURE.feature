@@ -1,4 +1,5 @@
 Feature: To Test the application details disbursement maker module
+@AT_ADM_002
 Scenario: To test the field level verification of the application details disbursement record
 Given navigate to uls application 
 And login with maker credentials

@@ -1,12 +1,15 @@
 package stepdefinitions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
@@ -36,6 +39,7 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 	KULS_CommonWebElements commonElement = new KULS_CommonWebElements(driver);
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
+	Map<String, String> testData = new HashMap<>();
 
 	@Given("^navigate to uls application$")
 	public void navigate_to_uls_application() throws Throwable {
@@ -62,6 +66,8 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 		clicksAndActionsHelper.clickUsingActionClass(commonElement.ulsNotificationSearchTextBox(),
 				commonElement.ulsNotificationSearchTextBox());
 		commonElement.ulsNotificationSearchTextBox().sendKeys(customerPersonalDetailsTestData.applicationEventCode);
+		Thread.sleep(500);
+		;
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, commonElement.ulsNotificationFirstRecord(), 10, 1);
 		commonElement.ulsNotificationFirstRecord().click();
 	}
@@ -1043,6 +1049,7 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 		customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsInputBox().clear();
 		customerPersonalDetailsObj.customerPersonalDetailsNoOfDependentsInputBox()
 				.sendKeys(customerPersonalDetailsTestData.negativeInput);
+
 		Assert.assertEquals(customerPersonalDetailsTestData.negativeInputValidation,
 				customerPersonalDetailsObj.noOfDependetntsFieldValidation().getText());
 	}
@@ -1068,6 +1075,158 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 				.sendKeys(customerPersonalDetailsTestData.SpecialCharacterInput);
 		Assert.assertEquals(customerPersonalDetailsTestData.NumericSpecialCharecterValidation,
 				customerPersonalDetailsObj.customerPersonalDetailsMothersMaidenNameFieldValidation().getText());
+	}
+
+	@And("^select the new application record in mail box$")
+	public void select_the_new_application_record_in_mail_box() throws Throwable {
+		Thread.sleep(500);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, commonElement.ulsNotificationFirstRecord(), 10, 1);
+		commonElement.ulsNotificationFirstRecord().click();
+	}
+
+	@And("^click on customer details tab$")
+	public void click_on_customer_details_tab() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, commonElement.ulsCustomerDetailsTabnewApp(), 20, 1);
+		commonElement.ulsCustomerDetailsTabnewApp().click();
+
+	}
+
+	@And("^store the form data which is available in the list view$")
+	public void store_the_form_data_which_is_available_in_the_list_view() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerDetailsListViewEditIcon(), 10, 1);
+		customerPersonalDetailsObj.customerDetailsListViewEditIcon().click();
+		// first name
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerDetailsFirstnamedtaHolder(), 10, 1);
+		String firstName = customerPersonalDetailsObj.customerDetailsFirstnamedtaHolder()
+				.getAttribute("ng-reflect-model");
+		testData.put("firstName", firstName);
+
+		// Last Name
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerDetailsLastNamedataHolder(), 10, 1);
+		String lastName = customerPersonalDetailsObj.customerDetailsLastNamedataHolder()
+				.getAttribute("ng-reflect-model");
+		testData.put("lastName", lastName);
+		// MiddleName
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerDetailsMiddleNamedataHolder(), 10, 1);
+		String middleName = customerPersonalDetailsObj.customerDetailsMiddleNamedataHolder()
+				.getAttribute("ng-reflect-model");
+		testData.put("middleName", middleName);
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerDetailsCustomerTypeDropDown(), 10, 1);
+		String customerTypeBeforeSplit = customerPersonalDetailsObj.customerDetailsCustomerTypeDropDown()
+				.getAttribute("aria-label");
+		String[] splitCustomerType = customerTypeBeforeSplit.split(",");
+		testData.put("splitCustomerType", splitCustomerType[0].translateEscapes());
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerPersonalDetailsObj.customerPersonalDetailsApplicantTypeDropDown(), 10, 1);
+		String applicantTypeBeforeSplit = customerPersonalDetailsObj.customerPersonalDetailsApplicantTypeDropDown()
+				.getAttribute("aria-label");
+		String[] splitApplicantType = applicantTypeBeforeSplit.split(",");
+		testData.put("splitApplicantType", splitApplicantType[0].translateEscapes());
+
+		System.out.println("First name Is " + testData.get("firstName"));
+		System.out.println("last name Is " + testData.get("lastName"));
+		System.out.println("middle name Is " + testData.get("middleName"));
+		System.out.println("customer Type name Is " + testData.get("splitCustomerType"));
+		System.out.println("applicant Type name Is " + testData.get("splitApplicantType"));
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerPersonalDetailsObj.customerDetailsBackButton(),
+				10, 1);
+		customerPersonalDetailsObj.customerDetailsBackButton().click();
+	}
+
+	@Then("^verify save button is available in the screen and field should be read only mode$")
+	public void verify_save_button_is_available_in_the_screen_and_field_should_be_read_only_mode() throws Throwable {
+
+	}
+
+	@Then("^verify back button is available is screen and field should be read only mode$")
+	public void verify_back_button_is_available_is_screen_and_field_should_be_read_only_mode() throws Throwable {
+
+	}
+
+	@Then("^verify CIF ID field is available in screen and field should be read only mode$")
+	public void verify_cif_id_field_is_available_in_screen_and_field_should_be_read_only_mode() throws Throwable {
+		boolean status = true;
+		try {
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					customerPersonalDetailsObj.customerDetailsCIFIDListView(), 5, 1);
+			customerPersonalDetailsObj.customerDetailsCIFIDListView().click();
+		} catch (Exception e) {
+			status = false;
+		}
+		Assert.assertFalse(" CIF Field is editable one ", status);
+
+	}
+
+	@Then("^verify first name field is available in screen and field should be read only mode$")
+	public void verify_first_name_field_is_available_in_screen_and_field_should_be_read_only_mode() throws Throwable {
+		boolean status = true;
+		try {
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					customerPersonalDetailsObj.customerDetailsFirstnameListView(), 5, 1);
+			customerPersonalDetailsObj.customerDetailsFirstnameListView().click();
+		} catch (Exception e) {
+			System.out.println(" Fied is read only mode ");
+			status = false;
+		}
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerPersonalDetailsObj.customerDetailsFirstnameListView(), 10, 1);
+		Assert.assertEquals(customerPersonalDetailsObj.customerDetailsFirstnameListView().getText(),
+				testData.get("firstName"));
+	}
+
+	@Then("^verify middle name field is available in screen and field should be read only mode$")
+	public void verify_middle_name_field_is_available_in_screen_and_field_should_be_read_only_mode() throws Throwable {
+		boolean status = true;
+		try {
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					customerPersonalDetailsObj.customerDetailsMiddlenameListView(), 5, 1);
+			customerPersonalDetailsObj.customerDetailsMiddlenameListView().click();
+		} catch (Exception e) {
+			System.out.println(" Fied is read only mode ");
+			status = false;
+		}
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerPersonalDetailsObj.customerDetailsMiddlenameListView(), 10, 1);
+		Assert.assertEquals(customerPersonalDetailsObj.customerDetailsMiddlenameListView().getText(),
+				testData.get("middleName"));
+	}
+
+	@Then("^verify last name field is available and read only mode in screen$")
+	public void verify_last_name_field_is_available_and_read_only_mode_in_screen() throws Throwable {
+
+	}
+
+	@Then("^verify customer type field i available and should be in read only mode$")
+	public void verify_customer_type_field_i_available_and_should_be_in_read_only_mode() throws Throwable {
+
+	}
+
+	@Then("^verify applicant type field should be available and read only mode$")
+	public void verify_applicant_type_field_should_be_available_and_read_only_mode() throws Throwable {
+
+	}
+
+	@Then("^verify status field should be available and field should be read only mode$")
+	public void verify_status_field_should_be_available_and_field_should_be_read_only_mode() throws Throwable {
+
+	}
+
+	@And("^search the new application record$")
+	public void search_the_new_application_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, commonElement.ulsNotificationSerachButton(), 10, 1);
+		commonElement.ulsNotificationSerachButton().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, commonElement.ulsNotificationSearchTextBox(), 10, 1);
+		clicksAndActionsHelper.moveToElement(commonElement.ulsNotificationSearchTextBox());
+		clicksAndActionsHelper.clickUsingActionClass(commonElement.ulsNotificationSearchTextBox(),
+				commonElement.ulsNotificationSearchTextBox());
+		commonElement.ulsNotificationSearchTextBox().sendKeys(customerPersonalDetailsTestData.applicationEventCode);
+
 	}
 
 }

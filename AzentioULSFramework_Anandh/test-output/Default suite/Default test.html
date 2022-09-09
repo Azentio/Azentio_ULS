@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Sep 06 14:55:20 IST 2022</td>
+<td>Started on:</td><td>Fri Sep 09 17:56:49 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>59 seconds (59233 ms)</td>
+<tr><td>Total time:</td><td>35 seconds (35974 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,17 +67,64 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify maker can able to submit the customer personal Details record", "Optional[To Test the customer personal details Screen]"</td>
-<td></td>
-<td>44</td>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To test the field level verification of the application details disbursement record", "Optional[To Test the application details disbursement maker module]"</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Primary product field should be non eitable one but here it is editable hence failed expected [true] but found [false],
+	Primary Sub product field should be non editable but here its a editable one hence test step is failed expected [true] but found [false],
+	Total Finance field should be non editable but here it is editable one expected [false] but found [true],
+	 Declared Current obligation field should be non editable but here its editable one hence test case failed expected [false] but found [true],
+	 Special PromotionCampaign field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 sourcing channel field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 business center code field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 servicing type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Servicing Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Servicing Branch field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Closing Staff or Servicing Staff or RM field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing staff field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Office field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Code field should be non editable but here its a editable one hence test steps got failed expected [false] but found [true]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.KULS_ApplicationDetailsDisbursementMakerSteps.verify_the_functionlaity_of_the_back_button(KULS_ApplicationDetailsDisbursementMakerSteps.java:81)
+	at ?.verify the functionlaity of the back button(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/KULS_ApplicationDetailsDsbmntMakerFEATURE.feature:30)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1682524142", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1682524142'><pre>java.lang.AssertionError: The following asserts failed:
+	Primary product field should be non eitable one but here it is editable hence failed expected [true] but found [false],
+	Primary Sub product field should be non editable but here its a editable one hence test step is failed expected [true] but found [false],
+	Total Finance field should be non editable but here it is editable one expected [false] but found [true],
+	 Declared Current obligation field should be non editable but here its editable one hence test case failed expected [false] but found [true],
+	 Special PromotionCampaign field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 sourcing channel field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 business center code field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 servicing type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Servicing Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Servicing Branch field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Closing Staff or Servicing Staff or RM field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing staff field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Office field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Code field should be non editable but here its a editable one hence test steps got failed expected [false] but found [true]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.KULS_ApplicationDetailsDisbursementMakerSteps.verify_the_functionlaity_of_the_back_button(KULS_ApplicationDetailsDisbursementMakerSteps.java:81)
+	at ?.verify the functionlaity of the back button(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/KULS_ApplicationDetailsDsbmntMakerFEATURE.feature:30)
+</pre></div></td>
+<td>28</td>
 <td>Runner.TestApplication@35dab4eb</td></tr>
 </table><p>
 </body>

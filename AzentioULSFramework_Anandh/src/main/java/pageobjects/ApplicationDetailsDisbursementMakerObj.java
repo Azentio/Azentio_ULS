@@ -21,6 +21,12 @@ public class ApplicationDetailsDisbursementMakerObj {
 	public WebElement AppDataEntry_PrimarySubProductField() {
 		return AppDataEntry_PrimarySubProductField;
 	}
+	@FindBy(xpath="//ion-label[text()='Application Details']//parent::ion-segment-button")
+	private WebElement appDataEntry_AplicationInfoTab;
+	public WebElement appDataEntryApplicationInfoTab()
+	{
+		return appDataEntry_AplicationInfoTab;
+	}
 	@FindBy(xpath="//ion-label[text()=' Special Promotion/Campaign ']//following-sibling::ion-select")
 	private WebElement AppDataEntry_SpecialPromotionField;
 	public WebElement AppDataEntry_SpecialPromotionField() {

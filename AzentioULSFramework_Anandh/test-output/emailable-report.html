@@ -9,10 +9,33 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">59,233</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">35,974</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Runner.TestApplication</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1662456322065</td><td rowspan="1">44755</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Runner.TestApplication</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1662726410296</td><td rowspan="1">28026</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Runner.TestApplication#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;To verify maker can able to submit the customer personal Details record&quot;</td><td>&quot;Optional[To Test the customer personal details Screen]&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">Runner.TestApplication#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;To test the field level verification of the application details disbursement record&quot;</td><td>&quot;Optional[To Test the application details disbursement maker module]&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	Primary product field should be non eitable one but here it is editable hence failed expected [true] but found [false],
+	Primary Sub product field should be non editable but here its a editable one hence test step is failed expected [true] but found [false],
+	Total Finance field should be non editable but here it is editable one expected [false] but found [true],
+	 Declared Current obligation field should be non editable but here its editable one hence test case failed expected [false] but found [true],
+	 Special PromotionCampaign field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 sourcing channel field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 business center code field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 servicing type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Servicing Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Servicing Branch field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Closing Staff or Servicing Staff or RM field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing staff field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Sourcing Office field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Type field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Entity field should be non editable but here its a editable one hence test steps got failed expected [true] but found [false],
+	 Reference Code field should be non editable but here its a editable one hence test steps got failed expected [false] but found [true]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.KULS_ApplicationDetailsDisbursementMakerSteps.verify_the_functionlaity_of_the_back_button(KULS_ApplicationDetailsDisbursementMakerSteps.java:81)
+	at ✽.verify the functionlaity of the back button(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/KULS_ApplicationDetailsDsbmntMakerFEATURE.feature:30)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -167,7 +167,7 @@ public class KULS_UnderWriterOffsetControl {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				underwriteroffsetcontrolObj.searchTextFieldOfUnderWriterOffsetControl(), 30, 2);
-		underwriteroffsetcontrolObj.searchTextFieldOfUnderWriterOffsetControl().sendKeys("1000");
+		underwriteroffsetcontrolObj.searchTextFieldOfUnderWriterOffsetControl().sendKeys("1100000");
 		String xpath = "//span[contains(text(),' Minimum Value ')]";
 		String productgroup = null;
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
@@ -194,7 +194,7 @@ public class KULS_UnderWriterOffsetControl {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				underwriteroffsetcontrolObj.searchTextFieldOfUnderWriterOffsetControl(), 30, 2);
-		underwriteroffsetcontrolObj.searchTextFieldOfUnderWriterOffsetControl().sendKeys("zfghz");
+		underwriteroffsetcontrolObj.searchTextFieldOfUnderWriterOffsetControl().sendKeys("abcdefgh");
 		Thread.sleep(1000);
 		String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
 		for (int i = 0; i < 200; i++) {
