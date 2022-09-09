@@ -473,47 +473,52 @@ public class PersonalDetails_AppDataEntry_Obj {
 	//List view
 	
 	
-	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[4]//span[1]")
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[4]//span")
 	private WebElement customerPersonalDetails_Listview_CIFID;
 	public WebElement customerPersonalDetails_Listview_CIFID() {
 		return customerPersonalDetails_Listview_CIFID;
 	}
 	
-	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[5]//span[1]")
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[5]//span")
 	private WebElement customerPersonalDetails_Listview_FirstName;
 	public WebElement customerPersonalDetails_Listview_FirstName() {
 		return customerPersonalDetails_Listview_FirstName;
 	}
 	
-	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[6]//span[1]")
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[6]//span")
 	private WebElement customerPersonalDetails_Listview_MiddleName;
 	public WebElement customerPersonalDetails_Listview_MiddleName() {
 		return customerPersonalDetails_Listview_MiddleName;
 	}	
 	
-	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[7]//span[1]")
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[7]//span")
 	private WebElement customerPersonalDetails_Listview_LastName;
 	public WebElement customerPersonalDetails_Listview_LastName() {
 		return customerPersonalDetails_Listview_LastName;
 	}	
 	
-	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[8]//span[1]")
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[8]//span")
 	private WebElement customerPersonalDetails_Listview_CustType;
 	public WebElement customerPersonalDetails_Listview_CustType() {
 		return customerPersonalDetails_Listview_CustType;
 	}
 
-	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[9]//span[1]")
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[9]//span")
 	private WebElement customerPersonalDetails_Listview_AppliType;
 	public WebElement customerPersonalDetails_Listview_AppliType() {
 		return customerPersonalDetails_Listview_AppliType;
 	}
 	
-	@FindBy(xpath="(//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[10]//span[1])[2]")
+	@FindBy(xpath="(//ion-row[1]/ion-col[1]/ion-card[1]//table[1]/tbody[1]/tr[1]/td[10]//span)[2]")
 	private WebElement customerPersonalDetails_Listview_Status;
 	public WebElement customerPersonalDetails_Listview_Status() {
 		return customerPersonalDetails_Listview_Status;
 	}
 	
+	@FindBy(xpath="//button[@ng-reflect-text='Go Back']")
+	private WebElement customerPersonalDetails_BackButton;
+	public WebElement customerPersonalDetails_BackButton() {
+		return customerPersonalDetails_BackButton;
+	}
 			
 }

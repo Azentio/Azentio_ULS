@@ -48,7 +48,11 @@
 		"PREFEREDCONTACTMethod":"Mobile",
 		
 		// Modify
-		"ModifyApplicantType":"Guarantor"
+		"ModifyApplicantType":"Guarantor",
+		
+		//verification
+		"Numeric":"1234",
+		"Characteric":"ABCD"
 		
 	}
 ]

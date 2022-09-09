@@ -1,5 +1,5 @@
 Feature: Check The functionality of the Personal Details App data Entry
-@AT-PDE-001
+@AT_PDE_001
 Scenario: Customer Personal Information at App data entry satge
 Given User Launch the KULS url for Transaction
 Then user click on Transaction Module
@@ -123,7 +123,7 @@ And user click search icon
 And user search Appdata Entry
 And user click on First record of Appdata Entry
 And user click on Customer Details Tab
-And user verify the Back button List View
+#And user verify the Back button List View
 And user verify the CIF ID List view
 And user verify the First Name List View
 And user verify the Middle Name List View

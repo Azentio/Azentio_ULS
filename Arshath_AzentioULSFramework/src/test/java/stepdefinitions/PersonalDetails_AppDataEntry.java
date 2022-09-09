@@ -1,12 +1,16 @@
 package stepdefinitions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
+import freemarker.core._SortedArraySet;
 import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
@@ -35,7 +39,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	PersonalDetails_AppDataEntry_Obj AppDataEntry = new PersonalDetails_AppDataEntry_Obj(driver);
 	PersonalaDetailsDataEntryTestdata personalData = jsonConfig.getPerDetailDataByName("Maker");
-	
+	SoftAssert softassert = new SoftAssert();
 	
     @Given("^User Launch the KULS url for Transaction$")
     public void user_launch_the_kuls_url_for_transaction() throws Throwable {
@@ -98,180 +102,468 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
 
     @And("^user verify the customer Type field$")
     public void user_verify_the_customer_type_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsCustomerTypeDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsCustomerTypeDropDown().isDisplayed();
+    	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsCustomerTypeDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsCustomerTypeDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsCustomerTypeDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Applicant Type field$")
     public void user_verify_the_applicant_type_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsApplicantTypeDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsApplicantTypeDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsApplicantTypeDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsApplicantTypeDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsApplicantTypeDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Salutation field$")
     public void user_verify_the_salutation_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSalutationDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsSalutationDropDown().isDisplayed();
+    	
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSalutationDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsSalutationDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsSalutationDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 	
     @And("^user verify the First Name field$")
     public void user_verify_the_first_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFirstNameinputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsFirstNameinputBox().isDisplayed();
+    	
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFirstNameinputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsFirstNameinputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsFirstNameinputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Middle Name filed$")
     public void user_verify_the_middle_name_filed() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMiddleNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsMiddleNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMiddleNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsMiddleNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsMiddleNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Last Name field$")
     public void user_verify_the_last_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsLastNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsLastNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsLastNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsLastNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsLastNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Father First Name field$")
     public void user_verify_the_father_first_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Father Middle Name field$")
     public void user_verify_the_father_middle_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Father Last Name Field$")
     public void user_verify_the_father_last_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherLastNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsFatherLastNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherLastNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsFatherLastNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsFatherLastNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the spouse First Name field$")
     public void user_verify_the_spouse_first_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the spouse Middle name field$")
     public void user_verify_the_spouse_middle_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the spouse Last Name field$")
     public void user_verify_the_spouse_last_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the No of children field$")
     public void user_verify_the_no_of_children_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the spouse status field$")
     public void user_verify_the_spouse_status_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseStatusInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsSpouseStatusInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseStatusInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsSpouseStatusInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsSpouseStatusInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Date of birth field$")
     public void user_verify_the_date_of_birth_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 	
     @And("^user verify the gender field$")
     public void user_verify_the_gender_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsGenderDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsGenderDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsGenderDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsGenderDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsGenderDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Education Level field$")
     public void user_verify_the_education_level_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsEducationLevelDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsEducationLevelDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsEducationLevelDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsEducationLevelDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsEducationLevelDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Marital status field$")
     public void user_verify_the_marital_status_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMaritalStatusDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsMaritalStatusDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMaritalStatusDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsMaritalStatusDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsMaritalStatusDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Nationality field$")
     public void user_verify_the_nationality_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNationalityDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsNationalityDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNationalityDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsNationalityDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsNationalityDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Ethinicity field$")
     public void user_verify_the_ethinicity_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsEthinicityDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsEthinicityDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsEthinicityDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsEthinicityDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsEthinicityDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Religion field$")
     public void user_verify_the_religion_field() throws Throwable {
     	javaHelper.scrollIntoView(AppDataEntry.customerPersonalDetailsReligionDropDown());
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsReligionDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsReligionDropDown().isDisplayed();
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsReligionDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsReligionDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsReligionDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Residental status field$")
     public void user_verify_the_residental_status_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsResidentialStatusDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsResidentialStatusDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsResidentialStatusDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsResidentialStatusDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsResidentialStatusDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Language field$")
     public void user_verify_the_language_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsLanguageDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsLanguageDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsLanguageDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsLanguageDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsLanguageDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the No Of dependents field$")
     public void user_verify_the_no_of_dependents_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Mothers maiden name field$")
     public void user_verify_the_mothers_maiden_name_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Type of Residence field$")
     public void user_verify_the_type_of_residence_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox(), 60, 2);
+        AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the category of client field$")
     public void user_verify_the_category_of_client_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown(), 60, 5);
-    	AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown().isDisplayed();
+
+       	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown(), 60, 2);
+        AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Rating field$")
     public void user_verify_the_rating_field() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetailsRatingInputBox(), 60, 5);
-    	AppDataEntry.customerDetailsRatingInputBox().isDisplayed();
+
+      	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetailsRatingInputBox(), 60, 2);
+        AppDataEntry.customerDetailsRatingInputBox().isDisplayed();
+        try {
+        	AppDataEntry.customerDetailsRatingInputBox().click();    
+    }
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
     }
 
     @And("^user verify the Remark fields$")
     public void user_verify_the_remark_fields() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetaisRemark(), 60, 5);
-    	AppDataEntry.customerDetaisRemark().isDisplayed();
+ 
+      	boolean status = true;
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetaisRemark(), 60, 2);
+        AppDataEntry.customerDetaisRemark().isDisplayed();
+        try {
+        	AppDataEntry.customerDetaisRemark().click();    
     }
-
-	
+        catch(Exception e) {
+            status = false;
+            System.out.println("Field is not editable");
+        }
+        softassert.assertTrue(status);
+    }
+  
+	    
 	
 	//******************@AT-PDE-002**********************//
     
@@ -343,8 +635,16 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     public void user_enter_id_number() throws Throwable {
        	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetailsIDNumberInputBox(), 60, 5);
     	AppDataEntry.customerDetailsIDNumberInputBox().isDisplayed();
-    	AppDataEntry.customerDetailsIDNumberInputBox().click();
-    	AppDataEntry.customerDetailsIDNumberInputBox().sendKeys(personalData.IDNo);
+    	for (int i = 0; i < 50; i++) {
+			try {
+		    	AppDataEntry.customerDetailsIDNumberInputBox().click();
+		    	AppDataEntry.customerDetailsIDNumberInputBox().sendKeys(personalData.IDNo);
+		    	break;
+			} catch (Exception e) {
+				
+			}
+		}
+
     }
 
     @And("^user Enter Mobile Number$")
@@ -451,8 +751,16 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     public void user_enter_the_first_name_field() throws Throwable {
        	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFirstNameinputBox(), 60, 5);
     	AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().isDisplayed();
-    	AppDataEntry.customerPersonalDetailsFirstNameinputBox().click();
-    	AppDataEntry.customerPersonalDetailsFirstNameinputBox().sendKeys(personalData.FirstName);
+    	for (int i = 0; i < 50; i++) {
+			try {
+		    	AppDataEntry.customerPersonalDetailsFirstNameinputBox().click();
+		    	AppDataEntry.customerPersonalDetailsFirstNameinputBox().sendKeys(personalData.FirstName);
+		    	break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+
     }
 
     @And("^user Enter the Middle Name filed$")
@@ -691,9 +999,16 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     public void user_enter_the_no_of_dependents_field() throws Throwable {
      	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox(), 60, 5);
     	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().isDisplayed();
-    	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().click();
-    	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().sendKeys(personalData.NoOfDependents);
-    }
+    	for (int i = 0; i < 50; i++) {
+			try {
+		    	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().click();
+		    	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().sendKeys(personalData.NoOfDependents);
+		   break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+ }
 
     @And("^user Enter the Mothers maiden name field$")
     public void user_enter_the_mothers_maiden_name_field() throws Throwable {
@@ -865,38 +1180,109 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     }
 
     @And("^user verify the CIF ID List view$")
-    public void user_verify_the_cif_id_list_view() throws Throwable {
-        
+    public void user_verify_the_cif_id_list_view() throws Throwable { 		
+    	
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_CIFID(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_CIFID().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_CIFID().click();   
+        	AppDataEntry.customerPersonalDetails_Listview_CIFID().sendKeys("0");
+    }
+        catch(ElementNotInteractableException e) {
+            
+            System.out.println("Field is not editable");
+        }
+//    	   softassert.assertTrue(status);
     }
 
     @And("^user verify the First Name List View$")
     public void user_verify_the_first_name_list_view() throws Throwable {
-        
+
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_FirstName(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_FirstName().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_FirstName().click(); 
+        	AppDataEntry.customerPersonalDetails_Listview_FirstName().sendKeys("0");
+    }
+        catch(ElementNotInteractableException e) {
+            
+            System.out.println("Field is not editable");
+        }
     }
 
     @And("^user verify the Middle Name List View$")
     public void user_verify_the_middle_name_list_view() throws Throwable {
-        
+    	
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_MiddleName(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_MiddleName().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_MiddleName().click(); 
+        	AppDataEntry.customerPersonalDetails_Listview_MiddleName().sendKeys("0");
+    }
+        catch(ElementNotInteractableException e) {
+            
+            System.out.println("Field is not editable");
+        }
     }
 
     @And("^user Verify the Last Name List View$")
     public void user_verify_the_last_name_list_view() throws Throwable {
-        
+    
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_LastName(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_LastName().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_LastName().click(); 
+        	AppDataEntry.customerPersonalDetails_Listview_LastName().sendKeys("0");
+    }
+        catch(ElementNotInteractableException e) {
+         
+            System.out.println("Field is not editable");
+        }
     }
 
     @And("^user verify the Customer Type List View$")
     public void user_verify_the_customer_type_list_view() throws Throwable {
-        
+       	
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_CustType(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_CustType().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_CustType().click();    
+        	AppDataEntry.customerPersonalDetails_Listview_CustType().sendKeys("0");
+    }
+        catch(ElementNotInteractableException e) {
+            
+            System.out.println("Field is not editable");
+        }
     }
 
     @And("^user verify the Applicant Type List View$")
     public void user_verify_the_applicant_type_list_view() throws Throwable {
-        
+       
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_AppliType(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_AppliType().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_AppliType().click(); 
+        	AppDataEntry.customerPersonalDetails_Listview_AppliType().sendKeys("0");
+    }
+        catch(ElementNotInteractableException e) {
+          
+            System.out.println("Field is not editable");
+        }
     }
 
     @And("^user verify the Status List View$")
     public void user_verify_the_status_list_view() throws Throwable {
-        
+      
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Listview_Status(), 60, 2);
+        AppDataEntry.customerPersonalDetails_Listview_Status().isDisplayed();
+        try {
+        	AppDataEntry.customerPersonalDetails_Listview_Status().click(); 
+        	AppDataEntry.customerPersonalDetails_Listview_Status().sendKeys("0");  
+    }
+        catch(Exception e) {
+       
+            System.out.println("Field is not editable");
+        }
     }
 
 	

@@ -353,12 +353,13 @@ Then verify system should display the currect mail value
 Then verify system shoudl display the currect contarct person value
 Then verify system shoudl display the exact status of the record
 
-@WareHouse4_AT-WHM-T013
+@WareHouse4_AT_WHM_T013
 Scenario: To verify the list view of WIP Record
 Given user log in as uls application maker
 And go to configuration main menu
 And Go to config manager main menu
 And click on temp view in wareHouse master screen
+#And click on view button in ware house master
 Then verify WIP list view records are non editable
 Then verify user can able to add the record in to the ware house master screen
 And click on search button in ware house list view

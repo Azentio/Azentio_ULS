@@ -32,7 +32,7 @@
 		
 	// Validation
 		"searchingWithMatchData"	:"Amazon_Description",
-		"searchingWithMatchData1" 	:"ReModify_Amazon_Description",
+		"searchingWithMatchData1" 	:"Amazon_Description",
 		"searchingWithUnmatchedData":"poiuytrewq",
 		"downloadFileLocation"		:"C:\\Users\\inindc00075",
 		"FileNameForXlsFile"		:"WarehouseDataFile_export_",

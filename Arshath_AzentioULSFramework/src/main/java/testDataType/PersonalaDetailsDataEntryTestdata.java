@@ -49,4 +49,6 @@ public class PersonalaDetailsDataEntryTestdata {
 	public String PREFEREDCONTACTDETAILS;
 	public String PREFEREDCONTACTMethod;
 	public String ModifyApplicantType;
+	public String Numeric;
+	public String Characteric;
 }
