@@ -215,7 +215,7 @@ public class ProductRetail_Master {
 
 	}
 
-
+	@And("^user verify post clicking pdf option pdf file will be downloaded$")
 	public void user_verify_post_clicking_pdf_option_pdf_file_will_be_downloaded() throws Throwable {
 		for (int i = 0; i < 20; i++) {
 			try {

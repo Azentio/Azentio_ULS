@@ -36,5 +36,9 @@ public class KULS_LoginObj {
 	public WebElement configuration() {
 		return configuration;
 	}
-	
+	@FindBy(xpath="//ion-menu[@aria-label='menu']//ion-col//ion-button")
+	private WebElement menu;
+	public WebElement menu() {
+		return menu;
+	}
 }

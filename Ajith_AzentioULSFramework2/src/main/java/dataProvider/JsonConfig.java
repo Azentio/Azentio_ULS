@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.AssetAutoMaster_TestData;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.Product_RetailMasterTestData;
@@ -44,6 +45,9 @@ public class JsonConfig {
 	// assetauto master
 	private final String assetAutoMasterPath = configFileReader.getJsonPath() + "AssetAutoMaster.json";
 	private List<AssetAutoMaster_TestData> assetAutoMasterData;
+	//ApplicationDetailsNEWAPP
+	private final String applicationNEWAPPPath = configFileReader.getJsonPath() + "ApplicationDetails_NEWAPP.json";
+	private List<ApplicationDetails_NEWAPPTestData> applicationDetailsNEWAPData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -56,7 +60,29 @@ public class JsonConfig {
 		SubproductRetailparameter = getSubproductRetailparameter();
 		SubParameternegative = getSubParameterNegativeList();
 		assetAutoMasterData =getAssetAutoMaster();
+		applicationDetailsNEWAPData=getApplicationDetailsNEWAPP();
 	}
+	//ApplicationDetails
+		private List<ApplicationDetails_NEWAPPTestData> getApplicationDetailsNEWAPP() {
+			Gson gson = new Gson();
+			JsonReader reader = new JsonReader(new StringReader(applicationNEWAPPPath));
+			reader.setLenient(true);
+			BufferedReader bufferReader = null;
+			try {
+				bufferReader = new BufferedReader(new FileReader(applicationNEWAPPPath));
+				ApplicationDetails_NEWAPPTestData[] applicationDetailsNEWAPP = gson.fromJson(bufferReader,
+						ApplicationDetails_NEWAPPTestData[].class);
+				return Arrays.asList(applicationDetailsNEWAPP);
+			} catch (FileNotFoundException e) {
+				throw new RuntimeException("Json file not found at path : " + applicationNEWAPPPath);
+			} finally {
+				try {
+					if (bufferReader != null)
+						bufferReader.close();
+				} catch (IOException ignore) {
+				}
+			}
+		}
 	// asset auto master
 	private List<AssetAutoMaster_TestData> getAssetAutoMaster() {
 		Gson gson = new Gson();
@@ -237,4 +263,9 @@ public class JsonConfig {
 	public final AssetAutoMaster_TestData getAssetAutoMasterListByName(String Username) {
 	    return assetAutoMasterData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 		}
+	// applicationDetailsNEWAPP
+		public final ApplicationDetails_NEWAPPTestData getApplicationDetailsNEWAPPListByName(String Username) {
+		    return applicationDetailsNEWAPData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+			}
+	
 }

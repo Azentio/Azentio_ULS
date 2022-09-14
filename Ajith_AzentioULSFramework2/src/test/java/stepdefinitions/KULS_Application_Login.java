@@ -37,6 +37,8 @@ public class KULS_Application_Login {
 		loginObj.password().sendKeys(password);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.menu(), 60, 2);
+		loginObj.menu().click();
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 		assertEquals(loginObj.configuration().isDisplayed(), true);
 
