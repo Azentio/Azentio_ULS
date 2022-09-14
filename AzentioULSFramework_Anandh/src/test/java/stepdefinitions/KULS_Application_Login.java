@@ -57,7 +57,7 @@ public class KULS_Application_Login {
 				assertEquals(loginObj.configuration().isDisplayed(), true);
 				break;
 			} catch (Exception e) {
-				String kulsApplicationUrl = configFileReader.getApplicationUrl();
+				String kulsApplicationUrl = configFileReader.getULSApplicationCenBankUrl();
 				driver.get(kulsApplicationUrl);
 				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
 				loginObj.userId().click();

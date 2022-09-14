@@ -19,14 +19,37 @@ public class KULS_CommonWebElements {
 	public WebElement ulsMailBox() {
 		return uls_MailBox;
 	}
+	@FindBy(xpath = "//button[starts-with(@class,'p-datepicker-month')]")
+	private WebElement calendar_MonthField;
 
+	public WebElement calendarMonthField() {
+		return calendar_MonthField;
+	}
+
+	@FindBy(xpath = "//button[starts-with(@class,'p-datepicker-year')]")
+	private WebElement calendar_YearField;
+
+	public WebElement calendarYearField() {
+		return calendar_YearField;
+	}
 	@FindBy(xpath = "(//button[@ng-reflect-text='Entitle'])[1]")
 	private WebElement uls_MailBoxFirstRecord;
 
 	public WebElement ulsMailBoxFirstRecord() {
 		return uls_MailBoxFirstRecord;
 	}
+	@FindBy(xpath="(//div[starts-with(@class,'p-datepicker-header')]//button[1])[1]")
+	private WebElement calendar_PreviousButton;
 
+	public WebElement calendarPreviousButton() {
+		return calendar_PreviousButton;
+	}	
+	@FindBy(xpath="(//div[starts-with(@class,'p-datepicker-header')]//button[2])[2]")
+	private WebElement calendar_NextButton;
+
+	public WebElement calendarNextButton() {
+		return calendar_NextButton;
+	}	
 	@FindBy(xpath = "//ion-label[text()='Customer details']//parent::ion-segment-button")
 	private WebElement uls_CustomerDetailsTab;
 
@@ -70,6 +93,12 @@ public class KULS_CommonWebElements {
     public WebElement ulsNotificationSearchTextBox()
     {
     	return uls_notificationSearchTextBox;
+    }
+    @FindBy(xpath="//table//tr[5]//td[4]")
+    private WebElement uls_NotificationRecordStageCode;
+    public WebElement ulsNotificationRecordStageCode()
+    {
+    	return uls_NotificationRecordStageCode;
     }
     @FindBy(xpath="//table//tbody//tr[1]//td[2]//span")
     private WebElement uls_NotificationFirstReferenceNumber;

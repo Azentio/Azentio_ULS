@@ -1,9 +1,12 @@
 package stepdefinitions;
 
-import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.testng.asserts.SoftAssert;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+import com.aventstack.extentreports.Status;
 import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
@@ -12,9 +15,11 @@ import io.cucumber.java.en.Then;
 import pageobjects.ApplicationDetailsDisbursementMakerObj;
 import pageobjects.KULS_CommonWebElements;
 import resources.BaseClass;
+import utilities.ExtentTestManager;
 
 public class KULS_ApplicationDetailsDisbursementMakerSteps extends BaseClass {
 	WebDriver driver = BaseClass.driver;
+	Status reportStatus;
 	ApplicationDetailsDisbursementMakerObj applicationDetailsDisbursementMakerObj = new ApplicationDetailsDisbursementMakerObj(
 			driver);
 	WaitHelper waitHelper = new WaitHelper(driver);
@@ -22,6 +27,7 @@ public class KULS_ApplicationDetailsDisbursementMakerSteps extends BaseClass {
 	KULS_CommonWebElements kulsCommonWebObj = new KULS_CommonWebElements(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	SoftAssert softAssert = new SoftAssert();
+	Logger Log = LogManager.getLogger(KULS_ApplicationDetailsDisbursementMakerSteps.class.getName());
 
 	@And("^search the record for disbursement maker record$")
 	public void search_the_record_for_disbursement_maker_record() throws Throwable {
@@ -90,9 +96,21 @@ public class KULS_ApplicationDetailsDisbursementMakerSteps extends BaseClass {
 		boolean status = applicationDetailsDisbursementMakerObj.AppDataEntry_PrimaryProductField()
 				.getAttribute("ng-reflect-disabled").equals("true");
 		System.out.println("Status is " + status);
-		softAssert.assertTrue(status,
+		try
+		{
+			Assert.assertTrue(status);
+		}
+		catch(AssertionError e)
+		{
+			System.out.println("Warning area");
+			Log.warn("Primary product field should be non eitable one but here it is editable hence warning occured");
+			softAssert.assertTrue(status,
 				"Primary product field should be non eitable one but here it is editable hence failed");
-	}
+			ExtentTestManager.getTest().log(Status.WARNING, "Warning");
+
+		}
+		
+		}
 
 	@Then("^verify user can not able to modify the primary sub product field$")
 	public void verify_user_can_not_able_to_modify_the_primary_sub_product_field() throws Throwable {
@@ -102,6 +120,8 @@ public class KULS_ApplicationDetailsDisbursementMakerSteps extends BaseClass {
 				.getAttribute("ng-reflect-disabled").equals("true");
 		softAssert.assertTrue(status,
 				"Primary Sub product field should be non editable but here its a editable one hence test step is failed");
+		System.out.println("Hello");
+		//softAssert.assertAll();
 	}
 
 	@Then("^verify user can not able to modify the total finance amount requested$")
@@ -120,6 +140,7 @@ public class KULS_ApplicationDetailsDisbursementMakerSteps extends BaseClass {
 		}
 
 		softAssert.assertFalse(status, "Total Finance field should be non editable but here it is editable one");
+		
 	}
 
 	@Then("^verify user can not able to modify declared net income field$")

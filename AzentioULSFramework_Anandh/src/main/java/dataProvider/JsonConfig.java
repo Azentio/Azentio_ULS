@@ -12,9 +12,11 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import testDataType.CustomerPerssonalDetailsTestData;
+import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.KULS_WareHouseMasterTestData;
+import testDataType.PropetyDetails_TestDataType;
 import testDataType.ULS_AssetCollateralTypeTestData;
 import testDataType.ULS_CheckerTestData;
 import testDataType.ULS_LivingExpenseTestData;
@@ -59,6 +61,11 @@ public class JsonConfig {
 	private final String uls_CustomerPersonalDetailsestDataPath = configFileReader.getJsonPath() + "ULS_CustomerPersonalDetailsJSON.json";
 	private List<CustomerPerssonalDetailsTestData> uls_CustomerPersonalDetailsTestData;
 	
+	private final String uls_PropertyDetailsJsonfilepath = configFileReader.getJsonPath() + "PropertyDetailsJSON.json";
+	private List<PropetyDetails_TestDataType> uls_PropertyDetailsTestData;
+	private final String ApplicationDetailsDataPath = configFileReader.getJsonPath() + "ApplicationDetails_AppDataEntryJson.json";
+	private List<KULS_ApplicationDetails_AppDataEntry_Testdata> ApplicationDetails;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -76,9 +83,49 @@ public class JsonConfig {
 		uls_LivingExpenseTestData= getLivingExpenseTestData();
 		
 		uls_CustomerPersonalDetailsTestData=getCustomerPersonalDetailsTestData();
+		uls_PropertyDetailsTestData=getPropertyDetailsTestdata();
+		ApplicationDetails = getApplicationDetailsList();
 	}
-
-	
+	private List<KULS_ApplicationDetails_AppDataEntry_Testdata> getApplicationDetailsList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ApplicationDetailsDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ApplicationDetailsDataPath));
+			KULS_ApplicationDetails_AppDataEntry_Testdata[] livingexpense = gson.fromJson(bufferReader, KULS_ApplicationDetails_AppDataEntry_Testdata[].class);
+			return Arrays.asList(livingexpense);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ApplicationDetailsDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	private List<PropetyDetails_TestDataType> getPropertyDetailsTestdata()
+	{
+		Gson gson = new Gson();
+	JsonReader reader = new JsonReader(new StringReader(uls_PropertyDetailsJsonfilepath));
+	reader.setLenient(true);
+	BufferedReader bufferReader = null;
+	try {
+		bufferReader = new BufferedReader(new FileReader(uls_PropertyDetailsJsonfilepath));
+		PropetyDetails_TestDataType[] getPropertyDetailsTestData = gson.fromJson(bufferReader, PropetyDetails_TestDataType[].class);
+		return Arrays.asList(getPropertyDetailsTestData);
+	} catch (FileNotFoundException e) {
+		throw new RuntimeException("Json file not found at path : " + uls_PropertyDetailsJsonfilepath);
+	} finally {
+		try {
+			if (bufferReader != null)
+				bufferReader.close();
+		} catch (IOException ignore) {
+		}
+	}
+		
+	}
 
 	private List<CustomerPerssonalDetailsTestData> getCustomerPersonalDetailsTestData() {
 		Gson gson = new Gson();
@@ -364,6 +411,14 @@ public class JsonConfig {
 	//CustomerPerssonalDetailsTestData> uls_CustomerPersonalDetailsTestData
 	public final CustomerPerssonalDetailsTestData getCustomerPersonalDetailsTestDataByName(String Username) {
 		return uls_CustomerPersonalDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//PropetyDetails_TestDataType> uls_PropertyDetailsTestData
+	public final PropetyDetails_TestDataType getPropertyDetailsTestDataByName(String Username) {
+		return uls_PropertyDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//Application Details App Data Entry
+	public final KULS_ApplicationDetails_AppDataEntry_Testdata getApplicationDetailsByName(String Username) {
+		return ApplicationDetails.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 	
 }

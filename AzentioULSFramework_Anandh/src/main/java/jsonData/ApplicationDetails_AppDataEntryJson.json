@@ -1,0 +1,32 @@
+[
+{
+"UserType":"Maker",
+"CustomerType":"Corporate Customer",
+"CIFID":"1234",
+"CompanyName":"test",
+"IDType":"ADHAR",
+"IDNumber":"858585858585",
+"PrimaryProduct":"Home Loan",
+"PrimarySubProduct":"Self-Construction",
+"TotalFincanceAmountRequested":"50000",
+"DeclaredNetIncome":"20000",
+"DeclaredCurrentObligations":"40000",
+"SpecialPromotion":"Honda Car Promotion scheme",
+"SourcingChannel":"IKSL",
+"BusinessCenterCode":"Business Center-Retail Banking",
+"ServicingType":"Financier",
+"ServicingEntity":"Cent Bank Finance LTD",
+"ServicingBranch":"East Zone",
+"ClosingStaff":"Pankaj Kumar",
+"SourcingType":"Financier",
+"SourcingStaff":"Pankaj Kumar",
+"SourcingEntity":"Cent Bank Finance LTD",
+"SourcingOffice":"East Zone",
+"ReferenceType":"Agency",
+"ReferenceEntity":"Cent Bank Finance LTD",
+"ReferenceCode":"12345"
+
+
+
+}
+]
