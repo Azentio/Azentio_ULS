@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Sep 12 13:50:51 IST 2022</td>
+<td>Started on:</td><td>Wed Sep 14 17:57:57 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>52 seconds (52277 ms)</td>
+<tr><td>Total time:</td><td>57 seconds (57679 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,60 +67,17 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Customer Personal Information at App data entry satge", "Optional[Check The functionality of the Personal Details App data Entry]"</td>
-<td><div><pre>java.lang.AssertionError: The following asserts failed:
-	customer Type field should be non-editable but here its editable hence failed expected [true] but found [false],
-	First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Father First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Father Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Father Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	spouse First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	spouse Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	spouse Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 No of children field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Date of birth field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 No Of dependents field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Mothers maiden name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Rating field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Reamrk field should be non-editable but here its editable hence failed expected [true] but found [false]
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-	at stepdefinitions.PersonalDetails_AppDataEntry.user_verify_the_remark_fields(PersonalDetails_AppDataEntry.java:564)
-	at ?.user verify the Remark fields(file:///C:/Users/inindc00075/git/Arshath_ULS/Arshath_AzentioULSFramework/src/test/java/features/PersonalDetails_AppDataEntry.feature:41)
-</pre></div><a href='#' onClick='toggleBox("stack-trace196414950", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace196414950'><pre>java.lang.AssertionError: The following asserts failed:
-	customer Type field should be non-editable but here its editable hence failed expected [true] but found [false],
-	First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Father First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Father Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	Father Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	spouse First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	spouse Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	spouse Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 No of children field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Date of birth field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 No Of dependents field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Mothers maiden name field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Rating field should be non-editable but here its editable hence failed expected [true] but found [false],
-	 Reamrk field should be non-editable but here its editable hence failed expected [true] but found [false]
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-	at stepdefinitions.PersonalDetails_AppDataEntry.user_verify_the_remark_fields(PersonalDetails_AppDataEntry.java:564)
-	at ?.user verify the Remark fields(file:///C:/Users/inindc00075/git/Arshath_ULS/Arshath_AzentioULSFramework/src/test/java/features/PersonalDetails_AppDataEntry.feature:41)
-</pre></div></td>
-<td>34</td>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify the list view of WIP Record", "Optional[check the functionality of the Warehouse Master]"</td>
+<td></td>
+<td>42</td>
 <td>Runner.TestApplication@3f191845</td></tr>
 </table><p>
 </body>

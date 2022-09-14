@@ -50,27 +50,27 @@ public class WareHouseMaster extends BaseClass {
 
 	@Then("^user click on configurations Tab$")
 	public void user_click_on_configurations_tab() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Configurations(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Configurations(), 20, 2);
 		warehousrobj.Configurations().click();
 	}
 
 	@When("^user click Config Manager menu$")
 	public void user_click_config_manager_menu() throws Throwable {
 		javaHelper.scrollIntoView(warehousrobj.ConfigManager());
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.ConfigManager(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.ConfigManager(), 20, 2);
 		warehousrobj.ConfigManager().click();
 	}
 
 	@And("^user click list view icon of Warehouse Master$")
 	public void user_click_list_view_icon_of_warehouse_master() throws Throwable {
 		javaHelper.scrollIntoView(warehousrobj.Warehouse_Eye_Icon());
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Eye_Icon(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Eye_Icon(), 20, 2);
 		warehousrobj.Warehouse_Eye_Icon().click();
 	}
 
 	@And("^user click on Add icon for Warehouse master$")
 	public void user_click_on_add_icon_for_warehouse_master() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Add_Icon(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Add_Icon(), 20, 2);
 		warehousrobj.Warehouse_Add_Icon().isDisplayed();
 		warehousrobj.Warehouse_Add_Icon().click();
 	}
@@ -78,7 +78,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in description and verify it$")
 	public void user_enter_the_value_in_description_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Description");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 20, 2);
 		warehousrobj.Warehouse_Description().isDisplayed();
 		warehousrobj.Warehouse_Description().click();
 		warehousrobj.Warehouse_Description().sendKeys(warehousedata.Description);
@@ -87,7 +87,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Address field and verify it$")
 	public void user_enter_the_value_in_address_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Address");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().sendKeys(warehousedata.Address);
@@ -96,7 +96,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in country field and verify it$")
 	public void user_enter_the_value_in_country_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Country");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Country(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Country(), 20, 2);
 		warehousrobj.Warehouse_Country().isDisplayed();
 		warehousrobj.Warehouse_Country().click();
 
@@ -115,7 +115,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in state field and verify it$")
 	public void user_enter_the_value_in_state_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("State");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_State(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_State(), 20, 2);
 		warehousrobj.Warehouse_State().isDisplayed();
 		warehousrobj.Warehouse_State().click();
 
@@ -134,7 +134,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Location field and verify it$")
 	public void user_enter_the_value_in_location_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Location");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Location(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Location(), 20, 2);
 		warehousrobj.Warehouse_Location().isDisplayed();
 		warehousrobj.Warehouse_Location().click();
 
@@ -153,7 +153,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Zip code field and verify it$")
 	public void user_enter_the_value_in_zip_code_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Zip Code");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Zipcode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Zipcode(), 20, 2);
 		warehousrobj.Warehouse_Zipcode().isDisplayed();
 		warehousrobj.Warehouse_Zipcode().click();
 
@@ -170,7 +170,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Phone field and verify it$")
 	public void user_enter_the_value_in_phone_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Phone 1");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Phone1(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Phone1(), 20, 2);
 		warehousrobj.Warehouse_Phone1().isDisplayed();
 		warehousrobj.Warehouse_Phone1().click();
 		warehousrobj.Warehouse_Phone1().sendKeys(warehousedata.Phone);
@@ -180,7 +180,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Fax field and verify it$")
 	public void user_enter_the_value_in_fax_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Fax");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax(), 20, 2);
 		warehousrobj.Warehouse_Fax().isDisplayed();
 		warehousrobj.Warehouse_Fax().click();
 		warehousrobj.Warehouse_Fax().sendKeys(warehousedata.Fax);
@@ -190,7 +190,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Email field and verify it$")
 	public void user_enter_the_value_in_email_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Email");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email(), 20, 2);
 		warehousrobj.Warehouse_Email().isDisplayed();
 		warehousrobj.Warehouse_Email().click();
 		warehousrobj.Warehouse_Email().sendKeys(warehousedata.Email);
@@ -199,7 +199,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value in Contact person field and verify it$")
 	public void user_enter_the_value_in_contact_person_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Contact Person");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ContactPerson(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ContactPerson(), 20, 2);
 		warehousrobj.Warehouse_ContactPerson().isDisplayed();
 		warehousrobj.Warehouse_ContactPerson().click();
 		warehousrobj.Warehouse_ContactPerson().sendKeys(warehousedata.Contactperson);
@@ -207,16 +207,16 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user save the warehouse master Record$")
 	public void user_save_the_warehouse_master_record() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Save(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Save(), 20, 2);
 		warehousrobj.Warehouse_Save().isDisplayed();
 		warehousrobj.Warehouse_Save().click();
 	}
 
 	@And("^user goto the Maker Inbox and store the Referance ID$")
 	public void user_goto_the_maker_inbox_and_store_the_referance_id() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 20, 2);
 		warehousrobj.Warehouse_Inbox().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 20, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
 		System.out.println("Referance ID : " +RefId);
 		json.addReferanceData(RefId);
@@ -225,20 +225,20 @@ public class WareHouseMaster extends BaseClass {
 
 	@Then("^user Click on Action Icon$")
 	public void user_click_on_action_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Action(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Action(), 20, 2);
 		warehousrobj.Warehouse_Action().click();
 	}
 
 	@And("^user verify the submit button and submit the Record from Maker stage$")
 	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 20, 2);
 		warehousrobj.Warehouse_Submit().isDisplayed();
 		warehousrobj.Warehouse_Submit().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 20, 2);
 		warehousrobj.Warehouse_Submit_confirmation().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 20, 2);
 		warehousrobj.Warehouse_Maker_Submit().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 20, 2);
 		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
 		System.out.println(CheckerId);
 		String Space = " ";
@@ -253,13 +253,13 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Click on Chcker Menu icon$")
 	public void user_click_on_chcker_menu_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_toggle(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_toggle(), 20, 2);
 		javaHelper.JSEClick(warehousrobj.Checker_toggle());
 	}
 
 	@And("^user Click on Checker Mailbox icon$")
 	public void user_click_on_checker_mailbox_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Inbox(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Inbox(), 20, 2);
 		warehousrobj.Checker_Inbox().click();
 	}
 
@@ -282,7 +282,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Click on Approve icon button$")
 	public void user_click_on_approve_icon_button() throws Throwable {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// warehousrobj.Checker_Approve(), 60, 2);
+		// warehousrobj.Checker_Approve(), 20, 2);
 		for (int i = 0; i < 50; i++) {
 			try {
 				warehousrobj.Checker_Approve().click();
@@ -298,7 +298,7 @@ public class WareHouseMaster extends BaseClass {
 	public void user_enter_the_remarks_in_action_confirmation_popup_screen() throws Throwable {
 		for (int i = 0; i < 50; i++) {
 			try {
-				 //waitHelper.waitForElementToVisibleWithFluentWait(driver,warehousrobj.Checker_Approve(), 60, 2);
+				 //waitHelper.waitForElementToVisibleWithFluentWait(driver,warehousrobj.Checker_Approve(), 20, 2);
 				//clicksAndActionsHelper.doubleClick(warehousrobj.Checker_Alert_Approve());
 				javaHelper.JSEClick(warehousrobj.Checker_Alert_Approve());
 				break;
@@ -312,7 +312,7 @@ public class WareHouseMaster extends BaseClass {
 	public void user_click_on_remarks_button_in_action_confirmation_popup_screen() throws Throwable {
 		for (int i = 0; i < 50; i++) {
 			try {
-				//waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Final_Approve(), 60, 2);
+				//waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Final_Approve(), 20, 2);
 				javaHelper.JSEClick(warehousrobj.Checker_Final_Approve());
 				break;
 			}catch(Exception e) {
@@ -324,7 +324,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@Then("^user verify the Record got Approved in checker stage$")
 	public void user_verify_the_record_got_approved_in_checker_stage() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 20, 2);
 		Toast = warehousrobj.Warehouse_Checker_Id().getText();
 		System.out.println(Toast);
 		Assert.assertEquals(Toast, "Record APPROVED Successfully");
@@ -355,7 +355,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value For Address field and verify it$")
 	public void user_enter_the_value_for_address_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Address");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().sendKeys(warehousedata.AddressReject);
@@ -364,7 +364,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value For Email field and verify it$")
 	public void user_enter_the_value_for_email_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Email");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email(), 20, 2);
 		warehousrobj.Warehouse_Email().isDisplayed();
 		warehousrobj.Warehouse_Email().click();
 		warehousrobj.Warehouse_Email().sendKeys(warehousedata.EmailReject);
@@ -372,25 +372,25 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Click on Reject icon button$")
 	public void user_click_on_reject_icon_button() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Reject(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Reject(), 20, 2);
 		warehousrobj.Checker_Reject().click();
 	}
 
 	@And("^user Enter the remarks for Reject the Record in checker$")
 	public void user_enter_the_remarks_for_reject_the_record_in_checker() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Alert_Reject(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Alert_Reject(), 20, 2);
 		warehousrobj.Checker_Alert_Reject().click();
 	}
 
 	@Then("^user Click on Remarks button for Reject confirmation Alert$")
 	public void user_click_on_remarks_button_for_reject_confirmation_alert() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Final_Reject(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Final_Reject(), 20, 2);
 		warehousrobj.Checker_Final_Reject().click();
 	}
 
 	@Then("^user verify the Record got Rejected in checker stage$")
 	public void user_verify_the_record_got_rejected_in_checker_stage() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 20, 2);
 		Toast = warehousrobj.Warehouse_Checker_Id().getText();
 		System.out.println(Toast);
 		Assert.assertEquals(Toast, "Record REJECTED Successfully");
@@ -426,7 +426,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value to Address field and verify it$")
 	public void user_enter_the_value_to_address_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Address");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().sendKeys(warehousedata.AddressReturn);
@@ -435,7 +435,7 @@ public class WareHouseMaster extends BaseClass {
 	@And("^user Enter the value to Email field and verify it$")
 	public void user_enter_the_value_to_email_field_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Email");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email(), 20, 2);
 		warehousrobj.Warehouse_Email().isDisplayed();
 		warehousrobj.Warehouse_Email().click();
 		warehousrobj.Warehouse_Email().sendKeys(warehousedata.EmailReturn);
@@ -445,25 +445,25 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Click on Return icon button$")
 	public void user_click_on_return_icon_button() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Return(), 20, 2);
 		warehousrobj.Checker_Return().click();
 	}
 
 	@And("^user Enter the remarks for Return the Record in checker$")
 	public void user_enter_the_remarks_for_return_the_record_in_checker() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Alert_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Alert_Return(), 20, 2);
 		warehousrobj.Checker_Alert_Return().click();
 	}
 
 	@Then("^user Click on Remarks button for Return confirmation Alert$")
 	public void user_click_on_remarks_button_for_return_confirmation_alert() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Alert_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Alert_Return(), 20, 2);
 		warehousrobj.Checker_Final_Return().click();
 	}
 
 	@Then("^user verify the Record got Returned in checker stage$")
 	public void user_verify_the_record_got_returned_in_checker_stage() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 20, 2);
 		Toast = warehousrobj.Warehouse_Checker_Id().getText();
 		System.out.println(Toast);
 	}
@@ -472,7 +472,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user click Temp view icon of Warehouse Master$")
 	public void user_click_temp_view_icon_of_warehouse_master() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Edit_Icon(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Edit_Icon(), 20, 2);
 		warehousrobj.Warehouse_Edit_Icon().click();
 	}
 
@@ -497,7 +497,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter characters in numeric field$")
 	public void user_enter_characters_in_numeric_field() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Phone1(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Phone1(), 20, 2);
 		warehousrobj.Warehouse_Phone1().click();
 		warehousrobj.Warehouse_Phone1().sendKeys(warehousedata.Validation);
 		String AccountNumberData = warehousrobj.Warehouse_Phone1_validation().getAttribute("ng-reflect-model");
@@ -523,7 +523,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in description and Modify it$")
 	public void user_enter_the_value_in_description_and_modify_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 20, 2);
 		warehousrobj.Warehouse_Description().isDisplayed();
 		warehousrobj.Warehouse_Description().click();
 		warehousrobj.Warehouse_Description().clear();
@@ -532,7 +532,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in Address field and Modify it$")
 	public void user_enter_the_value_in_address_field_and_modify_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().clear();
@@ -541,7 +541,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in description and ReModify it$")
 	public void user_enter_the_value_in_description_and_remodify_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 20, 2);
 		warehousrobj.Warehouse_Description().isDisplayed();
 		warehousrobj.Warehouse_Description().click();
 		warehousrobj.Warehouse_Description().clear();
@@ -550,7 +550,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in Address field and ReModify it$")
 	public void user_enter_the_value_in_address_field_and_remodify_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().clear();
@@ -583,7 +583,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in description and Modify Reject it$")
 	public void user_enter_the_value_in_description_and_modify_reject_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 20, 2);
 		warehousrobj.Warehouse_Description().isDisplayed();
 		warehousrobj.Warehouse_Description().click();
 		warehousrobj.Warehouse_Description().clear();
@@ -592,7 +592,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in Address field and Modify Reject it$")
 	public void user_enter_the_value_in_address_field_and_modify_reject_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().clear();
@@ -626,7 +626,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in description and Modify Return it$")
 	public void user_enter_the_value_in_description_and_modify_return_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 20, 2);
 		warehousrobj.Warehouse_Description().isDisplayed();
 		warehousrobj.Warehouse_Description().click();
 		warehousrobj.Warehouse_Description().clear();
@@ -635,7 +635,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter the value in Address field and Modify Return it$")
 	public void user_enter_the_value_in_address_field_and_modify_return_it() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address(), 20, 2);
 		warehousrobj.Warehouse_Address().isDisplayed();
 		warehousrobj.Warehouse_Address().click();
 		warehousrobj.Warehouse_Address().clear();
@@ -669,12 +669,12 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user Enter Invalid Data in warehouse Master$")
 	public void user_enter_invalid_data_in_warehouse_master() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax(), 20, 2);
 		warehousrobj.Warehouse_Fax().isDisplayed();
 		warehousrobj.Warehouse_Fax().click();
 		warehousrobj.Warehouse_Fax().clear();
 		warehousrobj.Warehouse_Fax().sendKeys(warehousedata.InvalidFax);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]")), 60,2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]")), 20,2);
 		WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]"));
 		String expectedErrorText = "Maximum 50 characters are allowed";
 		String actualErrorText = errorPopUp.getText();
@@ -697,31 +697,31 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user verify the status button$")
 	public void user_verify_the_status_button() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status(), 20, 2);
 		warehousrobj.Warehouse_Status().isDisplayed();
 	}
 
 	@And("^user verify the status is Active$")
 	public void user_verify_the_status_is_active() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status_On(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status_On(), 20, 2);
 		warehousrobj.Warehouse_Status_On().isDisplayed();
 		String ON = warehousrobj.Warehouse_Status_On().getAttribute("value");
 		System.out.println(ON);
 		Assert.assertTrue(ON.contains("on"));
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status(), 20, 2);
 		warehousrobj.Warehouse_Status().click();
 	}
 
 	@And("^user click on the update button$")
 	public void user_click_on_the_update_button() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Update(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Update(), 20, 2);
 		warehousrobj.Warehouse_Update().click();
 	}
 
 	@And("^user verify the status is Deactive$")
 	public void user_verify_the_status_is_deactive() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status_Off(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Status_Off(), 20, 2);
 		warehousrobj.Warehouse_Status_Off().isDisplayed();
 		String Off = warehousrobj.Warehouse_Status_Off().getText();
 		System.out.println(Off);
@@ -730,7 +730,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^user verify the Back button and click$")
 	public void user_verify_the_back_button_and_click() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Back(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Back(), 20, 2);
 		warehousrobj.Warehouse_Back().click();
 	}
 
@@ -888,7 +888,7 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseSearchTextBox(), 50, 1);
 		clicksAndActionsHelper.moveToElement(warehousrobj.wareHouseSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(warehousrobj.wareHouseSearchTextBox());
-		warehousrobj.wareHouseSearchTextBox().sendKeys(warehousedata.searchingWithMatchData1);
+		warehousrobj.wareHouseSearchTextBox().sendKeys(warehousedata.searchingWithMatchData);
 	}
 
 	@Then("^verify user can able to see the matching record$")
@@ -994,7 +994,7 @@ public class WareHouseMaster extends BaseClass {
 
 	@And("^choose pdf format to download pdf file$")
 	public void choose_pdf_format_to_download_pdf_file() throws Throwable {
-//		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseExportPDFOption(), 60, 2);
+//		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseExportPDFOption(), 20, 2);
 
 		// warehousrobj.wareHouseExportPDFOption().click();
 		// Thread.sleep(50000);

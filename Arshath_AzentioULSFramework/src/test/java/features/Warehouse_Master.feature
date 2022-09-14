@@ -306,7 +306,7 @@ And user click Temp view icon of Warehouse Master
 And user verify the status is Deactive
 #And user verify the Back button and click
 
-@wareHouse1_AT-WHM-T010
+@wareHouse1_AT_WHM_T010
 Scenario: To verify list view of wareHouse master
 Given user log in as uls application maker
 And go to configuration main menu
@@ -315,7 +315,7 @@ And click on view button in ware house master
 Then verify list view records are non editable
 Then verify user can able to add the record in to the ware house master screen
 
-@WareHouse2_AT-WHM-T011
+@WareHouse2_AT_WHM_T011
 Scenario:  TO verify user can able to serach the list view record with matching and un matching input and user can able to download the the xls and pdf format file
 Given user log in as uls application maker
 And go to configuration main menu
@@ -333,7 +333,7 @@ And click on export button
 And choose pdf format to download pdf file
 Then verify pdf file is downloded in download section
 
-@WareHouse3_AT-WHM-T012
+@WareHouse3_AT_WHM_T012
 Scenario: To verify the list view data in wareHouse master
 Given user log in as uls application maker
 Then user click on configurations Tab
