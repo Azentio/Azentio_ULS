@@ -43,7 +43,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
 	
     @Given("^User Launch the KULS url for Transaction$")
     public void user_launch_the_kuls_url_for_transaction() throws Throwable {
-		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		String kulsApplicationUrl = configFileReader.getApplicationULSUrl();
 		driver.get(kulsApplicationUrl);
 		applicationLogin.UlsApplicationMaker(loginData.Username1, loginData.Password1);
     }
@@ -106,13 +106,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsCustomerTypeDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsCustomerTypeDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsCustomerTypeDropDown().click();    
+        	status=AppDataEntry.customerPersonalDetailsCustomerTypeDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"customer Type field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Applicant Type field$")
@@ -122,13 +122,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsApplicantTypeDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsApplicantTypeDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsApplicantTypeDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsApplicantTypeDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Applicant Type field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Salutation field$")
@@ -138,13 +138,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSalutationDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsSalutationDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsSalutationDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsSalutationDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Salutation field should be non-editable but here its editable hence failed");
     }
 	
     @And("^user verify the First Name field$")
@@ -154,13 +154,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFirstNameinputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsFirstNameinputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsFirstNameinputBox().click();    
+        	AppDataEntry.customerPersonalDetailsFirstNameinputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"First Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Middle Name filed$")
@@ -170,13 +170,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMiddleNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsMiddleNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsMiddleNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsMiddleNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Middle Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Last Name field$")
@@ -186,13 +186,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsLastNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsLastNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsLastNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsLastNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Last Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Father First Name field$")
@@ -202,13 +202,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsFatherFirstNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Father First Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Father Middle Name field$")
@@ -218,13 +218,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsFatherMiddleNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Father Middle Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Father Last Name Field$")
@@ -234,13 +234,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsFatherLastNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsFatherLastNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsFatherLastNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsFatherLastNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"Father Last Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the spouse First Name field$")
@@ -250,13 +250,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsSpouseFirstNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"spouse First Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the spouse Middle name field$")
@@ -266,13 +266,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsSpouseMiddleNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"spouse Middle Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the spouse Last Name field$")
@@ -282,13 +282,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsSpouseLastNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status,"spouse Last Name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the No of children field$")
@@ -298,13 +298,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsNoOfChildrenInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," No of children field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the spouse status field$")
@@ -314,13 +314,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsSpouseStatusInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsSpouseStatusInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsSpouseStatusInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsSpouseStatusInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," spouse status field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Date of birth field$")
@@ -330,13 +330,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsDateOfBirthCalendarInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true"); 
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Date of birth field should be non-editable but here its editable hence failed");
     }
 	
     @And("^user verify the gender field$")
@@ -346,13 +346,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsGenderDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsGenderDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsGenderDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsGenderDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," gender field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Education Level field$")
@@ -362,13 +362,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsEducationLevelDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsEducationLevelDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsEducationLevelDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsEducationLevelDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Education Level field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Marital status field$")
@@ -378,13 +378,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMaritalStatusDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsMaritalStatusDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsMaritalStatusDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsMaritalStatusDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Marital status field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Nationality field$")
@@ -394,13 +394,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNationalityDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsNationalityDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsNationalityDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsNationalityDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");  
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Nationality field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Ethinicity field$")
@@ -410,13 +410,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsEthinicityDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsEthinicityDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsEthinicityDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsEthinicityDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Ethinicity field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Religion field$")
@@ -426,13 +426,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsReligionDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsReligionDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsReligionDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsReligionDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Religion field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Residental status field$")
@@ -442,13 +442,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsResidentialStatusDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsResidentialStatusDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsResidentialStatusDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsResidentialStatusDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Residental status field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Language field$")
@@ -458,13 +458,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsLanguageDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsLanguageDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsLanguageDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsLanguageDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Language field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the No Of dependents field$")
@@ -474,13 +474,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsNoOfDependentsInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," No Of dependents field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Mothers maiden name field$")
@@ -490,13 +490,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsMothersMaidenNameInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Mothers maiden name field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Type of Residence field$")
@@ -506,13 +506,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox(), 60, 2);
         AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox().click();    
+        	AppDataEntry.customerPersonalDetailsTypeOfResidenceInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");  
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Residence field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the category of client field$")
@@ -522,13 +522,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown(), 60, 2);
         AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown().isDisplayed();
         try {
-        	AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown().click();    
+        	AppDataEntry.customerPersonalDetailsCategoryOfClientDropDown().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Client field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Rating field$")
@@ -538,13 +538,13 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetailsRatingInputBox(), 60, 2);
         AppDataEntry.customerDetailsRatingInputBox().isDisplayed();
         try {
-        	AppDataEntry.customerDetailsRatingInputBox().click();    
+        	AppDataEntry.customerDetailsRatingInputBox().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");   
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Rating field should be non-editable but here its editable hence failed");
     }
 
     @And("^user verify the Remark fields$")
@@ -554,15 +554,16 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerDetaisRemark(), 60, 2);
         AppDataEntry.customerDetaisRemark().isDisplayed();
         try {
-        	AppDataEntry.customerDetaisRemark().click();    
+        	status=AppDataEntry.customerDetaisRemark().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");    
     }
         catch(Exception e) {
             status = false;
             System.out.println("Field is not editable");
         }
-        softassert.assertTrue(status);
+        softassert.assertTrue(status," Reamrk field should be non-editable but here its editable hence failed");
+        softassert.assertAll();
     }
-  
+    
 	    
 	
 	//******************@AT-PDE-002**********************//
@@ -1167,6 +1168,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Update(), 60, 5);
         AppDataEntry.customerPersonalDetails_Update().isDisplayed();
         AppDataEntry.customerPersonalDetails_Update().click();
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Alert(), 60, 5);
         Assert.assertEquals("Success", AppDataEntry.customerPersonalDetails_Alert().getText());
         
         

@@ -1,44 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-09T18:22:34 IST" name="Default suite" finished-at="2022-09-09T18:23:20 IST" duration-ms="45874">
+  <suite started-at="2022-09-12T13:50:51 IST" name="Default suite" finished-at="2022-09-12T13:51:43 IST" duration-ms="52277">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@3f191845]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-09-09T18:22:34 IST" name="Default test" finished-at="2022-09-09T18:23:20 IST" duration-ms="45874">
+    <test started-at="2022-09-12T13:50:51 IST" name="Default test" finished-at="2022-09-12T13:51:43 IST" duration-ms="52277">
       <class name="Runner.TestApplication">
-        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-09T18:22:34 IST" name="beforeExecution" finished-at="2022-09-09T18:22:34 IST" duration-ms="13" status="PASS">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-12T13:50:51 IST" name="beforeExecution" finished-at="2022-09-12T13:50:51 IST" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeExecution -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-09T18:22:34 IST" name="setUpClass" finished-at="2022-09-09T18:22:36 IST" duration-ms="1908" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-12T13:50:51 IST" name="setUpClass" finished-at="2022-09-12T13:50:53 IST" duration-ms="1709" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-09T18:22:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-09-09T18:23:15 IST" duration-ms="38440" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-12T13:50:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-09-12T13:51:27 IST" duration-ms="34498" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["verify user is able to add new Template Application details  record in the system by entering invalid data"]]>
+                <![CDATA["Customer Personal Information at App data entry satge"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Check the functionality of Application Details New App]"]]>
+                <![CDATA["Optional[Check The functionality of the Personal Details App data Entry]"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+customer Type field should be non-editable but here its editable hence failed expected [true] but found [false],
+First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Father First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Father Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Father Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+spouse First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+spouse Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+spouse Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+ No of children field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Date of birth field should be non-editable but here its editable hence failed expected [true] but found [false],
+ No Of dependents field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Mothers maiden name field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Rating field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Reamrk field should be non-editable but here its editable hence failed expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+customer Type field should be non-editable but here its editable hence failed expected [true] but found [false],
+First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Father First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Father Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+Father Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+spouse First Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+spouse Middle Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+spouse Last Name field should be non-editable but here its editable hence failed expected [true] but found [false],
+ No of children field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Date of birth field should be non-editable but here its editable hence failed expected [true] but found [false],
+ No Of dependents field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Mothers maiden name field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Rating field should be non-editable but here its editable hence failed expected [true] but found [false],
+ Reamrk field should be non-editable but here its editable hence failed expected [true] but found [false]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+at stepdefinitions.PersonalDetails_AppDataEntry.user_verify_the_remark_fields(PersonalDetails_AppDataEntry.java:564)
+at ✽.user verify the Remark fields(file:///C:/Users/inindc00075/git/Arshath_ULS/Arshath_AzentioULSFramework/src/test/java/features/PersonalDetails_AppDataEntry.feature:41)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-09T18:23:15 IST" name="tearDownClass" finished-at="2022-09-09T18:23:20 IST" duration-ms="5452" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-12T13:51:27 IST" name="tearDownClass" finished-at="2022-09-12T13:51:43 IST" duration-ms="16023" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-09T18:23:20 IST" name="afterExecution" finished-at="2022-09-09T18:23:20 IST" duration-ms="150" status="PASS">
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-09-12T13:51:43 IST" name="afterExecution" finished-at="2022-09-12T13:51:43 IST" duration-ms="185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterExecution -->

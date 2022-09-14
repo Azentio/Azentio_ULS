@@ -16,6 +16,7 @@ import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
 import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.ProjectMaster_UnitDetailsTestdata;
+import testDataType.PropertyDetails_TestData;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
 import testDataType.WarehouseTestdata;
@@ -49,6 +50,9 @@ public class JsonConfig {
 	private final String PerDetailpath = configFileReader.getJsonPath() + "PersonalDetailsAppDataEntry.json";
 	private List<PersonalaDetailsDataEntryTestdata> PerDetailEntry;
 	
+	private final String Propertypath = configFileReader.getJsonPath() + "Property_DetailsJSON.json";
+	private List<PropertyDetails_TestData> PropertyDetail;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -62,6 +66,27 @@ public class JsonConfig {
 		warehouse= getwarehouse();
 		LivExpMst=getLivExpMst();
 		PerDetailEntry=getPerDetailEntry();
+		PropertyDetail=getPropertyDetail();
+	}
+	
+	private List<PropertyDetails_TestData> getPropertyDetail() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(Propertypath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(Propertypath));
+			PropertyDetails_TestData[] Property = gson.fromJson(bufferReader, PropertyDetails_TestData[].class);
+			return Arrays.asList(Property);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + Propertypath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 
 	private List<PersonalaDetailsDataEntryTestdata> getPerDetailEntry() {
@@ -246,5 +271,8 @@ public class JsonConfig {
 	public final PersonalaDetailsDataEntryTestdata getPerDetailDataByName(String User) {
 		return PerDetailEntry.stream().filter(x -> x.Users.equalsIgnoreCase(User)).findAny().get();
 	}
-
+	
+	public final PropertyDetails_TestData getPropertyDetailByName(String User) {
+		return PropertyDetail.stream().filter(x -> x.user.equalsIgnoreCase(User)).findAny().get();
+	}
 }
