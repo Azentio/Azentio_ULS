@@ -178,6 +178,21 @@ public class ProductMaster_RetailObj {
 	public WebElement productMaster_Product_SuccessValidation() {
 		return productMaster_Product_SuccessValidation;
 	}
+	// save success message
+		@FindBy(xpath = "(//body/div/div/div/div[1])[1]")
+		private WebElement productMaster_Product_SaveConfirmationMessage;
+
+		public WebElement productMaster_Product_SaveConfirmationMessage() {
+			return productMaster_Product_SaveConfirmationMessage;
+		}
+
+		// save success message close button
+		@FindBy(xpath = "//body/div/div/div/button")
+		private WebElement productMaster_Product_SaveConfirmationMessageCloseButton;
+
+		public WebElement productMaster_Product_SaveConfirmationMessageCloseButton() {
+			return productMaster_Product_SaveConfirmationMessageCloseButton;
+		}
 	
 	//Back
 	@FindBy(xpath = "//button[@ng-reflect-text='Go Back']")
@@ -194,19 +209,20 @@ public class ProductMaster_RetailObj {
 	}
 	
 	//ActionEdit
-		@FindBy(xpath = "//tbody/tr[1]/td[1]/span[1]/button[1]")
-		private WebElement ProductMaster_Product_ActionEdit;
-		public WebElement ProductMaster_Product_ActionEdit(){
-			return ProductMaster_Product_ActionEdit;
-		}
+	@FindBy(xpath = "//tbody/tr[1]/td[1]/span[1]/button[1]")
+	private WebElement ProductMaster_Product_ActionEdit;
+
+	public WebElement ProductMaster_Product_ActionEdit() {
+		return ProductMaster_Product_ActionEdit;
+	}
 	//Search
 	@FindBy(xpath = "//div[1]/div[1]/div[1]/div[3]/span[1]/button[1]")
 	private WebElement productMaster_Product_Search;
 	public WebElement productMaster_Product_Search() {
 		return productMaster_Product_Search;
 	}
-	//SearchRecordList
-	@FindBy(xpath = "//div[1]/div[1]/div[1]/span[2]/button[1]/span[1]")
+	//SearchRecordList 
+	@FindBy(xpath = "//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
 	private WebElement productMaster_Product_SearchRecordList;
 	public WebElement productMaster_Product_SearchRecordList() {
 		return productMaster_Product_SearchRecordList;
@@ -234,7 +250,7 @@ public class ProductMaster_RetailObj {
 
 	
 	//Inbox
-	@FindBy(xpath = "//ion-icon[@aria-label='mail outline']")
+	@FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']")
 	private WebElement productMaster_Product_Inbox;
 	public WebElement productMaster_Product_Inbox() {
 		return productMaster_Product_Inbox;
@@ -274,8 +290,17 @@ public class ProductMaster_RetailObj {
 	public WebElement productMaster_Product_FinalSubmit() {
 			return productMaster_Product_FinalSubmit;
 	}
+	
+
+	// Profile
+	@FindBy(xpath = "//ion-item[@ng-reflect-text='Profile']")
+	private WebElement productMaster_Product_Profile;
+
+	public WebElement productMaster_Product_Profile() {
+		return productMaster_Product_Profile;
+	}
 	//Logout
-	@FindBy(xpath = "//ion-header/ion-toolbar[1]/div[1]/ion-item[1]/ion-label[1]/div[1]/div[2]/ion-icon[1]")
+	@FindBy(xpath = "//app-user-profile-pop[1]/ion-list[1]/ion-item[2]/ul[1]/li[3]")
 	private WebElement productMaster_Product_Logout;
 	public WebElement productMaster_Product_Logout() {
 			return productMaster_Product_Logout;
@@ -356,19 +381,26 @@ public class ProductMaster_RetailObj {
 		return productMaster_Product_Maker_Submit;
 	}
 
-	//Checker_Id 
+	
 	@FindBy(xpath = "//div[@id='toast-container']/div[1]")
 	private WebElement productMaster_Product_Checker_Id;
+
 	public WebElement productMaster_Product_Checker_Id() {
 		return productMaster_Product_Checker_Id;
 	}
 	
-	@FindBy(xpath="//div[@id='toast-container']//button")
+	@FindBy(xpath="//div[@id='toast-container']/div/button/span")
 	private WebElement productMaster_Product_Checker_Alert_Close;
 	public WebElement productMaster_Product_Checker_Alert_Close() {
 		return productMaster_Product_Checker_Alert_Close;
 	}
 
+	@FindBy(xpath = "//body/div/div/div/button")
+	private WebElement productMaster_Product_ConfirmationMessageCloseButton;
+
+	public WebElement productMaster_Product_ConfirmationMessageCloseButton() {
+		return productMaster_Product_ConfirmationMessageCloseButton;
+	}
 	//Status
 	@FindBy(xpath = "//ion-item[1]/ion-toggle[1]")
 	private WebElement productMaster_Product_Status;
@@ -418,6 +450,13 @@ public class ProductMaster_RetailObj {
 	public WebElement productMaster_Product_Checker_ApproveRemark() {
 		return productMaster_Product_Checker_ApproveRemark;
 	}
+	
+	//productMaster_Checker_RemarkInput
+		@FindBy(xpath = "//ion-row[1]/ion-col[1]/ion-item[1]/ion-textarea[1]/div[1]/textarea[1]")
+		private WebElement productMaster_Checker_RemarkInput;
+		public WebElement productMaster_Checker_RemarkInput() {
+			return productMaster_Checker_RemarkInput;
+		}
 
 	//Checker_ApproveAlert
 	@FindBy(xpath = "(//span[contains(text(),'Approve')])[2]")

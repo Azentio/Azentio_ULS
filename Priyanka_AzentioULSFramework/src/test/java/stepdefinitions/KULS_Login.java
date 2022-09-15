@@ -27,7 +27,7 @@ public class KULS_Login {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
 
 		driver.get(kulsApplicationUrl);
-		kulsLogin.loginUlsApplicationAsMaker(kulsLoginData.Username, kulsLoginData.Password);
+		//kulsLogin.loginUlsApplicationAsMaker(kulsLoginData.Username, kulsLoginData.Password);
 		//kulsLogin.ulSApplicationLoginAsAChecker(jsonDataReaderWriter.readdata());
 		//Thread.sleep(2000);
 
@@ -36,21 +36,13 @@ public class KULS_Login {
 	@And("^User Login as maker$")
 	public void user_login_as_maker() throws Throwable {
 		
-		//kulsLogin.loginUlsApplicationAsMaker(kulsLoginData.Username, kulsLoginData.Password);
+		kulsLogin.loginUlsApplicationAsMaker(kulsLoginData.Username, kulsLoginData.Password);
 
 	}
 	@And("^User Login as Checker$")
     public void user_login_as_checker() throws Throwable {
-//		KULS_Login_TestDataType kulsLoginData = jsonConfig.getKULSLoginCredentialsByName("Checker");
-//		String kulsApplicationUrl = configFileReader.getApplicationUrl();
-//		driver.get(kulsApplicationUrl);
-//		kulsLogin.ulSApplicationLoginAsAChecker(kulsLoginData.CheckerUserName1, kulsLoginData.CheckerUserPassword1);
-//		Thread.sleep(1500); 
-		
 		jsonDataReaderWriter =new JsonDataReaderWriter();
-		String kulsApplicationUrl = configFileReader.getApplicationUrl();
-		driver.get(kulsApplicationUrl);
-		kulsLogin.ulSApplicationLoginAsAChecker1(jsonDataReaderWriter.readdata());
+		kulsLogin.ulSApplicationLoginAsAChecker(jsonDataReaderWriter.readdata());
     }
 
 }

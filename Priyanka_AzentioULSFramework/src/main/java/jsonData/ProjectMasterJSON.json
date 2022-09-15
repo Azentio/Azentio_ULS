@@ -1,6 +1,24 @@
 [
 	{
-		"User"					: 	"Maker"
+		"User"					: 	"Maker",
+		"ProjectName"			:	"Azentio New",
+		"BuildingName"			:	"Swarajya",
+		"TotalFloors"			:	"3",
+		"TotalFlats"			:	"3",
+		"TentativeStartDates"	:	"01/09/2023",
+		"TentativeEndDates"		:	"10/09/2023",
+		"DisbursmentAmount"		:	"10000",
+		"ExposedNoOfFlats"		:	"3",
+		"VerifiedBy"			:	"Owner",
+		"StageOfCompletion"		:	"2",
+		"VerifiedOn"			:	"03/09/2023",
+		"NegativeRemarks"		:	"Delayed",
+		"BasicSalesPrice"		:	"50000",
+		"ExposureUnit"			:	"3",
+		"OverallRecommendations":	"80",
+		"ConstructionStatus"	:	"In Progress",
+		"RERARegistrationNumber":	"12345",
+		"Remark"				:	"completed"	
 		
 	}
 ]

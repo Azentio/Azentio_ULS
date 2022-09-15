@@ -1,0 +1,26 @@
+[
+	{
+		"User"					: 	"Maker",
+		"ReferenceId"			:	"324",
+		"CustomerType"			:	"Individual Customer",
+		"ApplicantType"			:	"Primary Applicant",
+		"Salutation"			:	"Mr",
+		"FirstName"				:	"Mahesh",
+		"MiddleName"			:	"Kumar",
+		"LastName"				:	"Patra",
+		"Gender"				:	"MALE",
+		"EdcuationLevel"		:	"Graduate",
+		"MaritalStatus"			:	"Single",
+		"Nationality"			:	"Indian",
+		"Ethinicity"			:	"General",
+		"Religion"				:	"HINDU",
+		"ResidentStatus"		:	"Resident",
+		"Language"				:	"English",
+		"TypeOfResidence"		:	"With parents",
+		"CategoryOfClient"		:	"Affiliated to bank",
+		
+		
+		"ReferenceIdChecker"  :	"313"
+		
+	}
+]

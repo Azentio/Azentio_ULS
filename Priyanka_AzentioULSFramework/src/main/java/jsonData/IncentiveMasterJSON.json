@@ -1,0 +1,19 @@
+[
+	{
+		"User"					: 	"Maker",
+		"IncentiveCode"			:	"04",
+		"IncentiveCodeReject"	:	"05",
+		"IncentiveCodeReturn"	:	"06",
+		"Description"			:	"Incentive1",
+		"Description2"			:	"Incentive2",
+		"Description3"			:	"Incentive3",
+		"FlatAmount"			:	"20000",
+		"Percentage"			:	"10",
+		"EventCode"				:	"INCENTIVE_MST",
+		"SearchValid"			:	"ok",
+		"SearchInvalid"			:	"000"
+		
+	}
+		
+]
+		

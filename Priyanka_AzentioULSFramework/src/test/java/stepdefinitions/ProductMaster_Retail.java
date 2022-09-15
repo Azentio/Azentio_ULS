@@ -191,19 +191,19 @@ public class ProductMaster_Retail extends BaseClass {
     
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_ProductDescription_English(), 60, 2);
     productMaster_RetailObj.productMaster_ProductDescription_English().sendKeys(productMaster_RetailTestDataType.DescriptionEnglish);
-    productMaster_RetailObj.productMaster_ProductDescription_English().sendKeys(Keys.ENTER);
+    //productMaster_RetailObj.productMaster_ProductDescription_English().sendKeys(Keys.ENTER);
     	
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_ProductDescription_French(), 60, 2);
     productMaster_RetailObj.productMaster_ProductDescription_French().sendKeys(productMaster_RetailTestDataType.DescriptionFrench);
-    productMaster_RetailObj.productMaster_ProductDescription_French().sendKeys(Keys.ENTER);
+    //productMaster_RetailObj.productMaster_ProductDescription_French().sendKeys(Keys.ENTER);
     	
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_ProductDescription_German(), 60, 2);
     productMaster_RetailObj.productMaster_ProductDescription_German().sendKeys(productMaster_RetailTestDataType.DescriptionGerman);
-    productMaster_RetailObj.productMaster_ProductDescription_German().sendKeys(Keys.ENTER);
+   // productMaster_RetailObj.productMaster_ProductDescription_German().sendKeys(Keys.ENTER);
     	
     waithelper.waitForElementToVisibleWithFluentWait(driver,productMaster_RetailObj.productMaster_ProductDescription_Arabic(), 60, 2);
     productMaster_RetailObj.productMaster_ProductDescription_Arabic().sendKeys(productMaster_RetailTestDataType.DescriptionArabic);
-    productMaster_RetailObj.productMaster_ProductDescription_Arabic().sendKeys( Keys.ENTER); 
+    //productMaster_RetailObj.productMaster_ProductDescription_Arabic().sendKeys( Keys.ENTER); 
     
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_ProductDescription_Save(), 60, 2);
     productMaster_RetailObj.productMaster_ProductDescription_Save().isDisplayed();
@@ -339,10 +339,12 @@ public class ProductMaster_Retail extends BaseClass {
     
     @Then("^validate Success pop up$")
     public void validate_success_pop_up()  {
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_SuccessValidation(), 60, 5);
-    productMaster_RetailObj.productMaster_Product_SuccessValidation().isDisplayed();
-    String msg = productMaster_RetailObj.productMaster_Product_SuccessValidation().getText();
-	System.out.println(msg);
+    	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_SaveConfirmationMessage());
+    	productMaster_RetailObj.productMaster_Product_SaveConfirmationMessage().isDisplayed();
+    	productMaster_RetailObj.productMaster_Product_SaveConfirmationMessageCloseButton().isDisplayed();
+    	productMaster_RetailObj.productMaster_Product_SaveConfirmationMessageCloseButton().click();
+    	System.out.println("System should display the confirmation message");
+   
     }
     
     @Then("^click on Menu$")
@@ -356,8 +358,15 @@ public class ProductMaster_Retail extends BaseClass {
     @Then("^click on inbox$")
     public void click_on_inbox()  {
     //Inbox
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Inbox(), 60, 2);
-    productMaster_RetailObj.productMaster_Product_Inbox().click();  
+    
+    while(true) {
+    	try{
+    	    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Inbox(), 60, 2);
+    	    productMaster_RetailObj.productMaster_Product_Inbox().click(); 
+    		break;
+    	 }
+    		catch(Exception e){}
+    	}
     }
     @Then("^click on search icon of record list$")
     public void click_on_search_icon_of_record_list()  {
@@ -373,22 +382,23 @@ public class ProductMaster_Retail extends BaseClass {
     }
     
     @And("^maker user open the record from inbox$")
-    public void maker_user_open_the_record_from_inbox() throws IOException, ParseException  {
-    
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ReferanceId(), 60, 2);
+    public void maker_user_open_the_record_from_inbox() throws IOException, ParseException, InterruptedException  {
+    	Thread.sleep(1000);  
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ReferanceId(), 30, 2);
     referenceID = productMaster_RetailObj.productMaster_Product_ReferanceId().getText();
     jsonReaderWriter.addReferanceData(referenceID);
     System.out.println("reference Id " +referenceID);
-  
+    
     
 	String beforeXpath = "//span[contains(text(),'";
 	String afterXpath = "')]/../../td/button";
 	
     WebElement firstRecord = driver.findElement(By.xpath(beforeXpath+jsonReaderWriter.readReferancedata()+afterXpath));
-    waithelper.waitForElementToVisibleWithFluentWait(driver, firstRecord, 60, 2);
-    for (int i = 0; i<20; i++)
+    
+  while(true)
     {
     	try {
+    		waithelper.waitForElementToVisibleWithFluentWait(driver, firstRecord, 30, 2);
     		firstRecord.click(); 
     	    break;
     	    }
@@ -416,7 +426,7 @@ public class ProductMaster_Retail extends BaseClass {
     productMaster_RetailObj.productMaster_Product_FinalSubmit().click();  
     
     
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 60, 5);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 60, 2);
     String message = productMaster_RetailObj.productMaster_Product_Checker_Id().getText();
 	System.out.println(message);
 	productMaster_RetailObj.productMaster_Product_Checker_Id().click();
@@ -428,12 +438,17 @@ public class ProductMaster_Retail extends BaseClass {
 	
 	jsonReaderWriter=new JsonDataReaderWriter();
 	jsonReaderWriter.addData(cheID);
+	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton());
+    productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
 	
     }
    
     @Then("^user logout from the application$")
     public void user_logout_from_the_application()  {
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Logout(), 60, 5);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Profile(), 60, 2);
+    productMaster_RetailObj.productMaster_Product_Profile().click();  
+    
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Logout(), 60, 2);
     productMaster_RetailObj.productMaster_Product_Logout().click();     
     }
 
@@ -443,10 +458,11 @@ public class ProductMaster_Retail extends BaseClass {
     	String beforeXpath = "//span[contains(text(),'";
     	String afterXpath = "')]/../../td/button";
     	WebElement firstRecord = driver.findElement(By.xpath(beforeXpath+jsonReaderWriter.readReferancedata()+afterXpath));
-        waithelper.waitForElementToVisibleWithFluentWait(driver, firstRecord, 60, 2);
-        for (int i = 0; i<20; i++)
+        
+       while(true)
         {
         	try {
+        		waithelper.waitForElementToVisibleWithFluentWait(driver, firstRecord, 60, 2);
         		firstRecord.click(); 
         	    break;
         	    }
@@ -463,6 +479,7 @@ public class ProductMaster_Retail extends BaseClass {
     	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Approve(), 60, 2);  
     	productMaster_RetailObj.productMaster_Product_Checker_Approve().click();
     	
+   
     	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_ApproveRemark(), 60, 2);  
     	productMaster_RetailObj.productMaster_Product_Checker_ApproveRemark().click();
     	
@@ -472,7 +489,7 @@ public class ProductMaster_Retail extends BaseClass {
     	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 60, 5);
     	String makerId = productMaster_RetailObj.productMaster_Product_Checker_Id().getText();
     	System.out.println(makerId);
-    	productMaster_RetailObj.productMaster_Product_Checker_Alert_Close().click();
+    	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
     	
     }
    @Then("^checker user return the record$")
@@ -489,7 +506,7 @@ public class ProductMaster_Retail extends BaseClass {
     	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 60, 5);
     	String makerId = productMaster_RetailObj.productMaster_Product_Checker_Id().getText();
     	System.out.println(makerId);
-    	productMaster_RetailObj.productMaster_Product_Checker_Alert_Close().click();
+    	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
     	         
     }
     
@@ -508,7 +525,7 @@ public class ProductMaster_Retail extends BaseClass {
     	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 60, 5);
     	String makerId = productMaster_RetailObj.productMaster_Product_Checker_Id().getText();
     	System.out.println(makerId);
-    	productMaster_RetailObj.productMaster_Product_Checker_Alert_Close().click();
+    	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
     
     }
 

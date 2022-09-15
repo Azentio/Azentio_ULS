@@ -37,30 +37,17 @@ public class KULS_Application_Login {
 		loginObj.password().sendKeys(password);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu_Tab(), 60, 2);
+		assertEquals(loginObj.Menu_Tab().isDisplayed(), true);
+		loginObj.Menu_Tab().click();
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 		assertEquals(loginObj.configuration().isDisplayed(), true);
+		loginObj.configuration().click();
 
 	}
 
-	public void ulSApplicationLoginAsAChecker(String CheckerUserName1, String CheckerUserPassword1) throws InterruptedException {
-		waithelper = new WaitHelper(driver);
-		loginObj = new KULS_LoginObj(driver);
-		javaScriptHelper = new JavascriptHelper(driver);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
-		loginObj.userId().click();
-		loginObj.userId().sendKeys(CheckerUserName1);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
-		loginObj.continueButton().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
-		loginObj.password().click();
-		loginObj.password().sendKeys(CheckerUserPassword1);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
-		loginObj.signIn().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
-		assertEquals(loginObj.configuration().isDisplayed(), true);
 
-	}
-	public void ulSApplicationLoginAsAChecker1(String userID) {
+	public void ulSApplicationLoginAsAChecker(String userID) {
 		waithelper = new WaitHelper(driver);
 		loginObj = new KULS_LoginObj(driver);
 		javaScriptHelper = new JavascriptHelper(driver);
@@ -77,6 +64,9 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword1);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu_Tab(), 60, 2);
+			assertEquals(loginObj.Menu_Tab().isDisplayed(), true);
+			loginObj.Menu_Tab().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
@@ -92,6 +82,9 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword2);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu_Tab(), 60, 2);
+			assertEquals(loginObj.Menu_Tab().isDisplayed(), true);
+			loginObj.Menu_Tab().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
