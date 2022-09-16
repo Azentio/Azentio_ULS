@@ -11,7 +11,8 @@ public class ProductMasterRetail_Obj {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	@FindBy(xpath="//h4[text()='Product master']//parent::ion-label//following-sibling::ion-buttons//ion-button[1]")
+//	@FindBy(xpath="//h4[text()='Product master']//parent::ion-label//following-sibling::ion-buttons//ion-button[1]")
+	@FindBy(xpath="//ion-label[contains(text(),'Product master')]/following-sibling::ion-buttons/ion-button[1]")
 	private WebElement productEditIcon;
 	public WebElement productEditIcon() {
 		return productEditIcon;

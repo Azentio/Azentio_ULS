@@ -179,8 +179,12 @@ public class ProductRetail_Master {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				driver.findElement(By.xpath(xpath)), 60, 2);
 		for (int i = 0; i < 20; i++) {
+			try {
+				productcode = driver.findElement(By.xpath(xpath)).getText();
+				break;
+			} catch (Exception e) {
 
-			productcode = driver.findElement(By.xpath(xpath)).getText();
+			}
 		}
 		System.out.println(productcode);
 

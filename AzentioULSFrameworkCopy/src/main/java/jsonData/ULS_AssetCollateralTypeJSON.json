@@ -1,0 +1,13 @@
+[
+{
+"UserType":"Maker",
+"DescriptionIntegerInput":"123456",
+"AssetTypeCodeIntegerInput":"123456",
+"AssetCollateralCatagoryDropDownValue":"ACCD0001",
+"moduleDropDownValue":"CRM",
+"HairCutIntegerInput":"10",
+"RemarkIntegerInput":"10",
+"HairCutPercentageWithCharacter":"80A",
+"AssetTypeCodeSpecialCharacterInput":"!@#$%"
+
+}]

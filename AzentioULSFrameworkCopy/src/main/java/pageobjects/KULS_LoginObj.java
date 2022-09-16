@@ -31,10 +31,18 @@ public class KULS_LoginObj {
 	public WebElement signIn() {
 		return signIn;
 	}
-	@FindBy(xpath="//ion-segment-button[@ng-reflect-text='Configuration']")
-	private WebElement configuration;
-	public WebElement configuration() {
-		return configuration;
+	
+//	@FindBy(xpath="//ion-segment-button[@ng-reflect-text='Configuration']")
+//	@FindBy(xpath="//span[contains(text(),'Configurations')]")
+//	private WebElement configuration;
+//	public WebElement configuration() {
+//		return configuration;
+//	}
+	
+	@FindBy(xpath="//ion-content[1]/div[1]/img[1]")
+	private WebElement loginPage;
+	public WebElement loginPage() {
+		return loginPage;
 	}
 	
 }

@@ -1,0 +1,28 @@
+[
+ {
+	"User":"Maker",
+	
+	"RecordForBlankMessage"	:	"Azentio new",
+	"RecordForStatusVerify"	:	"Azentio new",
+	"ProductDescription2"	:	"desc11",
+	
+	
+	"ProjectType"	:	"APF",
+	
+	"RecordForApprove"		:	"dep",
+	"RecordForReject"		:	"dep006",
+	"RecordForReturn"		:	"dep003",
+	
+	
+	
+	"MakerSubmitRemark"		:	"ok",
+	"CheckerApproveRemark"	:	"Approve",
+	"CheckerRejectRemark"	:	"Reject",
+	"CheckerReturnRemark"	:	"Return",
+	
+	"ApproveReferenceID"	:	"",
+	"RejectReferenceID"		:	"",
+	"ReturnReferenceID"		:	""
+
+ }
+]

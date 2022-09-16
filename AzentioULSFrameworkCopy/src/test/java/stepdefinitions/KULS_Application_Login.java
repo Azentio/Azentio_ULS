@@ -39,12 +39,13 @@ public class KULS_Application_Login {
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
 		loginObj.password().click();
 		loginObj.password().sendKeys(password);
+		Thread.sleep(1000);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
 		while (true) {
 			try {
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
-				assertEquals(loginObj.configuration().isDisplayed(), true);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+				assertEquals(loginObj.loginPage().isDisplayed(), true);
 				break;
 			} catch (Exception e) {
 				String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -82,8 +83,8 @@ public class KULS_Application_Login {
 			loginObj.signIn().click();
 			while (true) {
 				try {
-					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
-					assertEquals(loginObj.configuration().isDisplayed(), true);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+					assertEquals(loginObj.loginPage().isDisplayed(), true);
 					break;
 				} catch (Exception e) {
 					String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -115,8 +116,8 @@ public class KULS_Application_Login {
 			loginObj.signIn().click();
 			while (true) {
 				try {
-					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
-					assertEquals(loginObj.configuration().isDisplayed(), true);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+					assertEquals(loginObj.loginPage().isDisplayed(), true);
 					break;
 				} catch (Exception e) {
 					String kulsApplicationUrl = configFileReader.getApplicationUrl();

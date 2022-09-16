@@ -44,8 +44,8 @@ public class JsonDataReaderWriter {
 		FileReader filereader = new FileReader(path2);
 		Object obj = jsonparser.parse(filereader);
 		jsonobject = (JSONObject) obj;
-		String reviewerID = (String) jsonobject.get("Referance");
-		return reviewerID;
+		String Referance = (String) jsonobject.get("Referance");
+		return Referance;
 	}
     
 }

@@ -1,6 +1,177 @@
 Feature: Check the functionality of product master
+#Priyanka
+@ProductMaster_Retail
+Scenario: Product Master Retail Field validation 
+#PM_01_01, PM_01_02, PM_01_03, PM_01_04, PM_01_05, PM_01_06, PM_01_07, PM_01_09, PM_01_10, PM_01_11, PM_01_14
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on Product Master add button
+Then verify functionality and asterik mark of the field Product Group
+Then verify functionality and asterik mark of the field Product Code
+Then verify functionality and asterik mark of the field Product Description
+Then verify functionality and asterik mark of the field RetailCorporate
+Then verify functionality of the field DM Code
+Then verify the field Remarks
+Then verify the functionality of Back button
+Then user logout from the application
+
+ @ProductMaster_Retail_invalid
+Scenario: System should not allow user to save the records with invalid data
+ # PM_02_01, PM_02_02, PM_01_03, PM_02_04"
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on Product Master add button
+Then verify functionality and asterik mark of the field Product Group
+Then verify functionality and asterik mark of the field Product Code
+Then verify functionality and asterik mark of the field RetailCorporate
+Then verify the field Remarks
+Then click on save button
+Then validate the impact of any mandatory field blank
+Then verify the functionality of Back button
+Then click on Product Master add button
+Then verify functionality and asterik mark of the field Product Group
+Then verify functionality and asterik mark of the field Product Code
+Then Enter Product Description
+Then verify functionality and asterik mark of the field RetailCorporate
+Then verify the field Remarks with special characters value
+Then click on save button
+Then validate the impact of special characters value in any field
+Then user logout from the application
+
+
+@ProductMaster_Retail_Approve
+Scenario: verify Checker user is able to Approve the record
+
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on Product Master add button
+Then verify functionality and asterik mark of the field Product Group
+Then verify functionality and asterik mark of the field Product Code
+Then Enter Product Description
+Then verify functionality and asterik mark of the field RetailCorporate
+Then verify the field Remarks
+Then click on save button
+Then validate Success pop up
+Then click on inbox
+Then click on search icon of record list
+Then search Project Master Retail record 
+And maker user open the record from inbox
+Then maker user submit the Record
+Then user logout from the application
+And User Login as checker
+#Then click on Menu
+Then click on inbox
+Then click on search icon of record list
+Then search Project Master Retail record 
+Then checker user open the record from inbox
+Then checker user approve the record
+Then user logout from the application
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on search icon
+Then search approved record
+Then user logout from the application
+
+@ProductMaster_Retail_Return
+Scenario: verify Checker user is able to Return the record
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on Product Master add button
+Then verify functionality and asterik mark of the field Product Group
+Then Enter Product Code for Return
+Then Enter Product Description
+Then verify functionality and asterik mark of the field RetailCorporate
+Then verify the field Remarks
+Then click on save button
+Then validate Success pop up
+Then click on inbox
+Then click on search icon of record list
+Then search Project Master Retail record 
+And maker user open the record from inbox
+Then maker user submit the Record
+Then user logout from the application
+And User Login as checker
+#Then click on Menu
+Then click on inbox
+Then click on search icon of record list
+Then search Project Master Retail record 
+Then checker user open the record from inbox
+Then checker user return the record
+Then user logout from the application
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master edit icon
+Then click on search icon
+Then search the record
+Then user logout from the application
+
+@ProductMaster_Retail_Reject
+Scenario: verify Checker user is able to Reject the record
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on Product Master add button
+Then verify functionality and asterik mark of the field Product Group
+Then Enter Product Code for reject
+Then Enter Product Description
+Then verify functionality and asterik mark of the field RetailCorporate
+Then verify the field Remarks
+Then click on save button
+Then validate Success pop up
+Then click on inbox
+Then click on search icon of record list
+Then search Project Master Retail record 
+And maker user open the record from inbox
+Then maker user submit the Record
+Then user logout from the application
+And User Login as checker
+#Then click on Menu
+Then click on inbox
+Then click on search icon of record list
+Then search Project Master Retail record 
+Then checker user open the record from inbox
+Then checker user reject the record
+Then user logout from the application
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master eye icon
+Then click on search icon
+Then search Rejected record
+Then user logout from the application
+
+
+@ProductMaster_Retail_viewworkflow
+Scenario: To verify the view workflow
+
+Given User launch the kuls application
+And User Login as maker
+Then click on Product Setup
+Then click on Product Master edit icon
+#Then click on search icon
+#Then search the record
+Then open the record
+Then click on view summary
+Then verify the fields of view summary
+Then close the view summary
+Then user logout from the application
+  
+  #Devesh
   @M5 @ProductMaster
-  Scenario: Product Master - Modify records (approve, reject and return) at maker stage
+  Scenario: Product Master - To verify Checker user is able to Approve, Reject and Return the modified records
+  #PM_03_01, PM_03_02, PM_03_03, PM_03_04, PM_03_07, PM_03_08, PM_03_09, PM_03_10, PM_03_11, PM_03_10, PM_03_11
   	Given User launch the kuls application
   	And User Login as maker
   	Then user should navigate to product master
@@ -21,7 +192,6 @@ Feature: Check the functionality of product master
   	Then logout user
   #	checker approved the record
   	And User Login as checker
-  	Then click on menu button
   	Then click on inbox button
   	Then select the modified record to approve
   	Then select approve button
@@ -43,7 +213,6 @@ Feature: Check the functionality of product master
   	Then logout user
   # checker reject the record
   	And User Login as checker
-  	Then click on menu button
   	Then click on inbox button
   	Then select the modified record to reject
   	Then select reject button
@@ -65,7 +234,6 @@ Feature: Check the functionality of product master
   	Then logout user
   #	checker return the record
   	And User Login as checker
-  	Then click on menu button
   	Then click on inbox button
   	Then select the modified record to return
   	Then select return button
@@ -77,6 +245,7 @@ Feature: Check the functionality of product master
 	@M6 @ProductMaster
   Scenario: Product Master - While modification, user verify proper validation message for blank field 
   																									and verify system should not allow to enter invalid datatypes.
+	#	PM_03_05, PM_03_06
   	Given User launch the kuls application
   	And User Login as maker
   	Then user should navigate to product master
@@ -87,6 +256,7 @@ Feature: Check the functionality of product master
   	
   @M9 @ProductMaster
   Scenario: Product Master - to check the functionality of status(active/deactive) and back button
+  #PM_03_15, PM_03_16, PM_03_17
   	Given User launch the kuls application
   	And User Login as maker
   	Then user should navigate to product master
@@ -98,6 +268,8 @@ Feature: Check the functionality of product master
   	
   @M10 @ProductMaster
   Scenario: Product Master - to check the functionality of list view buttons of approved records
+  #PM_04_01, PM_04_02, PM_04_03, PM_04_08,  PM_04_09, PM_04_10, PM_04_11, PM_04_12, 
+  #PM_04_13, PM_04_14 ,PM_04_15,  PM_04_16
   	Given User launch the kuls application
   	And User Login as maker
   	Then user should navigate to product master
@@ -146,178 +318,3 @@ And user verify Field should be auth status and will be display only
 And user verify Field should be retail and corporate will be display only
 And user verify Field should be status and will be display only
 And user verify Field should be auth status and will be display only
-
-#Priyanka
-@ProductMaster_Retail
-Scenario: Product Master Retail Field validation 
-
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on Product Master add button
-Then verify functionality and asterik mark of the field Product Group
-Then verify functionality and asterik mark of the field Product Code
-Then verify functionality and asterik mark of the field Product Description
-Then verify functionality and asterik mark of the field RetailCorporate
-Then verify functionality of the field DM Code
-Then verify the field Remarks
-Then verify the functionality of Back button
-Then user logout from the application
-
- @ProductMaster_Retail_invalid
-Scenario: System should not allow user to save the records with invalid data
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on Product Master add button
-Then verify functionality and asterik mark of the field Product Group
-Then verify functionality and asterik mark of the field Product Code
-Then verify functionality and asterik mark of the field RetailCorporate
-Then verify the field Remarks
-Then click on save button
-Then validate the impact of any mandatory field blank
-Then verify the functionality of Back button
-Then click on Product Master add button
-Then verify functionality and asterik mark of the field Product Group
-Then verify functionality and asterik mark of the field Product Code
-Then Enter Product Description
-Then verify functionality and asterik mark of the field RetailCorporate
-Then verify the field Remarks with special characters value
-Then click on save button
-Then validate the impact of special characters value in any field
-Then user logout from the application
-
-
-@ProductMaster_Retail_Approve
-Scenario: verify Checker user is able to Approve the record
-
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on Product Master add button
-Then verify functionality and asterik mark of the field Product Group
-Then verify functionality and asterik mark of the field Product Code
-Then Enter Product Description
-Then verify functionality and asterik mark of the field RetailCorporate
-Then verify the field Remarks
-Then click on save button
-Then validate Success pop up
-Then click on inbox
-Then click on search icon of record list
-Then search Project Master Retail record 
-And maker user open the record from inbox
-Then maker user submit the Record
-Then user logout from the application
-And User Login as checker
-Then click on Menu
-Then click on inbox
-Then click on search icon of record list
-Then search Project Master Retail record 
-Then checker user open the record from inbox
-Then checker user approve the record
-Then user logout from the application
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on search icon
-Then search approved record
-Then user logout from the application
-
-@ProductMaster_Retail_Return
-Scenario: verify Checker user is able to Return the record
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on Product Master add button
-Then verify functionality and asterik mark of the field Product Group
-Then Enter Product Code for Return
-Then Enter Product Description
-Then verify functionality and asterik mark of the field RetailCorporate
-Then verify the field Remarks
-Then click on save button
-Then validate Success pop up
-Then click on inbox
-Then click on search icon of record list
-Then search Project Master Retail record 
-And maker user open the record from inbox
-Then maker user submit the Record
-Then user logout from the application
-And User Login as checker
-Then click on Menu
-Then click on inbox
-Then click on search icon of record list
-Then search Project Master Retail record 
-Then checker user open the record from inbox
-Then checker user return the record
-Then user logout from the application
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master edit icon
-Then click on search icon
-Then search the record
-Then user logout from the application
-
-@ProductMaster_Retail_Reject
-Scenario: verify Checker user is able to Reject the record
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on Product Master add button
-Then verify functionality and asterik mark of the field Product Group
-Then Enter Product Code for reject
-Then Enter Product Description
-Then verify functionality and asterik mark of the field RetailCorporate
-Then verify the field Remarks
-Then click on save button
-Then validate Success pop up
-Then click on inbox
-Then click on search icon of record list
-Then search Project Master Retail record 
-And maker user open the record from inbox
-Then maker user submit the Record
-Then user logout from the application
-And User Login as checker
-Then click on Menu
-Then click on inbox
-Then click on search icon of record list
-Then search Project Master Retail record 
-Then checker user open the record from inbox
-Then checker user reject the record
-Then user logout from the application
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master eye icon
-Then click on search icon
-Then search Rejected record
-Then user logout from the application
-
-
-@ProductMaster_Retail_viewworkflow
-Scenario: To verify the view workflow
-
-Given User launch the kuls application
-And User Login as maker
-Then click on Product Setup
-Then click on Product Master edit icon
-#Then click on search icon
-#Then search the record
-Then open the record
-Then click on view summary
-Then verify the fields of view summary
-Then close the view summary
-Then user logout from the application
-  	
-  	
-  	
-  	
-  	
-  	
-  	

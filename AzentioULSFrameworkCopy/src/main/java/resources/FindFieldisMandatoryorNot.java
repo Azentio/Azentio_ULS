@@ -9,6 +9,7 @@ public class FindFieldisMandatoryorNot {
 		this.driver=driver;
 	}
 	public void verifyGivenFieldisMandatoryOrNot(String fieldName){
+		//ion-label[contains(text(),'')]/span
 		String pg = "//ion-label[contains(text(),'"+fieldName+"')]/span";
 		try {
 		if (driver.findElement(By.xpath(pg)).getText().equalsIgnoreCase("*")) {

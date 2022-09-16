@@ -2,20 +2,19 @@ package Runner;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features/ProductMaster_Retail.feature", 
+@CucumberOptions(features = "src/test/java/features", 
                  glue = "stepdefinitions",
 		         //monochrome=false, //to make steps in color
 		         plugin = { "pretty",
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"}
 				//dryRun = false //to check compilation errors
-//				, tags="@M10"
+				, tags="@AT_PD_006"
 
 )
 public class TestApplication extends AbstractTestNGCucumberTests {

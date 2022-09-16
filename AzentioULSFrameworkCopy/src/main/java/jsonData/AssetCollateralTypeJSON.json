@@ -1,0 +1,65 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of T001/T002---//
+	"RecordForBlankMessage"	:	"Azentio new",
+	"RecordForStatusVerify"	:	"Azentio new",
+	"DescriptionEnglish"	:	"English",
+	"DescriptionFrench"		:	"French",
+	"DescriptionGerman"		:	"German",
+	"DescriptionArabic"		:	"Arabic",
+	"Description"			:	"loan1",
+  "AssetCollateralCategory"	:	"test123",
+  "AssetCollateralTypeCode"	:	"dop4",
+  	"IFRS"					:	"N",
+  	"HaircutPercent"		:	"1.0000",
+  	"Remarks"				:	"ok",
+	"Module1"				:	"CRM",
+	"Module2"				:	"LM",
+	
+												//---Test data of T002---//
+	"Description1"			:	"loan1",
+ "AssetCollateralCategory1"	:	"test123",
+ "AssetCollateralTypeCode1"	:	"test24",
+  	"IFRS1"					:	"N",
+  	"HaircutPercent1"		:	"1.0000",
+  	"Remarks1"				:	"ok",
+	"Module"				:	"CRM",
+	
+												//---Test data of T003---//
+	"Description2"			:	"loan1",
+ "AssetCollateralCategory2"	:	"test123",
+ "AssetCollateralTypeCode2"	:	"test25",
+  	"IFRS2"					:	"N",
+  	"HaircutPercent2"		:	"1.0000",
+  	"Remarks2"				:	"ok",
+	
+												//---Test data of T004---//
+	"Description3"			:	"loan1",
+ "AssetCollateralCategory3"	:	"test123",
+ "AssetCollateralTypeCode3"	:	"test26",
+  	"IFRS3"					:	"N",
+  	"HaircutPercent3"		:	"1.0000",
+  	"Remarks3"				:	"ok",
+	
+												//---Test data of T006---//
+	"RecordForApprove"		:	"dop1",
+	"RecordForReject"		:	"test1",
+	"RecordForReturn"		:	"test2",
+	
+												//---Test data of T008---//
+	"RecordForValidateInvalidField"		:	"test1",
+	
+	
+												//---Test data for checker remarks---//
+	"MakerSubmitRemark"		:	"ok",
+	"CheckerApproveRemark"	:	"Approve",
+	"CheckerRejectRemark"	:	"Reject",
+	"CheckerReturnRemark"	:	"Return",
+	
+	"ApproveReferenceID"	:	"",
+	"RejectReferenceID"		:	"",
+	"ReturnReferenceID"		:	""
+
+ }
+]

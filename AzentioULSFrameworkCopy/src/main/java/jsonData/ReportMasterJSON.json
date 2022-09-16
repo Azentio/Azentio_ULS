@@ -1,0 +1,9 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of AT_RA_023---//
+	"SpecialCharacters"		:	"#$%@",
+	"ApprovedRecord"		:	"TestReport"
+
+ }
+]

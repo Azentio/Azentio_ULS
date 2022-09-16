@@ -3,6 +3,7 @@ package helper;
 import static org.testng.Assert.fail;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +32,24 @@ public class RadioButtonHelper {
 
 	// RadioButton 
 	public void radioButton(String element) {
-		driver.findElement(By.xpath("//ion-label[contains(text(),'"+element+"')]/../ion-radio"));
+		while (true) {
+			try {
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + element + "')]/../ion-radio")).click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
 	}
-      
+	
+	// SelectOptionFromDropDown 
+	public void selectOptionFromDropDown(List<WebElement> options, String value) {
+		for (WebElement option : options) {
+			if(option.getText().contains(value)) {
+				option.click();
+				break;
+			}
+		}
+	}
+    
 }

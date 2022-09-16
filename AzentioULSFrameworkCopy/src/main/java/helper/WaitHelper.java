@@ -3,7 +3,6 @@ package helper;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.ElementNotVisibleException;
@@ -83,11 +82,11 @@ public class WaitHelper {
 	}
 	
 	//Fluent wait
-	public WebElement waitForElementwithFluentwait(WebDriver driver, WebElement element) 
+	public static WebElement waitForElementwithFluentwait(WebDriver driver, WebElement element) 
 	{ 	
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(10)) 
-				.pollingEvery(Duration.ofMillis(1000))
+				.pollingEvery(Duration.ofMillis(500))
 				.ignoring(Exception.class);
 //		WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(element));
 		WebElement element1 = wait.until(ExpectedConditions.visibilityOf(element));
@@ -95,15 +94,15 @@ public class WaitHelper {
 	}
 	
 	// Fluent wait for visiblity of element
-	public  WebElement waitForElementToVisibleWithFluentWait(WebDriver driver, WebElement element,int timeOut,int pollingTime)
-    {
-    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-    .withTimeout(Duration.ofSeconds(timeOut))
-    .pollingEvery(Duration.ofSeconds(pollingTime))
-    .ignoring(Exception.class);
-    WebElement element1 = wait.until(ExpectedConditions.visibilityOf(element));
-    return element1;
-  
-    }
-
+	public  WebElement waitForElementToVisibleWithFluentWait(WebDriver driver, WebElement element,int timeOut,int pollingTime) 
+	 { 
+	 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+	 .withTimeout(Duration.ofSeconds(timeOut)) 
+	 .pollingEvery(Duration.ofMillis(pollingTime))
+	 .ignoring(Exception.class);
+	 WebElement element1 = wait.until(ExpectedConditions.visibilityOf(element));
+	 return element1;
+	 }
+	
 }
+

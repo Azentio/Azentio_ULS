@@ -1,0 +1,14 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of AT_CAS_003---//
+	"EditText"					:	"11",
+	"ReferenceID"				:	"506",
+	"CustomerFirstName"			:	"testerE",
+	"AddressTypeCode"			:	"986",
+	"AddressLine1"				:	"ModifyAddressLine1",
+	"MandatoryFieldNameToModify":	"Address Line 1",
+	"InvalidInput"				:	"%#^#&@"
+	
+ }
+]

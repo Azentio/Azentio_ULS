@@ -1,0 +1,15 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of ---//
+	"SpecialCharacters"		:	"#$%@",
+	"ApprovedRecord"		:	"TestReport",
+	"RejectedRecord"		:	"TestReport",
+	"ReturnedRecord"		:	"TestReport",
+	
+	"CheckerApproveRemark"	:	"Approve",
+	"CheckerRejectRemark"	:	"Reject",
+	"CheckerReturnRemark"	:	"Return"
+
+ }
+]

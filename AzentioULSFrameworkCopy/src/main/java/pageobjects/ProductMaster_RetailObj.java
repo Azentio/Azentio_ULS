@@ -15,28 +15,39 @@ public class ProductMaster_RetailObj {
 
 	// ------------------------MAKER STAGE PAGEOBJECTS----------------------//
 
-	@FindBy(xpath = "//ion-card-content[1]/ion-item[1]//ion-icon[1]")
+//	@FindBy(xpath = "//ion-card-content[1]/ion-item[1]//ion-icon[1]")
+//	@FindBy(xpath = "//span[contains(text(),'Configurations')]")
+	@FindBy(xpath = "(//li[3]//ion-icon[1])[1]")
 	private WebElement config_Manager;
 
 	public WebElement config_Manager() {
 		return config_Manager;
 	}
+	
+	@FindBy(xpath = "//ion-col/div/ion-button")
+	private WebElement productMaster_MenuToggle;
+	
+	public WebElement productMaster_MenuToggle() {
+		return productMaster_MenuToggle;
+	}
 
-	@FindBy(xpath = "//h4[contains(text(),'Product Setup')]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Product Setup')]")
 	private WebElement product_Setup;
 
 	public WebElement product_Setup() {
 		return product_Setup;
 	}
 
-	@FindBy(xpath = "//h4[contains(text(),'Product master')]/ancestor::ion-item//ion-button[2]") // ProductMaster Eye Icon
+//	@FindBy(xpath = "//h4[contains(text(),'Product master')]/ancestor::ion-item//ion-button[2]") // ProductMaster Eye Icon
+	@FindBy(xpath = "//ion-label[contains(text(),'Product master')]/following-sibling::ion-buttons/ion-button[2]") // ProductMaster Eye Icon
 	private WebElement productMaster_EyeIcon;
 
 	public WebElement productMaster_EyeIcon() {
 		return productMaster_EyeIcon;
 	}
 
-	@FindBy(xpath = "//h4[contains(text(),'Product master')]/ancestor::ion-item//ion-button[1]") // ProductMaster Edit Icon
+//	@FindBy(xpath = "//h4[contains(text(),'Product master')]/ancestor::ion-item//ion-button[1]") // ProductMaster Edit Icon
+	@FindBy(xpath = "//ion-label[contains(text(),'Product master')]/following-sibling::ion-buttons/ion-button[1]") // ProductMaster Edit Icon
 	private WebElement productMaster_EditView;
 
 	public WebElement productMaster_EditView() {
@@ -49,13 +60,6 @@ public class ProductMaster_RetailObj {
 	public WebElement productMaster_AddButton() {
 		return productMaster_AddButton;
 	}
-
-//	@FindBy(xpath = "(//span[contains(text(),'98303275')]/../../../td[1]/span[1]/button[1]/span[1])[1]")
-//	private WebElement productMaster_Record1;
-//	
-//	public WebElement productMaster_AddButton() {
-//		return productMaster_AddButton;
-//	}
 
 //	@FindBy(xpath = "//ion-select[@aria-label='Select,  Product Group *']") // product group
 	@FindBy(xpath = "//ion-row[1]/ion-col[2]/digital-select-layout[1]") // product group
@@ -265,7 +269,8 @@ public class ProductMaster_RetailObj {
 		return productMaster_Product_SearchCloseButton;
 	}
 
-	@FindBy(xpath = "//ion-icon[@aria-label='mail outline']")
+//	@FindBy(xpath = "//ion-icon[@aria-label='mail outline']")
+	@FindBy(xpath = "//ion-list[1]/ion-item[1]/div[1]")
 	private WebElement productMaster_Product_Inbox;
 
 	public WebElement productMaster_Product_Inbox() {
@@ -412,13 +417,6 @@ public class ProductMaster_RetailObj {
 	public WebElement productMaster_Product_ViewSummary() {
 		return productMaster_Product_ViewSummary;
 	}
-
-//	@FindBy(xpath = "//ion-label[contains(text(),'new record')]")
-//	private WebElement productMaster_Product_Submit_Confirmation;
-//
-//	public WebElement productMaster_Product_Submit_Confirmation() {
-//		return productMaster_Product_Submit_Confirmation;
-//	}
 
 //	@FindBy(xpath = "//button[@ng-reflect-label='Submit']/span[2]")
 	@FindBy(xpath = "//span[contains(text(),'Submit')]")
@@ -634,7 +632,8 @@ public class ProductMaster_RetailObj {
 	}
 
 	// logout
-	@FindBy(xpath = "//ion-label/div/div[2]/ion-icon")
+//	@FindBy(xpath = "//ion-label/div/div[2]/ion-icon")
+	@FindBy(xpath = "//span[contains(text(),'Logout')]")
 	private WebElement productMaster_Product_LogoutUser;
 
 	public WebElement productMaster_Product_LogoutUser() {
@@ -756,10 +755,19 @@ public class ProductMaster_RetailObj {
 		return productMaster_Product_FinalSubmit;
 	}
 
-	// Logout
-	@FindBy(xpath = "//ion-header/ion-toolbar[1]/div[1]/ion-item[1]/ion-label[1]/div[1]/div[2]/ion-icon[1]")
-	private WebElement productMaster_Product_Logout;
+	// Profile
+	@FindBy(xpath = "//ion-list[1]/ion-item[8]/img[1]")
+	private WebElement productMaster_Product_Profile;
 
+	public WebElement productMaster_Product_Profile() {
+		return productMaster_Product_Profile;
+	}
+	
+	// Logout
+//	@FindBy(xpath = "//ion-header/ion-toolbar[1]/div[1]/ion-item[1]/ion-label[1]/div[1]/div[2]/ion-icon[1]")
+	@FindBy(xpath = "//span[contains(text(),'Logout')]")
+	private WebElement productMaster_Product_Logout;
+	
 	public WebElement productMaster_Product_Logout() {
 		return productMaster_Product_Logout;
 	}
@@ -828,7 +836,8 @@ public class ProductMaster_RetailObj {
 	}
 
 	// Edit
-	@FindBy(xpath = "//ion-card-content[1]/ion-item[3]/ion-buttons[1]/ion-button[1]")
+//	@FindBy(xpath = "//ion-card-content[1]/ion-item[3]/ion-buttons[1]/ion-button[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Product master')]/following-sibling::ion-buttons/ion-button[1]")
 	private WebElement ProductMaster_Product_Edit;
 
 	public WebElement ProductMaster_Product_Edit() {
@@ -906,6 +915,63 @@ public class ProductMaster_RetailObj {
 
 	public WebElement productMaster_ProductDescriptionAdd() {
 		return productMaster_ProductDescriptionAdd;
+	}
+	
+	//Change_Language 
+	@FindBy(xpath = "//ion-header/ion-toolbar[1]/section[1]/ion-list[1]/ion-item[5]/ion-select[1]") 
+	private WebElement Language; 
+
+	public WebElement Language() { 
+	return Language; 
+
+	} 
+
+	// Language_French
+	@FindBy(xpath = "//ion-label[contains(text(),'French')]/../ion-radio")
+	private WebElement Language_French;
+
+	public WebElement Language_French() {
+		return Language_French;
+	}
+
+	// Language_German
+	@FindBy(xpath = "//ion-label[contains(text(),'German')]/../ion-radio")
+	private WebElement Language_German;
+
+	public WebElement Language_German() {
+		return Language_German;
+	}
+
+	// Language_Arabic
+	@FindBy(xpath = "//ion-label[contains(text(),'Arabic')]/../ion-radio")
+	private WebElement Language_Arabic;
+
+	public WebElement Language_Arabic() {
+		return Language_Arabic;
+	}
+
+	// Language_English
+	@FindBy(xpath = "//ion-label[contains(text(),'English')]/../ion-radio")
+	private WebElement Language_English;
+
+	public WebElement Language_English() {
+		return Language_English;
+	}
+
+	//Description Input Field
+	@FindBy(xpath = "//ion-grid[1]/form[1]/ion-input[1]/input[1]")
+	private WebElement Description_MultilanguageInputField;
+
+	public WebElement Description_MultilanguageInputField() {
+		return Description_MultilanguageInputField;
+	}
+	
+	// Description_Close
+	@FindBy(xpath = "//ion-header/ion-toolbar[1]/ion-buttons[1]/ion-button[1]")
+	private WebElement Description_Close;
+
+	public WebElement Description_Close() {
+		return Description_Close;
 	}
 
 }

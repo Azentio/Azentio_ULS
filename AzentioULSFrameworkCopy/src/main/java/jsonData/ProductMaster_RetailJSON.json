@@ -4,35 +4,34 @@
 	"Record1BeforeApproved"	:	"depo30",
 	"ProductDescription1"	:	"desc11",
 	
-	"Record1AfterApproved"	:	"dep60",
-	"ProductDescription2"	:	"desc11",
+	"Record1AfterApproved"	:	"test1",
+	"ProductDescription2"	:	"testTEST",
 	
 	"MakerSubmitRemark"		:	"ok",
 	"CheckerApproveRemark"	:	"Approve",
 	"CheckerRejectRemark"	:	"Reject",
 	"CheckerReturnRemark"	:	"Return",
 	
-	"Record1ForApprove"		:	"",
-	"Record2ForReject"		:	"dep006",
-	"Record3ForReturn"		:	"dep003",
+	"Record2ForReject"		:	"test2",
+	"Record3ForReturn"		:	"test3",
 	
-	"ApproveReferenceID"	:	"5792",
-	"RejectReferenceID"		:	"5892",
-	"ReturnReferenceID"		:	"5795",
+	"ApproveReferenceID"	:	"6060",
+	"RejectReferenceID"		:	"6061",
+	"ReturnReferenceID"		:	"6062",
 	
 //	----------------------------------------   //
 
-	"ProductCode" 			: 	"PR46",
-	"DescriptionEnglish"	:	"Loan",
-	"DescriptionFrench"		:	"d'accord",
-	"DescriptionGerman"		:	"OK",
-	"DescriptionArabic"		:	"موافق",
+	"ProductCode" 			: 	"PR91",
+	"DescriptionEnglish"	:	"English",
+	"DescriptionFrench"		:	"French",
+	"DescriptionGerman"		:	"German",
+	"DescriptionArabic"		:	"Arabic",
 	"DMCode"				:	"Loan",
 	"Remarks"				:	"HomeLoan",
 	"NumericRemark"			:	"123",
 	"SymbolicRemark"		:	"@#$&",
-	"ProductCodeReturn"		:	"PR47",
-	"ProductCodeReject"		:	"PR48",
+	"ProductCodeReturn"		:	"PR92",
+	"ProductCodeReject"		:	"PR93",
 	"EventCode" 			:	"PRODUCT_MST"
  }
 ]

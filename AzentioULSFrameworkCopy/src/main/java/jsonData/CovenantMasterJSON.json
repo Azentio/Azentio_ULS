@@ -1,0 +1,60 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of T001/T002---//
+	"RecordForBlankMessage"	:	"Azentio new",
+	"RecordForStatusVerify"	:	"Azentio new",
+	"Description"			:	"loan1",
+  "AssetCollateralCategory"	:	"test123",
+  "AssetCollateralTypeCode"	:	"dop4",
+  	"IFRS"					:	"N",
+  	"HaircutPercent"		:	"1.0000",
+  	"Remarks"				:	"ok",
+	"Module1"				:	"CRM",
+	"Module2"				:	"LM",
+	
+												//---Test data of T002---//
+	"CovenantType1"			:	"General",
+	"Description1"			:	"test3",
+	"Frequency1"			:	"Annual",
+												//---Test data of T003---//
+	"CovenantType2"			:	"General",
+	"Description2"			:	"test4",
+	"Frequency2"			:	"Annual",
+												//---Test data of T004---//
+	"CovenantType3"			:	"General",
+	"Description3"			:	"test5",
+	"Frequency3"			:	"Annual",
+	
+												//---Test data of T005---//
+	"SpecialCharacters"		:	"#$%@",
+												//---Test data of T006---//
+	"BeforeApprovedRecord"	:	"test1",
+	"ModifiedBeforeApprovedRecord"	:	"test1",
+
+												//---Test data of T007---//
+	"ApprovedRecord"		:	"test3",
+	"ModifiedApprovedRecord":	"test1",
+	"ReModifiedApprovedRecord":	"test1",
+	"InvalidDataType"		:	"11.11",
+												
+	"RecordForApprove"		:	"dop1",
+	"RecordForReject"		:	"test1",
+	"RecordForReturn"		:	"test2",
+	
+												//---Test data of T008---//
+	"RecordForValidateInvalidField"		:	"test1",
+	
+	
+												//---Test data for maker checker remarks---//
+	"MakerSubmitRemark"		:	"ok",
+	"CheckerApproveRemark"	:	"Approve",
+	"CheckerRejectRemark"	:	"Reject",
+	"CheckerReturnRemark"	:	"Return",
+	
+	"ApproveReferenceID"	:	"",
+	"RejectReferenceID"		:	"",
+	"ReturnReferenceID"		:	""
+
+ }
+]
