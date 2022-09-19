@@ -78,7 +78,7 @@
 "RecomputeOfProfit":"Yes",
 "IsStepUpAllowed":"Yes",
 "MaxStepUp":"10",
-"EligibilityType":"Yes",
+"EligibilityType":"Loan To Value",
 "PreEmi":"Yes",
 "NoOfPreEMIInstallment":"4",
 "IsLoanTransferAllowed":"Yes",

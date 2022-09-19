@@ -51,6 +51,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		clicksAndActionsHelper.clickUsingActionClass(ulsCommonElementObj.ulsNotificationSearchTextBox(),
 				ulsCommonElementObj.ulsNotificationSearchTextBox());
 		ulsCommonElementObj.ulsNotificationSearchTextBox().sendKeys(propertyDetailsTestData.StageCode);
+		Thread.sleep(400);
 	}
 
 	@And("^select the app data entry first record$")
@@ -98,6 +99,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				if (i == 10) {
 					Assert.fail(e.getMessage());
 				}
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.appdataEntryNextButton(), 5, 1);
 				propertyDetailsObj.appdataEntryNextButton().click();
 			}
 		}

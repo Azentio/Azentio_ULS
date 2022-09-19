@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
@@ -37,6 +38,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	ULS_SchemeMasterTestDataType ulSchemeMasterTestData = jsonConfig.getUlsSchemeMasterTestDataByName("Maker");
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JsonDataReaderWriter jsonDataReadertWriter = new JsonDataReaderWriter();
+	SoftAssert softAssert = new SoftAssert();
 
 	@Given("^Navigate to ULS application URL$")
 	public void navigate_to_uls_application_url() throws Throwable {
@@ -1384,7 +1386,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				ulsSchemeMasterObj.schemeMasterMinBulkPaymentParameterDropDown(), 5, 1);
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterMinBulkPaymentParameterDropDown()
 				.getAttribute("aria-label");
-		Assert.assertTrue(mendatoryField.contains("*"));
+		softAssert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterMinBulkPaymentParameterDropDown().click();
 		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MinBulkPaymentParameter
 				+ " ']/parent::ion-item/ion-radio";
@@ -1623,18 +1625,18 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.schemeMasterEligibilityTypeDropDown(), 5, 1);
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterEligibilityTypeDropDown().getAttribute("aria-label");
-		Assert.assertFalse(mendatoryField.contains("*"));
+		softAssert.assertFalse(mendatoryField.contains("*")," Eligibility field should be non mandatory but here its a mandatory field");
 		ulsSchemeMasterObj.schemeMasterEligibilityTypeDropDown().click();
 		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.EligibilityType
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 50; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 50) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -2504,6 +2506,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasteraleralertSubmitButton(),
 				5, 1);
 		ulsSchemeMasterObj.schemeMasteraleralertSubmitButton().click();
+		
 	}
 
 	@Then("^verify record is submitted from the maker end$")
@@ -2515,7 +2518,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String substring = submitedStatus.substring(83);
 		System.out.println("Reviewer ID " + substring.replace(".", ""));
 		jsonDataReadertWriter.addData(substring.replace(".", "").trim());
-
+		softAssert.assertAll();
 	}
 
 	@Then("^login with checker user$")

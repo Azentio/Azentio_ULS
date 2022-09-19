@@ -510,7 +510,7 @@ public class ULS_SchemeMasterObj {
 		return schemeMaster_ImmediateDueDateDropDown;
 	}
 
-	@FindBy(xpath = "//ion-select[@aria-label='Select,  Min Bulk Payment Parameter *']")
+	@FindBy(xpath = "//ion-label[text()=' Min Bulk Payment Parameter ']//following-sibling::ion-select")
 	private WebElement schemeMaster_MinBulkPaymentParameterDropDown;
 
 	public WebElement schemeMasterMinBulkPaymentParameterDropDown() {
@@ -601,7 +601,7 @@ public class ULS_SchemeMasterObj {
 		return schemeMaster_MaxSetUpTextBox;
 	}
 
-	@FindBy(xpath = "//ion-select[@aria-label='Select,    Eligibility Type ']")
+	@FindBy(xpath = "//ion-label[text()='   Eligibility Type ']//following-sibling::ion-select")
 	private WebElement schemeMaster_EligibilityTypeDropDown;
 
 	public WebElement schemeMasterEligibilityTypeDropDown() {

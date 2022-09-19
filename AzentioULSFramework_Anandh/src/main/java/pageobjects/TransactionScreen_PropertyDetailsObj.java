@@ -566,4 +566,5 @@ public class TransactionScreen_PropertyDetailsObj {
 		return propertyDetails_BackButtonVerification;
 	}
 	
+	
 }

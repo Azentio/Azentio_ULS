@@ -238,3 +238,40 @@ Then verify user can able to modify the date in the Agreement Date field
 Then verify user can able to modify the date in the Agreement Validity Date field
 And save the property details record
 Then verify record is saved in the system
+
+@AT_PD_004_1
+Scenario: verify system allow user to do a modification on already saved record
+Given User Launch the KULS url for Transaction
+And user click on Inbox Icon
+And user click search icon
+And user search Appdata Entry
+#And user Enter Application ID
+And user click on First record of Appdata Entry
+And user choose Property Details Tab
+And user click First Record Edit Icon
+And user Modify the Security Type
+And user Modify the Property City
+And user Modify the Property Type
+And user Modify the Apf Status
+And user Modify the Construction Status
+And user Modify the Property Category
+And user Modify the Nature of Property
+And user Modify the Occupancy Status
+And user click the update the button
+
+@AT_PD_005
+Scenario: verify while modification, when user keep any mandatory field blank and click on save button
+Given User Launch the KULS url for Transaction
+And user click on Inbox Icon
+And user click search icon
+And user search Appdata Entry
+And user click on First record of Appdata Entry
+And user choose Property Details Tab
+And user click First Record Edit Icon
+And user can able to select the data from the security dropdown
+And user can able to select the data from the property city field
+And user can able to select the data from the Property Type field
+And user can able to select the data from the APF Status field
+And user Blank fill the Mandatory field
+And user click the update button
+Then user verify the blank field and get the proper validation message

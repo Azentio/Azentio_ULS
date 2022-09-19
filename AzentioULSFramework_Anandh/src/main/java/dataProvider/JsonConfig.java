@@ -16,9 +16,13 @@ import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
 import testDataType.KULS_WareHouseMasterTestData;
+import testDataType.PersonalaDetailsDataEntryTestdata;
+import testDataType.PropertyDetails_TestData;
 import testDataType.PropetyDetails_TestDataType;
 import testDataType.ULS_AssetCollateralTypeTestData;
 import testDataType.ULS_CheckerTestData;
+import testDataType.ULS_CustomerAddressDetailsTestDataType;
+import testDataType.ULS_CustomerEmploymentDetailsTestdataType;
 import testDataType.ULS_LivingExpenseTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.ULS_ProjectMasterTestData;
@@ -65,12 +69,22 @@ public class JsonConfig {
 	private List<PropetyDetails_TestDataType> uls_PropertyDetailsTestData;
 	private final String ApplicationDetailsDataPath = configFileReader.getJsonPath() + "ApplicationDetails_AppDataEntryJson.json";
 	private List<KULS_ApplicationDetails_AppDataEntry_Testdata> ApplicationDetails;
+	private final String Propertypath = configFileReader.getJsonPath() + "Property_DetailsJSON.json";
+	private List<PropertyDetails_TestData> PropertyDetail;
+	private final String PerDetailpath = configFileReader.getJsonPath() + "PersonalDetailsAppDataEntry.json";
+	private List<PersonalaDetailsDataEntryTestdata> PerDetailEntry;
+	
+	private final String customerAddressDetails = configFileReader.getJsonPath() + "ULS_CustomerAddressDetailsSON.json";
+	private List<ULS_CustomerAddressDetailsTestDataType> csutomerAddressDetails;
+	
+	private final String customerEmploymentDetailsFilePath = configFileReader.getJsonPath() + "ULS_CustomerEmploymentDetailsJSON.json";
+	private List<ULS_CustomerEmploymentDetailsTestdataType> customerEmploymentDetailsTestdata;
 	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
 		 */
-
+		customerEmploymentDetailsTestdata=getCustomerEmploymentDetailsDetailsTestData();
 		loginCredentials = getKULSCredentialsList();
 		schemeMasterTestData=getUlsSchemeMasterTestData();
 		projectMasterTestData=getUlsProjectMasterTestData();
@@ -81,10 +95,89 @@ public class JsonConfig {
 		uls_CheckerUserTestData=getCheckerUserTestData();
 		uls_ReportMasterTestData=getReportMasterTestData();
 		uls_LivingExpenseTestData= getLivingExpenseTestData();
-		
+		PropertyDetail=getPropertyDetail();
 		uls_CustomerPersonalDetailsTestData=getCustomerPersonalDetailsTestData();
 		uls_PropertyDetailsTestData=getPropertyDetailsTestdata();
 		ApplicationDetails = getApplicationDetailsList();
+		PerDetailEntry=getPerDetailEntry();
+		csutomerAddressDetails=getCustomerAddressDetailsList();
+	}
+	private List<ULS_CustomerEmploymentDetailsTestdataType> getCustomerEmploymentDetailsDetailsTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(customerEmploymentDetailsFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(customerEmploymentDetailsFilePath));
+			ULS_CustomerEmploymentDetailsTestdataType[] customerEmployementDetailsTestData = gson.fromJson(bufferReader, ULS_CustomerEmploymentDetailsTestdataType[].class);
+			return Arrays.asList(customerEmployementDetailsTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + customerEmploymentDetailsFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	private List<ULS_CustomerAddressDetailsTestDataType> getCustomerAddressDetailsList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(customerAddressDetails));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(customerAddressDetails));
+			ULS_CustomerAddressDetailsTestDataType[] customerAddressDetails = gson.fromJson(bufferReader, ULS_CustomerAddressDetailsTestDataType[].class);
+			return Arrays.asList(customerAddressDetails);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + customerAddressDetails);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	private List<PersonalaDetailsDataEntryTestdata> getPerDetailEntry() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(PerDetailpath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(PerDetailpath));
+			PersonalaDetailsDataEntryTestdata[] PerDetailpath = gson.fromJson(bufferReader, PersonalaDetailsDataEntryTestdata[].class);
+			return Arrays.asList(PerDetailpath);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + PerDetailpath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	private List<PropertyDetails_TestData> getPropertyDetail() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(Propertypath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(Propertypath));
+			PropertyDetails_TestData[] Property = gson.fromJson(bufferReader, PropertyDetails_TestData[].class);
+			return Arrays.asList(Property);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + Propertypath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	private List<KULS_ApplicationDetails_AppDataEntry_Testdata> getApplicationDetailsList() {
 		Gson gson = new Gson();
@@ -388,6 +481,9 @@ public class JsonConfig {
 	public final KULS_WareHouseMasterTestData getUlsWareHouseTestDataByName(String Username) {
 		return wareHouseTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
+	public final PersonalaDetailsDataEntryTestdata getPerDetailDataByName(String User) {
+		return PerDetailEntry.stream().filter(x -> x.Users.equalsIgnoreCase(User)).findAny().get();
+	}
 	//ULS_AssetCollateralTypeTestData> assetCollateratTypeTestdata
 	public final ULS_AssetCollateralTypeTestData getAssetCollateralTypeTestDataByName(String Username) {
 		return assetCollateratTypeTestdata.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
@@ -420,5 +516,15 @@ public class JsonConfig {
 	public final KULS_ApplicationDetails_AppDataEntry_Testdata getApplicationDetailsByName(String Username) {
 		return ApplicationDetails.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
-	
+	public final PropertyDetails_TestData getPropertyDetailByName(String User) {
+		return PropertyDetail.stream().filter(x -> x.user.equalsIgnoreCase(User)).findAny().get();
+	}
+	//ULS_CustomerAddressDetailsTestDataType> csutomerAddressDetails
+	public final ULS_CustomerAddressDetailsTestDataType getCustomerAddressDetailsTestdataByName(String User) {
+		return csutomerAddressDetails.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}	
+	//ULS_CustomerEmploymentDetailsTestdataType> customerEmploymentDetailsTestdata
+	public final ULS_CustomerEmploymentDetailsTestdataType getCustomerEmploymentDetailsTestdataByName(String User) {
+		return customerEmploymentDetailsTestdata.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}	
 }
