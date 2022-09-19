@@ -12,11 +12,14 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import testDataType.Charge_Master_Testdata;
+import testDataType.Customer_Empolyment_Testdata;
+import testDataType.Customer_address_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
 import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.ProjectMaster_UnitDetailsTestdata;
 import testDataType.PropertyDetails_TestData;
+import testDataType.PropetyDetails_TestDataType;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
 import testDataType.WarehouseTestdata;
@@ -53,6 +56,16 @@ public class JsonConfig {
 	private final String Propertypath = configFileReader.getJsonPath() + "Property_DetailsJSON.json";
 	private List<PropertyDetails_TestData> PropertyDetail;
 	
+	//Anandh
+	private final String uls_PropertyDetailsJsonfilepath = configFileReader.getJsonPath() + "PropertyDetailsJSON.json";
+	private List<PropetyDetails_TestDataType> uls_PropertyDetailsTestData;
+	
+	private final String Employepath = configFileReader.getJsonPath() + "Customer_EmployementJson.json";
+	private List<Customer_Empolyment_Testdata> EmployeDetail;
+	
+	private final String CustAddresspath = configFileReader.getJsonPath() + "Customer_addressJson.json";
+	private List<Customer_address_Testdata> CustAddressinfo;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -67,6 +80,72 @@ public class JsonConfig {
 		LivExpMst=getLivExpMst();
 		PerDetailEntry=getPerDetailEntry();
 		PropertyDetail=getPropertyDetail();
+		EmployeDetail=getEmployeDetail();
+		CustAddressinfo=getCustAddressinfo();
+		uls_PropertyDetailsTestData=getPropertyDetailsTestdata();
+	}
+	
+	//Anandh
+	private List<PropetyDetails_TestDataType> getPropertyDetailsTestdata()
+	{
+		Gson gson = new Gson();
+	JsonReader reader = new JsonReader(new StringReader(uls_PropertyDetailsJsonfilepath));
+	reader.setLenient(true);
+	BufferedReader bufferReader = null;
+	try {
+		bufferReader = new BufferedReader(new FileReader(uls_PropertyDetailsJsonfilepath));
+		PropetyDetails_TestDataType[] getPropertyDetailsTestData = gson.fromJson(bufferReader, PropetyDetails_TestDataType[].class);
+		return Arrays.asList(getPropertyDetailsTestData);
+	} catch (FileNotFoundException e) {
+		throw new RuntimeException("Json file not found at path : " + uls_PropertyDetailsJsonfilepath);
+	} finally {
+		try {
+			if (bufferReader != null)
+				bufferReader.close();
+		} catch (IOException ignore) {
+		}
+	}
+		
+	}
+	
+	private List<Customer_address_Testdata> getCustAddressinfo() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustAddresspath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustAddresspath));
+			Customer_address_Testdata[] address = gson.fromJson(bufferReader, Customer_address_Testdata[].class);
+			return Arrays.asList(address);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustAddresspath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	private List<Customer_Empolyment_Testdata> getEmployeDetail() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(Employepath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(Employepath));
+			Customer_Empolyment_Testdata[] Employee = gson.fromJson(bufferReader, Customer_Empolyment_Testdata[].class);
+			return Arrays.asList(Employee);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + Employepath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	
 	private List<PropertyDetails_TestData> getPropertyDetail() {
@@ -274,5 +353,17 @@ public class JsonConfig {
 	
 	public final PropertyDetails_TestData getPropertyDetailByName(String User) {
 		return PropertyDetail.stream().filter(x -> x.user.equalsIgnoreCase(User)).findAny().get();
+	}
+	
+	public final Customer_Empolyment_Testdata getCustEmployByName(String User) {
+		return EmployeDetail.stream().filter(x -> x.User.equalsIgnoreCase(User)).findAny().get();
+	}
+	
+	public final Customer_address_Testdata getCustaddressByName(String User) {
+		return CustAddressinfo.stream().filter(x -> x.user.equalsIgnoreCase(User)).findAny().get();
+	}
+	//PropetyDetails_TestDataType> uls_PropertyDetailsTestData
+	public final PropetyDetails_TestDataType getPropertyDetailsTestDataByName(String Username) {
+		return uls_PropertyDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

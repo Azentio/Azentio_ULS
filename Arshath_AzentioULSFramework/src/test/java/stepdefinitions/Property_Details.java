@@ -3,6 +3,7 @@ package stepdefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
@@ -10,6 +11,7 @@ import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import pageobjects.PersonalDetails_AppDataEntry_Obj;
 import pageobjects.PropertyDetails_Obj;
 import resources.BaseClass;
@@ -58,6 +60,7 @@ public class Property_Details extends BaseClass{
 
     @And("^user click First Record Edit Icon$")
     public void user_click_first_record_edit_icon() throws Throwable {
+    	Thread.sleep(1000);
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Edit(), 60, 5);
         PrpObj.Property_Details_Edit().click();
     }
@@ -118,8 +121,93 @@ public class Property_Details extends BaseClass{
 		}
     }
 	
+    @And("^user Modify the Construction Status$")
+    public void user_modify_the_construction_status() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Construction_Status(), 60, 5);
+    	PrpObj.Property_Details_Construction_Status().click();
+    	
+    	for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyConstructionStatus+" ']/parent::ion-item//ion-radio")).click();
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Modify the Property Category$")
+    public void user_modify_the_property_category() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Property_Category(), 60, 5);
+    	PrpObj.Property_Details_Property_Category().click();
+    	
+    	for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyPropertyCategory+" ']/parent::ion-item//ion-radio")).click();
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Modify the Nature of Property$")
+    public void user_modify_the_nature_of_property() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Nature_of_Property(), 60, 5);
+    	PrpObj.Property_Details_Nature_of_Property().click();
+    	
+    	for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyNatureofProperty+" ']/parent::ion-item//ion-radio")).click();
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Modify the Occupancy Status$")
+    public void user_modify_the_occupancy_status() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Occupancy_Status(), 60, 5);
+    	PrpObj.Property_Details_Occupancy_Status().click();
+    	
+    	for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyOccupancyStatus+" ']/parent::ion-item//ion-radio")).click();
+			} catch (Exception e) {
+				
+			}
+		}
+    }
 	
-	
+	//*******************@AT-PD-005*******************//
+    
+
+    @And("^user Blank fill the Mandatory field$")
+    public void user_blank_fill_the_mandatory_field() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Construction_Status(), 60, 5);
+    	PrpObj.Property_Details_Construction_Status().click();
+    	
+    	for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyBlank+" ']/parent::ion-item//ion-radio")).click();
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+    
+    @And("^user click the update button$")
+    public void user_click_the_update_button() throws Throwable {
+        javaHelper.scrollIntoView(AppDataEntry.customerPersonalDetails_Update());
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Update(), 60, 5);
+        AppDataEntry.customerPersonalDetails_Update().isDisplayed();
+        AppDataEntry.customerPersonalDetails_Update().click();      
+        
+    }
+    
+    @Then("^user verify the blank field and get the proper validation message$")
+    public void user_verify_the_blank_field_and_get_the_proper_validation_message() throws Throwable {
+    	String executeScript = (String) javaHelper.executeScript("return document.getElementsByTagName('ion-badge')[1].innerText");
+    	Assert.assertEquals(executeScript, "Required field");
+    }
 	
 	
 	

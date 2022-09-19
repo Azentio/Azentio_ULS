@@ -8,4 +8,9 @@ public class PropertyDetails_TestData {
 	public String ModifyPropertyType;
 	public String ModifyAPFstatus;
 	public String ApplicationID;
+	public String ModifyBlank;
+	public String ModifyOccupancyStatus;
+	public String ModifyPropertyCategory;
+	public String ModifyNatureofProperty;
+	public String ModifyConstructionStatus;
 }

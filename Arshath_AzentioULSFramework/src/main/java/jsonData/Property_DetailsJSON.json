@@ -5,7 +5,13 @@
 		"ModifyPropertyCity":"Beed",
 		"ModifyPropertyType":"House",
 		"ModifyAPFstatus":"NO",
-		"ApplicationID":"457"
+		"ApplicationID":"468",
+		"ModifyBlank":"Select",
+		"ModifyConstructionStatus":"Under construction",
+		"ModifyPropertyCategory":"Industrial",
+		"ModifyNatureofProperty":"Leasehold",
+		"ModifyOccupancyStatus":"Under construction"
+		
 	
 	
 	

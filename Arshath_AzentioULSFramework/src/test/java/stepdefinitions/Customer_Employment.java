@@ -15,6 +15,7 @@ import pageobjects.Trans_CustomerEmploymentObject;
 import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
+import testDataType.Customer_Empolyment_Testdata;
 import testDataType.KULS_Login_TestDataType;
 
 public class Customer_Employment extends BaseClass{
@@ -30,15 +31,17 @@ public class Customer_Employment extends BaseClass{
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	Trans_CustomerEmploymentObject Cust_Empl = new Trans_CustomerEmploymentObject(driver);
+	Customer_Empolyment_Testdata custemployedata = jsonConfig.getCustEmployByName("Maker");
 	PropertyDetails_Obj PrpObj = new PropertyDetails_Obj(driver);
 	PersonalDetails_AppDataEntry_Obj AppDataEntry = new PersonalDetails_AppDataEntry_Obj(driver);
+	
 	
 	
     @And("^user Enter Customer Employment Application ID$")
     public void user_enter_customer_employment_application_id() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Search_Input(), 60, 5);
     	AppDataEntry.Search_Input().click();
-    	AppDataEntry.Search_Input().sendKeys("435");
+    	AppDataEntry.Search_Input().sendKeys(custemployedata.ApplicationID);
     }
 	
     @And("^user click on Customer Financials Tab$")
@@ -58,7 +61,7 @@ public class Customer_Employment extends BaseClass{
     	javaHelper.scrollIntoView(Cust_Empl.Trans_CxFinancial_NoOFPartners());
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, Cust_Empl.Trans_CxFinancial_NoOFPartners(), 60, 5);
     	Cust_Empl.Trans_CxFinancial_NoOFPartners().click();
-    	Cust_Empl.Trans_CxFinancial_NoOFPartners().sendKeys("1234Abcd");
+    	Cust_Empl.Trans_CxFinancial_NoOFPartners().sendKeys(custemployedata.InvalidValue);
     	String attribute = Cust_Empl.Trans_CxFinancial_NoOFPartners_verification().getAttribute("ng-reflect-model");
     	int number = Integer.parseInt(attribute);
     	System.out.println("This field pass Numeric value only" +attribute);
@@ -74,7 +77,7 @@ public class Customer_Employment extends BaseClass{
     	javaHelper.scrollIntoView(Cust_Empl.Trans_CxFinancial_EmployeeID());
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, Cust_Empl.Trans_CxFinancial_EmployeeID(), 60, 5);
         Cust_Empl.Trans_CxFinancial_EmployeeID().click();
-        Cust_Empl.Trans_CxFinancial_EmployeeID().sendKeys("!@#$");
+        Cust_Empl.Trans_CxFinancial_EmployeeID().sendKeys(custemployedata.SpecialCharacter);
     }
 
 	

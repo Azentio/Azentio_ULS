@@ -55,6 +55,35 @@ public class PropertyDetails_Obj {
 		return Property_Details_APF_Status;
 	}
 	
+	@FindBy(xpath="//ion-label[text()=' Construction Status ']/parent::ion-item//ion-select")
+	private WebElement Property_Details_Construction_Status;
+	public WebElement Property_Details_Construction_Status()
+	{ 
+		return Property_Details_Construction_Status;
+	}
+	
+	@FindBy(xpath="//ion-label[text()=' Property Category ']//following-sibling::ion-select")
+	private WebElement Property_Details_Property_Category;
+	public WebElement Property_Details_Property_Category()
+	{ 
+		return Property_Details_Property_Category;
+	}
+	
+	@FindBy(xpath="//ion-label[text()=' Nature of Property ']//following-sibling::ion-select")
+	private WebElement Property_Details_Nature_of_Property;
+	public WebElement Property_Details_Nature_of_Property()
+	{ 
+		return Property_Details_Nature_of_Property;
+	}
+	
+	@FindBy(xpath="//ion-label[text()=' Occupancy Status ']//following-sibling::ion-select")
+	private WebElement Property_Details_Occupancy_Status;
+	public WebElement Property_Details_Occupancy_Status()
+	{ 
+		return Property_Details_Occupancy_Status;
+	}
+	
+	
 	@FindBy(xpath="//button[@ng-reflect-text='Update']")
 	private WebElement Property_Details_Update;
 	public WebElement Property_Details_Update() {
