@@ -81,10 +81,10 @@ public class KULS_Application_Login {
 		loginObj.signIn().click();
 		while (true) {
 			try {
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 3, 2);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 				loginObj.Menu().click();
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
-				assertEquals(loginObj.configuration().isDisplayed(), true);
+//				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 3, 2);
+//				assertEquals(loginObj.configuration().isDisplayed(), true);
 				break;
 			} catch (Exception e) {
 				String kulsApplicationUrl = configFileReader.getApplicationULSUrl();
