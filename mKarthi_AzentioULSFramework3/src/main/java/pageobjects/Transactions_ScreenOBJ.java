@@ -395,7 +395,7 @@ public class Transactions_ScreenOBJ {
 		return FacilityDetails_Currency;
 	
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Facility Type')]//following-sibling::ion-input//child::input")
+	@FindBy(xpath="//ion-label[contains(text(),'Facility Type')]//following-sibling::ion-select")
 	private WebElement FacilityDetails_FacilityType;
 	public WebElement FacilityDetails_FacilityType()
 	{
@@ -407,6 +407,13 @@ public class Transactions_ScreenOBJ {
 	public WebElement FacilityDetails_LoanTenure()
 	{
 		return FacilityDetails_LoanTenure;
+	
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Loan')]//following-sibling::ion-input")
+	private WebElement FacilityDetails_LoanTenure2;
+	public WebElement FacilityDetails_LoanTenure2()
+	{
+		return FacilityDetails_LoanTenure2;
 	
 	}
 	@FindBy(xpath="//ion-label[contains(text(),'Declared Asset Value')]//parent::div//following-sibling::div//p-inputnumber//input")
@@ -515,6 +522,12 @@ public class Transactions_ScreenOBJ {
 	public WebElement searchIcon() 
 	{
 		return searchIcon;
+	}
+	@FindBy(xpath="(//span[@class='p-button-icon pi pi-search'])")
+	private WebElement productViewSearchText2;
+	public WebElement productViewSearchText2() 
+	{
+		return productViewSearchText2;
 	}
 	@FindBy(xpath="//digital-form-error[@ng-reflect-msg='VAL.REQUIRED']//child::ion-badge")
 	private WebElement RequirdField;

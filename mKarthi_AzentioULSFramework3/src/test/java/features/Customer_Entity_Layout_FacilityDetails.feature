@@ -47,6 +47,7 @@ And User click the inbox mail icon in application detail offering
 And User click the action edit icon in customer entity layout facility details
 And User click the facility info tab in customer entity layout facility details
 And User verify system display the List view in customer entity layout facility details
+And User get the values in the saved record in customer entity layout facility details
 And User verify the impact post selecting any record from list view in customer entity layout facility details
 
 @AT-FD-004
@@ -81,7 +82,7 @@ And User click the inbox mail icon in application detail offering
 And User click the action edit icon in customer entity layout facility details
 And User click the facility info tab in customer entity layout facility details
 Then User click the action edit icon in conventional facility details
-And User verify the status button is active stage in application details new app
+And User verify the status button is active stage in conventional facility details
 And User click the status button in application details new app
 And User verify the status button is deactive stage in application details new app
 And User click the back button in customer entity layout facility details
@@ -92,10 +93,9 @@ Given User login as uls maker in transaction
 And User click the inbox mail icon in application detail offering
 And User click the action edit icon in customer entity layout facility details
 And User click the facility info tab in customer entity layout facility details
-And User verify the Facility Details details List view in customer entity layout facility details
 And User verify the Values in List view should be non editable in customer entity layout facility details
-And User verify the functionality of Add button in customer entity layout facility details
-And User verify the functionality of edit button in customer entity layout facility details
+#And User verify the functionality of Add button in customer entity layout facility details
+#And User verify the functionality of edit button in customer entity layout facility details
 And User verify the functionality of Search box with mismatch data in customer entity layout facility details
 And User verify the functionality of Search box with matching data in customer entity layout facility details
 And User verify the functionality of Export to PDF button in customer entity layout facility details

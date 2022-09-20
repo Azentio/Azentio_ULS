@@ -38,6 +38,8 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	SoftAssert softAssert = new SoftAssert();
 	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
+	String RequestedAmount;
+	String LoanTenure;
 	
 	
 	@Then("^User click the action edit icon in conventional facility details$")
@@ -46,6 +48,23 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ActionEditIcon(), 60, 5);
     	Transaction.FacilityDetails_ActionEditIcon().click();
         
+    }
+	@And("^User verify the status button is active stage in conventional facility details$")
+    public void user_verify_the_status_button_is_active_stage_in_conventional_facility_details() throws Throwable {
+        
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.StatusButton(), 60, 5);
+    	String Status = Transaction.StatusButton().getAttribute("aria-checked");
+    	
+    	if (Status.equalsIgnoreCase("true")) {
+    		
+    		System.out.println("Active Status");
+			
+		}else {
+			
+			System.out.println("Deactive status");
+		}
+
+		
     }
 
     @And("^User click the action edit icon in customer entity layout facility details$")
@@ -102,6 +121,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_PrimaryProduct(), 60, 5);
+    	Thread.sleep(2000);
     	Transaction.FacilityDetails_PrimaryProduct().click();
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PrimaryProduct+"')]//following-sibling::ion-radio";
@@ -126,6 +146,8 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
     	Transaction.FacilityDetails_PrimarySubProduct().click();
     	
+    	Thread.sleep(1000);
+    	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PrimarySubProduct+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
@@ -149,13 +171,13 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Scheme(), 60, 5);
     	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Scheme");
-
+    	Transaction.FacilityDetails_Scheme().click();
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_Scheme+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
-		    	Transaction.FacilityDetails_Scheme().click();
+		    	
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
@@ -193,10 +215,12 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     @And("^User enter the facility type in customer entity layout facility details$")
     public void user_enter_the_facility_type_in_customer_entity_layout_facility_details() throws Throwable {
     	
-    	//help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_FacilityType(), 60, 5);
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_FacilityType(), 60, 5);
+    	Transaction.FacilityDetails_FacilityType().click();
+    	
     	for(int i=0; i<20; i++) {
     		try {
-    			Transaction.FacilityDetails_FacilityType().click();
+    			
     	    	Transaction.FacilityDetails_FacilityType().sendKeys(Transactionjson.FacilityDetails_FacilityType);
     	    	break;
 			} catch (Exception e) {
@@ -218,7 +242,15 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_PricingOrInterestIndicator(), 60, 5);
     	
     	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Pricing or Interest Indicator");
-    	Transaction.FacilityDetails_PricingOrInterestIndicator().click();
+    	for(int i=0; i<20; i++) {
+    		try {
+    			Transaction.FacilityDetails_PricingOrInterestIndicator().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PricingOrInterestIndicator+"')]//following-sibling::ion-radio";
 
@@ -334,8 +366,16 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Expiry Date");
     	Transaction.FacilityDetails_ExpiryDate().click();
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Year(), 60, 5);
-    	Transaction.FacilityDetails_Year().click();
+    	//help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Year(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			Transaction.FacilityDetails_Year().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     	
     	String xpath = "//div[@class='p-yearpicker ng-tns-c230-18 ng-star-inserted']//child::span[contains(text(),'"+Transactionjson.FacilityDetails_Year+"')]";
 
@@ -347,7 +387,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 
 			} catch (Exception e) {
 				
-				Transaction.FacilityDetails_YearNext().click();
+				
 				
 
 			}
@@ -481,32 +521,17 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_LoanTenure(), 60, 5);
     	Transaction.FacilityDetails_LoanTenure().click();
     	Transaction.FacilityDetails_LoanTenure().sendKeys(Transactionjson.FacilityDetails_LoanTenureVerifySpecial);
-    	String attr1 = Transaction.FacilityDetails_LoanTenure().getAttribute("ng-reflect-model");
-    	Assert.assertEquals(attr1, Transactionjson.FacilityDetails_LoanTenureVerifySpecial);
+    	String attr1 = Transaction.FacilityDetails_LoanTenure2().getAttribute("ng-reflect-model");
+    	Assert.assertNotEquals(attr1, Transactionjson.FacilityDetails_LoanTenureVerifySpecial);
         
     }
 
     @And("^User verify the impact when user keep any mandatory field blank and click on save button in customer entity layout facility details$")
     public void user_verify_the_impact_when_user_keep_any_mandatory_field_blank_and_click_on_save_button_in_customer_entity_layout_facility_details() throws Throwable {
         
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ProgramCode(), 60, 5);
-    	Transaction.FacilityDetails_ProgramCode().click();
-    	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_ProgramCodeBlank+"')]//following-sibling::ion-radio";
-
-		for (int i = 1; i < 60; i++) {
-			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
-				driver.findElement(By.xpath(xpath)).click();
-				break;
-
-			} catch (Exception e) {
-
-			}
-		}
 		
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.UpdateSave(), 60, 5);
-    	Transaction.UpdateSave().click();
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.NewSave(), 60, 5);
+    	Transaction.NewSave().click();
     	
     	String ErrorMsg = Transaction.RequirdField().getText();
     	
@@ -528,8 +553,8 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	Transaction.FacilityDetails_ActionEditIcon().isDisplayed();
     	System.out.println("Edit Icon is available");
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.productViewSearchText(), 60, 5);
-    	Transaction.productViewSearchText().isDisplayed();
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.productViewSearchText2(), 60, 5);
+    	Transaction.productViewSearchText2().isDisplayed();
     	System.out.println("Search Icon is available");
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewProduct(), 60, 5);
@@ -556,28 +581,51 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	Transaction.FacilityDetails_ListViewStatus().isDisplayed();
     	System.out.println("Status is Displayed");
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewShowing(), 60, 5);
-    	Transaction.FacilityDetails_ListViewShowing().isDisplayed();
-    	System.out.println("Showing Entries is Displayed");
+    
     	
         
     }
-
-    @And("^User verify the impact post selecting any record from list view in customer entity layout facility details$")
-    public void user_verify_the_impact_post_selecting_any_record_from_list_view_in_customer_entity_layout_facility_details() throws Throwable {
+    
+    @And("^User get the values in the saved record in customer entity layout facility details$")
+    public void user_get_the_values_in_the_saved_record_in_customer_entity_layout_facility_details() throws Throwable {
+       
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ActionEditIcon(), 60, 5);
     	Transaction.FacilityDetails_ActionEditIcon().click();
     	
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_RequestedAmount(), 60, 5);
     	String RequestedAmount = Transaction.FacilityDetails_RequestedAmount().getAttribute("aria-valuenow");
     	
+    	
+    	System.out.println(Transaction.FacilityDetails_RequestedAmount().getAttribute("aria-valuenow"));
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_LoanTenure(), 60, 5);
     	String LoanTenure = Transaction.FacilityDetails_LoanTenure().getAttribute("ng-reflect-model");
+    	
+    	System.out.println(Transaction.FacilityDetails_LoanTenure().getAttribute("ng-reflect-model"));
+    	
+
+    }
+
+
+    @And("^User verify the impact post selecting any record from list view in customer entity layout facility details$")
+    public void user_verify_the_impact_post_selecting_any_record_from_list_view_in_customer_entity_layout_facility_details() throws Throwable {
+    	    	
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.GoBack(), 60, 5);
     	Transaction.GoBack().click();
     	
+    
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewVerifyRequested(), 60, 5);
     	String RequestedAmountListView = Transaction.FacilityDetails_ListViewVerifyRequested().getText();
+    	
+    	System.out.println(Transaction.FacilityDetails_ListViewVerifyRequested().getText());
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewVerifyTenure(), 60, 5);
     	String LoanTenureListView = Transaction.FacilityDetails_ListViewVerifyTenure().getText();
+    	
+    	System.out.println(Transaction.FacilityDetails_ListViewVerifyTenure().getText());
     	
     	Assert.assertEquals(RequestedAmount, RequestedAmountListView);
     	Assert.assertEquals(LoanTenure, LoanTenureListView);
@@ -805,6 +853,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ActionEditIcon(), 60, 5);
     	Transaction.FacilityDetails_ActionEditIcon().click();
+    	Thread.sleep(2000);
         
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.GoBack(), 60, 5);
     	Transaction.GoBack().click();
@@ -815,7 +864,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     @And("^User verify the functionality of Search box with mismatch data in customer entity layout facility details$")
     public void user_verify_the_functionality_of_search_box_with_mismatch_data_in_customer_entity_layout_facility_details() throws Throwable {
     	
-    	driver.findElement(By.xpath("//input[@mode='ios']//following-sibling::i")).click();
+    	driver.findElement(By.xpath("//button[@ng-reflect-text='Search']")).click();
 		for (int i = 0; i < 20; i++) {
 			try {
 				Transaction.searchIcon().click();
