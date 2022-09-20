@@ -115,9 +115,10 @@ public class ApplicationDetails_AppDataEntry {
 	public void select_the_value_in_primary_sub_product_field_of_application_details() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				applicationentryobj.AppDataEntry_PrimarySubProductField(), 60, 2);
-		applicationentryobj.AppDataEntry_PrimarySubProductField().click();
+		
 		for (int i = 0; i < 50; i++) {
 			try {
+				applicationentryobj.AppDataEntry_PrimarySubProductField().click();
 				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.PrimarySubProduct
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
@@ -210,7 +211,10 @@ public class ApplicationDetails_AppDataEntry {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				applicationentryobj.AppDataEntry_ServicingTypeField(), 60, 2);
 		applicationentryobj.AppDataEntry_ServicingTypeField().click();
-		for (int i = 0; i < 50; i++) {
+		
+		Thread.sleep(2000);
+		
+		for (int i = 0; i < 20; i++) {
 			try {
 				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.ServicingType
 						+ "')]/following-sibling::ion-radio")).click();
@@ -283,14 +287,18 @@ public class ApplicationDetails_AppDataEntry {
 
 	@And("^Select the value in Sourcing staff field of Application details$")
 	public void select_the_value_in_sourcing_staff_field_of_application_details() throws Throwable {
+		
+		seleniumactions.getJavascriptHelper().scrollIntoView(applicationentryobj.AppDataEntry_SourcingStaffField());
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				applicationentryobj.AppDataEntry_SourcingStaffField(), 60, 2);
 		applicationentryobj.AppDataEntry_SourcingStaffField().click();
+		Thread.sleep(2000);
 		for (int i = 0; i < 50; i++) {
 			try {
 				seleniumactions.getClickAndActionsHelper()
 						.moveToElement(driver.findElement(By.xpath("//ion-label[contains(text(),'"
 								+ applicationdetailsData.SourcingStaff + "')]/following-sibling::ion-radio")));
+				
 				seleniumactions.getClickAndActionsHelper()
 						.clickOnElement(driver.findElement(By.xpath("//ion-label[contains(text(),'"
 								+ applicationdetailsData.SourcingStaff + "')]/following-sibling::ion-radio")));
@@ -353,8 +361,9 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_ReferenceTypeField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.ReferenceType
-						+ "')]/following-sibling::ion-radio")).click();
+				WebElement element = driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.ReferenceType
+						+ "')]/following-sibling::ion-radio"));
+				element.click();
 				break;
 			} catch (Exception e) {
 			}

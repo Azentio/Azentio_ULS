@@ -92,5 +92,20 @@ public class WaitHelper {
     return element1;
   
     }
+	
+	//Fluent wait
+		public static WebElement waitForElementwithFluentwait(WebDriver driver, WebElement element) 
+		{ 	
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+					.withTimeout(Duration.ofSeconds(10)) 
+					.pollingEvery(Duration.ofMillis(500))
+					.ignoring(Exception.class);
+//			WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(element));
+			WebElement element1 = wait.until(ExpectedConditions.visibilityOf(element));
+			return element1;
+		}
+		
+	
+		
 
 }

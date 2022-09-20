@@ -17,6 +17,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
@@ -36,6 +37,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	SoftAssert softAssert = new SoftAssert();
+	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
 	
 	
 	@Then("^User click the action edit icon in conventional facility details$")
@@ -121,12 +123,15 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     public void user_enter_the_primary_sub_product_in_customer_entity_layout_facility_details() throws Throwable {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_PrimarySubProduct(), 60, 5);
+    	
     	Transaction.FacilityDetails_PrimarySubProduct().click();
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PrimarySubProduct+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
+				
+				
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
@@ -143,12 +148,14 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     public void user_enter_the_scheme_in_customer_entity_layout_facility_details() throws Throwable {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Scheme(), 60, 5);
-    	Transaction.FacilityDetails_Scheme().click();
+    	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Scheme");
+
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_Scheme+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
+		    	Transaction.FacilityDetails_Scheme().click();
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
@@ -209,6 +216,8 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     public void user_enter_the_pricing_or_interest_indicator_in_customer_entity_layout_facility_details() throws Throwable {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_PricingOrInterestIndicator(), 60, 5);
+    	
+    	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Pricing or Interest Indicator");
     	Transaction.FacilityDetails_PricingOrInterestIndicator().click();
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PricingOrInterestIndicator+"')]//following-sibling::ion-radio";
@@ -294,6 +303,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     public void user_enter_the_currency_in_customer_entity_layout_facility_details() throws Throwable {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Currency(), 60, 5);
+    	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Currency");
     	Transaction.FacilityDetails_Currency().click();
     	
     	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_Currency+"')]//following-sibling::ion-radio";
@@ -321,6 +331,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
 
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ExpiryDate(), 60, 5);
+    	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Expiry Date");
     	Transaction.FacilityDetails_ExpiryDate().click();
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Year(), 60, 5);

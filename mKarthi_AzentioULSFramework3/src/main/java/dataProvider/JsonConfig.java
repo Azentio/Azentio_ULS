@@ -11,12 +11,16 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.ApplicationDetailsOfferingTestDataType;
 import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.ApplicationDisbursementMakerTestData;
 import testDataType.AppropriationMasterTestDataType;
 import testDataType.Asset_CD_MasterTestDataType;
+import testDataType.CustomerPersonalDetailDisbursementCheckerTestDataType;
+import testDataType.CustomerPersonalDetailOfferingTestDataType;
 import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
 import testDataType.KULS_Login_TestDataType;
+import testDataType.PersonalDetails_DisbursementMakerTestDataType;
 import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.ProjectMasterTestDataType;
 import testDataType.ReportMasterTestDataType;
@@ -43,6 +47,21 @@ public class JsonConfig {
 	
 	private final String DisbursementMakerPath = configFileReader.getJsonPath() + "Application_DisbursementMakerJSON.json";
 	private List<ApplicationDisbursementMakerTestData> disbursementMaker;
+	
+	private final String CustomerPersonalDetailOfferingPath = configFileReader.getJsonPath() + "CustomerPersonalDetailOfferingJSON.json";
+	private List<CustomerPersonalDetailOfferingTestDataType> CustomerPersonalDetailOfferingList;
+	
+	private final String ApplicationDetailsOfferingPath = configFileReader.getJsonPath() + "ApplicationDetailsOfferingJSON.json";
+	private List<ApplicationDetailsOfferingTestDataType> ApplicationDetailsOfferingList;
+	
+	private final String CustomerPersonalDetailDisbursementCheckerPath = configFileReader.getJsonPath() + "CustomerPersonalDetailDisbursementCheckerJSON.json";
+	private List<CustomerPersonalDetailDisbursementCheckerTestDataType> CustomerPersonalDetailDisbursementCheckerList;
+	
+	private final String PersonalDetails_DisbursementMakerPath = configFileReader.getJsonPath() + "PersonalDetails_DisbursementMakerJSON.json";
+	private List<PersonalDetails_DisbursementMakerTestDataType> PersonalDetails_DisbursementMakerList;
+
+	
+	
 
 	
 	
@@ -101,8 +120,94 @@ public class JsonConfig {
 		applicationDetailsNEWAPData=getApplicationDetailsNEWAPP();
 		ApplicationDetails = getApplicationDetailsList();
 		disbursementMaker = getdisbursementMaker();
+		CustomerPersonalDetailOfferingList = getCustomerPersonalDetailOfferingList();
+		ApplicationDetailsOfferingList = getApplicationDetailsOfferingList();
+		CustomerPersonalDetailDisbursementCheckerList = getCustomerPersonalDetailDisbursementCheckerList();
+		PersonalDetails_DisbursementMakerList = getPersonalDetails_DisbursementMakerList();
 
 	}
+	
+	private List<PersonalDetails_DisbursementMakerTestDataType> getPersonalDetails_DisbursementMakerList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(PersonalDetails_DisbursementMakerPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(PersonalDetails_DisbursementMakerPath));
+			PersonalDetails_DisbursementMakerTestDataType[] personalDetailsDisbursementMaker= gson.fromJson(bufferReader, PersonalDetails_DisbursementMakerTestDataType[].class);
+			return Arrays.asList(personalDetailsDisbursementMaker);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + PersonalDetails_DisbursementMakerPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+	
+	private List<CustomerPersonalDetailDisbursementCheckerTestDataType> getCustomerPersonalDetailDisbursementCheckerList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustomerPersonalDetailDisbursementCheckerPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustomerPersonalDetailDisbursementCheckerPath));
+			CustomerPersonalDetailDisbursementCheckerTestDataType[] CustomerPersonalDetailDisbursementChecker = gson.fromJson(bufferReader, CustomerPersonalDetailDisbursementCheckerTestDataType[].class);
+			return Arrays.asList(CustomerPersonalDetailDisbursementChecker);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustomerPersonalDetailDisbursementCheckerPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	private List<ApplicationDetailsOfferingTestDataType> getApplicationDetailsOfferingList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ApplicationDetailsOfferingPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ApplicationDetailsOfferingPath));
+			ApplicationDetailsOfferingTestDataType[] ApplicationDetailsOffering = gson.fromJson(bufferReader, ApplicationDetailsOfferingTestDataType[].class);
+			return Arrays.asList(ApplicationDetailsOffering);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ApplicationDetailsOfferingPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	private List<CustomerPersonalDetailOfferingTestDataType> getCustomerPersonalDetailOfferingList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustomerPersonalDetailOfferingPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustomerPersonalDetailOfferingPath));
+			CustomerPersonalDetailOfferingTestDataType[] CustomerPersonalDetailOffering = gson.fromJson(bufferReader, CustomerPersonalDetailOfferingTestDataType[].class);
+			return Arrays.asList(CustomerPersonalDetailOffering);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustomerPersonalDetailOfferingPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
 	
 	private List<ApplicationDisbursementMakerTestData> getdisbursementMaker() {
 		Gson gson = new Gson();
@@ -416,6 +521,24 @@ public class JsonConfig {
 	public final ApplicationDisbursementMakerTestData getApplication_DisbursementMakerListByName(String User) {
 		return disbursementMaker.stream().filter(x -> x.User.equalsIgnoreCase(User)).findAny().get();
 	}
+	
+	public final CustomerPersonalDetailOfferingTestDataType getCustomerPersonalDetailOfferingByName(String Username) {
+		return CustomerPersonalDetailOfferingList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final ApplicationDetailsOfferingTestDataType getApplicationDetailsOfferingByName(String Username) {
+		return ApplicationDetailsOfferingList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final CustomerPersonalDetailDisbursementCheckerTestDataType getCustomerPersonalDetailDisbursementCheckerByName(String Username) {
+		return CustomerPersonalDetailDisbursementCheckerList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final PersonalDetails_DisbursementMakerTestDataType getPersonalDetails_DisbursementMakerByName(String Username) {
+		return PersonalDetails_DisbursementMakerList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+    }
+
+	
 	
 
 }
