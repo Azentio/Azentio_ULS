@@ -11,8 +11,10 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.AppDocumentDetailsTestData;
 import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.AssetAutoMaster_TestData;
+import testDataType.CustomerFinancialsTestData;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.Product_RetailMasterTestData;
 import testDataType.SubProductMaster_RetailTestData;
@@ -48,6 +50,12 @@ public class JsonConfig {
 	//ApplicationDetailsNEWAPP
 	private final String applicationNEWAPPPath = configFileReader.getJsonPath() + "ApplicationDetails_NEWAPP.json";
 	private List<ApplicationDetails_NEWAPPTestData> applicationDetailsNEWAPData;
+	//ApplicationDocumentDetails
+	private final String applicationDocumentDetailsPath = configFileReader.getJsonPath() + "AppDocumentDetails.json";
+	private List<AppDocumentDetailsTestData> applicationDocumentDetailsData;
+	//CustomerFinancials
+	private final String CustomerFinancialsPath = configFileReader.getJsonPath() + "CustomerFinancial.json";
+	private List<CustomerFinancialsTestData> CustomerFinancialsTestData;
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -61,7 +69,51 @@ public class JsonConfig {
 		SubParameternegative = getSubParameterNegativeList();
 		assetAutoMasterData =getAssetAutoMaster();
 		applicationDetailsNEWAPData=getApplicationDetailsNEWAPP();
+		applicationDocumentDetailsData=getApplicationDocumentDetails();
+		CustomerFinancialsTestData=getCustomerFinancialsData();
 	}
+	//CustomerFinancialsData
+	private List<CustomerFinancialsTestData> getCustomerFinancialsData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustomerFinancialsPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustomerFinancialsPath));
+			CustomerFinancialsTestData[] customerFinancialsData = gson.fromJson(bufferReader,
+					CustomerFinancialsTestData[].class);
+			return Arrays.asList(customerFinancialsData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustomerFinancialsPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	//ApplicationDocumenttails
+			private List<AppDocumentDetailsTestData> getApplicationDocumentDetails() {
+				Gson gson = new Gson();
+				JsonReader reader = new JsonReader(new StringReader(applicationDocumentDetailsPath));
+				reader.setLenient(true);
+				BufferedReader bufferReader = null;
+				try {
+					bufferReader = new BufferedReader(new FileReader(applicationDocumentDetailsPath));
+					AppDocumentDetailsTestData[] applicationDocumentDetails = gson.fromJson(bufferReader,
+							AppDocumentDetailsTestData[].class);
+					return Arrays.asList(applicationDocumentDetails);
+				} catch (FileNotFoundException e) {
+					throw new RuntimeException("Json file not found at path : " + applicationDocumentDetailsPath);
+				} finally {
+					try {
+						if (bufferReader != null)
+							bufferReader.close();
+					} catch (IOException ignore) {
+					}
+				}
+			}
 	//ApplicationDetails
 		private List<ApplicationDetails_NEWAPPTestData> getApplicationDetailsNEWAPP() {
 			Gson gson = new Gson();
@@ -104,8 +156,6 @@ public class JsonConfig {
 			}
 		}
 	}
-	
-	
 	// sub product retail
 	private List<SubProductRetailParameterTestDataType> getSubproductRetailparameter() {
 		Gson gson = new Gson();
@@ -267,5 +317,13 @@ public class JsonConfig {
 		public final ApplicationDetails_NEWAPPTestData getApplicationDetailsNEWAPPListByName(String Username) {
 		    return applicationDetailsNEWAPData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 			}
+		// applicationDocumetDetails
+				public final AppDocumentDetailsTestData getApplicationDocumentDetailsistByName(String Username) {
+				    return applicationDocumentDetailsData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+					}
+				// CustomerFinancialTestData
+				public final testDataType.CustomerFinancialsTestData getCustomerFinancialsDataListByName(String Username) {
+				    return CustomerFinancialsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+					}
 	
 }
