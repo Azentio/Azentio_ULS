@@ -3,7 +3,7 @@
 		"user": "Maker",
 		"ApplicationId":"506",
 		"Addresstype": "Home",
-		"AddressStatus": "Current",
+		"AddressStatus": "Previous",
 		"Residentalstatus": "Financed",
 		"AddressLine1":"2B",
 		"AddressLine2":"ABCD",
@@ -30,9 +30,16 @@
 		
 		
 		"MODIFYAddresstype": "Home",
-		"MODIFYAddressStatus": "Previous",
+		"MODIFYAddressStatus": "Current",
 		"MODIFYResidentalstatus": "Dormitory",
 		"MODIFYProvinceID": "",
-		"MODIFYCityID": ""
+		"MODIFYCityID": "",
+		
+		"UpdateAddresstype":"Head Quarter Address",
+		"UpdateAddressStatus":"Previous",
+		"UpdateResidentalstatus":"Commercial rent",
+		"UpdateAddressLine1":"ABCHOME",
+		"UpdateAddressLine2":"ABCAREA"
+		
 		}
 ]

@@ -67,7 +67,7 @@ public class Customer_Address_Information extends BaseClass{
     	Assert.assertTrue(addressObj.Address_Address_Status().isDisplayed());
     	
     	addressObj.Address_Address_Status().click();
-    	String Xpath = "//ion-label[text()=' "+custaddressdata.AddressStatus+" ']/parent::ion-item//ion-radio";
+    	String Xpath = "//ion-label[contains(text(),'"+custaddressdata.AddressStatus+"')]/parent::ion-item//ion-radio";
     	for (int i = 0; i < 50; i++) {
 			try {
 				
@@ -411,8 +411,94 @@ public class Customer_Address_Information extends BaseClass{
 	
 	
 	
+	//*************@AT-CAD-006***********************//
 	
-	
+
+    @And("^user Try to change the Address Type field$")
+    public void user_try_to_change_the_address_type_field() throws Throwable {
+    	javaHelper.scrollIntoView(addressObj.Address_Address_Type());
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Type(), 60, 2);
+    	Assert.assertTrue(addressObj.Address_Address_Type().isDisplayed());
+    	
+    	addressObj.Address_Address_Type().click();
+    	String Xpath = "//ion-label[text()=' "+custaddressdata.UpdateAddresstype+" ']/parent::ion-item//ion-radio";
+    	for (int i = 0; i < 50; i++) {
+			try {
+				
+				driver.findElement(By.xpath(Xpath)).click();
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Try to change the Address status field$")
+    public void user_try_to_change_the_address_status_field() throws Throwable {
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Status(), 60, 2);
+    	Assert.assertTrue(addressObj.Address_Address_Status().isDisplayed());
+    	
+    	addressObj.Address_Address_Status().click();
+    	String Xpath = "//ion-label[contains(text(),'"+custaddressdata.UpdateAddressStatus+"')]/parent::ion-item//ion-radio";
+    	for (int i = 0; i < 50; i++) {
+			try {
+				
+				driver.findElement(By.xpath(Xpath)).click();
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Try to change the Residental status field$")
+    public void user_try_to_change_the_residental_status_field() throws Throwable {
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Residential_or_Occupancy_Status(), 60, 2);
+    	Assert.assertTrue(addressObj.Address_Residential_or_Occupancy_Status().isDisplayed());
+    	addressObj.Address_Residential_or_Occupancy_Status().click();
+    	for (int i = 0; i < 50; i++) {
+			try {
+				
+				driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.UpdateResidentalstatus+" ']/parent::ion-item//ion-radio")).click();
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Try to change the Address Line 1 field$")
+    public void user_try_to_change_the_address_line_1_field() throws Throwable {
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Line_1(), 60, 2);
+     	Assert.assertTrue(addressObj.Address_Address_Line_1().isDisplayed());
+     	addressObj.Address_Address_Line_1().click();
+     	for (int i = 0; i < 50; i++) {
+ 			try {
+ 				
+ 				addressObj.Address_Address_Line_1().sendKeys(custaddressdata.UpdateAddressLine1);
+ 				break;
+ 			} catch (Exception e) {
+ 				
+ 			}
+ 		}
+    }
+
+    @And("^user Try to change the  Address Line 2 field$")
+    public void user_try_to_change_the_address_line_2_field() throws Throwable {
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Line_2(), 60, 2);
+    	Assert.assertTrue(addressObj.Address_Address_Line_2().isDisplayed());
+    	addressObj.Address_Address_Line_2().click();
+    	for (int i = 0; i < 50; i++) {
+			try {
+				
+				addressObj.Address_Address_Line_2().sendKeys(custaddressdata.UpdateAddressLine2);
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
 	
 	
 	
@@ -431,6 +517,7 @@ public class Customer_Address_Information extends BaseClass{
 	
 	
 	//*************@AT-CAD-007***********************//
+    
 	   @And("^user Enter Customer Address details Application ID$")
 	    public void user_enter_customer_address_details_application_id() throws Throwable {
 	    	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Search_Input(), 60, 5);
@@ -456,7 +543,7 @@ public class Customer_Address_Information extends BaseClass{
 		       addressObj.Address_Address_Type().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
-					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.Addresstype+" ']/parent::ion-item//ion-radio")).click();
+					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.MODIFYAddresstype+" ']/parent::ion-item//ion-radio")).click();
 					break;
 				} catch (Exception e) {
 
@@ -466,14 +553,18 @@ public class Customer_Address_Information extends BaseClass{
 
 	    @And("^user Modify the Address Status field$")
 	    public void user_modify_the_address_status_field() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Status(), 10, 2);
-		       addressObj.Address_Address_Status().click();
-		       for (int i = 0; i < 50; i++) {
+	        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Status(), 60, 2);
+	    	Assert.assertTrue(addressObj.Address_Address_Status().isDisplayed());
+	    	
+	    	addressObj.Address_Address_Status().click();
+	    	String Xpath = "//ion-label[contains(text(),'"+custaddressdata.MODIFYAddressStatus+"')]/parent::ion-item//ion-radio";
+	    	for (int i = 0; i < 50; i++) {
 				try {
-					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.AddressStatus+" ']/parent::ion-item//ion-radio")).click();
+					
+					driver.findElement(By.xpath(Xpath)).click();
 					break;
 				} catch (Exception e) {
-
+					
 				}
 			}
 	    }
@@ -484,7 +575,7 @@ public class Customer_Address_Information extends BaseClass{
 		       addressObj.Address_Residential_or_Occupancy_Status().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
-					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.Residentalstatus+" ']/parent::ion-item//ion-radio")).click();
+					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.MODIFYResidentalstatus+" ']/parent::ion-item//ion-radio")).click();
 					break;
 				} catch (Exception e) {
 
@@ -498,7 +589,7 @@ public class Customer_Address_Information extends BaseClass{
 		       addressObj.Address_Province_id().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
-					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.ProvinceID+" ']/parent::ion-item//ion-radio")).click();
+					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.MODIFYProvinceID+" ']/parent::ion-item//ion-radio")).click();
 					break;
 				} catch (Exception e) {
 
@@ -512,7 +603,7 @@ public class Customer_Address_Information extends BaseClass{
 		       addressObj.Address_City_id().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
-					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.CityID+" ']/parent::ion-item//ion-radio")).click();
+					driver.findElement(By.xpath("//ion-label[text()=' "+custaddressdata.MODIFYCityID+" ']/parent::ion-item//ion-radio")).click();
 					break;
 				} catch (Exception e) {
 

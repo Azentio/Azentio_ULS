@@ -34,4 +34,9 @@ public class Customer_address_Testdata {
 	public String MODIFYResidentalstatus;
 	public String MODIFYProvinceID;
 	public String MODIFYCityID;
+	public String UpdateAddresstype;
+	public String UpdateAddressStatus;
+	public String UpdateResidentalstatus;
+	public String UpdateAddressLine1;
+	public String UpdateAddressLine2;
 }
