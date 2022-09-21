@@ -20,6 +20,7 @@ import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.PropertyDetails_TestData;
 import testDataType.PropetyDetails_TestDataType;
 import testDataType.ULS_AssetCollateralTypeTestData;
+import testDataType.ULS_BeneficiaryDetailsTestData;
 import testDataType.ULS_CheckerTestData;
 import testDataType.ULS_CustomerAddressDetailsTestDataType;
 import testDataType.ULS_CustomerEmploymentDetailsTestdataType;
@@ -80,6 +81,9 @@ public class JsonConfig {
 	private final String customerEmploymentDetailsFilePath = configFileReader.getJsonPath() + "ULS_CustomerEmploymentDetailsJSON.json";
 	private List<ULS_CustomerEmploymentDetailsTestdataType> customerEmploymentDetailsTestdata;
 	
+	private final String ulsBeneficiaryDetailsFilePath = configFileReader.getJsonPath() + "ULS_BeneficiaryDetailsJSON.json";
+	private List<ULS_BeneficiaryDetailsTestData> ulsBeneficiaryDetailsTestData;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -101,6 +105,26 @@ public class JsonConfig {
 		ApplicationDetails = getApplicationDetailsList();
 		PerDetailEntry=getPerDetailEntry();
 		csutomerAddressDetails=getCustomerAddressDetailsList();
+		ulsBeneficiaryDetailsTestData=getBeneficiaryDetailsTestData();
+	}
+	private List<ULS_BeneficiaryDetailsTestData> getBeneficiaryDetailsTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ulsBeneficiaryDetailsFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ulsBeneficiaryDetailsFilePath));
+			ULS_BeneficiaryDetailsTestData[] ulsBeneficiaryDetailsTestdata = gson.fromJson(bufferReader, ULS_BeneficiaryDetailsTestData[].class);
+			return Arrays.asList(ulsBeneficiaryDetailsTestdata);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ulsBeneficiaryDetailsFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	private List<ULS_CustomerEmploymentDetailsTestdataType> getCustomerEmploymentDetailsDetailsTestData() {
 		// TODO Auto-generated method stub
@@ -527,4 +551,8 @@ public class JsonConfig {
 	public final ULS_CustomerEmploymentDetailsTestdataType getCustomerEmploymentDetailsTestdataByName(String User) {
 		return customerEmploymentDetailsTestdata.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
 	}	
+	//ULS_BeneficiaryDetailsTestData> ulsBeneficiaryDetailsTestData
+	public final ULS_BeneficiaryDetailsTestData getBeneficiaryDetailsTestDataByName(String User) {
+		return ulsBeneficiaryDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}
 }
