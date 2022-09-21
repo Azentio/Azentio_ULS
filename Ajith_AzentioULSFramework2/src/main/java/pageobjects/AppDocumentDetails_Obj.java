@@ -146,7 +146,7 @@ public class AppDocumentDetails_Obj {
     public WebElement documentDetailsSave() {
         return documentDetailsSave;
     } 
-    @FindBy(xpath="//div[@role='alert']")
+    @FindBy(xpath="//div[@aria-label='Success']")
     private WebElement successMgs;
     public WebElement successMgs() {
     	return successMgs;

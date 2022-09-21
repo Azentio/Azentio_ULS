@@ -360,7 +360,7 @@ public class CustomerEmployment_LayoutObject {
 	public WebElement CustomerEmployment_BackButtonButton() {
 		return CustomerEmployment_BackButtonButton1;
 	}
-	@FindBy(xpath="//div[@role='alert']")
+	@FindBy(xpath="//div[@aria-label='Success']")
     private WebElement successMgs;
     public WebElement successMgs() {
     	return successMgs;

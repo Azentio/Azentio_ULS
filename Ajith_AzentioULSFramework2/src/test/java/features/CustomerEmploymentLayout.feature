@@ -1,4 +1,6 @@
 Feature: testing the functionalities of customer financials transaction screen
+# this test case includes manual testcases CES_03_01 ,CES_03_02
+@AT-CE-005
 Scenario: Updation of before approved record in customer financials screeen 
 Given user login as a cent bank uls application
 When user click the inbox icon for application new app
