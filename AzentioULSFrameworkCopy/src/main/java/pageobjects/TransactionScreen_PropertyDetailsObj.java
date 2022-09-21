@@ -77,7 +77,8 @@ public class TransactionScreen_PropertyDetailsObj {
 		return propertyDetails_SearchCloseButton;
 	}
 		
-	@FindBy(xpath="//ion-label[text()='Property Details']//parent::ion-segment-button")
+//	@FindBy(xpath="//ion-label[text()='Property Details']//parent::ion-segment-button")
+	@FindBy(xpath="//ion-modal[1]/descendant::ion-segment-button[11]")
 	private WebElement appdataEntry_PropertyDetailsTab;
 	public WebElement appdataEntryPropertyDetailsTab()
 	{

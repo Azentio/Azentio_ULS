@@ -1,1 +1,1 @@
-file:src/test/java/features/PropertyDetails.feature:4
+file:src/test/java/features/CustomerDocumentDetails.feature:4

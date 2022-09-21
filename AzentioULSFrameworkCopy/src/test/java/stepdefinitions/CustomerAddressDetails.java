@@ -105,6 +105,7 @@ public class CustomerAddressDetails {
     	driver.findElement(By.xpath(beforexpath +customerAddressDetailsTestDataType.CustomerFirstName+ afterxpath)).click();
     	
     }
+    
     @Then("^click on add button of Address details from the customer identification screen$")
     public void click_on_add_button_of_address_details_from_the_customer_identification_screen() throws Throwable {
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetails());

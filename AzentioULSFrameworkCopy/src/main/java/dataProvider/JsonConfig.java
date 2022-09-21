@@ -15,6 +15,8 @@ import testDataType.ApplicationDetailsOfferingTestDataType;
 import testDataType.AssetCollateralTypeTestDataType;
 import testDataType.CovenantMasterTestDataType;
 import testDataType.CustomerAddressDetailsTestDataType;
+import testDataType.CustomerDocumentDetailsTestDataType;
+import testDataType.CustomerEmploymentTestDataType;
 import testDataType.CustomerPersonalDetailDisbursementCheckerTestDataType;
 import testDataType.CustomerPersonalDetailOfferingTestDataType;
 import testDataType.KULS_Login_TestDataType;
@@ -49,6 +51,8 @@ public class JsonConfig {
 		CustomerPersonalDetailDisbursementCheckerList = getCustomerPersonalDetailDisbursementCheckerList();
 		CustomerAddressDetailsList = getCustomerAddressDetailsList();
 		PropertyDetailsList = getPropertyDetailsList();
+		CustomerEmploymentList = getCustomerEmploymentList();
+		CustomerDocumentDetailsList = getCustomerDocumentDetailsList();
 		
 		assetCollateratTypeTestdata=getAssetCollateralTypeTestData();
 		
@@ -435,5 +439,59 @@ public class JsonConfig {
 	}
 	public final PropertyDetailsTestDataType getPropertyDetailsByName(String Username) {
 		return PropertyDetailsList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+// 	CustomerEmploymentDetails
+	private final String CustomerEmploymentPath = configFileReader.getJsonPath() + "CustomerEmploymentJSON.json";
+	private List<CustomerEmploymentTestDataType> CustomerEmploymentList;
+	
+	private List<CustomerEmploymentTestDataType> getCustomerEmploymentList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustomerEmploymentPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustomerEmploymentPath));
+			CustomerEmploymentTestDataType[] CustomerEmployment = gson.fromJson(bufferReader, CustomerEmploymentTestDataType[].class);
+			return Arrays.asList(CustomerEmployment);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustomerEmploymentPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final CustomerEmploymentTestDataType getCustomerEmploymentByName(String Username) {
+		return CustomerEmploymentList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	// 	CustomerDocumentDetails
+	private final String CustomerDocumentDetailsPath = configFileReader.getJsonPath() + "CustomerDocumentDetailsJSON.json";
+	private List<CustomerDocumentDetailsTestDataType> CustomerDocumentDetailsList;
+	
+	private List<CustomerDocumentDetailsTestDataType> getCustomerDocumentDetailsList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustomerDocumentDetailsPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustomerDocumentDetailsPath));
+			CustomerDocumentDetailsTestDataType[] CustomerDocumentDetails = gson.fromJson(bufferReader, CustomerDocumentDetailsTestDataType[].class);
+			return Arrays.asList(CustomerDocumentDetails);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustomerDocumentDetailsPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final CustomerDocumentDetailsTestDataType getCustomerDocumentDetailsByName(String Username) {
+		return CustomerDocumentDetailsList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
 	}
 }
