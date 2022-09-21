@@ -1,0 +1,58 @@
+[
+	{
+		"Users" : "Maker",
+		"CustType" : "Individual Customer",
+		"CIFID":"165",
+		"ApplicationNo":"561",
+		"CustName":"Azentio",
+		"IDType":"Aadhar",
+		"IDNo":"789465132078",
+		"MobileNo":"9865327410",
+		"Currentyear":"2022",
+		"Date":"23",
+		"Month":"Nov",
+		"year":"2001",
+		"EmailID":"Azentio@gmail.com",
+		"ApplicantType":"Primary Applicant",
+		"Salutation":"Mr",
+		"FirstName":"A",
+		"MiddleName":"saS",
+		"LastName":"Arshath",
+		"FatherFirstName":"Asa",
+		"FatherMiddleName":"Ssa",
+		"FatherLastName":"Arshath",
+		"SpouseFirstName":"Asa",
+		"SpouseMiddleName":"Sas",
+		"SpouseLastName":"Searching",
+		"NoOfChildren":"0",
+		"SpouseStatus":"Not Working",
+		"Gender":"MALE",
+		"EduLevel":"UG",
+		"Maritalstatus":"Single",
+		"Nationality":"Indian",
+		"Ethinicity":"Asian",
+		"Religion":"MUSLIM",
+		"Residentalstatus":"Resident",
+		"Language":"English",
+		"NoOfDependents":"1",
+		"MothersMaidenName":"Worker",
+		"TypeofResidence":"Financed",
+		"CategoryOfClient":"CO-OPERATIVE SOCIETY",
+		"Rating":"5",
+		"Remarks":"okay",
+		"PhoneNumber":"9876543210",
+		"MobileNumberprimary":"9638527410",
+		"MobileNumbersecondary":"9865327410",
+		"EMAIL":"arshath@gmail.com",
+		"PREFEREDCONTACTDETAILS":"01:00",
+		"PREFEREDCONTACTMethod":"Mobile",
+		
+		// Modify
+		"ModifyApplicantType":"Guarantor",
+		
+		//verification
+		"Numeric":"1234",
+		"Characteric":"ABCD"
+		
+	}
+]

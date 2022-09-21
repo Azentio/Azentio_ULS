@@ -1,0 +1,23 @@
+[{
+
+"UserType":"Maker",
+"Template":"Language Id",
+"Parameter1":"Test1",
+"Param1Description1":"TestEng1",
+"Param1Description2":"TestEng1",
+"Param1Description3":"TestEng1",
+"Parameter2":"Test2",
+"Param2Description2":"TestEng1",
+"Param2Description3":"TestEng1",
+"IsMandatory":"Yes",
+"SequenceNo":"001",
+"DateFormat":"Dec1",
+"NullableValues":"1",
+"PopupRemarks":"Submit",
+"MasterID":"MST_REPORT",
+"AvailableAndSelected":"GST",
+"GroupName":"TestReport1",
+"GroupDescription":"TestEng1",
+"MinParametersRequired":"1"
+
+}]
