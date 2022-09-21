@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import dataProvider.JsonConfig;
 import helper.ClicksAndActionsHelper;
@@ -11,7 +12,6 @@ import helper.JavascriptHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import pageobjects.ULS_CustomerAddressDetailsObj;
 import pageobjects.ULS_CustomerEmploymentDetailsObj;
 import resources.BaseClass;
 import testDataType.ULS_CustomerEmploymentDetailsTestdataType;
@@ -25,6 +25,7 @@ public class ULS_CustomerEmploymentDetails_Steps extends BaseClass {
 	WaitHelper waitHelper = new WaitHelper(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
+	SoftAssert softAssert = new SoftAssert();
 
 	@And("^go to customer financial tab$")
 	public void go_to_customer_financial_tab() throws Throwable {
@@ -417,12 +418,151 @@ public class ULS_CustomerEmploymentDetails_Steps extends BaseClass {
 				}
 			}
 		}
-		if(status==true)
-		{
+		if (status == true) {
 			Assert.assertEquals(
 					customerEmploymentDetailsObj.customerEmploymentDetailsretirementAgeYearsFieldvalidation().getText(),
-					customerEmploymentDetailsTestdata.mandatoryBlankFieldValidation);			
+					customerEmploymentDetailsTestdata.mandatoryBlankFieldValidation);
+		} else {
+			softAssert.assertTrue(status,
+					" Retirement field is mandatory field but it not through the blank field validation while saving hence test step failed");
+
 		}
+	}
+
+	@Then("^verify employer name field should through the validation for special character input$")
+	public void verify_employer_name_field_should_through_the_validation_for_special_character_input()
+			throws Throwable {
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper.scrollIntoView(customerEmploymentDetailsObj.Trans_CxFinancialEmployerNameIfOther());
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		customerEmploymentDetailsObj.Trans_CxFinancialEmployerNameIfOther()
+				.sendKeys(customerEmploymentDetailsTestdata.specialCharacterInput);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerNameIfOtherFieldvalidation(), 10, 1);
+		Assert.assertEquals(
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerNameIfOtherFieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.SpecialCharacterFieldValidation);
+	}
+
+	@Then("^verify employee ID field should through the validation for special character input$")
+	public void verify_employee_id_field_should_through_the_validation_for_special_character_input() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.Trans_CxFinancial_EmployeeID(), 10, 1);
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployeeID().clear();
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployeeID()
+				.sendKeys(customerEmploymentDetailsTestdata.specialCharacterInput);
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployeeIDFieldvalidation(), 10, 1);
+		Assert.assertEquals(customerEmploymentDetailsObj.customerEmploymentDetailsEmployeeIDFieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.SpecialCharacterFieldValidation);
+
+	}
+
+	@Then("^verify Direct manager phone number field should through the validation for special character input$")
+	public void verify_direct_manager_phone_number_field_should_through_the_validation_for_special_character_input()
+			throws Throwable {
+		for (int i = 0; i <= 20; i++) {
+			try {
+				javascriptHelper
+						.scrollIntoView(customerEmploymentDetailsObj.Trans_CxFinancial_directManagerTelephone());
+				break;
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		customerEmploymentDetailsObj.Trans_CxFinancial_directManagerTelephone()
+				.sendKeys(customerEmploymentDetailsTestdata.specialCharacterInput);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.Trans_CxFinancial_directManagerTelephone(), 10, 1);
+		Assert.assertEquals(
+				customerEmploymentDetailsObj.customerEmploymentDetailsDirectManagerTelePhoneFieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.SpecialCharacterFieldValidation);
+	}
+
+	@Then("^verify employer phone number field should through the validation for special character input$")
+	public void verify_employer_phone_number_field_should_through_the_validation_for_special_character_input()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber(), 10, 1);
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber().clear();
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber()
+				.sendKeys(customerEmploymentDetailsTestdata.specialCharacterInput);
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerPhoneNumberFieldvalidation(), 10, 1);
+		Assert.assertEquals(
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerPhoneNumberFieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.MobileNumberValidation1);
+
+	}
+
+	@Then("^verify Direct Manager field should through the validation for special character input$")
+	public void verify_direct_manager_field_should_through_the_validation_for_special_character_input()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.Trans_CxFinancial_DirectManager(), 10, 1);
+		customerEmploymentDetailsObj.Trans_CxFinancial_DirectManager().clear();
+		customerEmploymentDetailsObj.Trans_CxFinancial_DirectManager()
+				.sendKeys(customerEmploymentDetailsTestdata.specialCharacterInput);
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsDirectManagerFieldvalidation(), 10, 1);
+		Assert.assertEquals(
+				customerEmploymentDetailsObj.customerEmploymentDetailsDirectManagerFieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.SpecialCharacterFieldValidation);
+	}
+
+	@Then("^verify system should not allow user to enter more that 10 digit phone number and less than 10 digit phone number in employer phone number field$")
+	public void verify_system_should_not_allow_user_to_enter_more_that_10_digit_phone_number_and_less_than_10_digit_phone_number_in_employer_phone_number_field()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber(), 10, 1);
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber().clear();
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber()
+				.sendKeys(customerEmploymentDetailsTestdata.lessThanTenDigitPhoneNumber);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation(), 10, 1);
+		Assert.assertEquals(
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.MobileNumberValidation2);
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber().clear();
+		customerEmploymentDetailsObj.Trans_CxFinancial_EmployerPhoneNumber()
+				.sendKeys(customerEmploymentDetailsTestdata.greaterThatTeonDigitPhoneNumber);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation(), 10, 1);
+		Assert.assertEquals(
+				customerEmploymentDetailsObj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation().getText(),
+				customerEmploymentDetailsTestdata.MobileNumberValidation2);
+	}
+
+	@Then("^verify the functionlaity of back button in customer EmploymentDetails screen$")
+	public void verify_the_functionlaity_of_back_button_in_customer_employmentdetails_screen() throws Throwable {
+		for (int i = 0; i <= 10; i++) {
+			try {
+				javascriptHelper.scrollIntoView(customerEmploymentDetailsObj.customerEmploymentDetailsBackButton());
+				break;
+			} catch (Exception e) {
+				if (i == 10) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		customerEmploymentDetailsObj.customerEmploymentDetailsBackButton().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerEmploymentDetailsObj.customerEmploymentDetailsBackButtonVerification(), 10, 1);
+		Assert.assertTrue(customerEmploymentDetailsObj.customerEmploymentDetailsBackButtonVerification().isDisplayed());
+		softAssert.assertAll();
+
 	}
 
 }

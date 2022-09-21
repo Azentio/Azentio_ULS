@@ -553,4 +553,16 @@ public class ULS_CustomerEmploymentDetailsObj {
 	public WebElement customerEmploymentDetailsEmploymentTypeFieldvalidation() {
 		return customerEmploymentDetails_EmploymentTypeFieldvalidation;
 	}
+	@FindBy(xpath="(//button[@ng-reflect-text='Go Back'])[2]")
+	private WebElement customerEmploymentDetails_BackButton;
+
+	public WebElement customerEmploymentDetailsBackButton() {
+		return customerEmploymentDetails_BackButton;
+	}
+	@FindBy(xpath="//ion-title[text()=' Customer Employment List ']")
+	private WebElement customerEmploymentDetails_BackButtonVerification;
+
+	public WebElement customerEmploymentDetailsBackButtonVerification() {
+		return customerEmploymentDetails_BackButtonVerification;
+	}	
 }

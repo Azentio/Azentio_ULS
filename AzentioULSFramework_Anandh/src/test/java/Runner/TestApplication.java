@@ -8,14 +8,14 @@ import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features/ULS_PropertyDetailsfEATURE.feature", 
+@CucumberOptions(features = "src/test/java/features", 
                  glue = "stepdefinitions",
 		         //monochrome=false, //to make steps in color
 		         plugin = { "pretty",
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"}
 				//dryRun = false //to check compilation errors
-		, tags="@AT_PD_005" 
+		, tags="@AT_CEL_001" 
 
 )
 public class TestApplication extends AbstractTestNGCucumberTests {

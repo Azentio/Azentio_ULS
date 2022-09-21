@@ -194,14 +194,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsSecurityTypeDropDown().click();
 		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.SecurityType
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 20; i++) {
+		for (int i = 0; i <= 50; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 20) {
+				if (i == 50) {
 					Assert.fail(e.getMessage());
 				}
 			}
