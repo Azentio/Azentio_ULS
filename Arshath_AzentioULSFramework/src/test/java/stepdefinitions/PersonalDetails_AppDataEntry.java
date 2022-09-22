@@ -1140,6 +1140,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Save(), 60, 5);
         AppDataEntry.customerPersonalDetails_Save().isDisplayed();
         AppDataEntry.customerPersonalDetails_Save().click();
+        Thread.sleep(1000);
         Assert.assertEquals("Success", AppDataEntry.customerPersonalDetails_Alert().getText());
         
     }

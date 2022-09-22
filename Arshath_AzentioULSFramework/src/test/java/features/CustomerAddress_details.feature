@@ -15,9 +15,9 @@ And user verify the Residental status field and choose the value
 And user verify the Address Line 1 field and Enter the Vaue
 And user verify the Address Line 2 field and Enter the Vaue
 And user verify the country field and choose the value
-#And user verify the Province Id field and choose the value
+And user verify the Province Id field and choose the value
 And user verify the District Name field and Enter the value
-#And user verify the city Id field and choose the value
+And user verify the city Id field and choose the value
 And user verify the Zip code field and Enter the value
 And user verify the PO Box Number field and Enter the value
 And user verify the Mobile Number primary field and Enter the value
@@ -34,7 +34,7 @@ And user verify the Frequency of Rent field and choose the value
 And user click the Save the button
 
 @AT_CAD_06
-Scenario: verify post clicking on Add button, the Customer Address Information screen is getting open with all valid fields
+Scenario:  verify system allow user to modify the Customer Address Information before approve the record
 Given User Launch the KULS url for Transaction
 And user click on Inbox Icon
 And user click search icon
@@ -49,9 +49,9 @@ And user verify the Residental status field and choose the value
 And user verify the Address Line 1 field and Enter the Vaue
 And user verify the Address Line 2 field and Enter the Vaue
 And user verify the country field and choose the value
-#And user verify the Province Id field and choose the value
+And user verify the Province Id field and choose the value
 And user verify the District Name field and Enter the value
-#And user verify the city Id field and choose the value
+And user verify the city Id field and choose the value
 And user verify the Zip code field and Enter the value
 And user verify the PO Box Number field and Enter the value
 And user verify the Mobile Number primary field and Enter the value
@@ -70,7 +70,7 @@ And user Try to change the Address status field
 And user Try to change the Residental status field
 And user Try to change the Address Line 1 field
 And user Try to change the  Address Line 2 field
-
+And user click the Save the button
 @AT_CAD_07
 Scenario: verify system allow user to do a modification on already approved record
 Given User Launch the KULS url for Transaction
@@ -85,5 +85,5 @@ And user Modify the Address type field
 And user Modify the Address Status field
 And user Modify the Residental status field
 #And user Modify the Province ID field
-#And user Modify the City ID field
+And user Modify the City ID field
 And user click the update the button

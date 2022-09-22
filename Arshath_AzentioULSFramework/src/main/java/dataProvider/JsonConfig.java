@@ -22,6 +22,7 @@ import testDataType.PropertyDetails_TestData;
 import testDataType.PropetyDetails_TestDataType;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
+import testDataType.TransactionScreenTestDataType;
 import testDataType.WarehouseTestdata;
 
 //master
@@ -66,6 +67,9 @@ public class JsonConfig {
 	private final String CustAddresspath = configFileReader.getJsonPath() + "Customer_addressJson.json";
 	private List<Customer_address_Testdata> CustAddressinfo;
 	
+	private final String TransactionScreenDataPath = configFileReader.getJsonPath() + "TransactionScreenJSON.json";
+	private List<TransactionScreenTestDataType> TransactionScreen;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -83,6 +87,7 @@ public class JsonConfig {
 		EmployeDetail=getEmployeDetail();
 		CustAddressinfo=getCustAddressinfo();
 		uls_PropertyDetailsTestData=getPropertyDetailsTestdata();
+		TransactionScreen = getTransactionScreenList();
 	}
 	
 	//Anandh
@@ -107,7 +112,27 @@ public class JsonConfig {
 	}
 		
 	}
+	//Transaction Screen
 	
+	private List<TransactionScreenTestDataType> getTransactionScreenList() {
+		Gson gson2 = new Gson();
+		JsonReader reader2 = new JsonReader(new StringReader(TransactionScreenDataPath));
+		reader2.setLenient(true);
+		BufferedReader bufferReader1 = null;
+		try {
+			bufferReader1 = new BufferedReader(new FileReader(TransactionScreenDataPath));
+			TransactionScreenTestDataType[] TransactionScreen = gson2.fromJson(bufferReader1, TransactionScreenTestDataType[].class);
+			return Arrays.asList(TransactionScreen);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + TransactionScreenDataPath);
+		} finally {
+			try {
+				if (bufferReader1 != null)
+					bufferReader1.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
 	private List<Customer_address_Testdata> getCustAddressinfo() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(CustAddresspath));
@@ -365,5 +390,10 @@ public class JsonConfig {
 	//PropetyDetails_TestDataType> uls_PropertyDetailsTestData
 	public final PropetyDetails_TestDataType getPropertyDetailsTestDataByName(String Username) {
 		return uls_PropertyDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//TransactionScreen
+	
+	public final TransactionScreenTestDataType getTransactionScreenListByName(String Username) {
+		return TransactionScreen.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

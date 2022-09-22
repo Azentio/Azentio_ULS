@@ -54,7 +54,7 @@ public class PersonalDetails_AppDataEntry_Obj {
 		return Search_Input;
 	}
 	
-	@FindBy(xpath="//td[contains(text(),'APPDATAENT')]/parent::tr/td/button[1]")
+	@FindBy(xpath="//tr[1]//td[text()=' APPDATAENT ']/parent::tr//td[1]//button[1]")
 	private WebElement Inbox_Edit;
 	public WebElement Inbox_Edit()
 	{ 

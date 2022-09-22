@@ -527,19 +527,19 @@ public class Customer_Address_Information extends BaseClass{
 
 	    @And("^user click on Additional customer Info Tab$")
 	    public void user_click_on_additional_customer_info_tab() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Additional_Customer_Info_Tab(), 10, 2);
+			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Additional_Customer_Info_Tab(), 30, 2);
 		       addressObj.Address_Additional_Customer_Info_Tab().click();
 	    }
 
 	    @And("^user click on Address Information First Record Edit Icon$")
 	    public void user_click_on_address_information_first_record_edit_icon() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Edit_Icon(), 10, 2);
+			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Edit_Icon(), 30, 2);
 		       addressObj.Address_Edit_Icon().click();
 	    }
 
 	    @And("^user Modify the Address type field$")
 	    public void user_modify_the_address_type_field() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Type(), 10, 2);
+			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Address_Type(), 30, 2);
 		       addressObj.Address_Address_Type().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
@@ -571,7 +571,7 @@ public class Customer_Address_Information extends BaseClass{
 
 	    @And("^user Modify the Residental status field$")
 	    public void user_modify_the_residental_status_field() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Residential_or_Occupancy_Status(), 10, 2);
+			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Residential_or_Occupancy_Status(), 30, 2);
 		       addressObj.Address_Residential_or_Occupancy_Status().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
@@ -585,7 +585,7 @@ public class Customer_Address_Information extends BaseClass{
 
 	    @And("^user Modify the Province ID field$")
 	    public void user_modify_the_province_id_field() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Province_id(), 10, 2);
+			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Province_id(), 30, 2);
 		       addressObj.Address_Province_id().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
@@ -599,7 +599,8 @@ public class Customer_Address_Information extends BaseClass{
 
 	    @And("^user Modify the City ID field$")
 	    public void user_modify_the_city_id_field() throws Throwable {
-			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_City_id(), 10, 2);
+	    	Thread.sleep(5000);
+			   waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_City_id(), 30, 2);
 		       addressObj.Address_City_id().click();
 		       for (int i = 0; i < 50; i++) {
 				try {
