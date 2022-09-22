@@ -27,13 +27,13 @@
 		"ReferenceIdChecker"  	:	"313",
 		
 		
-		"ReferenceIdCustomerAddressDetails":	"606",
+		"ReferenceIdCustomerAddressDetails":	"617",
 		"AddressLine1"				:	"Samta Colony",
 		"AddressLine2"				:	"Station Road",
 		"NeighbourhoodDistrictName" :	"Mumbai",
 		"MobileNumberprimary"		:	"9123423456",
 		"ZipCode"					:	"492001",
-		"OccupancyDate"				:	"06-Sep-2020"
+		"OccupancyDate"				:	"20-Sep-2020"
 		
 	}
 ]

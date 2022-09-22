@@ -1,6 +1,8 @@
 package stepdefinitions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -220,22 +222,26 @@ public class Customer_AddressDetails extends BaseClass{
 
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField(), 10, 1);
 	    	customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().isDisplayed();
-	    	customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().sendKeys(PDDMTestDataType.OccupancyDate);
-	    	customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().sendKeys(Keys.ENTER);
-	    	    	break;
+//	    	customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().click();
+//	    	customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().sendKeys(PDDMTestDataType.OccupancyDate);
+//    		customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().sendKeys(Keys.ENTER);
+	    	customer_AddressDetailsObj.Customer_AddressDetails_OccupancyDateField().click();
+	
+	    	break;
     	}catch(Exception e) {}
     } 
-//	    	while(true) {
-//		    	try{
-//			    	clicksAndActionsHelper.moveToElement(customer_AddressDetailsObj.Customer_AddressDetails_TodayDate());
-//
-//			    	waithelper.waitForElementToVisibleWithFluentWait(driver, customer_AddressDetailsObj.Customer_AddressDetails_TodayDate(), 10, 1);
-//			    	customer_AddressDetailsObj.Customer_AddressDetails_TodayDate().click();
-//			    	break;
-//		    	}catch(Exception e) {}
-//		    } 
+	    	while(true) {
+		    	try{
+			    	clicksAndActionsHelper.moveToElement(customer_AddressDetailsObj.Customer_AddressDetails_TodayDate());
 
-		    	
+			    	waithelper.waitForElementToVisibleWithFluentWait(driver, customer_AddressDetailsObj.Customer_AddressDetails_TodayDate(), 10, 1);
+			    	//customer_AddressDetailsObj.Customer_AddressDetails_TodayDate().click();
+			    	//clicksAndActionsHelper.doubleClick(customer_AddressDetailsObj.Customer_AddressDetails_TodayDate());
+			    	javaScriptHelper.JSEClick(customer_AddressDetailsObj.Customer_AddressDetails_TodayDate());
+			    	break;
+		    	}catch(Exception e) {}
+		    } 
+	    	
 	    }
 
 	    @Then("^click on save button of Address Detail$")
@@ -244,15 +250,19 @@ public class Customer_AddressDetails extends BaseClass{
 
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, customer_AddressDetailsObj.Customer_AddressDetails_AddressDetailsSaveButton(), 10, 1);
 		 	customer_AddressDetailsObj.Customer_AddressDetails_AddressDetailsSaveButton().click(); 
-		 	Thread.sleep(3000);
 		 	
-		 	while(true) {
+		 	
+		 	
+		 	for(int i=1; i <=10; i++) {
 			    try {
-			    	String successMsg = javaScriptHelper.executeScript(
-			    	"return document.querySelector('ion-toast').shadowRoot.querySelector('div[class=toast-message]')").toString();
-			    	//String successmsg = successMsg.getText();
-			    	 System.out.println("success msg : "+successMsg);
-			    	 break;
+			    	waithelper.waitForElementToVisibleWithFluentWait(driver, customer_AddressDetailsObj.Customer_AddressDetails_SaveConfirmationMessage(), 10, 1);
+				 	customer_AddressDetailsObj.Customer_AddressDetails_SaveConfirmationMessage().isDisplayed();
+				 	String savemsg = customer_AddressDetailsObj.Customer_AddressDetails_SaveConfirmationMessage().getText();
+				 	System.out.println("save msg : "+savemsg);
+			    	waithelper.waitForElementToVisibleWithFluentWait(driver, customer_AddressDetailsObj.Customer_AddressDetails_SaveConfirmationMessageCloseButton(), 10, 1);
+				 	customer_AddressDetailsObj.Customer_AddressDetails_SaveConfirmationMessageCloseButton().click();
+
+				 	break;
 			    	} 
 			    	catch (Exception e) {}
 			    

@@ -118,7 +118,7 @@ public class Customer_AddressDetailsObj {
 	}
 
 	// Additional Customer Info segment button
-	@FindBy(xpath = "//ion-segment-button[@id='seg3']")
+	@FindBy(xpath = "//ion-label[text()='Additional Customer Info']/parent::ion-segment-button")
 	private WebElement Customer_AddressDetails_AdditionalCustomerInfo;
 
 	public WebElement Customer_AddressDetails_AdditionalCustomerInfo() {
@@ -189,7 +189,7 @@ public class Customer_AddressDetailsObj {
 	}
 
 //  Residential or Occupancy Status  Dropdown
-	@FindBy(xpath = "//ion-label[contains(text(),'Self owned')]/../ion-radio")
+	@FindBy(xpath = "//ion-label[contains(text(),'Dormitory')]/../ion-radio")
 	private WebElement Customer_AddressDetails_ResidentialOrOccupancyStatusDropdown;
 
 	public WebElement Customer_AddressDetails_ResidentialOrOccupancyStatusDropdown() {
@@ -284,7 +284,16 @@ public class Customer_AddressDetailsObj {
 		return Customer_AddressDetails_OccupancyDateField;
 	}
 	
-	@FindBy(xpath = "//body/div[2]/div[2]/button[1]")
+	
+	// ClickOnNextMonth
+		@FindBy(xpath = "//body/div[1]/div[1]/div[1]/div[1]/button[2]/span[1]")
+		private WebElement Customer_AddressDetails_ClickOnNextMonth;
+
+		public WebElement Customer_AddressDetails_ClickOnNextMonth() {
+			return Customer_AddressDetails_ClickOnNextMonth;
+		}
+		
+	@FindBy(xpath = "//span[contains(text(),'Today')]")
 	private WebElement Customer_AddressDetails_TodayDate;
 
 	public WebElement Customer_AddressDetails_TodayDate() {
