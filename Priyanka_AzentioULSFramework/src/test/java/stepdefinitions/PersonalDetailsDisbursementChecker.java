@@ -50,16 +50,20 @@ public class PersonalDetailsDisbursementChecker extends BaseClass {
 	@Then("^Validate Personal Details Disbursement Checker Add button$")
 	public void validate_personal_details_disbursement_checker_add_button()  {
 
-		waithelper.waitForElementToVisibleWithFluentWait(driver, PDDCObj.PDDC_AddButton(), 10, 1);
-		PDDCObj.PDDC_AddButton().click();
-		System.out.println("add button present");
-			Assert.assertTrue(false);
+		
+		while(true){	
+			try {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, PDDCObj.PDDC_AddButton(), 10, 1);
+				PDDCObj.PDDC_AddButton().isDisplayed();
+				System.out.println("add button present");
+				Assert.assertTrue(false);
+			} catch (Exception e) {
+			}
+			System.out.println("add button is not present");
 
-			
+		}
 
+	   
 	}
-
-	
-
 	
 }

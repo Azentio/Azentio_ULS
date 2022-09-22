@@ -95,7 +95,7 @@ public class IncomeDetails extends BaseClass {
 	    @Then("^Validate Auto populated Employment field$")
 	    public void validate_auto_populated_employment_field()  {
 	    	 waithelper.waitForElementToVisibleWithFluentWait(driver, incomeDetailsObj.IncomeDetails_EmploymentType(), 10, 1);
-	    	 String employmentType = incomeDetailsObj.IncomeDetails_EmploymentType().getText(); 
+	    	 String employmentType = incomeDetailsObj.IncomeDetails_EmploymentType().getText();
 	    	 System.out.println("Auto populated Employment field : " +employmentType);
 	    	 Assert.assertEquals("Salaried", employmentType);
 	    }

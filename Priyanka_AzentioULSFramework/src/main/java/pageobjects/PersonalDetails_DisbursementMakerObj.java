@@ -86,14 +86,14 @@ public class PersonalDetails_DisbursementMakerObj {
 		return PDDM_CustomerDetails_ActionEdit;
 	}
 
-	// CustomerType
-	@FindBy(xpath = "//ion-col[2]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	// CustomerType //ion-col[2]/digital-select-layout[1]/ion-item[1]/ion-select[1]
+	@FindBy(xpath = "//ion-label[contains(text(),'Customer Type')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_CustomerType;
 
 	public WebElement PDDM_CustomerDetails_CustomerType() {
 		return PDDM_CustomerDetails_CustomerType;
 	}
-
+	
 	// CustomerTypeDropdown
 	@FindBy(xpath = "//ion-label[contains(text(),'Corporate Customer')]/../ion-radio")
 	private WebElement PDDM_CustomerDetails_CustomerTypeDropdown;
@@ -103,7 +103,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// ApplicantType
-	@FindBy(xpath = "//ion-col[3]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Applicant Type')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_ApplicantType;
 
 	public WebElement PDDM_CustomerDetails_ApplicantType() {
@@ -119,7 +119,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Salutation
-	@FindBy(xpath = "//ion-col[4]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Salutation')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_Salutation;
 
 	public WebElement PDDM_CustomerDetails_Salutation() {
@@ -137,7 +137,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	// First Name
 	// @FindBy(xpath = "//ion-label[text()=' First Name
 	// ']//following-sibling::ion-input")
-	@FindBy(xpath = "//ion-input[@ng-reflect-model='Mahesh']")
+	@FindBy(xpath = "//ion-col[6]/digital-text-box[1]/ion-item[1]/ion-input[1]")
 	private WebElement PDDM_CustomerDetails_FirstName;
 
 	public WebElement PDDM_CustomerDetails_FirstName() {
@@ -145,7 +145,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Middle Name
-	@FindBy(xpath = "//ion-col[7]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]")
+	@FindBy(xpath = "//ion-col[7]/digital-text-box[1]/ion-item[1]/ion-input[1]")
 	private WebElement PDDM_CustomerDetails_MiddleName;
 
 	public WebElement PDDM_CustomerDetails_MiddleName() {
@@ -153,15 +153,31 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Last Name
-	@FindBy(xpath = "//ion-col[8]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]")
+	@FindBy(xpath = "//ion-col[8]/digital-text-box[1]/ion-item[1]/ion-input[1]")
 	private WebElement PDDM_CustomerDetails_LastName;
 
 	public WebElement PDDM_CustomerDetails_LastName() {
 		return PDDM_CustomerDetails_LastName;
 	}
+	
+	// DateOfBirth get Text
+		@FindBy(xpath = "//input[@id='icon']/ancestor::digital-prime-date")
+		private WebElement PDDM_CustomerDetails_DateOfBirth;
+
+		public WebElement PDDM_CustomerDetails_DateOfBirth() {
+			return PDDM_CustomerDetails_DateOfBirth;
+		}
+		
+		// DateOfBirth Calendar
+		@FindBy(xpath = "//digital-prime-date[1]/div[1]/ion-item[1]/p-calendar[1]/span[1]/button[1]")
+		private WebElement PDDM_CustomerDetails_DateOfBirthCalendar;
+
+		public WebElement PDDM_CustomerDetails_DateOfBirthCalendar() {
+			return PDDM_CustomerDetails_DateOfBirthCalendar;
+		}
 
 	// Gender
-	@FindBy(xpath = "//ion-col[18]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Gender')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_Gender;
 
 	public WebElement PDDM_CustomerDetails_Gender() {
@@ -177,7 +193,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Education Level
-	@FindBy(xpath = "//ion-col[19]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Education Level')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_EdcuationLevel;
 
 	public WebElement PDDM_CustomerDetails_EdcuationLevel() {
@@ -193,7 +209,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Marital Status
-	@FindBy(xpath = "//ion-col[20]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Marital Status')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_MaritalStatus;
 
 	public WebElement PDDM_CustomerDetails_MaritalStatus() {
@@ -209,23 +225,23 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Nationality
-	@FindBy(xpath = "//ion-col[21]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Nationality')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_Nationality;
 
 	public WebElement PDDM_CustomerDetails_Nationality() {
 		return PDDM_CustomerDetails_Nationality;
 	}
 
-	// Ethinicity
-	@FindBy(xpath = "//ion-col[22]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
-	private WebElement PDDM_CustomerDetails_Ethinicity;
+	// Category
+	@FindBy(xpath = "//ion-label[contains(text(),'Category')]/../ion-select")
+	private WebElement PDDM_CustomerDetails_Category;
 
-	public WebElement PDDM_CustomerDetails_Ethinicity() {
-		return PDDM_CustomerDetails_Ethinicity;
+	public WebElement PDDM_CustomerDetails_Category() {
+		return PDDM_CustomerDetails_Category;
 	}
 
 	// Religion
-	@FindBy(xpath = "//ion-col[23]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Religion')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_Religion;
 
 	public WebElement PDDM_CustomerDetails_Religion() {
@@ -233,7 +249,7 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Resident Status
-	@FindBy(xpath = "//ion-col[24]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Residential Status')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_ResidentStatus;
 
 	public WebElement PDDM_CustomerDetails_ResidentStatus() {
@@ -241,27 +257,44 @@ public class PersonalDetails_DisbursementMakerObj {
 	}
 
 	// Language
-	@FindBy(xpath = "//ion-col[25]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Language')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_Language;
 
 	public WebElement PDDM_CustomerDetails_Language() {
 		return PDDM_CustomerDetails_Language;
 	}
+	
+	// No of Dependents
+		@FindBy(xpath = "//ion-row[1]/ion-col[26]/digital-text-box[1]/ion-item[1]/ion-input[1]")
+		private WebElement PDDM_CustomerDetails_NoOfDependents;
+
+		public WebElement PDDM_CustomerDetails_NoOfDependents() {
+			return PDDM_CustomerDetails_NoOfDependents;
+		}
+		// Mothers Maiden Name
+		@FindBy(xpath = "//ion-row[1]/ion-col[27]/digital-text-box[1]/ion-item[1]/ion-input[1]")
+		private WebElement PDDM_CustomerDetails_MothersMaidenName;
+
+		public WebElement PDDM_CustomerDetails_MothersMaidenName() {
+			return PDDM_CustomerDetails_MothersMaidenName;
+		}
+		
+	
 
 	// TypeOfResidence
-	@FindBy(xpath = "//ion-col[28]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),'Type of Residence')]/../ion-select")
 	private WebElement PDDM_CustomerDetails_TypeOfResidence;
 
 	public WebElement PDDM_CustomerDetails_TypeOfResidence() {
 		return PDDM_CustomerDetails_TypeOfResidence;
 	}
 
-	// CategoryOfClient
-	@FindBy(xpath = "//ion-col[29]/digital-select-layout[1]/ion-item[1]/ion-select[1]")
-	private WebElement PDDM_CustomerDetails_CategoryOfClient;
+	// Industry Segmentation
+	@FindBy(xpath = "//ion-label[contains(text(),'Industry Segmentation')]/../ion-select")
+	private WebElement PDDM_CustomerDetails_IndustrySegmentation;
 
-	public WebElement PDDM_CustomerDetails_CategoryOfClient() {
-		return PDDM_CustomerDetails_CategoryOfClient;
+	public WebElement PDDM_CustomerDetails_IndustrySegmentation() {
+		return PDDM_CustomerDetails_IndustrySegmentation;
 	}
 	// BlackListed
 
