@@ -3,6 +3,7 @@ package testDataType;
 public class CustomerDocumentDetailsTestDataType {
 	public String User;
 	public String EditText;
+	public String InvalidInput;
 	
 	public String ReferenceID;
 	public String Number;
