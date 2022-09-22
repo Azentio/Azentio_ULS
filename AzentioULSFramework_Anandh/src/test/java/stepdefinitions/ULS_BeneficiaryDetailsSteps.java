@@ -23,6 +23,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	KULS_CommonWebElements ulsCommonWebElementObj = new KULS_CommonWebElements(driver);
+	KULS_CommonWebElements commonWebObj = new KULS_CommonWebElements(driver);
 	JsonConfig jsonConfig = new JsonConfig();
 	ULS_BeneficiaryDetailsTestData beneficiaryDetailsTestdata = jsonConfig.getBeneficiaryDetailsTestDataByName("Maker");
 
@@ -56,7 +57,16 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 	public void click_on_add_button_on_beneficiary_details_screen() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryDetailsObj.beneficiaryDetailsAddButton(),
 				10, 1);
-		beneficiaryDetailsObj.beneficiaryDetailsAddButton().click();
+		for (int i = 0; i <= 10; i++) {
+			try {
+				beneficiaryDetailsObj.beneficiaryDetailsAddButton().click();
+				break;
+			} catch (Exception e) {
+				if (i == 10) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 	}
 
 	@Then("^verify user can able to update the facility application ID field$")
@@ -401,7 +411,8 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			throws Throwable {
 
 		for (int i = 0; i < 2; i++) {
-			waitHelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryDetailsObj.beneficiaryDetailsStatusButton(), 2, 1);
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					beneficiaryDetailsObj.beneficiaryDetailsStatusButton(), 2, 1);
 			String statusOfToggleButton = beneficiaryDetailsObj.beneficiaryDetailsStatusButton()
 					.getAttribute("aria-checked");
 			System.out.println("Record status " + statusOfToggleButton);
@@ -409,19 +420,21 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 				System.out.println("Inside if for true");
 				beneficiaryDetailsObj.beneficiaryDetailsStatusButton().click();
 				beneficiaryDetailsObj.beneficiaryDetailsSaveButton().click();
-				for(int k=0;k<=20;k++)
-				{
-				try
-				{
-				beneficiaryDetailsObj.beneficiaryDetailsListViewFirstRecord().click();
-				}
-				catch(Exception e)
-				{
-					if(i==20)
-					{
-						Assert.fail(e.getMessage());
+
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, commonWebObj.ulsToastAlert(), 4, 1);
+				Assert.assertEquals(commonWebObj.ulsToastAlert().getText(),
+						beneficiaryDetailsTestdata.SuccessToastMessage);
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, commonWebObj.ulsToastAlertClose(), 4, 1);
+				commonWebObj.ulsToastAlertClose().click();
+				for (int k = 0; k <= 10; k++) {
+					try {
+						beneficiaryDetailsObj.beneficiaryDetailsListViewFirstRecord().click();
+						break;
+					} catch (Exception e) {
+						if (k == 10) {
+							Assert.fail(e.getMessage());
+						}
 					}
-				}
 				}
 			}
 			if (statusOfToggleButton.equals("false")) {
@@ -430,11 +443,17 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 				beneficiaryDetailsObj.beneficiaryDetailsSaveButton().click();
 				// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				// beneficiaryDetailsObj.beneficiaryDetailsListViewFirstRecord(), 20, 1);
-				for (int j = 0; j <= 20; j++) {
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, commonWebObj.ulsToastAlert(), 4, 1);
+				Assert.assertEquals(commonWebObj.ulsToastAlert().getText(),
+						beneficiaryDetailsTestdata.SuccessToastMessage);
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, commonWebObj.ulsToastAlertClose(), 4, 1);
+				commonWebObj.ulsToastAlertClose().click();
+				for (int j = 0; j <= 10; j++) {
 					try {
 						beneficiaryDetailsObj.beneficiaryDetailsListViewFirstRecord().click();
+						break;
 					} catch (Exception e) {
-						if (i == 20) {
+						if (j == 10) {
 							Assert.fail(e.getMessage());
 						}
 					}
@@ -448,6 +467,19 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 	public void verify_user_can_able_to_see_the_save_and_back_button_in_the_benificiary_details_screen()
 			throws Throwable {
 
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryDetailsObj.beneficiaryDetailsBackButton(),
+				10, 1);
+		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsBackButton().isDisplayed());
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryDetailsObj.beneficiaryDetailsSaveButton(),
+				10, 1);
+		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsSaveButton().isDisplayed());
+	}
+
+	@And("^click on back button in beneficiary dettails screen$")
+	public void click_on_back_button_in_beneficiary_dettails_screen() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryDetailsObj.beneficiaryDetailsBackButton(),
+				10, 1);
+		beneficiaryDetailsObj.beneficiaryDetailsBackButton().click();
 	}
 
 }

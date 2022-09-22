@@ -38,3 +38,7 @@ And select one list view record
 And check the status of the status button
 Then verify if the status is activate user can able to de activate if the status is de activate user can able to activate
 Then verify user can able to see the save and back button in the benificiary details screen
+And click on back button in beneficiary dettails screen
+And click on add button on beneficiary details screen
+Then verify user can able to see the save and back button in the benificiary details screen
+

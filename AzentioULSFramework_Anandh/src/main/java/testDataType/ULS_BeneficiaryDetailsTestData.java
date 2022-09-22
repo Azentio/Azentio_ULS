@@ -19,4 +19,5 @@ public class ULS_BeneficiaryDetailsTestData {
 	public String UpdatedPaymentMode;
 	public String UpdatedBeneficiaryEmail;
 	public String UpdatedRemarks;
+	public String SuccessToastMessage;
 }

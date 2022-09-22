@@ -17,6 +17,7 @@
 "UpdatedPaymentType":"On Completion",
 "UpdatedPaymentMode":"Credit Card",
 "UpdatedBeneficiaryEmail":"inindc0076@azentio.com",
-"UpdatedRemarks":"Ok"
+"UpdatedRemarks":"Ok",
+"SuccessToastMessage":"Success"
 }
 ]

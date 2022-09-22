@@ -32,6 +32,12 @@ public class KULS_CommonWebElements {
 	public WebElement calendarYearField() {
 		return calendar_YearField;
 	}
+	@FindBy(xpath="//span[text()='Today']//parent::button")
+	private WebElement calendar_TodayDateButton;
+	public WebElement calendarTodayDateButton()
+	{
+		return calendar_TodayDateButton;
+	}
 	@FindBy(xpath = "(//button[@ng-reflect-text='Entitle'])[1]")
 	private WebElement uls_MailBoxFirstRecord;
 
@@ -124,5 +130,16 @@ public class KULS_CommonWebElements {
     {
     	return uls_CustomerDetailsTabnewApp;
     }
-    
+    @FindBy(xpath="//div[@id='toast-container']//div[@role='alertdialog']")
+    private WebElement uls_toastAlert;
+    public WebElement ulsToastAlert()
+    {
+    	return uls_toastAlert;
+    }
+    @FindBy(xpath="//div[@id='toast-container']//button[@aria-label='Close']")
+    private WebElement uls_toastAlertClose;
+    public WebElement ulsToastAlertClose()
+    {
+    	return uls_toastAlertClose;
+    }
 }

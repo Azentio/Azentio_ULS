@@ -181,5 +181,11 @@ public class ULS_BeneficiaryDetailsObj {
 	{
 		return beneficiaryDetails_ListViewFirstRecord;
 	}
+	@FindBy(xpath="//button[@ng-reflect-icon='pi pi-arrow-left']")
+	private WebElement beneficiaryDetails_BackButton;
+	public WebElement beneficiaryDetailsBackButton()
+	{
+		return beneficiaryDetails_BackButton;
+	}
 	
 }

@@ -23,6 +23,7 @@ import testDataType.ULS_AssetCollateralTypeTestData;
 import testDataType.ULS_BeneficiaryDetailsTestData;
 import testDataType.ULS_CheckerTestData;
 import testDataType.ULS_CustomerAddressDetailsTestDataType;
+import testDataType.ULS_CustomerDeptDetailsTestData;
 import testDataType.ULS_CustomerEmploymentDetailsTestdataType;
 import testDataType.ULS_LivingExpenseTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
@@ -84,6 +85,9 @@ public class JsonConfig {
 	private final String ulsBeneficiaryDetailsFilePath = configFileReader.getJsonPath() + "ULS_BeneficiaryDetailsJSON.json";
 	private List<ULS_BeneficiaryDetailsTestData> ulsBeneficiaryDetailsTestData;
 	
+	private final String ulsCustomerDeptDetailsJSONFilePath = configFileReader.getJsonPath() + "ULS_CustomerDeptDetailsJSON.json";
+	private List<ULS_CustomerDeptDetailsTestData> ulsCustomerDeptDetailsTestData;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -106,6 +110,26 @@ public class JsonConfig {
 		PerDetailEntry=getPerDetailEntry();
 		csutomerAddressDetails=getCustomerAddressDetailsList();
 		ulsBeneficiaryDetailsTestData=getBeneficiaryDetailsTestData();
+		ulsCustomerDeptDetailsTestData=getCustomerDeptDetailsTestData();
+	}
+	private List<ULS_CustomerDeptDetailsTestData> getCustomerDeptDetailsTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ulsCustomerDeptDetailsJSONFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ulsCustomerDeptDetailsJSONFilePath));
+			ULS_CustomerDeptDetailsTestData[] ulsCustomerDeptDetailsTestData = gson.fromJson(bufferReader, ULS_CustomerDeptDetailsTestData[].class);
+			return Arrays.asList(ulsCustomerDeptDetailsTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ulsCustomerDeptDetailsJSONFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	private List<ULS_BeneficiaryDetailsTestData> getBeneficiaryDetailsTestData() {
 		Gson gson = new Gson();
@@ -554,5 +578,9 @@ public class JsonConfig {
 	//ULS_BeneficiaryDetailsTestData> ulsBeneficiaryDetailsTestData
 	public final ULS_BeneficiaryDetailsTestData getBeneficiaryDetailsTestDataByName(String User) {
 		return ulsBeneficiaryDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}
+	//ULS_CustomerDeptDetailsTestData> ulsCustomerDeptDetailsTestData
+	public final ULS_CustomerDeptDetailsTestData getCustomerDeptDetailsTestDataByName(String User) {
+		return ulsCustomerDeptDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
 	}
 }

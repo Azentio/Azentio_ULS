@@ -75,7 +75,7 @@ Then verify Marital status should show the blank field validation message
 Then verify nationality should show the blank field validation message
 Then verify residencial status should show the blank field validation message
 Then verify language should show the blank field validation message
-Then verify no of dependents should show the blank field validation message
+#Then verify no of dependents should show the blank field validation message
 Then verify Mothers maiden name should show the blank field validation message
 Then verify type of residence should show the blank field validation message
 Then verify category of client should show the blank field validation message
