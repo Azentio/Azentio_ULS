@@ -1,6 +1,8 @@
 package stepdefinitions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -28,22 +30,36 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	KULS_CommonWebElements ulsCommenElement = new KULS_CommonWebElements(driver);
+	Map<String, String> testData = new HashMap<>();
 
 	@And("^click on pencil icon in financial commitment list view record$")
 	public void click_on_pencil_icon_in_financial_commitment_list_view_record() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord(), 10, 1);
+
 		for (int i = 0; i <= 30; i++) {
 			try {
+				javascriptHelper
+						.scrollIntoView(customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord());
 				customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord().click();
+//				if (i >= 10) {
+//					javascriptHelper
+//							.scrollIntoView(customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord());
+//					javascriptHelper
+//							.JSEClick(customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord());
+//					break;
+//				}
 				break;
 			} catch (Exception e) {
+				if (i >= 15 && i <= 25) {
+
+					javascriptHelper
+							.scrollIntoView(customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord());
+					javascriptHelper
+							.JSEClick(customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord());
+					break;
+				}
 				if (i == 30) {
 					Assert.fail(e.getMessage());
 				}
-				javascriptHelper.JSEClick(customerDeptDetailsObj.customerDeptDetailsFinancialCommitmentFirstRecord());
-				break;
-
 			}
 		}
 
@@ -149,7 +165,8 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		for (WebElement element : dayElement) {
 			try {
 				clicksAndActionsHelper.moveToElement(element);
-				clicksAndActionsHelper.clickUsingActionClass(element, element);
+//				clicksAndActionsHelper.clickUsingActionClass(element, element);
+				element.click();
 				break;
 			} catch (Exception e) {
 
@@ -247,8 +264,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		for (WebElement element : dayElement) {
 			try {
-				clicksAndActionsHelper.moveToElement(element);
-				clicksAndActionsHelper.clickUsingActionClass(element, element);
+//				clicksAndActionsHelper.moveToElement(element);
+//				clicksAndActionsHelper.clickUsingActionClass(element, element);
+				element.click();
 				break;
 			} catch (Exception e) {
 
@@ -416,8 +434,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		for (WebElement element : dayElement) {
 			try {
-				clicksAndActionsHelper.moveToElement(element);
-				clicksAndActionsHelper.clickUsingActionClass(element, element);
+//				clicksAndActionsHelper.moveToElement(element);
+//				clicksAndActionsHelper.clickUsingActionClass(element, element);
+				element.click();
 				break;
 			} catch (Exception e) {
 
@@ -463,9 +482,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDeptDetailsLastPaymentDate().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.calendarYearField(), 10, 1);
 		ulsCommenElement.calendarYearField().click();
-		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedClosedMonth + " ']";
-		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedClosedYear + " ']";
-		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedClosedDay + "']";
+		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedLastPaymentMonth + " ']";
+		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedLastPaymentYear + " ']";
+		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedLastPaymentDay + "']";
 
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -496,8 +515,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		for (WebElement element : dayElement) {
 			try {
-				clicksAndActionsHelper.moveToElement(element);
-				clicksAndActionsHelper.clickUsingActionClass(element, element);
+//				clicksAndActionsHelper.moveToElement(element);
+//				clicksAndActionsHelper.clickUsingActionClass(element, element);
+				element.click();
 				break;
 			} catch (Exception e) {
 
@@ -507,7 +527,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@And("^update the product name field$")
 	public void update_the_product_name_field() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtProductName(), 10,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtProductName(), 20,
 				1);
 		customerDeptDetailsObj.customerDebtProductName().click();
 		customerDeptDetailsObj.customerDebtProductName().clear();
@@ -638,6 +658,116 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		}
 	}
 
+	@And("^get the all the date inputs$")
+	public void get_the_all_the_date_inputs() throws Throwable {
+		String sanctionDate = "";
+		String maturityDate = "";
+		String nextDueDate = "";
+		String closedDate = "";
+		String lastPaymentDate = "";
+		String disbursementDate = "";
+		
+		for (int i = 0; i <= 20; i++) {
+			try {
+				sanctionDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[0].value")
+						.toString();
+				if (sanctionDate != "" && sanctionDate != null) {
+					testData.put("sanctionDate", sanctionDate);
+					System.out.println("Sanction date " + testData.get("sanctionDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		for (int i = 0; i <= 20; i++) {
+			try {
+				maturityDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[1].value")
+						.toString();
+				if (maturityDate != "" && maturityDate != null) {
+					testData.put("maturityDate", maturityDate);
+					System.out.println("maturityDate " + testData.get("maturityDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		for (int i = 0; i <= 20; i++) {
+			try {
+				nextDueDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[2].value")
+						.toString();
+				if (nextDueDate != "" && nextDueDate != null) {
+					testData.put("nextDueDate", nextDueDate);
+					System.out.println("nextDueDate " + testData.get("nextDueDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		// closedDate
+		for (int i = 0; i <= 20; i++) {
+			try {
+				closedDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[3].value")
+						.toString();
+				if (closedDate != "" && closedDate != null) {
+					testData.put("closedDate", closedDate);
+					System.out.println("closedDate " + testData.get("closedDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		// lastPaymentDate
+		for (int i = 0; i <= 20; i++) {
+			try {
+				lastPaymentDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[4].value")
+						.toString();
+				if (lastPaymentDate != "" && lastPaymentDate != null) {
+					testData.put("lastPaymentDate", lastPaymentDate);
+					System.out.println("lastPaymentDate " + testData.get("lastPaymentDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		// disbursementDate
+		for (int i = 0; i <= 20; i++) {
+			try {
+				disbursementDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[5].value")
+						.toString();
+				if (disbursementDate != "" && disbursementDate != null) {
+					testData.put("disbursementDate", disbursementDate);
+					System.out.println("disbursementDate " + testData.get("disbursementDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+	}
+
 	@And("^save the updated record in customerfinancial commitment record$")
 	public void save_the_updated_record_in_customerfinancial_commitment_record() throws Throwable {
 		for (int i = 0; i <= 30; i++) {
@@ -711,9 +841,8 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerDeptDetailsObj.customerDeptDetailsCurrentPrincipalBalanceDataHolder(), 10, 1);
 
-		Assert.assertEquals(
-				customerDeptDetailsObj.customerDeptDetailsCurrentPrincipalBalanceDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedCurrentPrincipalBalance);
+		Assert.assertEquals(customerDeptDetailsObj.customerDeptDetailsCurrentPrincipalBalanceDataHolder()
+				.getAttribute("ng-reflect-model"), customerDeptDetailsTestData.UpdatedCurrentPrincipalBalance);
 	}
 
 	@Then("^verify tenure months field should get updated$")
@@ -723,7 +852,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDeptDetailsTenureMonthsDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedRemainingTenureMonths);
+				customerDeptDetailsTestData.UpdatedtenureMonths);
 	}
 
 	@Then("^verify installment field should get updated$")
@@ -731,9 +860,8 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerDeptDetailsObj.customerDeptDetailsInstallmentAmountDataHolder(), 10, 1);
 
-		Assert.assertEquals(
-				customerDeptDetailsObj.customerDeptDetailsInstallmentAmountDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedInstallmentAmount);
+		Assert.assertEquals(customerDeptDetailsObj.customerDeptDetailsInstallmentAmountDataHolder()
+				.getAttribute("ng-reflect-model"), customerDeptDetailsTestData.UpdatedInstallmentAmount);
 	}
 
 	@Then("^verify amount considered field should get updated$")
@@ -748,8 +876,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@Then("^verify currency field should get updated$")
 	public void verify_currency_field_should_get_updated() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerDeptDetailsObj.customerDebtCurrency(), 10, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtCurrency(), 10, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtCurrency().getAttribute("aria-label")
 				.contains(customerDeptDetailsTestData.UpdatedCurrency));
@@ -757,20 +884,37 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@Then("^verify remarks field should get updated$")
 	public void verify_remarks_field_should_get_updated() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerDeptDetailsObj.customerDebtRemarks(), 10, 1);
-		Assert.assertEquals(customerDeptDetailsObj.customerDebtRemarks().getText(), customerDeptDetailsTestData.UpdatedRemarks);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtRemarks(), 10, 1);
+		Assert.assertEquals(customerDeptDetailsObj.customerDebtRemarks().getText(),
+				customerDeptDetailsTestData.UpdatedRemarks);
 	}
 
 	@Then("^verify next duedate field should get updated$")
 	public void verify_next_duedate_field_should_get_updated() throws Throwable {
-
+		String closedDate = "";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				closedDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[3].value")
+						.toString();
+				if (closedDate != "" && closedDate != null) {
+//					testData.put("closedDate", closedDate);
+//					System.out.println("closedDate " + testData.get("closedDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		Assert.assertEquals(closedDate, testData.get("closedDate"));
 	}
 
 	@Then("^verify collateral type field should get updated$")
 	public void verify_collateral_type_field_should_get_updated() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerDeptDetailsObj.customerDebtCollateralType(), 10, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtCollateralType(),
+				10, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtCollateralType().getAttribute("aria-label")
 				.contains(customerDeptDetailsTestData.UpdatedCollateralType));
@@ -778,8 +922,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@Then("^verify frequenc field should get updated$")
 	public void verify_frequenc_field_should_get_updated() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerDeptDetailsObj.customerDebtFrequency(), 10, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFrequency(), 10, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtFrequency().getAttribute("aria-label")
 				.contains(customerDeptDetailsTestData.UpdatedFrequency));
@@ -790,49 +933,178 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerDeptDetailsObj.customerDeptDetailsLastPaymentAmountDataHolder(), 10, 1);
 
-		Assert.assertEquals(
-				customerDeptDetailsObj.customerDeptDetailsLastPaymentAmountDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedLastPaymentAmount);
+		Assert.assertEquals(customerDeptDetailsObj.customerDeptDetailsLastPaymentAmountDataHolder()
+				.getAttribute("ng-reflect-model"), customerDeptDetailsTestData.UpdatedLastPaymentAmount);
 	}
 
 	@Then("^verify last payment date field should get updated$")
 	public void verify_last_payment_date_field_should_get_updated() throws Throwable {
+		// lastPaymentDate
+		String lastPaymentDate = "";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				lastPaymentDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[4].value")
+						.toString();
+				if (lastPaymentDate != "" && lastPaymentDate != null) {
 
+					break;
+				}
+
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		Assert.assertEquals(lastPaymentDate, testData.get("lastPaymentDate"));
 	}
 
 	@Then("^verify product name field should get updated$")
 	public void verify_product_name_field_should_get_updated() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				customerDeptDetailsObj.customerDebtProductName(), 10, 1);
+//		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+//				customerDeptDetailsObj.customerDebtProductName(), 10, 1);
+		for (int i = 0; i <= 10; i++) {
+			try {
+				javascriptHelper.scrollIntoView(customerDeptDetailsObj.customerDebtProductNameDataHolder());
+				break;
+			} catch (Exception e) {
+				if (i == 10) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 
-		Assert.assertEquals(
-				customerDeptDetailsObj.customerDeptDetailsLastPaymentAmountDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedLastPaymentAmount);
+		Assert.assertEquals(customerDeptDetailsObj.customerDebtProductNameDataHolder().getAttribute("ng-reflect-model"),
+				customerDeptDetailsTestData.UpdatedProductName);
 	}
 
 	@Then("^verify last 24 field should get updated$")
 	public void verify_last_24_field_should_get_updated() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerDeptDetailsObj.customerDebtLast24CycleDataHolder(), 10, 1);
 
+		Assert.assertEquals(customerDeptDetailsObj.customerDebtLast24CycleDataHolder().getAttribute("ng-reflect-model"),
+				customerDeptDetailsTestData.UpdatedLast24Cycle);
 	}
 
 	@Then("^verify facility status field should get updated$")
 	public void verify_facility_status_field_should_get_updated() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFacilityStatus(),
+				10, 1);
+		Assert.assertTrue(customerDeptDetailsObj.customerDebtFacilityStatus().getAttribute("aria-label")
+				.contains(customerDeptDetailsTestData.UpdatedFacilityStatus));
 
 	}
 
 	@Then("^verify remaining tenure field should get updated$")
 	public void verify_remaining_tenure_field_should_get_updated() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				customerDeptDetailsObj.customerDebtRemainingTenureMonthsDataHolder(), 10, 1);
 
+		Assert.assertEquals(
+				customerDeptDetailsObj.customerDebtRemainingTenureMonthsDataHolder().getAttribute("ng-reflect-model"),
+				customerDeptDetailsTestData.UpdatedRemainingTenureMonths);
 	}
 
 	@Then("^verify disbursement date field should get updated$")
 	public void verify_disbursement_date_field_should_get_updated() throws Throwable {
+		// disbursementDate
+		String disbursementDate = "";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				disbursementDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[5].value")
+						.toString();
+				if (disbursementDate != "" && disbursementDate != null) {
 
+					break;
+				} else if (i == 20) {
+					Assert.fail(disbursementDate + " Is null hence test case failed");
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		Assert.assertEquals(disbursementDate, testData.get("disbursementDate"));
 	}
 
 	@Then("^verify NPA clasification field should get updated$")
 	public void verify_npa_clasification_field_should_get_updated() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtNPAClassification(),
+				10, 1);
 
+		Assert.assertEquals(customerDeptDetailsObj.customerDebtLast24CycleDataHolder().getAttribute("ng-reflect-model"),
+				customerDeptDetailsTestData.UpdatedLast24Cycle);
+	}
+
+	@Then("^verify sanctiondate field should get updated$")
+	public void verify_sanctiondate_field_should_get_updated() throws Throwable {
+		String sanctionDate = "";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				sanctionDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[0].value")
+						.toString();
+				if (sanctionDate != "" && sanctionDate != null) {
+//					testData.put("sanctionDate", sanctionDate);
+//					System.out.println("Sanction date " + testData.get("sanctionDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		Assert.assertEquals(sanctionDate, testData.get("sanctionDate"));
+	}
+
+	@Then("^verify maturity date field should get updated$")
+	public void verify_maturity_date_field_should_get_updated() throws Throwable {
+		String maturityDate="";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				maturityDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[1].value")
+						.toString();
+				if (maturityDate != "" && maturityDate != null) {
+//					testData.put("maturityDate", maturityDate);
+//					System.out.println("Sanction date " + testData.get("maturityDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		Assert.assertEquals(maturityDate, testData.get("maturityDate"));
+	}
+
+	@Then("^verify next due date field should get updated$")
+	public void verify_next_due_date_field_should_get_updated() throws Throwable {
+		// closedDate
+		String closedDate = "";
+		for (int i = 0; i <= 20; i++) {
+			try {
+				closedDate = javascriptHelper
+						.executeScript("return document.getElementsByClassName('p-inputtext p-component')[3].value")
+						.toString();
+				if (closedDate != "" && closedDate != null) {
+//					testData.put("closedDate", closedDate);
+//					System.out.println("closedDate " + testData.get("closedDate"));
+					break;
+				}
+			} catch (Exception e) {
+				if (i == 20) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		Assert.assertEquals(closedDate, testData.get("closedDate"));
 	}
 
 }

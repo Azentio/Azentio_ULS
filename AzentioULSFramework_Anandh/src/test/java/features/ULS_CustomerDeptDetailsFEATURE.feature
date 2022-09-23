@@ -1,4 +1,5 @@
 Feature: To test the dept details screen
+@AT-DD-03
 Scenario: To verify user can able to update the customer dept details screen with valid data
 Given navigate to uls application 
 And login with maker credentials
@@ -34,19 +35,23 @@ And update the facility status dropdown field
 And update the remaining tenure months field
 And update the disbursement date alander field
 And update the NPA classification dropdown field
+And get the all the date inputs 
 And save the updated record in customerfinancial commitment record
 And click on pencil icon in financial commitment list view record
 Then verify financial type field should get updated
 Then verify financial institution field should get updated
 Then verify account number field should get updated
+Then verify sanctiondate field should get updated
 Then verify sanction amount field should get updated
 Then verify interest rate field should get updated
 Then verify current principal field should get updated
 Then verify tenure months field should get updated
+Then verify maturity date field should get updated
 Then verify installment field should get updated
 Then verify amount considered field should get updated
 Then verify currency field should get updated
 Then verify remarks field should get updated
+Then verify next due date field should get updated
 Then verify next duedate field should get updated
 Then verify collateral type field should get updated
 Then verify frequenc field should get updated 

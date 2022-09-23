@@ -124,10 +124,20 @@ public class ULS_customerDeptDetailsObj {
 	public WebElement customerDebtProductName() {
 		return customerDebt_ProductName;
 	}
+	@FindBy(xpath="//ion-label[contains(text(),' Product Name ')]//following-sibling::ion-input")
+	private WebElement customerDebt_ProductNameDataHolder;
+	public WebElement customerDebtProductNameDataHolder() {
+		return customerDebt_ProductNameDataHolder;
+	}
 	@FindBy(xpath="//ion-label[contains(text(),' Last 24 Cycle ')]//following-sibling::ion-input/input")
 	private WebElement customerDebt_Last24Cycle;
 	public WebElement customerDebtLast24Cycle() {
 		return customerDebt_Last24Cycle;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),' Last 24 Cycle ')]//following-sibling::ion-input")
+	private WebElement customerDebt_Last24CycleDataHolder;
+	public WebElement customerDebtLast24CycleDataHolder() {
+		return customerDebt_Last24CycleDataHolder;
 	}
 	@FindBy(xpath="//ion-toggle")
 	private WebElement customerDebt_BalanceTransferFlag;
@@ -143,6 +153,11 @@ public class ULS_customerDeptDetailsObj {
 	private WebElement customerDebt_RemainingTenureMonths;
 	public WebElement customerDebtRemainingTenureMonths() {
 		return customerDebt_RemainingTenureMonths;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),' Remaining Tenure (months) ')]//following-sibling::ion-input")
+	private WebElement customerDebt_RemainingTenureMonthsDataHolder;
+	public WebElement customerDebtRemainingTenureMonthsDataHolder() {
+		return customerDebt_RemainingTenureMonthsDataHolder;
 	}
 	@FindBy(xpath="(//button[@ng-reflect-icon='pi pi-calendar'])[6]")
 	private WebElement customerDebt_DisbursementDate;
