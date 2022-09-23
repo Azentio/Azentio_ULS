@@ -8,6 +8,22 @@ And search the disbursement maker record
 And select the first record of disbursment maker stage
 And go to beneficiary details tab
 And click on add button on beneficiary details screen
+Then To verify the field Application Id in beneficiary details
+And To verify the field Beneficiary Name in beneficiary details
+Then To verify the field Beneficiary Type in beneficiary details 
+And To verify the field Beneficiary KYC in beneficiary details
+Then To verify the field Beneficiary address in beneficiary details  
+And To verify the field Account Type in beneficiary details 
+Then To verify the field IBAN Account Number in beneficiary details 
+And To verify the field MICR Type in beneficiary details 
+Then To verify the field Beneficiary MICR code in beneficiary details 
+And To verify the field Bank code in beneficiary details 
+Then To verify the field Branch Name in beneficiary details 
+And To verify the field IFSC code in beneficiary details 
+Then To verify the field Payment Type in beneficiary details 
+And To verify the field Payment Mode in beneficiary details 
+Then To verify the field Beneficiary email in beneficiary details 
+And To verify the field remark in beneficiary details
 Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field

@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.BeneficiaryDetailTestData;
 import testDataType.CustomerPerssonalDetailsTestData;
 import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
 import testDataType.KULS_Login_TestDataType;
@@ -87,11 +88,14 @@ public class JsonConfig {
 	
 	private final String ulsCustomerDeptDetailsJSONFilePath = configFileReader.getJsonPath() + "ULS_CustomerDeptDetailsJSON.json";
 	private List<ULS_CustomerDeptDetailsTestData> ulsCustomerDeptDetailsTestData;
+	private final String BeneficaiaryDetailPath = configFileReader.getJsonPath() + "BeneficiaryDetailsJson.json";
+    private List<BeneficiaryDetailTestData> BeneficiaryDetail;
 	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
 		 */
+		BeneficiaryDetail= getBeneficiaryDetail();
 		customerEmploymentDetailsTestdata=getCustomerEmploymentDetailsDetailsTestData();
 		loginCredentials = getKULSCredentialsList();
 		schemeMasterTestData=getUlsSchemeMasterTestData();
@@ -150,6 +154,29 @@ public class JsonConfig {
 			}
 		}
 	}
+	private List<BeneficiaryDetailTestData> getBeneficiaryDetail() {
+        Gson gson = new Gson();
+        JsonReader reader = new JsonReader(new StringReader(BeneficaiaryDetailPath));
+        reader.setLenient(true);
+        BufferedReader bufferReader = null;
+        try {
+            bufferReader = new BufferedReader(new FileReader(BeneficaiaryDetailPath));
+            BeneficiaryDetailTestData[] beneficiarydetail = gson.fromJson(bufferReader,
+            		BeneficiaryDetailTestData[].class);
+            return Arrays.asList(beneficiarydetail);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("Json file not found at path : " + BeneficaiaryDetailPath);
+        } finally {
+            try {
+                if (bufferReader != null)
+                    bufferReader.close();
+            } catch (IOException ignore) {
+            }
+        }
+    }
+	  public final testDataType.BeneficiaryDetailTestData getBeneficiaryDetailListByName(String Username) {
+          return BeneficiaryDetail.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+          }
 	private List<ULS_CustomerEmploymentDetailsTestdataType> getCustomerEmploymentDetailsDetailsTestData() {
 		// TODO Auto-generated method stub
 		Gson gson = new Gson();

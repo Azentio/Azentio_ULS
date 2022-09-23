@@ -1,0 +1,19 @@
+[{
+"User":"Maker",
+"FacilityApplicationId":"Ready to move / Under construction Property from Builder/Society",
+"BeneficiaryName":"Jeshwanth",
+"BeneficiaryType":"BT Bank",
+ "BeneficiaryKYC":"aa11",
+ "BeneficiaryAddress":"Salem",
+ "AccountType":"Savings",
+ "IBANAccountNo":"1234",
+ "MICRType":"MICR",
+ "BeneficiaryMICRCode":"400002094",
+ "BankCode":"123",
+ "BranchName":"Jambli naka",
+ "IFSCCode":"101040",
+ "PaymentType":"Advance",
+ "PaymentMode":"Cash Mode",
+ "BeneficiaryEmail":"jesh@gmail.com", 
+ "Remarks":"OK"
+}]

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>4/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Sep 23 12:29:51 IST 2022</td>
+<td>Started on:</td><td>Fri Sep 23 17:01:30 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>105 seconds (105671 ms)</td>
+<tr><td>Total time:</td><td>391 seconds (391680 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,21 +75,53 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user can able to update the customer dept details screen with valid data", "Optional[To test the dept details screen]"</td>
-<td><div><pre>org.junit.ComparisonFailure: expected:&lt;0[8]-Sep-2022&gt; but was:&lt;0[9]-Sep-2022&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at stepdefinitions.ULS_CustomerDeptDetailsSteps.verify_maturity_date_field_should_get_updated(ULS_CustomerDeptDetailsSteps.java:1084)
-	at ?.verify maturity date field should get updated(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_CustomerDeptDetailsFEATURE.feature:49)
-</pre></div><a href='#' onClick='toggleBox("stack-trace686350055", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace686350055'><pre>org.junit.ComparisonFailure: expected:&lt;0[8]-Sep-2022&gt; but was:&lt;0[9]-Sep-2022&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at stepdefinitions.ULS_CustomerDeptDetailsSteps.verify_maturity_date_field_should_get_updated(ULS_CustomerDeptDetailsSteps.java:1084)
-	at ?.verify maturity date field should get updated(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_CustomerDeptDetailsFEATURE.feature:49)
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To create the property details with valid data", "Optional[To test the property details tab]"</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	address line 1 field should be non mandatory but here its a mandatory one expected [true] but found [false],
+	address line 2 field should be non mandatory but here its a mandatory one expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.PropertyDetails_Steps.verify_record_is_saved_in_the_system(PropertyDetails_Steps.java:1383)
+	at ?.verify record is saved in the system(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsfEATURE.feature:86)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1808428108", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1808428108'><pre>java.lang.AssertionError: The following asserts failed:
+	address line 1 field should be non mandatory but here its a mandatory one expected [true] but found [false],
+	address line 2 field should be non mandatory but here its a mandatory one expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.PropertyDetails_Steps.verify_record_is_saved_in_the_system(PropertyDetails_Steps.java:1383)
+	at ?.verify record is saved in the system(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsfEATURE.feature:86)
 </pre></div></td>
-<td>79</td>
-<td>Runner.TestApplication@35dab4eb</td></tr>
+<td>71</td>
+<td>Runner.TestApplication@8519cb4</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify while modification, when user keep any mandatory field blank and click on save button", "Optional[To test the property details tab]"</td>
+<td></td>
+<td>35</td>
+<td>Runner.TestApplication@8519cb4</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user can able to create the property details record with invalid input", "Optional[To test the property details tab]"</td>
+<td></td>
+<td>37</td>
+<td>Runner.TestApplication@8519cb4</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify system allow user to do a modification on already saved record", "Optional[To test the property details tab]"</td>
+<td></td>
+<td>44</td>
+<td>Runner.TestApplication@8519cb4</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user can able to modify theproperty details record before saving the record", "Optional[To test the property details tab]"</td>
+<td></td>
+<td>100</td>
+<td>Runner.TestApplication@8519cb4</td></tr>
 </table><p>
 </body>
 </html>
