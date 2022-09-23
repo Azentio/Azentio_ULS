@@ -63,9 +63,10 @@ public class ApplicationDetails {
 
 	    @Then("^Validate the required field functionality in application details$")
 	    public void validate_the_required_field_functionality_in_application_details() throws Throwable {
-	    	Thread.sleep(1000);
+	    	Thread.sleep(2000);
+	    	
 			WebElement nameErrorMessage = driver
-					.findElement(By.xpath("(//ion-badge[contains(text(),'Required field')])[1]"));
+					.findElement(By.xpath("//ion-badge[contains(text(),'Required field')]"));
 			String expectedErrorText = "Required field";
 			String actualErrorText = nameErrorMessage.getText();
 			if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {

@@ -3,27 +3,27 @@
 	"User":"Maker",
 												//---Test data of AT_RA_023---//
 	"EditText"					:	"11",
-	"ReferenceID"				:	"322",
+	"ReferenceID"				:	"Offering",
 	"PrimaryProduct"			:	"Home Loan",
-	"PrimarySubProduct"			:	"Home Loan-Ready to move / Under construction Property from Builder/Society",
-	"DeclaredNetIncome"			:	"30000",
-	"DeclaredCurrentObligation"	:	"1000",
+	"PrimarySubProduct"			:	"Home Loan-Plot Purchase Finance",
+	"DeclaredNetIncome"			:	"22000",
+	"DeclaredCurrentObligation"	:	"44000",
 	"SourcingChannel"			:	"Sales Rep.",
-	"BusinessCenterCode"		:	"Business Center-Retail Banking",
-"TotalFinanceAmountRequested"	:	"400000",
+	"BusinessCenterCode"		:	"Business Center-Corporate Banking",
+"TotalFinanceAmountRequested"	:	"55000",
 	"SpecialPromotion"			:	"DDA Housing Scheme-2014",
 	"ServicingType"				:	"Financier",
 	"ServicingEntity"			:	"Cent Bank Finance LTD.",
 	"ServicingBranch"			:	"East Zone",
-"ClosingStafforServicingStafforRM"	:	"Pankaj Kumar",
+"ClosingStafforServicingStafforRM"	:"Pankaj Kumar",
 	
 	"SourcingType"				:	"Financier",
 	"SourcingStaff"				:	"Pankaj Kumar",
 	"SourcingEntity"			:	"Cent Bank Finance LTD.",
-	"SourcingOffice"			:	"East Zone",
+	"SourcingOffice"			:	"West Zone",
 	"ReferenceType"				:	"Bank",
-	"ReferenceEntity"			:	"Cent Bank Finance LTD.",
-	"ReferenceCode"				:	"1"
+	"ReferenceEntity"			:	"Select",
+	"ReferenceCode"				:	"33333"
 
  }
 ]

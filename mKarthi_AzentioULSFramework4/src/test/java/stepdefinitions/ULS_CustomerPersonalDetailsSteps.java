@@ -48,7 +48,7 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 
 	@And("^login with maker credentials$")
 	public void login_with_maker_credentials() throws Throwable {
-		kulsLogin.loginUlsApplicationAsMaker(kulsLoginTestData.Username, kulsLoginTestData.Password);
+		kulsLogin.loginUlsApplicationAsMaker(kulsLoginTestData.Username2, kulsLoginTestData.Password);
 	}
 
 	@And("^click on mail box icon$")

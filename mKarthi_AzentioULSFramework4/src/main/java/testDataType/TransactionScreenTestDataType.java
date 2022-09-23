@@ -72,6 +72,7 @@ public class TransactionScreenTestDataType {
 	public String negativeInputValidation;
 	public String ApplicationDetailsPreRequestSearch1;
 	public String ApplicationDetails_NetIncome;
+	public String BeneficiaryDetails_Search;
 	
 
 }

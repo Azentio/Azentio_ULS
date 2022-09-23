@@ -140,12 +140,12 @@ public class ApplicationDetail_disbursmentMaker extends BaseClass {
 
 	@Then("^Search the record in application details for disbursement maker$")
 	public void search_the_record_in_application_details_for_disbursement_maker() throws Throwable {
-		waithelper.waitForElementToVisibleWithFluentWait(driver, disbmtmaker.Application_DetailTab_SearchButtons(), 60,
+		waithelper.waitForElementToVisibleWithFluentWait(driver, disbmtmaker.searchiconreferenceid(), 60,
 				2);
-		disbmtmaker.Application_DetailTab_SearchButtons().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, disbmtmaker.Application_DetailTab_SearchText(), 60, 2);
-		disbmtmaker.Application_DetailTab_SearchText().click();
-		disbmtmaker.Application_DetailTab_SearchText().sendKeys("DISBMKR");
+		disbmtmaker.searchiconreferenceid().click();
+		waithelper.waitForElementToVisibleWithFluentWait(driver, disbmtmaker.searchsentkeys(), 60, 2);
+		disbmtmaker.searchsentkeys().click();
+		disbmtmaker.searchsentkeys().sendKeys("DISBMKR");
 	}
 
 	@Then("^Verify the field primary product is in read only mode in Application details DISBMKR stage$")

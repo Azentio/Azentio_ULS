@@ -79,7 +79,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     public void user_search_appdata_entry() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Search_Input(), 60, 5);
     	AppDataEntry.Search_Input().click();
-    	AppDataEntry.Search_Input().sendKeys("AppData");
+    	AppDataEntry.Search_Input().sendKeys("APPDATAENT");
     }
 
     @And("^user click on First record of Appdata Entry$")

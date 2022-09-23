@@ -36,7 +36,7 @@ public class TransactionApplicationDetailsObject {
 	public WebElement ApplicationDetails_SaveButton() {
 		return ApplicationDetails_SaveButton1;
 	}
-	@FindBy(xpath="//ion-select[@aria-label='Select,  Servicing Entity *']")
+	@FindBy(xpath="//ion-label[text()=' Servicing Entity ']//following-sibling::ion-select")
 	private WebElement ApplicationDetails_ServicingEntity1;
 	public WebElement ApplicationDetails_ServicingEntity() {
 		return ApplicationDetails_ServicingEntity1;

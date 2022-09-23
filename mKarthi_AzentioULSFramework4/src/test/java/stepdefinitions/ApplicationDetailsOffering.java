@@ -77,6 +77,7 @@ public class ApplicationDetailsOffering {
 				// TODO: handle exception
 			}
 		}
+		
 	
 	}
 	
@@ -169,6 +170,7 @@ public class ApplicationDetailsOffering {
 
     @Then("^verify the field primary sub product on Application Details Offering screen$")
     public void verify_the_field_primary_sub_product_on_application_details_offering_screen() throws Throwable {
+    	
     	String primarySubProduct = javaScriptHelper.executeScript("return document.querySelectorAll('ion-select')[4].shadowRoot.querySelector('div.select-text').innerText").toString();
 		System.out.println(primarySubProduct);
 		Assert.assertEquals(applicationDetailsOfferingTestDataType.PrimarySubProduct, primarySubProduct);
@@ -272,7 +274,7 @@ public class ApplicationDetailsOffering {
 
     @Then("^verify the field sourcing staff on Application Details Offering screen$")
     public void verify_the_field_sourcing_staff_on_application_details_offering_screen() throws Throwable {
-    	String sourcingStaff = javaScriptHelper.executeScript("return document.querySelectorAll('ion-select')[13].shadowRoot.querySelector('div.select-text').innerText").toString();
+    	String sourcingStaff = javaScriptHelper.executeScript("return document.querySelectorAll('ion-select')[15].shadowRoot.querySelector('div.select-text').innerText").toString();
 		System.out.println(sourcingStaff);
 		Assert.assertEquals(applicationDetailsOfferingTestDataType.SourcingStaff, sourcingStaff);
 		boolean result = applicationDetailsOfferingObj.applicationDetailsOffering_SourcingStaffField().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");
@@ -290,7 +292,7 @@ public class ApplicationDetailsOffering {
 
     @Then("^verify the field sourcing office on Application Details Offering screen$")
     public void verify_the_field_sourcing_office_on_application_details_offering_screen() throws Throwable {
-    	String sourcingOffice = javaScriptHelper.executeScript("return document.querySelectorAll('ion-select')[15].shadowRoot.querySelector('div.select-text').innerText").toString();
+    	String sourcingOffice = javaScriptHelper.executeScript("return document.querySelectorAll('ion-select')[13].shadowRoot.querySelector('div.select-text').innerText").toString();
 		System.out.println(sourcingOffice);
 		Assert.assertEquals(applicationDetailsOfferingTestDataType.SourcingOffice, sourcingOffice);
 		boolean result = applicationDetailsOfferingObj.applicationDetailsOffering_SourcingOfficeField().getAttribute("ng-reflect-is-disabled").equalsIgnoreCase("true");

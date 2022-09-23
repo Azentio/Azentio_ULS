@@ -279,6 +279,20 @@ public class ApplicationdetailDisbmtMakerObject {
 	public  WebElement Application_DetailTab_SearchButtons() {
 		return Application_DetailTab_SearchButtons1;
 	}
+	/////////////////////////////////////////////////////
+	@FindBy(xpath="//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
+	private WebElement searchiconreferenceid;
+	public WebElement searchiconreferenceid() 
+	{
+		return searchiconreferenceid;
+	}
+	@FindBy(xpath="//span[text()=' Inbox ']//parent::div//child::span[2]/input")
+	private WebElement searchsentkeys;
+	public WebElement searchsentkeys() 
+	{
+		return searchsentkeys;
+	}
+	////////////////////////////////////////////////////////
 	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]/ion-card-content[1]/p-table[1]/div[1]/div[1]/div[1]/span[2]/input[1]")
 	private WebElement Application_DetailTab_SearchText1;
 	public  WebElement Application_DetailTab_SearchText() {

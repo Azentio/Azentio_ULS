@@ -620,5 +620,50 @@ public class Transactions_ScreenOBJ {
 		return SubmitFinalButton;
 	}
 	
+	//CheckerReject And Return
+	@FindBy(xpath="//span[contains(text(),'Reject')]")
+	private WebElement RejectButton;
+	public WebElement RejectButton() 
+	{
+		return RejectButton;
+	}
+	@FindBy(xpath="//span[contains(text(),'Return')]")
+	private WebElement ReturnButton;
+	public WebElement ReturnButton() 
+	{
+		return ReturnButton;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'mistake')]")
+	private WebElement Popup_Mistake;
+	public WebElement Popup_Mistake() 
+	{
+		return Popup_Mistake;
+	}
+	@FindBy(xpath="(//span[contains(text(),'Reject')])[2]")
+	private WebElement FinalRejectButton;
+	public WebElement FinalRejectButton() 
+	{
+		return FinalRejectButton;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'corrections')]")
+	private WebElement Popup_Corrections;
+	public WebElement Popup_Corrections() 
+	{
+		return Popup_Corrections;
+	}
+	@FindBy(xpath="(//span[contains(text(),'Return')])[2]")
+	private WebElement FinalReturnButton;
+	public WebElement FinalReturnButton() 
+	{
+		return FinalReturnButton;
+	}
+	@FindBy(xpath="//table[1]/tbody[1]/tr[1]/td[2]/span[1]")
+	private WebElement referenceid;
+	public WebElement referenceid() 
+	{
+		return referenceid;
+	}
+	
+	
 
 }

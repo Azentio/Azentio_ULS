@@ -36,7 +36,7 @@ And Select the value in Reference entity field of Application details
 And Enter the value in Reference code field of Application details
 And Click on Save button of Application details
 
-@AT_ADA_002
+@AT-ADA-002
 Scenario: verify user is able to add new Template Application details  record in the system by entering invalid data
 Given User Launch the KULS url for Transaction
 Then user click on Transaction Module
@@ -46,7 +46,8 @@ And user Choose customer Type
 And user Enter CIF ID
 And user Enter Application Number
 And user Enter Customer Name
-And user choose ID Type
+#And user choose ID Type
+And Select the value in ID type field of Application details
 And user Enter ID Number
 And user Enter Mobile Number
 And user Choose Date of Birth
@@ -71,8 +72,10 @@ And Update the value in Servicing branch field of Application details
 And Update the value in Sourcing type field of Application details
 And Update the value in Sourcing office field of Application details
 And Update the value in Reference type field of Application details
+And Select the value in Sourcing staff field of Application details
 And Update the value in Reference code field of Application details
 And Click on Save button of Application details
+And User get the confirmation message in customer entity layout facility details
 
 @AT-ADA-004
 Scenario: Updation of Approved record fields in application new app
@@ -93,9 +96,10 @@ And User click and update Servicing Entity
 And User click and update Servicing Branch
 And User click and update Closing Staff or Servicing Staff or RM
 And User click and update Sourcing Type
-And User click and update Sourcing Staff
+#And User click and update Sourcing Staff
 And User click and update Sourcing Entity
 And User click and update Sourcing Office
+And Select the value in Sourcing staff field of Application details
 And User click and update Reference Type
 And User click and update Reference Entity
 And User click and update Reference Code
@@ -135,9 +139,9 @@ Then Click the transaction button
 And Click the Application manager
 Then Click the application details
 And Click the first pencil icon in application details
-Then Save the record in application details
-Then Validate the required field functionality in application details
+#Then Validate the required field functionality in application details
 And Click the servicing entitity and choose the select button
+Then Save the record in application details
 Then Validate the required field functionality in application details
 
 @AT-ADA-006
@@ -155,51 +159,9 @@ And User click the status button in application details new app
 And User verify the status button is deactive stage in application details new app
 And User verify the module name in application details new app
 And User click the save button in application details new app
+####################################################################################################################################################
 
 #Application Details App Data Entry
-
-@ApplicationDetailsPre-Request
-Scenario: Validate that user can able to create a App data entry record
-Given Launch the kuls application and Navigate to Application details view list
-And Click on Add icon in Application details view list
-And Select the value in customer type field of Application details
-And Enter the value in CIF ID field of Application details
-And Enter the value in Application Number
-And Enter the value in Customer name field of Application details
-And Select the value in ID type field of Application details
-And Enter the value in ID number field of Application details
-And Enter the value in Mobile number field of Application details
-And Enter the value in Date Of Birth field of Application details
-And Enter the value in Email Id field of Application details
-And Click on Search button in Application details
-And Click on Create new request button in Application details
-And Select the value in Primary product field of Application details
-And Select the value in Primary sub product field of Application details
-And Enter the value in Total finance amount requested field of Application details
-And Enter the value in Declared net income field of Application details
-And Enter the value in Declared current obligations field of Application details
-And Select the value in Special promotion of Application details
-And Select the value in Sourcing channel field of Application details
-And Select the value in Business center code field of Application details
-And Select the value in Servicing type field of Application details
-And Select the value in Servicing entity field of Application details
-And Select the value in Servicing branch field of Application details
-And Select the value in Closing staff field of Application details
-And Select the value in Sourcing type field of Application details
-And Select the value in Sourcing staff field of Application details
-And Select the value in Sourcing entity field of Application details
-And Select the value in Sourcing office field of Application details
-And Select the value in Reference type field of Application details
-And Select the value in Reference entity field of Application details
-And Enter the value in Reference code field of Application details
-And Click on Save button of Application details
-And User click the inbox mail icon in application detail offering
-And User click the action edit icon in application details pre-request
-Then Click the submit button in application details
-And Click the Ok button for action confirmation in application detail
-Then Click the final submit button in application detail
-
-
 @AT-ADE-001,AT-ADE-002
 Scenario: Validate that user can able to update the application details_App data entry
 # This test case also cover the functionality of M2
@@ -227,6 +189,7 @@ Given Launch the kuls application and Navigate to Application details view list
 And Navigate to Mail box of Application details and search the offering value
 And Click on action icon of first record of application details_Offering value
 #And Select Application details in the offering tab
+And User click the application info tab in customer entity layout facility details
 And Update the value in Primary sub product field of Application details
 And Update the value in Total finance amount requested field of Application details
 And Update the value in Declared net income field of Application details
@@ -237,6 +200,7 @@ And Update the value in Business center code field of Application details
 And Update the value in Servicing branch field of Application details
 And Update the value in Sourcing type field of Application details
 And Update the value in Sourcing office field of Application details
+And Select the value in Sourcing staff field of Application details
 And Update the value in Reference type field of Application details
 And Update the value in Reference code field of Application details
 And Click on Save button of Application details
@@ -260,9 +224,9 @@ And Validate the fields present in the App data entry page
 And Validate the Add button functionality
 And Validate the View summary functionality in App data entry page
 
+##################################################################################################################################################
 
 #Application Detail Offering
-
 @AT_ADO_001
 Scenario: Verify the functionality of Application Details Offering Stage
 #Given User launch the kuls application
@@ -272,7 +236,8 @@ Then user should click on menu toggle
 Then click on inbox to search for the Application details offering record
 Then click on search button to search the record of Application details offering
 Then enter the reference id of the Application details offering record
-Then click on the entitle button of the Application details offering record of that reference id
+And Click on action icon of first record of application details_Offering value
+#Then click on the entitle button of the Application details offering record of that reference id
 Then click on the Application details tab in Application details screen
 Then verify Application Details screen should get open with mention fields
 Then verify Referral Sourcing Details screen should get open with mention fields
@@ -291,9 +256,9 @@ Then verify the field servicing branch on Application Details Offering screen
 Then verify the field closing staff on Application Details Offering screen
   	
 Then verify the field sourcing type on Application Details Offering screen
-Then verify the field sourcing staff on Application Details Offering screen
-Then verify the field sourcing entity on Application Details Offering screen
 Then verify the field sourcing office on Application Details Offering screen
+Then verify the field sourcing entity on Application Details Offering screen
+Then verify the field sourcing staff on Application Details Offering screen
 Then verify the field reference type on Application Details Offering screen
 Then verify the field reference entity on Application Details Offering screen
 Then verify the field reference code on Application Details Offering screen
@@ -309,6 +274,8 @@ And User click the offering tab in application detail offering
 And User click the offering action edit icon in application detail offering
 And User verify the modify existing record of Application Details under Offering screen
 And User verify the back button functionality in application detail offering
+
+###################################################################################################################################################
 
 #Application Detail Disbursement Maker
 
@@ -368,6 +335,8 @@ Then verify user can not able to modify the Reference Entity field
 Then verify user can not able to modify the Reference Code field
 Then verify the functionlaity of the back button
 
+##############################################################################################################################################
+
 #Application Detail Disbursement Checker
 @AT-ADC-001
 Scenario: To verify the availability of Application Details tab under Disbursement Checker stage
@@ -404,7 +373,7 @@ And User verify the availability of Add button on Application Detail offering
 And User Verify the Values in List view should be non editable in application detail disbursement checker
 And User verify the back button functionality in application detail disbursement checker
 
-
+######################################################################################################################################
 #Customer Entity Layout-Customer personal detail
 @AT_CEL_001
 Scenario: To verify maker can able to submit the customer personal Details record
@@ -419,8 +388,10 @@ And choose customer for individual
 And enter the CIF ID
 And enter the applicantion number
 And enter customer name
-And choose the ID type
-And enter id number in id type field
+#And choose the ID type
+And Select the value in ID type field of Application details
+And Enter the value in ID number field of Application details
+#And enter id number in id type field
 And enter mobile number field
 And give date of birth of the employee
 And enter email Id
@@ -460,8 +431,10 @@ And choose customer for individual
 And enter the CIF ID
 And enter the applicantion number
 And enter customer name
-And choose the ID type
-And enter id number in id type field
+#And choose the ID type
+#And enter id number in id type field
+And Select the value in ID type field of Application details
+And Enter the value in ID number field of Application details
 And enter mobile number field
 And give date of birth of the employee
 And enter email Id
@@ -513,7 +486,7 @@ Then verify applicant type field should be available and read only mode
 Then verify status field should be available and field should be read only mode
 Then verify back button is available is screen and field should be read only mode
 Then verify save button is available in the screen and field should be read only mode
-
+####################################################################################################################################
 #Personal Detail Data Entry
 @AT_PDE_001
 Scenario: Customer Personal Information at App data entry satge
@@ -571,7 +544,8 @@ And user Choose customer Type
 And user Enter CIF ID
 And user Enter Application Number
 And user Enter Customer Name
-And user choose ID Type
+#And user choose ID Type
+And Select the value in ID type field of Application details
 And user Enter ID Number
 And user Enter Mobile Number
 And user Choose Date of Birth
@@ -647,23 +621,62 @@ And user Verify the Last Name List View
 And user verify the Customer Type List View
 And user verify the Applicant Type List View
 And user verify the Status List View
-
+################################################################################################################################################
 #Personal Details Offering
+@AT_PDO_001
+Scenario: To create Customer details at offering stage with valid details
+#Given Launch the kuls application and Navigate to Application details view list
+#And Click the inbox icon in Customer details at offering stage
+Given User Launch the KULS url for Transaction
+Then user click on Transaction Module
+And user click on Application Details
+And user click on Inbox Icon
+#Then Search the record in Customer details at offering stage
+#And Click the action icon in Customer details at offering stage
+And User click the action edit icon in application detail offering
+And Click the customer details tab in Customer details at offering stage
+Then Click the Edit icon in Customer details at offering stage
+Then Verify the field Customer Type is in read only mode in Customer details at offering stage
+And Verify the field Applicant Type is in read only mode in Customer details at offering stage
+And Verify the field Salutation is in read only mode in Customer details at offering stage
+And Verify the field First Name is in read only mode in Customer details at offering stage
+And Verify the field Middle Name is in read only mode in Customer details at offering stage
+And Verify the field Last Name is in read only mode in Customer details at offering stage
+And Verify the field Date of Birth is in read only mode in Customer details at offering stage
+And Verify the field Gender is in read only mode in Customer details at offering stage
+And Verify the field Education Level is in read only mode in Customer details at offering stage
+And Verify the field Marital Status is in read only mode in Customer details at offering stage
+And Verify the field Nationality is in read only mode in Customer details at offering stage
+And Verify the field Religion is in read only mode in Customer details at offering stage
+And Verify the field Resident Status is in read only mode in Customer details at offering stage
+And Verify the field Language is in read only mode in Customer details at offering stage
+And Verify the field No of Dependents is in read only mode in Customer details at offering stage
+And Verify the field Mothers Maiden Name is in read only mode in Customer details at offering stage
+And Verify the field Type of Residence is in read only mode in Customer details at offering stage
+And Verify the field Category of Client is in read only mode in Customer details at offering stage
+And Verify the field Rating is in read only mode in Customer details at offering stage
+
 @AT_PDO_002
 Scenario: Verify the functionality of customer details list view
 #Given User launch the kuls application
 #And User Login as maker
-Given User login as uls maker in transaction
-Then user should click on menu to open the sidebar
-Then click on inbox to search for the personal detail offering record
-Then click on search button to search the record of personal detail offering
-Then enter the reference id of the personal detail offering record
-Then click on the entitle button of the record of that reference id
+#Given User login as uls maker in transaction
+#Then user should click on menu to open the sidebar
+#Then click on inbox to search for the personal detail offering record
+#Then click on search button to search the record of personal detail offering
+#Then enter the reference id of the personal detail offering record
+#Then click on the entitle button of the record of that reference id
+Given User Launch the KULS url for Transaction
+Then user click on Transaction Module
+And user click on Application Details
+And user click on Inbox Icon
+And User click the action edit icon in application detail offering
+
 Then click on the customer details tab in customer personal information screen
 Then verify system should display mention fields of customer details list view
 Then system should verify the values in the list view should be in read only mode
 Then verify the functionality of the back button in the personal detail offering stage
-
+################################################################################################################################
 #Personal Details Disbursement Maker
 @PDDM01
  Scenario: To check the functionality of Personal Details Disbursement Maker
@@ -677,7 +690,7 @@ Then click on search icon of record list
 Then search Personal Details Disbursement Maker record
 And maker user open the record from inbox
 Then click on Customer Details Segment button
-Then open Customer Details record
+Then open Customer Details recordiin02040
 Then verify the field Customer Type
 Then verify the field Applicant Type
 Then verify the field Salutation 

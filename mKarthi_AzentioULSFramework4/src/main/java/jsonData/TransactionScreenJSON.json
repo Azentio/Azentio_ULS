@@ -78,7 +78,9 @@
 		"negativeInput": "-1",
 		"negativeInputValidation": "Minimum No of Dependents allowed is 0",
 		
-		"ApplicationDetailsPreRequestSearch1":"NewApp"
+		"ApplicationDetailsPreRequestSearch1":"NewApp",
+		
+		"BeneficiaryDetails_Search":"DISBCKR"
 		
 	 }
 ]
