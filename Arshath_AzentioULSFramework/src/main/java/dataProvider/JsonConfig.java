@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.Beneficiary_Details_Testdata;
 import testDataType.Charge_Master_Testdata;
 import testDataType.Customer_Empolyment_Testdata;
 import testDataType.Customer_address_Testdata;
@@ -23,6 +24,7 @@ import testDataType.PropetyDetails_TestDataType;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
 import testDataType.TransactionScreenTestDataType;
+import testDataType.ULS_CustomerDeptDetailsTestData;
 import testDataType.WarehouseTestdata;
 
 //master
@@ -70,6 +72,13 @@ public class JsonConfig {
 	private final String TransactionScreenDataPath = configFileReader.getJsonPath() + "TransactionScreenJSON.json";
 	private List<TransactionScreenTestDataType> TransactionScreen;
 	
+	private final String BenefiniaryPath = configFileReader.getJsonPath() + "Beneficiary_DetailsJson.json";
+	private List<Beneficiary_Details_Testdata> Benefiniary;
+	
+	
+	private final String ulsCustomerDeptDetailsJSONFilePath = configFileReader.getJsonPath() + "ULS_CustomerDeptDetailsJSON.json";
+	private List<ULS_CustomerDeptDetailsTestData> ulsCustomerDeptDetailsTestData;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -88,8 +97,50 @@ public class JsonConfig {
 		CustAddressinfo=getCustAddressinfo();
 		uls_PropertyDetailsTestData=getPropertyDetailsTestdata();
 		TransactionScreen = getTransactionScreenList();
+		Benefiniary = getBenefiniary();
+		ulsCustomerDeptDetailsTestData=getCustomerDeptDetailsTestData();
 	}
 	
+	private List<ULS_CustomerDeptDetailsTestData> getCustomerDeptDetailsTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ulsCustomerDeptDetailsJSONFilePath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ulsCustomerDeptDetailsJSONFilePath));
+			ULS_CustomerDeptDetailsTestData[] ulsCustomerDeptDetailsTestData = gson.fromJson(bufferReader, ULS_CustomerDeptDetailsTestData[].class);
+			return Arrays.asList(ulsCustomerDeptDetailsTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ulsCustomerDeptDetailsJSONFilePath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	private List<Beneficiary_Details_Testdata> getBenefiniary()
+	{
+		Gson gson = new Gson();
+	JsonReader reader = new JsonReader(new StringReader(BenefiniaryPath));
+	reader.setLenient(true);
+	BufferedReader bufferReader = null;
+	try {
+		bufferReader = new BufferedReader(new FileReader(BenefiniaryPath));
+		Beneficiary_Details_Testdata[] Benefiniary = gson.fromJson(bufferReader, Beneficiary_Details_Testdata[].class);
+		return Arrays.asList(Benefiniary);
+	} catch (FileNotFoundException e) {
+		throw new RuntimeException("Json file not found at path : " + BenefiniaryPath);
+	} finally {
+		try {
+			if (bufferReader != null)
+				bufferReader.close();
+		} catch (IOException ignore) {
+		}
+	}
+		
+	}
 	//Anandh
 	private List<PropetyDetails_TestDataType> getPropertyDetailsTestdata()
 	{
@@ -395,5 +446,13 @@ public class JsonConfig {
 	
 	public final TransactionScreenTestDataType getTransactionScreenListByName(String Username) {
 		return TransactionScreen.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final Beneficiary_Details_Testdata getBenificiaryListByName(String Username) {
+		return Benefiniary.stream().filter(x -> x.Users.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final ULS_CustomerDeptDetailsTestData getCustomerDeptDetailsTestDataByName(String User) {
+		return ulsCustomerDeptDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
 	}
 }

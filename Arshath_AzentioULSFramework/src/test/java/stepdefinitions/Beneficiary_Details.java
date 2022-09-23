@@ -15,6 +15,7 @@ import pageobjects.BeneficiaryDetails_Obj;
 import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
+import testDataType.Beneficiary_Details_Testdata;
 import testDataType.KULS_Login_TestDataType;
 
 public class Beneficiary_Details extends BaseClass {
@@ -30,11 +31,12 @@ public class Beneficiary_Details extends BaseClass {
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	BeneficiaryDetails_Obj BeneficiaryObj = new BeneficiaryDetails_Obj(driver);
+	Beneficiary_Details_Testdata Beneficiarydata = jsonConfig.getBenificiaryListByName("DISBMKR");
 
 	@And("^user search Disbursement Maker$")
 	public void user_search_disbursement_maker() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, BeneficiaryObj.Search_Input(), 10, 2);
-		BeneficiaryObj.Search_Input().sendKeys("606");
+		BeneficiaryObj.Search_Input().sendKeys(Beneficiarydata.ApplicationID);
 	}
 
 	@And("^user click on First record of Beneficiary Entry$")
@@ -89,13 +91,13 @@ public class Beneficiary_Details extends BaseClass {
 	public void user_verify_the_values_in_list_view_should_be_non_editable() throws Throwable {
 		try {
 			BeneficiaryObj.Beneficiary_Type_Listview().click();
-			BeneficiaryObj.Beneficiary_Type_Listview().sendKeys("213");
+			BeneficiaryObj.Beneficiary_Type_Listview().sendKeys(Beneficiarydata.ListViewVerify);
 		} catch (Exception e) {
 
 		}
 		try {
 			BeneficiaryObj.Beneficiary_Name_ListView().click();
-			BeneficiaryObj.Beneficiary_Name_ListView().sendKeys("213");
+			BeneficiaryObj.Beneficiary_Name_ListView().sendKeys(Beneficiarydata.ListViewVerify);
 		} catch (Exception e) {
 
 		}
@@ -134,7 +136,7 @@ public class Beneficiary_Details extends BaseClass {
 		BeneficiaryObj.Beneficiary_Search().click();
 		
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, BeneficiaryObj.Beneficiary_SearchText(), 10, 2);
-		BeneficiaryObj.Beneficiary_SearchText().sendKeys("123");
+		BeneficiaryObj.Beneficiary_SearchText().sendKeys(Beneficiarydata.MismatchSearchBox);
 		
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, BeneficiaryObj.Beneficiary_SearchText(), 10, 2);
 		BeneficiaryObj.Beneficiary_SearchText_Close().click();
@@ -146,13 +148,13 @@ public class Beneficiary_Details extends BaseClass {
 		BeneficiaryObj.Beneficiary_Search().click();
 		//Thread.sleep(2000);
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, BeneficiaryObj.Beneficiary_SearchText(), 10, 2);
-		BeneficiaryObj.Beneficiary_SearchText().sendKeys("Arshath");
+		BeneficiaryObj.Beneficiary_SearchText().sendKeys(Beneficiarydata.MatchingSearch);
 		
 		boolean status = false;
 		for (int i = 0; i <= 15; i++) {
 			try {
 				status = driver
-						.findElement(By.xpath("//span[contains(text(),'Arshath')]"))
+						.findElement(By.xpath("//span[contains(text(),'"+Beneficiarydata.MatchingSearch+"')]"))
 						.isDisplayed();
 
 			} catch (Exception e) {
