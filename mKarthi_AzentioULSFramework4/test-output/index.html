@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\inindc00071\AppData\Local\Temp\testng-eclipse-704349085\testng-customsuite.xml</span>
+                    <span>C:\Users\inindc00071\AppData\Local\Temp\testng-eclipse-390057792\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Runner.TestApplication" class="method navigator-link" hash-for-method="runScenario(&quot;To create Customer details at offering stage with valid details&quot;, &quot;Optional[To verify user is able ...)">runScenario("To create Customer details at offering stage with valid details", "Optional[To verify user is able ...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Runner.TestApplication" class="method navigator-link" hash-for-method="runScenario(&quot;To verify the functionality of Customer Debt details List view&quot;, &quot;Optional[To verify the impact whe...)">runScenario("To verify the functionality of Customer Debt details List view", "Optional[To verify the impact whe...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -127,26 +127,27 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;To create Customer details at offering stage with valid details&quot;, &quot;Optional[To verify user is able ...)">
-                  </a> <!-- runScenario("To create Customer details at offering stage with valid details", "Optional[To verify user is able ...) -->
+                  <a name="runScenario(&quot;To verify the functionality of Customer Debt details List view&quot;, &quot;Optional[To verify the impact whe...)">
+                  </a> <!-- runScenario("To verify the functionality of Customer Debt details List view", "Optional[To verify the impact whe...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("To create Customer details at offering stage with valid details", "Optional[To verify user is able to create the record and full flow of the transaction screen]")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//ion-segment-button[@id=&apos;seg3&apos;])[2]&apos; (tried for 60 second(s) with 2000 milliseconds interval)
+                  <span class="parameters">("To verify the functionality of Customer Debt details List view", "Optional[To verify the impact when user keep any mandatory field blank and click on save button]")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//button[@ng-reflect-text=&apos;Entitle&apos;])[1]&apos; (tried for 60 second(s) with 5000 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.CxPersonalDetailOfferingStage.click_the_customer_details_tab_in_customer_details_at_offering_stage(CxPersonalDetailOfferingStage.java:76)
-	at ✽.Click the customer details tab in Customer details at offering stage(file:///C:/Users/inindc00071/git/repository4/mKarthi_AzentioULSFramework4/src/test/java/features/TransactionScreenFullBatch.feature:637)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//ion-segment-button[@id=&apos;seg3&apos;])[2]&quot;}
+	at stepdefinitions.KULS_CustomerDebt.user_click_the_action_edit_icon_in_in_customer_debt(KULS_CustomerDebt.java:53)
+	at ✽.User click the action edit icon in in customer debt(file:///C:/Users/inindc00071/git/repository4/mKarthi_AzentioULSFramework4/src/test/java/features/CustomerEntityLayout_CustomerDebt1.feature:24)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//button[@ng-reflect-text=&apos;Entitle&apos;])[1]&quot;}
   (Session info: chrome=99.0.4844.82)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
 System info: host: &apos;INMUVADP016574&apos;, ip: &apos;10.1.47.116&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [41c567284c0fb4596e041ce856788104, findElement {using=xpath, value=(//ion-segment-button[@id=&apos;seg3&apos;])[2]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53834}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53834/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 41c567284c0fb4596e041ce856788104
-	at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+Command: [9eb36e37f57e407b21e3296ca45acd8e, findElement {using=xpath, value=(//button[@ng-reflect-text=&apos;Entitle&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:52220}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52220/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9eb36e37f57e407b21e3296ca45acd8e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -170,7 +171,7 @@ Session ID: 41c567284c0fb4596e041ce856788104
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.CxPersonalDetailOfferingStage.click_the_customer_details_tab_in_customer_details_at_offering_stage(CxPersonalDetailOfferingStage.java:76)
+	at stepdefinitions.KULS_CustomerDebt.user_click_the_action_edit_icon_in_in_customer_debt(KULS_CustomerDebt.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -230,7 +231,7 @@ Session ID: 41c567284c0fb4596e041ce856788104
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\inindc00071\AppData\Local\Temp\testng-eclipse-704349085\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\inindc00071\AppData\Local\Temp\testng-eclipse-390057792\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -291,7 +292,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'Runner.TestApplication')
-data.setCell(0, 3, 87448);
+data.setCell(0, 3, 76308);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -329,21 +330,21 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">setUpClass</span>
-                <span class="method-start">33 ms</span>
+                <span class="method-start">21 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("To create Customer details at offering stage with valid details", "Optional[To verify user is able ...)</span>
-                <span class="method-start">1036 ms</span>
+                <span class="method-name">runScenario("To verify the functionality of Customer Debt details List view", "Optional[To verify the impact whe...)</span>
+                <span class="method-start">1124 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">88488 ms</span>
+                <span class="method-start">77438 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterExecution</span>
-                <span class="method-start">93913 ms</span>
+                <span class="method-start">81084 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
