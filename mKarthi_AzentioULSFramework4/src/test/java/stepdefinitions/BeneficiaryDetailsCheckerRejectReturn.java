@@ -17,7 +17,7 @@ import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
 
-public class BeneficiaryDetailsCheckerRejectReturn {
+public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
 	
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader configFileReader = new ConfigFileReader();

@@ -22,7 +22,7 @@ import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
 
-public class KULS_CustomerEntityLayout_FacilityDetails {
+public class KULS_CustomerEntityLayout_FacilityDetails extends BaseClass {
 	
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader configFileReader = new ConfigFileReader();
