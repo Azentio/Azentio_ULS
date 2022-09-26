@@ -26,9 +26,13 @@ And User click the customer financials tab in customer debt
 And User click the customer personal information action edit icon in customer debt
 And User verify the Customer Debt details List view
 And User verify the Values in List view should be non editable in customer debt
-And User verify the functionality of Search box with matching data in customer debt
 And User verify the functionality of Search box with mismatch data in customer debt
+And User verify the functionality of Search box with matching data in customer debt
 And User verify the functionality of Export to PDF button in customer debt
 And User verify the functionality of Export to Excel button in customer debt
+And User click the Action edit icon under financial commitments in customer debt
 And Verify user is able to change the status of Debt record from Active to Inactive in customer debt
+And User click the save icon in customer debt
+And User click the Action edit icon under financial commitments in customer debt
 And Verify user is able to change the status of Debt record from Inctive to Active in customer debt
+And User click the save icon in customer debt

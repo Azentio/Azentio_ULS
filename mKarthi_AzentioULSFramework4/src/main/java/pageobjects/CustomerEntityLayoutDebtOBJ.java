@@ -258,6 +258,18 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return FinanacialCommitmentsAddIcon;
 	}
+	@FindBy(xpath="(//button[@ng-reflect-text='Add'])[3]")
+	private WebElement FinanacialCommitmentsAddIcon2;
+	public WebElement FinanacialCommitmentsAddIcon2() 
+	{
+		return FinanacialCommitmentsAddIcon2;
+	}
+	@FindBy(xpath="//i[@class='pi pi-times ng-star-inserted']")
+	private WebElement SearchClear;
+	public WebElement SearchClear() 
+	{
+		return SearchClear;
+	}
 	@FindBy(xpath="(//button[@ng-reflect-icon='pi pi-search'])[4]")
 	private WebElement searchIcon;
 	public WebElement searchIcon() 
@@ -276,8 +288,108 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return productViewSearchText;
 	}
+	@FindBy(xpath="(//span[contains(text(),'Export')])[4]")
+	private WebElement exportIcon;
+	public WebElement exportIcon() 
+	{
+		return exportIcon;
+	}
+	@FindBy(xpath="//span[contains(text(),'PDF')]")
+	private WebElement pdfOption;
+	public WebElement pdfOption() 
+	{
+		return pdfOption;
+	}
+	@FindBy(xpath="//span[contains(text(),'XLS')]")
+	private WebElement xlsOption;
+	public WebElement xlsOption() 
+	{
+		return xlsOption;
+	}
+	@FindBy(xpath="(//button[@ng-reflect-text='Edit'])[4]")
+	private WebElement CustomerDebt_ActionEdit;
+	public WebElement CustomerDebt_ActionEdit() 
+	{
+		return CustomerDebt_ActionEdit;
+	}
+	@FindBy(xpath="//ion-toggle[@role='switch']")
+	private WebElement StatusButton;
+	public WebElement StatusButton()
+	{
+		return StatusButton;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Update']")
+	private WebElement UpdateSave;
+	public WebElement UpdateSave()
+	{
+		return UpdateSave;
 	
+	}
+	@FindBy(xpath="//span[contains(text(),'Financial Institution')]")
+	private WebElement ListView_FinancialInstitution;
+	public WebElement ListView_FinancialInstitution()
+	{
+		return ListView_FinancialInstitution;
 	
+	}
+	@FindBy(xpath="//span[contains(text(),'Loan Amount')]")
+	private WebElement ListView_LoanAmount;
+	public WebElement ListView_LoanAmount()
+	{
+		return ListView_LoanAmount;
+	
+	}
+	@FindBy(xpath="//span[contains(text(),'Installment Amount')]")
+	private WebElement ListView_InstallmentAmount;
+	public WebElement ListView_InstallmentAmount()
+	{
+		return ListView_InstallmentAmount;
+	
+	}
+	@FindBy(xpath="//span[contains(text(),'Current Principal Balance')]")
+	private WebElement ListView_CurrentPrincipalBalance;
+	public WebElement ListView_CurrentPrincipalBalance()
+	{
+		return ListView_CurrentPrincipalBalance;
+	
+	}
+	@FindBy(xpath="//span[contains(text(),'Tenure (months)')]")
+	private WebElement ListView_Tenure;
+	public WebElement ListView_Tenure()
+	{
+		return ListView_Tenure;
+	
+	}
+	@FindBy(xpath="//span[contains(text(),'Next Due date')]")
+	private WebElement ListView_NextDueDate;
+	public WebElement ListView_NextDueDate()
+	{
+		return ListView_NextDueDate;
+	
+	}
+	@FindBy(xpath="//span[contains(text(),'Balance Outstanding')]")
+	private WebElement ListView_BalanceOutstanding;
+	public WebElement ListView_BalanceOutstanding()
+	{
+		return ListView_BalanceOutstanding;
+	
+	}
+	@FindBy(xpath="//span[contains(text(),'Currency')]")
+	private WebElement ListView_Currency;
+	public WebElement ListView_Currency()
+	{
+		return ListView_Currency;
+	
+	}
+	@FindBy(xpath="(//span[contains(text(),'Status')])[4]")
+	private WebElement ListView_Status;
+	public WebElement ListView_Status()
+	{
+		return ListView_Status;
+	
+	}
+	
+
 
 
 

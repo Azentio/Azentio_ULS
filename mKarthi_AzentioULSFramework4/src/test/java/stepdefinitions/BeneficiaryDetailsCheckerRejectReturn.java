@@ -60,6 +60,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     	Transaction.searchiconreferenceid().click();
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
+    	Transaction.searchsentkeys().clear();
     	Transaction.searchsentkeys().sendKeys(json.readReferancedata());
     	
     }
