@@ -30,5 +30,6 @@ public class AppDocumentDetailsTestData {
 	public String SearchMatchedData;
 	public String SearchUnMatchedData;
 	public String errorMessage;
+	public String InvalidInput;
 
 }

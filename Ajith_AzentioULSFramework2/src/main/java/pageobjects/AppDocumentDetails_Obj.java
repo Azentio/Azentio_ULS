@@ -91,8 +91,9 @@ public class AppDocumentDetails_Obj {
 	@FindBy(xpath = "//ion-label[text()=' Change In Nature Approved By ']/following-sibling::ion-select")
 	private WebElement ChangeInNatureApprovedBy;
 	public WebElement ChangeInNatureApprovedBy() {
-		return defApprovedBy;
+		return ChangeInNatureApprovedBy;
 	}
+	
 	@FindBy(xpath = "//ion-label[text()=' Document Form ']/following-sibling::ion-select")
 	private WebElement documentForm;
 	public WebElement documentForm() {
@@ -168,6 +169,11 @@ public class AppDocumentDetails_Obj {
 	public WebElement exportIcon() {
 		return exportIcon;
 	}
+	@FindBy(xpath = "//button[@ng-reflect-text='Update']") 
+    private WebElement documentDetailsUpdate;
+    public WebElement documentDetailsUpdate() {
+        return documentDetailsUpdate;
+    } 
 
 	@FindBy(xpath = "//p-dropdownitem[@ng-reflect-label='PDF']//child::span")
 	private WebElement pdfOption;

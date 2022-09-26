@@ -13,6 +13,7 @@ import org.testng.Assert;
 import dataProvider.JsonConfig;
 import helper.Selenium_Actions;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import pageobjects.AppDocumentDetails_Obj;
 import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
@@ -27,7 +28,6 @@ public class AppDocumenDetails extends BaseClass{
  AppDocumentDetailsTestData appDocumentDetailsdata = jsonConfig.getApplicationDocumentDetailsistByName("Maker");
  @And("^User search app data in inbox list view$")
  public void user_search_app_data_in_inbox_list_view() throws Throwable {
-	
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.Application_DetailTab_SearchButtons(),30, 2);
 	 documentDetailsObj.Application_DetailTab_SearchButtons().click();
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.Application_DetailTab_SearchText(),30, 2);
@@ -279,13 +279,21 @@ public class AppDocumenDetails extends BaseClass{
  public void user_verify_the_functionality_of_excel_download_in_document_details_list_view() throws Throwable {
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.exportIcon(),30, 2);
 	 documentDetailsObj.exportIcon().click();
-	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.xlsOption(),30, 2);
-	 seleniumActions.getClickAndActionsHelper().moveToElement(documentDetailsObj.xlsOption());
-	 documentDetailsObj.xlsOption().click();
+	 //seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.xlsOption(),30, 2);
+	 for (int i = 0; i <30; i++) {
+		try {
+			seleniumActions.getClickAndActionsHelper().moveToElement(documentDetailsObj.xlsOption());
+			 documentDetailsObj.xlsOption().click();
+			 break; 
+		} catch (Exception e) {
+			
+		}
+	}
+	 
 	 String UserDirectory = System.getProperty("user.dir");
 		String substring = UserDirectory.substring(0, 21) + "Downloads";
 		substring.replaceAll("/", "//");
-		System.out.println(substring);
+		//System.out.println(substring);
 		File file = new File(substring);
 		
 		int j=0;
@@ -359,7 +367,7 @@ public class AppDocumenDetails extends BaseClass{
 	 Assert.assertEquals(true, documentDetailsObj.documentStatus().isDisplayed());
 	 verifyfield.verifyGivenFieldisMandatoryOrNot("Document Status");
 	  Assert.assertEquals( documentDetailsObj.documentStatus().getAttribute("aria-haspopup"),"listbox");
-	  System.out.println("Asset Model Type field is "+documentDetailsObj.documentStatus().getAttribute("aria-haspopup"));
+	  System.out.println("Document Status field is "+documentDetailsObj.documentStatus().getAttribute("aria-haspopup"));
 	  documentDetailsObj.documentStatus().click();
 	  String xpath ="//ion-label[text()=' "+appDocumentDetailsdata.DocumentStatus+" ']//following-sibling::ion-radio";
 	  for (int i = 0; i <30; i++) {
@@ -397,7 +405,7 @@ public class AppDocumenDetails extends BaseClass{
  public void user_select_the_mandatory_optional_and_verify_the_field_is_mandatory_non_editable_and_drop_down() throws Throwable {
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.mandatoryOrOptional(),60, 2);
 	 Assert.assertEquals(true, documentDetailsObj.mandatoryOrOptional().isDisplayed());
-	 verifyfield.verifyGivenFieldisMandatoryOrNot("Document Status");
+	 verifyfield.verifyGivenFieldisMandatoryOrNot("Mandatory/Optional");
 	  Assert.assertEquals( documentDetailsObj.mandatoryOrOptional().getAttribute("aria-haspopup"),"listbox");
 	  System.out.println("Mandatory optional field is "+documentDetailsObj.mandatoryOrOptional().getAttribute("aria-haspopup"));
 	  documentDetailsObj.mandatoryOrOptional().click();
@@ -568,9 +576,9 @@ public class AppDocumenDetails extends BaseClass{
 	 verifyfield.verifyGivenFieldisMandatoryOrNot("Change In Nature Approved By");
 	  Assert.assertEquals( documentDetailsObj.ChangeInNatureApprovedBy().getAttribute("aria-haspopup"),"listbox");
 	  System.out.println("Change in Nature Approved By field is "+documentDetailsObj.ChangeInNatureApprovedBy().getAttribute("aria-haspopup"));
-	  seleniumActions.getJavascriptHelper().JSEClick(documentDetailsObj.ChangeInNatureApprovedBy());		
+	 documentDetailsObj.ChangeInNatureApprovedBy().click();
 	  String xpath ="//ion-label[text()=' "+appDocumentDetailsdata.ChangeInNatureApprovedBy+" ']//following-sibling::ion-radio";
-	  for (int i = 0; i <100; i++) {
+	  for (int i = 0; i <30; i++) {
 		try {
 			seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));;
 			driver.findElement(By.xpath(xpath)).click();
@@ -605,7 +613,7 @@ public class AppDocumenDetails extends BaseClass{
 	 Assert.assertEquals(true, documentDetailsObj.documentForm().isDisplayed());
 	 verifyfield.verifyGivenFieldisMandatoryOrNot("Document Form");
 	  Assert.assertEquals( documentDetailsObj.documentForm().getAttribute("aria-haspopup"),"listbox");
-	  System.out.println("Change in Nature field is "+documentDetailsObj.documentForm().getAttribute("aria-haspopup"));
+	  System.out.println("Document Form field is "+documentDetailsObj.documentForm().getAttribute("aria-haspopup"));
 	  documentDetailsObj.documentForm().click();
 	  String xpath ="//ion-label[text()=' "+appDocumentDetailsdata.DocumentForm+" ' ]//following-sibling::ion-radio";
 	  for (int i = 0; i <30; i++) {
@@ -623,9 +631,9 @@ public class AppDocumenDetails extends BaseClass{
  public void user_select_document_quality_and_verify_the_field_is_non_mandatory_editable_and_dropdown() throws Throwable {
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.documentQuality(),60, 2);
 	 Assert.assertEquals(true, documentDetailsObj.documentQuality().isDisplayed());
-	 verifyfield.verifyGivenFieldisMandatoryOrNot("Document Form");
+	 verifyfield.verifyGivenFieldisMandatoryOrNot("Document Quality");
 	  Assert.assertEquals( documentDetailsObj.documentQuality().getAttribute("aria-haspopup"),"listbox");
-	  System.out.println("Change in Nature field is "+documentDetailsObj.documentQuality().getAttribute("aria-haspopup"));
+	  System.out.println("Document Quality field is "+documentDetailsObj.documentQuality().getAttribute("aria-haspopup"));
 	  documentDetailsObj.documentQuality().click();
 	  String xpath ="//ion-label[text()=' "+appDocumentDetailsdata.DocumentQuality+" ' ]//following-sibling::ion-radio";
 	  for (int i = 0; i <30; i++) {
@@ -646,7 +654,7 @@ public class AppDocumenDetails extends BaseClass{
 	 Assert.assertEquals(true, documentDetailsObj.documentReferenceNumber().isDisplayed());
 	 verifyfield.verifyGivenFieldisMandatoryOrNot("Document Reference Number"); //type="text"
 	  Assert.assertEquals( documentDetailsObj.documentReferenceNumber().getAttribute("type"),"text");
-	  System.out.println("Document Reference field is "+documentDetailsObj.documentReferenceNumber().getAttribute("text"));
+	  System.out.println("Document Reference field is "+documentDetailsObj.documentReferenceNumber().getAttribute("type"));
 	  documentDetailsObj.documentReferenceNumber().click();
 	  for (int i = 0; i <30; i++) {
 		try {
@@ -763,7 +771,15 @@ public class AppDocumenDetails extends BaseClass{
  @And("^user save the record in document details for blank field verification$")
  public void user_save_the_record_in_document_details_for_blank_field_verification() throws Throwable {
 	 seleniumActions.getJavascriptHelper().scrollIntoView(documentDetailsObj.documentDetailsSave());
-	 documentDetailsObj.documentDetailsSave().click();
+	 for (int i = 0; i <30; i++) {
+		try {
+			documentDetailsObj.documentDetailsSave().click();
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+	 
  }
 
  @And("^user verify the impact when user keep any mandatory field blank and click on save button$")
@@ -773,7 +789,107 @@ public class AppDocumenDetails extends BaseClass{
     String documentCategory = (String) seleniumActions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[2].innerText");
     Assert.assertEquals(documentCategory,"Required field");
  }
+ 
+ @Then("^The system should not allow user to do a modification with invalid data$")
+ public void the_system_should_not_allow_user_to_do_a_modification_with_invalid_data() throws Throwable {
+	 //document reference number
+	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.documentReferenceNumber(),60, 2);
+	  documentDetailsObj.documentReferenceNumber().click();
+	  for (int i = 0; i <30; i++) {
+		try {
+			documentDetailsObj.documentReferenceNumber().sendKeys(appDocumentDetailsdata.InvalidInput);
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+	  String RefernceerrorMessage = (String) seleniumActions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[3].innerText");
+	  Assert.assertEquals(RefernceerrorMessage, "Alphanumeric characters allowed");
+	  //Rack Number
+	  seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.rackNumber(),60, 2);
+	  documentDetailsObj.rackNumber().click();
+	  for (int i = 0; i <30; i++) {
+		try {
+			documentDetailsObj.rackNumber().sendKeys(appDocumentDetailsdata.InvalidInput);
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+	  String RackNumbererrorMessage = (String) seleniumActions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[4].innerText");
+	  Assert.assertEquals(RackNumbererrorMessage, "Alphanumeric characters allowed");
+	  //Shelf Number
+	  seleniumActions.getJavascriptHelper().scrollIntoView(documentDetailsObj.shelfNumber());
+	  seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.shelfNumber(),60, 2);
+	  documentDetailsObj.shelfNumber().click();
+	  for (int i = 0; i <30; i++) {
+		try {
+			documentDetailsObj.shelfNumber().sendKeys(appDocumentDetailsdata.InvalidInput);
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+	  String ShelfNumbererrorMessage = (String) seleniumActions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[5].innerText");
+	  Assert.assertEquals(ShelfNumbererrorMessage, "Alphanumeric characters allowed");
+	  //Box Number
+	  seleniumActions.getJavascriptHelper().scrollIntoView(documentDetailsObj.boxNumber());
+	  seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.boxNumber(),60, 2);
+	  documentDetailsObj.boxNumber().click();
+	  for (int i = 0; i <30; i++) {
+		try {
+			documentDetailsObj.boxNumber().sendKeys(appDocumentDetailsdata.InvalidInput);
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+	  String BoxNumbererrorMessage = (String) seleniumActions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[6].innerText");
+	  Assert.assertEquals(BoxNumbererrorMessage, "Alphanumeric characters allowed");
+	  
+ }
 
+ @And("^User Change document name to default value$")
+ public void user_change_document_name_to_default_value() throws Throwable {
+	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.documentName(),60, 2);
+	  documentDetailsObj.documentName().click();
+	  String xpath ="//ion-label[text()=' Select ']//following-sibling::ion-radio";
+	  for (int i = 0; i <60; i++) {
+		try {
+			driver.findElement(By.xpath(xpath)).click();
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+	  
+ }
 
+ @And("^User Change document Category to default value$")
+ public void user_change_document_category_to_default_value() throws Throwable {
+	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,documentDetailsObj.documentCategory(),60, 2);
+	  documentDetailsObj.documentCategory().click();
+	  String xpath ="//ion-label[text()=' Select ']//following-sibling::ion-radio";
+	  for (int i = 0; i <60; i++) {
+		try {
+			driver.findElement(By.xpath(xpath)).click();
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+ }
+ @And("^user update the record in document details for blank field verification$")
+ public void user_update_the_record_in_document_details_for_blank_field_verification() throws Throwable {
+	 seleniumActions.getJavascriptHelper().scrollIntoView(documentDetailsObj.documentDetailsUpdate());
+	 for (int i = 0; i <30; i++) {
+		try {
+			documentDetailsObj.documentDetailsUpdate().click();
+			break;
+		} catch (Exception e) {
+			
+		}
+	}
+ }
  
 }

@@ -81,7 +81,7 @@ public class WaitHelper {
 		return wait.until(ExpectedConditions.elementToBeClickable(element));
 
 	}
-	// Fluent wait for visiblity of element
+	// Fluent wait for visibility of element
 	public  WebElement waitForElementToVisibleWithFluentWait(WebDriver driver, WebElement element,int timeOut,int pollingTime)
     {
     Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
@@ -92,6 +92,18 @@ public class WaitHelper {
     return element1;
   
     }
+	//Fluent wait devesh
+		public  WebElement waitForElementwithFluentwait(WebDriver driver, WebElement element) 
+		{ 	
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+					.withTimeout(Duration.ofSeconds(10)) 
+					.pollingEvery(Duration.ofMillis(500))
+					.ignoring(Exception.class);
+//			WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(element));
+			WebElement element1 = wait.until(ExpectedConditions.visibilityOf(element));
+			return element1;
+		}
+		
 	
 	public  WebElement waitForElementToVisibleWithFluentWaitElementToBeClickable(WebDriver driver, WebElement element,int timeOut,int pollingTime)
     {

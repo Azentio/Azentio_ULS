@@ -24,7 +24,7 @@ And User update Direct Manager Telephone
 And User update Employer Phone Extension
 And User select and update State
 And User update pincode
-And User Update Total Experience years
+#And User Update Total Experience years
 And User Update Experience At Current Employment
 And User Update Direct Manager
 And User Update Employer City Code

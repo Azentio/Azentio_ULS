@@ -253,9 +253,9 @@ public class CustomerEmployment_LayoutObject {
 	}
 	
 	@FindBy(xpath = "//button[@ng-reflect-text='Update']") 
-    private WebElement customerFinancialetailsUpdate;
-    public WebElement customerFinancialetailsUpdate() {
-        return customerFinancialetailsUpdate;
+    private WebElement customerFinancialDetailsUpdate;
+    public WebElement customerFinancialDetailsUpdate() {
+        return customerFinancialDetailsUpdate;
     } 
 	@FindBy(xpath = " //ion-label[text()=' Industry Sub Sector ']//following-sibling::ion-select")
 	private WebElement Trans_CxFinancial_IndustrySubSector1;
@@ -306,7 +306,7 @@ public class CustomerEmployment_LayoutObject {
 		return Trans_CxFinancial_EmpCityCode1;
 	}
 
-	@FindBy(xpath = " //ion-label[text()=' Remarks ']//following-sibling::ion-textarea/div")
+	@FindBy(xpath = "//ion-label[text()=' Remarks ']//following-sibling::ion-textarea//textarea")
 	private WebElement Trans_CxFinancial_Remarks1;
 
 	public WebElement Trans_CxFinancial_Remarks() {

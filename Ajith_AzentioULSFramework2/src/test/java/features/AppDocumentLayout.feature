@@ -1,4 +1,9 @@
 Feature: Testing the over all of functionalities and Validation of Document layout details 
+# This  Automation Test cases includes manual test cases CDL_01_01 CDL_01_02 CDL_01_03 
+#CDL_01_04 CDL_01_05 CDL_01_06 
+#CDL_01_07 CDL_01_08 CDL_01_09 CDL_01_10 CDL_01_11
+#CDL_01_12 CDL_01_13 CDL_01_14 CDL_01_15 CDL_01_16 CDL_01_17 CDL_01_18 
+#CDL_01_19 CDL_01_20 CDL_01_21 CDL_01_22 CDL_01_23 CDL_01_24
 @AT-DLDD-004
 Scenario: Document Details Parameter List View Records Verification
 Given user login as a cent bank uls application

@@ -453,9 +453,9 @@ public class Customer_Fianancials extends BaseClass {
  }
  @And("^User upadte and save the customer financial record$")
  public void user_upadte_and_save_the_customer_financial_record() throws Throwable {
-	 seleniumActions.getJavascriptHelper().scrollIntoView(customerEmploymentLayout.customerFinancialetailsUpdate());
-	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,customerEmploymentLayout.customerFinancialetailsUpdate(),30, 2);
-	 customerEmploymentLayout.customerFinancialetailsUpdate().click();
+	 seleniumActions.getJavascriptHelper().scrollIntoView(customerEmploymentLayout.customerFinancialDetailsUpdate());
+	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,customerEmploymentLayout.customerFinancialDetailsUpdate(),30, 2);
+	 customerEmploymentLayout.customerFinancialDetailsUpdate().click();
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,customerEmploymentLayout.successMgs(),30, 2);
 	 Assert.assertEquals(customerEmploymentLayout.successMgs().isDisplayed(), true);
  }
