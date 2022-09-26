@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
@@ -356,6 +357,63 @@ FindFieldisMandatoryorNot mandateOrNot= new FindFieldisMandatoryorNot(driver);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryobj.successMgs(), 60, 2);
 	   	 Assert.assertEquals(beneficiaryobj.successMgs().isDisplayed(), true);
 
+	    }
+	    @And("^Verify the bank field in beneficiary detail$")
+	    public void verify_the_bank_field_in_beneficiary_detail() throws Throwable {
+			WebElement nameErrorMessage = driver
+					.findElement(By.xpath("(//ion-badge[contains(text(),'Required field')])[1]"));
+			String expectedErrorText = "Required field";
+			String actualErrorText = nameErrorMessage.getText();
+			if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
+				System.out.println(
+						"The actual and expected result are same.The Popup validation message is" + actualErrorText);
+			} else {
+				System.out.println(
+						"The actual and expected result are not same.The Popup validation message is" + actualErrorText);
+			}
+			Assert.assertEquals("Required field", actualErrorText);
+
+		}	    
+	    @Then("^verify the impact when user enters only special characters value in any field in beneficiary details$")
+	    public void verify_the_impact_when_user_enters_only_special_characters_value_in_any_field_in_beneficiary_details() throws Throwable {
+	    	waithelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryobj.beneficiaryAddress(), 60, 2);
+	    	beneficiaryobj.beneficiaryAddress().click();
+	    	beneficiaryobj.beneficiaryAddress().sendKeys("*%%*");
+	    	WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),' Alphanumeric characters allowed')]"));
+	    	String expectedErrorText = "Alphanumeric characters allowed";
+	    	String actualErrorText = errorPopUp.getText();
+	    	if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
+	    		System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is" + actualErrorText);
+	    	} else {
+	    		System.out.println("The actual and expected result are not same.The Popup validation message is" + actualErrorText);
+	    	}
+	    	Assert.assertEquals("Alphanumeric characters allowed", actualErrorText);
+	    }     
+	    @And("^verify the impact when user enter numeric value in character field in beneficiary detail$")
+	    public void verify_the_impact_when_user_enter_numeric_value_in_character_field_in_beneficiary_detail() throws Throwable {
+	    	waithelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryobj.BeneficiaryName(), 60, 2);
+	    	beneficiaryobj.BeneficiaryName().click();
+	    	beneficiaryobj.BeneficiaryName().sendKeys("1234");
+	    	WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),' Alphabets allowed')]"));
+	    	String expectedErrorText = "Alphabets allowed";
+	    	String actualErrorText = errorPopUp.getText();
+	    	if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
+	    		System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is" + actualErrorText);
+	    	} else {
+	    		System.out.println("The actual and expected result are not same.The Popup validation message is" + actualErrorText);
+	    	}
+	    	Assert.assertEquals("Alphabets allowed", actualErrorText);
+	    }
+	    @Then("^verify the impact when user enter characters  value in numeric field in beneficiary detail$")
+	    public void verify_the_impact_when_user_enter_characters_value_in_numeric_field_in_beneficiary_detail() throws Throwable {
+	    	waithelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryobj.IBANorAccountNo(), 60, 2);
+	    	beneficiaryobj.IBANorAccountNo().click();
+	    	beneficiaryobj.IBANorAccountNo().sendKeys("1234");
+	    	beneficiaryobj.IBANorAccountNo().sendKeys("abcd");
+			String IBANorAccountNo = beneficiaryobj.IBANorAccountNoText()
+					.getAttribute("ng-reflect-model");
+			System.out.println(IBANorAccountNo);
+			Assert.assertFalse(IBANorAccountNo.contains("abcd"));
 	    }
 	        
 

@@ -1,0 +1,86 @@
+[
+	{
+		"UserType": "Maker",
+		
+		//facility details
+		
+		"ApplicationDetails_NetIncome":"10000",
+		
+		"FacilityDetails_PrimaryProduct": "Home Loan",
+		"FacilityDetails_PrimarySubProduct": "Home Loan-Plot Purchase Finance",
+		"FacilityDetails_Scheme": "New Home loan scheme 2022",
+		"FacilityDetails_ProgramCode": "Income Estimation",
+		"FacilityDetails_FacilityType": "Mega01",
+		"FacilityDetails_ServicingBranch": "East",
+		"FacilityDetails_PricingOrInterestIndicator": "Package 1",
+		"FacilityDetails_DeclaredAssetValue": "200000.00",
+		"FacilityDetails_DeclaredDownPaymentAmount": "10000.00",
+		"FacilityDetails_DeclaredRequestedAmount": "10000.00",
+		"FacilityDetails_Currency": "INR",
+		"FacilityDetails_Year": "2022",
+		"FacilityDetails_Month": "Dec",
+		"FacilityDetails_Day": "25",
+		"FacilityDetails_LoanTenure": "18",
+		"FacilityDetails_Search": "CPUEXEC",
+		"FacilityDetails_LoanTenureVerifyChar":"ABC16",
+		"FacilityDetails_LoanTenureVerifySpecial":"@#$%16",
+		"FacilityDetails_ProgramCodeBlank":"Select",
+		"FacilityDetails_FacilityTypeBlank":"Select",
+		
+		"FacilityDetails_ProgramCodeModify":"Low LTV",
+		"FacilityDetails_FacilityTypeModify":"HOME PURCHASE FACILITY",
+		
+		
+		
+		//CustomerPersonalDetails
+		
+		"applicationEventCode": "NEWAPP",
+		"CustomerType": "Individual Customer",
+		"CIFID": "1234",
+		"ApplicationNumber": "10",
+		"CustomerName": "Anandh",
+		"IDType": "ADHAR",
+		"IDNumber": "123456789012",
+		"MobileNumber": "9063524178",
+		"EmailID": "anandhm18@gamil.com",
+		"DOBYear": "2000",
+		"DOBMonth": "Dec",
+		"DOBDay": "30",
+		"dropdownAttribute": "listbox",
+		"textBoxAttribute": "text",
+		"numericcBoxAttribute": "number",
+		"ApplicantType": "Authorized Signatory",
+		"Salutation": "Mr",
+		"FirstName": "Anandh",
+		"MiddleName": "Kumar",
+		"LastName": "M",
+		"gender": "MALE",
+		"educationlevel": "UG",
+		"maritalstatus": "Single",
+		"nationality": "Indian",
+		"ethnicity": "Others",
+		"residentialstatus": "Resident",
+		"language": "English",
+		"noofDependents": "10",
+		"motherMaidenName": "xyz",
+		"typeOfResidence": "Rental",
+		"CategoryOfClient": "Affiliated to bank",
+		"rating": "10",
+		"ContactDetailsMobileNumber": "9087654321",
+		"ContactTime": "10:30",
+		"PreferedContactMethod": "Mobile",
+		"BlankInputValidation": "Required field",
+		"DefaultSelectValue": "Select",
+		"SpecialCharacterInput": "1234",
+		"NumericIInput": "!@#$",
+		"NumericSpecialCharecterValidation": "Alphabets allowed",
+		"alphaNumericInput": "12abc",
+		"negativeInput": "-1",
+		"negativeInputValidation": "Minimum No of Dependents allowed is 0",
+		
+		"ApplicationDetailsPreRequestSearch1":"NewApp",
+		
+		"BeneficiaryDetails_Search":"DISBMKR"
+		
+	 }
+]

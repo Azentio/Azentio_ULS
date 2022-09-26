@@ -24,7 +24,7 @@ public class ULS_BeneficiaryDetailsObj {
 	{
 		return beneficiaryDetails_AddButton;
 	}
-	@FindBy(xpath="(//td[text()=' DISBMKR ']/preceding-sibling::td[3]//button)[1]")
+	@FindBy(xpath="//tr[1]//td[text()=' DISBMKR ']/preceding-sibling::td[3]//button")
 	private WebElement beneficiaryDetails_DisbursementmakerFirstRecord;
 	public WebElement beneficiaryDetailsDisbursementmakerFirstRecord()
 	{

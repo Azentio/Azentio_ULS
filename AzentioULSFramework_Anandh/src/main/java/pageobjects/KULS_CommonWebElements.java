@@ -130,7 +130,7 @@ public class KULS_CommonWebElements {
     {
     	return uls_CustomerDetailsTabnewApp;
     }
-    @FindBy(xpath="//div[@id='toast-container']//div[@role='alertdialog']")
+    @FindBy(xpath="//div[@id='toast-container']/div/div[1]")
     private WebElement uls_toastAlert;
     public WebElement ulsToastAlert()
     {
@@ -142,4 +142,23 @@ public class KULS_CommonWebElements {
     {
     	return uls_toastAlertClose;
     }
+    @FindBy(xpath="//ion-label[text()='Additional Customer Info']//parent::ion-segment-button")
+    private WebElement uls_AdditionalCustomerInfoTab;
+    public WebElement ulsAdditionalCustomerInfo()
+    {
+    	return uls_AdditionalCustomerInfoTab;
+    }
+    @FindBy(xpath="(//button[@ng-reflect-text='Edit'])[1]")
+    private WebElement uls_CustomerPersonalDetailsListViewFirstRecord;
+    public WebElement ulsCustomerPersonalDetailsListViewFirstRecord()
+    {
+    	return uls_CustomerPersonalDetailsListViewFirstRecord;
+    }
+    @FindBy(xpath="//ion-title[text()=' References List View ']//ancestor::ion-card//button[@ng-reflect-text='Add']")
+    private WebElement uls_ReferenceListViewAddButton;
+    public WebElement ulsReferenceListViewAddButton()
+    {
+    	return uls_ReferenceListViewAddButton;
+    }
+    
 }

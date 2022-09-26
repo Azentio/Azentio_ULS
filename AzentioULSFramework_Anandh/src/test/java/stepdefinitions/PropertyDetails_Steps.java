@@ -42,6 +42,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		ulsCommonElementObj.ulsNotificationSerachButton().click();
 
 	}
+	@And("^click on the mail box button$")
+    public void click_on_the_mail_box_button() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsMailBox(), 20, 1);
+		ulsCommonElementObj.ulsMailBox().click();     
+    }
+	
 
 	@And("^search for app data entry record$")
 	public void search_for_app_data_entry_record() throws Throwable {
