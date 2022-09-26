@@ -270,7 +270,7 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return SearchClear;
 	}
-	@FindBy(xpath="(//button[@ng-reflect-icon='pi pi-search'])[4]")
+	@FindBy(xpath="//ion-title[contains(text(),'Financial Commitments')]//parent::ion-card-header//following-sibling::ion-card-content//child::kub-prime-table[1]/p-table[1]/div[1]/div[1]//button[@ng-reflect-text='Search']")
 	private WebElement searchIcon;
 	public WebElement searchIcon() 
 	{

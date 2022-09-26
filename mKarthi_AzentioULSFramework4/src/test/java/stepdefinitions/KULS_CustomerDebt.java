@@ -221,7 +221,7 @@ public class KULS_CustomerDebt extends BaseClass{
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.searchIcon(), 30, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
-				Transaction.SearchClear().click();
+				Transaction.searchIcon().clear();
 				Transaction.searchIcon().click();
 				break;
 			} catch (Exception e) {

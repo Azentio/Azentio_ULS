@@ -1,4 +1,4 @@
-Feature: 
+Feature: To verify the impact when user keep any mandatory field blank and click on save button
 @AT-02
 Scenario: To verify the impact when user keep any mandatory field blank and click on save button
 Given User login as uls maker in transaction
