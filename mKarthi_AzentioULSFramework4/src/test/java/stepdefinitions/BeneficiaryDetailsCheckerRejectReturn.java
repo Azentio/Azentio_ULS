@@ -55,13 +55,24 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     }
 	@And("^User Verification search the record from the system in Beneficiary details$")
     public void user_verification_search_the_record_from_the_system_in_beneficiary_details() throws Throwable {
-       
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchiconreferenceid(), 60, 5);
-    	Transaction.searchiconreferenceid().click();
-    	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-    	Transaction.searchsentkeys().clear();
-    	Transaction.searchsentkeys().sendKeys(json.readReferancedata());
+        
+		for (int i = 0; i <200; i++) {
+			try {
+				Transaction.InboxSearchText().click();
+				Transaction.InboxSearchText().clear();
+				Transaction.InboxSearchText().sendKeys("DISBCKR");
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,Transaction.InboxSearchButton(),30, 2);
+		Transaction.InboxSearchButton().click();
+		
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.InboxSearchText(), 60, 5);
+		Transaction.InboxSearchText().click();
+		Transaction.InboxSearchText().sendKeys(json.readReferancedata());
     	
     }
 
@@ -111,7 +122,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     		
 		} catch (Exception e) {
 			
-			System.out.println("Record is not rejected");
+			
 		}
     	
         

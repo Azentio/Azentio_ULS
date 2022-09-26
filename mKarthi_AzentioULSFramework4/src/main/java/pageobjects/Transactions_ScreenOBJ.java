@@ -119,6 +119,17 @@ public class Transactions_ScreenOBJ {
 	{
 		return searchsentkeys;
 	}
+	@FindBy(xpath="//ion-row[1]/ion-col[1]/ion-card[1]/ion-card-content[1]/p-table[1]/div[1]/div[1]/div[1]/span[2]/input[1]")
+	private WebElement InboxSearchText;
+	public  WebElement InboxSearchText() {
+		return InboxSearchText;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Search']")
+	private WebElement InboxSearchButton;
+	public  WebElement InboxSearchButton() {
+		return InboxSearchButton;
+	}
+	
 	@FindBy(xpath="(//button[@ng-reflect-text='Entitle'])[1]")
 	private WebElement inboxediticon;
 	public WebElement inboxediticon() 
