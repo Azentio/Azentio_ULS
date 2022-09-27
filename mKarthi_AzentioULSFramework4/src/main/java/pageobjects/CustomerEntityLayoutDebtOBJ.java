@@ -126,7 +126,7 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return CustomerDebt_Remarks;
 	}
-	@FindBy(xpath="")
+	@FindBy(xpath="(//ion-badge[contains(text(),'Required field')])[1]")
 	private WebElement CustomerDebt_FinancialInstitutionError;
 	public WebElement CustomerDebt_FinancialInstitutionError()
 	{

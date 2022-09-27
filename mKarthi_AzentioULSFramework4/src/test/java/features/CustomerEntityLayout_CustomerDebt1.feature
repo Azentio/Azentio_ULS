@@ -9,12 +9,13 @@ And User click the customer financials tab in customer debt
 And User click the customer personal information action edit icon in customer debt
 And User click the financial commitment add icon in customer debt
 And User enter the Account Number in customer debt
-And User enter the Interest Rate in customer debt
+And User verify the impact when user enter characters value in numeric field in customer debt
 And User enter the currrent principal amount in customer debt
+And User verify the impact when user enters only characters value in any field in customer debt
+And User enter the Interest Rate in customer debt
 And User click the save icon in customer entity layout facility details
 And User verify the impact when user keep any mandatory field blank and click on save button in customer debt
-And User verify the impact when user enter characters value in numeric field in customer debt
-And User verify the impact when user enters only characters value in any field in customer debt
+
 
 @AT-05
 Scenario: To verify the functionality of Customer Debt details List view
