@@ -221,7 +221,7 @@ public class KULS_CustomerDebt extends BaseClass{
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.searchIcon(), 30, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
-				Transaction.searchIcon().clear();
+				
 				Transaction.searchIcon().click();
 				break;
 			} catch (Exception e) {
@@ -339,6 +339,8 @@ public class KULS_CustomerDebt extends BaseClass{
     @And("^Verify user is able to change the status of Debt record from Active to Inactive in customer debt$")
     public void verify_user_is_able_to_change_the_status_of_debt_record_from_active_to_inactive_in_customer_debt() throws Throwable {
     	
+    	seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.StatusButton());
+    	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.StatusButton(), 60, 5);
     	String Status = Transaction.StatusButton().getAttribute("aria-checked");
     	
@@ -365,7 +367,9 @@ public class KULS_CustomerDebt extends BaseClass{
     }
     @And("^User click the save icon in customer debt$")
     public void user_click_the_save_icon_in_customer_debt() throws Throwable {
-       
+        
+    	seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.UpdateSave());
+    	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.UpdateSave(), 60, 5);
     	Transaction.UpdateSave().click();
     	
@@ -374,6 +378,8 @@ public class KULS_CustomerDebt extends BaseClass{
 
     @And("^Verify user is able to change the status of Debt record from Inctive to Active in customer debt$")
     public void verify_user_is_able_to_change_the_status_of_debt_record_from_inctive_to_active_in_customer_debt() throws Throwable {
+    	
+    	seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.StatusButton());
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.StatusButton(), 60, 5);
     	String Status = Transaction.StatusButton().getAttribute("aria-checked");

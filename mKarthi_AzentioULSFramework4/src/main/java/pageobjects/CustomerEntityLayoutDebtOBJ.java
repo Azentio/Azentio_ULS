@@ -288,7 +288,7 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return productViewSearchText;
 	}
-	@FindBy(xpath="(//span[contains(text(),'Export')])[4]")
+	@FindBy(xpath="//ion-title[contains(text(),'Financial Commitments')]//parent::ion-card-header//following-sibling::ion-card-content//child::kub-prime-table[1]/p-table[1]/div[1]/div[1]/div[1]/div[4]/p-dropdown[1]/div[1]/span[1]")
 	private WebElement exportIcon;
 	public WebElement exportIcon() 
 	{
@@ -306,7 +306,7 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return xlsOption;
 	}
-	@FindBy(xpath="(//button[@ng-reflect-text='Edit'])[4]")
+	@FindBy(xpath="//ion-title[contains(text(),'Financial Commitments')]//parent::ion-card-header//following-sibling::ion-card-content//child::kub-prime-table[1]/p-table[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/button[1]/span[1]")
 	private WebElement CustomerDebt_ActionEdit;
 	public WebElement CustomerDebt_ActionEdit() 
 	{
