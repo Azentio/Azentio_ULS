@@ -1164,18 +1164,16 @@ public class ProductMaster_Retail {
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_SearchInputField(), 60, 2);
     productMaster_RetailObj.productMaster_Product_SearchInputField().click();   
     productMaster_RetailObj.productMaster_Product_SearchInputField().sendKeys(productMaster_RetailTestDataType.EventCode);
-    Thread.sleep(1000);     
+        
     }
     
     @And("^maker user open the record from inbox$")
-    public void maker_user_open_the_record_from_inbox() throws IOException, ParseException  {
-    
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ReferanceId(), 60, 2);
-    referenceID = productMaster_RetailObj.productMaster_Product_ReferanceId().getText();
-    jsonDataReaderWriter.addReferanceData(referenceID);
-    System.out.println("reference Id " +referenceID);
-  
-    
+    public void maker_user_open_the_record_from_inbox() throws IOException, ParseException, InterruptedException  {
+//    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ReferanceId(), 60, 2);
+//    referenceID = productMaster_RetailObj.productMaster_Product_ReferanceId().getText();
+//    jsonDataReaderWriter.addReferanceData(referenceID);
+//    System.out.println("reference Id " +referenceID);
+    Thread.sleep(1000); 
 	String beforeXpath = "//span[contains(text(),'";
 	String afterXpath = "')]/../../td/button";
 	

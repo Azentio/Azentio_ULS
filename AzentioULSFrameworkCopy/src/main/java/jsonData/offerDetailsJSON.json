@@ -1,0 +1,16 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of AT_OLOD_004---//
+	"EditText"					:	"11",
+	"InvalidInput"				:	"#@#@%^&",
+	"ReferenceID"				:	"516",
+	"Number"					:	"190",
+	"DocumentName"				:	"Pan Card",
+	"MandatoryOrOptional"		:	"Mandatory",
+	"DocumentCategory"			:	" KYC Document ",
+	
+	"NewRequestedAmount"		:	"10000",
+	"NewRequestedTenure"		:	"20"
+ }
+]

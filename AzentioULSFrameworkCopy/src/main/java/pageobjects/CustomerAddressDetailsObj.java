@@ -22,7 +22,7 @@ public class CustomerAddressDetailsObj {
 	}
 
 	// Back button
-	@FindBy(xpath = "//button[@ng-reflect-text='Go Back']/span[1]")
+	@FindBy(xpath = "(//button[@ng-reflect-text='Go Back'])[2]")
 	private WebElement customerAddressDetails_BackButton;
 
 	public WebElement customerAddressDetails_BackButton() {
@@ -102,6 +102,15 @@ public class CustomerAddressDetailsObj {
 		return customerAddressDetails_AdditionalCustomerInfoTab;
 	}
 	
+	
+	// Customer Personal Information Title
+	@FindBy(xpath = "//ion-title[contains(text(),'Customer Personal Information')]")
+	private WebElement customerAddressDetails_CustomerPersonalInformationTitle;
+	
+	public WebElement customerAddressDetails_CustomerPersonalInformationTitle() {
+		return customerAddressDetails_CustomerPersonalInformationTitle;
+	}
+	
 	// search button
 	@FindBy(xpath = "//button[@ng-reflect-text='Search']")
 	private WebElement customerAddressDetails_SearchButton;
@@ -145,7 +154,9 @@ public class CustomerAddressDetailsObj {
 	}
 	
 	// Address details search button
-	@FindBy(xpath = "//ion-col[2]/descendant::button[@ng-reflect-text='Search']")
+//	@FindBy(xpath = "//ion-col[2]/descendant::button[@ng-reflect-text='Search']")
+//	@FindBy(xpath = "//ion-title[text()=' Address Details ']/../../ion-card-content/descendant::div[3]/div/div[3]/span/button")
+	@FindBy(xpath = "//ion-title[text()=' Address Details ']/ancestor::ion-card/descendant::button[@ng-reflect-text='Search']")
 	private WebElement customerAddressDetails_AddressDetailSearchButton;
 	
 	public WebElement customerAddressDetails_AddressDetailSearchButton() {
@@ -153,7 +164,8 @@ public class CustomerAddressDetailsObj {
 	}
 	
 	// Address details search input field
-	@FindBy(xpath = "//div[3]/span")
+//	@FindBy(xpath = "//div[3]/span/input")
+	@FindBy(xpath = "//input[@class='p-inputtext p-component p-element p-inputtext-sm captionTempinput ng-star-inserted']")
 	private WebElement customerAddressDetails_AddressDetailSearchInputField;
 	
 	public WebElement customerAddressDetails_AddressDetailSearchInputField() {
@@ -161,7 +173,9 @@ public class CustomerAddressDetailsObj {
 	}
 	
 	// Address details search close button
-	@FindBy(xpath = "//div/span/i")
+//	@FindBy(xpath = "//div[3]/span/i")
+//	@FindBy(xpath = "//kub-prime-table/p-table/div/div[1]/div/div[3]/span/i")
+	@FindBy(xpath = "//ion-title[contains(text(),'Address Details')]/../../ion-card-content/descendant::i[@class='pi pi-times ng-star-inserted']")
 	private WebElement customerAddressDetails_AddressDetailSearchCloseButton;
 	
 	public WebElement customerAddressDetails_AddressDetailSearchCloseButton() {
@@ -495,7 +509,8 @@ public class CustomerAddressDetailsObj {
 	
 	
 	// no data display
-	@FindBy(xpath = "//span[contains(text(),'Showing 0 to 0 of 0 entries')]")
+//	@FindBy(xpath = "//span[contains(text(),'Showing 0 to 0 of 0 entries')]")
+	@FindBy(xpath = "//ion-title[contains(text(),'Address Details')]/../../ion-card-content/descendant::p-paginator/div/span[1]")
 	private WebElement applicationDetailsOffering_NoDataFoundInSearch;
 
 	public WebElement applicationDetailsOffering_NoDataFoundInSearch() {

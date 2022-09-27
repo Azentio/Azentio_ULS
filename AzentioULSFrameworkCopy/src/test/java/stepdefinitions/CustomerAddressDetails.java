@@ -43,6 +43,7 @@ public class CustomerAddressDetails {
 	JavascriptHelper javaScriptHelper = new JavascriptHelper(driver);
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	String referenceID;
+	BrowserHelper browserHelper = new BrowserHelper(driver);
 	CustomerAddressDetailsObj customerAddressDetailsObj = new CustomerAddressDetailsObj(driver);
 	CustomerAddressDetailsTestDataType customerAddressDetailsTestDataType = jsonConfig.getCustomerAddressDetailsByName("Maker");
 	SoftAssert softAssert = new SoftAssert();
@@ -94,6 +95,7 @@ public class CustomerAddressDetails {
     
     @Then("^select the Customer Address details record from the customer personal detail screen$")
     public void select_the_customer_address_details_record_from_the_customer_personal_detail_screen() throws Throwable {
+    	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_CustomerPersonalInformationTitle());
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_SearchButton());
     	customerAddressDetailsObj.customerAddressDetails_SearchButton().click();
     	
@@ -108,6 +110,7 @@ public class CustomerAddressDetails {
     
     @Then("^click on add button of Address details from the customer identification screen$")
     public void click_on_add_button_of_address_details_from_the_customer_identification_screen() throws Throwable {
+    	javaScriptHelper.scrollIntoView(customerAddressDetailsObj.customerAddressDetails_AddressDetails());
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetails());
     	customerAddressDetailsObj.customerAddressDetails_AddressDetails().isDisplayed();
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetailAddButton());
@@ -262,9 +265,10 @@ public class CustomerAddressDetails {
 //    	
 //    	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchInputField());
 //    	customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchInputField().sendKeys(customerAddressDetailsTestDataType.AddressTypeCode);
+    	javaScriptHelper.scrollIntoView(customerAddressDetailsObj.customerAddressDetails_AddressDetails());
     	String beforexpath= "//span[contains(text(),'"; 
     	String afterxpath= "')]/../../../td[1]/span/button[1]";
-    	Thread.sleep(500);
+    	Thread.sleep(1000);
     	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +customerAddressDetailsTestDataType.AddressTypeCode+ afterxpath)));
     	driver.findElement(By.xpath(beforexpath +customerAddressDetailsTestDataType.AddressTypeCode+ afterxpath)).click();
     	
@@ -279,8 +283,11 @@ public class CustomerAddressDetails {
     	Assert.assertTrue(status1);
     	boolean status2 = customerAddressDetailsObj.customerAddressDetails_ResidentialOrOccupancyStatusField().isDisplayed();
     	Assert.assertTrue(status2);
-    	boolean status3 = customerAddressDetailsObj.customerAddressDetails_MaillingOrContactAddressFlag().isDisplayed();
-    	Assert.assertTrue(status3);
+    	
+//    	client removed this field
+//    	boolean status3 = customerAddressDetailsObj.customerAddressDetails_MaillingOrContactAddressFlag().isDisplayed();
+//    	softAssert.assertTrue(status3);
+    	
     	boolean status4 = customerAddressDetailsObj.customerAddressDetails_AddressLine1Field().isDisplayed();
     	Assert.assertTrue(status4);
     	boolean status5 = customerAddressDetailsObj.customerAddressDetails_AddressLine2Field().isDisplayed();
@@ -316,14 +323,17 @@ public class CustomerAddressDetails {
     	Assert.assertTrue(status19);
     	boolean status20 = customerAddressDetailsObj.customerAddressDetails_FrequencyOfRentField().isDisplayed();
     	Assert.assertTrue(status20);
-    	boolean status21 = customerAddressDetailsObj.customerAddressDetails_PhoneNumberField().isDisplayed();
-    	Assert.assertTrue(status21);
-    	boolean status22 = customerAddressDetailsObj.customerAddressDetails_EmailIdField().isDisplayed();
-    	Assert.assertTrue(status22);
+    	
+//    	boolean status21 = customerAddressDetailsObj.customerAddressDetails_PhoneNumberField().isDisplayed();
+//    	Assert.assertTrue(status21);
+//    	boolean status22 = customerAddressDetailsObj.customerAddressDetails_EmailIdField().isDisplayed();
+//    	Assert.assertTrue(status22);
+    	
     }
 
     @Then("^verify the functionality of Back button of customer address details screen$")
     public void verify_the_functionality_of_back_button_of_customer_address_details_screen() throws Throwable {
+    	javaScriptHelper.scrollIntoView(customerAddressDetailsObj.customerAddressDetails_BackButton());
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_BackButton());
     	customerAddressDetailsObj.customerAddressDetails_BackButton().click();
     }
@@ -462,6 +472,7 @@ public class CustomerAddressDetails {
     public void verify_the_functionality_of_back_button_on_list_view_of_customer_address_details() throws Throwable {
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_CustomerAddressBackButton());
     	customerAddressDetailsObj.customerAddressDetails_CustomerAddressBackButton().click();
+    	javaScriptHelper.scrollIntoView(customerAddressDetailsObj.customerAddressDetails_AddressDetails());
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetails());
     	boolean status = customerAddressDetailsObj.customerAddressDetails_AddressDetails().isDisplayed();
     	Assert.assertTrue(status);
@@ -493,8 +504,18 @@ public class CustomerAddressDetails {
 				// TODO: handle exception
 			}
 		}
-    	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_ExportToPDF());
-    	customerAddressDetailsObj.customerAddressDetails_ExportToPDF().click();
+    	while(true) {
+    		try {
+    			waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_ExportToPDF());
+    			customerAddressDetailsObj.customerAddressDetails_ExportToPDF().click();
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+    	}
+    	
+    	browserHelper.SwitchToWindow(1);
+    	browserHelper.switchToParentWithChildClose();
     }
 
     @Then("^Verify the functionality of add button$")
@@ -507,10 +528,19 @@ public class CustomerAddressDetails {
     public void verify_search_box_should_display_matching_record_with_matched_data_of_customer_address_details() throws Throwable {
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchButton());
     	customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchButton().click();
-    	Thread.sleep(1000);
-    	customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchInputField().sendKeys(customerAddressDetailsTestDataType.AddressTypeCode);
+    	for (int i = 0; i <20; i++) {
+			try {
+				waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchInputField());
+				customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchInputField().sendKeys(customerAddressDetailsTestDataType.AddressTypeCode);
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+		}
     	boolean status = customerAddressDetailsObj.customerAddressDetails_AddressTypeFirstValue().isDisplayed();
     	Assert.assertTrue(status);
+//    	clicksAndActionsHelper.JSEClick(customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchCloseButton());
     	waithelper.waitForElementwithFluentwait(driver, customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchCloseButton());
     	customerAddressDetailsObj.customerAddressDetails_AddressDetailSearchCloseButton().click();
     	

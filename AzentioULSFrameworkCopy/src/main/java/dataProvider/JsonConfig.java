@@ -19,14 +19,20 @@ import testDataType.CustomerDocumentDetailsTestDataType;
 import testDataType.CustomerEmploymentTestDataType;
 import testDataType.CustomerPersonalDetailDisbursementCheckerTestDataType;
 import testDataType.CustomerPersonalDetailOfferingTestDataType;
+import testDataType.Customer_address_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivingExpenseLocationTestDataType;
+import testDataType.OfferDetailsTestDataType;
+import testDataType.PersonalDetails_DisbursementMakerTestDataType;
+import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.ProductMaster_RetailTestDataType;
 import testDataType.Product_RetailMasterTestData;
 import testDataType.ProjectMasterTestDataType;
 import testDataType.PropertyDetailsTestDataType;
+import testDataType.PropetyDetails_TestDataType;
 import testDataType.ReportMasterTestDataType;
 import testDataType.ULS_AssetCollateralTypeTestData;
+import testDataType.ULS_CustomerAddressDetailsTestDataType;
 
 //master
 public class JsonConfig {
@@ -53,9 +59,14 @@ public class JsonConfig {
 		PropertyDetailsList = getPropertyDetailsList();
 		CustomerEmploymentList = getCustomerEmploymentList();
 		CustomerDocumentDetailsList = getCustomerDocumentDetailsList();
+		OfferDetailsList = getOfferDetailsList();
 		
 		assetCollateratTypeTestdata=getAssetCollateralTypeTestData();
-		
+		CustAddressinfo=getCustAddressinfo();
+		csutomerAddressDetails=getCustomersAddressDetailsList();
+		PerDetailEntry=getPerDetailEntry();
+		uls_PropertyDetailsTestData=getPropertyDetailsTestdata();
+		PersonalDetails_DisbursementMakerList = getPersonalDetails_DisbursementMakerList();
 	}
 	
 // 	ULS Login
@@ -493,5 +504,167 @@ public class JsonConfig {
 	}
 	public final CustomerDocumentDetailsTestDataType getCustomerDocumentDetailsByName(String Username) {
 		return CustomerDocumentDetailsList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	// 	OfferEntityLayout_OfferDetails
+	private final String OfferDetailsPath = configFileReader.getJsonPath() + "OfferDetailsJSON.json";
+	private List<OfferDetailsTestDataType> OfferDetailsList;
+	
+	private List<OfferDetailsTestDataType> getOfferDetailsList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(OfferDetailsPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(OfferDetailsPath));
+			OfferDetailsTestDataType[] OfferDetails = gson.fromJson(bufferReader, OfferDetailsTestDataType[].class);
+			return Arrays.asList(OfferDetails);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + OfferDetailsPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final OfferDetailsTestDataType getOfferDetailsByName(String Username) {
+		return OfferDetailsList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+//-------------------------------------------------------------------------------------//
+// ARSHATH ( customer address )
+	private final String CustAddresspath = configFileReader.getJsonPath() + "Customer_addressJson.json";
+	private List<Customer_address_Testdata> CustAddressinfo;
+	private List<Customer_address_Testdata> getCustAddressinfo() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustAddresspath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustAddresspath));
+			Customer_address_Testdata[] address = gson.fromJson(bufferReader, Customer_address_Testdata[].class);
+			return Arrays.asList(address);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustAddresspath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final Customer_address_Testdata getCustaddressByName(String User) {
+		return CustAddressinfo.stream().filter(x -> x.user.equalsIgnoreCase(User)).findAny().get();
+	}
+	
+//	ANANDH ( customer address )
+	private final String customerAddressDetails = configFileReader.getJsonPath() + "ULS_CustomerAddressDetailsSON.json";
+	private List<ULS_CustomerAddressDetailsTestDataType> csutomerAddressDetails;
+	private List<ULS_CustomerAddressDetailsTestDataType> getCustomersAddressDetailsList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(customerAddressDetails));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(customerAddressDetails));
+			ULS_CustomerAddressDetailsTestDataType[] customerAddressDetails = gson.fromJson(bufferReader, ULS_CustomerAddressDetailsTestDataType[].class);
+			return Arrays.asList(customerAddressDetails);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + customerAddressDetails);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	// ULS_CustomerAddressDetailsTestDataType> csutomerAddressDetails
+	public final ULS_CustomerAddressDetailsTestDataType getCustomerAddressDetailsTestdataByName(String User) {
+		return csutomerAddressDetails.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}
+	
+//	(property details)
+	private final String uls_PropertyDetailsJsonfilepath = configFileReader.getJsonPath() + "PropertyDetails_JSON.json";
+	private List<PropetyDetails_TestDataType> uls_PropertyDetailsTestData;
+	private List<PropetyDetails_TestDataType> getPropertyDetailsTestdata() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_PropertyDetailsJsonfilepath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_PropertyDetailsJsonfilepath));
+			PropetyDetails_TestDataType[] getPropertyDetailsTestData = gson.fromJson(bufferReader, PropetyDetails_TestDataType[].class);
+			return Arrays.asList(getPropertyDetailsTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_PropertyDetailsJsonfilepath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	//PropetyDetails_TestDataType> uls_PropertyDetailsTestData
+	public final PropetyDetails_TestDataType getPropertyDetailTestDataByName(String Username) {
+		return uls_PropertyDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	
+//	ARSHATH (personal details)
+	private final String PerDetailpath = configFileReader.getJsonPath() + "PersonalDetailsAppDataEntry.json";
+	private List<PersonalaDetailsDataEntryTestdata> PerDetailEntry;
+	private List<PersonalaDetailsDataEntryTestdata> getPerDetailEntry() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(PerDetailpath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(PerDetailpath));
+			PersonalaDetailsDataEntryTestdata[] PerDetailpath = gson.fromJson(bufferReader, PersonalaDetailsDataEntryTestdata[].class);
+			return Arrays.asList(PerDetailpath);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + PerDetailpath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final PersonalaDetailsDataEntryTestdata getPerDetailDataByName(String User) {
+		return PerDetailEntry.stream().filter(x -> x.Users.equalsIgnoreCase(User)).findAny().get();
+	}
+	
+//	PRIYANKA
+	// PersonalDetails_DisbursementMaker
+	private final String PersonalDetails_DisbursementMakerPath = configFileReader.getJsonPath() + "PersonalDetails_DisbursementMakerJSON.json";
+	private List<PersonalDetails_DisbursementMakerTestDataType> PersonalDetails_DisbursementMakerList;
+	private List<PersonalDetails_DisbursementMakerTestDataType> getPersonalDetails_DisbursementMakerList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(PersonalDetails_DisbursementMakerPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(PersonalDetails_DisbursementMakerPath));
+			PersonalDetails_DisbursementMakerTestDataType[] personalDetailsDisbursementMaker = gson.fromJson(bufferReader, PersonalDetails_DisbursementMakerTestDataType[].class);
+			return Arrays.asList(personalDetailsDisbursementMaker);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + PersonalDetails_DisbursementMakerPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final PersonalDetails_DisbursementMakerTestDataType getPersonalDetails_DisbursementMakerByName(String Username) {
+		return PersonalDetails_DisbursementMakerList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

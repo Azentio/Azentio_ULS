@@ -22,7 +22,7 @@ import pageobjects.ApplicationDetailsOfferingObj;
 import pageobjects.CustomerAddressDetailsObj;
 import pageobjects.CustomerPersonalDetailOfferingObj;
 import pageobjects.KULS_LoginObj;
-import pageobjects.TransactionScreen_PropertyDetailsObj;
+import pageobjects.PropertyDetailsObj;
 import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
@@ -45,7 +45,7 @@ public class PropertyDetails {
 	JavascriptHelper javaScriptHelper = new JavascriptHelper(driver);
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	String referenceID;
-	TransactionScreen_PropertyDetailsObj propertyDetailsObj = new TransactionScreen_PropertyDetailsObj(driver);
+	PropertyDetailsObj propertyDetailsObj = new PropertyDetailsObj(driver);
 	PropertyDetailsTestDataType propertyDetailsTestDataType = jsonConfig.getPropertyDetailsByName("Maker");
 	SoftAssert softAssert = new SoftAssert();
 	

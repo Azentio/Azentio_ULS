@@ -12,77 +12,47 @@ public class TransactionScreen_PropertyDetailsObj {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	// Menu toggle
-	@FindBy(xpath = "//ion-col/div/ion-button")
-	private WebElement propertyDetails_Maker_MenuToggle;
-
-	public WebElement propertyDetails_Maker_MenuToggle() {
-		return propertyDetails_Maker_MenuToggle;
-	}
-	
-	// inbox
-	@FindBy(xpath = "//ion-list[1]/ion-item[1]/div[1]")
-	private WebElement propertyDetails_Inbox;
-
-	public WebElement propertyDetails_Inbox() {
-		return propertyDetails_Inbox;
-	}
-
-	// search inbox
-	@FindBy(xpath = "//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
-	private WebElement propertyDetails_SearchInbox;
-
-	public WebElement propertyDetails_SearchInbox() {
-		return propertyDetails_SearchInbox;
-	}
-
-	// search inbox input fields
-	@FindBy(xpath = "//p-table/div/div/div/span/input")
-	private WebElement propertyDetails_SearchInboxInputField;
-
-	public WebElement propertyDetails_SearchInboxInputField() {
-		return propertyDetails_SearchInboxInputField;
-	}
-
-	// SearchInboxCloseButton
-	@FindBy(xpath = "//p-table/div/div/div/span/i")
-	private WebElement propertyDetails_SearchInboxCloseButton;
-
-	public WebElement propertyDetails_SearchInboxCloseButton() {
-		return propertyDetails_SearchInboxCloseButton;
-	}
-	
-	// search button
-	@FindBy(xpath = "//button[@ng-reflect-text='Search']")
-	private WebElement propertyDetails_SearchButton;
-
-	public WebElement propertyDetails_SearchButton() {
-		return propertyDetails_SearchButton;
-	}
-
-	// search input field
-	@FindBy(xpath = "//div[3]/span/input")
-	private WebElement propertyDetails_SearchInputField;
-
-	public WebElement propertyDetails_SearchInputField() {
-		return propertyDetails_SearchInputField;
-	}
-
-	// search close button
-	@FindBy(xpath = "//div/span/i")
-	private WebElement propertyDetails_SearchCloseButton;
-
-	public WebElement propertyDetails_SearchCloseButton() {
-		return propertyDetails_SearchCloseButton;
-	}
-		
-//	@FindBy(xpath="//ion-label[text()='Property Details']//parent::ion-segment-button")
-	@FindBy(xpath="//ion-modal[1]/descendant::ion-segment-button[11]")
+	@FindBy(xpath="//ion-label[text()='Property Details']//parent::ion-segment-button")
 	private WebElement appdataEntry_PropertyDetailsTab;
 	public WebElement appdataEntryPropertyDetailsTab()
 	{
 		return appdataEntry_PropertyDetailsTab;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Add']")
+	private WebElement appdataEntry_PropertyDetailsAddButton;
+	public WebElement appdataEntryPropertyDetailsAddButton()
+	{
+		return appdataEntry_PropertyDetailsAddButton;
+	}
+	@FindBy(xpath="(//ion-title[text()=' Property Details '])[2]")
+	private WebElement appdataEntry_PropertyDetailsTitle;
+	public WebElement appdataEntryPropertyDetailsTitle()
+	{
+		return appdataEntry_PropertyDetailsTitle;
+	}
+	@FindBy(xpath="//ion-label[text()=' Address Details ']")
+	private WebElement appdataEntry_AddressDetailsTitle;
+	public WebElement appdataEntryAddressDetailsTitle()
+	{
+		return appdataEntry_AddressDetailsTitle;
+	}
+	@FindBy(xpath="//ion-label[text()=' Charge Details ']")
+	private WebElement appdataEntry_ChargeDetailsTitle;
+	public WebElement appdataEntryChargeDetailsTitle()
+	{
+		return appdataEntry_ChargeDetailsTitle;
+	}
+	@FindBy(xpath="//ion-label[text()=' Construction Details  ']")
+	private WebElement appdataEntry_ConstructionDetailsTitle;
+	public WebElement appdataEntryConstructionDetailsTitle()
+	{
+		return appdataEntry_ConstructionDetailsTitle;
+	}
+	@FindBy(xpath="//button[text()=' Next']")
+	private WebElement appdataEntry_NextButton;
+	public WebElement appdataEntryNextButton()
+	{
+		return appdataEntry_NextButton;
 	}
 	@FindBy(xpath="//ion-label[text()=' Security Type ']//following-sibling::ion-select")
 	private WebElement propertyDetails_SecurityTypeDropDown;
@@ -174,17 +144,35 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_AddressLine1InputBox;
 	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 1 ']//following-sibling::ion-input")
+	private WebElement propertyDetails_AddressLine1DataHolder;
+	public WebElement propertyDetailsAddressLine1DataHolder()
+	{
+		return propertyDetails_AddressLine1DataHolder;
+	}
 	@FindBy(xpath="//ion-label[text()=' Address Line 2 ']//following-sibling::ion-input//input")
 	private WebElement propertyDetails_AddressLine2InputBox;
 	public WebElement propertyDetailsAddressLine2InputBox()
 	{
 		return propertyDetails_AddressLine2InputBox;
 	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 2 ']//following-sibling::ion-input")
+	private WebElement propertyDetails_AddressLine2dataHolder;
+	public WebElement propertyDetailsAddressLine2dataHolder()
+	{
+		return propertyDetails_AddressLine2dataHolder;
+	}
 	@FindBy(xpath="//ion-label[text()=' Address Line 3 ']//following-sibling::ion-input//input")
 	private WebElement propertyDetails_AddressLine3InputBox;
 	public WebElement propertyDetailsAddressLine3InputBox()
 	{
 		return propertyDetails_AddressLine3InputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 3 ']//following-sibling::ion-input")
+	private WebElement propertyDetails_AddressLine3DataHolder;
+	public WebElement propertyDetailsAddressLine3DataHolder()
+	{
+		return propertyDetails_AddressLine3DataHolder;
 	}
 	@FindBy(xpath="//ion-label[text()=' Country ']//following-sibling::ion-select")
 	private WebElement propertyDetails_CountryDropDown;
@@ -210,11 +198,23 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_DistrictNeighbourhoodInputBox;
 	}
+	@FindBy(xpath="//ion-label[text()=' District/Neighbourhood ']//following-sibling::ion-input")
+	private WebElement propertyDetails_DistrictNeighbourhoodDataHolder;
+	public WebElement propertyDetailsDistrictNeighbourhoodDataHolder()
+	{
+		return propertyDetails_DistrictNeighbourhoodDataHolder;
+	}
 	@FindBy(xpath="//ion-label[text()=' Pincode ']//following-sibling::ion-input//input")
 	private WebElement propertyDetails_PincodeInputBox;
 	public WebElement propertyDetailsPincodeInputBox()
 	{
 		return propertyDetails_PincodeInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Pincode ']//following-sibling::ion-input")
+	private WebElement propertyDetails_PincodeDataHolder;
+	public WebElement propertyDetailsPincodeDataHolder()
+	{
+		return propertyDetails_PincodeDataHolder;
 	}
 	@FindBy(xpath="//ion-label[text()=' Type of Charge ']//following-sibling::ion-select")
 	private WebElement propertyDetails_TypeofChargeDropDown;
@@ -227,6 +227,12 @@ public class TransactionScreen_PropertyDetailsObj {
 	public WebElement propertyDetailsNameoftheChargeHolderInputBox()
 	{
 		return propertyDetails_NameoftheChargeHolderInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Name of the Charge Holder ']//following-sibling::ion-input")
+	private WebElement propertyDetails_NameoftheChargeHolderDataHolder;
+	public WebElement propertyDetailsNameoftheChargeHolderDataHolder()
+	{
+		return propertyDetails_NameoftheChargeHolderDataHolder;
 	}
 	@FindBy(xpath="//ion-label[text()=' Amount to the Charge Holder  ']/ancestor::ion-item//p-inputnumber//input")
 	private WebElement propertyDetails_AmounttotheChargeHolderInputBox;
@@ -246,6 +252,7 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_ApproxPropertyAreaInputBox;
 	}
+	
 	@FindBy(xpath="//ion-label[text()=' Built Up/Plot Area ']//following-sibling::ion-input//input")
 	private WebElement propertyDetails_BuiltUpPlotAreaInputBox;
 	public WebElement propertyDetailsBuiltUpPlotAreaInputBox()
@@ -259,10 +266,10 @@ public class TransactionScreen_PropertyDetailsObj {
 		return propertyDetails_CarpetAreaInputBox;
 	}
 	@FindBy(xpath="//ion-label[text()=' Property Management ']/following-sibling::ion-select")
-	private WebElement propertyDetails_PropertyManagementInputBox;
-	public WebElement propertyDetailsPropertyManagementInputBox()
+	private WebElement propertyDetails_PropertyManagementDropDown;
+	public WebElement propertyDetailsPropertyManagementDropDown()
 	{
-		return propertyDetails_PropertyManagementInputBox;
+		return propertyDetails_PropertyManagementDropDown;
 	}
 	@FindBy(xpath="//ion-label[text()=' Year Of Construction  ']/parent::div/following-sibling::p-calendar//button")
 	private WebElement propertyDetails_YearOfConstructionCalendarInput;
@@ -288,6 +295,30 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_AgreementDateCalendarInput;
 	}
+	@FindBy(xpath="//ion-label[text()=' Year Of Construction  ']/parent::div/following-sibling::p-calendar//input")
+	private WebElement propertyDetails_YearOfConstructionCalendarInputBox;
+	public WebElement propertyDetailsYearOfConstructionCalendarInputBox()
+	{
+		return propertyDetails_YearOfConstructionCalendarInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Expected Completion Date  ']/parent::div/following-sibling::p-calendar//input")
+	private WebElement propertyDetails_ExpectedCompletionDateCalendarInputBox;
+	public WebElement propertyDetailsExpectedCompletionDateCalendarInputBox()
+	{
+		return propertyDetails_ExpectedCompletionDateCalendarInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Agreement Validity Date ']/parent::div/following-sibling::p-calendar//input")
+	private WebElement propertyDetails_AgreementValidityDateCalendarInputBox;
+	public WebElement propertyDetailsAgreementValidityDateCalendarInputBox()
+	{
+		return propertyDetails_AgreementValidityDateCalendarInputBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Agreement Date ']/parent::div/following-sibling::p-calendar//input")
+	private WebElement propertyDetails_AgreementDateCalendarInputBox;	
+	public WebElement propertyDetailsAgreementDateCalendarInputBox()
+	{
+		return propertyDetails_AgreementDateCalendarInputBox;
+	}
 	@FindBy(xpath="//ion-label[text()=' % of Completion  ']//following-sibling::ion-input//input")
 	private WebElement propertyDetails_PercentageOfCompletionInputBox;	
 	public WebElement propertyDetailsPercentageOfCompletionInputBox()
@@ -300,5 +331,240 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_StatusToggleButton;
 	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 1 ']//span")
+	private WebElement propertyDetails_AddressLine1MandatoryCheck;
+	public WebElement propertyDetailsAddressLine1MandatoryCheck()
+	{
+		return propertyDetails_AddressLine1MandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 2 ']//span")
+	private WebElement propertyDetails_AddressLine2MandatoryCheck;
+	public WebElement propertyDetailsAddressLine2MandatoryCheck()
+	{
+		return propertyDetails_AddressLine2MandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' District/Neighbourhood ']//span")
+	private WebElement propertyDetails_DistritNeighbourhoodMandatoryCheck;
+	public WebElement propertyDetailsDistritNeighbourhoodMandatoryCheck()
+	{
+		return propertyDetails_DistritNeighbourhoodMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Pincode ']//span")
+	private WebElement propertyDetails_PincodeMandatoryCheck;
+	public WebElement propertyDetailsPincodeMandatoryCheck()
+	{
+		return propertyDetails_PincodeMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Name of the Charge Holder ']//span")
+	private WebElement propertyDetails_NameoftheChargeHolderMandatoryCheck;
+	public WebElement propertyDetailsNameoftheChargeHolderMandatoryCheck()
+	{
+		return propertyDetails_NameoftheChargeHolderMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Amount to the Charge Holder ']//span")
+	private WebElement propertyDetails_AmounttotheChargeHolderMandatoryCheck;
+	public WebElement propertyDetailsAmounttotheChargeHolderMandatoryCheck()
+	{
+		return propertyDetails_AmounttotheChargeHolderMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Approx. Property Area ']//span")
+	private WebElement propertyDetails_ApproxPropertyAreaMandatoryCheck;
+	public WebElement propertyDetailsApproxPropertyAreaMandatoryCheck()
+	{
+		return propertyDetails_ApproxPropertyAreaMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Built Up/Plot Area ']//span")
+	private WebElement propertyDetails_BuiltUpPlotAreaMandatoryCheck;
+	public WebElement propertyDetailsBuiltUpPlotAreaMandatoryCheck()
+	{
+		return propertyDetails_BuiltUpPlotAreaMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Carpet Area ']//span")
+	private WebElement propertyDetails_CarpetAreaMandatoryCheck;
+	public WebElement propertyDetailsCarpetAreaMandatoryCheck()
+	{
+		return propertyDetails_CarpetAreaMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Year Of Construction  ']//span")
+	private WebElement propertyDetails_YearOfConstructionMandatoryCheck;
+	public WebElement propertyDetailsYearOfConstructionMandatoryCheck()
+	{
+		return propertyDetails_YearOfConstructionMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' % of Completion  ']//span")
+	private WebElement propertyDetails_PercentageOfCompletionMandatoryCheck;
+	public WebElement propertyDetailsPercentageOfCompletionMandatoryCheck()
+	{
+		return propertyDetails_PercentageOfCompletionMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Expected Completion Date  ']//span")
+	private WebElement propertyDetails_ExpectedCompletionDateMandatoryCheck;
+	public WebElement propertyDetailsExpectedCompletionDateMandatoryCheck()
+	{
+		return propertyDetails_ExpectedCompletionDateMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Agreement Date ']//span")
+	private WebElement propertyDetails_AgreementDateMandatoryCheck;
+	public WebElement propertyDetailsAgreementDateMandatoryCheck()
+	{
+		return propertyDetails_AgreementDateMandatoryCheck;
+	}
+	@FindBy(xpath="//ion-label[text()=' Agreement Validity Date ']//span")
+	private WebElement propertyDetails_AgreementValidityDateMandatoryCheck;
+	public WebElement propertyDetailsAgreementValidityDateMandatoryCheck()
+	{
+		return propertyDetails_AgreementValidityDateMandatoryCheck;
+	}
+	@FindBy(xpath="//button[@icon='pi pi-save']")
+	private WebElement propertyDetails_SaveButton;
+	public WebElement propertyDetailsSaveButton()
+	{
+		return propertyDetails_SaveButton;
+	}
+	@FindBy(xpath="(//div[@id='toast-container']/div/div)[1]")
+	private WebElement propertyDetails_AlertBox;
+	public WebElement propertyDetailsAlertBox()
+	{
+		return propertyDetails_AlertBox;
+	}
+	@FindBy(xpath="//ion-label[text()=' Security Type ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_SecurityTypeFieldValidation;
+	public WebElement propertyDetailsSecurityTypeFieldValidation()
+	{
+		return propertyDetails_SecurityTypeFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Property City ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_PropertyCityFieldValidation;
+	public WebElement propertyDetailsPropertyCityFieldValidation()
+	{
+		return propertyDetails_PropertyCityFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Type of Transaction ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_TypeOfTransactionFieldValidation;
+	public WebElement propertyDetailsTypeOfTransactionFieldValidation()
+	{
+		return propertyDetails_TypeOfTransactionFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Purchased From ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_PurchasedFromFieldValidation;
+	public WebElement propertyDetailsPurchasedFromFieldValidation()
+	{
+		return propertyDetails_PurchasedFromFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Property Type ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_PropertyTypeFieldValidation;
+	public WebElement propertyDetailsPropertyTypeFieldValidation()
+	{
+		return propertyDetails_PropertyTypeFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' APF Status ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_APFStatusFieldValidation;
+	public WebElement propertyDetailsAPFStatusFieldValidation()
+	{
+		return propertyDetails_APFStatusFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Construction Status ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_ConstructionStatusdValidation;
+	public WebElement propertyDetailsConstructionStatusdValidation()
+	{
+		return propertyDetails_ConstructionStatusdValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Property Category ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_PropertyCategorydValidation;
+	public WebElement propertyDetailsPropertyCategorydValidation()
+	{
+		return propertyDetails_PropertyCategorydValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Nature of Property ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_NatureofPropertyFieldValidation;
+	public WebElement propertyDetailsNatureofPropertyFieldValidation()
+	{
+		return propertyDetails_NatureofPropertyFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Occupancy Status ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_OccupancyStatusFieldValidation;
+	public WebElement propertyDetailsOccupancyStatusFieldValidation()
+	{
+		return propertyDetails_OccupancyStatusFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Name of the Developer ']//ancestor::digital-select-layout//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_NameoftheDeveloperFieldValidation;
+	public WebElement propertyDetailsNameoftheDeveloperFieldValidation()
+	{
+		return propertyDetails_NameoftheDeveloperFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 1 ']//ancestor::digital-text-box//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_AddressLineOneFieldValidation;
+	public WebElement propertyDetailsAddressLineOneFieldValidation()
+	{
+		return propertyDetails_AddressLineOneFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 2 ']//ancestor::digital-text-box//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_AddressLineTwoFieldValidation;
+	public WebElement propertyDetailsAddressLineTwoFieldValidation()
+	{
+		return propertyDetails_AddressLineTwoFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Address Line 3 ']//ancestor::digital-text-box//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_AddressLineThreeFieldValidation;
+	public WebElement propertyDetailsAddressLineThreeFieldValidation()
+	{
+		return propertyDetails_AddressLineThreeFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' District/Neighbourhood ']//ancestor::digital-text-box//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_DistrictNeighbourhoodValidation;
+	public WebElement propertyDetailsDistrictNeighbourhoodValidation()
+	{
+		return propertyDetails_DistrictNeighbourhoodValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Pincode ']//ancestor::digital-text-box//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_PincodeFieldValidation;
+	public WebElement propertyDetailsPincodeFieldValidation()
+	{
+		return propertyDetails_PincodeFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Name of the Charge Holder ']//ancestor::digital-text-box//following-sibling::div//ion-badge")
+	private WebElement propertyDetails_NameoftheChargeHolderFieldValidation;
+	public WebElement propertyDetailsNameoftheChargeHolderFieldValidation()
+	{
+		return propertyDetails_NameoftheChargeHolderFieldValidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Approx. Property Area ']//following-sibling::ion-input")
+	private WebElement propertyDetails_ApproxPropertyAreaDataHolder;
+	public WebElement propertyDetailsApproxPropertyAreaDataHolder()
+	{
+		return propertyDetails_ApproxPropertyAreaDataHolder;
+	}
+	@FindBy(xpath="//ion-label[text()=' Built Up/Plot Area ']//following-sibling::ion-input")
+	private WebElement propertyDetails_BuiltUpPlotAreaDataHolder;
+	public WebElement propertyDetailsBuiltUpPlotAreaDataHolder()
+	{
+		return propertyDetails_BuiltUpPlotAreaDataHolder;
+	}
+	@FindBy(xpath="//ion-label[text()=' Carpet Area ']//following-sibling::ion-input")
+	private WebElement propertyDetails_CarpetAreaDataHolder;
+	public WebElement propertyDetailsCarpetAreaDataHolder()
+	{
+		return propertyDetails_CarpetAreaDataHolder;
+	}
+	@FindBy(xpath="//ion-label[text()=' % of Completion  ']//following-sibling::ion-input")
+	private WebElement propertyDetails_PercentageOfCompletionDataHolder;
+	public WebElement propertyDetailsPercentageOfCompletionDataHolder()
+	{
+		return propertyDetails_PercentageOfCompletionDataHolder;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Go Back']")
+	private WebElement propertyDetails_BackButton;
+	public WebElement propertyDetailsBackButton()
+	{
+		return propertyDetails_BackButton;
+	}
+	@FindBy(xpath="(//span[text()=' Action '])[2]")
+	private WebElement propertyDetails_BackButtonVerification;
+	public WebElement propertyDetailsBackButtonVerification()
+	{
+		return propertyDetails_BackButtonVerification;
+	}
+	
 	
 }

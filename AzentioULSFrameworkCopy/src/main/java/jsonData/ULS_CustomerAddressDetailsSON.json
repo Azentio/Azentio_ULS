@@ -1,0 +1,16 @@
+[
+{
+"UserType":"Maker",
+"BlankFieldValidation":"Required field",
+"SpecialCharacterInput":"!@#$",
+"pincodeValidation":"Maximum 6 characters are allowed",
+"specialCharacterValidation":"Alphanumeric characters allowed",
+"InvalidPincode":"123456711",
+"MobileNumberValidation":"Invalid Mobile Number",
+"NegativeInput":"-1",
+"InvalidMobileNumber":"98765432109876",
+"alphaNumericInput":"12345ABcd",
+"invalidPoBoxNumber":"123457689",
+"PoBoxValidationMessage":""
+}
+]

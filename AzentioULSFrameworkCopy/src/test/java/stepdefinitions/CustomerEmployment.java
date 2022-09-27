@@ -23,7 +23,7 @@ import pageobjects.CustomerAddressDetailsObj;
 import pageobjects.CustomerEmploymentObj;
 import pageobjects.CustomerPersonalDetailOfferingObj;
 import pageobjects.KULS_LoginObj;
-import pageobjects.TransactionScreen_PropertyDetailsObj;
+import pageobjects.PropertyDetailsObj;
 import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;

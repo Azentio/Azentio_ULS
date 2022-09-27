@@ -43,7 +43,7 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
-public String getApplicationUATUrl() {
+	public String getApplicationUATUrl() {
 		String url = properties.getProperty("uat");
 		if (url != null)
 			return url;
