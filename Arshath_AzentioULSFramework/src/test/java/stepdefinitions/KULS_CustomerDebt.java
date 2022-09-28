@@ -343,13 +343,22 @@ public class KULS_CustomerDebt extends BaseClass {
 
 	@And("^User verify the functionality of Export to Excel button in customer debt$")
 	public void user_verify_the_functionality_of_export_to_excel_button_in_customer_debt() throws Throwable {
+		for (int i = 0; i < 50; i++) {
+			try {
+				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.exportIcon(),60, 2);
+				Transaction.exportIcon().click();
 
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.exportIcon(), 60, 2);
-		Transaction.exportIcon().click();
-
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.xlsOption(), 60, 3);
-		// Assert.assertEquals(project.xlsOption().isDisplayed(), true);
-		Transaction.xlsOption().click();
+				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.xlsOption(),60, 3);
+				Transaction.xlsOption().click();
+				break;
+			} catch (Exception e) {
+				if (i==50) {
+					{
+						Assert.fail(e.getMessage());
+					}
+				}
+			}
+		}
 
 	}
 
@@ -406,10 +415,19 @@ public class KULS_CustomerDebt extends BaseClass {
 
 	@And("^User click the save icon in customer debt$")
 	public void user_click_the_save_icon_in_customer_debt() throws Throwable {
+		for (int i = 0; i < 40; i++) {
+			try {
+				seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.UpdateSave());
+				help.waitForElementToVisibleWithFluentWait(driver, Transaction.UpdateSave(), 60, 5);
+				Transaction.UpdateSave().click();
+				break;
+			} catch (Exception e) {
+				if (i==40) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 
-		seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.UpdateSave());
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.UpdateSave(), 60, 5);
-		Transaction.UpdateSave().click();
 
 	}
 
@@ -417,7 +435,7 @@ public class KULS_CustomerDebt extends BaseClass {
 	public void verify_user_is_able_to_change_the_status_of_debt_record_from_inctive_to_active_in_customer_debt()
 			throws Throwable {
 
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.StatusButton());
 				String Status = Transaction.StatusButton().getAttribute("aria-checked");
@@ -437,7 +455,7 @@ public class KULS_CustomerDebt extends BaseClass {
 			}
 
 			catch (Exception e) {
-				if (i == 50) {
+				if (i == 20) {
 					Assert.fail(e.getMessage());
 				}
 			}

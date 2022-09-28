@@ -14,6 +14,7 @@ import pageobjects.CustomerEntityLayoutConvReferenceScreenObj;
 import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
+import testDataType.CustomerEntityReferanceListTestdata;
 import testDataType.KULS_Login_TestDataType;
 
 public class CustomerEntity_ReferanceList extends BaseClass {
@@ -29,6 +30,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	CustomerEntityLayoutConvReferenceScreenObj Referance_Obj = new CustomerEntityLayoutConvReferenceScreenObj(driver);
+	CustomerEntityReferanceListTestdata Refedata = jsonConfig.getCustomerRefByName("Referance");
 
 	@And("^user click on Referance List view Add icon$")
 	public void user_click_on_referance_list_view_add_icon() throws Throwable {
@@ -56,7 +58,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Relationship_Type().getAttribute("aria-haspopup");
 		Assert.assertEquals(type, "listbox");
 		Referance_Obj.References_Relationship_Type().click();
-		String xpath = "//ion-label[contains(text(),'BRO')]/parent::ion-item//ion-radio";
+		String xpath = "//ion-label[contains(text(),'"+Refedata.ReferanceType+"')]/parent::ion-item//ion-radio";
 		for (int i = 0; i < 40; i++) {
 			try {
 				driver.findElement(By.xpath(xpath)).click();
@@ -76,7 +78,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Salutation().getAttribute("aria-haspopup");
 		Assert.assertEquals(type, "listbox");
 		Referance_Obj.References_Salutation().click();
-		String xpath = "//ion-label[contains(text(),'Mr')]/parent::ion-item//ion-radio";
+		String xpath = "//ion-label[contains(text(),'"+Refedata.Salutation+"')]/parent::ion-item//ion-radio";
 		for (int i = 0; i < 40; i++) {
 			try {
 				driver.findElement(By.xpath(xpath)).click();
@@ -96,7 +98,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_First_Name().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_First_Name().click();
-		Referance_Obj.References_First_Name().sendKeys("A");
+		Referance_Obj.References_First_Name().sendKeys(Refedata.ReferencesFirstName);
 	}
 
 	@And("^user verify the Middle Name field and choose the value$")
@@ -106,7 +108,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Middle_Name().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Middle_Name().click();
-		Referance_Obj.References_Middle_Name().sendKeys("S");
+		Referance_Obj.References_Middle_Name().sendKeys(Refedata.ReferencesMiddleName);
 	}
 
 	@And("^user verify the Last Name field and choose the value$")
@@ -116,7 +118,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Last_Name().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Last_Name().click();
-		Referance_Obj.References_Last_Name().sendKeys("AS");
+		Referance_Obj.References_Last_Name().sendKeys(Refedata.ReferencesLastName);
 	}
 
 	@And("^user verify the Customer Full Name field and choose the value$")
@@ -126,7 +128,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Customer_Full_Name().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Customer_Full_Name().click();
-		Referance_Obj.References_Customer_Full_Name().sendKeys("ARSHATH");
+		Referance_Obj.References_Customer_Full_Name().sendKeys(Refedata.CustomerFullName);
 	}
 
 	@And("^user verify the Identification type field and choose the value$")
@@ -136,7 +138,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Identification_Type().getAttribute("aria-haspopup");
 		Assert.assertEquals(type, "listbox");
 		Referance_Obj.References_Identification_Type().click();
-		String xpath = "//ion-label[contains(text(),'PANCARD')]/parent::ion-item//ion-radio";
+		String xpath = "//ion-label[contains(text(),'"+Refedata.IdentificationType+"')]/parent::ion-item//ion-radio";
 		for (int i = 0; i < 40; i++) {
 			try {
 				driver.findElement(By.xpath(xpath)).click();
@@ -156,7 +158,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Identification_Number().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Identification_Number().click();
-		Referance_Obj.References_Identification_Number().sendKeys("654321897563");
+		Referance_Obj.References_Identification_Number().sendKeys(Refedata.ReferencesIdentificationNumber);
 	}
 
 	@And("^user verify the Residental Address field and choose the value$")
@@ -166,7 +168,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Residence_Address().getAttribute("type");
 		Assert.assertEquals(type, "textarea");
 		Referance_Obj.References_Residence_Address().click();
-		Referance_Obj.References_Residence_Address().sendKeys("Mumbai to Navi Mumbai");
+		Referance_Obj.References_Residence_Address().sendKeys(Refedata.ReferencesResidenceAddress);
 	}
 
 	@And("^user verify the Office Address field and choose the value$")
@@ -176,7 +178,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Office_Address().getAttribute("type");
 		Assert.assertEquals(type, "textarea");
 		Referance_Obj.References_Office_Address().click();
-		Referance_Obj.References_Office_Address().sendKeys("Mumbai to Navi Mumbai");
+		Referance_Obj.References_Office_Address().sendKeys(Refedata.ReferencesOfficeAddress);
 	}
 
 	@And("^user verify the Contact Number field and choose the value$")
@@ -186,7 +188,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Contact_Number().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Contact_Number().click();
-		Referance_Obj.References_Contact_Number().sendKeys("9876543210");
+		Referance_Obj.References_Contact_Number().sendKeys(Refedata.ReferencesContactNumber);
 	}
 
 	@And("^user verify the Office phone Number field and choose the value$")
@@ -196,7 +198,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Office_Phone_Number().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Office_Phone_Number().click();
-		Referance_Obj.References_Office_Phone_Number().sendKeys("9876543210");
+		Referance_Obj.References_Office_Phone_Number().sendKeys(Refedata.ReferencesOfficePhoneNumber);
 	}
 
 	@And("^user verify the Primary Mobile Number field and choose the value$")
@@ -206,7 +208,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Primary_Mobile_Number().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Primary_Mobile_Number().click();
-		Referance_Obj.References_Primary_Mobile_Number().sendKeys("9876543210");
+		Referance_Obj.References_Primary_Mobile_Number().sendKeys(Refedata.ReferencesPrimaryMobileNumber);
 	}
 
 	@And("^user verify the Alternative Mobile Number field and choose the value$")
@@ -216,7 +218,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Primary_Alternative_Number().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Primary_Alternative_Number().click();
-		Referance_Obj.References_Primary_Alternative_Number().sendKeys("9876543210");
+		Referance_Obj.References_Primary_Alternative_Number().sendKeys(Refedata.ReferencesPrimaryAlternativeNumber);
 	}
 
 	@And("^user verify the Email Id field and choose the value$")
@@ -226,7 +228,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_Email_Id().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_Email_Id().click();
-		Referance_Obj.References_Email_Id().sendKeys("arshath.it@gmail.com");
+		Referance_Obj.References_Email_Id().sendKeys(Refedata.ReferencesEmailId);
 	}
 
 	@And("^user verify the No of years Known field and choose the value$")
@@ -236,7 +238,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_No_of_Years_Known().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_No_of_Years_Known().click();
-		Referance_Obj.References_No_of_Years_Known().sendKeys("10");
+		Referance_Obj.References_No_of_Years_Known().sendKeys(Refedata.ReferencesNoofYearsKnown);
 	}
 
 	@And("^user verify the CIF Number field and choose the value$")
@@ -246,7 +248,7 @@ public class CustomerEntity_ReferanceList extends BaseClass {
 		String type = Referance_Obj.References_CIF_Number().getAttribute("type");
 		Assert.assertEquals(type, "text");
 		Referance_Obj.References_CIF_Number().click();
-		Referance_Obj.References_CIF_Number().sendKeys("10");
+		Referance_Obj.References_CIF_Number().sendKeys(Refedata.ReferencesCIFNumber);
 	}
 
 }

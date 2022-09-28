@@ -190,13 +190,13 @@ public class Warehouse_MasterObj {
         return Warehouse_Maker_Submit;
     }
   
-    @FindBy(xpath = "//div[@id='toast-container']//div[@role='alert']") 
+    @FindBy(xpath = "//div[@id='toast-container']//div[@role='alertdialog']") 
     private WebElement Warehouse_SaveSuccess_alert;
     public WebElement Warehouse_SaveSuccess_alert() {
         return Warehouse_SaveSuccess_alert;
     }
     
-    @FindBy(xpath = "//div[@id='toast-container']//div[@role='alert']") 
+    @FindBy(xpath = "//div[@id='toast-container']//div[@role='alertdialog']") 
     private WebElement Warehouse_Checker_Id;
     public WebElement Warehouse_Checker_Id() {
         return Warehouse_Checker_Id;

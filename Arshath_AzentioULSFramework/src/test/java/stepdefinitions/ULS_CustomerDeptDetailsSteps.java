@@ -804,11 +804,8 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@Then("^verify financial type field should get updated$")
 	public void verify_financial_type_field_should_get_updated() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFinanceType(), 30,
-				1);
-
-		Assert.assertTrue(customerDeptDetailsObj.customerDebtFinanceType().getAttribute("aria-label")
-				.contains(customerDeptDetailsTestData.updatedFinanceType));
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFinanceType(), 30,1);
+		Assert.assertTrue(customerDeptDetailsObj.customerDebtFinanceType().getAttribute("aria-label").contains(customerDeptDetailsTestData.updatedFinanceType));
 	}
 
 	@Then("^verify financial institution field should get updated$")
@@ -1128,13 +1125,13 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFinanceType(), 30,
 				1);
 		customerDeptDetailsObj.customerDebtFinanceType().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.ReupdatedFinanceType
-				+ " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.ReupdatedFinanceType + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
-				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+//				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+				driver.findElement(By.xpath("//ion-label[text()=' " + customerDeptDetailsTestData.ReupdatedFinanceType + " ']/parent::ion-item/ion-radio")).click();
 				break;
 			} catch (Exception e) {
 				if (i == 20) {
