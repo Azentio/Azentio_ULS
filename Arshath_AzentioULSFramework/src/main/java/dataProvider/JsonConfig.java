@@ -15,6 +15,7 @@ import testDataType.Beneficiary_Details_Testdata;
 import testDataType.Charge_Master_Testdata;
 import testDataType.Customer_Empolyment_Testdata;
 import testDataType.Customer_address_Testdata;
+import testDataType.KULS_CustomerEntityLayout_CustomerDebt_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
 import testDataType.PersonalaDetailsDataEntryTestdata;
@@ -78,7 +79,9 @@ public class JsonConfig {
 	
 	private final String ulsCustomerDeptDetailsJSONFilePath = configFileReader.getJsonPath() + "ULS_CustomerDeptDetailsJSON.json";
 	private List<ULS_CustomerDeptDetailsTestData> ulsCustomerDeptDetailsTestData;
-	
+	//  CustomerDebt--Arul
+	private final String CustomerDebtDataPath = configFileReader.getJsonPath() + "CustomerEntityLayout_CustomerDebtJson.json";
+	private List<KULS_CustomerEntityLayout_CustomerDebt_Testdata> CustomerDebt;	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -99,8 +102,30 @@ public class JsonConfig {
 		TransactionScreen = getTransactionScreenList();
 		Benefiniary = getBenefiniary();
 		ulsCustomerDeptDetailsTestData=getCustomerDeptDetailsTestData();
+		//CustomerDebt Maseter-Arul
+		CustomerDebt = getCustomerDebtList();
 	}
 	
+	//CustomerDebt--Arul
+	private List<KULS_CustomerEntityLayout_CustomerDebt_Testdata> getCustomerDebtList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CustomerDebtDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CustomerDebtDataPath));
+			KULS_CustomerEntityLayout_CustomerDebt_Testdata[] Identification = gson.fromJson(bufferReader, KULS_CustomerEntityLayout_CustomerDebt_Testdata[].class);
+			return Arrays.asList(Identification);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CustomerDebtDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
 	private List<ULS_CustomerDeptDetailsTestData> getCustomerDeptDetailsTestData() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(ulsCustomerDeptDetailsJSONFilePath));
@@ -454,5 +479,10 @@ public class JsonConfig {
 	
 	public final ULS_CustomerDeptDetailsTestData getCustomerDeptDetailsTestDataByName(String User) {
 		return ulsCustomerDeptDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(User)).findAny().get();
+	}
+	//CustomerDebt--Arul
+
+	public final KULS_CustomerEntityLayout_CustomerDebt_Testdata getCustomerDebtByName(String Username) {
+		return CustomerDebt.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

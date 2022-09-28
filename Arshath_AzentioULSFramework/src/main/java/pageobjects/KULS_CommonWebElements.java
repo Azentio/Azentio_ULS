@@ -130,13 +130,13 @@ public class KULS_CommonWebElements {
     {
     	return uls_CustomerDetailsTabnewApp;
     }
-    @FindBy(xpath="//div[@id='toast-container']//div[@role='alertdialog']")
+    @FindBy(xpath="//div[@aria-label='Success']")
     private WebElement uls_toastAlert;
     public WebElement ulsToastAlert()
     {
     	return uls_toastAlert;
     }
-    @FindBy(xpath="//div[@id='toast-container']//button[@aria-label='Close']")
+    @FindBy(xpath="//button[@aria-label='Close']")
     private WebElement uls_toastAlertClose;
     public WebElement ulsToastAlertClose()
     {
