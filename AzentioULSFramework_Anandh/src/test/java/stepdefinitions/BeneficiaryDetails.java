@@ -57,6 +57,12 @@ FindFieldisMandatoryorNot mandateOrNot= new FindFieldisMandatoryorNot(driver);
 			beneficiaryobj.SearchBar().click();
 			beneficiaryobj.SearchBar().sendKeys("DISBMKR");
 	    }
+	    @And("^enter the draw down record reference number$")
+	    public void enter_the_draw_down_record_reference_number() throws Throwable {
+	    	waithelper.waitForElementToVisibleWithFluentWait(driver, beneficiaryobj.SearchBar(), 60, 2);
+			beneficiaryobj.SearchBar().click();
+			beneficiaryobj.SearchBar().sendKeys("714");
+	    }
 
 	    @And("^Click the disbursement maker first action icon in beneficiary detail$")
 	    public void click_the_disbursement_maker_first_action_icon_in_beneficiary_detail() throws Throwable {

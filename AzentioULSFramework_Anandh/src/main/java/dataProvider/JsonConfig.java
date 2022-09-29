@@ -29,6 +29,7 @@ import testDataType.ULS_CheckerTestData;
 import testDataType.ULS_CustomerAddressDetailsTestDataType;
 import testDataType.ULS_CustomerDeptDetailsTestData;
 import testDataType.ULS_CustomerEmploymentDetailsTestdataType;
+import testDataType.ULS_DrawDownBreakupDetailsTestData;
 import testDataType.ULS_LivingExpenseTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.ULS_ProjectMasterTestData;
@@ -108,11 +109,15 @@ public class JsonConfig {
 	private List<Beneficiary_Details_Testdata> Benefiniary;
 	private final String BeneficiaryDetailsPath = configFileReader.getJsonPath() + "BeneficiaryDetails.json";
 	private List<BeneficiaryDetailsTestData> DocumentDetailsTestData;
+	
+	private final String ulsDrawdownDetailsTestData = configFileReader.getJsonPath() + "ULS_DrawdownDetailsJson.json";
+	private List<ULS_DrawDownBreakupDetailsTestData> drawDownDetailsTestData;
 
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
 		 */
+		drawDownDetailsTestData= getdrawDownDetailsTestData();
 		TransactionScreen = getTransactionScreenList();
 		BeneficiaryDetail = getBeneficiaryDetail();
 		customerEmploymentDetailsTestdata = getCustomerEmploymentDetailsDetailsTestData();
@@ -136,6 +141,30 @@ public class JsonConfig {
 		ulsCustomerDeptDetailsTestData = getCustomerDeptDetailsTestData();
 		Benefiniary = getBenefiniary();
 		DocumentDetailsTestData = getDocumentDetailsData();
+	}
+
+	private List<ULS_DrawDownBreakupDetailsTestData> getdrawDownDetailsTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ulsDrawdownDetailsTestData));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ulsDrawdownDetailsTestData));
+			ULS_DrawDownBreakupDetailsTestData[] drawDoownDetailsTestdata = gson.fromJson(bufferReader,
+					ULS_DrawDownBreakupDetailsTestData[].class);
+			return Arrays.asList(drawDoownDetailsTestdata);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ulsDrawdownDetailsTestData);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final ULS_DrawDownBreakupDetailsTestData getDrawDownDetailsTestdataByName(String Username) {
+		return drawDownDetailsTestData.stream().filter(x -> x.userType.equalsIgnoreCase(Username)).findAny().get();
 	}
 
 	private List<BeneficiaryDetailsTestData> getDocumentDetailsData() {

@@ -2,58 +2,58 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-27T16:31:19 IST" name="Default suite" finished-at="2022-09-27T16:32:23 IST" duration-ms="64003">
+  <suite started-at="2022-09-28T17:55:16 IST" name="Default suite" finished-at="2022-09-28T17:56:17 IST" duration-ms="61284">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-09-27T16:31:19 IST" name="Default test" finished-at="2022-09-27T16:32:23 IST" duration-ms="64003">
+    <test started-at="2022-09-28T17:55:16 IST" name="Default test" finished-at="2022-09-28T17:56:17 IST" duration-ms="61284">
       <class name="Runner.TestApplication">
-        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-27T16:31:19 IST" name="beforeExecution" finished-at="2022-09-27T16:31:19 IST" duration-ms="9" status="PASS">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-28T17:55:16 IST" name="beforeExecution" finished-at="2022-09-28T17:55:16 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeExecution -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-27T16:31:19 IST" name="setUpClass" finished-at="2022-09-27T16:31:21 IST" duration-ms="1230" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-28T17:55:16 IST" name="setUpClass" finished-at="2022-09-28T17:55:17 IST" duration-ms="1218" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-27T16:31:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-09-27T16:32:10 IST" duration-ms="49700" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-28T17:55:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-09-28T17:56:05 IST" duration-ms="47745" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To verify list view and pdf excel download in conventional income details screen"]]>
+                <![CDATA["To verify drawdown breakup screen should"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[to test the conventional personal details record]"]]>
+                <![CDATA["Optional[To test the drawdown details screen]"]]>
               </value>
             </param>
           </params>
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
-expected [Mr] but found [52523]]]>
+Deleted Element is  available after deletion]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: The following asserts failed:
-expected [Mr] but found [52523]
+Deleted Element is  available after deletion
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at stepdefinitions.ULS_ConventionalPersonalIncomeSteps.verify_xls_field_is_downloaded_in_the_download_section(ULS_ConventionalPersonalIncomeSteps.java:269)
-at ✽.verify xls field is downloaded in the download section(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_ConventionalIncomeScreenFEATURE.feature:19)
+at stepdefinitions.ULS_DrawdownDetailsSteps.verify_the_functionality_of_back_button(ULS_DrawdownDetailsSteps.java:530)
+at ✽.verify the functionality of back button(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_DrawdownDetailsFEATURE.feature:52)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-27T16:32:10 IST" name="tearDownClass" finished-at="2022-09-27T16:32:23 IST" duration-ms="12930" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-28T17:56:05 IST" name="tearDownClass" finished-at="2022-09-28T17:56:17 IST" duration-ms="12161" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-27T16:32:24 IST" name="afterExecution" finished-at="2022-09-27T16:32:24 IST" duration-ms="292" status="PASS">
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-09-28T17:56:17 IST" name="afterExecution" finished-at="2022-09-28T17:56:18 IST" duration-ms="183" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterExecution -->
