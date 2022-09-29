@@ -32,6 +32,7 @@ import testDataType.ULS_CustomerEmploymentDetailsTestdataType;
 import testDataType.ULS_DrawDownBreakupDetailsTestData;
 import testDataType.ULS_LivingExpenseTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
+import testDataType.ULS_OfferDecisionTestData;
 import testDataType.ULS_ProjectMasterTestData;
 import testDataType.ULS_ReportMasterTestData;
 import testDataType.ULS_SchemeMasterTestDataType;
@@ -112,6 +113,9 @@ public class JsonConfig {
 	
 	private final String ulsDrawdownDetailsTestData = configFileReader.getJsonPath() + "ULS_DrawdownDetailsJson.json";
 	private List<ULS_DrawDownBreakupDetailsTestData> drawDownDetailsTestData;
+	
+	private final String ulsOfferDecisionTestDataPath = configFileReader.getJsonPath() + "ULS_OfferDecisionJSON.json";
+	private List<ULS_OfferDecisionTestData> offerDecisionTestData;
 
 	public JsonConfig() {
 		/*
@@ -141,7 +145,33 @@ public class JsonConfig {
 		ulsCustomerDeptDetailsTestData = getCustomerDeptDetailsTestData();
 		Benefiniary = getBenefiniary();
 		DocumentDetailsTestData = getDocumentDetailsData();
+		offerDecisionTestData= getOfferDecisionTestData();
 	}
+
+	private List<ULS_OfferDecisionTestData> getOfferDecisionTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(ulsOfferDecisionTestDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(ulsOfferDecisionTestDataPath));
+			ULS_OfferDecisionTestData[] offerDecisionTestData = gson.fromJson(bufferReader,
+					ULS_OfferDecisionTestData[].class);
+			return Arrays.asList(offerDecisionTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + ulsOfferDecisionTestDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final ULS_OfferDecisionTestData getOfferDecisionTestDataByName(String Username) {
+		return offerDecisionTestData.stream().filter(x -> x.userType.equalsIgnoreCase(Username)).findAny().get();
+	}
+
 
 	private List<ULS_DrawDownBreakupDetailsTestData> getdrawDownDetailsTestData() {
 		Gson gson = new Gson();

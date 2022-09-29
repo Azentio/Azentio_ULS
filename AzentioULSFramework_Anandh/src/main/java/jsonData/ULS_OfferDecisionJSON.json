@@ -1,0 +1,11 @@
+[
+{
+"userType":"Maker",
+"StageCode":"L1APP",
+"ReadOnlyVerification":"true",
+"DeviationAmount":"100",
+"DeviationTenure":"10",
+"NumberFieldvalidationAttribute":"number",
+"SaveVerificationMessage":"successful"
+}
+]
