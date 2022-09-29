@@ -1,9 +1,6 @@
 package stepdefinitions;
 
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
