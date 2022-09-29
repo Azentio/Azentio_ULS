@@ -19,6 +19,7 @@ import testDataType.Customer_address_Testdata;
 import testDataType.KULS_CustomerEntityLayout_CustomerDebt_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
+import testDataType.MDM_BounceMasterTestdata;
 import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.ProjectMaster_UnitDetailsTestdata;
 import testDataType.PropertyDetails_TestData;
@@ -86,6 +87,9 @@ public class JsonConfig {
 	private final String CustomerReferancePath = configFileReader.getJsonPath() + "CustomerEntity_ReferanceListJson.json";
 	private List<CustomerEntityReferanceListTestdata> CustomerRef;	
 	
+	private final String BounceMstPath = configFileReader.getJsonPath() + "MDM_BounceMaster.json";
+	private List<MDM_BounceMasterTestdata> BounceMst;	
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -109,6 +113,27 @@ public class JsonConfig {
 		//CustomerDebt Maseter-Arul
 		CustomerDebt = getCustomerDebtList();
 		CustomerRef = getCustomerRef();
+		BounceMst=getBounceMst();
+	}
+	
+	private List<MDM_BounceMasterTestdata> getBounceMst() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(BounceMstPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(BounceMstPath));
+			MDM_BounceMasterTestdata[] bounce = gson.fromJson(bufferReader, MDM_BounceMasterTestdata[].class);
+			return Arrays.asList(bounce);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + BounceMstPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	
 	private List<CustomerEntityReferanceListTestdata> getCustomerRef() {
@@ -513,5 +538,9 @@ public class JsonConfig {
 	
 	public final CustomerEntityReferanceListTestdata getCustomerRefByName(String Username) {
 		return CustomerRef.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final MDM_BounceMasterTestdata getBounceMstByName(String Username) {
+		return BounceMst.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

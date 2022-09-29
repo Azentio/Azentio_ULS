@@ -16,6 +16,7 @@ import resources.BaseClass;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
+import testDataType.MDM_BounceMasterTestdata;
 
 public class MDM_BounceMaster extends BaseClass {
 
@@ -30,6 +31,7 @@ public class MDM_BounceMaster extends BaseClass {
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	BounceMasterObj bounceObj = new BounceMasterObj(driver);
+	MDM_BounceMasterTestdata BounceData = jsonConfig.getBounceMstByName("Maker");
 
 	@Given("^User Launch the KULS application$")
 	public void user_launch_the_kuls_application() throws Throwable {
@@ -50,7 +52,7 @@ public class MDM_BounceMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, bounceObj.BounceCodeFieldInBounceMaster(), 60, 2);
 		bounceObj.BounceCodeFieldInBounceMaster().click();
 		bounceObj.BounceCodeFieldInBounceMaster().clear();
-		bounceObj.BounceCodeFieldInBounceMaster().sendKeys("Update Bounce code");
+		bounceObj.BounceCodeFieldInBounceMaster().sendKeys(BounceData.BounceCode);
 	}
 
 	@And("^user update the Charge Applicable field$")
@@ -60,7 +62,7 @@ public class MDM_BounceMaster extends BaseClass {
 		bounceObj.ChargeApplicableFieldInBounceMaster().click();
 		for (int i = 0; i < 10; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),' No ')]/parent::ion-item//ion-radio"))
+				driver.findElement(By.xpath("//ion-label[contains(text(),' "+BounceData.ChargeApplicable+" ')]/parent::ion-item//ion-radio"))
 						.click();
 				break;
 			} catch (Exception e) {
@@ -79,7 +81,7 @@ public class MDM_BounceMaster extends BaseClass {
 			try {
 				bounceObj.BounceDescriptionFieldInBounceMaster().click();
 				bounceObj.BounceDescriptionFieldInBounceMaster().clear();
-				bounceObj.BounceDescriptionFieldInBounceMaster().sendKeys("Update Bounce code");
+				bounceObj.BounceDescriptionFieldInBounceMaster().sendKeys(BounceData.BounceDescription);
 				break;
 			} catch (Exception e) {
 				if (i == 40) {
@@ -96,7 +98,7 @@ public class MDM_BounceMaster extends BaseClass {
 				2);
 		bounceObj.BounceDescription2FieldInBounceMaster().click();
 		bounceObj.BounceDescription2FieldInBounceMaster().clear();
-		bounceObj.BounceDescription2FieldInBounceMaster().sendKeys("Update Bounce code");
+		bounceObj.BounceDescription2FieldInBounceMaster().sendKeys(BounceData.BounceDescription2);
 	}
 
 	@And("^user update the Bounce Description3 field$")
@@ -105,7 +107,7 @@ public class MDM_BounceMaster extends BaseClass {
 				2);
 		bounceObj.BounceDescription3FieldInBounceMaster().click();
 		bounceObj.BounceDescription3FieldInBounceMaster().clear();
-		bounceObj.BounceDescription3FieldInBounceMaster().sendKeys("Update Bounce code");
+		bounceObj.BounceDescription3FieldInBounceMaster().sendKeys(BounceData.BounceDescription3);
 	}
 
 	@And("^user click the save button$")
@@ -113,7 +115,7 @@ public class MDM_BounceMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, bounceObj.BounceMasterSaveIcon(), 60, 2);
 		bounceObj.BounceMasterSaveIcon().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, bounceObj.BounceMasterSaveSuccessPopup(), 60, 2);
-		Assert.assertEquals(bounceObj.BounceMasterSaveSuccessPopup().getText(), "Success");
+		Assert.assertEquals(bounceObj.BounceMasterSaveSuccessPopup().getText(), BounceData.SavePopup);
 
 	}
 
@@ -129,7 +131,7 @@ public class MDM_BounceMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, bounceObj.BounceMasterSaveIcon(), 60, 2);
 		bounceObj.BounceMasterSaveIcon().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, bounceObj.BounceMastersubmitSuccessPopup(), 60, 2);
-		Assert.assertEquals(bounceObj.BounceMastersubmitSuccessPopup().getText(), "success");
+		Assert.assertEquals(bounceObj.BounceMastersubmitSuccessPopup().getText(), BounceData.SubmitPopup);
 
 	}
 	
