@@ -63,6 +63,7 @@ public String BulkPaymentInLockInPeriod;
 public String BulkPaymentTimeInterval;
 public String BulkPaymentLockInStartfrom;
 public String MaxBulkPaymentValue;
+public String MinBulkPaymentValue;
 public String ImmediateDueDate;
 public String MinBulkPaymentParameter;
 public String MaxBulkPaymentParameter;

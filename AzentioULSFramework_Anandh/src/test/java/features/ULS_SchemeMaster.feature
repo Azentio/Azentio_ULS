@@ -2,20 +2,20 @@ Feature: To verify the ULS master screen
 #SM_01_01,SM_01_02,SM_01_03,SM_01_04,SM_03_001,SM_03_002,SM_03_003,SM_03_004,SM_03_005,SM_03_006,SM_03_007,SM_03_008,SM_03_009,SM_03_010,SM_03_011,SM_05_001,
 #SM_05_002,SM_05_003,SM_05_004,SM_05_005,SM_05_006,SM_05_007,SM_05_008,SM_05_009,SM_07_001,SM_07_002,SM_07_003,SM_07_004,SM_07_005,SM_07_006,SM_07_007,SM_07_008,
 #SM_09_001,SM_09_002,SM_09_003,SM_09_004,SM_09_005,SM_09_006,SM_09_007,SM_09_008,SM_09_009,SM_09_010,SM_09_011,
-@M1
+@Scheme_M1
 Scenario: To verify maker user can able to create and submit the scheme master record
 Given Navigate to ULS application URL
 Then login with valid maker credentials
 And go to configuration main menu
-And click on product defenition main module
+And click on config Manager main module
 Then choose scheme master view button
 And click on add button to create the scheme master record
 Then verify back and save buttons are visible
 And verify description field should be mendatory and user can able to pass the data in it
-And verify product type should be mendatory field and user can able to choose the product type
+And verify product type should be non mendatory field and user can able to choose the product type
 And verify product sub type should be mendatory field and user can able to choose the product sub type dropdown
-And verify loan currency drop down shoudl be mendatory and user can able to select the data from the drop down
-And verify Indexation Currency field should be mendatory and user can able to select the drop down
+And verify loan currency drop down should be mendatory and user can able to select the data from the drop down
+And verify Indexation Currency field should be non mendatory and user can able to select the drop down
 And verify valid from calendar field field should be mendatory and user can able to slecet the date
 And verify valid to date calendar field should be mendatory and user can able to slecet the to date
 And verify min finance amount text box field should me mendatory and user can able to pass the data in it
@@ -24,55 +24,56 @@ And verify Min Tenor In months text box field should be mendatory user can able 
 And verify Max Tenor In months Text box field should be mendatory user can able to pass the data in it
 And Verify Repayment Type field should be mendatory user can able to choose the data
 And verify flat reducing drop down field should be mendatory user can able to slecet the data 
-And verify int Amortization method field should be mendatory and user can able to select the data
+And verify int Amortization method field should be non mendatory and user can able to select the data
 And verify compute installment on field should be mendatory and user can able to slecet the data from the dropdown
 And verify inst due method field should be mendatory user can able to slect the data in drop down
-And verify verify LPC grace period field should be mendatory and user can able to fill the data in it
+And verify verify LPC grace period field should be non mendatory and user can able to fill the data in it
 And verify principal Repayment Frequency field should be mendatory user can able to select the data from the drop down
-And verify intereset repayment frequency field should be mendatory user can able to select the data from drop down
+And verify intereset repayment frequency field should be non mendatory user can able to select the data from drop down
 And verify inst rounding logic field should be mendatory and user can able pass the data in it
 And verify Loan Eligibility Calc field should be mendatory and user can able to select the data from the drop down
-And verify Reamrk field should be mendatory user can able to enter the reamrk in it
+And verify Reamrk field should be non mendatory user can able to enter the reamrk in it
 And verify include co applicant INC field should be mendatory user can able to select the data from the drop down
 And verify include GuarantorInc field should be mendatory and user can able to select the data from drop down
 And verify due period required field should be mendatory and user can able to select the data from drop down
-And verify max co applicans field should be mendatory and user can able to pass the data in it
-And verify max guarantors field should be mendatory user can able pass the data in it
+And verify max co applicans field should be non mendatory and user can able to pass the data in it
+And verify max guarantors field should be non mendatory user can able pass the data in it
 And verify inst commence field should be mendatory user can able to slecet the data from the drop down
 And verify days in year field should be mendatory user can able to select the data from dropdown
-And verify multiple disburs tranch allowed field should be non mendatory and user can able to slecet the data from the dropdown
-And verify incluse income Dedu dept field should be mendatory and user can able to select the data from dropdown
-And verify Round off field should be mendatory user can able to select the data from the drop down
-And verify round off value field should be mendatory user can able to pass the data in the text box
-And verfy offer validity field should be mendatory user can able to pass the data in the text box
+And verify multiple disburs tranch allowed field should be mendatory and user can able to slecet the data from the dropdown
+And verify incluse income Dedu dept field should be non mendatory and user can able to select the data from dropdown
+And verify Round off field should be non mendatory user can able to select the data from the drop down
+And verify round off value field should be non mendatory user can able to pass the data in the text box
+And verfy offer validity field should be non mendatory user can able to pass the data in the text box
 And verify appropriation code field should be mendatory user can able to slecet the data from the drop down
-And verify baloon allowed field should be mendatory user can able to select the data from drop down
+And verify baloon allowed field should be non mendatory user can able to select the data from drop down
 And verify maximum Baloon percentage field should be mendatory user can able to pass the data in it
-And verify min IRR field should be mendatory user can able to pass the dta in it
-And verify Max Irr field should be mendatory and user can able to pass the data in it
-And verify pre owned asset should be mendatory user can able to select the data from the drop down
-And verify Day count for Bpi field should be mendatory and user can able to select the data from drop down
-And verify discount factor Rounding field should be mendatory and user can able to pass the data in it
-And verify interest charging starts from field should be mendatory user can able to select the data from the drop down
-And verify MI Recovery field should be mendatory user can able to select the data from the dropdown
-And verify BPI Recovery field should be mendatory user can able to select the data from the drop down
-And verify installment recovery type field should be mendatiry user can able to select the data from the drop down
-And verify rate type field should be mendatory user can able to select the dta from drop down
-And verify initiate disc factory field should be mendatory user can able to select the data from drop down
+And verify min IRR field should be non mendatory user can able to pass the dta in it
+And verify Max Irr field should be non mendatory and user can able to pass the data in it
+And verify pre owned asset should be non mendatory user can able to select the data from the drop down
+And verify Day count for Bpi field should be non mendatory and user can able to select the data from drop down
+And verify discount factor Rounding field should be non mendatory and user can able to pass the data in it
+And verify interest charging starts from field should be non mendatory user can able to select the data from the drop down
+And verify MI Recovery field should be non mendatory user can able to select the data from the dropdown
+And verify BPI Recovery field should be non mendatory user can able to select the data from the drop down
+And verify installment recovery type field should be non mendatiry user can able to select the data from the drop down
+And verify rate type field should be non mendatory user can able to select the dta from drop down
+And verify initiate disc factory field should be non mendatory user can able to select the data from drop down
 And verify resch lockin text box should not be mendatory user can able to pass the data in text box
-And verify Max Resch In a year text box should be mendatory user can able to pass the data in it
+And verify Max Resch In a year text box should be non mendatory user can able to pass the data in it
 And verify total resch Allowed text box should be non mendatory user can able to pass the data in it
 And verify Reschedulement Lock in starts field should be non mendatory user can able to slect the data from the drop down
 And verify bulk payment field should be mendatory user can able to select the data from the drop down
-And verify No of Bulk payment in Year field should be mendatory user can able to pass the data
+And verify No of Bulk payment in Year field should be non mendatory user can able to pass the data
 #And verify bulk payment Lockin period field should be mendatory user can able to enter the data in it
 And verify bulk payment Lockin Period field should be non mendatory user can able to pass the data in it
 And verify bulk payment time interval field should be non mendatory user can able to enter the data
 And verify bulk payment Lock in starts from field should be non mendatory user can able to select the data teh data from drop down
-And verify max bulk payment value field should be mendatory user can able to enter the data in it
-And verify immediate due date field should be mendatory user can able to select the data from the drop down
-And verify Min Bulk Payment Parameter field should be mendatory user can able to select the data from the drop down
-And verify max bulk payment parameter field should be mendatory user can able to select the data from the drop down
+And verify max bulk payment value field should be non mendatory user can able to enter the data in it
+And verify min bulkpayment value field should be non mandatory user can able to enter the data into it
+And verify immediate due date field should be non mendatory user can able to select the data from the drop down
+And verify Min Bulk Payment Parameter field should be non mendatory user can able to select the data from the drop down
+And verify max bulk payment parameter field should be non mendatory user can able to select the data from the drop down
 And verify Fore closure Lockin field should be non mendatory user can able to enter the data in it
 And verify ForeClosure Lock in starts from field should be non mendatory user can able to select the data from the drop down
 And verify min Rebate Parameter field should be non mendatory user can able to select the data from the drop down
@@ -85,9 +86,9 @@ And verify Recomputation of profit field should be non mendatory user can able t
 And verify Is Set up allowed field should be non mendatory user can able to select the data from the drop down
 And verify max step up field should be non mendatory and user can able to fill the data in it
 And verify eligibility type field should be non mendatory user can able to select the data in it
-And verify PreEmi field should be mendatory user can able to select the data from the drop down
-And verify no of Pre EMI Installment should be mendatory user can able to enter the data in it
-And verify is loan Transfer Allower field should be non mendatory user can able to select the data from the drop down
+And verify PreEmi field should be non mendatory user can able to select the data from the drop down
+And verify no of Pre EMI Installment should be non mendatory user can able to enter the data in it
+And verify is loan Transfer Allower field should be mendatory user can able to select the data from the drop down
 Then verify user can able to save the scheme master record
 Then click on temp view of scheme master 
 And select the first record

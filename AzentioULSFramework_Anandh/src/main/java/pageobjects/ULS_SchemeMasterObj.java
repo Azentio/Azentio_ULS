@@ -13,11 +13,11 @@ public class ULS_SchemeMasterObj {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//ion-label[text()='Product Definitions']")
-	private WebElement ULS_ProductDefenitionMainMenu;
+	@FindBy(xpath = "//ion-label[text()='Config Manager']")
+	private WebElement ULS_ConfigmanagerMainMenu;
 
-	public WebElement ulsProductDefenitionMainMenu() {
-		return ULS_ProductDefenitionMainMenu;
+	public WebElement ULSConfigmanagerMainMenu() {
+		return ULS_ConfigmanagerMainMenu;
 	}
 
 	@FindBy(xpath = "//button[@ng-reflect-text='Go Back']")
@@ -34,7 +34,7 @@ public class ULS_SchemeMasterObj {
 		return schemeMaster_SaveButton;
 	}
 
-	@FindBy(xpath = "//ion-label[text()='SchemeMaster']/parent::ion-item//ion-buttons//ion-button[2]")
+	@FindBy(xpath = "//ion-label[text()='SchemeMaster']//parent::ion-item//ion-buttons//ion-button[2]")
 	private WebElement uLS_SchemeMaster_ViewIcon;
 
 	public WebElement ulsSchemeAMasterViewIcon() {
@@ -329,7 +329,7 @@ public class ULS_SchemeMasterObj {
 		return schemeMaster_OfferValidityDays;
 	}
 
-	@FindBy(xpath = "//ion-select[@aria-label='Select,  Appropriation Code *']")
+	@FindBy(xpath = "//ion-label[text()=' Appropriation Code ']//following-sibling::ion-select")
 	private WebElement schemeMaster_AppropriationCode;
 
 	public WebElement schemeMasterAppropriationCode() {
@@ -501,6 +501,18 @@ public class ULS_SchemeMasterObj {
 
 	public WebElement schemeMasterMaxBulkPaymentValueTextBox() {
 		return schemeMaster_MaxBulkPaymentValueTextBox;
+	}
+	@FindBy(xpath="//ion-label[text()='  Min Bulk Payment Value ']//following-sibling::ion-input//input")
+	private WebElement schemeMaster_MinBulkPaymentValuetextBox;
+	public WebElement schemeMasterMinBulkPaymentValueTextbox()
+	{
+		return schemeMaster_MinBulkPaymentValuetextBox;
+	}
+	@FindBy(xpath="//ion-label[text()='  Min Bulk Payment Value ']//following-sibling::span")
+	private WebElement schemeMaster_MinBulkPaymentValueMandatoryVerification;
+	public WebElement schemeMasterMinBulkPaymentValueMandatoryVerification()
+	{
+		return schemeMaster_MinBulkPaymentValueMandatoryVerification;
 	}
 
 	@FindBy(xpath = "//ion-select[@aria-label='Select,  Immediate/Due date *']")
@@ -1067,6 +1079,12 @@ public class ULS_SchemeMasterObj {
 	public WebElement Reschedulement_ReshLockin() {
 		return Reschedulement_ReshLockin1;
 	}
+	@FindBy(xpath = "//ion-label[text()='  Resch Lockin ']//following-sibling::span")
+	private WebElement Reschedulement_ReshLockin1Mandatory;
+
+	public WebElement ReschedulementReshLockin1Mandatory() {
+		return Reschedulement_ReshLockin1Mandatory;
+	}
 
 	@FindBy(xpath = "//ion-label[text()='  Max Resch in a year ']//following-sibling::span")
 	private WebElement Reschedulement_MaxReschInAYearAstrick1;
@@ -1110,42 +1128,42 @@ public class ULS_SchemeMasterObj {
 		return BulkPayment_MaxBulkPaymentValueastrick1;
 	}
 
-	@FindBy(xpath = "//ion-label[text()=' Foreclosure Lockin ']")
+	@FindBy(xpath = "//ion-label[text()=' Foreclosure Lockin ']//following-singling::span")
 	private WebElement Foreclosure_ForeclosureLockin1;
 
 	public WebElement Foreclosure_ForeclosureLockin() {
 		return Foreclosure_ForeclosureLockin1;
 	}
 
-	@FindBy(xpath = "//ion-label[text()='  Min Rebate Value ']")
+	@FindBy(xpath = "//ion-label[text()='  Min Rebate Value ']//following-sibling::span")
 	private WebElement Foreclosure_MinRebateValue1;
 
 	public WebElement Foreclosure_MinRebateValue() {
 		return Foreclosure_MinRebateValue1;
 	}
 
-	@FindBy(xpath = "//ion-label[text()='  Max Rebate Value ']")
+	@FindBy(xpath = "//ion-label[text()='  Max Rebate Value ']//following-sibling::span")
 	private WebElement Foreclosure_MaxRebateValue1;
 
 	public WebElement Foreclosure_MaxRebateValue() {
 		return Foreclosure_MaxRebateValue1;
 	}
 
-	@FindBy(xpath = "//ion-label[text()='  Interest Holiday ']")
+	@FindBy(xpath = "//ion-label[text()='  Interest Holiday ']//following-sibling::span")
 	private WebElement Moratorium_GracePeriod_InterestHoliday1;
 
 	public WebElement Moratorium_GracePeriod_InterestHoliday() {
 		return Moratorium_GracePeriod_InterestHoliday1;
 	}
 
-	@FindBy(xpath = "//ion-label[text()='  Principal Holiday ']")
+	@FindBy(xpath = "//ion-label[text()='  Principal Holiday ']//following-sibling::span")
 	private WebElement Moratorium_GracePeriod_PrincipalHoliday1;
 
 	public WebElement Moratorium_GracePeriod_PrincipalHoliday() {
 		return Moratorium_GracePeriod_PrincipalHoliday1;
 	}
 
-	@FindBy(xpath = "//ion-label[text()='  Max Step-Up ']")
+	@FindBy(xpath = "//ion-label[text()='  Max Step-Up ']//following-sibling::span")
 	private WebElement Step_Up_MaxStepUp1;
 
 	public WebElement Step_Up_MaxStepUp() {
