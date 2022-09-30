@@ -48,6 +48,11 @@ public class Asset_AutoMaster_Obj {
     public WebElement modelYear() {
         return modelYear;
     }
+    @FindBy(xpath="//ion-label[text()=' Model Year ']/following-sibling::ion-input")
+    private WebElement modelYear1;
+    public WebElement modelYear1() {
+        return modelYear1;
+    }
     @FindBy(xpath="//ion-label[text()=' Volume Of Engine ']/following-sibling::ion-input/child::input")
     private WebElement volumeOfEngine;
     public WebElement volumeOfEngine() {
@@ -92,5 +97,10 @@ public class Asset_AutoMaster_Obj {
     private WebElement noOfCylinder;
     public WebElement noOfCylinder() {
         return noOfCylinder;
+    }
+    @FindBy(xpath="//button[@ng-reflect-icon='pi pi-save']")
+    private WebElement assetModelSave;
+    public WebElement assetModelSave() {
+        return assetModelSave;
     }
 }

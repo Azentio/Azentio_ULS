@@ -1,6 +1,8 @@
 package stepdefinitions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
@@ -53,25 +55,58 @@ public class Asset_AutoMaster extends BaseClass {
     	AssetObj.asset_AutoMaster_Add_Icon().click();
     }
 
-    @And("^user Enter Numeric value in character fields$")
-    public void user_enter_numeric_value_in_character_fields() throws Throwable {
-
-    }
+//    @And("^user Enter Numeric value in character fields$")
+//    public void user_enter_numeric_value_in_character_fields() throws Throwable {
+//    	waitHelper.waitForElementToVisibleWithFluentWait(driver, AssetObj.modelYear(), 60, 2);
+//    	AssetObj.modelYear().click();
+//    	AssetObj.modelYear().sendKeys("ABC");
+//    	waitHelper.waitForElementToVisibleWithFluentWait(driver, AssetObj.modelYear1(), 60, 2);
+//    	String Year = AssetObj.modelYear1().getAttribute("ng-reflect-model");
+//    	Assert.assertEquals(Year, "ABC");
+//    }
 
     @And("^user Enter Characters value in Numeric Fields$")
     public void user_enter_characters_value_in_numeric_fields() throws Throwable {
-        
-    }
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, AssetObj.modelYear(), 60, 2);
+    	AssetObj.modelYear().click();
+    	AssetObj.modelYear().sendKeys("ABC");
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, AssetObj.modelYear1(), 60, 2);
+    	String Year = AssetObj.modelYear1().getAttribute("ng-reflect-model");
+    	System.out.println("Year value is "+Year);
+    	//Assert.assertEquals(Year, "ABC");
+    	boolean statusOfYear=false;
+    	try
+    	{
+    	statusOfYear = Year.isBlank();
+    	}
+    	catch(NullPointerException e)
+    	{
+    		statusOfYear=true;	
+    		System.out.println("System Not Allow characters value in Numeric Field");
+    	}
+    	Assert.assertTrue(statusOfYear);
+    	}
 
     @And("^user click on Asset Model Master Save button$")
     public void user_click_on_asset_model_master_save_button() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, AssetObj.asset_AutoMaster_Add_Icon(), 60, 2);
+    	AssetObj.assetModelSave().click();
     	
     }
 
     @And("^user Validate the Message and verify it$")
     public void user_validate_the_message_and_verify_it() throws Throwable {
-        
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath("(//ion-badge[contains(text(),'Required field')])[1]")), 60, 5);
+		String nameErrorMessage = driver.findElement(By.xpath("(//ion-badge[contains(text(),'Required field')])[1]"))
+				.getText();
+		String expectedErrorText = "Required field";
+		if (nameErrorMessage.equalsIgnoreCase(expectedErrorText)) {
+			System.out.println("System should not allow the Mandatory fields Empty.The Popup validation message is "
+					+ nameErrorMessage);
+		} else {
+			System.out.println(
+					"System should allow the Mandatory fields.The Popup validation message is " + nameErrorMessage);
+		}
     }
 	
 	

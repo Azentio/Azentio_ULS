@@ -53,12 +53,14 @@ public class Subproduct_MasterRetail extends BaseClass {
 
 	@When("^user click product set up menu$")
 	public void user_click_product_set_up_menu() throws Throwable {
+		javaHelper.scrollIntoView(subPrdMst.productSetup());
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.productSetup(), 60, 2);
 		subPrdMst.productSetup().click();
 	}
 
 	@And("^user click list view icon of sub product retail$")
 	public void user_click_list_view_icon_of_sub_product_retail() throws Throwable {
+		javaHelper.scrollIntoView(subPrdMst.subProductViewIcon());
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subPrdMst.subProductViewIcon(), 60, 2);
 		subPrdMst.subProductViewIcon().click();
 	}
