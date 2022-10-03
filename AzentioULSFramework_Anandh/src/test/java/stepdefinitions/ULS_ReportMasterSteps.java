@@ -1,6 +1,9 @@
 package stepdefinitions;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -440,7 +443,8 @@ public class ULS_ReportMasterSteps extends BaseClass {
 				reportMasterObj.reportParameterDetailsNullableValuesTextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsNullableValuesTextBox().clear();
 		reportMasterObj.reportParameterDetailsNullableValuesTextBox().sendKeys(reportMasterTestData.NumericInput);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportParameterDetailsReportParameterDetailsSaveButton(), 10, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				reportMasterObj.reportParameterDetailsReportParameterDetailsSaveButton(), 10, 1);
 		reportMasterObj.reportParameterDetailsReportParameterDetailsSaveButton().click();
 	}
 
@@ -449,4 +453,190 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.toastAlert(), 30, 1);
 		Assert.assertFalse(reportMasterObj.toastAlert().isDisplayed());
 	}
+
+	@And("^click on view button neqar by report master module$")
+	public void click_on_view_button_neqar_by_report_master_module() throws Throwable {
+		for (int i = 0; i <= 40; i++) {
+			try {
+				javascriptHelper.scrollIntoView(reportMasterObj.reportMasterViewIcon());
+				reportMasterObj.reportMasterViewIcon().click();
+				break;
+			} catch (Exception e) {
+				if (i == 40) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+	}
+
+	@And("^click on edit button of one of the approved record$")
+	public void click_on_edit_button_of_one_of_the_approved_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMaster_ApprovedRecordEditIcon(),
+				20, 1);
+		reportMasterObj.reportMaster_ApprovedRecordEditIcon().click();
+	}
+
+	@And("^clear the input data of Report Name field$")
+	public void clear_the_input_data_of_report_name_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportnameDataHolder(), 10,
+				1);
+		System.out.println(" Report Name Input Data : "
+				+ reportMasterObj.reportMasterReportnameDataHolder().getAttribute("ng-reflect-model").length());
+		int length = reportMasterObj.reportMasterReportnameDataHolder().getAttribute("ng-reflect-model").length();
+		for (int i = 0; i < length; i++) {
+			reportMasterObj.reportMasterReportNameInputBox().click();
+			reportMasterObj.reportMasterReportNameInputBox().sendKeys(Keys.BACK_SPACE);
+		}
+	}
+
+	@And("^clear input data of Report Name 2 field$")
+	public void clear_input_data_of_report_name_2_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportname2DataHolder(),
+				10, 1);
+		System.out.println(" Report Name Input Data : "
+				+ reportMasterObj.reportMasterReportname2DataHolder().getAttribute("ng-reflect-model").length());
+		int length = reportMasterObj.reportMasterReportname2DataHolder().getAttribute("ng-reflect-model").length();
+		for (int i = 0; i < length; i++) {
+			reportMasterObj.reportMasterReportName2InputBox().click();
+			reportMasterObj.reportMasterReportName2InputBox().sendKeys(Keys.BACK_SPACE);
+		}
+	}
+
+	@And("^clear the input data of Report Name 3 field$")
+	public void clear_the_input_data_of_report_name_3_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportname3DataHolder(),
+				10, 1);
+		System.out.println(" Report Name Input Data : "
+				+ reportMasterObj.reportMasterReportname3DataHolder().getAttribute("ng-reflect-model").length());
+		int length = reportMasterObj.reportMasterReportname3DataHolder().getAttribute("ng-reflect-model").length();
+		for (int i = 0; i < length; i++) {
+			reportMasterObj.reportMasterReportName3InputBox().click();
+			reportMasterObj.reportMasterReportName3InputBox().sendKeys(Keys.BACK_SPACE);
+		}
+	}
+
+	@And("^clear the input data of Report Description field$")
+	public void clear_the_input_data_of_report_description_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				reportMasterObj.reportMasterReportDescriptionDataHolder(), 10, 1);
+		System.out.println(" Report Name Input Data : "
+				+ reportMasterObj.reportMasterReportDescriptionDataHolder().getAttribute("ng-reflect-model").length());
+		int length = reportMasterObj.reportMasterReportDescriptionDataHolder().getAttribute("ng-reflect-model")
+				.length();
+		for (int i = 0; i < length; i++) {
+			reportMasterObj.reportMasterReportDescriptionInputBox().click();
+			reportMasterObj.reportMasterReportDescriptionInputBox().sendKeys(Keys.BACK_SPACE);
+		}
+	}
+
+	@And("^clear the input data of report type field$")
+	public void clear_the_input_data_of_report_type_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportTypeDropdown(), 10,
+				1);
+		reportMasterObj.reportMasterReportTypeDropdown().click();
+		String xpath = "//ion-label[text()=' " + reportMasterTestData.defaultSelectValue
+				+ " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 15; i++) {
+			try {
+				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+				break;
+			} catch (Exception e) {
+				if (i == 15) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+
+	}
+
+	@And("^clear the input data of Report URL field$")
+	public void clear_the_input_data_of_report_url_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportURLField(), 10, 1);
+		int length = reportMasterObj.reportMasterReportURLField().getText().length();
+		for (int i = 0; i <= length; i++) {
+			reportMasterObj.reportMasterReportURLField().click();
+			reportMasterObj.reportMasterReportURLField().sendKeys(Keys.BACK_SPACE);
+		}
+
+	}
+
+	@And("^clear the input data of Report category field$")
+	public void clear_the_input_data_of_report_category_field() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportCategoryDropdown(),
+				10, 1);
+		reportMasterObj.reportMasterReportCategoryDropdown().click();
+		String xpath = "//ion-label[text()=' " + reportMasterTestData.defaultSelectValue
+				+ " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 15; i++) {
+			try {
+				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
+				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
+				break;
+			} catch (Exception e) {
+				if (i == 15) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+	}
+
+	@And("^click on save button to save the report master screen without data$")
+	public void click_on_save_button_to_save_the_report_master_screen_without_data() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterSaveButton(), 10, 1);
+		reportMasterObj.reportMasterSaveButton().click();
+	}
+	@Then("^verify all the mandatory field should show the validation for blank field$")
+    public void verify_all_the_mandatory_field_should_show_the_validation_for_blank_field() throws Throwable {
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportNameFieldValidation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.reportMasterReportNameFieldValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName2Validation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName3Validation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportTypeDropdownFieldValidation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.reportMasterReportTypeDropdownFieldValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportURLFieldValidation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.reportMasterReportURLFieldValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportCategoryValidation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.remportMasterReportCategoryValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+    }
+	@Then("^verify report name field should through the validation message post enter the special character input$")
+    public void verify_report_name_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportNameInputBox(), 10, 1);
+     reportMasterObj.reportMasterReportNameInputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+     waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportNameValidation(), 10, 1);
+     Assert.assertEquals(reportMasterObj.remportMasterReportNameValidation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);
+    }
+
+    @Then("^verify report name 2 field should through the validation message post enter the special character input$")
+    public void verify_report_name_2_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportName2InputBox(), 10, 1);
+        reportMasterObj.reportMasterReportName2InputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName2Validation(), 10, 1);
+        Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);     
+    }
+
+    @Then("^verify report name 3 field should through the validation message post enter the special character input$")
+    public void verify_report_name_3_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportName3InputBox(), 10, 1);
+        reportMasterObj.reportMasterReportName3InputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName3Validation(), 10, 1);
+        Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);     
+    }
+
+    @Then("^verify report Description field should through the validation message post enter the special character input$")
+    public void verify_report_description_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportDescriptionInputBox(), 10, 1);
+        reportMasterObj.reportMasterReportDescriptionInputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+        waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportDescriptionFieldValidation(), 10, 1);
+        Assert.assertEquals(reportMasterObj.reportMasterReportDescriptionFieldValidation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);     
+    }
 }

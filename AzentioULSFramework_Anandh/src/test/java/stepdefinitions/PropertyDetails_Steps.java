@@ -37,17 +37,23 @@ public class PropertyDetails_Steps extends BaseClass {
 	public void click_on_mail_box() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsMailBox(), 20, 1);
 		ulsCommonElementObj.ulsMailBox().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsNotificationSerachButton(), 20,
-				1);
-		ulsCommonElementObj.ulsNotificationSerachButton().click();
-
+		for (int i = 0; i <= 50; i++) {
+			try {
+				javascriptHelper.JSEClick(ulsCommonElementObj.ulsSearchButton());
+				break;
+			} catch (Exception e) {
+				if (i == 50) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 	}
+
 	@And("^click on the mail box button$")
-    public void click_on_the_mail_box_button() throws Throwable {
+	public void click_on_the_mail_box_button() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsMailBox(), 20, 1);
-		ulsCommonElementObj.ulsMailBox().click();     
-    }
-	
+		ulsCommonElementObj.ulsMailBox().click();
+	}
 
 	@And("^search for app data entry record$")
 	public void search_for_app_data_entry_record() throws Throwable {
@@ -105,7 +111,8 @@ public class PropertyDetails_Steps extends BaseClass {
 				if (i == 10) {
 					Assert.fail(e.getMessage());
 				}
-				waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.appdataEntryNextButton(), 5, 1);
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.appdataEntryNextButton(), 5,
+						1);
 				propertyDetailsObj.appdataEntryNextButton().click();
 			}
 		}
@@ -2365,7 +2372,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox().click();
-		
+
 //		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().sendKeys(Keys.ENTER);
 		String dateInput1 = "";
 		String dateInput2 = "";
@@ -2384,13 +2391,12 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		System.out.println("Date Is" + dateInput1);
-		for(int k=0;k<dateInput1.length();k++)
-		{
+		for (int k = 0; k < dateInput1.length(); k++) {
 			propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox().click();
 			propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox()
-		.sendKeys(propertyDetailsTestData.UpdatedYearOfConstructiondate);
+				.sendKeys(propertyDetailsTestData.UpdatedYearOfConstructiondate);
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2452,13 +2458,12 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		System.out.println("Date Is" + dateInput1);
-		for(int k=0;k<dateInput1.length();k++)
-		{
+		for (int k = 0; k < dateInput1.length(); k++) {
 			propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox().click();
 			propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox()
-		.sendKeys(propertyDetailsTestData.UpdatedExpectedCompletionDate);
+				.sendKeys(propertyDetailsTestData.UpdatedExpectedCompletionDate);
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2473,7 +2478,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				}
 			}
 		}
-		
+
 		Assert.assertEquals(propertyDetailsTestData.UpdatedExpectedCompletionDate, dateInput2);
 	}
 
@@ -2507,13 +2512,12 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		System.out.println("Date Is" + dateInput1);
-		for(int k=0;k<dateInput1.length();k++)
-		{
+		for (int k = 0; k < dateInput1.length(); k++) {
 			propertyDetailsObj.propertyDetailsAgreementDateCalendarInputBox().click();
 			propertyDetailsObj.propertyDetailsAgreementDateCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsAgreementDateCalendarInputBox()
-		.sendKeys(propertyDetailsTestData.UpdatedAgreementDate);
+				.sendKeys(propertyDetailsTestData.UpdatedAgreementDate);
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2528,7 +2532,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				}
 			}
 		}
-		
+
 		Assert.assertEquals(propertyDetailsTestData.UpdatedAgreementDate, dateInput2);
 	}
 
@@ -2563,13 +2567,12 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		System.out.println("Date Is" + dateInput1);
-		for(int k=0;k<dateInput1.length();k++)
-		{
+		for (int k = 0; k < dateInput1.length(); k++) {
 			propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox().click();
 			propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox()
-		.sendKeys(propertyDetailsTestData.UpdatedAgreementvalidityDate);
+				.sendKeys(propertyDetailsTestData.UpdatedAgreementvalidityDate);
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2584,7 +2587,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				}
 			}
 		}
-		
+
 		Assert.assertEquals(propertyDetailsTestData.UpdatedAgreementvalidityDate, dateInput2);
 	}
 

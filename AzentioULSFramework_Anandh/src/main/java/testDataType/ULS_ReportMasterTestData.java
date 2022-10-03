@@ -9,5 +9,7 @@ public class ULS_ReportMasterTestData {
 	public String NumericInput;
 	public String TemplateIDInput;
 	public String isMandatory;
+	public String defaultSelectValue;
+	public String mandatoryFieldValidationMessage;
 
 }

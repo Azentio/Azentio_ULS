@@ -23,6 +23,7 @@ import testDataType.PersonalaDetailsDataEntryTestdata;
 import testDataType.PropertyDetails_TestData;
 import testDataType.PropetyDetails_TestDataType;
 import testDataType.TransactionScreenTestDataType;
+import testDataType.ULS_AllocationMasterTestData;
 import testDataType.ULS_AssetCollateralTypeTestData;
 import testDataType.ULS_BeneficiaryDetailsTestData;
 import testDataType.ULS_CheckerTestData;
@@ -116,11 +117,15 @@ public class JsonConfig {
 	
 	private final String ulsOfferDecisionTestDataPath = configFileReader.getJsonPath() + "ULS_OfferDecisionJSON.json";
 	private List<ULS_OfferDecisionTestData> offerDecisionTestData;
+	
+	private final String allocationMasterTestDataJSONPath = configFileReader.getJsonPath() + "ULS_AllocationMasterJSON.json";
+	private List<ULS_AllocationMasterTestData> allocationMasterTestData;
 
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
 		 */
+		allocationMasterTestData=getAllocationMasterTestData();
 		drawDownDetailsTestData= getdrawDownDetailsTestData();
 		TransactionScreen = getTransactionScreenList();
 		BeneficiaryDetail = getBeneficiaryDetail();
@@ -148,6 +153,29 @@ public class JsonConfig {
 		offerDecisionTestData= getOfferDecisionTestData();
 	}
 
+	private List<ULS_AllocationMasterTestData> getAllocationMasterTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(allocationMasterTestDataJSONPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(allocationMasterTestDataJSONPath));
+			ULS_AllocationMasterTestData[] ulsAllocationMasterTestData = gson.fromJson(bufferReader,
+					ULS_AllocationMasterTestData[].class);
+			return Arrays.asList(ulsAllocationMasterTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + allocationMasterTestDataJSONPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	public final ULS_AllocationMasterTestData getAllocationTestDataByName(String Username) {
+		return allocationMasterTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
 	private List<ULS_OfferDecisionTestData> getOfferDecisionTestData() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(ulsOfferDecisionTestDataPath));

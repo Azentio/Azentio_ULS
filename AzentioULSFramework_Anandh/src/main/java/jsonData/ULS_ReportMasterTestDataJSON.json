@@ -6,6 +6,9 @@
 "SpecialCharecterValidationMessage":"Alphanumeric characters allowed",
 "NumericInput":"123",
 "TemplateIDInput":"Language Id",
-"isMandatory":"No"
+"isMandatory":"No",
+"defaultSelectValue":"Select",
+"mandatoryFieldValidationMessage":"Required field"
+
 }
 ]

@@ -9,7 +9,6 @@
 "validFromMonth":"Jul",
 "validFromYear":"",
 "ValidFromDay":"",
-
 "validToMonth":"Aug",
 "ValidToYear":"2022",
 "ValidToDay":"10",
@@ -117,11 +116,9 @@
 "UlsDescriptionForCheckerReject":"Personal Finance",
 "UlsProductTypeForCheckerReject":"Personal Finance",
 "UlsSubProductTypeForCheckerReject":"Salary Adance Loan",
-
 "UlsDescriptionForCheckerReturn":"SME Corporate Loans1",
 "UlsProductTypeForCheckerReturn":"SME Corporate Loans",
 "UlsSubProductTypeForCheckerReturn":"Short Term Loan",
-
 "checkerPositiveAlertRemark":"ApprovedFromChecker",
 "checkerNegativeAlertRemark":"Rejected from checker",
 "checkerRuturnAlertRemark":"Record return to Maker",

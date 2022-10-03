@@ -88,7 +88,7 @@ public class KULS_CommonWebElements {
     {
     	return uls_SaveButton;
     }
-    @FindBy(xpath="(//button[@ng-reflect-text='Search'])[1]")
+    @FindBy(xpath="(//span[text()=' Inbox ']//ancestor::div//button[@ng-reflect-text='Search'])[1]")
     private WebElement uls_notificationSearchButton;
     public WebElement ulsNotificationSerachButton()
     {
