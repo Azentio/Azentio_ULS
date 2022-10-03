@@ -19,6 +19,7 @@ import testDataType.CustomerDocumentDetailsTestDataType;
 import testDataType.CustomerFinancialsTestData;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.Product_RetailMasterTestData;
+import testDataType.ReportMasterTestData;
 import testDataType.SubProductMaster_RetailTestData;
 import testDataType.SubProductRetailParameterNegativeTestDataType;
 import testDataType.SubProductRetailParameterTestDataType;
@@ -64,6 +65,9 @@ public class JsonConfig {
 // 	CustomerDocumentDetails
 	private final String CustomerDocumentDetailsPath = configFileReader.getJsonPath() + "CustomerDocumentDetailsJSON.json";
 	private List<CustomerDocumentDetailsTestDataType> CustomerDocumentDetailsList;
+// 	CustomerDocumentDetails
+	private final String ReportMasterPath = configFileReader.getJsonPath() + "ReportMaster.json";
+	private List<ReportMasterTestData> ReportMasterList;
 	
 	public JsonConfig() {
 		/*
@@ -82,8 +86,30 @@ public class JsonConfig {
 		CustomerFinancialsTestData = getCustomerFinancialsData();
 		DocumentDetailsTestData = getDocumentDetailsData();
 		CustomerDocumentDetailsList = getCustomerDocumentDetailsList();
+		ReportMasterList=getReportMasterData();
 		
 	}
+	//Report Master
+		private List<ReportMasterTestData> getReportMasterData() {
+			Gson gson = new Gson();
+			JsonReader reader = new JsonReader(new StringReader(ReportMasterPath));
+			reader.setLenient(true);
+			BufferedReader bufferReader = null;
+			try {
+				bufferReader = new BufferedReader(new FileReader(ReportMasterPath));
+				ReportMasterTestData[] reportMasterData = gson.fromJson(bufferReader,
+						ReportMasterTestData[].class);
+				return Arrays.asList(reportMasterData);
+			} catch (FileNotFoundException e) {
+				throw new RuntimeException("Json file not found at path : " + ReportMasterPath);
+			} finally {
+				try {
+					if (bufferReader != null)
+						bufferReader.close();
+				} catch (IOException ignore) {
+				}
+			}
+		}
     //BeneficiaryDetails
 	private List<BeneficiaryDetailsTestData> getDocumentDetailsData() {
 		Gson gson = new Gson();
@@ -393,6 +419,10 @@ public class JsonConfig {
 		// customer document detaisl
 		public final CustomerDocumentDetailsTestDataType getCustomerDocumentDetailsByName(String Username) {
 			return CustomerDocumentDetailsList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+		}
+		//Report Master
+		public final ReportMasterTestData getReportMasterByName(String Username) {
+			return ReportMasterList.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 		}
 	
 

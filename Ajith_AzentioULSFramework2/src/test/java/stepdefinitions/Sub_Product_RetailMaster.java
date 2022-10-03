@@ -32,7 +32,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	 
 	@Given("^user log in as uls application maker$")
     public void user_log_in_as_uls_application_maker() throws Throwable {
-        String kulsApplicationUrl = configFileReader.getApplicationUrl();
+        String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
         driver.get(kulsApplicationUrl);
         applicationLogin.loginUlsApplicationAsMaker(loginData.Username,loginData.Password);
         
