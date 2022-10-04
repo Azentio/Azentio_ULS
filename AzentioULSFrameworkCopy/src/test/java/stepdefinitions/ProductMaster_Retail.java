@@ -53,10 +53,12 @@ public class ProductMaster_Retail {
     public void user_should_navigate_to_product_master() throws Throwable {
 		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_MenuToggle());
 		productMaster_RetailObj.productMaster_MenuToggle().click();
+		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productmaster_Configuration());
+		productMaster_RetailObj.productmaster_Configuration().click();
 		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.config_Manager());
 		productMaster_RetailObj.config_Manager().click();
-		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.product_Setup());
-		productMaster_RetailObj.product_Setup().click();
+//		waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.product_Setup());
+//		productMaster_RetailObj.product_Setup().click();
     }
 	
 	@And("^click on edit view of product master$")
@@ -807,10 +809,12 @@ public class ProductMaster_Retail {
     public void click_on_product_setup()  {
     waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_MenuToggle());
 	productMaster_RetailObj.productMaster_MenuToggle().click();
+	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productmaster_Configuration());
+    productMaster_RetailObj.productmaster_Configuration().click();;
     waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.config_Manager());
     productMaster_RetailObj.config_Manager().click();;
-    waithelper.waitForElementToVisibleWithFluentWait(driver,productMaster_RetailObj.product_Setup(), 60, 1);
-	productMaster_RetailObj.product_Setup().click();   
+//    waithelper.waitForElementToVisibleWithFluentWait(driver,productMaster_RetailObj.product_Setup(), 60, 1);
+//	productMaster_RetailObj.product_Setup().click();   
     }
 
     @Then("^click on Product Master eye icon$")
@@ -1039,6 +1043,7 @@ public class ProductMaster_Retail {
     //DMCode
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_DMCode(), 60, 2);
     productMaster_RetailObj.productMaster_Product_DMCode().isDisplayed();
+    findFieldisMandatoryorNot.verifyGivenFieldisMandatoryOrNot("DM Code");
     waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_Product_DMCode());
     
     for (int i = 0; i<20; i++)
@@ -1061,6 +1066,7 @@ public class ProductMaster_Retail {
     //Remarks
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Remark(), 60, 2);
     productMaster_RetailObj.productMaster_Product_Remark().isDisplayed();
+    findFieldisMandatoryorNot.verifyGivenFieldisMandatoryOrNot("Remarks");
     for (int i = 0; i<20; i++)
     {
     	try {

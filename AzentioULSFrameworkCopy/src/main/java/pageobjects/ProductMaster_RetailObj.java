@@ -18,8 +18,15 @@ public class ProductMaster_RetailObj {
 //	@FindBy(xpath = "//ion-card-content[1]/ion-item[1]//ion-icon[1]")
 //	@FindBy(xpath = "//span[contains(text(),'Configurations')]")
 	@FindBy(xpath = "(//li[3]//ion-icon[1])[1]")
-	private WebElement config_Manager;
+	private WebElement productmaster_Configuration;
 
+	public WebElement productmaster_Configuration() {
+		return productmaster_Configuration;
+	}
+	
+	@FindBy(xpath = "//ion-label[contains(text(),'Config Manager')]")
+	private WebElement config_Manager;
+	
 	public WebElement config_Manager() {
 		return config_Manager;
 	}

@@ -64,7 +64,7 @@ public class KULS_Application_Login {
 		}
 	}
 
-	public void ulSApplicationLoginAsAChecker(String userID) {
+	public void ulSApplicationLoginAsAChecker(String userID) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		loginObj = new KULS_LoginObj(driver);
 		javaScriptHelper = new JavascriptHelper(driver);
@@ -79,6 +79,7 @@ public class KULS_Application_Login {
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
 			loginObj.password().click();
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword1);
+			Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
 			while (true) {

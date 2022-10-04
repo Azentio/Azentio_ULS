@@ -7,6 +7,8 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.BrowserHelper;
@@ -53,8 +55,10 @@ public class CovenantMaster {
 		covenantMasterObj.covenantMaster_Maker_MenuToggle().click();;
 		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMasterConfigurations());
 		covenantMasterObj.covenantMasterConfigurations().click();
-		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMasterConfigMenu());
-		covenantMasterObj.covenantMasterConfigMenu().click();
+		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMasterConfigManager());
+		covenantMasterObj.covenantMasterConfigManager().click();
+//		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMasterConfigMenu());
+//		covenantMasterObj.covenantMasterConfigMenu().click();
 	}
 
 	@And("^click on work in progress records button of covenant master$")
@@ -785,7 +789,9 @@ public class CovenantMaster {
 
 	    @Then("^verify the functionality of ID field system should display ID number of that record$")
 	    public void verify_the_functionality_of_id_field_system_should_display_id_number_of_that_record() throws Throwable {
+//	    	SoftAssert softAssert = new SoftAssert();
 	    	boolean result = covenantMasterObj.covenantMaster_ListViewIDField().isDisplayed();
+//	    	softAssert.assertTrue(result);
 	    	System.out.println("System is showing ID field - "+result);
 	    	
 	    	try {

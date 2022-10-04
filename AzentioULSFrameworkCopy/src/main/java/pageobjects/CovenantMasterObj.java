@@ -28,12 +28,19 @@ public class CovenantMasterObj {
 		return covenantMaster_Maker_MenuToggle;
 	}
 
-//	@FindBy(xpath = "//span[contains(text(),'Configurations')]")
-	@FindBy(xpath = "(//li[3]//ion-icon[1])[1]")
+	@FindBy(xpath = "//span[contains(text(),'Configurations')]")
+//	@FindBy(xpath = "(//li[3]//ion-icon[1])[1]")
 	private WebElement covenantMasterConfigurations;
 
 	public WebElement covenantMasterConfigurations() {
 		return covenantMasterConfigurations;
+	}
+	
+	@FindBy(xpath = "//ion-label[contains(text(),'Config Manager')]")
+	private WebElement covenantMasterConfigManager;
+	
+	public WebElement covenantMasterConfigManager() {
+		return covenantMasterConfigManager;
 	}
 
 	@FindBy(xpath = "//ion-label[contains(text(),'Covenant Master')]/following-sibling::ion-buttons/ion-button[1]")

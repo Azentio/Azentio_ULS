@@ -27,7 +27,7 @@ Feature: Check the functionality of Report Master
   	Then verify search box should not display any record with mismatched data in report group master
   	Then click on export to pdf button system should download Pdf file in report group master
   	Then click on export to excel button system should download Excel file in report group master
-  	Then verify the functionality of Group header ID field system should display Group header ID number of that record
-		Then verify the functionality of group name field system should display Group name ID number of that record
+  #	Then verify the functionality of Group header ID field system should display Group header ID number of that record
+		Then verify the functionality of group name field system should display Group name of that record
 		Then verify the functionality of Description field system should display Description of that group master record
 		Then verify the functionality of Status field system should display Status of that group master record

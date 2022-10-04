@@ -137,8 +137,8 @@ public class ReportMaster {
 		}
     	waithelper.waitForElementwithFluentwait(driver, reportMasterObj.reportMaster_SearchInputField());
     	reportMasterObj.reportMaster_SearchInputField().sendKeys(reportMasterTestDataType.ApprovedRecord);
-    	String beforexpath = "//span[contains(text(),'"; 
-    	String afterxpath = "')]"; 
+    	String beforexpath = "//span[text()='"; 
+    	String afterxpath = "']"; 
     	boolean result = driver.findElement(By.xpath(beforexpath +reportMasterTestDataType.ApprovedRecord+ afterxpath)).isDisplayed();
     	Assert.assertTrue(result);
     }
@@ -172,8 +172,16 @@ public class ReportMaster {
 
 			}
 		}
-    	waithelper.waitForElementwithFluentwait(driver, reportMasterObj.reportMaster_XlsFile());
-    	reportMasterObj.reportMaster_XlsFile().click();
+    	for (int i = 0; i < 10; i++) {
+			try {
+				waithelper.waitForElementwithFluentwait(driver, reportMasterObj.reportMaster_XlsFile());
+				reportMasterObj.reportMaster_XlsFile().click();
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+		}
     }
 
     @Then("^verify the functionality of Group header ID field system should display Group header ID number of that record$")
@@ -189,8 +197,9 @@ public class ReportMaster {
     	}
     }
 
-    @Then("^verify the functionality of group name field system should display Group name ID number of that record$")
-    public void verify_the_functionality_of_group_name_field_system_should_display_group_name_id_number_of_that_record() throws Throwable {
+    @Then("^verify the functionality of group name field system should display Group name of that record$")
+    public void verify_the_functionality_of_group_name_field_system_should_display_group_name_of_that_record() throws Throwable {
+    	waithelper.waitForElementwithFluentwait(driver, reportMasterObj.reportMaster_GroupName());
     	boolean result = reportMasterObj.reportMaster_GroupName().isDisplayed();
     	System.out.println("System is showing GroupName field - "+result);
     	

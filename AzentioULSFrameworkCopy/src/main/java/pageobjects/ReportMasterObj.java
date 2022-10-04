@@ -88,7 +88,8 @@ public class ReportMasterObj {
 	}
 
 	// Group Name
-	@FindBy(xpath = "//ion-label[contains(text(),'Group Name')]/following-sibling::ion-input/input")
+//	@FindBy(xpath = "//ion-label[contains(text(),'Group Name')]/following-sibling::ion-input/input")
+	@FindBy(xpath = "//span[contains(text(),'Group Name')]")
 	private WebElement reportMaster_GroupName;
 
 	public WebElement reportMaster_GroupName() {
