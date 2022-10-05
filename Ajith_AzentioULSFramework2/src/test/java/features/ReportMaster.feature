@@ -19,6 +19,14 @@ And user search report Master
 And user store reference number and click the first record in report master inbox view
 And user submit report master record in maker
 And user capture checker id for checker submit
-
+Scenario: Checker approve and verify maker saved should reflect in checker
+Given user log in as uls application checker for report master record
+#And user Click on Menu icon for asset auto record
+And user Click on Mailbox icon for report master record
+And Search the respective reference id and click on Action button for report master record
+And user Click on Approve icon for report master record
+And user Enter the remarks in Action confirmation popup for report master record
+Then user Click on Remarks button in Action confirmation popup for report master record
+Then user verify the Record got Approved for report master record
 
 

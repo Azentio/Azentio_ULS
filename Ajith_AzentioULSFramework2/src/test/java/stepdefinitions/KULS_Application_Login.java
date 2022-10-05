@@ -11,7 +11,7 @@ import pageobjects.KULS_LoginObj;
 import testDataType.KULS_Login_TestDataType;
 
 public class KULS_Application_Login {
-	public static WebDriver driver;
+	public WebDriver driver;
 	WaitHelper waithelper;
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper;
@@ -61,6 +61,8 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword1);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.menu(), 60, 2);
+			loginObj.menu().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
@@ -75,6 +77,8 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(ulsUserLoginCredentials.CheckerUserPassword2);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.menu(), 60, 2);
+			loginObj.menu().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;

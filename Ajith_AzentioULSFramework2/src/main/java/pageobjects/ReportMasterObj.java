@@ -107,10 +107,15 @@ private WebElement firstEditIconInMakerListView;
 public WebElement firstEditIconInMakerListView() {
 	return firstEditIconInMakerListView;
 }
-@FindBy(xpath = "//button/span[contains(text(),'Submit')]") 
+@FindBy(xpath = "//kub-workflow-decision//button[@ng-reflect-label='Submit']") 
 private WebElement reportMasterMaker_Submit;
 public WebElement reportMasterMaker_Submit() {
     return reportMasterMaker_Submit;
+}
+@FindBy(xpath = "//ion-card-subtitle[text()=' SUBMIT ']/ancestor::ion-card//button") 
+private WebElement reportMasterMaker_RemarkSubmit;
+public WebElement reportMasterMaker_RemarkSubmit() {
+    return reportMasterMaker_RemarkSubmit;
 }
 @FindBy(xpath = "//ion-label[contains(text(),'Please Enter Remarks')]//following-sibling::ion-textarea//child::textarea") 
 private WebElement reportMasterMaker_EnterRemark;
@@ -121,6 +126,73 @@ public WebElement reportMasterMaker_EnterRemark() {
 private WebElement reportMasterMakerRemarkSubmit;
 public WebElement reportMasterMakerRemarkSubmit() {
 	return reportMasterMakerRemarkSubmit;
+}
+
+//*******************************************************Checker xpath**********************************************************
+@FindBy(xpath = "//ion-icon[@aria-label='menu']") 
+private WebElement Checker_toggle;
+public WebElement Checker_toggle() {
+    return Checker_toggle;
+} 
+@FindBy(xpath = "//ion-icon[@ng-reflect-name='mail-unread-outline']") 
+private WebElement Checker_Inbox;
+public WebElement Checker_Inbox() {
+    return Checker_Inbox;
+}
+@FindBy(xpath = "//button[@label='Approve']/span[contains(text(),'Approve')]") 
+private WebElement Checker_Approve;
+public WebElement Checker_Approve() {
+    return Checker_Approve;
+}  
+@FindBy(xpath = "//ion-label[contains(text(),'approve')]") 
+private WebElement Checker_Alert_Approve;
+public WebElement Checker_Alert_Approve() {
+    return Checker_Alert_Approve;
+}
+
+@FindBy(xpath = "//ion-row[2]/ion-col[1]/span[1]/button[1]") 
+private WebElement Checker_Final_Approve;
+public WebElement Checker_Final_Approve() {
+    return Checker_Final_Approve;
+}
+@FindBy(xpath = "//kub-workflow-decision//child::button[@label='Reject']") 
+private WebElement Checker_Reject;
+public WebElement Checker_Reject() {
+    return Checker_Reject;
+}
+
+@FindBy(xpath = "//ion-label[contains(text(),'cancel')]") 
+private WebElement Checker_Alert_Reject;
+public WebElement Checker_Alert_Reject() {
+    return Checker_Alert_Reject;
+}
+
+@FindBy(xpath = "//ion-row[2]/ion-col[1]/span[1]/button[1]") 
+private WebElement Checker_Final_Reject;
+public WebElement Checker_Final_Reject() {
+    return Checker_Final_Reject;
+}
+@FindBy(xpath = "//kub-workflow-decision//child::button[@label='Return']") 
+private WebElement Checker_Return;
+public WebElement Checker_Return() {
+    return Checker_Return;
+}
+
+@FindBy(xpath = "//ion-label[contains(text(),'return')]") 
+private WebElement Checker_Alert_Return;
+public WebElement Checker_Alert_Return() {
+    return Checker_Alert_Return;
+}
+
+@FindBy(xpath = "//ion-row[2]/ion-col[1]/span[1]/button[1]") 
+private WebElement Checker_Final_Return;
+public WebElement Checker_Final_Return() {
+    return Checker_Final_Return;
+}
+@FindBy(xpath="//div[@role='alert']")
+private WebElement checkerApproveMgs;
+public WebElement checkerApproveMgs() {
+	return checkerApproveMgs;
 }
 
 }

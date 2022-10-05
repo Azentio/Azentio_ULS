@@ -33,7 +33,6 @@ And user Click on Approve icon for asset auto record
 And user Enter the remarks in Action confirmation popup for asset auto record
 Then user Click on Remarks button in Action confirmation popup for asset auto record
 Then user verify the Record got Approved for asset auto record
-
 # this test case includes AAM_06_001,AAM_06_002,AAM_06_003,AAM_06_004
 #AAM_06_009,AAM_06_011,AAM_06_012,AAM_06_013,AAM_06_014,AAM_06_017
 #AAM_06_018,AAM_06_019,AAM_06_020,AAM_06_021,AAM_06_022,AAM_06_023

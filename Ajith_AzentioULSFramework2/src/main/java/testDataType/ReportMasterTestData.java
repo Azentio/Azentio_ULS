@@ -10,4 +10,5 @@ public class ReportMasterTestData {
 	public String ReportURL;
 	public String ReportCategory;
 	public String SearchReportMaster;
+	public String EnterRemark;
 }

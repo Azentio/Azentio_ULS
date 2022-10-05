@@ -1,12 +1,15 @@
 package stepdefinitions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.Selenium_Actions;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pageobjects.ReportMasterObj;
@@ -134,6 +137,7 @@ public class ReportMaster {
 	public void user_click_inbox_to_approve_record_for_report_master() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.Inbox(),30, 2);
 		reportMasterObj.Inbox().click();
+		Thread.sleep(2000);
 	}
 
 	@And("^user search report Master$")
@@ -147,10 +151,9 @@ public class ReportMaster {
     			
     		}
     	}
-        	
+        
             seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.InboxView_SearchText(),60,2);
             reportMasterObj.InboxView_SearchText().click();
-            Thread.sleep(2000);
             reportMasterObj.InboxView_SearchText().sendKeys(reportMasterTestData.SearchReportMaster);
 	}
 
@@ -181,9 +184,68 @@ public class ReportMaster {
     	reportMasterObj.reportMasterMaker_Submit().click();
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.reportMasterMaker_EnterRemark(),30,2);
         reportMasterObj.reportMasterMaker_EnterRemark().click();
-        reportMasterObj.reportMasterMaker_EnterRemark().sendKeys("ok");
-        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.reportMasterMaker_Submit(),30, 2);
-        reportMasterObj.reportMasterMaker_Submit().click();
+        reportMasterObj.reportMasterMaker_EnterRemark().sendKeys(reportMasterTestData.EnterRemark);
+        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.reportMasterMaker_RemarkSubmit(),30, 2);
+        reportMasterObj.reportMasterMaker_RemarkSubmit().click();
+    }
+    @Given("^user log in as uls application checker for report master record$")
+    public void user_log_in_as_uls_application_checker_for_report_master_record() throws Throwable {
+    	String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		System.out.println(json.readdata());
+		applicationLogin.ulSApplicationLoginAsAChecker(json.readdata());
+    }
+
+    @Then("^user Click on Remarks button in Action confirmation popup for report master record$")
+    public void user_click_on_remarks_button_in_action_confirmation_popup_for_report_master_record() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.Checker_Final_Approve(), 30, 2);
+    	reportMasterObj.Checker_Final_Approve().click();
+    }
+
+    @Then("^user verify the Record got Approved for report master record$")
+    public void user_verify_the_record_got_approved_for_report_master_record() throws Throwable {
+    	String Toast;
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.checkerApproveMgs(), 60, 2);
+		Toast = reportMasterObj.checkerApproveMgs().getText();
+		System.out.println(Toast);
+		Assert.assertEquals(Toast, "Record APPROVED Successfully");
+    }
+
+    @And("^user Click on Mailbox icon for report master record$")
+    public void user_click_on_mailbox_icon_for_report_master_record() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.Checker_Inbox(), 30, 2);
+    	reportMasterObj.Checker_Inbox().click();
+    }
+
+    @And("^Search the respective reference id and click on Action button for report master record$")
+    public void search_the_respective_reference_id_and_click_on_action_button_for_report_master_record() throws Throwable {
+    	for (int i = 0; i <20; i++) {
+			try {
+				driver.findElement(By.xpath("//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button"))
+				.click();
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+    }
+
+    @And("^user Click on Approve icon for report master record$")
+    public void user_click_on_approve_icon_for_report_master_record() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.Checker_Approve(), 30, 2);
+    	reportMasterObj.Checker_Approve().click();
+    }
+
+    @And("^user Enter the remarks in Action confirmation popup for report master record$")
+    public void user_enter_the_remarks_in_action_confirmation_popup_for_report_master_record() throws Throwable {
+    	for (int i = 0; i <20; i++) {
+			try {
+				reportMasterObj.Checker_Alert_Approve().click();
+				break;
+			} catch (ElementNotInteractableException e) {
+				
+			}
+		}
     }
 }
 
