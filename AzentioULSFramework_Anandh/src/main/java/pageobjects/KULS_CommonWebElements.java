@@ -88,7 +88,7 @@ public class KULS_CommonWebElements {
     {
     	return uls_SaveButton;
     }
-    @FindBy(xpath="(//span[text()=' Inbox ']//ancestor::div//button[@ng-reflect-text='Search'])[1]")
+    @FindBy(xpath="//app-inbox[1]//ion-grid[1]/ion-row[1]/ion-col[1]/ion-card[1]/ion-card-content[1]/p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
     private WebElement uls_notificationSearchButton;
     public WebElement ulsNotificationSerachButton()
     {
@@ -159,6 +159,24 @@ public class KULS_CommonWebElements {
     public WebElement ulsReferenceListViewAddButton()
     {
     	return uls_ReferenceListViewAddButton;
+    }
+    @FindBy(xpath="//button[@label='Submit']")
+    private WebElement uls_SubmitButton;
+    public WebElement ulsSubmitButton()
+    {
+    return 	uls_SubmitButton;
+    }
+    @FindBy(xpath="//textarea")
+    private WebElement  uls_AlertRemark;
+    public WebElement ulsAlertRemark()
+    {
+    	return uls_AlertRemark;
+    }
+    @FindBy(xpath="//ion-col//button[@icon='pi pi-send']")
+    private WebElement uls_AlertSubmitButton;
+    public WebElement ulsAlertSubmitButton()
+    {
+    	return uls_AlertSubmitButton;
     }
     
 }

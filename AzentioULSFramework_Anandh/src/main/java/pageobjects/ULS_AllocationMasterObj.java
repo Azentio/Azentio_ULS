@@ -73,5 +73,41 @@ public class ULS_AllocationMasterObj {
 	{
 		return allocationMaster_NotificationFirstRecord;
 	}
+	@FindBy(xpath="//tr[1]/td[text()=' ALLOCATION_MST ']//preceding-sibling::td[1]//span")
+	private WebElement allocationMaster_FirstRecordReferenceNumber;
+	public WebElement allocationMasterFirstRecordReferernceNumber()
+	{
+		return allocationMaster_FirstRecordReferenceNumber;
+	}
+	@FindBy(xpath="//ion-label[text()=' Discription ']//ancestor::digital-text-box//parent::ion-col//ion-badge")
+	private WebElement allocationMaster_DescriptionFieldvalidation;
+	public WebElement allocationMasterDescriptionFieldValidation()
+	{
+		return allocationMaster_DescriptionFieldvalidation;
+	}
+	@FindBy(xpath="//ion-label[text()=' Allocation Code ']//ancestor::digital-text-box//parent::ion-col//ion-badge")
+	private WebElement allocationMaster_AllocationCodeFieldvalidation;
+	public WebElement allocationMasterAllocationCodeFieldvalidation()
+	{
+		return allocationMaster_AllocationCodeFieldvalidation;
+	}
+	@FindBy(xpath="//ion-label[text()='Allocation Master']//parent::ion-item//ion-buttons//ion-button[2]")
+	private WebElement allocationMaster_ViewButton;
+	public WebElement allocationMasterViewButton()
+	{
+		return allocationMaster_ViewButton;
+	}
+	@FindBy(xpath="//tr[1]//td[1]//button[@ng-reflect-text='Edit']")
+	private WebElement allocationMaster_ListVistviewEditIcon;
+	public WebElement allocationMasterListViewEditIcon()
+	{
+		return allocationMaster_ListVistviewEditIcon;
+	}
+	@FindBy(xpath="//span[text()='Export']")
+	private WebElement allocationMaster_BackButttonVerification;
+	public WebElement allocationMasterBackButtonVerification()
+	{
+		return allocationMaster_BackButttonVerification;
+	}
 	
 }
