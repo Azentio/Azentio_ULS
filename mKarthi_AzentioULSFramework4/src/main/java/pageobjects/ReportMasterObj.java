@@ -20,7 +20,7 @@ public class ReportMasterObj {
 	{
 		return ConfigManager;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Report Master')]//following-sibling::ion-buttons//child::ion-button[1]")
+	@FindBy(xpath="//ion-label[text()='Report Master']//following-sibling::ion-buttons//child::ion-button[1]")
 	private WebElement ReportMasterEditIcon;
 	public WebElement ReportMasterEditIcon()
 	{
@@ -32,7 +32,7 @@ public class ReportMasterObj {
 	{
 		return ReportMasterListViewIcon; 
 	}
-	@FindBy(xpath="(//button[@ng-reflect-text='Add'])[3]")
+	@FindBy(xpath="(//button[@ng-reflect-text='Add'])[2]")
 	private WebElement ReportParameterAddIcon;
 	public WebElement ReportParameterAddIcon()
 	{
@@ -62,7 +62,7 @@ public class ReportMasterObj {
 	{
 		return Param2Description2;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Param 2 Description 2')]//following-sibling::ion-input//child::input")
+	@FindBy(xpath="//ion-label[contains(text(),'Param 2 Description 3')]//following-sibling::ion-input//child::input")
 	private WebElement Param2Description3;
 	public WebElement Param2Description3()
 	{
@@ -128,7 +128,7 @@ public class ReportMasterObj {
 	{
 		return NullableValues;
 	}
-	@FindBy(xpath="//button[@ng-reflect-text='Save']")
+	@FindBy(xpath="(//button[@ng-reflect-text='Save'])[2]")
 	private WebElement NewSave;
 	public WebElement NewSave()
 	{

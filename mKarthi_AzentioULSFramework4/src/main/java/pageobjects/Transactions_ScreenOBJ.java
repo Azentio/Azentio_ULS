@@ -148,6 +148,12 @@ public class Transactions_ScreenOBJ {
 	{
 		return Addicon;
 	}
+	@FindBy(xpath="//p-table[1]/div[1]/div[1]/div[1]/span[1]/ion-button[1]")
+	private WebElement DrawDown_Addicon;
+	public WebElement DrawDown_Addicon()
+	{
+		return DrawDown_Addicon;
+	}
 	@FindBy(xpath="//ion-label[contains(text(),'Loan Tenure')]//following-sibling::ion-input//child::input")
 	private WebElement LoanTenure;
 	public WebElement LoanTenure()
@@ -482,7 +488,13 @@ public class Transactions_ScreenOBJ {
 		return NewSave;
 	
 	}
+	@FindBy(xpath="//body/app-root[1]/ion-app[1]/ion-modal[3]/drawdown-detail-breakup-scr[1]/ion-grid[1]/button[1]")
+	private WebElement DrawDown_NewSave;
+	public WebElement DrawDown_NewSave()
+	{
+		return DrawDown_NewSave;
 	
+	}
 	@FindBy(xpath="(//div[@role='alert'])[2]")
 	private WebElement makerconfirmmsg;
 	public WebElement makerconfirmmsg() 
@@ -675,6 +687,126 @@ public class Transactions_ScreenOBJ {
 		return referenceid;
 	}
 	
+	//DrawDown
+	
+	@FindBy(xpath="//ion-label[contains(text(),'Drawdown')]/parent::ion-segment-button")
+	private WebElement DrawDownTab;
+	public WebElement DrawDownTab() 
+	{
+		return DrawDownTab;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Drawdown details')]/parent::ion-segment-button")
+	private WebElement DrawDownDetailsTab;
+	public WebElement DrawDownDetailsTab() 
+	{
+		return DrawDownDetailsTab;
+	}
+	@FindBy(xpath="//tbody/tr[1]/td[1]/span[1]/button[1]")
+	private WebElement DrawDown_ActionEdit;
+	public WebElement DrawDown_ActionEdit() 
+	{
+		return DrawDown_ActionEdit;
+	}
+	@FindBy(xpath="//tbody/tr[1]/td[1]/p-tableradiobutton[1]/div[1]/div[2]")
+	private WebElement DrawDown_EditRatioButton;
+	public WebElement DrawDown_EditRatioButton() 
+	{
+		return DrawDown_EditRatioButton;
+	}
+	@FindBy(xpath="//body/app-root[1]/ion-app[1]/ion-modal[2]/drawdown-breakup[1]/p-table[1]/div[1]/div[1]/div[1]/span[1]/ion-button[1]")
+	private WebElement DrawDown_AddRow;
+	public WebElement DrawDown_AddRow() 
+	{
+		return DrawDown_AddRow;
+	}
+	@FindBy(xpath="//tbody/tr[1]/td[6]/ion-button[1]")
+	private WebElement DrawDown_DeleteRow;
+	public WebElement DrawDown_DeleteRow() 
+	{
+		return DrawDown_DeleteRow;
+	}
+	@FindBy(xpath="//tbody/tr[1]/td[1]/button[1]")
+	private WebElement MailActionEditIcon;
+	public WebElement MailActionEditIcon() 
+	{
+		return MailActionEditIcon;
+	}
+	@FindBy(xpath="//tbody/tr[1]/td[1]/p-tableradiobutton[1]/div[1]/div[2]")
+	private WebElement DrawDownDetails_BreakupEditIcon;
+	public WebElement DrawDownDetails_BreakupEditIcon() 
+	{
+		return DrawDownDetails_BreakupEditIcon;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Payment Type')]/following-sibling::ion-select")
+	private WebElement DrawDownDetails_PaymentType;
+	public WebElement DrawDownDetails_PaymentType() 
+	{
+		return DrawDownDetails_PaymentType;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'End Beneficiary Name')]/following-sibling::ion-select")
+	private WebElement DrawDownDetails_EndBeneficiaryName;
+	public WebElement DrawDownDetails_EndBeneficiaryName() 
+	{
+		return DrawDownDetails_EndBeneficiaryName;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Paying Currency')]/following-sibling::ion-select")
+	private WebElement DrawDownDetails_PayingCurrency;
+	public WebElement DrawDownDetails_PayingCurrency() 
+	{
+		return DrawDownDetails_PayingCurrency;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Payment Mode')]/following-sibling::ion-select")
+	private WebElement DrawDownDetails_PaymentMode;
+	public WebElement DrawDownDetails_PaymentMode() 
+	{
+		return DrawDownDetails_PaymentMode;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Disbursement')]/following-sibling::ion-select")
+	private WebElement DrawDownDetails_DisbursementACNo;
+	public WebElement DrawDownDetails_DisbursementACNo() 
+	{
+		return DrawDownDetails_DisbursementACNo;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Original Amount')]/following-sibling::ion-input/input")
+	private WebElement DrawDownDetails_OriginalAmount;
+	public WebElement DrawDownDetails_OriginalAmount() 
+	{
+		return DrawDownDetails_OriginalAmount;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'Amount to be Paid')]/following-sibling::ion-input/input")
+	private WebElement DrawDownDetails_AmountToBePaid;
+	public WebElement DrawDownDetails_AmountToBePaid() 
+	{
+		return DrawDownDetails_AmountToBePaid;
+	}
+	@FindBy(xpath="//div[@id='toast-container']/div[1]")
+	private WebElement ProductCheckerid;
+	public WebElement ProductCheckerid() 
+	{
+		return ProductCheckerid;
+	}
+	
+	//Offer Decision
+	
+	
+	@FindBy(xpath="//span[contains(text(),'Approve')]")
+	private WebElement ApprovalButton;
+	public WebElement ApprovalButton() 
+	{
+		return ApprovalButton;
+	}
+	@FindBy(xpath="//ion-label[contains(text(),'on behalf')]")
+	private WebElement Popup_ApproveMsg;
+	public WebElement Popup_ApproveMsg() 
+	{
+		return Popup_ApproveMsg;
+	}
+	@FindBy(xpath="(//span[contains(text(),'Approve')])[2]")
+	private WebElement FinalApproveButton;
+	public WebElement FinalApproveButton() 
+	{
+		return FinalApproveButton;
+	}
 	
 
 }

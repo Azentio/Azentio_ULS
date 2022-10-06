@@ -40,7 +40,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 	@Given("^User login as uls maker in asset CD master$")
     public void user_login_as_uls_maker_in_asset_cd_master() throws Throwable {
 		
-		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 		driver.get(kulsApplicationUrl);
 		applicationLogin.loginUlsApplicationAsMaker(loginData.Username, loginData.Password);
         
@@ -436,7 +436,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 		String popupID = Space.replaceAll("[/.]", "");
 		json.addData(popupID);
 		System.out.println(popupID);
-		Assert.fail("Checker id is not available");
+		
         
     }
 

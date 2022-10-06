@@ -80,7 +80,28 @@
 		
 		"ApplicationDetailsPreRequestSearch1":"NewApp",
 		
-		"BeneficiaryDetails_Search":"DISBCKR"
+		"BeneficiaryDetails_Search":"DISBCKR",
+		
+		
+		//DrawDown and DrawDownDetails
+		
+		"DrawDown_Search":"DISBMKR",
+		
+		"DrawDownDetails_PaymentType":"ONCOMPLETION",
+		"DrawDownDetails_BeneficiaryName":"Select",
+		"DrawDownDetails_OriginalAmount":"10000",
+		"DrawDownDetails_AmountToBePaid":"5000",
+		"DrawDownDetails_PayingCurrency":"INR",
+		"DrawDownDetails_PaymentMode":"CHEQUE",
+		"DrawDownDetails_DisbursementACNo":"KR2130",
+		"DrawDownDetails_BeneficiaryNameValidData":"Narayan",
+		"DrawDownDetails_AmountToBePaidVerification":"500000000",
+		
+		//Offer Decision
+		
+		"OfferDecision_Search":"L3APP"
+		
+		
 		
 	 }
 ]

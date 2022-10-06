@@ -36,7 +36,7 @@ public class KULS_CustomerDebt extends BaseClass{
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	
 	
-	@And("^User search the record from the system in customer debt$")
+	@And("User search the record from the system in customer debt$")
     public void user_search_the_record_from_the_system_in_customer_debt() throws Throwable {
 		
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.InboxSearchIcon(), 60, 5);

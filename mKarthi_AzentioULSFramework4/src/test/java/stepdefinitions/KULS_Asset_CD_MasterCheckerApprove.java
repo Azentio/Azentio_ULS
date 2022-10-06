@@ -42,7 +42,7 @@ public class KULS_Asset_CD_MasterCheckerApprove extends BaseClass {
 	@Given("^User login as uls checker in asset CD master$")
     public void user_login_as_uls_checker_in_asset_cd_master() throws Throwable {
 		
-		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
         driver.get(kulsApplicationUrl);
         System.out.println(json.readdata());
         applicationLogin.ulSApplicationLoginAsAChecker(json.readdata());

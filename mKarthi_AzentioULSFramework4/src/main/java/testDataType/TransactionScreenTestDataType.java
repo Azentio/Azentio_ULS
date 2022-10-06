@@ -74,5 +74,18 @@ public class TransactionScreenTestDataType {
 	public String ApplicationDetails_NetIncome;
 	public String BeneficiaryDetails_Search;
 	
+	//DrawDown
+	public String DrawDown_Search;
+	public String DrawDownDetails_PaymentType;
+	public String DrawDownDetails_BeneficiaryName;
+	public String DrawDownDetails_OriginalAmount;
+	public String DrawDownDetails_AmountToBePaid;
+	public String DrawDownDetails_PayingCurrency;
+	public String DrawDownDetails_PaymentMode;
+	public String DrawDownDetails_DisbursementACNo;
+	public String DrawDownDetails_BeneficiaryNameValidData;
+	public String DrawDownDetails_AmountToBePaidVerification;
+	public String OfferDecision_Search;
+	
 
 }

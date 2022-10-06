@@ -5,7 +5,8 @@ Feature: To verify the Asset CD Master full flow
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User verify the save back help button in asset CD master
@@ -44,7 +45,8 @@ Then User verify the Record got Approved in asset CD checker
 Scenario: To verify user able to approve in checker stage and verify in maker stage for Asset-CD-Master 
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+#And User click the product setup in asset CD master
+And User click the config manager in Bounce master
 And Click the Asset CD Master setup eye icon in Asset CD master
 Then User validate the updated record in list view in Asset CD master
 
@@ -53,7 +55,8 @@ Then User validate the updated record in list view in Asset CD master
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User enter the value in asset category for asset CD master
@@ -86,7 +89,8 @@ Then User verify the Record got Rejected in asset CD checker
 Scenario: To verify the rejected record shown in asset CD master maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 Then User click the inboxmail icon in asset CD master
 And User verify the rejected record removed from the system in asset CD master
@@ -96,7 +100,8 @@ And User verify the rejected record removed from the system in asset CD master
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User enter the value in asset category for asset CD master
@@ -129,7 +134,8 @@ Then User verify the Record got Returned in asset CD checker
 Scenario: To verify the rejected record shown in asset CD master maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 Then User click the inboxmail icon in asset CD master
 And User verify the returned record removed from the system in asset CD master
@@ -139,7 +145,8 @@ And User verify the returned record removed from the system in asset CD master
 Scenario: To verify the impact when user keep any mandatory field blank and click on save button
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And Verify the impact when user enter characters value in numeric field in asset CD master
@@ -152,7 +159,8 @@ And Verify the impact when user keep any mandatory field blank in asset CD maste
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User enter the value in asset category for asset CD master
@@ -186,7 +194,8 @@ Then User verify the Record got Approved in asset CD checker
 Scenario: To verify system allow user to modify the Personal details before approve the record
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 And Click the listview pencil icon in asset CD master
 And User update the assetcategory in asset CD master
@@ -201,7 +210,8 @@ And User click the update button for asset CD master
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User enter the value in asset category for asset CD master
@@ -234,7 +244,8 @@ Then User verify the Record got Approved in asset CD checker
 Scenario: To verify the functionality of Submit button at Maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 And Click the listview pencil icon in asset CD master
 And User update the assetcategory in asset CD master
@@ -264,7 +275,8 @@ Then User verify the Record got Approved in asset CD checker
 Scenario: To verify user able to approve in checker stage for Asset-CD-Master
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 Then User validate the updated record in list view in Asset CD master
 
@@ -273,7 +285,8 @@ Then User validate the updated record in list view in Asset CD master
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User enter the value in asset category for asset CD master
@@ -307,7 +320,8 @@ Then User verify the Record got Approved in asset CD checker
 Scenario: To verify the functionality of Submit button at Maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 And Click the listview pencil icon in asset CD master
 And User update the assetcategory in asset CD master
@@ -334,7 +348,8 @@ Then User verify the Record got Rejected in asset CD checker
 Scenario: To verify the rejected record shown in asset CD master maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 Then User click the inboxmail icon in asset CD master
 And User verify the rejected record removed from the system in asset CD master
@@ -344,7 +359,8 @@ And User verify the rejected record removed from the system in asset CD master
 Scenario: To verify the Asset CD Master all flow
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And User click the edit icon in asset CD master
 And User click the add icon in asset CD master
 And User enter the value in asset category for asset CD master
@@ -378,7 +394,8 @@ Then User verify the Record got Approved in asset CD checker
 Scenario: To verify the functionality of Submit button at Maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 And Click the listview pencil icon in asset CD master
 And User update the assetcategory in asset CD master
@@ -406,7 +423,8 @@ Then User verify the Record got Returned in asset CD checker
 Scenario: To verify the rejected record shown in asset CD master maker stage
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 Then User click the inboxmail icon in asset CD master
 And User verify the returned record removed from the system in asset CD master
@@ -416,7 +434,8 @@ And User verify the returned record removed from the system in asset CD master
 Scenario: To verify the functionality of Activate/Deactivate button
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 And Click the listview pencil icon in asset CD master
 And User click the backbutton in asset CD master
@@ -430,7 +449,8 @@ And Verify the Deactive status in asset CD master
 Scenario: To verify the functionality of search and pdf, excel download
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-And User click the product setup in asset CD master
+And User click the config manager in Bounce master
+#And User click the product setup in asset CD master
 And Click the Asset CD Master setup eye icon in Asset CD master
 And Verify the functionality of Export to PDF button in asset CD master
 And Verify the functionality of Export to Excel button in asset CD master

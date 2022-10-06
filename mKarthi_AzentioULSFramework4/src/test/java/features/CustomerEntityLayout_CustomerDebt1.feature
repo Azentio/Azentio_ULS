@@ -42,3 +42,4 @@ And User click the Action edit icon under financial commitments in customer debt
 And Verify user is able to change the status of Debt record from Inctive to Active in customer debt
 And User click the save icon in customer debt
 
+

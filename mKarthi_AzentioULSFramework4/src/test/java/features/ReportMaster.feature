@@ -4,7 +4,7 @@ Feature: To verify the report parameter creation of the report master
 Scenario: To verify the user can able to create the report parameter
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-Then User click the config manager in Appropriation master
+And User click the config manager in Bounce master
 And User click the report master edit icon
 Then User verify the functionality of Add button in report master
 And User verify the functionality of Back button in report master
@@ -59,7 +59,7 @@ Then User validate the updated record in list view in report master
 Scenario: To verify the functionality of the report master
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
-Then User click the config manager in Appropriation master
+And User click the config manager in Bounce master
 Then User click the report master list view icon
 Then User verify the functionality of Add button in report master
 And User verify the functionality of Back button in report master

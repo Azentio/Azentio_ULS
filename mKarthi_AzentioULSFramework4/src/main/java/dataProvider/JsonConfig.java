@@ -16,6 +16,7 @@ import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.ApplicationDisbursementMakerTestData;
 import testDataType.AppropriationMasterTestDataType;
 import testDataType.Asset_CD_MasterTestDataType;
+import testDataType.BounceMasterTestDataType;
 import testDataType.CustomerPersonalDetailDisbursementCheckerTestDataType;
 import testDataType.CustomerPersonalDetailOfferingTestDataType;
 import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
@@ -103,6 +104,9 @@ public class JsonConfig {
 	
 	private final String AssetCDMasterDataPath = configFileReader.getJsonPath() + "Asset_CD_MasterJSON.json";
 	private List<Asset_CD_MasterTestDataType> AssetCDMaster;
+	
+	private final String BounceMasterDataPath = configFileReader.getJsonPath() + "BounceMasterJSON.json";
+	private List<BounceMasterTestDataType> BounceMaster;
 
 	public JsonConfig() {
 		/*
@@ -124,8 +128,31 @@ public class JsonConfig {
 		ApplicationDetailsOfferingList = getApplicationDetailsOfferingList();
 		CustomerPersonalDetailDisbursementCheckerList = getCustomerPersonalDetailDisbursementCheckerList();
 		PersonalDetails_DisbursementMakerList = getPersonalDetails_DisbursementMakerList();
+		BounceMaster=getBounceMasterList();
 
 	}
+	
+	private List<BounceMasterTestDataType> getBounceMasterList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(BounceMasterDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(BounceMasterDataPath));
+			BounceMasterTestDataType[] BounceMaster= gson.fromJson(bufferReader, BounceMasterTestDataType[].class);
+			return Arrays.asList(BounceMaster);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + BounceMasterDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
+
 	
 	private List<PersonalDetails_DisbursementMakerTestDataType> getPersonalDetails_DisbursementMakerList() {
 		Gson gson = new Gson();
@@ -536,6 +563,10 @@ public class JsonConfig {
 	
 	public final PersonalDetails_DisbursementMakerTestDataType getPersonalDetails_DisbursementMakerByName(String Username) {
 		return PersonalDetails_DisbursementMakerList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+    }
+	
+	public final BounceMasterTestDataType getBounceMasterListByName(String Username) {
+		return BounceMaster.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
     }
 
 	

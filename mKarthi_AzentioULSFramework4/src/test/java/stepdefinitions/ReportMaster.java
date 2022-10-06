@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -47,16 +48,35 @@ public class ReportMaster {
     @Then("^User verify the functionality of Add button in report master$")
     public void user_verify_the_functionality_of_add_button_in_report_master() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.AddIcon(), 60, 5);
-    	ReportMaster.AddIcon().click();
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.AddIcon(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.AddIcon().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
         
     }
 
     @Then("^User click the save icon in report master$")
     public void user_click_the_save_icon_in_report_master() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.NewSave(), 60, 5);
-    	ReportMaster.NewSave().click();
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.NewSave(), 60, 5);
+    	for (int i = 0; i <30; i++) {
+			try {
+				ReportMaster.NewSave().click();
+				break;
+			} catch (Exception e) {
+				if(i==30) {
+					Assert.fail();
+				}
+				
+			}
+		}
+    	
         
     }
 
@@ -275,9 +295,17 @@ public class ReportMaster {
     @And("^User Enter the parameter1 in report parameter$")
     public void user_enter_the_parameter1_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Parameter1(), 60, 5);
-    	ReportMaster.Parameter1().click();
-    	ReportMaster.Parameter1().sendKeys(Reportjson.Parameter1);
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Parameter1(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.Parameter1().click();
+    	    	ReportMaster.Parameter1().sendKeys(Reportjson.Parameter1);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     	
         
     }
@@ -285,9 +313,17 @@ public class ReportMaster {
     @And("^User Enter the param1 Description1 in report parameter$")
     public void user_enter_the_param1_description1_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param1Description1(), 60, 5);
-    	ReportMaster.Param1Description1().click();
-    	ReportMaster.Param1Description1().sendKeys(Reportjson.Param1Description1);
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param1Description1(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.Param1Description1().click();
+    	    	ReportMaster.Param1Description1().sendKeys(Reportjson.Param1Description1);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     	
         
     }
@@ -295,46 +331,86 @@ public class ReportMaster {
     @And("^User Enter the param1 Description2 in report parameter$")
     public void user_enter_the_param1_description2_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param1Description2(), 60, 5);
-    	ReportMaster.Param1Description2().click();
-    	ReportMaster.Param1Description2().sendKeys(Reportjson.Param1Description2);
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param1Description2(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    	    	ReportMaster.Param1Description2().click();
+    	    	ReportMaster.Param1Description2().sendKeys(Reportjson.Param1Description2);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
         
     }
 
     @And("^User Enter the param1 Description3 in report parameter$")
     public void user_enter_the_param1_description3_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param1Description3(), 60, 5);
-    	ReportMaster.Param1Description3().click();
-    	ReportMaster.Param1Description3().sendKeys(Reportjson.Param1Description3);
-        
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param1Description3(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.Param1Description3().click();
+    	    	ReportMaster.Param1Description3().sendKeys(Reportjson.Param1Description3);
+    	        
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
+    	
     }
 
     @And("^User Enter the parameter2 in report parameter$")
     public void user_enter_the_parameter2_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Parameter2(), 60, 5);
-    	ReportMaster.Parameter2().click();
-    	ReportMaster.Parameter2().sendKeys(Reportjson.Parameter2);
-        
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Parameter2(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.Parameter2().click();
+    	    	ReportMaster.Parameter2().sendKeys(Reportjson.Parameter2);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     }
 
     @And("^User Enter the param2 Description2 in report parameter$")
     public void user_enter_the_param2_description2_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param2Description2(), 60, 5);
-    	ReportMaster.Param2Description2().click();
-    	ReportMaster.Param2Description2().sendKeys(Reportjson.Param2Description2);
-        
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param2Description2(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.Param2Description2().click();
+    	    	ReportMaster.Param2Description2().sendKeys(Reportjson.Param2Description2);
+    	        
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     }
 
     @And("^User Enter the param2 Description3 in report parameter$")
     public void user_enter_the_param2_description3_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param2Description3(), 60, 5);
-    	ReportMaster.Param2Description3().click();
-    	ReportMaster.Param2Description3().sendKeys(Reportjson.Param2Description3);
-        
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.Param2Description3(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.Param2Description3().click();
+    	    	ReportMaster.Param2Description3().sendKeys(Reportjson.Param2Description3);
+    	        
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
     }
 
     @And("^User Enter the IsMandatory in report parameter$")
@@ -362,34 +438,66 @@ public class ReportMaster {
     @And("^User Enter the sequenceNo in report parameter$")
     public void user_enter_the_sequenceno_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.SequenceNo(), 60, 5);
-    	ReportMaster.SequenceNo().click();
-    	ReportMaster.SequenceNo().sendKeys(Reportjson.SequenceNo);
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.SequenceNo(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.SequenceNo().click();
+    	    	ReportMaster.SequenceNo().sendKeys(Reportjson.SequenceNo);
+    	    	break;
+			} catch (Exception e) {
+			
+			}
+    	}
+    	
         
     }
 
     @And("^User Enter the date format in report parameter$")
     public void user_enter_the_date_format_in_report_parameter() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.DateFormat(), 60, 5);
-    	ReportMaster.DateFormat().click();
-    	ReportMaster.DateFormat().sendKeys(Reportjson.DateFormat);
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.DateFormat(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.DateFormat().click();
+    	    	ReportMaster.DateFormat().sendKeys(Reportjson.DateFormat);
+    	    	break;
+			} catch (Exception e) {
+			
+			}
+    	}
+    	
         
     }
 
     @And("^User Enter the Nullable values in report parameter$")
     public void user_enter_the_nullable_values_in_report_paramete() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.NullableValues(), 60, 5);
-    	ReportMaster.NullableValues().click();
-    	ReportMaster.NullableValues().sendKeys(Reportjson.NullableValues);
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.NullableValues(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.NullableValues().click();
+    	    	ReportMaster.NullableValues().sendKeys(Reportjson.NullableValues);
+    	    	break;
+			} catch (Exception e) {
+			
+			}
+    	}
+    	
         
     }
     @And("^User click the report master edit icon$")
     public void user_click_the_report_master_edit_icon() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.ReportMasterEditIcon(), 60, 5);
-    	ReportMaster.ReportMasterEditIcon().click();
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.ReportMasterEditIcon(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.ReportMasterEditIcon().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
         
     	
     }
