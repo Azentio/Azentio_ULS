@@ -18,6 +18,12 @@ public class FloatingRateMasterObj {
 		return floatingMaster_EyeIcon1;
 	}
 
+	@FindBy(xpath = "//ion-label[text()='Floating rate master']//parent::ion-label//following-sibling::ion-buttons/ion-button[1]")
+	private WebElement floatingMaster_TempIcon1;
+	public WebElement floatingMaster_TempIcon() {
+		return floatingMaster_TempIcon1;
+	}
+	
 	@FindBy(xpath = "//button[@ng-reflect-icon='pi pi-plus']")
 	private WebElement floatingMaster_AddButton1;
 	public WebElement floatingMaster_AddButton() {
@@ -29,7 +35,14 @@ public class FloatingRateMasterObj {
 	public WebElement floatingMaster_ActiveInactive() {
 		return floatingMaster_ActiveInactive1;
 	}
+	
+	@FindBy(xpath = "(//span[text()='Active']//ancestor::p-tag//ancestor::p-celleditor//ancestor::td//preceding-sibling::td//preceding-sibling::td//preceding-sibling::td//child::button)[1]")
+	private WebElement floatingMaster_TempViewactiverecord1;
 
+	public WebElement floatingMaster_TempViewactiverecord() {
+		return floatingMaster_TempViewactiverecord1;
+	}
+	
 	@FindBy(xpath = "(//span[text()='In-active']//ancestor::p-tag//ancestor::p-celleditor//ancestor::td//preceding-sibling::td//preceding-sibling::td//preceding-sibling::td//child::button)[1]")
 	private WebElement floatingMaster_ActionIconOfactiverecord1;
 
@@ -51,11 +64,11 @@ public class FloatingRateMasterObj {
 		return floatingMaster_tempviewbuttonButton1;
 	}
 
-	@FindBy(xpath = "(//span[text()='Active']//ancestor::p-tag//ancestor::p-celleditor//ancestor::td//preceding-sibling::td//preceding-sibling::td//preceding-sibling::td//child::button)[1]")
-	private WebElement floatingMaster_TempViewactiverecord1;
+	@FindBy(xpath = "//button[@ng-reflect-text='Save']")
+	private WebElement floatingMaster_Save1;
 
-	public WebElement floatingMaster_TempViewactiverecord() {
-		return floatingMaster_TempViewactiverecord1;
+	public WebElement floatingMaster_Save() {
+		return floatingMaster_Save1;
 	}
 	
 	
