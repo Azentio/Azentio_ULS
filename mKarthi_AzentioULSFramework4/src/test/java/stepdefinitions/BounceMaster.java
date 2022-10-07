@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -135,8 +136,11 @@ public class BounceMaster extends BaseClass {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Bounce.BounceCode(), 60, 5);
 		Bounce.BounceCode().click();
-		Bounce.BounceCode().clear();
-		Thread.sleep(2000);
+		for(int i=0; i<20; i++) {
+			Bounce.BounceCode().sendKeys(Keys.BACK_SPACE);
+		}
+		
+
         
     }
 
