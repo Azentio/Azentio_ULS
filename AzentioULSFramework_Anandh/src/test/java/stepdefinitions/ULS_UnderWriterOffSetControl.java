@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 import dataProvider.JsonConfig;
 import helper.ClicksAndActionsHelper;
+import helper.JavascriptHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -31,6 +32,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 	JsonDataReaderWriter jsondataReaderWriter = new JsonDataReaderWriter();
 	KULS_Application_Login kulsLogin = new KULS_Application_Login(driver);
 	Map<String, String> underWriterData = new HashMap<>();
+	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 
 	@And("^click on business rules main module$")
 	public void click_on_business_rules_main_module() throws Throwable {
@@ -42,9 +44,17 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 	@And("^click on under writer off set control view button$")
 	public void click_on_under_writer_off_set_control_view_button() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				underWriterOffSetControlObj.underWriterOffSetControlViewButton(), 5, 1);
-		underWriterOffSetControlObj.underWriterOffSetControlViewButton().click();
+		for (int i = 0; i <= 30; i++) {
+			try {
+				javascriptHelper.scrollIntoView(underWriterOffSetControlObj.underWriterOffSetControlViewButton());
+				underWriterOffSetControlObj.underWriterOffSetControlViewButton().click();
+				break;
+			} catch (Exception e) {
+				if (i == 30) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
 	}
 
 	@Then("^click on add button to create under writer off set record$")
@@ -642,30 +652,29 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 	@Then("^clear the input box value$")
 	public void clear_the_input_box_value() throws Throwable {
-		
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder(), 5, 1);
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder(), 5, 1);
 		String minimumValue = underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder()
 				.getAttribute("ng-reflect-model");
 		String maximumValue = underWriterOffSetControlObj.underWriterOffSetControlMaximumValueDataHolder()
 				.getAttribute("ng-reflect-model");
-		
+
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
-		
+
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().click();
-		for(int i=0;i<=minimumValue.length();i++)
-		{
-		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().sendKeys(Keys.BACK_SPACE);
+		for (int i = 0; i <= minimumValue.length(); i++) {
+			underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().sendKeys(Keys.BACK_SPACE);
 		}
-		
+
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().click();
-		for(int i=0;i<=maximumValue.length();i++)
-		{
-		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().sendKeys(Keys.BACK_SPACE);
+		for (int i = 0; i <= maximumValue.length(); i++) {
+			underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().sendKeys(Keys.BACK_SPACE);
 		}
-	
+
 	}
 
 	@Then("^click on save button after enter the alphabet input for updation record$")
@@ -680,7 +689,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton(), 5, 1);
 		clicksAndActionsHelper.clickOnElement(underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton());
-		//underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
+		// underWriterOffSetControlObj.underWriterOffSetControlUpdateSaveButton().click();
 	}
 
 	@And("^click on save button after enter special characters for updation record$")

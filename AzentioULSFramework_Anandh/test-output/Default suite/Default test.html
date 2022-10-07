@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Oct 05 14:58:24 IST 2022</td>
+<td>Started on:</td><td>Fri Oct 07 18:22:21 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>38 seconds (38794 ms)</td>
+<tr><td>Total time:</td><td>391 seconds (391370 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,166 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify system allow user to do a modification on already saved record", "Optional[To test the property details tab]"</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;ion-select _ngcontent-nyy-c320=&quot;&quot; ng-reflect-ok-text=&quot;OK&quot; ng-reflect-cancel-text=&quot;CANCEL&quot; ng-reflect-placeholder=&quot;Select&quot; ng-reflect-interface=&quot;popover&quot; ng-reflect-model=&quot;N&quot; ng-reflect-multiple=&quot;false&quot; ng-reflect-disabled=&quot;true&quot; ng-reflect-is-disabled=&quot;true&quot; class=&quot;ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine&quot; role=&quot;button&quot; aria-haspopup=&quot;listbox&quot; aria-disabled=&quot;true&quot; aria-label=&quot; Secondary Collateral ,  Security Type *&quot;&gt;...&lt;/ion-select&gt; is not clickable at point (663, 252). Other element would receive the click: &lt;digital-select-layout _ngcontent-nyy-c690=&quot;&quot; _nghost-nyy-c320=&quot;&quot; ng-reflect-name=&quot;isprimarySecurity&quot; ng-reflect-control=&quot;[object Object]&quot; ng-reflect-form-control-name-label=&quot;isprimarySecurity&quot; ng-reflect-form-data=&quot;[object Object]&quot; ng-reflect-current-user=&quot;[object Object]&quot; ng-reflect-config-data=&quot;[object Object]&quot; class=&quot;ng-untouched ng-pristine ng-valid ng-star-inserted&quot;&gt;...&lt;/digital-select-layout&gt;
+  (Session info: chrome=99.0.4844.82)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;INMUVADP014584&apos;, ip: &apos;10.1.47.109&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [527c51f27e9239885e80c3bdbfae1459, clickElement {id=5f1c5551-6cf0-4a77-a45a-41edf35067b9}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51688}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51688/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (527c51f27e9239885e80c3bdbfae1459)] -&gt; xpath: //ion-label[text()=&apos; Security Type &apos;]/parent::ion-item//ion-select]
+Session ID: 527c51f27e9239885e80c3bdbfae1459
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy46.click(Unknown Source)
+	at stepdefinitions.Property_Details.user_modify_the_security_type(Property_Details.java:71)
+	at ?.user Modify the Security Type(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:252)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1200592701", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1200592701'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;ion-select _ngcontent-nyy-c320=&quot;&quot; ng-reflect-ok-text=&quot;OK&quot; ng-reflect-cancel-text=&quot;CANCEL&quot; ng-reflect-placeholder=&quot;Select&quot; ng-reflect-interface=&quot;popover&quot; ng-reflect-model=&quot;N&quot; ng-reflect-multiple=&quot;false&quot; ng-reflect-disabled=&quot;true&quot; ng-reflect-is-disabled=&quot;true&quot; class=&quot;ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine&quot; role=&quot;button&quot; aria-haspopup=&quot;listbox&quot; aria-disabled=&quot;true&quot; aria-label=&quot; Secondary Collateral ,  Security Type *&quot;&gt;...&lt;/ion-select&gt; is not clickable at point (663, 252). Other element would receive the click: &lt;digital-select-layout _ngcontent-nyy-c690=&quot;&quot; _nghost-nyy-c320=&quot;&quot; ng-reflect-name=&quot;isprimarySecurity&quot; ng-reflect-control=&quot;[object Object]&quot; ng-reflect-form-control-name-label=&quot;isprimarySecurity&quot; ng-reflect-form-data=&quot;[object Object]&quot; ng-reflect-current-user=&quot;[object Object]&quot; ng-reflect-config-data=&quot;[object Object]&quot; class=&quot;ng-untouched ng-pristine ng-valid ng-star-inserted&quot;&gt;...&lt;/digital-select-layout&gt;
+  (Session info: chrome=99.0.4844.82)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;INMUVADP014584&apos;, ip: &apos;10.1.47.109&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [527c51f27e9239885e80c3bdbfae1459, clickElement {id=5f1c5551-6cf0-4a77-a45a-41edf35067b9}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51688}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51688/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (527c51f27e9239885e80c3bdbfae1459)] -&gt; xpath: //ion-label[text()=&apos; Security Type &apos;]/parent::ion-item//ion-select]
+Session ID: 527c51f27e9239885e80c3bdbfae1459
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy46.click(Unknown Source)
+	at stepdefinitions.Property_Details.user_modify_the_security_type(Property_Details.java:71)
+	at ?.user Modify the Security Type(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:252)
+</pre></div></td>
+<td>32</td>
+<td>Runner.TestApplication@35dab4eb</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To create the property details with valid data", "Optional[To test the property details tab]"</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	address line 1 field should be non mandatory but here its a mandatory one expected [true] but found [false],
+	address line 2 field should be non mandatory but here its a mandatory one expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.PropertyDetails_Steps.verify_record_is_saved_in_the_system(PropertyDetails_Steps.java:1396)
+	at ?.verify record is saved in the system(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:86)
+</pre></div><a href='#' onClick='toggleBox("stack-trace941557161", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace941557161'><pre>java.lang.AssertionError: The following asserts failed:
+	address line 1 field should be non mandatory but here its a mandatory one expected [true] but found [false],
+	address line 2 field should be non mandatory but here its a mandatory one expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
+	at stepdefinitions.PropertyDetails_Steps.verify_record_is_saved_in_the_system(PropertyDetails_Steps.java:1396)
+	at ?.verify record is saved in the system(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:86)
+</pre></div></td>
+<td>78</td>
+<td>Runner.TestApplication@35dab4eb</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify while modification, when user keep any mandatory field blank and click on save button", "Optional[To test the property details tab]"</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;ion-select _ngcontent-ora-c320=&quot;&quot; ng-reflect-ok-text=&quot;OK&quot; ng-reflect-cancel-text=&quot;CANCEL&quot; ng-reflect-placeholder=&quot;Select&quot; ng-reflect-interface=&quot;popover&quot; ng-reflect-model=&quot;N&quot; ng-reflect-multiple=&quot;false&quot; ng-reflect-disabled=&quot;true&quot; ng-reflect-is-disabled=&quot;true&quot; class=&quot;ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine&quot; role=&quot;button&quot; aria-haspopup=&quot;listbox&quot; aria-disabled=&quot;true&quot; aria-label=&quot; Secondary Collateral ,  Security Type *&quot;&gt;...&lt;/ion-select&gt; is not clickable at point (663, 252). Other element would receive the click: &lt;digital-select-layout _ngcontent-ora-c731=&quot;&quot; _nghost-ora-c320=&quot;&quot; ng-reflect-name=&quot;isprimarySecurity&quot; ng-reflect-control=&quot;[object Object]&quot; ng-reflect-form-control-name-label=&quot;isprimarySecurity&quot; ng-reflect-form-data=&quot;[object Object]&quot; ng-reflect-current-user=&quot;[object Object]&quot; ng-reflect-config-data=&quot;[object Object]&quot; class=&quot;ng-untouched ng-pristine ng-valid ng-star-inserted&quot;&gt;...&lt;/digital-select-layout&gt;
+  (Session info: chrome=99.0.4844.82)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;INMUVADP014584&apos;, ip: &apos;10.1.47.109&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [31c1e52136dafffc2f540a4de3a6c978, clickElement {id=b247a3d1-3f17-47b4-955d-eb3e227219b9}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51761}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51761/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (31c1e52136dafffc2f540a4de3a6c978)] -&gt; xpath: //ion-label[text()=&apos; Security Type &apos;]//following-sibling::ion-select]
+Session ID: 31c1e52136dafffc2f540a4de3a6c978
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy46.click(Unknown Source)
+	at stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_security_dropdown(PropertyDetails_Steps.java:207)
+	at ?.user can able to select the data from the security dropdown(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:271)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1035937283", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1035937283'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;ion-select _ngcontent-ora-c320=&quot;&quot; ng-reflect-ok-text=&quot;OK&quot; ng-reflect-cancel-text=&quot;CANCEL&quot; ng-reflect-placeholder=&quot;Select&quot; ng-reflect-interface=&quot;popover&quot; ng-reflect-model=&quot;N&quot; ng-reflect-multiple=&quot;false&quot; ng-reflect-disabled=&quot;true&quot; ng-reflect-is-disabled=&quot;true&quot; class=&quot;ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine&quot; role=&quot;button&quot; aria-haspopup=&quot;listbox&quot; aria-disabled=&quot;true&quot; aria-label=&quot; Secondary Collateral ,  Security Type *&quot;&gt;...&lt;/ion-select&gt; is not clickable at point (663, 252). Other element would receive the click: &lt;digital-select-layout _ngcontent-ora-c731=&quot;&quot; _nghost-ora-c320=&quot;&quot; ng-reflect-name=&quot;isprimarySecurity&quot; ng-reflect-control=&quot;[object Object]&quot; ng-reflect-form-control-name-label=&quot;isprimarySecurity&quot; ng-reflect-form-data=&quot;[object Object]&quot; ng-reflect-current-user=&quot;[object Object]&quot; ng-reflect-config-data=&quot;[object Object]&quot; class=&quot;ng-untouched ng-pristine ng-valid ng-star-inserted&quot;&gt;...&lt;/digital-select-layout&gt;
+  (Session info: chrome=99.0.4844.82)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;INMUVADP014584&apos;, ip: &apos;10.1.47.109&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [31c1e52136dafffc2f540a4de3a6c978, clickElement {id=b247a3d1-3f17-47b4-955d-eb3e227219b9}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51761}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51761/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (31c1e52136dafffc2f540a4de3a6c978)] -&gt; xpath: //ion-label[text()=&apos; Security Type &apos;]//following-sibling::ion-select]
+Session ID: 31c1e52136dafffc2f540a4de3a6c978
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at jdk.proxy2/jdk.proxy2.$Proxy46.click(Unknown Source)
+	at stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_security_dropdown(PropertyDetails_Steps.java:207)
+	at ?.user can able to select the data from the security dropdown(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:271)
+</pre></div></td>
+<td>27</td>
+<td>Runner.TestApplication@35dab4eb</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,9 +235,14 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify checker user can able to rejected the updated allocation master record", "Optional[To Test the allocation master screen]"</td>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user can able to create the property details record with invalid input", "Optional[To test the property details tab]"</td>
 <td></td>
-<td>30</td>
+<td>44</td>
+<td>Runner.TestApplication@35dab4eb</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user can able to modify theproperty details record before saving the record", "Optional[To test the property details tab]"</td>
+<td></td>
+<td>106</td>
 <td>Runner.TestApplication@35dab4eb</td></tr>
 </table><p>
 </body>

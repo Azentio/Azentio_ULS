@@ -58,6 +58,26 @@ Then verify report name field should through the validation message post enter t
 Then verify report name 2 field should through the validation message post enter the special character input
 Then verify report name 3 field should through the validation message post enter the special character input
 Then verify report Description field should through the validation message post enter the special character input
+@AT-RA-028
+Scenario: To verify checker user can able to approve the Lo Module waiver record
+Given Navigate to ULS application URL
+And login with checker credentials
+And click on notificatrion in checker stage
+And select the record by the help of reference ID 
+And click on approve button to approve the record
+And enter the remark in alert tab 
+And click on approve button in alert box
+Then verify record is approved in checker stage 
+@AT-RA-029
+Scenario: To verify checker user can able to rejected the Lo Module waiver record
+Given Navigate to ULS application URL
+And login with checker credentials
+And click on notificatrion in checker stage
+And select the record by the help of reference ID 
+And click on reject button to reject the record
+And enter the remark in alert tab fo rejection
+And click on reject button in alert box
+Then verify record is rejected in checker stage
 @NegativeScenarioRPD
 Scenario: To verify maker user can able to create report parameter details record with invalid input
 Given Navigate to ULS application URL

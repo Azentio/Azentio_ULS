@@ -90,3 +90,35 @@ And keep mendatory field as blank and click on save button
 Then verify system should through the validation for balnk field
 And in waiver type dropdown select the invalid input
 Then click on save button to verify system allowing to user to save or not 
+
+
+@AT-LO-006
+Scenario: To verify checker user can able to approve the Lo Module waiver record
+Given Navigate to ULS application URL
+And login with checker credentials
+And click on notificatrion in checker stage
+And select the record by the help of reference ID 
+And click on approve button to approve the record
+And enter the remark in alert tab 
+And click on approve button in alert box
+Then verify record is approved in checker stage 
+@AT-LO-008
+Scenario: To verify checker user can able to rejected the Lo Module waiver record
+Given Navigate to ULS application URL
+And login with checker credentials
+And click on notificatrion in checker stage
+And select the record by the help of reference ID 
+And click on reject button to reject the record
+And enter the remark in alert tab fo rejection
+And click on reject button in alert box
+Then verify record is rejected in checker stage 
+@AT-LO-009
+Scenario: To verify checker user can able to return the Lo Module waiver record
+Given Navigate to ULS application URL
+And login with checker credentials
+And click on notificatrion in checker stage
+And select the record by the help of reference ID 
+And click on return button to return the record
+And enter the remark in alert tab fo return
+And click on return button in alert box
+Then verify record is return in checker stage

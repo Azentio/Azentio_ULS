@@ -65,7 +65,7 @@ public class underWriterOffsetControlObj {
 	public WebElement TempViewIconOfUnderWriterOffsetControl() {
 		return TempViewIconOfUnderWriterOffsetControl;
 	}
-	@FindBy(xpath="//tbody/tr[1]/td[1]/span[1]/button[1]")
+	@FindBy(xpath="//tbody/tr[1]/td[1]/span[1]/button[@ng-reflect-text='Edit']")
 	private WebElement pencilIconOfFirstRecordInUnderWriterOffsetControl;
 	public WebElement pencilIconOfFirstRecordInUnderWriterOffsetControl() {
 		return pencilIconOfFirstRecordInUnderWriterOffsetControl;

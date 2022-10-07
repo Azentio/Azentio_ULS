@@ -10,7 +10,7 @@ Then Enter as disbursement maker in the search bar in beneficiary detail
 And Click the disbursement maker first action icon in beneficiary detail
 Then Click the beneficiary detail tab
 And Click the add button in the beneficiary detail
-#Then To verify the field Application Id in beneficiary details
+Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
 And To verify the field Beneficiary KYC in beneficiary details
@@ -55,7 +55,7 @@ And search the disbursement maker record
 And select the first record of disbursment maker stage
 And go to beneficiary details tab
 And click on add button on beneficiary details screen
-#Then To verify the field Application Id in beneficiary details
+Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
 And To verify the field Beneficiary KYC in beneficiary details
@@ -71,7 +71,7 @@ Then To verify the field Payment Type in beneficiary details
 And To verify the field Payment Mode in beneficiary details 
 Then To verify the field Beneficiary email in beneficiary details 
 And To verify the field remark in beneficiary details
-#Then verify user can able to update the facility application ID field
+Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field
 Then verify user can able to update beneficiary KYC field
@@ -97,7 +97,7 @@ And User search Disbursement Maker Stage in inbox list view
 And User click the first edit icon of Disbursement Maker Stage record
 And user click the Beneficiary details tab
 And User click the first edit icon of beneficiary details list data
-#And User Select and Update Facility Application id
+And User Select and Update Facility Application id
 And User Update Beneficiary Name
 And User Select and Update Beneficiary Type
 And User Update Beneficiary KYC
@@ -123,7 +123,7 @@ And search the disbursement maker record
 And select the first record of disbursment maker stage
 And go to beneficiary details tab
 And click on add button on beneficiary details screen
-#Then To verify the field Application Id in beneficiary details
+Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
 And To verify the field Beneficiary KYC in beneficiary details
@@ -139,7 +139,7 @@ Then To verify the field Payment Type in beneficiary details
 And To verify the field Payment Mode in beneficiary details 
 Then To verify the field Beneficiary email in beneficiary details 
 And To verify the field remark in beneficiary details
-#Then verify user can able to update the facility application ID field
+Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field
 Then verify user can able to update beneficiary KYC field
@@ -237,7 +237,7 @@ Then Enter as disbursement maker in the search bar in beneficiary detail
 And Click the disbursement maker first action icon in beneficiary detail
 Then Click the beneficiary detail tab
 And Click the add button in the beneficiary detail
-#Then To verify the field Application Id in beneficiary details
+Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
 And To verify the field Beneficiary KYC in beneficiary details
@@ -291,7 +291,7 @@ And search the disbursement maker record
 And select the first record of disbursment maker stage
 And go to beneficiary details tab
 And click on add button on beneficiary details screen
-#Then To verify the field Application Id in beneficiary details
+Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
 And To verify the field Beneficiary KYC in beneficiary details
@@ -307,7 +307,7 @@ Then To verify the field Payment Type in beneficiary details
 And To verify the field Payment Mode in beneficiary details 
 Then To verify the field Beneficiary email in beneficiary details 
 And To verify the field remark in beneficiary details
-#Then verify user can able to update the facility application ID field
+Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field
 Then verify user can able to update beneficiary KYC field

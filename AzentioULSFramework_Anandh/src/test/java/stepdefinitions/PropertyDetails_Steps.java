@@ -39,7 +39,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		ulsCommonElementObj.ulsMailBox().click();
 		for (int i = 0; i <= 50; i++) {
 			try {
-				javascriptHelper.JSEClick(ulsCommonElementObj.ulsSearchButton());
+				javascriptHelper.JSEClick(ulsCommonElementObj.ulsNotificationSerachButton());
 				break;
 			} catch (Exception e) {
 				if (i == 50) {

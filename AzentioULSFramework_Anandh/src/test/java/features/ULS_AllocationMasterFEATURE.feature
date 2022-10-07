@@ -77,7 +77,7 @@ And click on return button in alert box
 Then verify record is return in checker stage
 
 @AT-ALM-017
-Scenario: To verify checker user can able to approve the updated allocation master record
+Scenario: To verify checker user can able to approve the updated allocation details record
 Given Navigate to ULS application URL
 And login with checker credentials
 And click on notificatrion in checker stage
@@ -87,7 +87,7 @@ And enter the remark in alert tab
 And click on approve button in alert box
 Then verify record is approved in checker stage 
 @AT-ALM-018
-Scenario: To verify checker user can able to rejected the updated allocation master record
+Scenario: To verify checker user can able to rejected the updated allocation details record
 Given Navigate to ULS application URL
 And login with checker credentials
 And click on notificatrion in checker stage
