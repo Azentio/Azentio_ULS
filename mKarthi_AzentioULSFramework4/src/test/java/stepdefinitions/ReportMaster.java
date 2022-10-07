@@ -116,8 +116,16 @@ public class ReportMaster {
     @And("^User click the report group master icon in report master$")
     public void user_click_the_report_group_master_icon_in_report_master() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.ReportGroupMaster(), 60, 5);
-    	ReportMaster.ReportGroupMaster().click();
+    	//help.waitForElementToVisibleWithFluentWait(driver, ReportMaster.ReportGroupMaster(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			ReportMaster.ReportGroupMaster().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	
         
     }
 

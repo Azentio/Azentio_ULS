@@ -18,3 +18,5 @@ And User clear the Bounce Code in Bounce master
 And User click the save icon in Bounce master
 And User verify while modification, when user keep any mandatory field blank
 
+#Reject and Return
+
