@@ -1,123 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="2" failed="3" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-07T18:22:21 IST" name="Default suite" finished-at="2022-10-07T18:28:53 IST" duration-ms="391370">
+  <suite started-at="2022-10-10T11:34:32 IST" name="Default suite" finished-at="2022-10-10T11:35:46 IST" duration-ms="73787">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-10-07T18:22:21 IST" name="Default test" finished-at="2022-10-07T18:28:53 IST" duration-ms="391370">
+    <test started-at="2022-10-10T11:34:32 IST" name="Default test" finished-at="2022-10-10T11:35:46 IST" duration-ms="73787">
       <class name="Runner.TestApplication">
-        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:22:21 IST" name="beforeExecution" finished-at="2022-10-07T18:22:21 IST" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-10T11:34:32 IST" name="beforeExecution" finished-at="2022-10-10T11:34:32 IST" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeExecution -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:22:21 IST" name="setUpClass" finished-at="2022-10-07T18:22:22 IST" duration-ms="969" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-10T11:34:32 IST" name="setUpClass" finished-at="2022-10-10T11:34:34 IST" duration-ms="1295" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:22:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-07T18:23:41 IST" duration-ms="78252" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-10T11:34:34 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-10T11:35:30 IST" duration-ms="56589" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To create the property details with valid data"]]>
+                <![CDATA["To verify user can able to create the under writer off set record"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[To test the property details tab]"]]>
+                <![CDATA["Optional[To verify under writer offset control module fields and creation and updation]"]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[The following asserts failed:
-address line 1 field should be non mandatory but here its a mandatory one expected [true] but found [false],
-address line 2 field should be non mandatory but here its a mandatory one expected [true] but found [false]]]>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='toast-container']//div[@role='alert']' (tried for 5 second(s) with 1000 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The following asserts failed:
-address line 1 field should be non mandatory but here its a mandatory one expected [true] but found [false],
-address line 2 field should be non mandatory but here its a mandatory one expected [true] but found [false]
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at stepdefinitions.PropertyDetails_Steps.verify_record_is_saved_in_the_system(PropertyDetails_Steps.java:1396)
-at ✽.verify record is saved in the system(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:86)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:23:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-07T18:24:25 IST" duration-ms="44258" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To verify user can able to create the property details record with invalid input"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[To test the property details tab]"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:24:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-07T18:26:11 IST" duration-ms="106589" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To verify user can able to modify theproperty details record before saving the record"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[To test the property details tab]"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:26:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-07T18:26:44 IST" duration-ms="32542" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["verify system allow user to do a modification on already saved record"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[To test the property details tab]"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <ion-select _ngcontent-nyy-c320="" ng-reflect-ok-text="OK" ng-reflect-cancel-text="CANCEL" ng-reflect-placeholder="Select" ng-reflect-interface="popover" ng-reflect-model="N" ng-reflect-multiple="false" ng-reflect-disabled="true" ng-reflect-is-disabled="true" class="ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine" role="button" aria-haspopup="listbox" aria-disabled="true" aria-label=" Secondary Collateral ,  Security Type *">...</ion-select> is not clickable at point (663, 252). Other element would receive the click: <digital-select-layout _ngcontent-nyy-c690="" _nghost-nyy-c320="" ng-reflect-name="isprimarySecurity" ng-reflect-control="[object Object]" ng-reflect-form-control-name-label="isprimarySecurity" ng-reflect-form-data="[object Object]" ng-reflect-current-user="[object Object]" ng-reflect-config-data="[object Object]" class="ng-untouched ng-pristine ng-valid ng-star-inserted">...</digital-select-layout>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='toast-container']//div[@role='alert']' (tried for 5 second(s) with 1000 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
+at stepdefinitions.ULS_UnderWriterOffSetControl.store_the_checker_id(ULS_UnderWriterOffSetControl.java:230)
+at ✽.store the checker id(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_UnderWriterOffSetControl.feature:24)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='toast-container']//div[@role='alert']"}
   (Session info: chrome=99.0.4844.82)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
 System info: host: 'INMUVADP014584', ip: '10.1.47.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [527c51f27e9239885e80c3bdbfae1459, clickElement {id=5f1c5551-6cf0-4a77-a45a-41edf35067b9}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51688}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51688/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (527c51f27e9239885e80c3bdbfae1459)] -> xpath: //ion-label[text()=' Security Type ']/parent::ion-item//ion-select]
-Session ID: 527c51f27e9239885e80c3bdbfae1459]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <ion-select _ngcontent-nyy-c320="" ng-reflect-ok-text="OK" ng-reflect-cancel-text="CANCEL" ng-reflect-placeholder="Select" ng-reflect-interface="popover" ng-reflect-model="N" ng-reflect-multiple="false" ng-reflect-disabled="true" ng-reflect-is-disabled="true" class="ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine" role="button" aria-haspopup="listbox" aria-disabled="true" aria-label=" Secondary Collateral ,  Security Type *">...</ion-select> is not clickable at point (663, 252). Other element would receive the click: <digital-select-layout _ngcontent-nyy-c690="" _nghost-nyy-c320="" ng-reflect-name="isprimarySecurity" ng-reflect-control="[object Object]" ng-reflect-form-control-name-label="isprimarySecurity" ng-reflect-form-data="[object Object]" ng-reflect-current-user="[object Object]" ng-reflect-config-data="[object Object]" class="ng-untouched ng-pristine ng-valid ng-star-inserted">...</digital-select-layout>
-  (Session info: chrome=99.0.4844.82)
-Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
-System info: host: 'INMUVADP014584', ip: '10.1.47.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [527c51f27e9239885e80c3bdbfae1459, clickElement {id=5f1c5551-6cf0-4a77-a45a-41edf35067b9}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51688}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51688/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (527c51f27e9239885e80c3bdbfae1459)] -> xpath: //ion-label[text()=' Security Type ']/parent::ion-item//ion-select]
-Session ID: 527c51f27e9239885e80c3bdbfae1459
+Command: [79fb0a1de173df31973a2cce87142deb, findElement {using=xpath, value=//div[@id='toast-container']//div[@role='alert']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60523}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60523/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 79fb0a1de173df31973a2cce87142deb
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -130,88 +63,79 @@ at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.ja
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:381)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:373)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+at jdk.proxy2/jdk.proxy2.$Proxy46.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
+at stepdefinitions.ULS_UnderWriterOffSetControl.store_the_checker_id(ULS_UnderWriterOffSetControl.java:230)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
-at jdk.proxy2/jdk.proxy2.$Proxy46.click(Unknown Source)
-at stepdefinitions.Property_Details.user_modify_the_security_type(Property_Details.java:71)
-at ✽.user Modify the Security Type(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:252)
+at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)
+at io.cucumber.core.runner.TestStep.run(TestStep.java:64)
+at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+at io.cucumber.core.runner.TestCase.run(TestCase.java:104)
+at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$0(TestNGCucumberRunner.java:116)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:113)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:26:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-07T18:27:12 IST" duration-ms="27623" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["verify while modification, when user keep any mandatory field blank and click on save button"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Optional[To test the property details tab]"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <ion-select _ngcontent-ora-c320="" ng-reflect-ok-text="OK" ng-reflect-cancel-text="CANCEL" ng-reflect-placeholder="Select" ng-reflect-interface="popover" ng-reflect-model="N" ng-reflect-multiple="false" ng-reflect-disabled="true" ng-reflect-is-disabled="true" class="ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine" role="button" aria-haspopup="listbox" aria-disabled="true" aria-label=" Secondary Collateral ,  Security Type *">...</ion-select> is not clickable at point (663, 252). Other element would receive the click: <digital-select-layout _ngcontent-ora-c731="" _nghost-ora-c320="" ng-reflect-name="isprimarySecurity" ng-reflect-control="[object Object]" ng-reflect-form-control-name-label="isprimarySecurity" ng-reflect-form-data="[object Object]" ng-reflect-current-user="[object Object]" ng-reflect-config-data="[object Object]" class="ng-untouched ng-pristine ng-valid ng-star-inserted">...</digital-select-layout>
-  (Session info: chrome=99.0.4844.82)
-Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
-System info: host: 'INMUVADP014584', ip: '10.1.47.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [31c1e52136dafffc2f540a4de3a6c978, clickElement {id=b247a3d1-3f17-47b4-955d-eb3e227219b9}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51761}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51761/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (31c1e52136dafffc2f540a4de3a6c978)] -> xpath: //ion-label[text()=' Security Type ']//following-sibling::ion-select]
-Session ID: 31c1e52136dafffc2f540a4de3a6c978]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <ion-select _ngcontent-ora-c320="" ng-reflect-ok-text="OK" ng-reflect-cancel-text="CANCEL" ng-reflect-placeholder="Select" ng-reflect-interface="popover" ng-reflect-model="N" ng-reflect-multiple="false" ng-reflect-disabled="true" ng-reflect-is-disabled="true" class="ng-untouched ng-pristine ios in-item select-disabled hydrated ion-untouched ion-pristine" role="button" aria-haspopup="listbox" aria-disabled="true" aria-label=" Secondary Collateral ,  Security Type *">...</ion-select> is not clickable at point (663, 252). Other element would receive the click: <digital-select-layout _ngcontent-ora-c731="" _nghost-ora-c320="" ng-reflect-name="isprimarySecurity" ng-reflect-control="[object Object]" ng-reflect-form-control-name-label="isprimarySecurity" ng-reflect-form-data="[object Object]" ng-reflect-current-user="[object Object]" ng-reflect-config-data="[object Object]" class="ng-untouched ng-pristine ng-valid ng-star-inserted">...</digital-select-layout>
-  (Session info: chrome=99.0.4844.82)
-Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
-System info: host: 'INMUVADP014584', ip: '10.1.47.109', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [31c1e52136dafffc2f540a4de3a6c978, clickElement {id=b247a3d1-3f17-47b4-955d-eb3e227219b9}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51761}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51761/devtoo..., se:cdpVersion: 99.0.4844.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (31c1e52136dafffc2f540a4de3a6c978)] -> xpath: //ion-label[text()=' Security Type ']//following-sibling::ion-select]
-Session ID: 31c1e52136dafffc2f540a4de3a6c978
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
-at jdk.proxy2/jdk.proxy2.$Proxy46.click(Unknown Source)
-at stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_security_dropdown(PropertyDetails_Steps.java:207)
-at ✽.user can able to select the data from the security dropdown(file:///C:/Users/inindc00076/git/Azentio_ULSAnandh/AzentioULSFramework_Anandh/src/test/java/features/ULS_PropertyDetailsFEATURE.feature:271)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:27:12 IST" name="tearDownClass" finished-at="2022-10-07T18:28:53 IST" duration-ms="101080" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-10T11:35:30 IST" name="tearDownClass" finished-at="2022-10-10T11:35:46 IST" duration-ms="15836" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-07T18:28:53 IST" name="afterExecution" finished-at="2022-10-07T18:28:53 IST" duration-ms="234" status="PASS">
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-10-10T11:35:46 IST" name="afterExecution" finished-at="2022-10-10T11:35:47 IST" duration-ms="383" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterExecution -->

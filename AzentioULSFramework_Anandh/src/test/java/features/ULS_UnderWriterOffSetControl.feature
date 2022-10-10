@@ -299,4 +299,3 @@ And Validate export to Excel functionality of under writer offset control
 And Navigate to Temp view of under writer offset control
 And Click on pencil icon of first record in temp view of under writer offset control
 Then Validate the functionality of View summary section in under writer offset control
-
