@@ -84,7 +84,7 @@ And user verify and save the Record with Valid data
 And user goto the Maker Inbox
 Then user store the Referance Id in Maker stage and Click on Action Icon
 And user click Back button icon and Click on Action Icon
-And  user verify the submit button and submit from Maker stage
+And user verify the submit button and submit from Maker stage
 
 @M2_SubPrdMst_Reject
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
@@ -142,7 +142,7 @@ And user click Back button icon and Click on Action Icon
 And  user verify the submit button and submit from Maker stage
 
 @M3_SubPrdMst_Return
-Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
+Scenario: verify Checker user is able to Return the record in subproduct Master Retail
 Given user log in as uls application checker
 And user Click on Menu icon
 And user Click on Mailbox icon
@@ -153,7 +153,7 @@ Then user Click on Remarks button for Return confirmation
 Then user verify the Record got Return 
 
 @M3_SubPrdMst_ListView
-Scenario: Record should get approved and display in the system under Approved List view
+Scenario: Record should get returned and display in the maker inbox
 Given user log in as uls application maker
 When user click product set up menu
 And user click Edit view icon of sub product retail

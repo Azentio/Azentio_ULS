@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.AllocationMasterTestdata;
 import testDataType.AppDocumentDetailsTestData;
 import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.AssetAutoMaster_TestData;
@@ -68,6 +69,9 @@ public class JsonConfig {
 // 	CustomerDocumentDetails
 	private final String ReportMasterPath = configFileReader.getJsonPath() + "ReportMaster.json";
 	private List<ReportMasterTestData> ReportMasterList;
+	// Allocation Master
+	private final String AllocationMasterpath = configFileReader.getJsonPath() + "AllocationMasterjson.json";
+	private List<AllocationMasterTestdata> AllocationMaster1List;
 	
 	public JsonConfig() {
 		/*
@@ -87,7 +91,29 @@ public class JsonConfig {
 		DocumentDetailsTestData = getDocumentDetailsData();
 		CustomerDocumentDetailsList = getCustomerDocumentDetailsList();
 		ReportMasterList=getReportMasterData();
+		AllocationMaster1List=getAllocationMaster1List();
 		
+	}
+	// Allocation Master
+	private List<AllocationMasterTestdata> getAllocationMaster1List() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(AllocationMasterpath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(AllocationMasterpath));
+			AllocationMasterTestdata[] reportMasterData = gson.fromJson(bufferReader,
+					AllocationMasterTestdata[].class);
+			return Arrays.asList(reportMasterData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + AllocationMasterpath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	//Report Master
 		private List<ReportMasterTestData> getReportMasterData() {
@@ -416,13 +442,17 @@ public class JsonConfig {
 		public final BeneficiaryDetailsTestData getBeneficiaryDetailsDataListByName(String Username) {
 			return DocumentDetailsTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 		}
-		// customer document detaisl
+		// customer document details
 		public final CustomerDocumentDetailsTestDataType getCustomerDocumentDetailsByName(String Username) {
 			return CustomerDocumentDetailsList.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
 		}
 		//Report Master
 		public final ReportMasterTestData getReportMasterByName(String Username) {
 			return ReportMasterList.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+		}
+		// Allocation Master
+		public final AllocationMasterTestdata getAllocationMaster1ListByName(String Username) {
+			return AllocationMaster1List.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 		}
 	
 

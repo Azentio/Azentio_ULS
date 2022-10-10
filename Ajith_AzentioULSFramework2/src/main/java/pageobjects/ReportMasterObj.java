@@ -129,6 +129,11 @@ public WebElement reportMasterMakerRemarkSubmit() {
 }
 
 //*******************************************************Checker xpath**********************************************************
+@FindBy(xpath = "(//div[@role='alert'])[2]") 
+private WebElement reportMaster_Checker_Id;
+public WebElement reportMaster_Checker_Id() {
+    return reportMaster_Checker_Id;
+} 
 @FindBy(xpath = "//ion-icon[@aria-label='menu']") 
 private WebElement Checker_toggle;
 public WebElement Checker_toggle() {
@@ -194,5 +199,164 @@ private WebElement checkerApproveMgs;
 public WebElement checkerApproveMgs() {
 	return checkerApproveMgs;
 }
+//******************************************Parameter Details*********************************************
+@FindBy(xpath="//ion-title[text()=' Report Parameter Details ']/ancestor::ion-card//tr[1]//button[1]")
+private WebElement reportParameterDetailsFirstEditIcon;
+public WebElement reportParameterDetailsFirstEditIcon()
+{
+	return reportParameterDetailsFirstEditIcon;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Param 1 Description 1')]//following-sibling::ion-input//child::input")
+private WebElement Param1Description1;
+public WebElement Param1Description1()
+{
+	return Param1Description1;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Param 1 Description 2')]//following-sibling::ion-input//child::input")
+private WebElement Param1Description2;
+public WebElement Param1Description2()
+{
+	return Param1Description2;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Param 1 Description 3')]//following-sibling::ion-input//child::input")
+private WebElement Param1Description3;
+public WebElement Param1Description3()
+{
+	return Param1Description3;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Param 2 Description 2')]//following-sibling::ion-input//child::input")
+private WebElement Param2Description2;
+public WebElement Param2Description2()
+{
+	return Param2Description2;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Param 2 Description 3')]//following-sibling::ion-input//child::input")
+private WebElement Param2Description3;
+public WebElement Param2Description3()
+{
+	return Param2Description3;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Group Description')]//following-sibling::ion-input//child::input")
+private WebElement GroupDescription;
+public WebElement GroupDescription()
+{
+	return GroupDescription;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Template')]//following-sibling::ion-select")
+private WebElement Template;
+public WebElement Template()
+{
+	return Template;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Is Mandatory')]//following-sibling::ion-select")
+private WebElement IsMandatory;
+public WebElement IsMandatory()
+{
+	return IsMandatory;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Parameter 1')]//following-sibling::ion-input//child::input")
+private WebElement Parameter1;
+public WebElement Parameter1()
+{
+	return Parameter1;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Group Name')]//following-sibling::ion-input//child::input")
+private WebElement GroupName;
+public WebElement GroupName()
+{
+	return GroupName;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Min Parameters Required')]//following-sibling::ion-input//child::input")
+private WebElement MinParametersRequired;
+public WebElement MinParametersRequired()
+{
+	return MinParametersRequired;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Parameter 2')]//following-sibling::ion-input//child::input")
+private WebElement Parameter2;
+public WebElement Parameter2()
+{
+	return Parameter2;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Sequence No')]//following-sibling::ion-input//child::input")
+private WebElement SequenceNo;
+public WebElement SequenceNo()
+{
+	return SequenceNo;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Date Format')]//following-sibling::ion-input//child::input")
+private WebElement DateFormat;
+public WebElement DateFormat()
+{
+	return DateFormat;
+}
+@FindBy(xpath="//ion-label[contains(text(),'Nullable Values')]//following-sibling::ion-input//child::input")
+private WebElement NullableValues;
+public WebElement NullableValues()
+{
+	return NullableValues;
+}
+@FindBy(xpath="(//button[@ng-reflect-text='Update'])[2]")
+private WebElement updateIcon;
+public WebElement updateIcon()
+{
+	return updateIcon;
+}
+//*******************************************************blankField****************************************
+@FindBy(xpath="//ion-label[text()=' Parameter 1 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement parameter1RequiredField;
+public WebElement parameter1RequiredField() {
+	return parameter1RequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Template ']/ancestor::digital-select-layout//parent::ion-col//ion-badge")
+private WebElement templateRequiredField;
+public WebElement templateRequiredField() {
+	return templateRequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Param 1 Description 1 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement param1description1RequiredField;
+public WebElement param1description1RequiredField() {
+	return param1description1RequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Param 1 Description 2 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement param1description2RequiredField;
+public WebElement param1description2RequiredField() {
+	return param1description2RequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Param 1 Description 3 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement param1description3RequiredField;
+public WebElement param1description3RequiredField() {
+	return param1description3RequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Parameter 2 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement parameter2RequiredField;
+public WebElement parameter2RequiredField() {
+	return parameter2RequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Param 2 Description 2 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement param2description2RequiredField;
+public WebElement param2description2RequiredField() {
+	return param2description2RequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Param 2 Description 3 ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement param2description3RequiredField;
+public WebElement param2description3RequiredField() {
+	return param2description3RequiredField;
+}
 
+@FindBy(xpath="//ion-label[text()=' Sequence No ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement sequenceNumberRequiredField;
+public WebElement sequenceNumberRequiredField() {
+	return sequenceNumberRequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Date Format ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement dateFormatRequiredField;
+public WebElement dateFormatRequiredField() {
+	return dateFormatRequiredField;
+}
+@FindBy(xpath="//ion-label[text()=' Nullable Values ']/ancestor::digital-text-box//parent::ion-col//ion-badge")
+private WebElement nullableValuesRequiredField;
+public WebElement nullableValuesRequiredField() {
+	return nullableValuesRequiredField;
+}
 }

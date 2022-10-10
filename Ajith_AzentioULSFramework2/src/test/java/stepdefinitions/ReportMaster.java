@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import dataProvider.ConfigFileReader;
@@ -56,6 +58,20 @@ public class ReportMaster {
 		System.out.println(reportMasterTestData.ReportName);
 		reportMasterObj.reportName().sendKeys(reportMasterTestData.ReportName);
 	}
+	@Then("^User Validate the updated report master record in list view$")
+    public void user_validate_the_updated_report_master_record_in_list_view() throws Throwable {
+		for (int i = 0; i <20; i++) {
+			try {
+				String validate = driver.findElement(By.xpath("//span[contains(text(),'"+reportMasterTestData.ReportName+"')]"))
+						.getText();
+				System.out.println(validate);
+				Assert.assertEquals(validate, reportMasterTestData.ReportName);
+				break;
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
+    }
 
 	@And("^User click and update the Report Name2$")
 	public void user_click_and_update_the_report_name2() throws Throwable {
@@ -195,13 +211,11 @@ public class ReportMaster {
 		System.out.println(json.readdata());
 		applicationLogin.ulSApplicationLoginAsAChecker(json.readdata());
     }
-
-    @Then("^user Click on Remarks button in Action confirmation popup for report master record$")
-    public void user_click_on_remarks_button_in_action_confirmation_popup_for_report_master_record() throws Throwable {
+    @Then("^user Click on Approve button in Action confirmation popup for report master record$")
+    public void user_click_on_approve_button_in_action_confirmation_popup_for_report_master_record() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.Checker_Final_Approve(), 30, 2);
     	reportMasterObj.Checker_Final_Approve().click();
     }
-
     @Then("^user verify the Record got Approved for report master record$")
     public void user_verify_the_record_got_approved_for_report_master_record() throws Throwable {
     	String Toast;
@@ -247,5 +261,376 @@ public class ReportMaster {
 			}
 		}
     }
+
+    @And("^User click first Edit Icon in Approved list view for report parameter details$")
+    public void user_click_first_edit_icon_in_approved_list_view_for_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportParameterDetailsFirstEditIcon(), 60, 5);
+    	reportMasterObj.reportParameterDetailsFirstEditIcon().click();
+    }
+
+    @And("^User click and update the Template field in report parameter details$")
+    public void user_click_and_update_the_template_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.Template(), 60, 5);
+    	reportMasterObj.Template().click();
+    	
+    	String xpath = "//ion-label[contains(text(),'"+reportMasterTestData.Template+"')]//following-sibling::ion-radio";
+
+		for (int i = 1; i < 60; i++) {
+			try {
+				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				driver.findElement(By.xpath(xpath)).click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    	
+    }
+
+    @And("^User click and update the parameter1 in report parameter details$")
+    public void user_click_and_update_the_parameter1_in_report_parameter_details() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Parameter1().click();
+    			reportMasterObj.Parameter1().sendKeys(reportMasterTestData.Parameter1);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User click and update param1 Description1 in report parameter$")
+    public void user_click_and_update_param1_description1_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param1Description1().click();
+    			reportMasterObj.Param1Description1().sendKeys(reportMasterTestData.Param1Description1);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User click and update param1 Description2 in report parameter$")
+    public void user_click_and_update_param1_description2_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param1Description2().click();
+    			reportMasterObj.Param1Description2().sendKeys(reportMasterTestData.Param1Description2);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User click and update param1 Description3 in report parameter$")
+    public void user_click_and_update_param1_description3_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param1Description3().click();
+    			reportMasterObj.Param1Description3().sendKeys(reportMasterTestData.Param1Description3);
+    	        
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User click and update parameter2 in report parameter$")
+    public void user_click_and_update_parameter2_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Parameter2().click();
+    			reportMasterObj.Parameter2().sendKeys(reportMasterTestData.Parameter2);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User click and update param2 Description2 in report parameter$")
+    public void user_click_and_update_param2_description2_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param2Description2().click();
+    			reportMasterObj.Param2Description2().sendKeys(reportMasterTestData.Param2Description2);
+    	        
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User click and update param2 Description3 in report parameter$")
+    public void user_click_and_update_param2_description3_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param2Description3().click();
+    			reportMasterObj.Param2Description3().sendKeys(reportMasterTestData.Param2Description3);
+    	        
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    }
+
+    @And("^User select and update IsMandatory in report parameter$")
+    public void user_select_and_update_ismandatory_in_report_parameter() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.IsMandatory(), 60, 5);
+    	reportMasterObj.IsMandatory().click();
+    	
+    	String xpath = "//ion-label[contains(text(),'"+reportMasterTestData.IsMandatory+"')]//following-sibling::ion-radio";
+
+		for (int i = 1; i < 60; i++) {
+			try {
+				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				driver.findElement(By.xpath(xpath)).click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    }
+
+    @And("^User click and update sequenceNo in report parameter$")
+    public void user_click_and_update_sequenceno_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.SequenceNo().click();
+    			reportMasterObj.SequenceNo().sendKeys(reportMasterTestData.SequenceNo);
+    	    	break;
+			} catch (Exception e) {
+			
+			}
+    	}
+    	
+    }
+
+    @And("^User click and update date format in report parameter$")
+    public void user_click_and_update_date_format_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.DateFormat().click();
+    			reportMasterObj.DateFormat().sendKeys(reportMasterTestData.DateFormat);
+    	    	break;
+			} catch (Exception e) {
+			
+			}
+    	}
+    }
+
+    @And("^User click and update Nullable values in report parameter$")
+    public void user_click_and_update_nullable_values_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.NullableValues().click();
+    			reportMasterObj.NullableValues().sendKeys(reportMasterTestData.NullableValues);
+    	    	break;
+			} catch (Exception e) {
+			
+			}
+    	}
+    }
+    @Then("^User click the Update icon in report parameter$")
+    public void user_click_the_update_icon_in_report_parameter() throws Throwable {
+        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.updateIcon(),30, 2);
+        reportMasterObj.updateIcon().click();
+    }
+    //***************************************blank field*************************************
+    @And("^User Select and change the Template field in report parameter details$")
+    public void user_select_and_change_the_template_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.Template(), 60, 5);
+    	reportMasterObj.Template().click();
+    	
+    	String xpath = "//ion-label[contains(text(),'"+reportMasterTestData.TemplateDefault+"')]//following-sibling::ion-radio";
+
+		for (int i = 1; i < 60; i++) {
+			try {
+				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				driver.findElement(By.xpath(xpath)).click();
+				break;
+
+			} catch (Exception e) {
+
+			}
+		}
+    }
+
+    @And("^User click and clear the parameter1 in report parameter details$")
+    public void user_click_and_clear_the_parameter1_in_report_parameter_details() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Parameter1().click();
+    			reportMasterObj.Parameter1().sendKeys(Keys.BACK_SPACE);
+    	    	
+    	}
+    }
+
+    @And("^User click and clear the param1 Description1 in report parameter$")
+    public void user_click_and_clear_the_param1_description1_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Param1Description1().click();
+    			reportMasterObj.Param1Description1().sendKeys(Keys.BACK_SPACE);
+    	    	
+    	}
+    }
+
+    @And("^User click and clear the param1 Description2 in report parameter$")
+    public void user_click_and_clear_the_param1_description2_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Param1Description2().click();
+    			reportMasterObj.Param1Description2().sendKeys(Keys.BACK_SPACE);
+    	    	
+    	}
+    }
+
+    @And("^User click and clear the param1 Description3 in report parameter$")
+    public void user_click_and_clear_the_param1_description3_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Param1Description3().click();
+    			reportMasterObj.Param1Description3().sendKeys(Keys.BACK_SPACE);
+    	    	
+				
+			
+    	}
+    }
+
+    @And("^User click and clear the parameter2 in report parameter$")
+    public void user_click_and_clear_the_parameter2_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Parameter2().click();
+    			reportMasterObj.Parameter2().sendKeys(Keys.BACK_SPACE);
+    	    	
+    	}
+    }
+
+    @And("^User click and clear the param2 Description2 in report parameter$")
+    public void user_click_and_clear_the_param2_description2_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Param2Description2().click();
+    			reportMasterObj.Param2Description2().sendKeys(Keys.BACK_SPACE);
+    	        
+    	}
+    }
+
+    @And("^User click and clear the param2 Description3 in report parameter$")
+    public void user_click_and_clear_the_param2_description3_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.Param2Description3().click();
+    			reportMasterObj.Param2Description3().sendKeys(Keys.BACK_SPACE);
+    	    	
+    	}
+    }
+
+   
+
+    @And("^User click and clear the sequenceNo in report parameter$")
+    public void user_click_and_clear_the_sequenceno_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.SequenceNo().click();
+    			reportMasterObj.SequenceNo().sendKeys(Keys.BACK_SPACE);
+    	    	
+    	}
+    }
+
+    @And("^User click and clear the date format in report parameter$")
+    public void user_click_and_clear_the_date_format_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.DateFormat().click();
+    			reportMasterObj.DateFormat().sendKeys(Keys.BACK_SPACE);
+    	}
+    }
+
+    @And("^User click and clear the Nullable values in report parameter$")
+    public void user_click_and_clear_the_nullable_values_in_report_parameter() throws Throwable {
+    	for(int i=0; i<20; i++) {
+    		
+    			reportMasterObj.NullableValues().click();
+    			reportMasterObj.NullableValues().sendKeys(Keys.BACK_SPACE);
+    	}
+    }
+
+    @And("^User Validate the blank field for Template field in report parameter details$")
+    public void user_validate_the_blank_field_for_template_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.templateRequiredField(), 60, 2); 
+   	 Assert.assertEquals("Required field", reportMasterObj.templateRequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Parameter1 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_parameter1_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.parameter1RequiredField(), 60, 2); 
+      	 Assert.assertEquals("Required field", reportMasterObj.parameter1RequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Param1 Description1 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_param1_description1_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description1RequiredField(), 60, 2); 
+     	 Assert.assertEquals("Required field", reportMasterObj.param1description1RequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Param1 Description2 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_param1_description2_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(), 60, 2); 
+    	 Assert.assertEquals("Required field", reportMasterObj.param1description2RequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Param1 Description3 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_param1_description3_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description3RequiredField(), 60, 2); 
+   	 Assert.assertEquals("Required field", reportMasterObj.param1description3RequiredField().getText());
+    }
+    @And("^User Validate the blank field and invalid data for Parameter2 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_parameter2_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.parameter2RequiredField(), 60, 2); 
+      	 Assert.assertEquals("Required field", reportMasterObj.parameter2RequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Param2 Description2 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_param2_description2_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(), 60, 2); 
+      	 Assert.assertEquals("Required field", reportMasterObj.param1description2RequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Param2 Description3 field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_param2_description3_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param2description3RequiredField(), 60, 2); 
+     	 Assert.assertEquals("Required field", reportMasterObj.param2description3RequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for sequenceNo field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_sequenceno_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.sequenceNumberRequiredField(), 60, 2); 
+    	 Assert.assertEquals("Required field", reportMasterObj.sequenceNumberRequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for date format field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_date_format_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.dateFormatRequiredField(), 60, 2); 
+   	 Assert.assertEquals("Required field", reportMasterObj.dateFormatRequiredField().getText());
+    }
+
+    @And("^User Validate the blank field and invalid data for Nullable values field in report parameter details$")
+    public void user_validate_the_blank_field_and_invalid_data_for_nullable_values_field_in_report_parameter_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.nullableValuesRequiredField(), 60, 2); 
+      	 Assert.assertEquals("Required field", reportMasterObj.nullableValuesRequiredField().getText());
+    }
+
 }
 
