@@ -222,7 +222,8 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
 		System.out.println("Referance ID : " +RefId);
-		json.addReferanceData(RefId);
+		//json.addReferanceData(RefId);
+		exceldata.updateTestData("AT-WHM-T001_D1", "Reference ID", RefId);
 
 	}
 
@@ -248,7 +249,8 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		json.addData(popupID);
+		//json.addData(popupID);
+		exceldata.updateTestData("AT-WHM-T001_D1", "Checker id", popupID);
 		System.out.println("Checker ID : " +popupID);
 	}
 
@@ -911,15 +913,17 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseSearchTextBox(), 50, 1);
 		clicksAndActionsHelper.moveToElement(warehousrobj.wareHouseSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(warehousrobj.wareHouseSearchTextBox());
-		warehousrobj.wareHouseSearchTextBox().sendKeys(warehousedata.searchingWithMatchData);
+		testData = exceldata.getTestdata("AT-WHM-T011_D1");
+		warehousrobj.wareHouseSearchTextBox().sendKeys(testData.get("Search Data"));
 	}
 
 	@Then("^verify user can able to see the matching record$")
 	public void verify_user_can_able_to_see_the_matching_record() throws Throwable {
+		testData = exceldata.getTestdata("AT-WHM-T011_D1");
 		boolean status = false;
 		for (int i = 0; i <= 150; i++) {
 			try {
-				status = driver.findElement(By.xpath("//span[text()='" + warehousedata.searchingWithMatchData + " ']")).isDisplayed();
+				status = driver.findElement(By.xpath("//span[text()='" + testData.get("Search Data") + " ']")).isDisplayed();
 				break;
 
 			} catch (Exception e) {
@@ -934,10 +938,11 @@ public class WareHouseMaster extends BaseClass {
 
 	@Then("^verify user can able to see the matching records$")
 	public void verify_user_can_able_to_see_the_matching_records() throws Throwable {
+		testData = exceldata.getTestdata("AT-WHM-T011_D1");
 		boolean status = false;
 		for (int i = 0; i <= 150; i++) {
 			try {
-				status = driver.findElement(By.xpath("//span[text()='" + warehousedata.searchingWithMatchData1 + " ']")).isDisplayed();
+				status = driver.findElement(By.xpath("//span[text()='" + testData.get("Search Data") + " ']")).isDisplayed();
 				break;
 
 			} catch (Exception e) {
@@ -958,7 +963,8 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseSearchTextBox(), 50, 1);
 		clicksAndActionsHelper.moveToElement(warehousrobj.wareHouseSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(warehousrobj.wareHouseSearchTextBox());
-		warehousrobj.wareHouseSearchTextBox().sendKeys(warehousedata.searchingWithUnmatchedData);
+		testData = exceldata.getTestdata("AT-WHM-T011_D1");
+		warehousrobj.wareHouseSearchTextBox().sendKeys(testData.get("Invalid Search data"));
 	}
 
 	@Then("^verify system should not show the result for the un matched record$")
@@ -986,7 +992,8 @@ public class WareHouseMaster extends BaseClass {
 
 		int size = xlsList.size();
 		String string = xlsList.get(size - 1);
-		boolean status = string.contains(warehousedata.FileNameForXlsFile);
+		testData = exceldata.getTestdata("AT-WHM-T013_D1");
+		boolean status = string.contains(testData.get("Excel Data"));
 
 		// Assert.assertTrue(status);
 	}
@@ -1051,7 +1058,8 @@ public class WareHouseMaster extends BaseClass {
 
 		int size = pdfList.size();
 		String string = pdfList.get(size - 1);
-		boolean status = string.contains(warehousedata.FileNameForPDFFile);
+		testData = exceldata.getTestdata("AT-WHM-T013_D1");
+		boolean status = string.contains(testData.get("PDF data"));
 
 		// Assert.assertTrue(status);
 	}

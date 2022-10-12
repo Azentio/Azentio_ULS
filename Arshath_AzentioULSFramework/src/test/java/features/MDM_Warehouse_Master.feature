@@ -40,7 +40,7 @@ When user click Config Manager menu
 And user click list view icon of Warehouse Master
 Then User validate the WareHouse approved record in list view
 
-@AT_WHM_T002_Reject
+@AT_WHM_T002_Reject_Creation
 Scenario: Creation of Warehouse Master record_ Add Template
 Given user log in as uls application maker
 Then user click on configurations Tab
@@ -81,7 +81,7 @@ When user click Config Manager menu
 And user click list view icon of Warehouse Master
 Then User validate the WareHouse Rejected record in list view
 
-@AT_WHM_T003_Return
+@AT_WHM_T003_Return_Creation
 Scenario: Creation of Warehouse Master record_ Add Template
 Given user log in as uls application maker
 Then user click on configurations Tab
