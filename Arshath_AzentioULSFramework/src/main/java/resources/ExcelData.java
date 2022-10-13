@@ -48,10 +48,10 @@ public class ExcelData {
 
 }
    public static void main(String[] args) {
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TESTDATASAMPLE.xlsx","ReportMasterTestData", "Data Set ID");
-	Map<String, String> testdata = excelData.getTestdata("AT-RA-007_D1");
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","WarehouseMasterTestData", "Data Set ID");
+	Map<String, String> testdata = excelData.getTestdata("AT-WHM-T001_D1");
 	System.out.println(testdata.get("ReportType"));
-	excelData.updateTestData("AT-RA-007_D1","Reference ID","922");
+	excelData.updateTestData("AT-WHM-T001_D1","Reference ID","922");
 	//data.reader.setCellData("AssetAutoMasterTestData","Reference ID",20,"920");
 } 
 }

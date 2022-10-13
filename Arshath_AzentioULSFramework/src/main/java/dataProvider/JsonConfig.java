@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.AllocationMasterTestData;
 import testDataType.Beneficiary_Details_Testdata;
 import testDataType.Charge_Master_Testdata;
 import testDataType.CustomerEntityReferanceListTestdata;
@@ -90,6 +91,10 @@ public class JsonConfig {
 	private final String BounceMstPath = configFileReader.getJsonPath() + "MDM_BounceMaster.json";
 	private List<MDM_BounceMasterTestdata> BounceMst;	
 	
+	//allocation Master-->Kamalapriya
+	private final String AllocationMasterDataPath = configFileReader.getJsonPath() + "AllocationMasterJson.json";
+	private List<AllocationMasterTestData> AllocationMaster;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -114,8 +119,31 @@ public class JsonConfig {
 		CustomerDebt = getCustomerDebtList();
 		CustomerRef = getCustomerRef();
 		BounceMst=getBounceMst();
+		//allocation  Master-->Kamalapriya
+		AllocationMaster = getAllocationMasterList();
 	}
 	
+	//Allocation Master-->Kamalapriya
+	
+	private List<AllocationMasterTestData> getAllocationMasterList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(AllocationMasterDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(AllocationMasterDataPath));
+			AllocationMasterTestData[] Allocation = gson.fromJson(bufferReader, AllocationMasterTestData[].class);
+			return Arrays.asList(Allocation);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + AllocationMasterDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
 	private List<MDM_BounceMasterTestdata> getBounceMst() {
 		Gson gson = new Gson();
 		JsonReader reader = new JsonReader(new StringReader(BounceMstPath));
@@ -538,6 +566,10 @@ public class JsonConfig {
 	
 	public final CustomerEntityReferanceListTestdata getCustomerRefByName(String Username) {
 		return CustomerRef.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//Allocation Master-->Kamalapriya
+	public final AllocationMasterTestData getAllocationMasterByName(String Username) {
+		return AllocationMaster.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
 	}
 	
 	public final MDM_BounceMasterTestdata getBounceMstByName(String Username) {

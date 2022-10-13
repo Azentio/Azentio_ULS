@@ -23,7 +23,7 @@ And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T001_Approve
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user login as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -64,7 +64,7 @@ And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T002_Reject
 Scenario: verify Checker user is able to Reject the record
-Given user log in as uls application checker
+Given user login as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -105,7 +105,7 @@ And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T003_Return
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user login as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -168,7 +168,7 @@ And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T005_Modification_Approve
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user login as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -226,7 +226,7 @@ And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T007_Modification_Checker_Reject
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user login as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -272,7 +272,7 @@ And user verify the submit button and submit the Record from Maker stage
 
 @AT_WHM_T008_Modification_Checker_Return
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user login as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -338,7 +338,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And click on view button in ware house master
 And select the first approved record
-And Get The approved record data
+#And Get The approved record data
 Then verify System should display the currect description value
 Then verify system should display the currect address value
 #Then verify System should display the currect country value

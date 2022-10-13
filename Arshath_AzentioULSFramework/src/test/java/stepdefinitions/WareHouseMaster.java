@@ -19,6 +19,7 @@ import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Warehouse_MasterObj;
@@ -47,9 +48,19 @@ public class WareHouseMaster extends BaseClass {
 	List<String> xlsList = new ArrayList<>();
 	List<String> pdfList = new ArrayList<>();
 	BrowserHelper browserHelper = new BrowserHelper(driver);
-	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\TestDataDesign.xlsx", "WarehouseMasterTestData", "Data Set ID") ;
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "WarehouseMasterTestData", "Data Set ID") ;
 	Map<String, String> testData;
 
+	@Given("^user login as uls application checker$")
+	public void user_log_in_as_uls_application_checker() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT-WHM-T001_D1");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+
+	
 	@Then("^user click on configurations Tab$")
 	public void user_click_on_configurations_tab() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Configurations(), 50, 2);
@@ -251,6 +262,7 @@ public class WareHouseMaster extends BaseClass {
 		String popupID = Space.replaceAll("[/.]", "");
 		//json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T001_D1", "Checker id", popupID);
+		
 		System.out.println("Checker ID : " +popupID);
 	}
 
@@ -273,7 +285,7 @@ public class WareHouseMaster extends BaseClass {
 		for (int i = 0; i < 50; i++) {
 			try {
 				driver.findElement(
-						By.xpath("//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button"))
+						By.xpath("//span[text()='" + testData.get("Reference ID") + "']/ancestor::tr/td[1]/button"))
 						.click();
 				break;
 			} catch (Exception e) {
