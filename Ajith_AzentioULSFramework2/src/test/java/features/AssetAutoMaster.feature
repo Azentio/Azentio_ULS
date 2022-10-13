@@ -8,6 +8,7 @@ And User click the Configuration Manager option
 And user click asset auto edit icon
 And User click add icon for asset auto master
 And User verify asset auto master opens with asset category brand asset type and remarks fields
+And User Update Test data for Asset Auto Master creation approve
 And user select Asset category and check feild is mandatory or not
 And user select brand and check the feild is mandatory or not
 And user select Asset type and check the feild is mandatory or not
@@ -74,6 +75,7 @@ When user click the configuration menu for asset auto creation
 And User enter the product setup menu for asset auto creation
 And user click asset auto edit icon
 And User click add icon for asset auto master
+And User Update Test data for Asset Auto Master creation checker return
 And User verify asset auto master opens with asset category brand asset type and remarks fields
 And user select Asset category and check feild is mandatory or not
 And user select brand and check the feild is mandatory or not

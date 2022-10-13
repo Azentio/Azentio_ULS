@@ -74,7 +74,6 @@ public class AssetAutoMaster {
     }
     @And("^user select Asset category and check feild is mandatory or not$")
     public void user_select_asset_category_and_check_feild_is_mandatory_or_not() throws Throwable {
-    	testData = excelData.getTestdata("AT_RM_01_D1");
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetCategory(), 30, 2);
         assetAutoMasterObj.assetCategory().click();
         String xpath= "//ion-label[text()=' "+testData.get("Asset Category")+" ']//following-sibling::ion-radio";
@@ -333,10 +332,10 @@ public class AssetAutoMaster {
 
     @Then("^user verify the Record got Approved for asset auto record return$")
     public void user_verify_the_record_got_approved_for_asset_auto_record_return() throws Throwable {
-    	String Toast;
+    	
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.checkerApproveMgs(), 60, 2);
-		Toast = assetAutoMasterObj.checkerApproveMgs().getText();
-		System.out.println(Toast);
+		Assert.assertEquals(true,assetAutoMasterObj.checkerApproveMgs().getText().contains("Record RETURNED Successfully"));
+		
     }
 
     @And("^user Click on return icon for asset auto record$")
@@ -1035,6 +1034,13 @@ public class AssetAutoMaster {
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.assetModelMaster(),30, 2);
         assetAutoMasterObj.assetModelMaster().click();
     }
-
+    @And("^User Update Test data for Asset Auto Master creation checker return$")
+    public void user_update_test_data_for_asset_auto_master_creation_checker_return() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_01_D2");
+    }
+    @And("^User Update Test data for Asset Auto Master creation approve$")
+    public void user_update_test_data_for_asset_auto_master_creation_approve() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_01_D1");
+    }
     
 }
