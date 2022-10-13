@@ -4,7 +4,7 @@ Feature: Check the functionality of Asset auto master
 Scenario: creation of Asset Auto with valid details
 Given user log in as uls application maker 
 When user click the configuration menu for asset auto creation
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click asset auto edit icon
 And User click add icon for asset auto master
 And User verify asset auto master opens with asset category brand asset type and remarks fields
@@ -28,6 +28,7 @@ Scenario: Checker approve and verify maker saved should reflect in checker
 Given user log in as uls application checker for asset auto record
 #And user Click on Menu icon for asset auto record
 And user Click on Mailbox icon for asset auto record
+And user search asset auto records
 And Search the respective reference id and click on Action button for asset auto record
 And user Click on Approve icon for asset auto record
 And user Enter the remarks in Action confirmation popup for asset auto record

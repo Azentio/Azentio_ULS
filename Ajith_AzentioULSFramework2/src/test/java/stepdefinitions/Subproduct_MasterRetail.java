@@ -525,6 +525,7 @@ public class Subproduct_MasterRetail extends BaseClass {
 				2);
 		subPrdMst.Sub_Product_Alloation_Sequence_Number().click();
 		subPrdMst.Sub_Product_Alloation_Sequence_Number().sendKeys(subprdMstData.AllocationSequenceNumber);
+		
 	}
 
 	@And("^user verify and save the Record with Valid data$")

@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import java.io.File;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -11,9 +12,13 @@ import org.testng.Assert;
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.Selenium_Actions;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageobjects.Asset_AutoMaster_Obj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.AssetAutoMaster_TestData;
@@ -28,9 +33,10 @@ public class AssetAutoMaster {
 	FindFieldisMandatoryorNot verifyfield = new FindFieldisMandatoryorNot(driver);
 	AssetAutoMaster_TestData assetAutoMasterData = jsonConfig.getAssetAutoMasterListByName("Maker");
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","AssetAutoMasterTestData","Data Set ID");
+	Map<String, String> testData;
 	@And("^User enter the product setup menu for asset auto creation$")
     public void user_enter_the_product_setup_menu_for_asset_auto_creation() throws Throwable {
-		
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.productSetup(), 30, 2);
         assetAutoMasterObj.productSetup().click();
     }
@@ -68,9 +74,10 @@ public class AssetAutoMaster {
     }
     @And("^user select Asset category and check feild is mandatory or not$")
     public void user_select_asset_category_and_check_feild_is_mandatory_or_not() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_01_D2");
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetCategory(), 30, 2);
         assetAutoMasterObj.assetCategory().click();
-        String xpath= "//ion-label[contains(text(),'"+assetAutoMasterData.AssetCategory+"')]//following-sibling::ion-radio";
+        String xpath= "//ion-label[text()=' "+testData.get("Asset Category")+" ']//following-sibling::ion-radio";
         for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -87,10 +94,11 @@ public class AssetAutoMaster {
     }
     @And("^user select brand and check the feild is mandatory or not$")
     public void user_select_brand_and_check_the_feild_is_mandatory_or_not() throws Throwable {
+    	System.out.println(testData.get("Brand"));
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.brand(), 30, 2);
     	assetAutoMasterObj.brand().click();
-        String xpath= "//ion-label[contains(text(),'"+assetAutoMasterData.Brand+"')]//following-sibling::ion-radio";
-        for (int i = 0; i < 20; i++) {
+    	String xpath= "//ion-label[text()=' "+testData.get("Brand")+" ']//following-sibling::ion-radio";
+        for (int i = 0; i < 30; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
@@ -108,7 +116,7 @@ public class AssetAutoMaster {
     public void user_select_asset_type_and_check_the_feild_is_mandatory_or_not() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetType(), 30, 2);
     	assetAutoMasterObj.assetType().click();
-        String xpath= "//ion-label[contains(text(),'"+assetAutoMasterData.AssetType+"')]//following-sibling::ion-radio";
+    	String xpath= "//ion-label[text()=' "+testData.get("AssetType")+" ']//following-sibling::ion-radio";
         for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -129,7 +137,7 @@ public class AssetAutoMaster {
     	assetAutoMasterObj.remark().click();
     	for (int i = 0; i <50; i++) {
 			try {
-				assetAutoMasterObj.remark().sendKeys(assetAutoMasterData.Remark);
+				assetAutoMasterObj.remark().sendKeys(testData.get("Remark"));
 				break;
 			} catch (Exception e) {
 				
@@ -216,9 +224,10 @@ public class AssetAutoMaster {
         assetAutoMasterObj.firstEditIconInMakerListView().click();
         
         //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Sub_Producr_Product_ReferanceId(),40, 2);
-        
+        excelData.updateTestData("AT_RM_02_D1","Reference ID",reference);
         json.addReferanceData(reference);
         System.out.println(reference);
+        
         
     }
     @And("^user submit asset auto record in maker$")
@@ -242,15 +251,18 @@ public class AssetAutoMaster {
         String split[] = sucessmgs.split(" ");
         Space=split[split.length-1];
         String popupID = Space.replaceAll("[/.]", "");
+        excelData.updateTestData("AT_RM_02_D1","Checker id",popupID);
         json.addData(popupID);
         System.out.println(popupID);
+        testData = excelData.getTestdata("AT_RM_02_D1");
     }
     @Given("^user log in as uls application checker for asset auto record$")
     public void user_log_in_as_uls_application_checker_for_asset_auto_record() throws Throwable {
-    	String kulsApplicationUrl = configFileReader.getApplicationUrl();
+    	String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
 		driver.get(kulsApplicationUrl);
 		System.out.println(json.readdata());
-		applicationLogin.ulSApplicationLoginAsAChecker(json.readdata());
+		testData = excelData.getTestdata("AT_RM_02_D1");
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
     }
 
     @Then("^user Click on Remarks button in Action confirmation popup for asset auto record$")
@@ -285,7 +297,7 @@ public class AssetAutoMaster {
     public void search_the_respective_reference_id_and_click_on_action_button_for_asset_auto_record() throws Throwable {
     	for (int i = 0; i <20; i++) {
 			try {
-				driver.findElement(By.xpath("//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button"))
+				driver.findElement(By.xpath("//span[text()='"+testData.get("Reference ID")+"']/ancestor::tr/td[1]/button"))
 				.click();
 				break;
 			} catch (Exception e) {

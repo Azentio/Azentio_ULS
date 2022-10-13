@@ -30,4 +30,14 @@ public class ReportMasterTestData {
 	public String GroupDescription;
 	public String MinParametersRequired;
 	public String TemplateDefault;
+	public String InvaliddataParameter1;
+	public String InvaliddataParam1Description1;
+	public String InvaliddataParam1Description2;
+	public String InvaliddataParam1Description3;
+	public String InvaliddataParameter2;
+	public String InvaliddataParam2Description2;
+	public String InvaliddataSequenceNo;
+	public String InvaliddataDateFormat;
+	public String InvaliddataNullableValues;
+	public String InvaliddataParam2Description3;
 }

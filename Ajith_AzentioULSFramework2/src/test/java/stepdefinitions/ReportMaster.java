@@ -14,6 +14,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+
 import pageobjects.ReportMasterObj;
 import resources.BaseClass;
 import resources.JsonDataReaderWriter;
@@ -28,6 +30,7 @@ public class ReportMaster {
 	ReportMasterTestData reportMasterTestData = jsonConfig.getReportMasterByName("Maker");
     ReportMasterObj reportMasterObj = new ReportMasterObj(driver);
     JsonDataReaderWriter json = new JsonDataReaderWriter();
+    SoftAssert softAssert = new SoftAssert();
 	@When("^user click the configuration menu for Report Master$")
 	public void user_click_the_configuration_menu_for_report_master() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.configurationOptions(),30, 2);
@@ -101,7 +104,7 @@ public class ReportMaster {
 	public void user_select_and_update_the_report_type() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.reportType(),30, 2);
 		reportMasterObj.reportType().click();
-		String xpath ="//ion-label[text()=' CRY ']//following-sibling::ion-radio";
+		String xpath ="//ion-label[text()=' "+reportMasterTestData.ReportType+" ']//following-sibling::ion-radio";
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -125,7 +128,7 @@ public class ReportMaster {
 	public void user_select_and_update_the_report_category() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.reportCategory(),30, 2);
 		reportMasterObj.reportCategory().click();
-		String xpath ="//ion-label[text()=' TEMPLATE ']//following-sibling::ion-radio";
+		String xpath ="//ion-label[text()=' "+reportMasterTestData.ReportCategory+" ']//following-sibling::ion-radio";
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -167,7 +170,7 @@ public class ReportMaster {
     			
     		}
     	}
-        
+     
             seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.InboxView_SearchText(),60,2);
             reportMasterObj.InboxView_SearchText().click();
             reportMasterObj.InboxView_SearchText().sendKeys(reportMasterTestData.SearchReportMaster);
@@ -576,61 +579,200 @@ public class ReportMaster {
     @And("^User Validate the blank field and invalid data for Parameter1 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_parameter1_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.parameter1RequiredField(), 60, 2); 
-      	 Assert.assertEquals("Required field", reportMasterObj.parameter1RequiredField().getText());
+      	
+      	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Parameter1().click();
+    			reportMasterObj.Parameter1().sendKeys(reportMasterTestData.InvaliddataParameter1);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+      	try {
+      		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.parameter1RequiredField(),5, 1);
+      		 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.parameter1RequiredField().getText());
+		} catch (Exception e) {
+			softAssert.assertFalse(true, "Alpha numeric validation message not thrown");
+		}
+      	 
     }
 
     @And("^User Validate the blank field and invalid data for Param1 Description1 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_param1_description1_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description1RequiredField(), 60, 2); 
      	 Assert.assertEquals("Required field", reportMasterObj.param1description1RequiredField().getText());
+     	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param1Description1().click();
+    			reportMasterObj.Param1Description1().sendKeys(reportMasterTestData.InvaliddataParam1Description1);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+			try {
+				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description1RequiredField(), 5, 1); 
+		     	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.param1description1RequiredField().getText());
+			} catch (Exception e) {
+				softAssert.assertFalse(true, "Alpha numeric validation message not thrown");
+			}
     }
 
     @And("^User Validate the blank field and invalid data for Param1 Description2 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_param1_description2_field_in_report_parameter_details() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(), 60, 2); 
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(), 30, 2); 
     	 Assert.assertEquals("Required field", reportMasterObj.param1description2RequiredField().getText());
+    	 for(int i=0; i<20; i++) {
+     		try {
+     			reportMasterObj.Param1Description2().click();
+     			reportMasterObj.Param1Description2().sendKeys(reportMasterTestData.InvaliddataParam1Description2);
+     	    	break;
+ 			} catch (Exception e) {
+ 				
+ 			}
+     	}
+    	 try {
+    		 seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(),5, 1); 
+        	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.param1description2RequiredField().getText());
+		} catch (Exception e) {
+			softAssert.assertFalse(true, "Alpha numeric validation message not thrown");
+		}
     }
 
     @And("^User Validate the blank field and invalid data for Param1 Description3 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_param1_description3_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description3RequiredField(), 60, 2); 
    	 Assert.assertEquals("Required field", reportMasterObj.param1description3RequiredField().getText());
+   	for(int i=0; i<20; i++) {
+		try {
+			reportMasterObj.Param1Description3().click();
+			reportMasterObj.Param1Description3().sendKeys(reportMasterTestData.InvaliddataParam1Description3);
+	        
+	    	break;
+		} catch (Exception e) {
+			
+		}
+	}
+   	try {
+   		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description3RequiredField(), 5, 1); 
+      	Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.param1description3RequiredField().getText());
+	} catch (Exception e) {
+		softAssert.assertFalse(true, "Alpha numeric validation message not thrown");
+	}
     }
     @And("^User Validate the blank field and invalid data for Parameter2 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_parameter2_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.parameter2RequiredField(), 60, 2); 
       	 Assert.assertEquals("Required field", reportMasterObj.parameter2RequiredField().getText());
+      	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Parameter2().click();
+    			reportMasterObj.Parameter2().sendKeys(reportMasterTestData.InvaliddataParameter2);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+      	try {
+      		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.parameter2RequiredField(), 5, 1); 
+         	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.parameter2RequiredField().getText());
+		} catch (Exception e) {
+			softAssert.assertFalse(true, "Alpha numeric validation message not thrown");
+		}
     }
 
     @And("^User Validate the blank field and invalid data for Param2 Description2 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_param2_description2_field_in_report_parameter_details() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(), 60, 2); 
-      	 Assert.assertEquals("Required field", reportMasterObj.param1description2RequiredField().getText());
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param2description2RequiredField(), 60, 2); 
+      	 Assert.assertEquals("Required field", reportMasterObj.param2description2RequiredField().getText());
+      	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param2Description2().click();
+    			reportMasterObj.Param2Description2().sendKeys(reportMasterTestData.InvaliddataParam2Description2);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+      	try {
+      		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param1description2RequiredField(),5, 1); 
+         	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.param1description2RequiredField().getText());
+		} catch (Exception e) {
+			softAssert.assertFalse(true, "Alpha numeric validation message not thrown");
+		}
+      		
     }
 
     @And("^User Validate the blank field and invalid data for Param2 Description3 field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_param2_description3_field_in_report_parameter_details() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param2description3RequiredField(), 60, 2); 
+    	 seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param2description3RequiredField(), 60, 2); 
      	 Assert.assertEquals("Required field", reportMasterObj.param2description3RequiredField().getText());
+     	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.Param2Description3().click();
+    			reportMasterObj.Param2Description3().sendKeys(reportMasterTestData.InvaliddataParam2Description3);
+    	    	break;
+			} catch (Exception e) {
+				
+			}
+    	}
+     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.param2description3RequiredField(), 60, 2); 
+    	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.param2description3RequiredField().getText());
     }
 
     @And("^User Validate the blank field and invalid data for sequenceNo field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_sequenceno_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.sequenceNumberRequiredField(), 60, 2); 
     	 Assert.assertEquals("Required field", reportMasterObj.sequenceNumberRequiredField().getText());
+    	 for(int i=0; i<20; i++) {
+     		try {
+     			reportMasterObj.SequenceNo().click();
+     			reportMasterObj.SequenceNo().sendKeys(reportMasterTestData.InvaliddataSequenceNo);
+     	    	break;
+ 			} catch (Exception e) {
+ 			
+ 			}
+     	}
+    	 seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,reportMasterObj.SequenceNoText() ,30, 2);
+    	 Assert.assertEquals("123",reportMasterObj.SequenceNoText().getAttribute("ng-reflect-model"));
     }
 
     @And("^User Validate the blank field and invalid data for date format field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_date_format_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.dateFormatRequiredField(), 60, 2); 
    	 Assert.assertEquals("Required field", reportMasterObj.dateFormatRequiredField().getText());
+   	for(int i=0; i<20; i++) {
+		try {
+			reportMasterObj.DateFormat().click();
+			reportMasterObj.DateFormat().sendKeys(reportMasterTestData.InvaliddataDateFormat);
+	    	break;
+		} catch (Exception e) {
+		
+		}
+	}
+   	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.dateFormatRequiredField(), 30, 2); 
+  	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.dateFormatRequiredField().getText());
     }
 
     @And("^User Validate the blank field and invalid data for Nullable values field in report parameter details$")
     public void user_validate_the_blank_field_and_invalid_data_for_nullable_values_field_in_report_parameter_details() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.nullableValuesRequiredField(), 60, 2); 
       	 Assert.assertEquals("Required field", reportMasterObj.nullableValuesRequiredField().getText());
+      	for(int i=0; i<20; i++) {
+    		try {
+    			reportMasterObj.NullableValues().click();
+    			reportMasterObj.NullableValues().sendKeys(reportMasterTestData.InvaliddataNullableValues);
+    	    	break;
+    		} catch (Exception e) {
+    		
+    		}
+    	}
+      	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, reportMasterObj.nullableValuesRequiredField(), 30, 2); 
+     	 Assert.assertEquals("Alphanumeric characters allowed", reportMasterObj.nullableValuesRequiredField().getText());
+     	 softAssert.assertAll("Alphanumeric Validation message not displayed for parameter 1, param1description1,param1description2,param1 description3,param2,"
+     	 		+ "param2description2");
     }
-
+         
 }
 

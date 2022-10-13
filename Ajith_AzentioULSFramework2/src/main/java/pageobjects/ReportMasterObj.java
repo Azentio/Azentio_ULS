@@ -284,6 +284,12 @@ public WebElement SequenceNo()
 {
 	return SequenceNo;
 }
+@FindBy(xpath="//ion-label[contains(text(),'Sequence No')]//following-sibling::ion-input")
+private WebElement SequenceNoText;
+public WebElement SequenceNoText()
+{
+	return SequenceNoText;
+}
 @FindBy(xpath="//ion-label[contains(text(),'Date Format')]//following-sibling::ion-input//child::input")
 private WebElement DateFormat;
 public WebElement DateFormat()
