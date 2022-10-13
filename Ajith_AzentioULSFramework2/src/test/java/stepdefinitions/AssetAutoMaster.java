@@ -74,7 +74,7 @@ public class AssetAutoMaster {
     }
     @And("^user select Asset category and check feild is mandatory or not$")
     public void user_select_asset_category_and_check_feild_is_mandatory_or_not() throws Throwable {
-    	testData = excelData.getTestdata("AT_RM_01_D2");
+    	testData = excelData.getTestdata("AT_RM_01_D1");
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetCategory(), 30, 2);
         assetAutoMasterObj.assetCategory().click();
         String xpath= "//ion-label[text()=' "+testData.get("Asset Category")+" ']//following-sibling::ion-radio";
@@ -254,7 +254,7 @@ public class AssetAutoMaster {
         excelData.updateTestData("AT_RM_02_D1","Checker id",popupID);
         json.addData(popupID);
         System.out.println(popupID);
-        testData = excelData.getTestdata("AT_RM_02_D1");
+        
     }
     @Given("^user log in as uls application checker for asset auto record$")
     public void user_log_in_as_uls_application_checker_for_asset_auto_record() throws Throwable {

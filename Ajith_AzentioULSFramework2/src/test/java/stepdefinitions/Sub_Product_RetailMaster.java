@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.SubProductMasterRetail_Obj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.SubProductMaster_RetailTestData;
@@ -32,9 +35,11 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	 
 	@Given("^user log in as uls application maker$")
     public void user_log_in_as_uls_application_maker() throws Throwable {
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentilas","Stage");
+		Map<String, String> testdata = excelData.getTestdata("Maker1");
         String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
         driver.get(kulsApplicationUrl);
-        applicationLogin.loginUlsApplicationAsMaker(loginData.Username,loginData.Password);
+        applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));
         
     }
 
