@@ -2,6 +2,9 @@ package stepdefinitions;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,16 +18,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.ULS_ReportMasterObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.ULS_ReportMasterTestData;
 
 public class ULS_ReportMasterSteps extends BaseClass {
 	WebDriver driver = BaseClass.driver;
 	WaitHelper waitHelper = new WaitHelper(driver);
+	String filePath=System.getProperty("user.dir")+"\\Test-data\\ULSTestData.xlsx";
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	ULS_ReportMasterObj reportMasterObj = new ULS_ReportMasterObj(driver);
 	JsonConfig jsonConfig = new JsonConfig();
 	ULS_ReportMasterTestData reportMasterTestData = jsonConfig.getReportMasterTestDataByName("Maker");
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
+	ExcelData excelData= new ExcelData(filePath, "ReportMasterTestData1", "Data Set ID");
+	Map<String,String> reportMastertestData= new HashMap<>();
+	
 
 	@And("^click on view button in report master$")
 	public void click_on_view_button_in_report_master() throws Throwable {
@@ -57,6 +65,10 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterBackButton(), 10, 1);
 		Assert.assertTrue(reportMasterObj.reportMasterBackButton().isDisplayed());
 	}
+	@And("^get the test data of report master fifth test case$")
+    public void get_the_test_data_of_report_master_fifth_test_case() throws Throwable {
+		reportMastertestData=excelData.getTestdata("AT-RA-005_D1");
+    }
 
 	@And("^click on save button inreport master without filling the details$")
 	public void click_on_save_button_inreport_master_without_filling_the_details() throws Throwable {
@@ -69,46 +81,46 @@ public class ULS_ReportMasterSteps extends BaseClass {
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportNameValidation(),
 				10, 1);// Required field
-		Assert.assertEquals(reportMasterObj.remportMasterReportNameValidation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterReportNameValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName2Validation(),
 				10, 1);
-		Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName3Validation(),
 				10, 1);
-		Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterDescriptionValidation(),
 				10, 1);
-		Assert.assertEquals(reportMasterObj.remportMasterDescriptionValidation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterDescriptionValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportTypeValidation(),
 				10, 1);
-		Assert.assertEquals(reportMasterObj.remportMasterReportTypeValidation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterReportTypeValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportUrlValidation(), 10,
 				1);
-		Assert.assertEquals(reportMasterObj.remportMasterReportUrlValidation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterReportUrlValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.remportMasterReportCategoryValidation(), 10, 1);
-		Assert.assertEquals(reportMasterObj.remportMasterReportCategoryValidation().getText(), "Required field");
+		Assert.assertEquals(reportMasterObj.remportMasterReportCategoryValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
 	}
 
 	@And("^enter special charecters in text box$")
 	public void enter_special_charecters_in_text_box() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportName(), 10, 1);
-		reportMasterObj.reportName().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportName().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportName2(), 10, 1);
-		reportMasterObj.reportName2().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportName2().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportName3(), 10, 1);
-		reportMasterObj.reportName3().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportName3().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportDescription(), 10, 1);
-		reportMasterObj.reportDescription().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportDescription().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 	}
 
 	@Then("^verify system should through the validation for report master$")
@@ -116,22 +128,22 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportNameValidation(),
 				10, 1);// Required field
 		Assert.assertEquals(reportMasterObj.remportMasterReportNameValidation().getText(),
-				"Alphanumeric characters allowed");
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName2Validation(),
 				10, 1);
 		Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(),
-				"Alphanumeric characters allowed");
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName3Validation(),
 				10, 1);
 		Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(),
-				"Alphanumeric characters allowed");
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterDescriptionValidation(),
 				10, 1);
 		Assert.assertEquals(reportMasterObj.remportMasterDescriptionValidation().getText(),
-				"Alphanumeric characters allowed");
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 	}
 
 	@And("^click on back button in report master$")
@@ -162,7 +174,10 @@ public class ULS_ReportMasterSteps extends BaseClass {
 			}
 		}
 	}
-
+	@And("^get the test data of parameter details validation scenario from excel$")
+    public void get_the_test_data_of_parameter_details_validation_scenario_from_excel() throws Throwable {
+		reportMastertestData=excelData.getTestdata("AT-RA-016_D1");
+    }
 	@And("^click on save button in report parameter details without filling the mendaory details$")
 	public void click_on_save_button_in_report_parameter_details_without_filling_the_mendaory_details()
 			throws Throwable {
@@ -177,56 +192,56 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsTemplateFieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsTemplateFieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParameter1FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParameter1FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description1FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParam1Description1FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description2FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParam1Description2FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description3FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParam1Description3FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParameter2FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParameter2FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description2FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParam2Description2FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description3FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParam2Description3FieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsSequenceNoFieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsSequenceNoFieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsDateFormatFieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsDateFormatFieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsNullableValuesFieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsNullableValuesFieldValidation().getText(),
-				"Required field");
+				reportMastertestData.get("mandatoryFieldValidationMessage"));
 
 	}
 
@@ -235,7 +250,7 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsSequenceNoTextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsSequenceNoTextBox().click();
-		reportMasterObj.reportParameterDetailsSequenceNoTextBox().sendKeys(reportMasterTestData.CharecterInputs);
+		reportMasterObj.reportParameterDetailsSequenceNoTextBox().sendKeys(reportMastertestData.get("CharecterInputs"));
 
 	}
 
@@ -256,44 +271,44 @@ public class ULS_ReportMasterSteps extends BaseClass {
 	public void enter_special_charecter_inputs_in_report_parameter_details() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParameter1TextBox(), 10, 1);
-		reportMasterObj.reportParameterDetailsParameter1TextBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportParameterDetailsParameter1TextBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description1(), 10, 1);
-		reportMasterObj.reportParameterDetailsParam1Description1().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportParameterDetailsParam1Description1().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description2TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam1Description2TextBox()
-				.sendKeys(reportMasterTestData.SpecialCharacterInput);
+				.sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description3TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam1Description3TextBox()
-				.sendKeys(reportMasterTestData.SpecialCharacterInput);
+				.sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParameter2TextBox(), 10, 1);
-		reportMasterObj.reportParameterDetailsParameter2TextBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportParameterDetailsParameter2TextBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description2TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam2Description2TextBox()
-				.sendKeys(reportMasterTestData.SpecialCharacterInput);
+				.sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description3TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam2Description3TextBox()
-				.sendKeys(reportMasterTestData.SpecialCharacterInput);
+				.sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsDateFormatTextBox(), 10, 1);
-		reportMasterObj.reportParameterDetailsDateFormatTextBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+		reportMasterObj.reportParameterDetailsDateFormatTextBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsNullableValuesTextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsNullableValuesTextBox()
-				.sendKeys(reportMasterTestData.SpecialCharacterInput);
+				.sendKeys(reportMastertestData.get("SpecialCharacterInput"));
 	}
 
 	@Then("^verify system should through the validation for the special charecter inputs for special charecter$")
@@ -340,17 +355,17 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description3FieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsParam2Description3FieldValidation().getText(),
-				reportMasterTestData.SpecialCharecterValidationMessage);
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsDateFormatFieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsDateFormatFieldValidation().getText(),
-				reportMasterTestData.SpecialCharecterValidationMessage);
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsNullableValuesFieldValidation(), 10, 1);
 		Assert.assertEquals(reportMasterObj.reportParameterDetailsNullableValuesFieldValidation().getText(),
-				reportMasterTestData.SpecialCharecterValidationMessage);
+				reportMastertestData.get("SpecialCharecterValidationMessage"));
 	}
 
 	@And("^click on template field and select the data from the drop down$")
@@ -359,7 +374,7 @@ public class ULS_ReportMasterSteps extends BaseClass {
 				reportMasterObj.reportParameterDetailsTemplateDropDown(), 10, 1);
 		reportMasterObj.reportParameterDetailsTemplateDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + reportMasterTestData.TemplateIDInput
+		String xpath = "//ion-label[text()=' " + reportMastertestData.get("TemplateIDInput")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -381,7 +396,7 @@ public class ULS_ReportMasterSteps extends BaseClass {
 				reportMasterObj.reportParameterDetailsIsMandatoryDropDown(), 10, 1);
 		reportMasterObj.reportParameterDetailsIsMandatoryDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + reportMasterTestData.isMandatory + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + reportMastertestData.get("isMandatory") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -402,56 +417,56 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParameter1TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParameter1TextBox().clear();
-		reportMasterObj.reportParameterDetailsParameter1TextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParameter1TextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description1(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam1Description1().clear();
-		reportMasterObj.reportParameterDetailsParam1Description1().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParam1Description1().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description2TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam1Description2TextBox().clear();
-		reportMasterObj.reportParameterDetailsParam1Description2TextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParam1Description2TextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam1Description3TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam1Description3TextBox().clear();
-		reportMasterObj.reportParameterDetailsParam1Description3TextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParam1Description3TextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParameter2TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParameter2TextBox().clear();
-		reportMasterObj.reportParameterDetailsParameter2TextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParameter2TextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description2TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam2Description2TextBox().clear();
-		reportMasterObj.reportParameterDetailsParam2Description2TextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParam2Description2TextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsParam2Description3TextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsParam2Description3TextBox().clear();
-		reportMasterObj.reportParameterDetailsParam2Description3TextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsParam2Description3TextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsDateFormatTextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsDateFormatTextBox().clear();
-		reportMasterObj.reportParameterDetailsDateFormatTextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsDateFormatTextBox().sendKeys(reportMastertestData.get("NumericInput"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsNullableValuesTextBox(), 10, 1);
 		reportMasterObj.reportParameterDetailsNullableValuesTextBox().clear();
-		reportMasterObj.reportParameterDetailsNullableValuesTextBox().sendKeys(reportMasterTestData.NumericInput);
+		reportMasterObj.reportParameterDetailsNullableValuesTextBox().sendKeys(reportMastertestData.get("NumericInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				reportMasterObj.reportParameterDetailsReportParameterDetailsSaveButton(), 10, 1);
 		reportMasterObj.reportParameterDetailsReportParameterDetailsSaveButton().click();
 	}
 
-	@Then("^verify system should not allow user to save the parameter details record$")
-	public void verify_system_should_not_allow_user_to_save_the_parameter_details_record() throws Throwable {
+	@Then("^verify system should allow user to save the parameter details record$")
+	public void verify_system_should_allow_user_to_save_the_parameter_details_record() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.toastAlert(), 30, 1);
-		Assert.assertFalse(reportMasterObj.toastAlert().isDisplayed());
+		Assert.assertTrue(reportMasterObj.toastAlert().isDisplayed());
 	}
 
 	@And("^click on view button neqar by report master module$")
@@ -488,7 +503,10 @@ public class ULS_ReportMasterSteps extends BaseClass {
 			reportMasterObj.reportMasterReportNameInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 	}
-
+	@And("^get the test data o report master tenth test case$")
+    public void get_the_test_data_o_report_master_tenth_test_case() throws Throwable {
+		reportMastertestData=excelData.getTestdata("AT-RA-010_D1");
+    }
 	@And("^clear input data of Report Name 2 field$")
 	public void clear_input_data_of_report_name_2_field() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportname2DataHolder(),
@@ -534,7 +552,7 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportTypeDropdown(), 10,
 				1);
 		reportMasterObj.reportMasterReportTypeDropdown().click();
-		String xpath = "//ion-label[text()=' " + reportMasterTestData.defaultSelectValue
+		String xpath = "//ion-label[text()=' " + reportMastertestData.get("defaultSelectValue")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -567,7 +585,7 @@ public class ULS_ReportMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportCategoryDropdown(),
 				10, 1);
 		reportMasterObj.reportMasterReportCategoryDropdown().click();
-		String xpath = "//ion-label[text()=' " + reportMasterTestData.defaultSelectValue
+		String xpath = "//ion-label[text()=' " + reportMastertestData.get("defaultSelectValue")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -591,52 +609,52 @@ public class ULS_ReportMasterSteps extends BaseClass {
 	@Then("^verify all the mandatory field should show the validation for blank field$")
     public void verify_all_the_mandatory_field_should_show_the_validation_for_blank_field() throws Throwable {
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportNameFieldValidation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.reportMasterReportNameFieldValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     Assert.assertEquals(reportMasterObj.reportMasterReportNameFieldValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
      
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName2Validation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
      
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName3Validation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
      
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportTypeDropdownFieldValidation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.reportMasterReportTypeDropdownFieldValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     Assert.assertEquals(reportMasterObj.reportMasterReportTypeDropdownFieldValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
      
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportURLFieldValidation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.reportMasterReportURLFieldValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     Assert.assertEquals(reportMasterObj.reportMasterReportURLFieldValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
      
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportCategoryValidation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.remportMasterReportCategoryValidation().getText(), reportMasterTestData.mandatoryFieldValidationMessage);
+     Assert.assertEquals(reportMasterObj.remportMasterReportCategoryValidation().getText(), reportMastertestData.get("mandatoryFieldValidationMessage"));
     }
 	@Then("^verify report name field should through the validation message post enter the special character input$")
     public void verify_report_name_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportNameInputBox(), 10, 1);
-     reportMasterObj.reportMasterReportNameInputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+     reportMasterObj.reportMasterReportNameInputBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
      waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportNameValidation(), 10, 1);
-     Assert.assertEquals(reportMasterObj.remportMasterReportNameValidation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);
+     Assert.assertEquals(reportMasterObj.remportMasterReportNameValidation().getText(), reportMastertestData.get("SpecialCharecterValidationMessage"));
     }
 
     @Then("^verify report name 2 field should through the validation message post enter the special character input$")
     public void verify_report_name_2_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportName2InputBox(), 10, 1);
-        reportMasterObj.reportMasterReportName2InputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+        reportMasterObj.reportMasterReportName2InputBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
         waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName2Validation(), 10, 1);
-        Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);     
+        Assert.assertEquals(reportMasterObj.remportMasterReportName2Validation().getText(), reportMastertestData.get("SpecialCharecterValidationMessage"));     
     }
 
     @Then("^verify report name 3 field should through the validation message post enter the special character input$")
     public void verify_report_name_3_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportName3InputBox(), 10, 1);
-        reportMasterObj.reportMasterReportName3InputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+        reportMasterObj.reportMasterReportName3InputBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
         waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.remportMasterReportName3Validation(), 10, 1);
-        Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);     
+        Assert.assertEquals(reportMasterObj.remportMasterReportName3Validation().getText(), reportMastertestData.get("SpecialCharecterValidationMessage"));     
     }
 
     @Then("^verify report Description field should through the validation message post enter the special character input$")
     public void verify_report_description_field_should_through_the_validation_message_post_enter_the_special_character_input() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportDescriptionInputBox(), 10, 1);
-        reportMasterObj.reportMasterReportDescriptionInputBox().sendKeys(reportMasterTestData.SpecialCharacterInput);
+        reportMasterObj.reportMasterReportDescriptionInputBox().sendKeys(reportMastertestData.get("SpecialCharacterInput"));
         waitHelper.waitForElementToVisibleWithFluentWait(driver, reportMasterObj.reportMasterReportDescriptionFieldValidation(), 10, 1);
-        Assert.assertEquals(reportMasterObj.reportMasterReportDescriptionFieldValidation().getText(), reportMasterTestData.SpecialCharecterValidationMessage);     
+        Assert.assertEquals(reportMasterObj.reportMasterReportDescriptionFieldValidation().getText(), reportMastertestData.get("SpecialCharecterValidationMessage"));     
     }
 }
