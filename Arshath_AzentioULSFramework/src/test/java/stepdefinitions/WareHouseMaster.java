@@ -50,7 +50,7 @@ public class WareHouseMaster extends BaseClass {
 	BrowserHelper browserHelper = new BrowserHelper(driver);
 	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "WarehouseMasterTestData", "Data Set ID") ;
 	Map<String, String> testData;
-
+	Map<String, String> testdata = new HashMap<>();
 	@Given("^user login as uls application checker$")
 	public void user_log_in_as_uls_application_checker() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -1086,49 +1086,49 @@ public class WareHouseMaster extends BaseClass {
 	public void get_the_approved_record_data() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description1(), 50, 1);
 		String description = warehousrobj.Warehouse_Description1().getAttribute("ng-reflect-model");
-		testData.put("description", description);
+		testdata.put("description", description);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address1(), 50, 1);
 		String address = warehousrobj.Warehouse_Address1().getAttribute("ng-reflect-model");
-		testData.put("address", address);
+		testdata.put("address", address);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseCountryDropDownData(), 50, 1);
 		String country = warehousrobj.wareHouseCountryDropDownData().getAttribute("aria-label");
-		testData.put("country", country);
+		testdata.put("country", country);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseStateDropDown(), 50, 1);
 		String state = warehousrobj.wareHouseStateDropDown().getAttribute("aria-label");
-		testData.put("state", state);
+		testdata.put("state", state);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseCityDropDown(), 50, 1);
 		String city = warehousrobj.wareHouseCityDropDown().getAttribute("aria-label");
-		testData.put("city", city);
+		testdata.put("city", city);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseZipCodeDropDOwnDataHolder(), 50,
 				1);
 		String ZipCode = warehousrobj.wareHouseZipCodeDropDOwnDataHolder().getAttribute("aria-label");
-		testData.put("ZipCode", ZipCode);
+		testdata.put("ZipCode", ZipCode);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Phone1_validation1(), 50, 1);
 		String phone1 = warehousrobj.Warehouse_Phone1_validation1().getAttribute("ng-reflect-model");
-		testData.put("phone1", phone1);
+		testdata.put("phone1", phone1);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax1(), 50, 1);
 		String fax = warehousrobj.Warehouse_Fax1().getAttribute("ng-reflect-model");
-		testData.put("fax", fax);
+		testdata.put("fax", fax);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email1(), 50, 1);
 		String email = warehousrobj.Warehouse_Email1().getAttribute("ng-reflect-model");
-		testData.put("email", email);
+		testdata.put("email", email);
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ContactPerson1(), 50, 1);
 		String contactPerson = warehousrobj.Warehouse_ContactPerson1().getAttribute("ng-reflect-model");
-		testData.put("contactPerson", contactPerson);
+		testdata.put("contactPerson", contactPerson);
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// warehousrobj.wareHouseToggleButton(), 50, 1);
 		String status = warehousrobj.wareHouseToggleButton().getAttribute("value");
-		testData.put("status", status);
+		testdata.put("status", status);
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseBackButton(), 50, 1);
 		warehousrobj.wareHouseBackButton().click();
 	}
@@ -1137,14 +1137,14 @@ public class WareHouseMaster extends BaseClass {
 	public void verify_system_should_display_the_currect_description_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouse_ListViewDescription(), 50, 1);
 		warehousrobj.wareHouse_ListViewDescription().getText();
-		System.out.println("Description is" + warehousrobj.wareHouse_ListViewDescription().getText()+ "Summary Description is" + testData.get("description"));
-		Assert.assertEquals(testData.get("description"), warehousrobj.wareHouse_ListViewDescription().getText());
+		System.out.println("Description is" + warehousrobj.wareHouse_ListViewDescription().getText()+ "Summary Description is" + testdata.get("description"));
+		Assert.assertEquals(testdata.get("description"), warehousrobj.wareHouse_ListViewDescription().getText());
 	}
 
 	@Then("^verify system should display the currect address value$")
 	public void verify_system_should_display_the_currect_address_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewAddress(), 50, 1);
-		Assert.assertEquals(testData.get("address"), warehousrobj.wareHouseListViewAddress().getText());
+		Assert.assertEquals(testdata.get("address"), warehousrobj.wareHouseListViewAddress().getText());
 	}
 
 	@Then("^verify System should display the currect country value$")
@@ -1152,7 +1152,7 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewCountry(), 50, 1);
 		// Assert.assertEquals(testData.get("country"),
 		// warehousrobj.wareHouseListViewCountry().getText());
-		Assert.assertTrue(testData.get("country").contains(warehousrobj.wareHouseListViewCountry().getText()));
+		Assert.assertTrue(testdata.get("country").contains(warehousrobj.wareHouseListViewCountry().getText()));
 	}
 
 	@Then("^verify system should display the currect state value$")
@@ -1160,7 +1160,7 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewState(), 50, 1);
 		// Assert.assertEquals(testData.get("state"),
 		// warehousrobj.wareHouseListViewState().getText());
-		Assert.assertTrue(testData.get("state").contains(warehousrobj.wareHouseListViewState().getText()));
+		Assert.assertTrue(testdata.get("state").contains(warehousrobj.wareHouseListViewState().getText()));
 	}
 
 	@Then("^verify system should display the currect city value$")
@@ -1168,7 +1168,7 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewCity(), 50, 1);
 		// Assert.assertEquals(testData.get("city"),
 		// warehousrobj.wareHouseListViewCity().getText());
-		Assert.assertTrue(testData.get("city").contains(warehousrobj.wareHouseListViewCity().getText()));
+		Assert.assertTrue(testdata.get("city").contains(warehousrobj.wareHouseListViewCity().getText()));
 	}
 
 	@Then("^verify system should display the currect zip code value$")
@@ -1178,38 +1178,38 @@ public class WareHouseMaster extends BaseClass {
 		// warehousrobj.wareHouseListViewCity().getText());
 		// Assert.assertEquals(testData.get("ZipCode"),
 		// warehousrobj.wareHouseListViewZipCode().getText());
-		Assert.assertTrue(testData.get("ZipCode").contains(warehousrobj.wareHouseListViewZipCode().getText()));
+		Assert.assertTrue(testdata.get("ZipCode").contains(warehousrobj.wareHouseListViewZipCode().getText()));
 	}
 
 	@Then("^verify system should display the currect phone 1 value$")
 	public void verify_system_should_display_the_currect_phone_1_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewPhone1(), 50, 1);
-		Assert.assertEquals(testData.get("phone1"), warehousrobj.wareHouseListViewPhone1().getText());
+		Assert.assertEquals(testdata.get("phone1"), warehousrobj.wareHouseListViewPhone1().getText());
 	}
 
 	@Then("^verify system should display the currect fax value$")
 	public void verify_system_should_display_the_currect_fax_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewFax(), 50, 1);
-		Assert.assertEquals(testData.get("fax"), warehousrobj.wareHouseListViewFax().getText());
+		Assert.assertEquals(testdata.get("fax"), warehousrobj.wareHouseListViewFax().getText());
 	}
 
 	@Then("^verify system should display the currect mail value$")
 	public void verify_system_should_display_the_currect_mail_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewEmail(), 50, 1);
-		Assert.assertEquals(testData.get("email"), warehousrobj.wareHouseListViewEmail().getText());
+		Assert.assertEquals(testdata.get("email"), warehousrobj.wareHouseListViewEmail().getText());
 	}
 
 	@Then("^verify system shoudl display the currect contarct person value$")
 	public void verify_system_shoudl_display_the_currect_contarct_person_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseListViewContactPerson(), 50, 1);
-		Assert.assertEquals(testData.get("contactPerson"), warehousrobj.wareHouseListViewContactPerson().getText());
+		Assert.assertEquals(testdata.get("contactPerson"), warehousrobj.wareHouseListViewContactPerson().getText());
 	}
 
 	@Then("^verify system shoudl display the exact status of the record$")
 	public void verify_system_shoudl_display_the_exact_status_of_the_record() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseStatus(), 50, 1);
 		if (warehousrobj.wareHouseStatus().getText().equals("Active")) {
-			Assert.assertEquals(testData.get("status"), "on");
+			Assert.assertEquals(testdata.get("status"), "on");
 		}
 
 	}

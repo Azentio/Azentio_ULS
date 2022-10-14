@@ -39,7 +39,7 @@ When user click Config Manager menu
 And Click the eye icon of the alloction master
 Then Verify the approved record is available in the list view in allocation master
 
-@Allocation_Master_M1
+@Allocation_Master_Prereq
 Scenario: To Create the allocation master with valid details
 Given User Launch the KULS application 
 Then user click on configurations Tab

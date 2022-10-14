@@ -3,7 +3,9 @@ package stepdefinitions;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.tools.ant.filters.LineContains.Contains;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +22,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageobjects.AllocationMasterObject;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.AllocationMasterTestData;
 import testDataType.KULS_Login_TestDataType;
@@ -39,6 +42,9 @@ public class AllocationMaster extends BaseClass {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	String Toast;
 	List<String> xlsList = new ArrayList<>();
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "AllocationMasterTestData", "Data Set ID") ;
+	Map<String, String> testData;
+	
 	
 	 @And("^Click the eye icon of the alloction master$")
 	    public void click_the_eye_icon_of_the_alloction_master() throws Throwable {
@@ -66,14 +72,15 @@ public class AllocationMaster extends BaseClass {
 	    public void enter_the_description_fields_in_the_allocation_master() throws Throwable {
 			 waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationMaster_DiscriptionTextBox(), 60, 2);
 			 allocationMstObj.AllocationMaster_DiscriptionTextBox().click();
-			 allocationMstObj.AllocationMaster_DiscriptionTextBox().sendKeys(allocationMasterData.Description);
+			 testData = exceldata.getTestdata("AT-ALM-001_D1");
+			 allocationMstObj.AllocationMaster_DiscriptionTextBox().sendKeys(testData.get("Description"));
 	    }
 
 	    @And("^Enter the allocation code value in the allocation master$")
 	    public void enter_the_allocation_code_value_in_the_allocation_master() throws Throwable {
 			 waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationMaster_AllocationCodeTextBox(), 60, 2);
 			 allocationMstObj.AllocationMaster_AllocationCodeTextBox().click();
-			 allocationMstObj.AllocationMaster_AllocationCodeTextBox().sendKeys(allocationMasterData.AllocationCode);
+			 allocationMstObj.AllocationMaster_AllocationCodeTextBox().sendKeys(testData.get("Allocation code"));
 	    }
 
 	    @Then("^Save the record in allocation master$")
@@ -87,7 +94,7 @@ public class AllocationMaster extends BaseClass {
 			 waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationMaster_PopUp(), 60, 2);
 	    	String popup = allocationMstObj.AllocationMaster_PopUp().getText();
 			System.out.println("The system displays the confirmation message post clicking on Save button" + popup);
-			Assert.assertEquals("success", popup);
+			Assert.assertTrue(popup.contains("Success"));
 	    }
 	    @Then("^Click the inbox in allocation master$")
 	    public void click_the_inbox_in_allocation_master() throws Throwable {
@@ -102,7 +109,7 @@ public class AllocationMaster extends BaseClass {
 			 waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationMaster_SearchText(), 60, 2);
 				action.getClickAndActionsHelper().moveToElement(allocationMstObj.AllocationMaster_SearchText());
 				allocationMstObj.AllocationMaster_SearchText().click();
-				allocationMstObj.AllocationMaster_SearchText().sendKeys(allocationMasterData.SearchText);
+				allocationMstObj.AllocationMaster_SearchText().sendKeys(testData.get("Search"));
 			 
 	    }
 
@@ -111,7 +118,8 @@ public class AllocationMaster extends BaseClass {
 			 waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationMaster_GetRefId(), 60, 2);
 			 String RefId = allocationMstObj.AllocationMaster_GetRefId().getText();
 				System.out.println(RefId);
-				json.addReferanceData(RefId);
+				exceldata.updateTestData("AT-ALM-002_D1", "Reference ID", RefId);
+				//json.addReferanceData(RefId);
 	    }
 
 	    @And("^Click the action icon of respective allocation master$")
@@ -137,7 +145,8 @@ public class AllocationMaster extends BaseClass {
 				String split[] = CheckerId.split(" ");
 				Space = split[split.length - 1];
 				String popupID = Space.replaceAll("[/.]", "");
-				json.addData(popupID);
+				exceldata.updateTestData("AT-ALM-002_D1", "Checker id", popupID);
+				//json.addData(popupID);
 				System.out.println(popupID);
 			}
 
@@ -149,8 +158,9 @@ public class AllocationMaster extends BaseClass {
 		public void get_the_url_and_login_as_checkers() throws Throwable {
 			String kulsApplicationUrl = configFileRead.getApplicationUrl();
 			driver.get(kulsApplicationUrl);
-			System.out.println(json.readdata());
-			login.ulSApplicationLoginAsAChecker(json.readdata());
+			testData = exceldata.getTestdata("AT-ALM-002_D1");
+			System.out.println(testData.get("Checker id"));
+			login.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 		}
 
 		@Then("^Click the menu icon in allocation Master$")
@@ -173,10 +183,11 @@ public class AllocationMaster extends BaseClass {
 		public void search_the_reference_id_and_click_the_respective_action_icon_in_allocation_Master() throws Throwable {
 //	    	waitHelper.waitForElementToVisibleWithFluentWait(driver,
 //					driver.findElement(By.xpath("//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button")),60, 2);
+			testData = exceldata.getTestdata("AT-WHM-T002_D1");
 			for (int i = 0; i < 60; i++) {
 				try {
 					driver.findElement(
-							By.xpath("//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button"))
+							By.xpath("//span[text()='" + testData.get("Reference ID") + "']/ancestor::tr/td[1]/button"))
 							.click();
 					break;
 				} catch (Exception e) {
@@ -507,7 +518,7 @@ public void choose_the_allocation_based_value_in_allocation_detail() throws Thro
 		try {
 	
 	//driver.findElement(By.xpath("//ion-label[text()='"+allocationMasterData.AllocationBasedOn+"']/following-sibling::ion-radio")).click();
-			driver.findElement(By.xpath("//ion-label[contains(text(),'" + allocationMasterData.AllocationBasedOn
+			driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Allocation Based On")
 					+ "')]/following-sibling::ion-radio")).click();
 			break;
 		}
@@ -521,7 +532,7 @@ public void choose_the_allocation_based_value_in_allocation_detail() throws Thro
 public void fill_the_level_no_in_allocation_details() throws Throwable {
 	waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.allocationDetail_LevelNo(), 60, 2);
 	allocationMstObj.allocationDetail_LevelNo().click();
-	allocationMstObj.allocationDetail_LevelNo().sendKeys(allocationMasterData.LevelNo);
+	allocationMstObj.allocationDetail_LevelNo().sendKeys(testData.get("Level No"));
 
 }
 @And("^Choose the order by value in allocation Details$")
@@ -530,7 +541,7 @@ public void choose_the_order_by_value_in_allocation_details() throws Throwable {
 	allocationMstObj.allocationDetail_OrderBy_Dropdown().click();
 	for (int i = 0; i < 20; i++) {
 		try {
-			driver.findElement(By.xpath("//ion-label[contains(text(),'"+allocationMasterData.OrderBy+"')]/following-sibling::ion-radio")).click();
+			driver.findElement(By.xpath("//ion-label[contains(text(),'"+testData.get("Order By")+"')]/following-sibling::ion-radio")).click();
 		}
 		catch (Exception e) {
 		}

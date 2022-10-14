@@ -338,7 +338,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And click on view button in ware house master
 And select the first approved record
-#And Get The approved record data
+And Get The approved record data
 Then verify System should display the currect description value
 Then verify system should display the currect address value
 #Then verify System should display the currect country value
