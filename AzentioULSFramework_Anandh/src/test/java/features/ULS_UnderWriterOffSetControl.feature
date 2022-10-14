@@ -8,6 +8,7 @@ And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
+And get the test data of the first test case from excel file
 Then verify back button and save buttons are visible when user click on add button
 Then verify minimum value input box should be mendatory and field should be text box
 And user can able to enter the minimum value input box
@@ -26,8 +27,9 @@ Then store the checker id
 @AT_UOC_T002
 Scenario: To verify checker user can able to approve the under writer off set control record
 Given Navigate to ULS application URL
-Then login with checker user
+Then login with checker user for approve the under writer record
 And click on menu button
+And get the test data of the first test case from excel file
 Then select the under writer record in checker stage
 And click on approve button in checker stage to approve the under writer off set control record
 And give the checker remark in alert pop up for approve the under writer record
@@ -42,26 +44,30 @@ And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
+And get the test data for checker reject creation
+#And get the test data of the first test case from excel file
 Then verify back button and save buttons are visible when user click on add button
 Then verify minimum value input box should be mendatory and field should be text box
-And user can able to enter the minimum value input box for checker reject
+And user can able to enter the minimum value input box
 Then verify maximum value input box should be mendatory and field should be text box
-And user can able to enter the maximum value input box for checker reject
+And user can able to enter the maximum value input box
 #Then verify available field should be non mendatory and field should be display only
 ##Then verify selected field should be non mendatory and field should be display only
 Then click on save button in under writer off set screen
 When click on mail box after saving the under writer record
 Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first under writer off set record for the checker reject record
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id
+Then store the checker id for checker reject
+
 #UOC_01_10
 @AT_UOC_T003
 Scenario: To verify checker user can able to reject the record
 Given Navigate to ULS application URL
-Then login with checker user for return the under writer record
+Then login with checker user for reject the under writer record
 And click on menu button
+And get the test data for checker reject scenario
 Then select the under writer record in checker stage
 And click on reject button in checker stage to return the under writer off set control record
 And give the checker remark in alert pop up for reject the under writer record
@@ -77,19 +83,20 @@ And click on config Manager main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
 Then verify back button and save buttons are visible when user click on add button
+And get the test data of checker return scenario
 Then verify minimum value input box should be mendatory and field should be text box
-And user can able to enter the minimum value input box for checker return
+And user can able to enter the minimum value input box
 Then verify maximum value input box should be mendatory and field should be text box
-And user can able to enter the maximum value input box for checker return
+And user can able to enter the maximum value input box
 #Then verify available field should be non mendatory and field should be display only
 ##Then verify selected field should be non mendatory and field should be display only
 Then click on save button in under writer off set screen
 When click on mail box after saving the under writer record
 Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first under writer off set record whcih is going to return in checker
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id
+Then store the checker id for checker return
 #UOC_01_11
 @AT_UOC_T004
 Scenario: To verify checker user can able to return the record
@@ -110,6 +117,7 @@ And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
+And get the test data for negative scenarios in excel file
 And click on save button before entering mendatory details
 Then verify system should show the validation for minimum and maximum value mendatory fields
 And fill the alphabets in minimum and maximum value input box 
@@ -129,26 +137,27 @@ And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
 Then click on add button to create under writer off set record
+And get the test data of the first test case from excel file
 Then verify back button and save buttons are visible when user click on add button
 Then verify minimum value input box should be mendatory and field should be text box
-And user can able to enter the minimum value input box for checker reject
+And user can able to enter the minimum value input box
 Then verify maximum value input box should be mendatory and field should be text box
-And user can able to enter the maximum value input box for checker reject
+And user can able to enter the maximum value input box
 #Then verify available field should be non mendatory and field should be display only
 ##Then verify selected field should be non mendatory and field should be display only
 Then click on save button in under writer off set screen
 When click on mail box after saving the under writer record
 Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first record of under Writer off set control record
 And update the minimum and maximum value fields 
 Then click on save button after updating the under writer off set screen
 When click on mail box after saving the under writer record
 #Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first record of under Writer off set control record
 Then verify record is updated or not
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id
+Then store the checker id for updated record
 #Approval
 @AT_UOC_T002.2
 Scenario: To verify checker user can able to approve the under writer off set control record

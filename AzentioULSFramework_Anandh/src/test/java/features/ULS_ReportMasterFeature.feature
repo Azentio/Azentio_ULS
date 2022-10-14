@@ -1,7 +1,7 @@
 Feature: To Test the Report master module
-
-#RM_02_01,RM_02_02,RM_02_03,RM_02_04
+@AT_RM_T005
 Scenario: To verify maker user can able to create the report master record with invalid inputs
+#RM_02_01,RM_02_02,RM_02_03,RM_02_04
 Given Navigate to ULS application URL
 Then login with valid maker credentials
 And go to configuration main menu
@@ -59,7 +59,7 @@ Then verify report name 2 field should through the validation message post enter
 Then verify report name 3 field should through the validation message post enter the special character input
 Then verify report Description field should through the validation message post enter the special character input
 @AT-RA-028
-Scenario: To verify checker user can able to approve the Lo Module waiver record
+Scenario: To verify checker user can able to approve the Report group master record
 Given Navigate to ULS application URL
 And login with checker credentials
 And click on notificatrion in checker stage
@@ -69,7 +69,7 @@ And enter the remark in alert tab
 And click on approve button in alert box
 Then verify record is approved in checker stage 
 @AT-RA-029
-Scenario: To verify checker user can able to rejected the Lo Module waiver record
+Scenario: To verify checker user can able to rejected the Report group master record
 Given Navigate to ULS application URL
 And login with checker credentials
 And click on notificatrion in checker stage
@@ -83,8 +83,8 @@ Scenario: To verify maker user can able to create report parameter details recor
 Given Navigate to ULS application URL
 Then login with valid maker credentials
 And go to configuration main menu
-And Go to config manager main menu
-And click on view button in report master
+And click on config Manager main module
+And click on view button neqar by report master module
 And click on add button in report master
 And click on add button in report parameter details 
 And click on save button in report parameter details without filling the mendaory details 

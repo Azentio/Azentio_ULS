@@ -18,6 +18,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ULS_UnderWriterOffSetControlObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_UnderWriterOffSetControlTestData;
 
@@ -32,7 +33,10 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 	JsonDataReaderWriter jsondataReaderWriter = new JsonDataReaderWriter();
 	KULS_Application_Login kulsLogin = new KULS_Application_Login(driver);
 	Map<String, String> underWriterData = new HashMap<>();
+	Map<String, String> underWriterTestData = new HashMap<>();
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
+	String filePath=System.getProperty("user.dir")+"\\Test-data\\ULSTestData.xlsx";
+	ExcelData excelData= new ExcelData(filePath,"UnderWriterOffSetTestData","Data Set ID");
 
 	@And("^click on business rules main module$")
 	public void click_on_business_rules_main_module() throws Throwable {
@@ -62,8 +66,18 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlAddButton(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlAddButton().click();
-	}
-
+	}@And("^get the test data for checker reject creation$")
+    public void get_the_test_data_for_checker_reject_creation() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T003_D2");
+    }
+	@And("^get the test data of the first test case from excel file$")
+    public void get_the_test_data_of_the_first_test_case_from_excel_file() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T001_2_D1");
+    }
+	@And("^get the test data of checker return scenario$")
+    public void get_the_test_data_of_checker_return_scenario() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T004_D3");
+    }
 	@Then("^verify back button and save buttons are visible when user click on add button$")
 	public void verify_back_button_and_save_buttons_are_visible_when_user_click_on_add_button() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
@@ -89,8 +103,9 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 	@And("^user can able to enter the minimum value input box$")
 	public void user_can_able_to_enter_the_minimum_value_input_box() throws Throwable {
+		System.out.println("Minimumvalud Test data "+underWriterTestData.get("MinimumValue"));
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.MinimumValue);
+				.sendKeys(underWriterTestData.get("MinimumValue"));
 	}
 
 	@Then("^verify maximum value input box should be mendatory and field should be text box$")
@@ -109,7 +124,8 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 	@And("^user can able to enter the maximum value input box$")
 	public void user_can_able_to_enter_the_maximum_value_input_box() throws Throwable {
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.MaximumValue);
+				.sendKeys(underWriterTestData.get("MaximumValue"));
+		//MaximumValue
 	}
 
 	@And("^user can able to enter the minimum value input box for checker reject$")
@@ -168,7 +184,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		for (int i = 0; i <= 30; i++) {
 			try {
 				driver.findElement(By.xpath(
-						"//span[text()='" + jsondataReaderWriter.readReferancedata() + "']/ancestor::tr/td[1]/button"))
+						"//span[text()='" + underWriterTestData.get("Reference ID") + "']/ancestor::tr/td[1]/button"))
 						.click();
 				break;
 			} catch (Exception e) {
@@ -189,20 +205,67 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		clicksAndActionsHelper.moveToElement(underWriterOffSetControlObj.underWriterOffSetControlSearchTextBoxInbox());
 		clicksAndActionsHelper.clickOnElement(underWriterOffSetControlObj.underWriterOffSetControlSearchTextBoxInbox());
 		underWriterOffSetControlObj.underWriterOffSetControlSearchTextBoxInbox()
-				.sendKeys(underWriterOffSetControlTestData.eventCode);
+				.sendKeys(underWriterTestData.get("ModuleCode"));
 	}
 
 	@And("^click on first under writer off set record$")
 	public void click_on_first_under_writer_off_set_record() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlreferenceID(), 5, 1);
-		jsondataReaderWriter
-				.addReferanceData(underWriterOffSetControlObj.underWriterOffSetControlreferenceID().getText());
+		excelData.updateTestData("AT_UOC_T001_2_D1", "Reference ID", underWriterOffSetControlObj.underWriterOffSetControlreferenceID().getText());
+		
+		
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.underWriterOffSetControlfirstRecord(), 5, 1);
 		underWriterOffSetControlObj.underWriterOffSetControlfirstRecord().click();
 	}
-
+	@And("^click on first record of under Writer off set control record$")
+    public void click_on_first_record_of_under_writer_off_set_control_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlreferenceID(), 5, 1);
+		String referenceNumber="";
+		for(int i=0;i<=30;i++)
+		{
+			try
+			{
+		 referenceNumber = underWriterOffSetControlObj.underWriterOffSetControlreferenceID().getText();
+		break;
+			}
+			catch(Exception e)
+			{
+				if(i==30)
+				{
+					Assert.fail(e.getMessage());
+				}
+			}
+			}
+		excelData.updateTestData("AT_UOC_T006_D6", "Reference ID", referenceNumber);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlfirstRecord(), 5, 1);
+		underWriterOffSetControlObj.underWriterOffSetControlfirstRecord().click();
+    }
+	 @And("^click on first under writer off set record for the checker reject record$")
+	    public void click_on_first_under_writer_off_set_record_for_the_checker_reject_record() throws Throwable {
+		 waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					underWriterOffSetControlObj.underWriterOffSetControlreferenceID(), 5, 1);
+			excelData.updateTestData("AT_UOC_T003_D2", "Reference ID", underWriterOffSetControlObj.underWriterOffSetControlreferenceID().getText());
+			
+			
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					underWriterOffSetControlObj.underWriterOffSetControlfirstRecord(), 5, 1);
+			underWriterOffSetControlObj.underWriterOffSetControlfirstRecord().click();
+	    }
+	 @And("^click on first under writer off set record whcih is going to return in checker$")
+	    public void click_on_first_under_writer_off_set_record_whcih_is_going_to_return_in_checker() throws Throwable {
+		 waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					underWriterOffSetControlObj.underWriterOffSetControlreferenceID(), 5, 1);
+			excelData.updateTestData("AT_UOC_T004_D3", "Reference ID", underWriterOffSetControlObj.underWriterOffSetControlreferenceID().getText());
+			
+			
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,
+					underWriterOffSetControlObj.underWriterOffSetControlfirstRecord(), 5, 1);
+			underWriterOffSetControlObj.underWriterOffSetControlfirstRecord().click();
+	    }
 	@And("^submit the under writer off set record$")
 	public void submit_the_under_writer_off_set_record() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
@@ -234,16 +297,52 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		System.out.println(submitedStatus);
 		String substring = submitedStatus.substring(83);
 		System.out.println("Reviewer ID " + substring.replace(".", ""));
-		jsondataReaderWriter.addData(substring.replace(".", "").trim());
+		excelData.updateTestData("AT_UOC_T001_2_D1", "Checker id", substring.replace(".", "").trim());
+		//jsondataReaderWriter.addData(substring.replace(".", "").trim());
 	}
+	@Then("^store the checker id for checker reject$")
+    public void store_the_checker_id_for_checker_reject() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert(), 5, 1);
+		String submitedStatus = underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert().getText();
 
+		System.out.println(submitedStatus);
+		String substring = submitedStatus.substring(83);
+		System.out.println("Reviewer ID " + substring.replace(".", ""));
+		excelData.updateTestData("AT_UOC_T003_D2", "Checker id", substring.replace(".", "").trim());
+    }
+	@Then("^store the checker id for checker return$")
+    public void store_the_checker_id_for_checker_return() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert(), 5, 1);
+		String submitedStatus = underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert().getText();
+
+		System.out.println(submitedStatus);
+		String substring = submitedStatus.substring(83);
+		System.out.println("Reviewer ID " + substring.replace(".", ""));
+		excelData.updateTestData("AT_UOC_T004_D3", "Checker id", substring.replace(".", "").trim());
+    }
+	@Then("^store the checker id for updated record$")
+    public void store_the_checker_id_for_updated_record() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert(), 5, 1);
+		String submitedStatus = underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert().getText();
+
+		System.out.println(submitedStatus);
+		String substring = submitedStatus.substring(83);
+		System.out.println("Reviewer ID " + substring.replace(".", ""));
+		excelData.updateTestData("AT_UOC_T006_D6", "Checker id", substring.replace(".", "").trim());
+    }
 	@Then("^click on approve button to approve the under writer record$")
 	public void click_on_approve_button_to_approve_the_under_writer_record() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, underWriterOffSetControlObj.checkerApproveButton(), 5,
 				1);
 		underWriterOffSetControlObj.checkerApproveButton().click();
 	}
-
+	@And("^get the test data for checker reject scenario$")
+    public void get_the_test_data_for_checker_reject_scenario() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T003_D2");
+    }
 	@And("^click on reject button in checker stage to return the under writer off set control record$")
 	public void click_on_reject_button_in_checker_stage_to_return_the_under_writer_off_set_control_record()
 			throws Throwable {
@@ -263,7 +362,8 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 	// Checker scenario
 	@Then("^login with checker user for return the under writer record$")
 	public void login_with_checker_user_for_return_the_under_writer_record() throws Throwable {
-		kulsLogin.ulSApplicationLoginAsAChecker(jsondataReaderWriter.readdata());
+		underWriterTestData=excelData.getTestdata("AT_UOC_T004_D3");
+		kulsLogin.ulSApplicationLoginAsAChecker(underWriterTestData.get("Checker id"));
 	}
 
 	@And("^click on menu button$")
@@ -282,7 +382,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				1);
 		underWriterOffSetControlObj.checkerAlertRemark().click();
 		underWriterOffSetControlObj.checkerAlertRemark()
-				.sendKeys(underWriterOffSetControlTestData.CheckerRemarkforReturn);
+				.sendKeys(underWriterTestData.get("ChekcerRemark"));
 	}
 
 	@And("^click on return button in remark pop up for return the under writer record$")
@@ -335,9 +435,19 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				1);
 		underWriterOffSetControlObj.checkerAlertRemark().click();
 		underWriterOffSetControlObj.checkerAlertRemark()
-				.sendKeys(underWriterOffSetControlTestData.CheckerRemarkforReject);
+				.sendKeys(underWriterTestData.get("ChekcerRemark"));
 	}
-
+	@Then("^login with checker user for approve the under writer record$")
+    public void login_with_checker_user_for_approve_the_under_writer_record() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T001_2_D1");
+		kulsLogin.ulSApplicationLoginAsAChecker(underWriterTestData.get("Checker id"));
+    }
+	@Then("^login with checker user for reject the under writer record$")
+    public void login_with_checker_user_for_reject_the_under_writer_record() throws Throwable {
+		//Map<String,String> loginTestData= new HashMap<>();
+		underWriterTestData=excelData.getTestdata("AT_UOC_T003_D2");
+		kulsLogin.ulSApplicationLoginAsAChecker(underWriterTestData.get("Checker id"));
+    }
 	@And("^click on approve button in checker stage to approve the under writer off set control record$")
 	public void click_on_approve_button_in_checker_stage_to_approve_the_under_writer_off_set_control_record()
 			throws Throwable {
@@ -352,7 +462,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				1);
 		underWriterOffSetControlObj.checkerAlertRemark().click();
 		underWriterOffSetControlObj.checkerAlertRemark()
-				.sendKeys(underWriterOffSetControlTestData.CheckerRemarkforApprove);
+				.sendKeys(underWriterTestData.get("ChekcerRemark"));
 	}
 
 	@And("^click on approve button in remark pop up for approve the under writer record$")
@@ -371,7 +481,10 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		Assert.assertEquals(underWriterOffSetControlObj.checkerConfirmationPopUp().getText(),
 				"Record APPROVED Successfully");
 	}
-
+	@And("^get the test data for negative scenarios in excel file$")
+    public void get_the_test_data_for_negative_scenarios_in_excel_file() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T005_D4");
+    }
 	@And("^click on save button before entering mendatory details$")
 	public void click_on_save_button_before_entering_mendatory_details() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
@@ -401,12 +514,12 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().click();
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.MinimumValueAlphabetInput);
+				.sendKeys(underWriterTestData.get("StringInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().click();
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.MaximumValueAlphabetInput);
+				.sendKeys(underWriterTestData.get("StringInput"));
 	}
 
 	@Then("^verify system should not allow user to save the record$")
@@ -439,12 +552,12 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().click();
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.MinimumValueSpeciaCharacterInput);
+				.sendKeys(underWriterTestData.get("SpecialCharacterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().click();
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.MinimumValueSpeciaCharacterInput);
+				.sendKeys(underWriterTestData.get("SpecialCharacterInput"));
 	}
 
 	@And("^click on save button after enter special characters$")
@@ -475,16 +588,17 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 	@And("^update the minimum and maximum value fields$")
 	public void update_the_minimum_and_maximum_value_fields() throws Throwable {
+		underWriterTestData=excelData.getTestdata("AT_UOC_T006_D6");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox().clear();
 		underWriterOffSetControlObj.userWriterOffSetControlMinimumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.UpdatedMinimumValue);
+				.sendKeys(underWriterTestData.get("MinimumValue"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox(), 5, 1);
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox().clear();
 		underWriterOffSetControlObj.userWriterOffSetControlMaximumValueInputBox()
-				.sendKeys(underWriterOffSetControlTestData.UpdatedMaximumValue);
+				.sendKeys(underWriterTestData.get("MaximumValue"));
 		String minimumValue = underWriterOffSetControlObj.userWriterOffSetControlMinimumValueDataHolder()
 				.getAttribute("ng-reflect-model");
 		underWriterData.put("minimumValue", minimumValue);
@@ -511,8 +625,9 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 				.getAttribute("ng-reflect-model");
 		String maximumValue = underWriterOffSetControlObj.underWriterOffSetControlMaximumValueDataHolder()
 				.getAttribute("ng-reflect-model");
-		Assert.assertEquals(minimumValue, underWriterOffSetControlTestData.UpdatedMinimumValue);
-		Assert.assertEquals(maximumValue, underWriterOffSetControlTestData.UpdatedMaximumValue);
+		Assert.assertEquals(minimumValue, underWriterTestData.get("MinimumValue"));
+		Assert.assertEquals(maximumValue, underWriterTestData.get("MaximumValue"));
+		
 	}
 
 	@Then("^select the record to do updation which is approved from checker user$")

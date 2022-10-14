@@ -1,16 +1,14 @@
 package stepdefinitions;
 
-import static org.testng.Assert.assertEquals;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.ClicksAndActionsHelper;
@@ -22,6 +20,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ULS_SchemeMasterObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.ULS_SchemeMasterTestDataType;
@@ -39,7 +38,9 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JsonDataReaderWriter jsonDataReadertWriter = new JsonDataReaderWriter();
 	SoftAssert softAssert = new SoftAssert();
-
+	String filePath=System.getProperty("user.dir")+"\\Test-data\\ULSTestData.xlsx";
+	Map<String,String> schemeMasterTestData= new HashMap<>();
+	ExcelData excelData= new ExcelData(filePath,"SchemeMasterTestData","Data Set ID");
 	@Given("^Navigate to ULS application URL$")
 	public void navigate_to_uls_application_url() throws Throwable {
 		driver.get(configFileReader.getULSApplicationCenBankUrl());
@@ -47,8 +48,16 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 
 	@Then("^login with valid maker credentials$")
 	public void login_with_valid_maker_credentials() throws Throwable {
-		kulsLogin.loginUlsApplicationAsMaker(KulsLoginTestDataType.UserName3, KulsLoginTestDataType.Password3);
+		Map<String,String> loginTestData= new HashMap<>();
+		System.out.println("File path "+filePath);
+		ExcelData ExcelDataForMakerLogin= new ExcelData(filePath,"LoginCredentials","Stage");
+		loginTestData=ExcelDataForMakerLogin.getTestdata("Maker1");
+		kulsLogin.loginUlsApplicationAsMaker(loginTestData.get("Username"),loginTestData.get("Password"));
 	}
+	@And("^get the test data of first test case$")
+    public void get_the_test_data_of_first_test_case() throws Throwable {
+		schemeMasterTestData=excelData.getTestdata("AT-SM-T001_D1");
+    }
 
 //	@And("^click on configuration manager$")
 //	public void click_on_configuration_manager() throws Throwable {
@@ -171,7 +180,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterDescriptionTextBox(),
 				10, 3);
 		ulsSchemeMasterObj.schemeMasterDescriptionTextBox().click();
-		ulsSchemeMasterObj.schemeMasterDescriptionTextBox().sendKeys(ulSchemeMasterTestData.UlsDescription);
+		ulsSchemeMasterObj.schemeMasterDescriptionTextBox().sendKeys(schemeMasterTestData.get("Description"));
 	}
 
 	@And("^verify product type should be non mendatory field and user can able to choose the product type$")
@@ -183,7 +192,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertFalse(productTypeDropDown.contains("*")," Product TYpe Field is Mandatory field");
 		ulsSchemeMasterObj.schemeMasterProductTypeDropDown().click();
 		// ulsSchemeMasterObj.schemeMasterProductTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.UlsProductType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ProductType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -208,7 +217,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String subProductType = ulsSchemeMasterObj.schemematserSubProducTypeDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(subProductType.contains("*")," Product sub type field is non mandatory field");
 		ulsSchemeMasterObj.schemematserSubProducTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.UlsSubProductType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("SubProductType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -235,7 +244,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				10, 3);
 		ulsSchemeMasterObj.schemeMasterDescriptionTextBox().click();
 		ulsSchemeMasterObj.schemeMasterDescriptionTextBox()
-				.sendKeys(ulSchemeMasterTestData.UlsDescriptionForCheckerReject);
+				.sendKeys(schemeMasterTestData.get("Description"));
 	}
 
 	@And("^verify product type should be mendatory field and user can able to choose the product type for checker reject$")
@@ -247,7 +256,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertTrue(productTypeDropDown.contains("*")," Product Type field is a mandatory field ");
 		ulsSchemeMasterObj.schemeMasterProductTypeDropDown().click();
 		// ulsSchemeMasterObj.schemeMasterProductTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.UlsProductTypeForCheckerReject
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ProductType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -272,7 +281,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String subProductType = ulsSchemeMasterObj.schemematserSubProducTypeDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(subProductType.contains("*"));
 		ulsSchemeMasterObj.schemematserSubProducTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.UlsSubProductTypeForCheckerReject
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("SubProductType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -296,7 +305,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String loanCurrency = ulsSchemeMasterObj.schemeMasterLoanCurrencyDropDwon().getAttribute("aria-label");
 		softAssert.assertTrue(loanCurrency.contains("*")," Loan Currency field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterLoanCurrencyDropDwon().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.LoanCurrency + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("LoanCurrency") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -320,7 +329,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(indexationCurrency.contains("*")," Indexation currency field is  a mandatory field ");
 		ulsSchemeMasterObj.schemeMasterIndexationCurrencyDropDwon().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IndexationCurrency
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IndexationCurrency")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -353,9 +362,9 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterValidToDate(), 5, 1);
 		ulsSchemeMasterObj.schemeMasterValidToDate().click();
 
-		String yearXpath = "//span[text()=' " + ulSchemeMasterTestData.ValidToYear + " ']";
-		String monthXpath = "//span[text()=' " + ulSchemeMasterTestData.validToMonth + " ']";
-		String dayXpath = "//span[text()='" + ulSchemeMasterTestData.ValidToDay + "']";
+		String yearXpath = "//span[text()=' " + schemeMasterTestData.get("validFromYear") + " ']";
+		String monthXpath = "//span[text()=' " + schemeMasterTestData.get("validFromMonth") + " ']";
+		String dayXpath = "//span[text()='" + schemeMasterTestData.get("ValidFromDay") + "']";
 //		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterMonthField(), 3, 1);
 //		ulsSchemeMasterObj.schemeMasterMonthField().click();
 //		
@@ -403,7 +412,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Min Finance amount field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterMinFinanceAmount().click();
-		ulsSchemeMasterObj.schemeMasterMinFinanceAmount().sendKeys(ulSchemeMasterTestData.MinFinanceAmount);
+		ulsSchemeMasterObj.schemeMasterMinFinanceAmount().sendKeys(schemeMasterTestData.get("MinFinanceAmount"));
 	}
 
 	@And("^verify max finance amount text box field should be mendatory and user can able to pass the data in it$")
@@ -422,7 +431,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Max Finance amount field is non mandatory in application screen " );
 		ulsSchemeMasterObj.schemeMasterMaxFinanceAmount().click();
-		ulsSchemeMasterObj.schemeMasterMaxFinanceAmount().sendKeys(ulSchemeMasterTestData.MaxFinanceAmount);
+		ulsSchemeMasterObj.schemeMasterMaxFinanceAmount().sendKeys(schemeMasterTestData.get("MaxFinanceAmount"));
 	}
 
 	@And("^verify Min Tenor In months text box field should be mendatory user can able to pass the data in it$")
@@ -433,7 +442,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String tenorMonthMendField = ulsSchemeMasterObj.schemeMasterMinTenorInMonthsMendatoryField().getText();
 		softAssert.assertEquals(tenorMonthMendField, "*"," Min Tenor In Months Field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterMinTenorInMonths().click();
-		ulsSchemeMasterObj.schemeMasterMinTenorInMonths().sendKeys(ulSchemeMasterTestData.MinTenorInMonth);
+		ulsSchemeMasterObj.schemeMasterMinTenorInMonths().sendKeys(schemeMasterTestData.get("MinTenorInMonth"));
 	}
 
 	@And("^verify Max Tenor In months Text box field should be mendatory user can able to pass the data in it$")
@@ -445,7 +454,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertEquals(maxtenorMonthMendField, "*"," Max Tenor field is non mandatory field ");
 		
 		ulsSchemeMasterObj.schemeMasterMaxTenorInMonths().click();
-		ulsSchemeMasterObj.schemeMasterMaxTenorInMonths().sendKeys(ulSchemeMasterTestData.MaxTenorInMonth);
+		ulsSchemeMasterObj.schemeMasterMaxTenorInMonths().sendKeys(schemeMasterTestData.get("MaxTenorInMonth"));
 	}
 
 	@And("^Verify Repayment Type field should be mendatory user can able to choose the data$")
@@ -454,7 +463,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String repaymentTypeMendatoryField = ulsSchemeMasterObj.schemeMasterRepaymentType().getAttribute("aria-label");
 		softAssert.assertTrue(repaymentTypeMendatoryField.contains("*")," Repayment Type field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterRepaymentType().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.RepaymentType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("RepaymentType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -478,7 +487,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterFlatReducing().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Flat reducing is non mandatiry field ");
 		ulsSchemeMasterObj.schemeMasterFlatReducing().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.FlatReducing + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("FlatReducing") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -501,7 +510,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMaster_AmortizationMethod().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," int Amortization field is mandatory field ");
 		ulsSchemeMasterObj.schemeMaster_AmortizationMethod().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IntAmortizationMethod
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IntAmortizationMethod")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -525,7 +534,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMaster_ComputeInstallmentOn().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Compute Installment field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMaster_ComputeInstallmentOn().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.ComputeInstallmentOn
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ComputeInstallmentOn")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -549,7 +558,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterInstDuedateMethod().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*"),"  inst due method field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterInstDuedateMethod().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.InstDueDateMethod
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("InstDueDateMethod")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -574,7 +583,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterLPCGracePeriodMendatoryField().getText();
 		softAssert.assertNotEquals(mendatoryField, "*"," LPC Grace Period field is Mandatory field");
 		ulsSchemeMasterObj.schemeMasterLPCGracePeriodTestBox().click();
-		ulsSchemeMasterObj.schemeMasterLPCGracePeriodTestBox().sendKeys(ulSchemeMasterTestData.LPCGracePeriod);
+		ulsSchemeMasterObj.schemeMasterLPCGracePeriodTestBox().sendKeys(schemeMasterTestData.get("LPCGracePeriod"));
 
 	}
 
@@ -586,7 +595,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterPrincipalRepaymentFrequency().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," principal Repayment field is non mandatory field");
 		ulsSchemeMasterObj.schemeMasterPrincipalRepaymentFrequency().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.PrincipalRepaymentFrom
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("PrincipalRepaymentFrom")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -612,7 +621,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Interest Repayment Field frequency field is mandatory field ");
 		ulsSchemeMasterObj.schemeMasterInterestRepaymentFrequencyDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.InterestRepaymentFrequency
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("InterestRepaymentFrequency")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -636,7 +645,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterInstRoundingLogicMendatoryField().getText();
 		softAssert.assertEquals(mendatoryField, "*"," inc rounding logic field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterInstRoundingLogicTextbox().click();
-		ulsSchemeMasterObj.schemeMasterInstRoundingLogicTextbox().sendKeys(ulSchemeMasterTestData.INSTRoundingLogic);
+		ulsSchemeMasterObj.schemeMasterInstRoundingLogicTextbox().sendKeys(schemeMasterTestData.get("INSTRoundingLogic"));
 	}
 
 	@And("^verify Loan Eligibility Calc field should be mendatory and user can able to select the data from the drop down$")
@@ -647,7 +656,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterLoanEligibilityCalcDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Loan Eligibility Calc field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterLoanEligibilityCalcDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.LoanEligibilityCalc
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("LoanEligibilityCalc")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -671,7 +680,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterRemarksMendatoryField().getText();
 		softAssert.assertNotEquals(mendatoryField, "*"," Remarks Field is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterRemarks().click();
-		ulsSchemeMasterObj.schemeMasterRemarks().sendKeys(ulSchemeMasterTestData.Remarks);
+		ulsSchemeMasterObj.schemeMasterRemarks().sendKeys(schemeMasterTestData.get("Remarks"));
 	}
 
 	@And("^verify include co applicant INC field should be mendatory user can able to select the data from the drop down$")
@@ -682,7 +691,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterIncludeCoApplicantDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," co Applicant INC is non mandatory field in application screen");
 		ulsSchemeMasterObj.schemeMasterIncludeCoApplicantDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IncludeCoApplicantINC
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IncludeCoApplicantINC")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -706,7 +715,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMaster_IncludeGuarantorDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Include Guarantor INC field is non mandatory in application screen");
 		ulsSchemeMasterObj.schemeMaster_IncludeGuarantorDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IncludeGuarentorINC
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IncludeGuarentorINC")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -730,7 +739,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterDuePeriodRequiredDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Due Period Required field is non mandatory field in application screen");
 		ulsSchemeMasterObj.schemeMasterDuePeriodRequiredDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.DuePeriodRequired
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("DuePeriodRequired")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -755,7 +764,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.Scheme_MaxCoapplicantsAstricks().getText();
 		softAssert.assertNotEquals(mendatoryField, "*"," Max co applicant field is mandatory field in application screen");
 		ulsSchemeMasterObj.schemeMasterMaxCoapplicantsTextBox().click();
-		ulsSchemeMasterObj.schemeMasterMaxCoapplicantsTextBox().sendKeys(ulSchemeMasterTestData.MaxCoApplicants);
+		ulsSchemeMasterObj.schemeMasterMaxCoapplicantsTextBox().sendKeys(schemeMasterTestData.get("MaxCoApplicants"));
 	}
 
 	@And("^verify max guarantors field should be non mendatory user can able pass the data in it$")
@@ -765,7 +774,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.Scheme_MaxGuarantorsAstricks().getText();
 		softAssert.assertEquals(mendatoryField, "*"," max Gurantor field is mandatory field in applicantion screen");
 		ulsSchemeMasterObj.schemeMasterMaxGuarantorsTextBox().click();
-		ulsSchemeMasterObj.schemeMasterMaxGuarantorsTextBox().sendKeys(ulSchemeMasterTestData.MaxGuarentor);
+		ulsSchemeMasterObj.schemeMasterMaxGuarantorsTextBox().sendKeys(schemeMasterTestData.get("MaxGuarentor"));
 	}
 
 	@And("^verify inst commence field should be mendatory user can able to slecet the data from the drop down$")
@@ -776,7 +785,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterInstCommenceDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," inst Commence is non mandatory field");
 		ulsSchemeMasterObj.schemeMasterInstCommenceDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.InstCommenceFrom
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("InstCommenceFrom")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -801,7 +810,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterDaysInYearDropDown().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," days in year field is non mandatory field");
 		ulsSchemeMasterObj.schemeMasterDaysInYearDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.DaysInYear + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("DaysInYear") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -826,7 +835,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," multiple disburs tranch allowed field is non mandatory field ");
 		ulsSchemeMasterObj.schemeMasterMultipleDisBursTranchAllowdDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MultipleDisburs
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MultipleDisburs")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -850,7 +859,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterIncludeIncomeDeptDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Include income dedu dept field is mandatory field ");
 		ulsSchemeMasterObj.schemeMasterIncludeIncomeDeptDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IncludeIncomeDedu
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IncludeIncomeDedu")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -874,7 +883,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterRoundOffDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Round Off field is mandatory field in application screen ");
 		ulsSchemeMasterObj.schemeMasterRoundOffDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.RoundOff + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("RoundOff") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -897,7 +906,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.Scheme_RoundOffValueAstricks().getText();
 		softAssert.assertNotEquals(mendatoryField, "*","  Round off value field is mandatory field in application screen");
 		ulsSchemeMasterObj.schemeMasterRoundOffValueTextBox().click();
-		ulsSchemeMasterObj.schemeMasterRoundOffValueTextBox().sendKeys(ulSchemeMasterTestData.RoundOffValue);
+		ulsSchemeMasterObj.schemeMasterRoundOffValueTextBox().sendKeys(schemeMasterTestData.get("RoundOffValue"));
 	}
 
 	@And("^verfy offer validity field should be non mendatory user can able to pass the data in the text box$")
@@ -908,7 +917,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.Scheme_OfferValidityAstricks().getText();
 		softAssert.assertNotEquals(mendatoryField, "*"," offer Validity field is mandatory field");
 		ulsSchemeMasterObj.schemeOfferValidityDays().click();
-		ulsSchemeMasterObj.schemeOfferValidityDays().sendKeys(ulSchemeMasterTestData.OfferValidity);
+		ulsSchemeMasterObj.schemeOfferValidityDays().sendKeys(schemeMasterTestData.get("OfferValidity"));
 
 	}
 
@@ -920,7 +929,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterAppropriationCode().getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Appropriation field is non mandatory field");
 		ulsSchemeMasterObj.schemeMasterAppropriationCode().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.AppropriationCode
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("AppropriationCode")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -945,7 +954,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterBaloonAllowedDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Baloon allowed field is mandatory field ");
 		ulsSchemeMasterObj.schemeMasterBaloonAllowedDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.BallonAllowed
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("BallonAllowed")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -971,7 +980,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertNotEquals(mendatoryField, "*"," Maximum Baloon percentage field s mandatory field");
 		ulsSchemeMasterObj.schemeMasterMaximumBalloonPercentageTextBox().click();
 		ulsSchemeMasterObj.schemeMasterMaximumBalloonPercentageTextBox()
-				.sendKeys(ulSchemeMasterTestData.MaximumBallonPercentage);
+				.sendKeys(schemeMasterTestData.get("MaximumBallonPercentage"));
 	}
 
 	@And("^verify min IRR field should be non mendatory user can able to pass the dta in it$")
@@ -988,7 +997,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," min IRR field is a mandatory field ");
 		ulsSchemeMasterObj.schemeMasterMinIRRTextBox().click();
-		ulsSchemeMasterObj.schemeMasterMinIRRTextBox().sendKeys(ulSchemeMasterTestData.MinIRR);
+		ulsSchemeMasterObj.schemeMasterMinIRRTextBox().sendKeys(schemeMasterTestData.get("MinIRR"));
 	}
 
 	@And("^verify Max Irr field should be non mendatory and user can able to pass the data in it$")
@@ -1005,7 +1014,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Max Irr field is a mandatoyr field ");
 		ulsSchemeMasterObj.schemeMasterMaxIRRTextBox().click();
-		ulsSchemeMasterObj.schemeMasterMaxIRRTextBox().sendKeys(ulSchemeMasterTestData.MaxIRR);
+		ulsSchemeMasterObj.schemeMasterMaxIRRTextBox().sendKeys(schemeMasterTestData.get("MaxIRR"));
 	}
 
 	@And("^verify pre owned asset should be non mendatory user can able to select the data from the drop down$")
@@ -1016,7 +1025,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterPreOwnedAssetDropdown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Pre Owned Asset field is mandatory field ");
 		ulsSchemeMasterObj.schemeMasterPreOwnedAssetDropdown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.PreOwnedAsset
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("PreOwnedAsset")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1041,7 +1050,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Day Count for BPI field is mandatory field ");
 		ulsSchemeMasterObj.schemeMasterDayCountConventionForBPIDropdown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.DayCountConventionFrom
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("DayCountConventionFrom")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1074,7 +1083,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertTrue(status," discount Factor Rounding is a mandatory field ");
 		ulsSchemeMasterObj.schemeMasterDiscountFactorRoundingTextBox().click();
 		ulsSchemeMasterObj.schemeMasterDiscountFactorRoundingTextBox()
-				.sendKeys(ulSchemeMasterTestData.DiscountingFactor);
+				.sendKeys(schemeMasterTestData.get("DiscountingFactor"));
 	}
 
 //	@And("^verify discount factor Rounding field should be mendatory and user can able to select the data from the drop down$")
@@ -1109,7 +1118,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Interest Charging starts from field is mandatoyr field ");
 		ulsSchemeMasterObj.schemeMasterInterestChargingStartFromDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.InterestChargingstarts
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("InterestChargingstarts")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1133,7 +1142,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterMIRecoveryDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," MI Recovery field is mandatoyr field in application screen ");
 		ulsSchemeMasterObj.schemeMasterMIRecoveryDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MIRecovery + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MIRecovery") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1156,7 +1165,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterBPIRecoveryDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," BPI Recovery field is mandatory field in application screen");
 		ulsSchemeMasterObj.schemeMasterBPIRecoveryDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.BPIRecovery + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("BPIRecovery") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1180,7 +1189,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Installment Recovery type field is mandatory field ");
 		ulsSchemeMasterObj.schemeMasterInstallmentRecoveryTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.InstallmentRecoveryType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("InstallmentRecoveryType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1205,7 +1214,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterRateTypeDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Rate Type field is mandatory field in application screen ");
 		ulsSchemeMasterObj.schemeMasterRateTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.RateType + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("RateType") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1228,7 +1237,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterInitiateDiscFactorDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Initiate Disc Factor is mandatory field in application screen ");
 		ulsSchemeMasterObj.schemeMasterInitiateDiscFactorDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.InitiateDIscFactor
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("InitiateDIscFactor")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1259,7 +1268,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," resch Lockin field is mandatoory in application screen ");
 		ulsSchemeMasterObj.schemeMasterReschLockinTextBox().click();
-		ulsSchemeMasterObj.schemeMasterReschLockinTextBox().sendKeys(ulSchemeMasterTestData.ReschLockIn);
+		ulsSchemeMasterObj.schemeMasterReschLockinTextBox().sendKeys(schemeMasterTestData.get("ReschLockIn"));
 	}
 
 	@And("^verify Max Resch In a year text box should be non mendatory user can able to pass the data in it$")
@@ -1278,7 +1287,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Max Resch In Year field is mandatory field");
 		ulsSchemeMasterObj.schemeMasterMaxReschLockinTextBox().click();
-		ulsSchemeMasterObj.schemeMasterMaxReschLockinTextBox().sendKeys(ulSchemeMasterTestData.MaxReschInAYear);
+		ulsSchemeMasterObj.schemeMasterMaxReschLockinTextBox().sendKeys(schemeMasterTestData.get("MaxReschInAYear"));
 
 	}
 
@@ -1298,7 +1307,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Total Resch allowed field is mandatory ");
 		ulsSchemeMasterObj.schemeMasterTotalReschAllowedTextBox().click();
-		ulsSchemeMasterObj.schemeMasterTotalReschAllowedTextBox().sendKeys(ulSchemeMasterTestData.TotaleschAllowed);
+		ulsSchemeMasterObj.schemeMasterTotalReschAllowedTextBox().sendKeys(schemeMasterTestData.get("TotaleschAllowed"));
 
 	}
 
@@ -1311,7 +1320,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Reschedulement lock in starts field is mandatoyr field");
 		ulsSchemeMasterObj.schemeMasterRechedulementLockinStartsFromDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.ReschedulementLockinstartsfrom
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ReschedulementLockinstartsfrom")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1336,7 +1345,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterBulkPaymentDropDown().getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterBulkPaymentDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.BulkPayment + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("BulkPayment") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1368,7 +1377,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertTrue(status," No Of bulk payment is mandatory field in application screen");
 		ulsSchemeMasterObj.schemeMasterNoOfBulkPaymentInAYearTextBox().click();
 		ulsSchemeMasterObj.schemeMasterNoOfBulkPaymentInAYearTextBox()
-				.sendKeys(ulSchemeMasterTestData.NoOfBulkPaymentInYear);
+				.sendKeys(schemeMasterTestData.get("NoOfBulkPaymentInYear"));
 	}
 
 	@And("^verify bulk payment Lockin Period field should be non mendatory user can able to pass the data in it$")
@@ -1380,7 +1389,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterBulkPaymentLockInPeriodTextBox().click();
 		ulsSchemeMasterObj.schemeMasterBulkPaymentLockInPeriodTextBox()
-				.sendKeys(ulSchemeMasterTestData.BulkPaymentInLockInPeriod);
+				.sendKeys(schemeMasterTestData.get("BulkPaymentInLockInPeriod"));
 	}
 
 	@And("^verify bulk payment time interval field should be non mendatory user can able to enter the data$")
@@ -1392,7 +1401,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterBulkPaymentTimeIntervalTextBox().click();
 		ulsSchemeMasterObj.schemeMasterBulkPaymentTimeIntervalTextBox()
-				.sendKeys(ulSchemeMasterTestData.BulkPaymentTimeInterval);
+				.sendKeys(schemeMasterTestData.get("BulkPaymentTimeInterval"));
 	}
 
 	@And("^verify bulk payment Lock in starts from field should be non mendatory user can able to select the data teh data from drop down$")
@@ -1404,7 +1413,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*"), " Bulk payment Lock in starts from field is mandatory in application screen ");
 		ulsSchemeMasterObj.schemeMasterBulkPaymentLockInStartsFromDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.BulkPaymentLockInStartfrom
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("BulkPaymentLockInStartfrom")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1446,7 +1455,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertTrue(status," Max Bulk payment value field is mandatory in application screen ");
 		ulsSchemeMasterObj.schemeMasterMaxBulkPaymentValueTextBox().click();
 		ulsSchemeMasterObj.schemeMasterMaxBulkPaymentValueTextBox()
-				.sendKeys(ulSchemeMasterTestData.MaxBulkPaymentValue);
+				.sendKeys(schemeMasterTestData.get("MaxBulkPaymentValue"));
 	}
 
 	@And("^verify immediate due date field should be non mendatory user can able to select the data from the drop down$")
@@ -1458,7 +1467,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterImmediateDueDateDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Imediate due date field is mandatory in application screen ");
 		ulsSchemeMasterObj.schemeMasterImmediateDueDateDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.ImmediateDueDate
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ImmediateDueDate")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1487,7 +1496,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
      }
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterMinBulkPaymentValueTextbox(), 10, 1);
 		ulsSchemeMasterObj.schemeMasterMinBulkPaymentValueTextbox().click();
-		ulsSchemeMasterObj.schemeMasterMinBulkPaymentValueTextbox().sendKeys(ulSchemeMasterTestData.MinBulkPaymentValue);
+		ulsSchemeMasterObj.schemeMasterMinBulkPaymentValueTextbox().sendKeys(schemeMasterTestData.get("MinBulkPaymentValue"));
 	}
 
 	@And("^verify Min Bulk Payment Parameter field should be non mendatory user can able to select the data from the drop down$")
@@ -1499,7 +1508,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterMinBulkPaymentParameterDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MinBulkPaymentParameter
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MinBulkPaymentParameter")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1524,7 +1533,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeMasterMaxBulkPaymentParameterDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MaxBulkPaymentParameter
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MaxBulkPaymentParameter")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1556,7 +1565,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Fore Closure Lockin field is mandatory in application screen ");
 		ulsSchemeMasterObj.schemeMasterForeClosureLockinTextbox().click();
-		ulsSchemeMasterObj.schemeMasterForeClosureLockinTextbox().sendKeys(ulSchemeMasterTestData.ForeClousreLockIn);
+		ulsSchemeMasterObj.schemeMasterForeClosureLockinTextbox().sendKeys(schemeMasterTestData.get("ForeClousreLockIn"));
 
 	}
 
@@ -1569,7 +1578,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Fore Closure lock in starts from field is mandatory in application screen ");
 		ulsSchemeMasterObj.schemeMasterForeClouserLockInStartsFromDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.ForeClousureLockInStartFrom
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ForeClousureLockInStartFrom")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1595,7 +1604,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertFalse(mendatoryField.contains("*")," min Rebate Parameter field is mandatory in application screen");
 		
 		ulsSchemeMasterObj.schemeMasterMinRebateParameterDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MinRebateParameter
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MinRebateParameter")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1626,7 +1635,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Min Rebate Value is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterMinRebateValueTextbox().click();
-		ulsSchemeMasterObj.schemeMasterMinRebateValueTextbox().sendKeys(ulSchemeMasterTestData.MinRebateValue);
+		ulsSchemeMasterObj.schemeMasterMinRebateValueTextbox().sendKeys(schemeMasterTestData.get("LoanCurrency"));
 	}
 
 	@And("^verify max Rebate parameter should be non mendatory user can able to select the data from drop down$")
@@ -1638,7 +1647,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertFalse(mendatoryField.contains("*")," Max Rebate Parameter is mandatory in application screen");
 		
 		ulsSchemeMasterObj.schemeMasterMaxRebateParameterDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MaxRebateParameter
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MaxRebateParameter")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1670,7 +1679,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Max Rebate Value field is mandatory field in application screen ");
 		ulsSchemeMasterObj.schemeMasterMaxRebateValueTextbox().click();
-		ulsSchemeMasterObj.schemeMasterMaxRebateValueTextbox().sendKeys(ulSchemeMasterTestData.MaxRebateValue);
+		ulsSchemeMasterObj.schemeMasterMaxRebateValueTextbox().sendKeys(schemeMasterTestData.get("MaxRebateValue"));
 	}
 
 	@And("^verify interest holiday field should be non mendatory user can able to pass the data in it$")
@@ -1689,7 +1698,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Interset Holiday field is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterInterestHoliDayTextbox().click();
-		ulsSchemeMasterObj.schemeMasterInterestHoliDayTextbox().sendKeys(ulSchemeMasterTestData.InterestHoliDay);
+		ulsSchemeMasterObj.schemeMasterInterestHoliDayTextbox().sendKeys(schemeMasterTestData.get("InterestHoliDay"));
 	}
 
 	@And("^verify principal holiday field should be non mendatory user can able to pass the data in it$")
@@ -1708,7 +1717,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Principal Holiday field is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterPrincipalHoliDayTextbox().click();
-		ulsSchemeMasterObj.schemeMasterPrincipalHoliDayTextbox().sendKeys(ulSchemeMasterTestData.PrincipalHoliDay);
+		ulsSchemeMasterObj.schemeMasterPrincipalHoliDayTextbox().sendKeys(schemeMasterTestData.get("PrincipalHoliDay"));
 	}
 
 	@And("^verify Recomputation of profit field should be non mendatory user can able to select the data from the drop down$")
@@ -1720,7 +1729,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Recomputation field is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterRecomputationOfProfitDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.RecomputeOfProfit
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("RecomputeOfProfit")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1746,7 +1755,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterIsSetUpAllowedDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Is set up allowed field is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterIsSetUpAllowedDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IsStepUpAllowed
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IsStepUpAllowed")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1777,7 +1786,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		}
 		softAssert.assertTrue(status," Max Set up is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterMaxSetUpTextBox().click();
-		ulsSchemeMasterObj.schemeMasterMaxSetUpTextBox().sendKeys(ulSchemeMasterTestData.MaxStepUp);
+		ulsSchemeMasterObj.schemeMasterMaxSetUpTextBox().sendKeys(schemeMasterTestData.get("MaxStepUp"));
 	}
 
 	@And("^verify eligibility type field should be non mendatory user can able to select the data in it$")
@@ -1788,7 +1797,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterEligibilityTypeDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Eligibility field should be non mandatory but here its a mandatory field");
 		ulsSchemeMasterObj.schemeMasterEligibilityTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.EligibilityType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("EligibilityType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -1814,7 +1823,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeMasterPreEMIDropDown().getAttribute("aria-label");
 		softAssert.assertFalse(mendatoryField.contains("*")," Pre EMI field is mandatory in application screen");
 		ulsSchemeMasterObj.schemeMasterPreEMIDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.PreEmi + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("PreEmi") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1847,7 +1856,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		softAssert.assertTrue(status," No Of Pre EMI Installment is mandatory in application screen ");
 		ulsSchemeMasterObj.schemeMasterNoOfPreEMIInstallmentTextBox().click();
 		ulsSchemeMasterObj.schemeMasterNoOfPreEMIInstallmentTextBox()
-				.sendKeys(ulSchemeMasterTestData.NoOfPreEMIInstallment);
+				.sendKeys(schemeMasterTestData.get("NoOfPreEMIInstallment"));
 	}
 
 	@And("^verify is loan Transfer Allower field should be mendatory user can able to select the data from the drop down$")
@@ -1859,7 +1868,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		softAssert.assertTrue(mendatoryField.contains("*")," Loan Transferedfield is non mandatoyr in application screen");
 		ulsSchemeMasterObj.schemeMasterIsLoanTransferAllowedDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IsLoanTransferAllowed
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IsLoanTransferAllowed")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -1941,7 +1950,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		Assert.assertTrue(ulsSchemeMasterObj.schemeChargesMasterChargeDropDown().getAttribute("ng-reflect-placeholder")
 				.contains("Select"));
 		ulsSchemeMasterObj.schemeChargesMasterChargeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.MasterCharge + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("MasterCharge") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1965,7 +1974,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		Assert.assertTrue(ulsSchemeMasterObj.schemeChargeChargeDropDwon().getAttribute("ng-reflect-placeholder")
 				.contains("Select"));
 		ulsSchemeMasterObj.schemeChargeChargeDropDwon().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.charge + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("charge") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -1989,7 +1998,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargeCalculationTypeDropDwon().getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargeCalculationTypeDropDwon().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.CalculationType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("CalculationType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2013,7 +2022,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.ChargeDefinition_FlatAmount().getText();
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesFlatAmountTextBox().click();
-		ulsSchemeMasterObj.schemeChargesFlatAmountTextBox().sendKeys(ulSchemeMasterTestData.flatAmount);
+		ulsSchemeMasterObj.schemeChargesFlatAmountTextBox().sendKeys(schemeMasterTestData.get("flatAmount"));
 	}
 
 	@And("^verify percentage text box should be non mendatory user can able to enter the data in it$")
@@ -2024,7 +2033,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.ChargeDefinition_Percentage().getText();
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesPercentageTextBox().click();
-		ulsSchemeMasterObj.schemeChargesPercentageTextBox().sendKeys(ulSchemeMasterTestData.Percentage);
+		ulsSchemeMasterObj.schemeChargesPercentageTextBox().sendKeys(schemeMasterTestData.get("Percentage"));
 	}
 
 	@And("^verify calculated on field should be non mendatory user can able to select the data from the drop down$")
@@ -2035,7 +2044,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesCalculatedOnDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesCalculatedOnDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.CalculatedOn + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("CalculatedOn") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2058,7 +2067,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesRecPayDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesRecPayDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.RecPay + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("RecPay") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2081,7 +2090,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesRecFrom_PayToDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesRecFrom_PayToDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.RecFromPayTo + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("RecFromPayTo") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2104,7 +2113,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesIncluseCustINRDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesIncluseCustINRDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.incluseInCustIRR
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("incluseInCustIRR")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2128,7 +2137,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesINCBankIRRDropDOwn().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesINCBankIRRDropDOwn().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.INCInBankIRR + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("INCInBankIRR") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2150,7 +2159,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesLevelDropDOwn().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesLevelDropDOwn().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.Level + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("Level") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2173,7 +2182,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesCurrencyDropDOwn().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesCurrencyDropDOwn().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.Currency + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("Currency") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2195,7 +2204,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesEventDropDOwn().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesEventDropDOwn().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.Event + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("Event") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2218,7 +2227,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesDataUnitDropDOwn().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesDataUnitDropDOwn().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.DataUnit + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("DataUnit") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2240,7 +2249,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.ChargeDefinition_DateValue().getText();
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesDateValueTextBox().click();
-		ulsSchemeMasterObj.schemeChargesDateValueTextBox().sendKeys(ulSchemeMasterTestData.DateValue);
+		ulsSchemeMasterObj.schemeChargesDateValueTextBox().sendKeys(schemeMasterTestData.get("DateValue"));
 	}
 
 	@And("^verify charge count field should be non mendatory user can able to pass the data in it$")
@@ -2251,7 +2260,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.ChargeDefinition_ChargeCount().getText();
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesChargeCountTextBox().click();
-		ulsSchemeMasterObj.schemeChargesChargeCountTextBox().sendKeys(ulSchemeMasterTestData.ChargeCount);
+		ulsSchemeMasterObj.schemeChargesChargeCountTextBox().sendKeys(schemeMasterTestData.get("ChargeCount"));
 	}
 
 	@And("^verify accounting type field should be mendatory field should be mendaory user can able to select the data from the drop down$")
@@ -2262,7 +2271,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesAccountingTypeDropDown().getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesAccountingTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.AccountingType
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("AccountingType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2285,7 +2294,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesStageDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesStageDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.stage + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("stage") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2307,7 +2316,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.schemeChargesModuleDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesModuleDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.module + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("module") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2328,7 +2337,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.ChargeDefinition_Remarks().getText();
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.schemeChargesReamrks().click();
-		ulsSchemeMasterObj.schemeChargesReamrks().sendKeys(ulSchemeMasterTestData.chargeRemarks);
+		ulsSchemeMasterObj.schemeChargesReamrks().sendKeys(schemeMasterTestData.get("chargeRemarks"));
 	}
 
 	@And("^save the charge scheme record$")
@@ -2364,7 +2373,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.basicEligibilityEligibilityTypeDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.basicEligibilityEligibilityTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.eligibilityType2
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("eligibilityType2")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2387,7 +2396,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.basicEligibilityEligibilityDropDown().getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.basicEligibilityEligibilityDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.Eligibility + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("Eligibility") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2410,7 +2419,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.BasicEligibility_BaseAstrick().getText();
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.basicEligibilityBaseTextBox().click();
-		ulsSchemeMasterObj.basicEligibilityBaseTextBox().sendKeys(ulSchemeMasterTestData.Base);
+		ulsSchemeMasterObj.basicEligibilityBaseTextBox().sendKeys(schemeMasterTestData.get("Base"));
 	}
 
 	@And("^verify Income To be Used field should be mendatory user can able to select the data from drop down$")
@@ -2421,7 +2430,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.basicEligibilityIncomeToBeUserDropDown().getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.basicEligibilityIncomeToBeUserDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.IncomeToBeUsed
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("IncomeToBeUsed")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2445,7 +2454,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.basicEligibilityRuleDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.basicEligibilityRuleDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.Rule + " ']/parent::ion-item/ion-radio";
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("Rule") + " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -2502,7 +2511,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				.getAttribute("aria-label");
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.verificationDetailsVerificationStageDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.VerificationStage
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("VerificationStage")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2526,7 +2535,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.verificationDetailsRuleDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.verificationDetailsRuleDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.VerificationRule
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("VerificationRule")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2602,7 +2611,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		String mendatoryField = ulsSchemeMasterObj.valuationDetailsRuleDropDown().getAttribute("aria-label");
 		Assert.assertFalse(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.valuationDetailsRuleDropDown().click();
-		String xpath = "//ion-label[text()=' " + ulSchemeMasterTestData.ValuationRule
+		String xpath = "//ion-label[text()=' " + schemeMasterTestData.get("ValuationRule")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -2627,7 +2636,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		Assert.assertTrue(mendatoryField.contains("*"));
 		ulsSchemeMasterObj.valuationDetailsNumberOfValuationTextBox().click();
 		ulsSchemeMasterObj.valuationDetailsNumberOfValuationTextBox()
-				.sendKeys(ulSchemeMasterTestData.NumberOfValuation);
+				.sendKeys(schemeMasterTestData.get("NumberOfValuation"));
 	}
 
 	@And("^save the valuation record$")
@@ -2655,7 +2664,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				1);
 		clicksAndActionsHelper.moveToElement(ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox());
 		clicksAndActionsHelper.clickOnElement(ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox());
-		ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox().sendKeys(ulSchemeMasterTestData.moduleCode);
+		ulsSchemeMasterObj.schemeMasterSearchTextBoxInbox().sendKeys(schemeMasterTestData.get("moduleCode"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterreferenceID(), 5, 1);
 		String referenceID = ulsSchemeMasterObj.schemeMasterreferenceID().getText();
 		System.out.println("Reference ID is " + referenceID);
@@ -2671,7 +2680,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		ulsSchemeMasterObj.schemeMasterSubmitButton().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasteralertRemark(), 10, 1);
 		ulsSchemeMasterObj.schemeMasteralertRemark().click();
-		ulsSchemeMasterObj.schemeMasteralertRemark().sendKeys(ulSchemeMasterTestData.AlertRemark);
+		ulsSchemeMasterObj.schemeMasteralertRemark().sendKeys(schemeMasterTestData.get("AlertRemark"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasteraleralertSubmitButton(),
 				5, 1);
 		ulsSchemeMasterObj.schemeMasteraleralertSubmitButton().click();
@@ -2694,7 +2703,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	public void login_with_checker_user() throws Throwable {
 		kulsLogin.ulSApplicationLoginAsAChecker(jsonDataReadertWriter.readdata());
 	}
-
+	
 	@And("^click on menu bar the click on inbox$")
 	public void click_on_menu_bar_the_click_on_inbox() throws Throwable {
 		ulsSchemeMasterObj.schemeMasterCheckerMenuBar().click();
@@ -2802,7 +2811,8 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	public void give_the_checker_remark_in_alert_and_approve_it() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerAlertRemark(), 5, 1);
 		ulsSchemeMasterObj.checkerAlertRemark().click();
-		ulsSchemeMasterObj.checkerAlertRemark().sendKeys(ulSchemeMasterTestData.checkerPositiveAlertRemark);
+		ulsSchemeMasterObj.checkerAlertRemark().sendKeys(schemeMasterTestData.get("CheckerAlertRemark"));
+		
 
 		ulsSchemeMasterObj.checkerAlertApprove().click();
 	}
