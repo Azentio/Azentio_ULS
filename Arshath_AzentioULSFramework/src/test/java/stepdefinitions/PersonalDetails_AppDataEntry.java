@@ -45,7 +45,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     public void user_launch_the_kuls_url_for_transaction() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationULSUrl();
 		driver.get(kulsApplicationUrl);
-		applicationLogin.UlsApplicationMaker(loginData.Username1, loginData.Password1);
+		applicationLogin.loginUlsApplicationAsMaker(loginData.Username1, loginData.Password1);
     }
 
     @Then("^user click on Transaction Module$")

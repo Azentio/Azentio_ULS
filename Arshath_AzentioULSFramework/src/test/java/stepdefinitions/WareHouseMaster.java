@@ -709,11 +709,20 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Fax().isDisplayed();
 		testData = exceldata.getTestdata("AT-WHM-T006_D1");
 		warehousrobj.Warehouse_Fax().click();
-		warehousrobj.Warehouse_Fax().clear();
-		warehousrobj.Warehouse_Fax().sendKeys(testData.get("Fax"));
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]")), 50,2);
-		WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 50 characters are allowed')]"));
-		String expectedErrorText = "Maximum 50 characters are allowed";
+		for (int i = 0; i < 50; i++) {
+			try {
+			warehousrobj.Warehouse_Fax().sendKeys(Keys.BACK_SPACE);
+			
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		//warehousrobj.Warehouse_Fax().sendKeys(testData.get("Fax"));
+		warehousrobj.Warehouse_Fax().sendKeys("2136549876543216549873216549876543219874651324658654654654665495462154");
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum allowed length is 50')]")), 50,2);
+		WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum allowed length is 50')]"));
+		String expectedErrorText = "Maximum allowed length is 50";
 		String actualErrorText = errorPopUp.getText();
 		if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
 			System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is"+ actualErrorText);
@@ -721,7 +730,7 @@ public class WareHouseMaster extends BaseClass {
 			System.out.println(
 					"The actual and expected result are not same.The Popup validation message is" + actualErrorText);
 		}
-		Assert.assertEquals(actualErrorText, "Maximum 50 characters are allowed");
+		Assert.assertEquals(actualErrorText, "Maximum allowed length is 50");
 	}
 
 	// ******************@AT_WHM_T009_Active_Deactive******************//

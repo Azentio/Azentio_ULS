@@ -37,7 +37,7 @@ public class MDM_BounceMaster extends BaseClass {
 	public void user_launch_the_kuls_application() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationULSUrl();
 		driver.get(kulsApplicationUrl);
-		applicationLogin.UlsApplicationMaker(loginData.Username, loginData.Password);
+		applicationLogin.loginUlsApplicationAsMaker(loginData.Username, loginData.Password);
 	}
 
 	@And("^User click on Bounce Master Temp view$")
