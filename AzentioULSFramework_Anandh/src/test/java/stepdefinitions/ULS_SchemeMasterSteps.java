@@ -51,7 +51,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		Map<String,String> loginTestData= new HashMap<>();
 		System.out.println("File path "+filePath);
 		ExcelData ExcelDataForMakerLogin= new ExcelData(filePath,"LoginCredentials","Stage");
-		loginTestData=ExcelDataForMakerLogin.getTestdata("Maker1");
+		loginTestData=ExcelDataForMakerLogin.getTestdata("Maker3");
 		kulsLogin.loginUlsApplicationAsMaker(loginTestData.get("Username"),loginTestData.get("Password"));
 	}
 	@And("^get the test data of first test case$")

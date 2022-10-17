@@ -178,16 +178,17 @@ Then login with valid maker credentials
 And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
+And get the test data of updattion seventh test case
 Then select the record to do updation which is approved from checker user
 Then update the already approved record 
 And click on save button after update the approved one
 When click on mail box after saving the under writer record
 Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first updated under writer offset record which is going to approved in checker
 Then verify approved record is updated with our input data
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id
+Then store the checker id for updated under writer record
 @AT_UOC_T008
 Scenario: To verify checker user can able to approve the under writer off set control record
 Given Navigate to ULS application URL
@@ -264,6 +265,7 @@ Then login with valid maker credentials
 And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
+And get the test data  of validation screnario in updation screen
 Then select the record to do updation which is approved from checker user 
 Then clear the input box value
 And fill the alphabets in minimum and maximum value input box
@@ -287,6 +289,8 @@ Then login with valid maker credentials
 And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
+And get the test data of under writer validation scenario
+#And click on under writer off set control view button
 And Validate all fields in list view of under writer offset control
 And Validate that values in list view of under writer offset control is non editable
 And Validate the functionalitiy of Add button of under writer offset control
@@ -305,6 +309,7 @@ And Search with valid data in under writer offset control
 And Search with Invalid data in under writer offset control
 And Validate Export to PDF functionality of under writer offset control
 And Validate export to Excel functionality of under writer offset control
-And Navigate to Temp view of under writer offset control
-And Click on pencil icon of first record in temp view of under writer offset control
+When click on mail box after saving the under writer record
+Then click on search button to search the under writer off set record
+And click on first under writer off set record to check the transaction summary
 Then Validate the functionality of View summary section in under writer offset control
