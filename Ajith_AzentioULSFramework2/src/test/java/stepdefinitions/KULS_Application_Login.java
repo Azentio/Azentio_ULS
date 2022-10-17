@@ -25,7 +25,7 @@ public class KULS_Application_Login {
 
 	JsonConfig jsonConfig = new JsonConfig();
 	KULS_Login_TestDataType ulsUserLoginCredentials;
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentilas","Stage");
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentials","Stage");
 	Map<String, String> testdata;
 	public void loginUlsApplicationAsMaker(String username, String password) throws InterruptedException {
 		waithelper = new WaitHelper(driver);

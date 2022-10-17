@@ -31,7 +31,7 @@ private WebElement configurationOptions;
 public WebElement configurationOptions() {
 	return configurationOptions;
 }
-@FindBy(xpath="//ion-label[text()='Config Manager']//following-sibling::ion-icon")
+@FindBy(xpath="//ion-label[text()='Config Manager']")
 private WebElement configManagerOptions;
 public WebElement configManagerOptions() {
 	return configManagerOptions;

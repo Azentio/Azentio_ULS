@@ -72,7 +72,8 @@ And user capture checker id for checker submit
 Scenario: creation of Asset Auto with valid details
 Given user log in as uls application maker
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
+#And User enter the product setup menu for asset auto creation
 And user click asset auto edit icon
 And User click add icon for asset auto master
 And User Update Test data for Asset Auto Master creation checker return
@@ -107,10 +108,12 @@ Then user verify the Record got Approved for asset auto record return
 Scenario: creation of Asset Auto with valid details
 Given user log in as uls application maker 
 When user click the configuration menu for asset auto creation
-And User enter the product setup menu for asset auto creation
+#And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click asset auto edit icon
 And User click add icon for asset auto master
 And User verify asset auto master opens with asset category brand asset type and remarks fields
+And User Update Test data for Asset Auto Master creation checker reject
 And user select Asset category and check feild is mandatory or not
 And user select brand and check the feild is mandatory or not
 And user select Asset type and check the feild is mandatory or not
@@ -126,7 +129,7 @@ And user store reference number and click the first record in asset auto maker v
 And user submit asset auto record in maker
 And user capture checker id for checker submit
 #AAM_01_007
-@t4.2
+@T4.2
 Scenario: Checker reject submitted record from maker
 Given user log in as uls application checker for asset auto record
 #And user Click on Menu icon for asset auto record
@@ -141,7 +144,8 @@ Then user verify the Record got Approved for asset auto record reject
 Scenario: Validation of asset auto master
 Given user log in as uls application maker
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
+#And User enter the product setup menu for asset auto creation
 And user click asset auto edit icon
 And User click add icon for asset auto master
 Then User verify the impact when user keep any mandatory field blank and click on save button
@@ -151,10 +155,12 @@ Then User verify the impact when user keep any mandatory field blank and click o
 Scenario: updation of asset auto created record
 Given user log in as uls application maker
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+#And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click asset auto edit icon
 #Wip
 And user click the first edit icon for asset auto created record
+And user update test data set id for modification scenario checker approve
 And user Select and modify the asset category in asset auto master
 And user select and update the brand field in asset auto master
 And user select and update the asset type in asset auto master

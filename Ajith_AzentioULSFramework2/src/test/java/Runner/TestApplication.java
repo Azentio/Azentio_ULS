@@ -15,7 +15,7 @@ import utilities.ExtentTestManager;
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"}
 				//dryRun = false //to check compilation errors
-				, tags="@T3.1"
+				, tags="@T6.1"
 
 )
 public class TestApplication extends AbstractTestNGCucumberTests {

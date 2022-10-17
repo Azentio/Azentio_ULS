@@ -389,19 +389,29 @@ public class AssetAutoMaster {
     }
     @Then("^User verify the impact when user keep any mandatory field blank and click on save button$")
     public void user_verify_the_impact_when_user_keep_any_mandatory_field_blank_and_click_on_save_button() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_06_D1");
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.assetAutoMasterSave(),30, 2);
         assetAutoMasterObj.assetAutoMasterSave().click();
-    	//String xpath ="//ion-label[contains(text(),'Asset Category')]//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
-        //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),30, 2);
-        String Requiredfields = (String) seleniumactions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[1].innerText");
-    	//System.out.println(driver.findElement(By.xpath(xpath)).getText());
-        Assert.assertEquals(Requiredfields,"Required field"); 
-        //String xpath1 ="//ion-label[contains(text(),'Asset Type')]//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
-        //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath1)),30, 2);
-        String Requiredfields2 = (String) seleniumactions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-badge')[2].innerText");
+    	String xpath ="//ion-label[text()=' Asset Category ']//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
+        for (int i = 0; i <30; i++) {
+			try {
+				 Assert.assertEquals( driver.findElement(By.xpath(xpath)).getText(),testData.get("BlankFieldValidation"));
+				 break;
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
         
-       // System.out.println(driver.findElement(By.xpath(xpath1)).getText());
-        Assert.assertEquals(Requiredfields2,"Required field");
+        String xpath1 ="//ion-label[text()=' Asset Type ']//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
+        for (int i = 0; i <30; i++) {
+			try {
+				 Assert.assertEquals( driver.findElement(By.xpath(xpath1)).getText(),testData.get("BlankFieldValidation"));
+				 break;
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
+        
     }
 
     @And("^user click the first edit icon for asset auto created record$")
@@ -419,12 +429,16 @@ public class AssetAutoMaster {
 				
     	
     }
+    @And("^user update test data set id for modification scenario checker approve$")
+    public void user_update_test_data_set_id_for_modification_scenario_checker_approve() throws Throwable {
+       testData = excelData.getTestdata("AT_RM_05_D1");
+    }
 
     @And("^user Select and modify the asset category in asset auto master$")
     public void user_select_and_modify_the_asset_category_in_asset_auto_master() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.assetCategoryUpdation(),30, 2);
     	assetAutoMasterObj.assetCategoryUpdation().click();
-    	String xpath= "//ion-label[contains(text(),'"+assetAutoMasterData.AssetCategoryModify+"')]//following-sibling::ion-radio";
+    	String xpath= "//ion-label[contains(text(),'"+testData.get("AssetCategoryModify")+"')]//following-sibling::ion-radio";
         for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -439,13 +453,20 @@ public class AssetAutoMaster {
     public void user_verify_the_same_record_should_get_saved_in_system_with_only_modified_data() throws Throwable {
     	// Asset Category
     	//assetAutoMasterData.AssetCategoryModify
-    	String xpath ="//ion-select[@aria-label=' "+assetAutoMasterData.AssetCategoryModify+" ,  Asset Category *']";
-        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),60,2);
-        Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(),true);
+        for (int i = 0; i <50; i++) {
+			try {
+				String xpath ="//ion-select[@aria-label=' "+testData.get("AssetCategoryModify")+" ,  Asset Category *']";
+				Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(),true);
+		        break;
+			} catch (NoSuchElementException e) {
+				
+			}
+		}
+        
         //Asset Type
         for (int i = 0; i <50; i++) {
 			try {
-				String xpath1 ="//ion-select[@aria-label=' "+assetAutoMasterData.AssetTypeModify+" ,  Asset Type *']";
+				String xpath1 ="//ion-select[@aria-label=' "+testData.get("AssetTypeModify")+" ,  Asset Type *']";
 		        Assert.assertEquals(driver.findElement(By.xpath(xpath1)).isDisplayed(),true);
 		        break;
 			} catch (NoSuchElementException e) {
@@ -453,13 +474,13 @@ public class AssetAutoMaster {
 			}
 		}
         // brand
-        String xpath1 ="//ion-select[@aria-label=' "+assetAutoMasterData.BrandModify+" ,  Brand ']";
-        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),60,2);
-        Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(),true);
+        String xpath2 ="//ion-select[@aria-label=' "+testData.get("BrandModify")+" ,  Brand ']";
+        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath2)),60,2);
+        Assert.assertEquals(driver.findElement(By.xpath(xpath2)).isDisplayed(),true);
         
 		// Remark
        String remarkvalue = (String) seleniumactions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-textarea')[0].value");
-        Assert.assertEquals(remarkvalue, assetAutoMasterData.RemarkModify);
+        Assert.assertEquals(remarkvalue, testData.get("RemarkModify"));
         
     }
 
@@ -475,7 +496,7 @@ public class AssetAutoMaster {
 			}
 		}
     	
-    	String xpath= "//ion-label[contains(text(),'"+assetAutoMasterData.BrandModify+"')]//following-sibling::ion-radio";
+    	String xpath= "//ion-label[contains(text(),'"+testData.get("BrandModify")+"')]//following-sibling::ion-radio";
         for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -491,7 +512,7 @@ public class AssetAutoMaster {
     public void user_select_and_update_the_asset_type_in_asset_auto_master() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWaitElementToBeClickable(driver,assetAutoMasterObj.assetTypeUpdate(),60,2);
     	assetAutoMasterObj.assetTypeUpdate().click();
-    	String xpath= "//ion-label[contains(text(),'"+assetAutoMasterData.AssetTypeModify+"')]//following-sibling::ion-radio";
+    	String xpath= "//ion-label[contains(text(),'"+testData.get("AssetTypeModify")+"')]//following-sibling::ion-radio";
         for (int i = 0; i < 200; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -509,14 +530,14 @@ public class AssetAutoMaster {
         String remark = (String) seleniumactions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-textarea')[0].value");
         if (remark.isEmpty()) {
         	assetAutoMasterObj.remark().click();
-        	assetAutoMasterObj.remark().sendKeys(assetAutoMasterData.RemarkModify);
+        	assetAutoMasterObj.remark().sendKeys(testData.get("RemarkModify"));
 		}
         else {
         	 assetAutoMasterObj.remark().clear();
         	 for (int i = 0; i < 20; i++) {
 				try {
 					assetAutoMasterObj.remark().click();
-					assetAutoMasterObj.remark().sendKeys(assetAutoMasterData.RemarkModify);
+					assetAutoMasterObj.remark().sendKeys(testData.get("RemarkModify"));
 					break;
 				} catch (Exception e) {
 					
@@ -1042,5 +1063,10 @@ public class AssetAutoMaster {
     public void user_update_test_data_for_asset_auto_master_creation_approve() throws Throwable {
     	testData = excelData.getTestdata("AT_RM_01_D1");
     }
+    @And("^User Update Test data for Asset Auto Master creation checker reject$")
+    public void user_update_test_data_for_asset_auto_master_creation_checker_reject() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_01_D3");
+    }
+
     
 }

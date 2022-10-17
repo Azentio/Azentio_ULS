@@ -35,7 +35,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	 
 	@Given("^user log in as uls application maker$")
     public void user_log_in_as_uls_application_maker() throws Throwable {
-		ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentilas","Stage");
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentials","Stage");
 		Map<String, String> testdata = excelData.getTestdata("Maker1");
         String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
         driver.get(kulsApplicationUrl);
