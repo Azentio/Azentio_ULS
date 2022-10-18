@@ -23,6 +23,7 @@ And User verify the list view Record is Non-Editable
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 Given user log in as uls application checker
 Then user click on configurations Tab
+When user click Config Manager menu
 And user Click on Menu icon
 And user Click on Mailbox icon
 And Search the respective reference id and click on Action button
@@ -35,7 +36,8 @@ Then user verify the Record got Return
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
 Then user click on configurations Tab
-When user click product set up menu
+When user click Config Manager menu
+#When user click product set up menu
 And user click Edit view icon of sub product retail
 Then User validate the Returned record in list view
 
@@ -43,7 +45,8 @@ Then User validate the Returned record in list view
 Scenario: verify user is able to add new Unit details record in the system by entering valid data
 Given user log in as uls application maker
 Then user click on configurations Tab
-When user click on Project set up menu
+When user click Config Manager menu
+#When user click on Project set up menu
 And user click on project master List view icon
 And user click on List view Edit Icon
 And user click on unit details Add icon and verify the functionality

@@ -345,7 +345,8 @@ public void keep_the_mandatory_field_as_blank_and_save_the_record_and_validate_i
 	
 	WebElement nameErrorMessage = driver
 			.findElement(By.xpath("(//ion-badge[contains(text(),'Required field')])[1]"));
-	String expectedErrorText = "Required field";
+	testData = exceldata.getTestdata("AT-ALM-005_D1");
+	String expectedErrorText = testData.get("Field verification");
 	String actualErrorText = nameErrorMessage.getText();
 	if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
 		System.out.println(
@@ -361,9 +362,10 @@ public void keep_the_mandatory_field_as_blank_and_save_the_record_and_validate_i
 public void validate_the_save_button_by_filling_in_valid_data() throws Throwable {
 	waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationMaster_TempViewButton(), 60, 2);
 	allocationMstObj.AllocationMaster_AllocationCodeTextBox().click();
-	allocationMstObj.AllocationMaster_AllocationCodeTextBox().sendKeys("*%%*");
+	testData = exceldata.getTestdata("AT-ALM-005_D1");	
+	allocationMstObj.AllocationMaster_AllocationCodeTextBox().sendKeys(testData.get("Invalid Data1"));
 	WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),' Alphanumeric characters allowed')]"));
-	String expectedErrorText = "Alphanumeric characters allowed";
+	String expectedErrorText = testData.get("Invalid Data2");
 	String actualErrorText = errorPopUp.getText();
 	if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
 		System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is" + actualErrorText);
@@ -407,7 +409,8 @@ public void to_verify_the_functionality_of_search_box_with_matching_data_in_allo
 	}
 
 	allocationMstObj.AllocationMaster_ListViewSearchText().click();
-	allocationMstObj.AllocationMaster_ListViewSearchText().sendKeys(allocationMasterData.ListViewSearch);
+	testData= exceldata.getTestdata("AT-ALM-012_D1");
+	allocationMstObj.AllocationMaster_ListViewSearchText().sendKeys(testData.get("Match"));
 	Assert.assertEquals(allocationMstObj.AllocationMaster_ListViewSearchText().isDisplayed(), true);
 }
 @And("^To verify the functionality of Search box with mismatch data in allocation master in list view$")
@@ -423,14 +426,15 @@ public void to_verify_the_functionality_of_search_box_with_mismatch_data_in_allo
 		}
 	}
 	allocationMstObj.AllocationMaster_ListViewSearchText().click();
-	allocationMstObj.AllocationMaster_ListViewSearchText().sendKeys(allocationMasterData.ListViewSearchUnmatchedData);
+	testData= exceldata.getTestdata("AT-ALM-012_D1");
+	allocationMstObj.AllocationMaster_ListViewSearchText().sendKeys(testData.get("Unmatch"));
 	Thread.sleep(1000);
 	String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
 	for (int i = 0; i < 200; i++) {
 		try {
 			action.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 					driver.findElement(By.xpath(xpath)), 60, 2);
-			Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Showing 0 to 0 of 0 entries");
+			Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), testData.get("Error"));
 			// "Showing 0 to 0 of 0 entries"
 			break;
 		} catch (Exception e) {
@@ -463,8 +467,9 @@ public void to_verify_the_functionality_of_export_to_pdf_button_in_allocation_ma
 	File[] totalfiles = file.listFiles();
 	int length = totalfiles.length;
 	int i = 0;
+	testData=exceldata.getTestdata("AT-ALM-012_D1");
 	for (File fileName : totalfiles) {
-		if (fileName.getName().equalsIgnoreCase("AllocationMasterFormDataFile.pdf")) {
+		if (fileName.getName().equalsIgnoreCase(testData.get("PDF"))) {
 			System.out.println("Downloaded file present in system");
 			break;
 		} else if (i == length - 1) {
@@ -514,17 +519,19 @@ public void click_the_add_button_in_allocation_details() throws Throwable {
 public void choose_the_allocation_based_value_in_allocation_detail() throws Throwable {
 	waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.allocationDetail_AllocationBasedOn_Dropdown(), 60, 2);
 	allocationMstObj.allocationDetail_AllocationBasedOn_Dropdown().click();
-	for (int i = 0; i < 20; i++) {
+	testData= exceldata.getTestdata("AT-ALM-016_D1"); 
+	for (int i = 0; i < 50; i++) {
 		try {
 	
 	//driver.findElement(By.xpath("//ion-label[text()='"+allocationMasterData.AllocationBasedOn+"']/following-sibling::ion-radio")).click();
-			driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Allocation Based On")
-					+ "')]/following-sibling::ion-radio")).click();
+			driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Allocation Based On") + "')]/following-sibling::ion-radio")).click();
 			break;
 		}
 	
 	catch(Exception e) {
-		
+		if (i==50) {
+			Assert.fail();
+		}
 	}
 	}
 }

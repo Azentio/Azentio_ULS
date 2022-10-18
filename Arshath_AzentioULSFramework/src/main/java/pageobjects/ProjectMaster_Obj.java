@@ -49,7 +49,7 @@ public class ProjectMaster_Obj {
 		return Prd_Mst_Tempview_Edit;
 	}
 
-	@FindBy(xpath = "(//button[@ng-reflect-text='Add'])[3]")
+	@FindBy(xpath = "//ion-title[contains(text(),'Unit Details')]//ancestor::ion-card//button[@ng-reflect-icon='pi pi-plus']")
 	private WebElement Prd_Mst_Unitdetail_Add;
 
 	public WebElement Prd_Mst_Unitdetail_Add() {
@@ -98,35 +98,35 @@ public class ProjectMaster_Obj {
 		return Prd_Mst_Unitdetail_Active_Deactive;
 	}
 
-	@FindBy(xpath = "//ion-col[2]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]")
+	@FindBy(xpath = "//ion-label[contains(text(),' Building Name ')]/parent::ion-item/ion-input/input")
 	private WebElement Prd_Mst_Unitdetail_BuildingName;
 
 	public WebElement Prd_Mst_Unitdetail_BuildingName() {
 		return Prd_Mst_Unitdetail_BuildingName;
 	}
 
-	@FindBy(xpath = "(//ion-col[3]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1])[2]")
+	@FindBy(xpath = "//ion-label[contains(text(),' Unit No ')]/parent::ion-item/ion-input/input")
 	private WebElement Prd_Mst_Unitdetail_UnitNo;
 
 	public WebElement Prd_Mst_Unitdetail_UnitNo() {
 		return Prd_Mst_Unitdetail_UnitNo;
 	}
 
-	@FindBy(xpath = "//ion-col[4]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]")
+	@FindBy(xpath = "//ion-label[text()=' Floor ']/parent::ion-item/ion-input/input[1]")
 	private WebElement Prd_Mst_Unitdetail_Floor;
 
 	public WebElement Prd_Mst_Unitdetail_Floor() {
 		return Prd_Mst_Unitdetail_Floor;
 	}
 
-	@FindBy(xpath = "//ion-col[5]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]")
+	@FindBy(xpath = "//ion-label[text()=' Saleable Area (sq. ft) ']/parent::ion-item/ion-input/input[1]")
 	private WebElement Prd_Mst_Unitdetail_Saleablearea;
 
 	public WebElement Prd_Mst_Unitdetail_Saleablearea() {
 		return Prd_Mst_Unitdetail_Saleablearea;
 	}
 
-	@FindBy(xpath = "//ion-col[6]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]")
+	@FindBy(xpath = "//ion-label[text()=' Exposed Appl No ']/parent::ion-item/ion-input/input[1]")
 	private WebElement Prd_Mst_Unitdetail_ExposedApplNo;
 
 	public WebElement Prd_Mst_Unitdetail_ExposedApplNo() {

@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-14T17:49:36 IST" name="Default suite" finished-at="2022-10-14T17:51:25 IST" duration-ms="108619">
+  <suite started-at="2022-10-18T18:01:44 IST" name="Default suite" finished-at="2022-10-18T18:02:45 IST" duration-ms="61149">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@3f191845]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-10-14T17:49:36 IST" name="Default test" finished-at="2022-10-14T17:51:25 IST" duration-ms="108619">
+    <test started-at="2022-10-18T18:01:44 IST" name="Default test" finished-at="2022-10-18T18:02:45 IST" duration-ms="61149">
       <class name="Runner.TestApplication">
-        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-14T17:49:36 IST" name="beforeExecution" finished-at="2022-10-14T17:49:36 IST" duration-ms="14" status="PASS">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-18T18:01:44 IST" name="beforeExecution" finished-at="2022-10-18T18:01:44 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeExecution -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-14T17:49:36 IST" name="setUpClass" finished-at="2022-10-14T17:49:37 IST" duration-ms="1245" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-18T18:01:44 IST" name="setUpClass" finished-at="2022-10-18T18:01:45 IST" duration-ms="1209" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-14T17:49:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-14T17:51:06 IST" duration-ms="89002" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-18T18:01:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-18T18:02:32 IST" duration-ms="46624" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To verify the list view data in wareHouse master"]]>
+                <![CDATA["verify user is able to add new Unit details record in the system by entering valid data"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[check the functionality of the Warehouse Master]"]]>
+                <![CDATA["Optional[Check the functionality of the Project Ubit Details]"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[Keys to send should be a not null CharSequence]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
+at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:88)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+at jdk.proxy2/jdk.proxy2.$Proxy46.sendKeys(Unknown Source)
+at stepdefinitions.ProjectMaster_UnitDetails.enter_the_value_in_floor_and_verify_it(ProjectMaster_UnitDetails.java:192)
+at ✽.Enter the value in Floor and verify it(file:///C:/Users/inindc00075/git/Arshath_ULS/Arshath_AzentioULSFramework/src/test/java/features/MDM_ProjectMaster_UnitDetaill.feature:55)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-14T17:51:06 IST" name="tearDownClass" finished-at="2022-10-14T17:51:25 IST" duration-ms="18239" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-18T18:02:32 IST" name="tearDownClass" finished-at="2022-10-18T18:02:45 IST" duration-ms="13207" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-14T17:51:25 IST" name="afterExecution" finished-at="2022-10-14T17:51:25 IST" duration-ms="316" status="PASS">
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@3f191845]" started-at="2022-10-18T18:02:48 IST" name="afterExecution" finished-at="2022-10-18T18:02:48 IST" duration-ms="213" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterExecution -->

@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,7 @@ import io.cucumber.java.en.And;
 import pageobjects.AllocationMasterObject;
 import pageobjects.Allocation_MstObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
@@ -33,7 +36,8 @@ public class MDM_Allocation_Master extends BaseClass {
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	AllocationMasterObject allocationObj = new AllocationMasterObject(driver);
 	Allocation_MstObj allocationMstObj = new Allocation_MstObj(driver);
-	
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "AllocationMasterTestData", "Data Set ID") ;
+	Map<String, String> testData;
 	
 	@And("^user click on Allocation Master List view Icon$")
 	public void user_click_on_allocation_master_list_view_icon() throws Throwable {
@@ -88,10 +92,10 @@ public class MDM_Allocation_Master extends BaseClass {
 	@And("^user Enter the matching data in search text box$")
 	public void user_enter_the_matching_data_in_search_text_box() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationSearchTextBox(), 50, 2);					
-		allocationMstObj.AllocationSearchTextBox().sendKeys("Allocation master home loan");		
+		allocationMstObj.AllocationSearchTextBox().sendKeys(testData.get("Match"));		
 		Thread.sleep(1000);
 		String xpath = driver.findElement(By.xpath("//tr[1]/td[3]/p-celleditor[1]")).getText();
-		Assert.assertEquals(xpath, "Allocation master home loan");
+		Assert.assertEquals(xpath, testData.get("Match"));
 		
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationTextBoxCloseButton(), 50, 2);	
 		allocationMstObj.AllocationTextBoxCloseButton().click();
@@ -99,12 +103,13 @@ public class MDM_Allocation_Master extends BaseClass {
 
 	@And("^user Enter the Mismatch data in search text box$")
 	public void user_enter_the_mismatch_data_in_search_text_box() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationSearchTextBox(), 50, 2);			
-		allocationMstObj.AllocationSearchTextBox().sendKeys("AAAAA");
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, allocationMstObj.AllocationSearchTextBox(), 50, 2);	
+		testData=exceldata.getTestdata("AT-ALM-014_D1");
+		allocationMstObj.AllocationSearchTextBox().sendKeys(testData.get("Unmatch"));
 		Thread.sleep(1000);
 		try {
 			String xpath = driver.findElement(By.xpath("//tr[1]/td[3]/p-celleditor[1]")).getText();
-			Assert.assertEquals(xpath, "AAAAA");
+			Assert.assertEquals(xpath, testData.get("Unmatch"));
 		} catch (Exception e) {
 			System.out.println("The Search Record is Not Availble in List");
 		}

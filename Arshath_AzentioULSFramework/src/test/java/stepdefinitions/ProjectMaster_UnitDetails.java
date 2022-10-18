@@ -55,40 +55,96 @@ public class ProjectMaster_UnitDetails extends BaseClass{
 
     @And("^user click on unit details Add icon and verify the functionality$")
     public void user_click_on_unit_details_add_icon_and_verify_the_functionality() throws Throwable {
-    	javaHelper.scrollIntoView(PrdMstObj.Prd_Mst_Unitdetail_Add());
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Add(), 60, 2);
-    	PrdMstObj.Prd_Mst_Unitdetail_Add().isDisplayed();
-    	PrdMstObj.Prd_Mst_Unitdetail_Add().click();
+    	
+    	//waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Add(), 60, 2);
+    	for (int i = 0; i < 100; i++) {
+			try {
+		    	javaHelper.scrollIntoView(PrdMstObj.Prd_Mst_Unitdetail_Add());
+		    	PrdMstObj.Prd_Mst_Unitdetail_Add().isDisplayed();
+		    	PrdMstObj.Prd_Mst_Unitdetail_Add().click();
+		    	break;
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+
     }
 
     @And("^user Enter the value in Building Name and verify it$")
     public void user_enter_the_value_in_building_name_and_verify_it() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_BuildingName(), 60, 2);
-    	PrdMstObj.Prd_Mst_Unitdetail_BuildingName().isDisplayed();
+    	//waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_BuildingName(), 60, 2);
+    	for (int i = 0; i < 100; i++) {
+			try {
+				PrdMstObj.Prd_Mst_Unitdetail_BuildingName().isDisplayed();
+				PrdMstObj.Prd_Mst_Unitdetail_BuildingName().sendKeys(unitdata.BuildingName);
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+    	
     }
 
     @And("^user Enter the value in Unit No and verify it$")
     public void user_enter_the_value_in_unit_no_and_verify_it() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_UnitNo(), 60, 2);
-    	PrdMstObj.Prd_Mst_Unitdetail_UnitNo().isDisplayed();
+    //	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_UnitNo(), 60, 2);
+    	for (int i = 0; i < 100; i++) {
+			try {
+				PrdMstObj.Prd_Mst_Unitdetail_UnitNo().isDisplayed();
+				PrdMstObj.Prd_Mst_Unitdetail_UnitNo().sendKeys(unitdata.UnitNo);
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+    	
     }
 
     @And("^user Enter the value in Floor and verify it$")
     public void user_enter_the_value_in_floor_and_verify_it() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Floor(), 60, 2);
-    	PrdMstObj.Prd_Mst_Unitdetail_Floor().isDisplayed(); 
+    	
+    	//waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Floor(), 60, 2);
+    	for (int i = 0; i < 100; i++) {
+			try {
+				PrdMstObj.Prd_Mst_Unitdetail_Floor().isDisplayed(); 
+				PrdMstObj.Prd_Mst_Unitdetail_Floor().sendKeys(unitdata.Floor);
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+    	
     }
 
     @And("^user Enter the value in Saleable Area sq ft and verify it$")
     public void user_enter_the_value_in_saleable_area_sq_ft_and_verify_it() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Saleablearea(), 60, 2);
-    	PrdMstObj.Prd_Mst_Unitdetail_Saleablearea().isDisplayed(); 
+    	//waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Saleablearea(), 60, 2);
+    	for (int i = 0; i < 100; i++) {
+			try {
+				PrdMstObj.Prd_Mst_Unitdetail_Saleablearea().isDisplayed(); 
+				PrdMstObj.Prd_Mst_Unitdetail_Saleablearea().sendKeys(unitdata.SaleableArea);
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+    	
     }
 
     @And("^user Enter the value in Exposed No and verify it$")
     public void user_enter_the_value_in_exposed_no_and_verify_it() throws Throwable {
-       	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_ExposedApplNo(), 60, 2);
-    	PrdMstObj.Prd_Mst_Unitdetail_ExposedApplNo().isDisplayed();  
+       //	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_ExposedApplNo(), 60, 2);
+    	for (int i = 0; i < 100; i++) {
+			try {
+				PrdMstObj.Prd_Mst_Unitdetail_ExposedApplNo().isDisplayed();  
+				PrdMstObj.Prd_Mst_Unitdetail_ExposedApplNo().sendKeys(unitdata.Exposed);
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+    	
     }
 
     @And("^user verify the Active De-Active status and verify it$")
@@ -103,7 +159,7 @@ public class ProjectMaster_UnitDetails extends BaseClass{
     	PrdMstObj.Prd_Mst_Unitdetail_Save().click(); 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.SaveSuccess_alert(), 60, 2);
 		String Toast = PrdMstObj.SaveSuccess_alert().getText();
-		Assert.assertEquals(Toast, "success");
+		Assert.assertTrue(Toast.contains("Success"));
     }
 
     @And("^User verify the list view Record is Non-Editable$")
