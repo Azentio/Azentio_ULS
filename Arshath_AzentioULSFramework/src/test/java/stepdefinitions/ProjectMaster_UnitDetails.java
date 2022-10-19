@@ -189,7 +189,7 @@ public class ProjectMaster_UnitDetails extends BaseClass{
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrdMstObj.Prd_Mst_Unitdetail_Floor(), 60, 2);
     	PrdMstObj.Prd_Mst_Unitdetail_Floor().isDisplayed();
     	PrdMstObj.Prd_Mst_Unitdetail_Floor().click();
-    	PrdMstObj.Prd_Mst_Unitdetail_Floor().sendKeys();
+    	PrdMstObj.Prd_Mst_Unitdetail_Floor().sendKeys(unitdata.Floor);
     }
 
     @And("^Enter the value in Saleable Area sq ft and verify it$")
