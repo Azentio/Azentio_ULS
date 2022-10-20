@@ -29,6 +29,7 @@ import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
 import testDataType.TransactionScreenTestDataType;
 import testDataType.ULS_CustomerDeptDetailsTestData;
+import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.WarehouseTestdata;
 
 //master
@@ -95,6 +96,9 @@ public class JsonConfig {
 	private final String AllocationMasterDataPath = configFileReader.getJsonPath() + "AllocationMasterJson.json";
 	private List<AllocationMasterTestData> AllocationMaster;
 	
+	private final String uls_LoModuleWaiverJsonFile = configFileReader.getJsonPath() + "ULS_LOModuleWaiverJSON.json";
+	private List<ULS_LoModuleWaiverTestData> loModuleWaiverTestData;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -121,6 +125,29 @@ public class JsonConfig {
 		BounceMst=getBounceMst();
 		//allocation  Master-->Kamalapriya
 		AllocationMaster = getAllocationMasterList();
+		loModuleWaiverTestData = getLoModuleWaiverTestData();
+	}
+	
+	private List<ULS_LoModuleWaiverTestData> getLoModuleWaiverTestData() {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(uls_LoModuleWaiverJsonFile));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(uls_LoModuleWaiverJsonFile));
+			ULS_LoModuleWaiverTestData[] loModuleWaiverTestData = gson.fromJson(bufferReader,
+					ULS_LoModuleWaiverTestData[].class);
+			return Arrays.asList(loModuleWaiverTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + uls_LoModuleWaiverJsonFile);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	
 	//Allocation Master-->Kamalapriya
@@ -574,5 +601,9 @@ public class JsonConfig {
 	
 	public final MDM_BounceMasterTestdata getBounceMstByName(String Username) {
 		return BounceMst.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
+	// ULS_LoModuleWaiverTestData> loModuleWaiverTestData
+	public final ULS_LoModuleWaiverTestData getLoModuleWaiverTestDataByName(String Username) {
+		return loModuleWaiverTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

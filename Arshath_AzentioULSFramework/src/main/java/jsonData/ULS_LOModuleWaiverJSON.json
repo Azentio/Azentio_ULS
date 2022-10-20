@@ -1,0 +1,18 @@
+[
+{
+"UserType":"Maker",
+"WaiverTypeForDocumentWaiver":"Document Waiver",
+"WaiverTypeForFIFCULegalWaiver":"FI/FCU Legal Waiver",
+"WaiverTypeForPDWaiver":"Personal Discussion Waiver",
+"WaiverTypeForROIChangeWaiver":"ROI Change Waiver",
+"WaiverTypeForValuationWaiver":"Valuation Waiver",
+"WaiverTypeFOrInvalidInput":"Select",
+"DocumentCategory":"loan doc",
+"DocumentType":"Pan Card",
+"WaivingAuthority":"",
+"VerificationType":"FCU Verification",
+"PDType":"PD1",
+"ValuationType":"Valuation Report",
+"loModuleEventCode":"MST_LOWAIVER",
+"makerAlertRemark":"Submitted from maker"
+}]
