@@ -81,6 +81,21 @@ public class Asset_Auto_Master_VerifyStep {
     	
         
     }
+    @And("^User verify the asset model master list view$")
+    public void user_verify_the_asset_model_master_list_view() throws Throwable {
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.Asset_Addicon(), 60, 5);
+    	Assert.assertEquals(assetAutoMasterObj.Asset_Addicon().isDisplayed(), true);
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.searchIcon(), 60, 5);
+    	Assert.assertEquals(assetAutoMasterObj.searchIcon().isDisplayed(), true);
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.exportIcon(), 60, 5);
+    	Assert.assertEquals(assetAutoMasterObj.exportIcon().isDisplayed(), true);
+    	
+        
+    }
+
 
     @And("^User verify the Values in List view should be non editable$")
     public void user_verify_the_values_in_list_view_should_be_non_editable() throws Throwable {
@@ -94,6 +109,15 @@ public class Asset_Auto_Master_VerifyStep {
 		}
         
     }
+    @And("^User click the project master listview icon in project master$")
+    public void user_click_the_project_master_listview_icon_in_project_master() throws Throwable {
+         
+    	help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetautomastereyeicon(), 60, 5);
+    	assetAutoMasterObj.assetautomastereyeicon().click();
+     	
+    	
+    }
+
 
     @And("^User verify the functionality of Export to PDF button in asset auto master$")
     public void user_verify_the_functionality_of_export_to_pdf_button_in_asset_auto_master() throws Throwable {
@@ -231,6 +255,25 @@ public class Asset_Auto_Master_VerifyStep {
     	help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetautomastereyeicon(), 60, 5);
     	assetAutoMasterObj.assetautomastereyeicon().click();
     }
+    @And("^User click the asset model master in asset auto master$")
+    public void user_click_the_asset_model_master_in_asset_auto_master() throws Throwable {
+        
+    	//help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.Asset_Model_Master_Tab(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			assetAutoMasterObj.Asset_Model_Master_Tab().click();
+    			break;
+			} catch (Exception e) {
+				if(i==20) {
+					e.getMessage();
+				}
+				
+			}
+    	}
+    	
+    	
+    }
+
 
     @And("^Click the listview pencil icon in asset auto master$")
     public void click_the_listview_pencil_icon_in_asset_auto_master() throws Throwable {

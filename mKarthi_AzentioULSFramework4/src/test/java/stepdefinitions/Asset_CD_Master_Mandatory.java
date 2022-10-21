@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import java.io.File;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -16,6 +17,7 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import pageobjects.Asset_CD_MasterOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.Asset_CD_MasterTestDataType;
@@ -36,25 +38,30 @@ public class Asset_CD_Master_Mandatory {
 	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
 	Asset_CD_MasterTestDataType assetjson = jsonConfig.getAssetCDMasterListByName("Maker");
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AssetCDMasterTestData","Data Set ID");
+	Map<String, String> testData;
+	
+	
 	
 	@And("^Verify the impact when user enter characters value in numeric field in asset CD master$")
     public void verify_the_impact_when_user_enter_characters_value_in_numeric_field() throws Throwable {
-    	
+		testData = excelData.getTestdata("AT-ACD-T005_D1");
     	help.waitForElementToVisibleWithFluentWait(driver, assetcd.asset_yearofmanufacture(), 60, 5);
     	assetcd.asset_yearofmanufacture().click();
-    	assetcd.asset_yearofmanufacture().sendKeys(assetjson.YearOfManufacturemandatory);
+    	assetcd.asset_yearofmanufacture().sendKeys(testData.get("Year Of Manufacture"));
     	String attr= assetcd.asset_yearofmanufacture().getAttribute("ng-reflect-model");
-    	Assert.assertNotEquals(attr, assetjson.YearOfManufacturemandatory);
+    	Assert.assertNotEquals(attr, testData.get("Year Of Manufacture"));
     
 	
 	}
 	@And("^Verify the impact when user enter numeric value in character field in asset CD master$")
     public void verify_the_impact_when_user_enter_numeric_value_in_character_field_in_asset_cd_master() throws Throwable {
+		testData = excelData.getTestdata("AT-ACD-T005_D1");
 		help.waitForElementToVisibleWithFluentWait(driver, assetcd.asset_model(), 60, 5);
     	assetcd.asset_model().click();
-    	assetcd.asset_model().sendKeys(assetjson.Model);
+    	assetcd.asset_model().sendKeys(testData.get("Model"));
     	String attr2 = (String) seleniumactions.getJavascriptHelper().executeScript("return document.getElementsByTagName('ion-input')[0].value");
-    	Assert.assertEquals(attr2, assetjson.Model);
+    	Assert.assertEquals(attr2, testData.get("Model"));
     	
     	
 	
@@ -97,10 +104,11 @@ public class Asset_CD_Master_Mandatory {
 	    @And("^User update the assetcategory in asset CD master$")
 	    public void user_update_the_assetcategory_in_asset_cd_master() throws Throwable {
 	    	
+	    	testData = excelData.getTestdata("AT-ACD-T006_D1");
 	    	help.waitForElementToVisibleWithFluentWait(driver, assetcd.assetcategoryupdate(), 60, 5);
 	    	assetcd.assetcategoryupdate().click();
 	    	
-	    	String xpath = "//ion-label[contains(text(),'" + assetjson.AssetCategoryupdate + "')]//following-sibling::ion-radio";
+	    	String xpath = "//ion-label[contains(text(),'" +testData.get("Asset Category")+ "')]//following-sibling::ion-radio";
 
 			for (int i = 1; i < 20; i++) {
 				try {
@@ -117,11 +125,11 @@ public class Asset_CD_Master_Mandatory {
 
 	    @And("^User update the model in asset CD master$")
 	    public void user_update_the_model_in_asset_cd_master() throws Throwable {
-	    	
+	    	testData = excelData.getTestdata("AT-ACD-T006_D1");
 	    	help.waitForElementToVisibleWithFluentWait(driver, assetcd.asset_model(), 60, 5);
 	    	assetcd.asset_model().click();
 	    	assetcd.asset_model().clear();
-	    	assetcd.asset_model().sendKeys(assetjson.ModelUpdate);
+	    	assetcd.asset_model().sendKeys(testData.get("Model"));
 	    	//assetcd.asset_model().sendKeys(Keys.ENTER);
 	    	
 	        
@@ -163,10 +171,11 @@ public class Asset_CD_Master_Mandatory {
 	    @And("^User update the assettype in asset CD master$")
 	    public void user_update_the_assettype_in_asset_cd_master() throws Throwable {
 	    	
+	    	testData = excelData.getTestdata("AT-ACD-T006_D1");
 	    	help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Typeinput(), 60, 5);
 	    	assetcd.Asset_Typeinput().click();
 	    	
-	    	String xpath2 = "//ion-label[contains(text(),'" + assetjson.AssetType + "')]//following-sibling::ion-radio";
+	    	String xpath2 = "//ion-label[contains(text(),'" +testData.get("Asset Type")+ "')]//following-sibling::ion-radio";
 
 			for (int i = 1; i < 20; i++) {
 				try {
@@ -299,7 +308,8 @@ public class Asset_CD_Master_Mandatory {
 	    
 	    @And("^Verify the functionality of Search box with matching data in asset CD master$")
 		public void verify_the_functionality_of_search_box_with_matching_data() throws Throwable {
-
+	    	
+	    	testData = excelData.getTestdata("AT-ACD-T012_D1");
 			seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetcd.searchIcon(), 30, 2);
 			for (int i = 0; i < 20; i++) {
 				try {
@@ -311,7 +321,7 @@ public class Asset_CD_Master_Mandatory {
 			}
 			seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetcd.productViewSearchText(),
 					30, 2);
-			assetcd.productViewSearchText().sendKeys(json.readReferancedata());
+			assetcd.productViewSearchText().sendKeys(testData.get("Searching Matching Data"));
 
 			String xpath = "//tr[1]/td[3]/p-celleditor[1]/span[1]";
 			String productcode = null;
@@ -326,7 +336,8 @@ public class Asset_CD_Master_Mandatory {
 	    
 	    @And("^Verify the functionality of Search box with mismatch data in asset CD master$")
 		public void verify_the_functionality_of_search_box_with_mismatch_data() throws Throwable {
-
+	    	
+	    	testData = excelData.getTestdata("AT-ACD-T012_D1");
 			driver.findElement(By.xpath("//input[@mode='ios']//following-sibling::i")).click();
 			for (int i = 0; i < 20; i++) {
 				try {
@@ -338,7 +349,7 @@ public class Asset_CD_Master_Mandatory {
 			}
 			seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetcd.productViewSearchText(),
 					30, 2);
-			assetcd.productViewSearchText().sendKeys("zzzzz");
+			assetcd.productViewSearchText().sendKeys(testData.get("Searching Mismatch Data"));
 			Thread.sleep(1000);
 			String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
 			for (int i = 0; i < 200; i++) {

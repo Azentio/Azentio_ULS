@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageobjects.Asset_CD_MasterOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.Asset_CD_MasterTestDataType;
@@ -33,6 +36,9 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	Asset_CD_MasterOBJ assetcd = new Asset_CD_MasterOBJ(driver);
 	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AssetCDMasterTestData","Data Set ID");
+	Map<String, String> testData;
+	
 	
 	Asset_CD_MasterTestDataType assetjson = jsonConfig.getAssetCDMasterListByName("Maker");
 	
@@ -42,7 +48,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 		
 		String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 		driver.get(kulsApplicationUrl);
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username, loginData.Password);
+		applicationLogin.loginUlsApplicationAsMaker(loginData.Username3, loginData.Password);
         
     }
 
@@ -82,8 +88,16 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 
 			}
 		}
-    	help.waitForElementToVisibleWithFluentWait(driver, assetcd.successcancel(), 60, 5);
-    	assetcd.successcancel().click();
+    	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.successcancel(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			assetcd.successcancel().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+    	//assetcd.successcancel().click();
     	
         
     }
@@ -175,7 +189,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in asset category for asset CD master$")
     public void user_enter_the_value_in_asset_category_for_asset_cd_master() throws Throwable {
     	
-    	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_categoryinput(), 60, 5);
     	for(int i=0; i<20; i++) {
     		try {
@@ -188,7 +202,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     	
     	Thread.sleep(2000);
     	
-    	String xpath = "//ion-label[contains(text(),'"+assetjson.AssetCategory+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testData.get("Asset Category")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -207,7 +221,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in asset type for asset CD master$")
     public void user_enter_the_value_in_asset_type_for_asset_cd_master() throws Throwable {
     	
-    	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Typeinput(), 60, 5);
     	for(int i=0; i<20; i++) {
     		try {
@@ -219,7 +233,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     	}
     	
     	
-    	String xpath1 = "//ion-label[contains(text(),'"+assetjson.AssetType+"')]//following-sibling::ion-radio";
+    	String xpath1 = "//ion-label[contains(text(),'"+testData.get("Asset Type")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 20; i++) {
 			try {
@@ -240,6 +254,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in manufacturer for asset CD master$")
     public void user_enter_the_value_in_manufacturer_for_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Manufacturerinput(), 60, 5);
     	for(int i=0; i<20; i++) {
     		try {
@@ -251,7 +266,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     	}
     	
     	
-    	String xpath2 = "//ion-label[contains(text(),'" + assetjson.Manufacturer + "')]//following-sibling::ion-radio";
+    	String xpath2 = "//ion-label[contains(text(),'" +testData.get("Manufacturer")+ "')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 20; i++) {
 			try {
@@ -270,11 +285,12 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in model for asset CD master$")
     public void user_enter_the_value_in_model_for_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.asset_model(), 60, 5);
     	for(int i=0; i<50; i++)
     		try {
     			assetcd.asset_model().click();
-    	    	assetcd.asset_model().sendKeys(assetjson.Model);
+    	    	assetcd.asset_model().sendKeys(testData.get("Model"));
     	    	break;
 			} catch (Exception e) {
 				
@@ -286,12 +302,12 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in year of manufacture for asset CD master$")
     public void user_enter_the_value_in_year_of_manufacture_for_asset_cd_master() throws Throwable {
     	
-    	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.asset_yearofmanufacture(), 60, 5);
     	for(int i=0; i<50; i++) {
     		try {
     			assetcd.asset_yearofmanufacture().click();
-    	    	assetcd.asset_yearofmanufacture().sendKeys(assetjson.YearOfManufacture);
+    	    	assetcd.asset_yearofmanufacture().sendKeys(testData.get("Year Of Manufacture"));
     	    	break;
 			} catch (Exception e) {
 				
@@ -304,10 +320,12 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in country for asset CD master$")
     public void user_enter_the_value_in_country_for_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
+    	Thread.sleep(1000);
     	help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Countryinput(), 60, 5);
     	assetcd.Asset_Countryinput().click();
     	
-    	String xpath3 = "//ion-label[contains(text(),'"+assetjson.Country+"')]//following-sibling::ion-radio";
+    	String xpath3 = "//ion-label[contains(text(),'"+testData.get("Country")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 20; i++) {
 			try {
@@ -326,11 +344,12 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User enter the value in remarks for asset CD master$")
     public void user_enter_the_value_in_remarks_for_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.asset_Remark(), 60, 5);
     	for(int i=0; i<50; i++) {
     		try {
     			assetcd.asset_Remark().click();
-    	    	assetcd.asset_Remark().sendKeys(assetjson.Remarks);
+    	    	assetcd.asset_Remark().sendKeys(testData.get("Remark"));
     	    	break;
 			} catch (Exception e) {
 				
@@ -351,10 +370,11 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @And("^User click the search icon in asset CD master and get the reference id$")
     public void user_click_the_search_icon_in_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	for (int i = 0; i < 20; i++) {
 			try {
 				assetcd.searchiconreferenceid().click();
-				assetcd.searchsentkeys().sendKeys(assetjson.searchiconreferenceid);
+				assetcd.searchsentkeys().sendKeys(testData.get("Inbox Search"));
 				break;
 				
 			} catch (Exception e) {
@@ -366,7 +386,9 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     	System.out.println(assetcd.referenceid().getText());
 		String ref1 = assetcd.referenceid().getText();
 		String ref2 = ref1.substring(0);
+		excelData.updateTestData("AT-ACD-T001_D1","Reference ID",ref2);
 		json.addReferanceData(ref2);
+		testData = excelData.getTestdata("AT-ACD-T001_D1");
         
     }
 
@@ -383,21 +405,24 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 				
 			}
 		}
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetcd.submit(), 60, 2);
+    	assetcd.submit().click();
     	
-    	for (int i = 0; i < 20; i++) {
-			try {
-				assetcd.submit().click();
-				break;
-			} catch (Exception e) {
-
-			}
-		}
+//    	for (int i = 0; i < 20; i++) {
+//			try {
+//				assetcd.submit().click();
+//				break;
+//			} catch (Exception e) {
+//
+//			}
+//		}
         
     }
 
     @And("^User enter the popup remark and submit the asset CD master$")
     public void user_enter_the_popup_remark_and_submit_the_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	for (int i = 0; i < 20; i++) {
 			try {
 				assetcd.popupremark().click();
@@ -409,7 +434,7 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     	
     	for (int i = 0; i < 20; i++) {
 			try {
-				assetcd.popupremark().sendKeys(assetjson.PopupRemarks);
+				assetcd.popupremark().sendKeys(testData.get("Popup Remark"));
 				break;
 			} catch (Exception e) {
 
@@ -434,8 +459,10 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 		String split[] = Success.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
+		excelData.updateTestData("AT-ACD-T001_D1","Checker id",popupID);
 		json.addData(popupID);
 		System.out.println(popupID);
+		testData = excelData.getTestdata("AT-ACD-T001_D1");
 		
         
     }

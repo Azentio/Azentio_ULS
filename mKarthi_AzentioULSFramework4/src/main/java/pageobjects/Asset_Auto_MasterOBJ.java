@@ -94,6 +94,12 @@ public class Asset_Auto_MasterOBJ {
 	{
 		return Asset_Configurations;
 	}
+	@FindBy(xpath="//ion-label[contains(text(), 'Asset Model Master')]")
+	private WebElement Asset_Model_Master_Tab;
+	public WebElement Asset_Model_Master_Tab()
+	{
+		return Asset_Model_Master_Tab;
+	}
 	
 
 }

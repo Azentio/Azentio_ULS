@@ -67,7 +67,3 @@ And User click the add icon in list of Appropriation details for Appropriation m
 And User enter the values in due type for Appropriation master validation
 And User click the save icon in Appropriation master
 And User verify the invalid field popup confirmation in appropriation
-
-#
-@AT-RA-042
-Scenario: 

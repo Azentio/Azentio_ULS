@@ -4,6 +4,7 @@ public class KULS_Login_TestDataType {
 	public String UserType;
 	public String Username;
 	public String Username2;
+	public String Username3;
 	public String Password;
 	public String CheckerUserName1;
 	public String CheckerUserPassword1;

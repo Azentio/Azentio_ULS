@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -39,11 +40,20 @@ public class KULS_AllocationMasterStep extends BaseClass {
 		Allocation.AllocationMasterListViewIcon().click();
 		
     }
+	@And("^User Update the Allocation Code in Allocation Master validation$")
+    public void user_update_the_allocation_code_in_allocation_master_validation() throws Throwable {
+		help.waitForElementToVisibleWithFluentWait(driver, Allocation.AllocationCode(), 60, 5);
+		Allocation.AllocationCode().click();
+		for(int i=0; i<20; i++) {
+			Allocation.AllocationCode().sendKeys(Keys.BACK_SPACE);
+		}
+    }
 
     @And("^User click the Allocation Master Action edit icon in Allocation Master$")
     public void user_click_the_allocation_master_action_edit_icon_in_allocation_master() throws Throwable {
-    	
-    	help.waitForElementToVisibleWithFluentWait(driver, Allocation.ActionEditIcon(), 60, 5);
+    	Thread.sleep(2000);
+    	//help.waitForElementToVisibleWithFluentWait(driver, Allocation.ActionEditIcon(), 60, 5);
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Allocation.ActionEditIcon(), 60, 5);
 		Allocation.ActionEditIcon().click();
         
     }

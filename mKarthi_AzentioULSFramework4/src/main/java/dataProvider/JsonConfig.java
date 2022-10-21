@@ -11,6 +11,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+import testDataType.AllocationMasterTestData;
 import testDataType.ApplicationDetailsOfferingTestDataType;
 import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.ApplicationDisbursementMakerTestData;
@@ -19,6 +20,7 @@ import testDataType.Asset_CD_MasterTestDataType;
 import testDataType.BounceMasterTestDataType;
 import testDataType.CustomerPersonalDetailDisbursementCheckerTestDataType;
 import testDataType.CustomerPersonalDetailOfferingTestDataType;
+import testDataType.KULS_AllocationMasterTestdata;
 import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.PersonalDetails_DisbursementMakerTestDataType;
@@ -28,6 +30,7 @@ import testDataType.ReportMasterTestDataType;
 import testDataType.SubProductRetailParameterNegativeTestDataType;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.TransactionScreenTestDataType;
+import testDataType.ULS_AllocationMasterTestData;
 
 //master
 public class JsonConfig {
@@ -36,6 +39,15 @@ public class JsonConfig {
 	// ULS Login
 	
 	//Batch
+	
+	private final String AllocationMasterpath = configFileReader.getJsonPath() + "KULS_AllocationMasterjson.json";
+	private List<KULS_AllocationMasterTestdata> AllocationMaster1List;
+	
+	private final String allocationMasterTestDataJSONPath = configFileReader.getJsonPath() + "ULS_AllocationMasterJSON.json";
+	private List<ULS_AllocationMasterTestData> allocationMasterTestData;
+
+	private final String AllocationMasterDataPath = configFileReader.getJsonPath() + "AllocationMasterJson.json";
+	private List<AllocationMasterTestData> AllocationMaster;
 	
 	private final String PerDetailpath = configFileReader.getJsonPath() + "PersonalDetailsAppDataEntry.json";
 	private List<PersonalaDetailsDataEntryTestdata> PerDetailEntry;
@@ -129,8 +141,75 @@ public class JsonConfig {
 		CustomerPersonalDetailDisbursementCheckerList = getCustomerPersonalDetailDisbursementCheckerList();
 		PersonalDetails_DisbursementMakerList = getPersonalDetails_DisbursementMakerList();
 		BounceMaster=getBounceMasterList();
+		AllocationMaster = getAllocationMasterList();
+		allocationMasterTestData=getAllocationMasterTestData();
+		AllocationMaster1List=getAllocationMaster1List();
 
 	}
+	
+	private List<KULS_AllocationMasterTestdata> getAllocationMaster1List() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(AllocationMasterpath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(AllocationMasterpath));
+			KULS_AllocationMasterTestdata[] reportMasterData = gson.fromJson(bufferReader,
+					KULS_AllocationMasterTestdata[].class);
+			return Arrays.asList(reportMasterData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + AllocationMasterpath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	private List<ULS_AllocationMasterTestData> getAllocationMasterTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(allocationMasterTestDataJSONPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(allocationMasterTestDataJSONPath));
+			ULS_AllocationMasterTestData[] ulsAllocationMasterTestData = gson.fromJson(bufferReader,
+					ULS_AllocationMasterTestData[].class);
+			return Arrays.asList(ulsAllocationMasterTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + allocationMasterTestDataJSONPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	
+	private List<AllocationMasterTestData> getAllocationMasterList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(AllocationMasterDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(AllocationMasterDataPath));
+			AllocationMasterTestData[] Allocation = gson.fromJson(bufferReader, AllocationMasterTestData[].class);
+			return Arrays.asList(Allocation);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + AllocationMasterDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+
 	
 	private List<BounceMasterTestDataType> getBounceMasterList() {
 		Gson gson = new Gson();
@@ -532,6 +611,18 @@ public class JsonConfig {
 	}
 	
 	//batch
+	
+	public final KULS_AllocationMasterTestdata getAllocationMaster1ListByName(String Username) {
+		return AllocationMaster1List.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final ULS_AllocationMasterTestData getAllocationTestDataByName(String Username) {
+		return allocationMasterTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	
+	public final AllocationMasterTestData getAllocationMasterByName(String Username) {
+		return AllocationMaster.stream().filter(x -> x.User.equalsIgnoreCase(Username)).findAny().get();
+	}
 	
 	public final PersonalaDetailsDataEntryTestdata getPerDetailDataByName(String User) {
 		return PerDetailEntry.stream().filter(x -> x.Users.equalsIgnoreCase(User)).findAny().get();

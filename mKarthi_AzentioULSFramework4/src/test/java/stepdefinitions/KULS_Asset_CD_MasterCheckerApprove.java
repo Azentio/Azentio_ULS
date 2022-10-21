@@ -1,5 +1,9 @@
 package stepdefinitions;
 
+import static org.testng.Assert.assertTrue;
+
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +20,7 @@ import io.cucumber.java.en.Then;
 import pageobjects.Asset_CD_MasterOBJ;
 import pageobjects.ProjectMasterOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.Asset_CD_MasterTestDataType;
@@ -37,6 +42,8 @@ public class KULS_Asset_CD_MasterCheckerApprove extends BaseClass {
 	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
 	Asset_CD_MasterTestDataType assetjson = jsonConfig.getAssetCDMasterListByName("Maker");
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AssetCDMasterTestData","Data Set ID");
+	Map<String, String> testData;
 	
 	
 	@Given("^User login as uls checker in asset CD master$")
@@ -44,8 +51,11 @@ public class KULS_Asset_CD_MasterCheckerApprove extends BaseClass {
 		
 		String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
         driver.get(kulsApplicationUrl);
-        System.out.println(json.readdata());
-        applicationLogin.ulSApplicationLoginAsAChecker(json.readdata());
+        //System.out.println(json.readdata());
+        testData = excelData.getTestdata("AT-ACD-T001_D1");
+        System.out.println(testData.get("Checker id"));
+        applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+        
 		
         
     }
@@ -78,11 +88,12 @@ public class KULS_Asset_CD_MasterCheckerApprove extends BaseClass {
     @And("^User search the respective reference id and click on Action button in asset CD master$")
     public void user_search_the_respective_reference_id_and_click_on_action_button_in_asset_cd_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	for (int i = 0; i <40; i++) {
             
 	    	try {
 	           
-	    		driver.findElement(By.xpath("//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button"))
+	    		driver.findElement(By.xpath("//span[text()='"+testData.get("Reference ID")+"']/ancestor::tr/td[1]/button"))
 	            .click();
 	            break;
               
@@ -119,9 +130,10 @@ public class KULS_Asset_CD_MasterCheckerApprove extends BaseClass {
     @And("^User click the popup remarks in asset CD master checker$")
     public void user_click_the_popup_remarks_in_asset_cd_master_checker() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-ACD-T002_D1");
     	help.waitForElementToVisibleWithFluentWait(driver, assetcd.popupremark(), 60, 2);
 		assetcd.popupremark().click();
-		assetcd.popupremark().sendKeys(assetjson.PopupRemarks);
+		assetcd.popupremark().sendKeys(testData.get("Popup Remark Approve"));
         
     }
 
@@ -147,12 +159,13 @@ public class KULS_Asset_CD_MasterCheckerApprove extends BaseClass {
 @Then("^User validate the updated record in list view in Asset CD master$")
 public void user_validate_the_updated_record_in_list_view() throws Throwable {
     //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath("//span[contains(text(),'" + subProductMasterRetailData.ProductCode + "')]")), 60, 2);
-    for (int i = 0; i <20; i++) {
+	testData = excelData.getTestdata("AT-ACD-T001_D1");
+	for (int i = 0; i <20; i++) {
         try {
-            String validate = driver.findElement(By.xpath("//span[contains(text(),'"+json.readReferancedata()+"')]"))
+            String validate = driver.findElement(By.xpath("//span[contains(text(),'"+testData.get("Reference ID")+"')]"))
                     .getText();
             System.out.println(validate);
-            Assert.assertEquals(validate, json.readReferancedata());
+            Assert.assertEquals(validate, testData.get("Reference ID"));
             break;
 
         } catch (NoSuchElementException e) {
@@ -189,9 +202,10 @@ public void User_click_the_reject_icon_in_asset_CD_master_checker() throws Throw
 @And("^User enter the reject remark in asset CD master checker$")
 public void User_enter_the_reject_remark_in_asset_CD_master_checker$() throws Throwable {
 	
+	testData = excelData.getTestdata("AT-ACD-T003_D1");
 	help.waitForElementToVisibleWithFluentWait(driver, assetcd.popupremark(), 60, 2);
 	assetcd.popupremark().click();
-	assetcd.popupremark().sendKeys(assetjson.RemarkReject);
+	assetcd.popupremark().sendKeys(testData.get("Popup Remark Reject"));
 	
     
 }
@@ -218,7 +232,7 @@ public void user_verify_the_record_got_Rejected() throws Throwable {
 
 @And("^User verify the rejected record removed from the system in asset CD master$")
 public void user_verify_the_rejected_record_removed_from_the_system() throws Throwable {
-   
+	testData = excelData.getTestdata("AT-ACD-T001_D1");
 	for (int i = 0; i <20; i++) {
         try {
         	assetcd.searchiconreferenceid().click();
@@ -230,7 +244,7 @@ public void user_verify_the_rejected_record_removed_from_the_system() throws Thr
 
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetcd.searchsentkeys(),60,2);
         
-        assetcd.searchsentkeys().sendKeys(json.readReferancedata());
+        assetcd.searchsentkeys().sendKeys(testData.get("Reference ID"));
         
         String xpath ="//td[contains(text(),' ASSET_CD_MST ')]/preceding-sibling::td[1]/span[contains(text(),'"+json.readReferancedata()+"')]";
         for (int i = 0; i < 200; i++) {
@@ -257,9 +271,10 @@ public void user_click_on_return_icon() throws Throwable {
 @And("^User enter the return remark in asset CD master checker$")
 public void user_enter_the_remark_for_return_the_record() throws Throwable {
 	
+	testData = excelData.getTestdata("AT-ACD-T004_D1");
 	help.waitForElementToVisibleWithFluentWait(driver, assetcd.popupremark(), 60, 2);
 	assetcd.popupremark().click();
-	assetcd.popupremark().sendKeys(assetjson.RemarkReturn);
+	assetcd.popupremark().sendKeys(testData.get("Popup Remark Return"));
 	
     
 }
@@ -276,6 +291,7 @@ public void user_click_the_final_return_button() throws Throwable {
 @And("^User verify the returned record removed from the system in asset CD master$")
 public void user_verify_the_returned_record_removed_from_the_system() throws Throwable {
     
+	testData = excelData.getTestdata("AT-ACD-T001_D1");
 	for (int i = 0; i <20; i++) {
         try {
         	assetcd.searchiconreferenceid().click();
@@ -287,7 +303,7 @@ public void user_verify_the_returned_record_removed_from_the_system() throws Thr
 
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetcd.searchsentkeys(),60,2);
         
-        assetcd.searchsentkeys().sendKeys(json.readReferancedata());
+        assetcd.searchsentkeys().sendKeys(testData.get("Reference ID"));
         String xpath ="//td[contains(text(),' ASSET_CD_MST ')]/preceding-sibling::td[1]/span[contains(text(),'"+json.readReferancedata()+"')]";
         for (int i = 0; i < 200; i++) {
             try {
@@ -305,7 +321,9 @@ public void user_verify_the_record_got_Returned() throws Throwable {
 	   String Toast;
 	   Toast = assetcd.recordMsgChecker().getText();
 	   System.out.println(Toast);
-	   Assert.assertEquals(Toast, "Record RETURNED Successfully, and Current Stage is MAKER with status PENDING from in00135.");
+	   Assert.assertEquals( true, Toast.contains("Record RETURNED Successfully"));
+	   
+	   
 }
 
 

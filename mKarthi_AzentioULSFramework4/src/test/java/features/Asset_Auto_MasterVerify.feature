@@ -31,4 +31,20 @@ And Verify the Deactive status in asset auto master
 
 #AAM_09_001, AAM_09_002, AAM_09_003, AAM_09_004, AAM_09_008, AAM_09_012, AAM_09_013, AAM_09_014, AAM_09_015
 @AT-AAM-T024
-Scenario:
+Scenario: To verify the functionality of asset auto master 
+Given User login as uls maker in asset CD master
+Then User click the Configurations in asset auto master
+And User click the config manager in Bounce master
+#And User click the project master listview icon in project master
+And User click the asset auto master edit icon in asset auto master
+And Click the listview pencil icon in asset auto master
+And User click the asset model master in asset auto master
+#And User verify the Asset Auto Master List view
+And User verify the asset model master list view
+And User verify the Values in List view should be non editable
+And User verify the functionality of Export to PDF button in asset auto master
+And User verify the functionality of Export to Excel button in asset auto master
+And User verify the functionality of Search box with matching data in asset auto master
+And User verify the functionality of Search box with mismatch data in asset auto master
+And User click the add icon in asset auto master
+Then User click the workflow of the record in asset auto master

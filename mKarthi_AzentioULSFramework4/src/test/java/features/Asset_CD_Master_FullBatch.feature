@@ -120,7 +120,7 @@ And User enter the popup remark and submit the asset CD master
 And User get confirmation message and checker id in asset CD master
 
 @AT-ACD-T004.1
-Scenario: To verify the user able to return the record in asset CD master
+Scenario: To verify the user able to reject the record in asset CD master
 Given User login as uls checker in asset CD master
 And User click the inboxicon in asset CD master checker
 And User click the search icon in asset CD master and get the reference id

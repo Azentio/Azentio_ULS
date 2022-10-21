@@ -178,7 +178,7 @@ public class Asset_CD_MasterOBJ {
 	{
 		return inboxediticon;
 	}
-	@FindBy(xpath="//button/span[contains(text(),'Submit')]")
+	@FindBy(xpath="//span[contains(text(),'Submit')]")
 	private WebElement submit;
 	public WebElement submit() 
 	{

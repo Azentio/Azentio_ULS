@@ -35,7 +35,7 @@ public class KULS_Checker_ApproveRecord_ProjectMaster {
 	@Given("^user log in as uls application checker$")
 	public void user_log_in_as_uls_application_checker() throws Throwable {
 		
-		    String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		    String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 	        driver.get(kulsApplicationUrl);
 	        System.out.println(json.readdata());
 	        applicationLogin.ulSApplicationLoginAsAChecker(json.readdata());
