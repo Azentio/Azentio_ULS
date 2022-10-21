@@ -60,7 +60,6 @@ And click on first under writer off set record for the checker reject record
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
 Then store the checker id for checker reject
-
 #UOC_01_10
 @AT_UOC_T003
 Scenario: To verify checker user can able to reject the record
@@ -153,16 +152,16 @@ And update the minimum and maximum value fields
 Then click on save button after updating the under writer off set screen
 When click on mail box after saving the under writer record
 #Then click on search button to search the under writer off set record
-And click on first record of under Writer off set control record
+And click on first record of under writer which is updated before approval
 Then verify record is updated or not
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id for updated record
+Then store the checker ID of WIP Updated record
 #Approval
 @AT_UOC_T002.2
 Scenario: To verify checker user can able to approve the under writer off set control record
 Given Navigate to ULS application URL
-Then login with checker user
+And login with checker user to approve the WIP Updated record
 And click on menu button
 Then select the under writer record in checker stage
 And click on approve button in checker stage to approve the under writer off set control record
@@ -192,7 +191,7 @@ Then store the checker id for updated under writer record
 @AT_UOC_T008
 Scenario: To verify checker user can able to approve the under writer off set control record
 Given Navigate to ULS application URL
-Then login with checker user
+And log in with checker ID which is captured while sibmit from maker for approval purpose
 And click on menu button
 Then select the under writer record in checker stage
 And click on approve button in checker stage to approve the under writer off set control record
@@ -208,20 +207,21 @@ And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
 Then select the record to do updation which is approved from checker user
+And get the test data for updattion which is going to reject from checker
 Then update the already approved record for checker reject
 And click on save button after update the approved one
 When click on mail box after saving the under writer record
 Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first updated under writer off set record which is going to reject in checker
 Then verify approved record is updated with our input data for checker reject
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id
+Then store the checker id for checker reject scenario for updated record
 #checker Reject
 @AT_UOC_T009
 Scenario: To verify checker user can able to reject the record
 Given Navigate to ULS application URL
-Then login with checker user for return the under writer record
+And log in with checker ID which is captured while sibmit from maker for rejection purpose
 And click on menu button
 Then select the under writer record in checker stage
 And click on reject button in checker stage to return the under writer off set control record
@@ -241,15 +241,16 @@ Then update the already approved record for checker return
 And click on save button after update the approved one
 When click on mail box after saving the under writer record
 Then click on search button to search the under writer off set record
-And click on first under writer off set record
+And click on first record of updated under writer which is going to return in checker stage
 Then verify approved record is updated with our input data for checker return
 And submit the under writer off set record
 Then give alert remark and click on submit in alert
-Then store the checker id
+And store the checker id of updated record for checker return purpose
 #Checker return
 @AT_UOC_T010
 Scenario: To verify checker user can able to return the record
 Given Navigate to ULS application URL
+And login with checker id which is captured while submit the updated record for return purpose
 Then login with checker user for return the under writer record
 And click on menu button
 Then select the under writer record in checker stage

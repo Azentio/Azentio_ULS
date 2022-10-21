@@ -2698,7 +2698,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		jsonDataReadertWriter.addData(substring.replace(".", "").trim());
 		softAssert.assertAll();
 	}
-
+	
 	@Then("^login with checker user$")
 	public void login_with_checker_user() throws Throwable {
 		kulsLogin.ulSApplicationLoginAsAChecker(jsonDataReadertWriter.readdata());
