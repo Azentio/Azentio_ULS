@@ -59,22 +59,53 @@ public class MDM_LoWaiverModule extends BaseClass {
 
     @And("^user verify the functionality of Search box with Matching data$")
     public void user_verify_the_functionality_of_search_box_with_matching_data() throws Throwable {
-        
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, waiverObj.SearchText(), 60, 2);
+    	waiverObj.SearchText().click();    	
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, waiverObj.Search_Input(), 60, 2);
+    	waiverObj.Search_Input().click();
+    	waiverObj.Search_Input().sendKeys("123");
+    	Thread.sleep(1000);
     }
 
     @And("^user verify the functionality of Search box with Mismatching data$")
     public void user_verify_the_functionality_of_search_box_with_mismatching_data() throws Throwable {
-        
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, waiverObj.SearchText_Close(), 60, 2);
+    	waiverObj.SearchText_Close().click();
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, waiverObj.SearchText(), 60, 2);
+    	waiverObj.SearchText().click();
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, waiverObj.Search_Input(), 60, 2);
+    	waiverObj.Search_Input().click();
+    	waiverObj.Search_Input().sendKeys("sagf");
     }
 
     @And("^user verify the functionality of Export to PDF file$")
     public void user_verify_the_functionality_of_export_to_pdf_file() throws Throwable {
-        
+    	for (int i = 0; i < 20; i++) {
+    		try {
+    			waiverObj.exportIcon().click();
+    			break;
+    		} catch (Exception e) {
+
+    		}
+    	}
+    	waiverObj.pdfOption().click();
+    	browserHelper.switchToParentWindow();
+    	browserHelper.switchToParentWithChildClose();
+    	
     }
 
     @And("^user verify the functionality of Export to Excel file$")
     public void user_verify_the_functionality_of_export_to_excel_file() throws Throwable {
-        
+    	for (int i = 0; i < 20; i++) {
+    		try {
+    			waiverObj.exportIcon().click();
+    			break;
+    		} catch (Exception e) {
+
+    		}
+    	}
+    	waiverObj.xlsOption().click();
+    	Thread.sleep(1000);
     }	
 	
 	

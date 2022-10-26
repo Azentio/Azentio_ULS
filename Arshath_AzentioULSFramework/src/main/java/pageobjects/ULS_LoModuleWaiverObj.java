@@ -303,13 +303,13 @@ public class ULS_LoModuleWaiverObj {
 	// Arshath page objects
 	
 
-	@FindBy(xpath="//ion-grid[1]/ion-row[1]/ion-col[1]//div[1]/div[1]/div[1]/span[2]/input[1]")
+	@FindBy(xpath="//input[@mode='ios']")
 	private WebElement Search_Input;
 	public WebElement Search_Input()
 	{ 
 		return Search_Input;
 	}
-	@FindBy(xpath = "//input[@mode='ios']") 
+	@FindBy(xpath = "//ion-col[1]//div[3]/span[1]/button[1]/span[1]") 
     private WebElement SearchText;
     public WebElement SearchText() {
         return SearchText;

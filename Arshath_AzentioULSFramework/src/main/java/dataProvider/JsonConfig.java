@@ -17,6 +17,8 @@ import testDataType.Charge_Master_Testdata;
 import testDataType.CustomerEntityReferanceListTestdata;
 import testDataType.Customer_Empolyment_Testdata;
 import testDataType.Customer_address_Testdata;
+import testDataType.KULS_AllocationMasterTestdata;
+import testDataType.KULS_CollateralSubType;
 import testDataType.KULS_CustomerEntityLayout_CustomerDebt_Testdata;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
@@ -28,6 +30,7 @@ import testDataType.PropetyDetails_TestDataType;
 import testDataType.SubProductRetailParameterTestDataType;
 import testDataType.SubproductMasterRetail_Testdata;
 import testDataType.TransactionScreenTestDataType;
+import testDataType.ULS_AllocationMasterTestData;
 import testDataType.ULS_CustomerDeptDetailsTestData;
 import testDataType.ULS_LoModuleWaiverTestData;
 import testDataType.WarehouseTestdata;
@@ -99,6 +102,15 @@ public class JsonConfig {
 	private final String uls_LoModuleWaiverJsonFile = configFileReader.getJsonPath() + "ULS_LOModuleWaiverJSON.json";
 	private List<ULS_LoModuleWaiverTestData> loModuleWaiverTestData;
 	
+	private final String allocationMasterTestDataJSONPath = configFileReader.getJsonPath() + "ULS_AllocationMasterJSON.json";
+	private List<ULS_AllocationMasterTestData> allocationMasterTestData;
+	
+	private final String AllocationMasterpath = configFileReader.getJsonPath() + "KULS_AllocationMasterjson.json";
+	private List<KULS_AllocationMasterTestdata> AllocationMaster1List;
+	// Collateral Subtype Master--Arul
+	private final String CollateralSubtypeDataPath = configFileReader.getJsonPath() + "CollateralSubTypeJson.json";
+	private List<KULS_CollateralSubType> CollateralSubtypeMaster;
+	
 	public JsonConfig() {
 		/*
 		 * RegisterList = getRegisterData(); LoginList = getLoginList();
@@ -126,8 +138,73 @@ public class JsonConfig {
 		//allocation  Master-->Kamalapriya
 		AllocationMaster = getAllocationMasterList();
 		loModuleWaiverTestData = getLoModuleWaiverTestData();
+		allocationMasterTestData=getAllocationMasterTestData();
+		AllocationMaster1List=getAllocationMaster1List();
+		//Collateral SubType Master-Arul
+		CollateralSubtypeMaster = getCollateralSubTypeList();
 	}
 	
+	private List<KULS_AllocationMasterTestdata> getAllocationMaster1List() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(AllocationMasterpath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(AllocationMasterpath));
+			KULS_AllocationMasterTestdata[] reportMasterData = gson.fromJson(bufferReader,
+					KULS_AllocationMasterTestdata[].class);
+			return Arrays.asList(reportMasterData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + AllocationMasterpath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	
+	//Collateral Subtype master
+	private List<KULS_CollateralSubType> getCollateralSubTypeList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(CollateralSubtypeDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(CollateralSubtypeDataPath));
+			KULS_CollateralSubType[] collateral = gson.fromJson(bufferReader, KULS_CollateralSubType[].class);
+			return Arrays.asList(collateral);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + CollateralSubtypeDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
+	private List<ULS_AllocationMasterTestData> getAllocationMasterTestData() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(allocationMasterTestDataJSONPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(allocationMasterTestDataJSONPath));
+			ULS_AllocationMasterTestData[] ulsAllocationMasterTestData = gson.fromJson(bufferReader,
+					ULS_AllocationMasterTestData[].class);
+			return Arrays.asList(ulsAllocationMasterTestData);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + allocationMasterTestDataJSONPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
+	}
 	private List<ULS_LoModuleWaiverTestData> getLoModuleWaiverTestData() {
 		// TODO Auto-generated method stub
 		Gson gson = new Gson();
@@ -605,5 +682,16 @@ public class JsonConfig {
 	// ULS_LoModuleWaiverTestData> loModuleWaiverTestData
 	public final ULS_LoModuleWaiverTestData getLoModuleWaiverTestDataByName(String Username) {
 		return loModuleWaiverTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	public final ULS_AllocationMasterTestData getAllocationTestDataByName(String Username) {
+		return allocationMasterTestData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	public final KULS_AllocationMasterTestdata getAllocationMaster1ListByName(String Username) {
+		return AllocationMaster1List.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//Collateral Subtype Master--Arul
+
+	public final KULS_CollateralSubType getCollateralSubTypeByName(String Username) {
+		return CollateralSubtypeMaster.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

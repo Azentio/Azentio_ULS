@@ -127,6 +127,68 @@ Then Save the record in allocation master
 And keep the mandatory field as blank and save the record and validate it in allocation master
 Then Validate the save button by filling invalid data
 
+@AT_ALM_006
+Scenario: To verify user can able to update the allocation master record before approval
+Given User Launch the KULS application 
+Then user click on configurations Tab
+When user click Config Manager menu
+And click on temp view near by allocation master screen
+And select the first record of temp view in allocation master screen
+Then verify user can able to see the save button in allocation master screen
+Then verify user can able to see the back button in allocation master screen
+Then verify user can able to see the Description field in allocation master screen
+Then verify user can able to see the allocation code in allocation master screen
+Then verify user can able to see the Status field in allocation master screen
+And update the description field in allocation master
+And update the allocation code field
+And click on save button to update the allocation master record
+#Then verify allocation master record is saved in the system
+And Validate the sucess popup
+And click on mail box find the allocation master record
+And search the allocation module event code
+And select the allocation master first record
+Then verify updated record visible for submission
+And click on submit button to submit the record
+And enter the alert remark in allocation master record
+And click on alert submit button in allocation master record
+And get the checker id for allocation master record
+
+@AT_ALM_007
+Scenario: User verify system allow user to modify the Allocation Master
+Given User Launch the KULS application 
+Then user click on configurations Tab
+When user click Config Manager menu
+And User click Approved list icon for Allocation Master
+And User click First Edit icon in Approved list view for Allocation Master
+And User click back button in Alloction master screen
+And User click First Edit icon in Approved list view for Allocation Master
+And User click and update Description
+And User click and update Allocation Code
+And User click Save button for Allocation master updation 
+And user click inbox to approve record for Allocation master
+And user search Allocation Master
+And user store reference number and click the first record in Allocation master inbox view
+And user submit Allocation master record in maker
+And user capture checker id for checker submit
+
+@AT_ALM_008
+Scenario: To verify make user can not able to update the allocation master record with invalid inputs and blank field
+Given User Launch the KULS application 
+Then user click on configurations Tab
+When user click Config Manager menu
+And click on view icon near by allocation master screen
+And select the approved record in allocation master list view
+And clear the input field of description 
+And clear the input field of allocation code
+And click on save button with out data in mandatory field in allocation master
+Then verify mandatory field are showing validation in allocation master screen
+And enter the special character input in description field
+And enter the special character input in allocation code field
+Then verify description field show the validation for special characecter 
+Then verify allocation code field show the validation for special characecter
+And click on back buttonin allocation master updation screen
+Then verify back button is working as we expected
+
 #List View Validation
 @Allocation_Master_M12
 Scenario: To verify and validate the functionalities of list view
@@ -156,7 +218,7 @@ Then To verify the functionality of Export to PDF button in allocation master in
 And To verify the functionality of Export to Excel button in allocation master list view
 
 @AT_ALM_014
-Scenario: List view of Allocation master - Approved records
+Scenario: List view of Allocation master Approved records
 Given User Launch the KULS application 
 Then user click on configurations Tab
 When user click Config Manager menu
