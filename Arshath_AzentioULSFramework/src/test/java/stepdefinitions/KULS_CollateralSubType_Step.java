@@ -317,7 +317,7 @@ public class KULS_CollateralSubType_Step {
 	    	        String validate = driver.findElement(By.xpath("//span[contains(text(),'" +collateralsubtypeData.Asset_CollateralSubtypeCode + "')]"))
 	    	                .getText();
 	    	        System.out.println(validate);
-	    	        Assert.assertEquals(validate, collateralsubtypeData.Asset_CollateralSubtypeCode);
+	    	        Assert.assertEquals(validate, testdata.get("Asset_CollateralSubtypeCode"));
 	    	    }
 	    	    catch(Exception e) {
 	    	    	Assert.fail();
@@ -331,12 +331,12 @@ public class KULS_CollateralSubType_Step {
 	    public void verify_that_rejected_collateral_sub_type_record_is_not_present_in_the_view_list() throws Throwable {
         try {
             String validate = driver
-                    .findElement(By.xpath("//span[contains(text(),'" + collateralsubtypeData.Asset_CollateralSubtypeCodeForReject + "')]"))
+                    .findElement(By.xpath("//span[contains(text(),'" + testdata.get("Asset_CollateralSubtypeCodeForReject") + "')]"))
                     .getText();
             System.out.println(validate);
-            Assert.assertEquals(validate, collateralsubtypeData.Asset_CollateralSubtypeCodeForReject);
+            Assert.assertEquals(validate, testdata.get("Asset_CollateralSubtypeCodeForReject"));
         } catch (Exception e) {
-            System.out.println("The Rejected Record Not in the List view " + collateralsubtypeData.Asset_CollateralSubtypeCodeForReject);
+            System.out.println("The Rejected Record Not in the List view " + testdata.get("Asset_CollateralSubtypeCodeForReject"));
 	    }
 	    }
 	    @And("^Navigate to temp view of collateral sub type$")
@@ -350,10 +350,10 @@ public class KULS_CollateralSubType_Step {
 	    	for (int i = 0; i < 20; i++) {
 	    	    try {
 
-	    	        String validate = driver.findElement(By.xpath("//span[contains(text(),'" +collateralsubtypeData.Asset_CollateralSubtypeCodeForReturn + "')]"))
+	    	        String validate = driver.findElement(By.xpath("//span[contains(text(),'" +testdata.get("Asset_CollateralSubtypeCodeForReturn") + "')]"))
 	    	                .getText();
 	    	        System.out.println(validate);
-	    	        Assert.assertEquals(validate, collateralsubtypeData.Asset_CollateralSubtypeCodeForReturn);
+	    	        Assert.assertEquals(validate, testdata.get("Asset_CollateralSubtypeCodeForReturn"));
 	    	    }
 	    	    catch(Exception e) {
 	    	    	Assert.fail();
@@ -603,7 +603,7 @@ public class KULS_CollateralSubType_Step {
             String substring = UserDirectory.substring(0, 21)+"Downloads";
             substring.replaceAll("/", "//");
             System.out.println(substring);
-            File file = new File("C:\\Users\\inindc00074");
+            File file = new File("C:\\Users\\inindc00075");
             File[] totalfiles = file.listFiles();
             for (File fileName : totalfiles) {
             	if (fileName.getName().equalsIgnoreCase("SubProductMasterFile.pdf")) {
@@ -772,7 +772,7 @@ public class KULS_CollateralSubType_Step {
 
 	    	        String validate = driver.findElement(By.xpath("//ion-label[contains(text(),'Asset/Collateral subtype code')]//following-sibling::ion-input")).getAttribute("ng-reflect-model");
 	    	        System.out.println(validate);
-	    	        Assert.assertEquals(validate, collateralsubtypeData.UpdatedAsset_CollateralSubtypeCodeForApprove);
+	    	        Assert.assertEquals(validate, testdata.get("UpdatedAsset_CollateralSubtypeCodeForApprove"));
 	    	        break;
 	    	    }
 	    	    catch(Exception e) {
@@ -819,7 +819,7 @@ public class KULS_CollateralSubType_Step {
 
 	    	        String validate = driver.findElement(By.xpath("//ion-label[contains(text(),'Asset/Collateral subtype code')]//following-sibling::ion-input")).getAttribute("ng-reflect-model");
 	    	        System.out.println(validate);
-	    	        Assert.assertEquals(validate, collateralsubtypeData.updatedAsset_CollateralSubtypeCodeForReject);
+	    	        Assert.assertEquals(validate, testdata.get("updatedAsset_CollateralSubtypeCodeForReject"));
 	    	        break;
 	    	    }
 	    	    catch(Exception e) {

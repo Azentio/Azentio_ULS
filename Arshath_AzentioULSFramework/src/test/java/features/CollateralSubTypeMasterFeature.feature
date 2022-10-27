@@ -182,6 +182,7 @@ Scenario: Validate the user can able to update collateral sub type record
 Given Launch the kuls application and Navigate to collateral subtype module view list
 #And Navigate to temp view of collateral sub type
 And Select the existing record in collateral sub type
+And Update test data for collateral sub type update
 And Update the value in Description field of collateral sub type
 And Update the value in Asset_CollateralSubtypeCode field for checker reject
 And Update the value in Asset_CollateralType field
@@ -212,6 +213,7 @@ Scenario: Validate the user can able to update collateral sub type record
 Given Launch the kuls application and Navigate to collateral subtype module view list
 #And Navigate to temp view of collateral sub type
 And Select the existing record in collateral sub type
+And Update test data for collateral sub type update
 And Update the value in Description field of collateral sub type
 And Update the value in Asset_CollateralSubtypeCode field for chcker return
 And Update the value in Asset_CollateralType field
