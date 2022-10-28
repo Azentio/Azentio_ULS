@@ -166,5 +166,29 @@ public class Appropriation_MasterObj {
 	{
 		return RequiredField;
 	}
+	@FindBy(xpath="//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
+	private WebElement searchiconreferenceid;
+	public WebElement searchiconreferenceid() 
+	{
+		return searchiconreferenceid;
+	}
+	@FindBy(xpath="//span[text()=' Inbox ']//parent::div//child::span[2]/input")
+	private WebElement searchsentkeys;
+	public WebElement searchsentkeys() 
+	{
+		return searchsentkeys;
+	}
+	@FindBy(xpath="(//button[@ng-reflect-text='Entitle'])[1]")
+	private WebElement inboxediticon;
+	public WebElement inboxediticon() 
+	{
+		return inboxediticon;
+	}
+	@FindBy(xpath="//table[1]/tbody[1]/tr[1]/td[2]/span[1]")
+	private WebElement referenceid;
+	public WebElement referenceid() 
+	{
+		return referenceid;
+	}
 
 }

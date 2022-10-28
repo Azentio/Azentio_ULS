@@ -31,7 +31,10 @@ And User click the Appropriation master edit icon
 And User click the action edit icon in Appropriation master
 And User click the status icon in appropriation master
 And User click the UpdateSave icon in Appropriation master
-And User click the action edit icon in Appropriation master
+#And User click the action edit icon in Appropriation master
+Then User click the inboxmail icon in asset CD master
+And User search the appropriation master in inbox
+And User click the first record in appropriation master
 And User click the cancel icon in appropriation master
 And User enter the popup input messege in appropriation master
 And user click the popup cancel in appropriation master
