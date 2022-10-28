@@ -370,7 +370,7 @@ public class KULS_CollateralSubType_Step {
 	    public void enter_the_value_in_assetcollateralsubtypecode_field_for_checker_reject() throws Throwable {
 	    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField(),30,2);
 	    	collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().click();
-	    	collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().sendKeys(collateralsubtypeData.Asset_CollateralSubtypeCodeForReject);
+	    	collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().sendKeys(testdata.get("Asset_CollateralSubtypeCodeForReject"));
 	    }
 	    @Then("^Click on Save button and validate the field is required popup$")
 	    public void click_on_save_button_and_validate_the_field_is_required_popup() throws Throwable {
@@ -538,7 +538,8 @@ public class KULS_CollateralSubType_Step {
 				}
 			}
 	    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.searchTextFieldOfCollateralSubType(),30,2);
-	    	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys("New");
+	    	testdata=exceldata.getTestdata("AT-ACS-T011_D11");
+	    	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys(testdata.get("Valid"));
 	    	String xpath ="//span[contains(text(),' Description ')]";
 	        String productgroup = null;
 	        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),30,2);
@@ -563,7 +564,8 @@ public class KULS_CollateralSubType_Step {
     			}
     		}
         	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.searchTextFieldOfCollateralSubType(),30,2);
-        	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys("zfghz");
+        	testdata=exceldata.getTestdata("AT-ACS-T011_D11");
+        	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys(testdata.get("Invalid"));
         	Thread.sleep(3000);
         	String xpath ="(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
         	for (int i = 0; i < 200; i++) {
@@ -665,7 +667,8 @@ public class KULS_CollateralSubType_Step {
 				}
 			}
 	    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.searchTextFieldOfCollateralSubType(),30,2);
-	    	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys("Conditioner");
+	    	testdata=exceldata.getTestdata("AT-ACS-T012_D12");
+	    	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys(testdata.get("Valid"));
 	    	String xpath ="//span[contains(text(),' Description ')]";
 	        String productgroup = null;
 	        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),30,2);
@@ -691,6 +694,7 @@ public class KULS_CollateralSubType_Step {
     			}
     		}
         	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.searchTextFieldOfCollateralSubType(),30,2);
+        	testdata=exceldata.getTestdata("AT-ACS-T012_D12");
         	collateralsubtypeObj.searchTextFieldOfCollateralSubType().sendKeys("zfghz");
         	Thread.sleep(3000);
         	String xpath ="(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";

@@ -257,13 +257,16 @@ And Search with invalid test data in collateral sub type WIP
 And Validat the export to PDF functionality of collateral sub type 
 And Validat the export to Excel functionality of collateral sub type
 And Click on Add icon of collateral sub type
+And Update test data for collateral sub type creation and checker approve
 And Enter the value in Description field of collateral sub type
+And Update test data for collateral sub type creation and checker reject
 And Enter the value in Asset_CollateralSubtypeCode field for checker reject
 And Select the value in Asset_CollateralType field
 And Enter the value in Exposure field
 And Enter the value in Asset_CollateralValuationTolerance field
 And Enter the value in Remarks field of collateral sub type
 Then Click on Save button in collateral subtype
-And Navigate to temp view of collateral sub type
-And Select the existing record in collateral sub type
+And  Click on Mail icon for collateral sub type
+And Search the collateral sub type record
+And Store the reference number and click on first collateral subtype record
 And Validate the view summary of collateral sub type
