@@ -1319,55 +1319,8 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.wareHouseApprovedFirstRecord().click();
 	}
 
-	@And("^Get The WIP record data$")
-	public void get_the_wip_record_data() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description1(), 50, 1);
-		String description = warehousrobj.Warehouse_Description1().getAttribute("ng-reflect-model");
-		testData.put("description", description);
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Address1(), 50, 1);
-		String address = warehousrobj.Warehouse_Address1().getAttribute("ng-reflect-model");
-		testData.put("address", address);
+	
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseCountryDropDownData(), 50, 1);
-		String country = warehousrobj.wareHouseCountryDropDownData().getAttribute("aria-label");
-		testData.put("country", country);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseStateDropDown(), 50, 1);
-		String state = warehousrobj.wareHouseStateDropDown().getAttribute("aria-label");
-		testData.put("state", state);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseCityDropDown(), 50, 1);
-		String city = warehousrobj.wareHouseCityDropDown().getAttribute("aria-label");
-		testData.put("city", city);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseZipCodeDropDOwnDataHolder(), 50,
-				1);
-		String ZipCode = warehousrobj.wareHouseZipCodeDropDOwnDataHolder().getAttribute("aria-label");
-		testData.put("ZipCode", ZipCode);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Phone1_validation1(), 50, 1);
-		String phone1 = warehousrobj.Warehouse_Phone1_validation1().getAttribute("ng-reflect-model");
-		testData.put("phone1", phone1);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Fax1(), 50, 1);
-		String fax = warehousrobj.Warehouse_Fax1().getAttribute("ng-reflect-model");
-		testData.put("fax", fax);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Email1(), 50, 1);
-		String email = warehousrobj.Warehouse_Email1().getAttribute("ng-reflect-model");
-		testData.put("email", email);
-
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ContactPerson1(), 50, 1);
-		String contactPerson = warehousrobj.Warehouse_ContactPerson1().getAttribute("ng-reflect-model");
-		testData.put("contactPerson", contactPerson);
-
-		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// warehousrobj.wareHouseToggleButton(), 50, 1);
-		String status = warehousrobj.wareHouseToggleButton().getAttribute("value");
-		testData.put("status", status);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseBackButton(), 50, 1);
-		warehousrobj.wareHouseBackButton().click();
-	}
 
 }

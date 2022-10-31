@@ -31,21 +31,39 @@ public class KULS_Application_Login {
 		waithelper = new WaitHelper(driver);
 		loginObj = new KULS_LoginObj(driver);
 		javaScriptHelper = new JavascriptHelper(driver);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
 		loginObj.userId().click();
 		loginObj.userId().sendKeys(username);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 30, 5);
 		loginObj.continueButton().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 30, 2);
 		loginObj.password().click();
 		loginObj.password().sendKeys(password);
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 30, 5);
 		loginObj.signIn().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
 		loginObj.Menu().click();
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
-		assertEquals(loginObj.configuration().isDisplayed(), true);
 
+		while(true) {
+			try {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
+				assertEquals(loginObj.configuration().isDisplayed(), true);
+				break;
+			} catch (Exception e) {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
+				loginObj.userId().click();
+				loginObj.userId().sendKeys(username);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 30, 5);
+				loginObj.continueButton().click();
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 30, 2);
+				loginObj.password().click();
+				loginObj.password().sendKeys(password);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 30, 5);
+				loginObj.signIn().click();
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
+				loginObj.Menu().click();
+			}
+		}
 	}
 
 	public void ulSApplicationLoginAsAChecker(String userID) {
@@ -56,36 +74,36 @@ public class KULS_Application_Login {
 		switch (userID) {
 		case "in01951":
 			testdata = excelData.getTestdata("Checker1");
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
 			loginObj.userId().click();
 			loginObj.userId().sendKeys(testdata.get("Username"));
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 30, 5);
 			loginObj.continueButton().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 30, 2);
 			loginObj.password().click();
 			loginObj.password().sendKeys(testdata.get("Password"));
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 30, 5);
 			loginObj.signIn().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
 			loginObj.Menu().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
 		case "in01589":
 			testdata = excelData.getTestdata("Checker2");
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
 			loginObj.userId().click();
 			loginObj.userId().sendKeys(testdata.get("Username"));
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 30, 5);
 			loginObj.continueButton().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 30, 2);
 			loginObj.password().click();
 			loginObj.password().sendKeys(testdata.get("Password"));
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 30, 5);
 			loginObj.signIn().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
 			loginObj.Menu().click();
-			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
 		}

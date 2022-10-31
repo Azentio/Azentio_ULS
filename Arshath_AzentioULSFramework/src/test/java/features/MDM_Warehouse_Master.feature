@@ -356,8 +356,21 @@ Scenario: To verify the list view of WIP Record
 Given user log in as uls application maker
 And go to configuration main menu
 And Go to config manager main menu
+And click on view button in ware house master
+And user click list view icon of Warehouse Master
+And user click on Add icon for Warehouse master
+And user Enter the value in description and verify it
+And user Enter the value in Address field and verify it
+And user Enter the value in country field and verify it
+And user Enter the value in state field and verify it
+And user Enter the value in Location field and verify it
+And user Enter the value in Zip code field and verify it
+And user Enter the value in Phone field and verify it
+And user Enter the value in Fax field and verify it
+And user Enter the value in Email field and verify it
+And user Enter the value in Contact person field and verify it
+And user save the warehouse master Record
 And click on temp view in wareHouse master screen
-#And click on view button in ware house master
 Then verify WIP list view records are non editable
 Then verify user can able to add the record in to the ware house master screen
 And click on search button in ware house list view
@@ -373,7 +386,7 @@ And choose pdf format to download pdf file
 Then verify pdf file is downloded in download section
 And click on temp view in wareHouse master screen
 And select the first record in WIP
-And Get The WIP record data
+And Get The approved record data
 Then verify System should display the currect description value
 Then verify system should display the currect address value
 #Then verify System should display the currect country value
