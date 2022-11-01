@@ -147,7 +147,7 @@ public class AppDocumentDetails_Obj {
     public WebElement documentDetailsSave() {
         return documentDetailsSave;
     } 
-    @FindBy(xpath="//div[@aria-label='Success']")
+    @FindBy(xpath="//div[@id='toast-container']//div[@role='alert']")
     private WebElement successMgs;
     public WebElement successMgs() {
     	return successMgs;
@@ -312,7 +312,7 @@ public class AppDocumentDetails_Obj {
 	public WebElement backButtonInDocumentDetails() {
 		return backButtonInDocumentDetails;
 	} 
-	@FindBy(xpath = "(//td[text()=' APPDATAENT '])[1]//preceding-sibling::td[3]/button")
+	@FindBy(xpath = "(//td[text()=' APPDATAENT '])[1]/preceding-sibling::td[6]//button")
 	private WebElement AppDataEntry_ActionIcon;
 	public WebElement AppDataEntry_ActionIcon() {
 		return AppDataEntry_ActionIcon;

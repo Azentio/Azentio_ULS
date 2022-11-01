@@ -198,7 +198,8 @@ Then user verify the Record got Approved for asset auto record
 Scenario: validation for updation of asset auto created record
 Given user log in as uls application maker
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+#And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
 And user verify the functionality of back button
@@ -210,7 +211,8 @@ Then user verify System should show the proper validation message for blank fiel
 Scenario: Validation for Modification of asset auto master record
 Given user log in as uls application maker 
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+#And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
 And user verify the functionality of Activate and Deactivate button for asset auto
