@@ -1,0 +1,40 @@
+[
+{
+"UserType":"Maker",
+"SearchAPPDATA":"APPDATAENT",
+"DocumentName":"Pan Card",
+"RequiredAtStage":"Offering",
+"DocumentStatus":"Deferred",
+"DocumentCategory":"KYC Document",
+"MandatoryOptional":"Mandatory",
+"PresentYear":"2022",
+"UploadYear":"2022",
+"UploadMonth":"Dec",
+"UploadDate":"7",
+"DefferalStage":"Data Check",
+"ExpectedReceiptYear":"2022",
+"ExpectedReceptMonth":"Dec",
+"ExpectedReceptDate":"22",
+"DeferredApprovedBy":"AzentioOne",
+"ChangeInNatureApprovedBy":"Aniket",
+"DocumentForm":"Original",
+"DocumentQuality":"Valid and Clear",
+"DocumentReferenceNumber":"12",
+"DcoumentReceivedBy":"Relationship Officer",
+"LocationWhereReceived":"Dadar Branch",
+"RackNumber":"25",
+"ShelfNumber":"36",
+"BoxNo":"65",
+"Remark":"ok",
+"SearchMatchedData":"183",
+"SearchUnMatchedData":"012",
+"errorMessage":"Showing 0 to 0 of 0 entries",
+"InvalidInput":"@@%$"
+
+
+
+
+
+
+}
+]

@@ -1,0 +1,103 @@
+[
+{
+"UserType":"Maker",
+"ProjecttGroup":"Lending", // 8
+// for parameter updation every run need to change product code and subproduct code
+"ProductCodecParameterUpdation":"dep02", //1
+"SubProductCodeParameterUpdation":"test updation parameter15", //2
+// for parameter validation every run need to change product code and subproduct code
+"ProductCodecParameterValidation":"dep01", //3
+"SubProductCodeParameterValidation":"test Validation parameter11", //4
+"ProductCode":"1212",//11
+"SubProductCode":"test sub product13",//10
+"SubProductDescription":"test sub product13",//9
+ "AllocationSequenceNumber":"87", //5
+ "AllocationSequenceNumberforReject":"88", //6
+ "AllocationSequenceNumbeforReturn":"89", //7
+ "SearchSubProductInbox":"SUB_PRD_MAST",
+ "InvalidTestData":"%$$^%$",
+ "StatusSwitchToggle":"on",
+ "Remark":"ok",
+ "LoanCurrency":"INR",
+"IndexationCurrency":" INR ",
+"MinFinanceAmount":"13",
+"MaxFinanceAmount":"25",
+"MinTenorInMonths":"6",
+"MaxTenorInMonths":"7",
+"RepaymentType":"Free Format",
+"FlatReducing":"Reducing",
+"IntAmortizationMethod":"Equated interest",
+// for reject
+"IntAmortizationMethodReject":"IRR",
+// for return 
+"IntAmortizationMethodReturn":"Rule Of 78",
+"ComputeInstallmentOn":"on Disbursement Amount",
+// for approved record
+"ComputeInstallmentOnApproved":"on Approved Amount",
+"InstDueDateMethod":"User Selection",
+"LPCGracePeriod":"46",
+"PrincipalRepaymentFrequency":"Yearly",
+"InterestRepaymentFrequency":"Yearly",
+"InstRoundingLogic":"2",
+"LoanElegibilityCalc":"Average",
+"IncludeGuarantorInc":"No",
+"DuePeriodRequired":"No",
+"MaxCoApplication":"6",
+"MaxGuarantors":"11",
+"InstCommenceFrom":"First Disbursement",
+"DaysInYear":"Normal Interest on Actual/360 basis",
+"MultipleDisbursTranchAllowed":"Yes",
+"IncludeIncomeDeduDebt":"Yes",
+"RoundOff":"Low",
+"RoundOffValue":"3",
+"OfferValidityDays":"2",
+"AppropriationCode":"APP01",
+"BalloonAllowed":"No",
+"MaxBalloonPercentage":"3",
+"MinIRR":"5",
+"MaxIRR":"9",
+"PreOwnedAsset":"No",
+"DiscountingFactorRounding":"3",
+"DayCountConventionForBPI":"Normal BPI on Actual/Actual basis",
+"InterestChargingStartsFrom":"Disbursement Date",
+"BpiRecovery":"Inflate 1st EMI by BPI",
+"InstallmentRecoveryType":"Advance",
+"IsStepupAllowed":"Yes",
+"RateType":"Single Rate Of Interest",
+"InitiateDiscFactor":"No",
+"bulkPayment":"No",
+"NoOfBulkPaymentInAYear":"3",
+"BulkPaymentLockinPeriod":"4",
+"BulkPaymentTimeInterval":"5",
+"immediateDueDate":"Due Date",
+"bulkPaymentLockinStartsFrom":"First Disbursement",
+"minBulkPaymentParameter":"Bulk Payment on Flat Amount",
+"MinBulkPaymentValue":"13",
+"maxBulkPaymentparameters":"Bulk Payment on Flat Amount",
+"MaxBulkPaymentValue":"15",
+"ForeClosureLockin":"26",
+"foreClosureLockInStartsFrom":"First Disbursement",
+"minRebateParameter":"Percentage",
+"MinRebatevalue":"13",
+"maxRebateParameter":"Percentage",
+"MaxRebateValue":"16",
+"ReschLockin":"13",
+"MaxReschInAYear":"3",
+"TotalReachAllowed":"16",
+"reschedulementLockInStartsFrom":"Last Disbursement",
+"InterestHoliday":"3",
+"PrincipalHoliday":"4",
+"interestComputed":"No Compounding with Capitalization",
+"MoratoriumStartMonthorInstallment":"6",
+"recomputationofProfit":"Yes",
+"preEMI":"Yes",
+"NoOfPreEMIInstallment":"25",
+"miRecoveryToBeRenamedAs":"Equated Recovery",
+"bpiRepaymentTenureMethod":"Loan Tenure",
+"bpiRateMethod":"Loan Rate",
+"bpiRepaymentFrequency":"Monthly",
+"tdsApplicable":"Yes",
+"moratoriumTenureType":"Extended Loan Tenure"
+ 
+}
+]
