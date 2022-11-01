@@ -145,7 +145,7 @@ public class AllocationMasterULS {
 		json.addReferanceData(reference);
 		System.out.println(reference);
 	}
-	@And("^user capture checker id for checker submit$")
+	@And("^user capture checker id for checker submit in AllocationMaster$")
     public void user_capture_checker_id_for_checker_submit() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,allocationMasterObj.AllocationMaster_CheckerId(),60, 3);
         String sucessmgs = allocationMasterObj.AllocationMaster_CheckerId().getText();

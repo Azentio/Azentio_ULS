@@ -194,7 +194,7 @@ And user click inbox to approve record for Allocation master
 And user search Allocation Master
 And user store reference number and click the first record in Allocation master inbox view
 And user submit Allocation master record in maker
-And user capture checker id for checker submit
+And user capture checker id for checker submit in AllocationMaster
 
 @AT-ALM-008
 Scenario: To verify make user can not able to update the allocation master record with invalid inputs and blank field
@@ -237,7 +237,7 @@ And user click inbox to approve record for Allocation master
 And user search Allocation Master
 And user store reference number and click the first record in Allocation master inbox view
 And user submit Allocation master record in maker
-And user capture checker id for checker submit
+And user capture checker id for checker submit in AllocationMaster
 
 
 @AT-ALM-009
@@ -272,7 +272,7 @@ And user click inbox to approve record for Allocation master
 And user search Allocation Master
 And user store reference number and click the first record in Allocation master inbox view
 And user submit Allocation master record in maker
-And user capture checker id for checker submit
+And user capture checker id for checker submit in AllocationMaster
 
 @AT-ALM-010
 Scenario: To verify Checker user is able to reject the record in allocation master
@@ -305,7 +305,7 @@ And user click inbox to approve record for Allocation master
 And user search Allocation Master
 And user store reference number and click the first record in Allocation master inbox view
 And user submit Allocation master record in maker
-And user capture checker id for checker submit
+And user capture checker id for checker submit in AllocationMaster
 
 @AT-ALM-011
 Scenario: To verify Checker user is able to return the record in allocation master

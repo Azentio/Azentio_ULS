@@ -271,14 +271,14 @@ Then User enter the popup remarks in asset CD master checker
 And User click the popup approve in asset CD master checker
 Then User verify the Record got Approved in asset CD checker
 
-@AT-ACD-T008.1
-Scenario: To verify user able to approve in checker stage for Asset-CD-Master
-Given User login as uls maker in asset CD master
-Then User click the Configurations in asset auto master
-And User click the config manager in Bounce master
+#@AT-ACD-T008.1
+#Scenario: To verify user able to approve in checker stage for Asset-CD-Master
+#Given User login as uls maker in asset CD master
+#Then User click the Configurations in asset auto master
+#And User click the config manager in Bounce master
 #And User click the product setup in asset CD master
-And Click the Asset CD Master setup eye icon in Asset CD master
-Then User validate the updated record in list view in Asset CD master
+#And Click the Asset CD Master setup eye icon in Asset CD master
+#Then User validate the updated record in list view in Asset CD master
 
 #ACDM_03_014
 @AT-ACD-T009
@@ -344,15 +344,15 @@ And User enter the reject remark in asset CD master checker
 And User click the final reject icon in asset CD master checker
 Then User verify the Record got Rejected in asset CD checker
 
-@AT-ACD-T009.4
-Scenario: To verify the rejected record shown in asset CD master maker stage
-Given User login as uls maker in asset CD master
-Then User click the Configurations in asset auto master
-And User click the config manager in Bounce master
+#@AT-ACD-T009.4
+#Scenario: To verify the rejected record shown in asset CD master maker stage
+#Given User login as uls maker in asset CD master
+#Then User click the Configurations in asset auto master
+#And User click the config manager in Bounce master
 #And User click the product setup in asset CD master
-And Click the Asset CD Master setup eye icon in Asset CD master
-Then User click the inboxmail icon in asset CD master
-And User verify the rejected record removed from the system in asset CD master
+#And Click the Asset CD Master setup eye icon in Asset CD master
+#Then User click the inboxmail icon in asset CD master
+#And User verify the rejected record removed from the system in asset CD master
 
 #ACDM_03_014
 @AT-ACD-T010
@@ -419,15 +419,15 @@ And User enter the return remark in asset CD master checker
 And User click the final return icon in asset CD master checker
 Then User verify the Record got Returned in asset CD checker
 
-@AT-ACD-T010.4
-Scenario: To verify the rejected record shown in asset CD master maker stage
-Given User login as uls maker in asset CD master
-Then User click the Configurations in asset auto master
-And User click the config manager in Bounce master
+#@AT-ACD-T010.4
+#Scenario: To verify the rejected record shown in asset CD master maker stage
+#Given User login as uls maker in asset CD master
+#Then User click the Configurations in asset auto master
+#And User click the config manager in Bounce master
 #And User click the product setup in asset CD master
-And Click the Asset CD Master setup eye icon in Asset CD master
-Then User click the inboxmail icon in asset CD master
-And User verify the returned record removed from the system in asset CD master
+#And Click the Asset CD Master setup eye icon in Asset CD master
+#Then User click the inboxmail icon in asset CD master
+#And User verify the returned record removed from the system in asset CD master
 
 #ACDM_03_016, ACDM_03_017, ACDM_03_018, ACDM_03_019
 @AT-ACD-T011

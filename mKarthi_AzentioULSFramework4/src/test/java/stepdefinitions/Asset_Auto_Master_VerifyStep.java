@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import java.io.File;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -16,6 +17,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.Asset_Auto_MasterOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.Asset_CD_MasterTestDataType;
 import testDataType.KULS_Login_TestDataType;
@@ -33,6 +35,9 @@ public class Asset_Auto_Master_VerifyStep {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	Asset_Auto_MasterOBJ assetAutoMasterObj = new Asset_Auto_MasterOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AssetAutoMasterTestData","Data Set ID");
+	Map<String, String> testData;
+	
 	
 	@Then("^User click the Configurations in asset auto master$")
     public void user_click_the_configurations_in_asset_auto_master() throws Throwable {
@@ -41,7 +46,160 @@ public class Asset_Auto_Master_VerifyStep {
 		assetAutoMasterObj.Asset_Configurations().click();
         
     }
+	
+	@And("^User search the asset auto master in the asset auto master$")
+    public void user_search_the_asset_auto_master_in_the_asset_auto_master() throws Throwable {
+        
+		testData = excelData.getTestdata("AT-AAM-T012-D1");
+    	for (int i = 0; i < 20; i++) {
+			try {
+				assetAutoMasterObj.searchiconreferenceid().click();
+				assetAutoMasterObj.searchsentkeys().sendKeys(testData.get("Inbox Search"));
+				break;
+				
+			} catch (Exception e) {
 
+			}
+		}
+		
+    }
+
+    @And("^User click the first result in the asset auto master$")
+    public void user_click_the_first_result_in_the_asset_auto_master() throws Throwable {
+    	
+    	testData = excelData.getTestdata("AT-AAM-T012-D1");
+    	for(int i=0; i<20; i++) {
+			try {
+				assetAutoMasterObj.inboxediticon().click();
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+        
+    }
+    
+    @And("^User click the search icon in asset auto master and get the reference id$")
+    public void user_click_the_search_icon_in_asset_auto_master_and_get_the_reference_id() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-AAM-T001-D1");
+    	for (int i = 0; i < 20; i++) {
+			try {
+				assetAutoMasterObj.searchiconreferenceid().click();
+				assetAutoMasterObj.searchsentkeys().sendKeys(testData.get("Inbox Search"));
+				break;
+				
+			} catch (Exception e) {
+
+			}
+		}
+
+    	
+    }
+
+    @And("^User search the respective reference id and click on Action button in asset auto master$")
+    public void user_search_the_respective_reference_id_and_click_on_action_button_in_asset_auto_master() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-AAM-T001-D1");
+    	for (int i = 0; i <40; i++) {
+            
+	    	try {
+	           
+	    		driver.findElement(By.xpath("//span[text()='"+testData.get("Reference ID")+"']/ancestor::tr/td[1]/button"))
+	            .click();
+	            break;
+              
+	    	}
+         
+	    	catch (Exception e) {
+	    		
+	    	}
+	    		
+	    }
+
+        
+    }
+    
+    @Then("^User validate the updated record in list view in Asset auto master$")
+    public void user_validate_the_updated_record_in_list_view_in_asset_auto_master() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-ACD-T001_D1");
+    	for (int i = 0; i <20; i++) {
+            try {
+                String validate = driver.findElement(By.xpath("//span[contains(text(),'"+testData.get("Reference ID")+"')]"))
+                        .getText();
+                System.out.println(validate);
+                Assert.assertEquals(validate, testData.get("Reference ID"));
+                break;
+
+            } catch (NoSuchElementException e) {
+
+
+            }
+
+        }
+
+    	
+    }
+
+    @And("^User verify the rejected record removed from the system in asset auto master$")
+    public void user_verify_the_rejected_record_removed_from_the_system_in_asset_auto_master() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-AAM-T001-D1");
+    	for (int i = 0; i <20; i++) {
+            try {
+            	assetAutoMasterObj.searchiconreferenceid().click();
+                break;
+            } catch (Exception e) {
+
+            }
+        }
+
+            seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.searchsentkeys(),60,2);
+            
+            assetAutoMasterObj.searchsentkeys().sendKeys(testData.get("Reference ID"));
+            
+            String xpath ="//td[contains(text(),'ASSET_AUTO_MST')]/preceding-sibling::td[1]/span[contains(text(),'"+testData.get("Reference ID")+"')]";
+            for (int i = 0; i < 200; i++) {
+                try {
+                    Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(), false);
+                    break;
+                } catch (NoSuchElementException e) {
+
+                }
+            }
+
+    	
+    }
+
+    @And("^User verify the returned record removed from the system in asset auto master$")
+    public void user_verify_the_returned_record_removed_from_the_system_in_asset_auto_master() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-AAM-T001-D1");
+    	for (int i = 0; i <20; i++) {
+            try {
+            	assetAutoMasterObj.searchiconreferenceid().click();
+                break;
+            } catch (Exception e) {
+
+            }
+        }
+
+            seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.searchsentkeys(),60,2);
+            
+            assetAutoMasterObj.searchsentkeys().sendKeys(testData.get("Reference ID"));
+            String xpath ="//td[contains(text(),'ASSET_AUTO_MST')]/preceding-sibling::td[1]/span[contains(text(),'"+testData.get("Reference ID")+"')]";
+            for (int i = 0; i < 200; i++) {
+                try {
+                    Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(), true);
+                    break;
+                } catch (NoSuchElementException e) {
+
+                }
+            }
+
+    	
+    }
 	
 	@Then("^User click the workflow of the record in asset auto master$")
     public void user_click_the_workflow_of_the_record_in_asset_auto_master() throws Throwable {
@@ -114,7 +272,8 @@ public class Asset_Auto_Master_VerifyStep {
          
     	help.waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.assetautomastereyeicon(), 60, 5);
     	assetAutoMasterObj.assetautomastereyeicon().click();
-     	
+
+
     	
     }
 
@@ -180,6 +339,7 @@ public class Asset_Auto_Master_VerifyStep {
     @And("^User verify the functionality of Search box with matching data in asset auto master$")
     public void user_verify_the_functionality_of_search_box_with_matching_data_in_asset_auto_master() throws Throwable {
     	
+    	testData = excelData.getTestdata("AT-AAM-T012-D1");
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.searchIcon(), 30, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -191,7 +351,7 @@ public class Asset_Auto_Master_VerifyStep {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.productViewSearchText(),
 				30, 2);
-		assetAutoMasterObj.productViewSearchText().sendKeys(json.readReferancedata());
+		assetAutoMasterObj.productViewSearchText().sendKeys(testData.get("SearchMatchData"));
 
 		String xpath = "//tr[1]/td[3]/p-celleditor[1]/span[1]";
 		String productcode = null;
@@ -207,7 +367,7 @@ public class Asset_Auto_Master_VerifyStep {
 
     @And("^User verify the functionality of Search box with mismatch data in asset auto master$")
     public void user_verify_the_functionality_of_search_box_with_mismatch_data_in_asset_auto_master() throws Throwable {
-    	
+    	testData = excelData.getTestdata("AT-AAM-T012-D1");
     	driver.findElement(By.xpath("//input[@mode='ios']//following-sibling::i")).click();
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -219,13 +379,13 @@ public class Asset_Auto_Master_VerifyStep {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.productViewSearchText(),
 				30, 2);
-		assetAutoMasterObj.productViewSearchText().sendKeys("zzzzz");
+		assetAutoMasterObj.productViewSearchText().sendKeys(testData.get("SearchUnmatchedData"));
 		Thread.sleep(1000);
 		String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
 		for (int i = 0; i < 200; i++) {
 			try {
 				
-				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Showing 0 to 0 of 0 entries");
+				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(),testData.get("UnmatchedDataError"));
 				break;
 			} catch (NoSuchElementException e) {
 

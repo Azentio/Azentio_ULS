@@ -22,6 +22,12 @@ public class Asset_Auto_MasterOBJ {
 	{
 		return productsetupediticon;
 	}
+	@FindBy(xpath="//ion-label[contains(text(),'Asset Auto Master')]//following-sibling::ion-buttons//child::ion-button[2]")
+	private WebElement productsetupeyeIcon;
+	public WebElement productsetupeyeIcon()
+	{
+		return productsetupeyeIcon;
+	}
 	@FindBy(xpath="//ion-toggle[@role='switch']")
 	private WebElement Activeanddeactive;
 	public WebElement Activeanddeactive()
@@ -93,6 +99,24 @@ public class Asset_Auto_MasterOBJ {
 	public WebElement Asset_Configurations()
 	{
 		return Asset_Configurations;
+	}
+	@FindBy(xpath="//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")
+	private WebElement searchiconreferenceid;
+	public WebElement searchiconreferenceid() 
+	{
+		return searchiconreferenceid;
+	}
+	@FindBy(xpath="//span[text()=' Inbox ']//parent::div//child::span[2]/input")
+	private WebElement searchsentkeys;
+	public WebElement searchsentkeys() 
+	{
+		return searchsentkeys;
+	}
+	@FindBy(xpath="(//button[@ng-reflect-text='Entitle'])[1]")
+	private WebElement inboxediticon;
+	public WebElement inboxediticon() 
+	{
+		return inboxediticon;
 	}
 	@FindBy(xpath="//ion-label[contains(text(), 'Asset Model Master')]")
 	private WebElement Asset_Model_Master_Tab;

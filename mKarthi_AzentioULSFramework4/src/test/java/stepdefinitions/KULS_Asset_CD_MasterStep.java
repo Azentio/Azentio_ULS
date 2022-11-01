@@ -322,7 +322,8 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     	
     	testData = excelData.getTestdata("AT-ACD-T001_D1");
     	Thread.sleep(1000);
-    	help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Countryinput(), 60, 5);
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Countryinput(), 60, 5);
+    	//help.waitForElementToVisibleWithFluentWait(driver, assetcd.Asset_Countryinput(), 60, 5);
     	assetcd.Asset_Countryinput().click();
     	
     	String xpath3 = "//ion-label[contains(text(),'"+testData.get("Country")+"')]//following-sibling::ion-radio";
