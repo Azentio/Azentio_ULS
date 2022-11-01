@@ -20,6 +20,7 @@ import testDataType.Customer_address_Testdata;
 import testDataType.KULS_AllocationMasterTestdata;
 import testDataType.KULS_CollateralSubType;
 import testDataType.KULS_CustomerEntityLayout_CustomerDebt_Testdata;
+import testDataType.KULS_DueMaster_Creation;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.LivExp_Testdata;
 import testDataType.MDM_BounceMasterTestdata;
@@ -88,6 +89,9 @@ public class JsonConfig {
 	//  CustomerDebt--Arul
 	private final String CustomerDebtDataPath = configFileReader.getJsonPath() + "CustomerEntityLayout_CustomerDebtJson.json";
 	private List<KULS_CustomerEntityLayout_CustomerDebt_Testdata> CustomerDebt;	
+	// Due Master--Arul
+	private final String DueMasterDataPath = configFileReader.getJsonPath() + "DueMasterJson.json";
+	private List<KULS_DueMaster_Creation> DueMaster;
 	
 	private final String CustomerReferancePath = configFileReader.getJsonPath() + "CustomerEntity_ReferanceListJson.json";
 	private List<CustomerEntityReferanceListTestdata> CustomerRef;	
@@ -142,6 +146,29 @@ public class JsonConfig {
 		AllocationMaster1List=getAllocationMaster1List();
 		//Collateral SubType Master-Arul
 		CollateralSubtypeMaster = getCollateralSubTypeList();
+		//Due Master-Arul
+		DueMaster = getDueMasterList();
+	}
+	
+	//Due Master--Arul
+	private List<KULS_DueMaster_Creation> getDueMasterList() {
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new StringReader(DueMasterDataPath));
+		reader.setLenient(true);
+		BufferedReader bufferReader = null;
+		try {
+			bufferReader = new BufferedReader(new FileReader(DueMasterDataPath));
+			KULS_DueMaster_Creation[] due = gson.fromJson(bufferReader, KULS_DueMaster_Creation[].class);
+			return Arrays.asList(due);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Json file not found at path : " + DueMasterDataPath);
+		} finally {
+			try {
+				if (bufferReader != null)
+					bufferReader.close();
+			} catch (IOException ignore) {
+			}
+		}
 	}
 	
 	private List<KULS_AllocationMasterTestdata> getAllocationMaster1List() {
@@ -693,5 +720,10 @@ public class JsonConfig {
 
 	public final KULS_CollateralSubType getCollateralSubTypeByName(String Username) {
 		return CollateralSubtypeMaster.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+	}
+	//Due Master--Arul
+
+	public final KULS_DueMaster_Creation getDueMasterByName(String Username) {
+		return DueMaster.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
 }

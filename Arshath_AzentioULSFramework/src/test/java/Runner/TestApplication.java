@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features/MDM_Warehouse_Master.feature", 
+@CucumberOptions(features = "src/test/java/features/MDM_DueMasterFeature.feature", 
                  glue = "stepdefinitions",
 		         //monochrome=false, //to make steps in color
 		         plugin = { "pretty",
@@ -17,7 +17,7 @@ import utilities.ExtentTestManager;
 				//dryRun = false //to check compilation errors			
 					//, tags="@AT_LE_007_Invalid_Modification"
 								
-			//	, tags="@AT_WHM_T012" 
+				//, tags="@Duemaster_M3" 
 						
 )
 public class TestApplication extends AbstractTestNGCucumberTests {

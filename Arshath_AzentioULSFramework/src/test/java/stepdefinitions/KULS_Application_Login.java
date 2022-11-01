@@ -46,7 +46,7 @@ public class KULS_Application_Login {
 
 		while(true) {
 			try {
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 10, 2);
 				assertEquals(loginObj.configuration().isDisplayed(), true);
 				break;
 			} catch (Exception e) {
