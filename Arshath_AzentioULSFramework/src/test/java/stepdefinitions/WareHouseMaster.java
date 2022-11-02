@@ -51,6 +51,7 @@ public class WareHouseMaster extends BaseClass {
 	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "WarehouseMasterTestData", "Data Set ID") ;
 	Map<String, String> testData;
 	Map<String, String> testdata = new HashMap<>();
+	
 	@Given("^user login as uls application checker$")
 	public void user_log_in_as_uls_application_checker() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -60,6 +61,50 @@ public class WareHouseMaster extends BaseClass {
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
 
+	@Given("^user login as uls application checker l$")
+	public void user_log_in_as_uls_application_checker_l() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT-WHM-T002_D1");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
+	@Given("^user login as uls application checker ll$")
+	public void user_log_in_as_uls_application_checker_ll() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT-WHM-T003_D1");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
+	@Given("^user login as uls application checker lll$")
+	public void user_log_in_as_uls_application_checker_lll() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT-WHM-T005_D1");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
+	@Given("^user login as uls application checker llll$")
+	public void user_log_in_as_uls_application_checker_llll() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT-WHM-T007_D1");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
+	@Given("^user login as uls application checker lllll$")
+	public void user_log_in_as_uls_application_checker_lllll() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT-WHM-T008_D1");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
 	
 	@Then("^user click on configurations Tab$")
 	public void user_click_on_configurations_tab() throws Throwable {
@@ -238,6 +283,66 @@ public class WareHouseMaster extends BaseClass {
 
 	}
 
+	@And("^user goto the Maker Inbox and store the Referance ID l$")
+	public void user_goto_the_maker_inbox_and_store_the_referance_id_l() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " +RefId);
+		//json.addReferanceData(RefId);
+		exceldata.updateTestData("AT-WHM-T002_D1", "Reference ID", RefId);
+
+	}
+	
+	@And("^user goto the Maker Inbox and store the Referance ID ll$")
+	public void user_goto_the_maker_inbox_and_store_the_referance_id_ll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " +RefId);
+		//json.addReferanceData(RefId);
+		exceldata.updateTestData("AT-WHM-T003_D1", "Reference ID", RefId);
+
+	}
+	
+	@And("^user goto the Maker Inbox and store the Referance ID lll$")
+	public void user_goto_the_maker_inbox_and_store_the_referance_id_lll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " +RefId);
+		//json.addReferanceData(RefId);
+		exceldata.updateTestData("AT-WHM-T005_D1", "Reference ID", RefId);
+
+	}
+	
+	@And("^user goto the Maker Inbox and store the Referance ID llll$")
+	public void user_goto_the_maker_inbox_and_store_the_referance_id_llll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " +RefId);
+		//json.addReferanceData(RefId);
+		exceldata.updateTestData("AT-WHM-T007_D1", "Reference ID", RefId);
+
+	}
+	
+	@And("^user goto the Maker Inbox and store the Referance ID lllll$")
+	public void user_goto_the_maker_inbox_and_store_the_referance_id_lllll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " +RefId);
+		//json.addReferanceData(RefId);
+		exceldata.updateTestData("AT-WHM-T008_D1", "Reference ID", RefId);
+
+	}
+	
 	@Then("^user Click on Action Icon$")
 	public void user_click_on_action_icon() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Action(), 50, 2);
@@ -265,7 +370,117 @@ public class WareHouseMaster extends BaseClass {
 		
 		System.out.println("Checker ID : " +popupID);
 	}
+	
+	@And("^user verify the submit button and submit the Record from Maker stage l$")
+	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_l() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		//json.addData(popupID);
+		exceldata.updateTestData("AT-WHM-T002_D1", "Checker id", popupID);
+		
+		System.out.println("Checker ID : " +popupID);
+	}
+	
+	@And("^user verify the submit button and submit the Record from Maker stage ll$")
+	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_ll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		//json.addData(popupID);
+		exceldata.updateTestData("AT-WHM-T003_D1", "Checker id", popupID);
+		
+		System.out.println("Checker ID : " +popupID);
+	}
 
+	@And("^user verify the submit button and submit the Record from Maker stage lll$")
+	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_lll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		//json.addData(popupID);
+		exceldata.updateTestData("AT-WHM-T005_D1", "Checker id", popupID);
+		
+		System.out.println("Checker ID : " +popupID);
+	}
+	
+	@And("^user verify the submit button and submit the Record from Maker stage llll$")
+	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_llll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		//json.addData(popupID);
+		exceldata.updateTestData("AT-WHM-T007_D1", "Checker id", popupID);
+		
+		System.out.println("Checker ID : " +popupID);
+	}
+	
+	@And("^user verify the submit button and submit the Record from Maker stage lllll$")
+	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_lllll() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		//json.addData(popupID);
+		exceldata.updateTestData("AT-WHM-T008_D1", "Checker id", popupID);
+		
+		System.out.println("Checker ID : " +popupID);
+	}
+	
 	// *********************Checker Approve***********************//
 
 	@And("^user Click on Chcker Menu icon$")

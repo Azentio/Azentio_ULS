@@ -58,13 +58,13 @@ And user Enter the value in Fax field and verify it
 And user Enter the value For Email field and verify it
 And user Enter the value in Contact person field and verify it
 And user save the warehouse master Record
-And user goto the Maker Inbox and store the Referance ID
+And user goto the Maker Inbox and store the Referance ID l
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit button and submit the Record from Maker stage l
 
 @AT_WHM_T002_Reject
 Scenario: verify Checker user is able to Reject the record
-Given user login as uls application checker
+Given user login as uls application checker l
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -99,13 +99,13 @@ And user Enter the value in Fax field and verify it
 And user Enter the value to Email field and verify it
 And user Enter the value in Contact person field and verify it
 And user save the warehouse master Record
-And user goto the Maker Inbox and store the Referance ID
+And user goto the Maker Inbox and store the Referance ID ll
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit button and submit the Record from Maker stage ll
 
 @AT_WHM_T003_Return
 Scenario: verify Checker user is able to Approve the record
-Given user login as uls application checker
+Given user login as uls application checker ll
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -162,13 +162,13 @@ And user click on First Record Edit icon
 And user Enter the value in description and ReModify it
 And user Enter the value in Address field and ReModify it
 And user click on the update button
-And user goto the Maker Inbox and store the Referance ID
+And user goto the Maker Inbox and store the Referance ID lll
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit button and submit the Record from Maker stage lll
 
 @AT_WHM_T005_Modification_Approve
 Scenario: verify Checker user is able to Approve the record
-Given user login as uls application checker
+Given user login as uls application checker lll
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -220,13 +220,13 @@ And user click on First Record Edit icon
 And user Enter the value in description and Modify Reject it
 And user Enter the value in Address field and Modify Reject it
 And user click on the update button
-And user goto the Maker Inbox and store the Referance ID
+And user goto the Maker Inbox and store the Referance ID llll
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit button and submit the Record from Maker stage llll
 
 @AT_WHM_T007_Modification_Checker_Reject
 Scenario: verify Checker user is able to Approve the record
-Given user login as uls application checker
+Given user login as uls application checker llll
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
@@ -266,13 +266,13 @@ And user click on First Record Edit icon
 And user Enter the value in description and Modify Return it
 And user Enter the value in Address field and Modify Return it
 And user click on the update button
-And user goto the Maker Inbox and store the Referance ID
+And user goto the Maker Inbox and store the Referance ID lllll
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit button and submit the Record from Maker stage lllll
 
 @AT_WHM_T008_Modification_Checker_Return
 Scenario: verify Checker user is able to Approve the record
-Given user login as uls application checker
+Given user login as uls application checker lllll
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
 And user Search the respective reference id and click on Action button
