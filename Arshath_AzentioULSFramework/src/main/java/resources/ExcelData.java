@@ -3,22 +3,18 @@ package resources;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import resources.ExcelReader;
-
 public class ExcelData {
-	private String FileName;
 	private String TestDataSheetName;
 	private String TestDataColumnName;
+	private ExcelReader reader;
 	public ExcelData(String FileName,String TestDataSheetName,String TestDataColumnName) {
-		this.FileName=FileName;
 		this.TestDataSheetName=TestDataSheetName;
 		this.TestDataColumnName=TestDataColumnName;
+		reader = new ExcelReader(FileName);
 	}
-	ExcelReader reader;
 	public Map<String, String> getTestdata(String DataSetID) {
 		Map<String,String> testdata = new LinkedHashMap<String,String>();
-		 reader = new ExcelReader(FileName);
-		int rowCount = reader.getRowCount(TestDataSheetName);
+		//int rowCount = reader.getRowCount(TestDataSheetName);
 		int columnCount = reader.getColumnCount(TestDataSheetName);
 		//System.out.println(rowCount+"    "+columnCount);
 		int cellRowNum = reader.getCellRowNum(TestDataSheetName,TestDataColumnName,DataSetID);
@@ -47,11 +43,5 @@ public class ExcelData {
 	  reader.setCellData(TestDataSheetName, ColumnName, cellRowNum, TestDataValue);
 
 }
-   public static void main(String[] args) {
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","WarehouseMasterTestData", "Data Set ID");
-	Map<String, String> testdata = excelData.getTestdata("AT-WHM-T001_D1");
-	System.out.println(testdata.get("ReportType"));
-	excelData.updateTestData("AT-WHM-T001_D1","Reference ID","922");
-	//data.reader.setCellData("AssetAutoMasterTestData","Reference ID",20,"920");
-} 
+   
 }
