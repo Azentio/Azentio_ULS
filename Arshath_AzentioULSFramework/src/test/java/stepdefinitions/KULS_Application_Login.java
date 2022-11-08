@@ -25,8 +25,10 @@ public class KULS_Application_Login {
 
 	JsonConfig jsonConfig = new JsonConfig();
 	KULS_Login_TestDataType ulsUserLoginCredentials;
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","Logincredentials","Stage");
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "Logincredentials",
+			"Stage");
 	Map<String, String> testdata;
+
 	public void loginUlsApplicationAsMaker(String username, String password) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		loginObj = new KULS_LoginObj(driver);
@@ -43,27 +45,9 @@ public class KULS_Application_Login {
 		loginObj.signIn().click();
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
 		loginObj.Menu().click();
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 10, 2);
+		assertEquals(loginObj.configuration().isDisplayed(), true);
 
-		while(true) {
-			try {
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 10, 2);
-				assertEquals(loginObj.configuration().isDisplayed(), true);
-				break;
-			} catch (Exception e) {
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
-				loginObj.userId().click();
-				loginObj.userId().sendKeys(username);
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 30, 5);
-				loginObj.continueButton().click();
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 30, 2);
-				loginObj.password().click();
-				loginObj.password().sendKeys(password);
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 30, 5);
-				loginObj.signIn().click();
-				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
-				loginObj.Menu().click();
-			}
-		}
 	}
 
 	public void ulSApplicationLoginAsAChecker(String userID) {
@@ -90,6 +74,23 @@ public class KULS_Application_Login {
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
 		case "in01589":
+			testdata = excelData.getTestdata("Checker2");
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
+			loginObj.userId().click();
+			loginObj.userId().sendKeys(testdata.get("Username"));
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 30, 5);
+			loginObj.continueButton().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 30, 2);
+			loginObj.password().click();
+			loginObj.password().sendKeys(testdata.get("Password"));
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 30, 5);
+			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 30, 2);
+			loginObj.Menu().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 30, 2);
+			assertEquals(loginObj.configuration().isDisplayed(), true);
+			break;
+		case "ssk":
 			testdata = excelData.getTestdata("Checker2");
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 30, 5);
 			loginObj.userId().click();

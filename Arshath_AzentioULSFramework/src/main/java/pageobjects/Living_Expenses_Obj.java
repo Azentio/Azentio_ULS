@@ -79,7 +79,11 @@ public class Living_Expenses_Obj {
 	public WebElement Liv_Exp_Save() {
 		return Liv_Exp_Save;
 	}
-	
+	@FindBy(xpath="(//div[@role='alert'])[2]")
+	private WebElement Liv_Exp_SuccessPopup;
+	public WebElement Liv_Exp_SuccessPopup() {
+		return Liv_Exp_SuccessPopup;
+	}
     @FindBy(xpath = "//button[@ng-reflect-text='Update']") 
     private WebElement Liv_Exp_Update;
     public WebElement Liv_Exp_Update() {
@@ -117,7 +121,16 @@ public class Living_Expenses_Obj {
         return Liv_Exp_Living_Expense_Parameter_Value;
     }
   
-	
+    @FindBy(xpath = "//body/div[1]/div[1]/div[1]/div[1]/button[1]/span[1]")
+    private WebElement previousbuttonIncalendar;
+    public WebElement previousbuttonIncalendar() {
+        return previousbuttonIncalendar;
+    }
+    @FindBy(xpath = "//body/div[1]/div[1]/div[1]/div[1]/button[2]/span[1]")
+    private WebElement nextbuttonIncalendar;
+    public WebElement nextbuttonIncalendar() {
+        return nextbuttonIncalendar;
+    }
 	
 	
 	
