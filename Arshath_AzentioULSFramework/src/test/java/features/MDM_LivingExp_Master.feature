@@ -122,9 +122,9 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
-And user save the Record in Living Expenses
-And user verify the Blank field in Living Expense
+And user save the Record in Living Expensess
 And user Pass the Exceldata value for Invalid
+And user verify the Blank field in Living Expense
 And user Enter Invalid value in Description2 and verify it
 And Validate the Message and verify it
 
@@ -135,6 +135,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for Creation
 And user Enter value in Description and verify it
 And user Enter value in Description2 and verify it
 And user Enter value in Description3 and verify it
@@ -143,6 +144,7 @@ And user choose Calender Effective Date and verify it
 And user save the Record in Living Expenses
 And user Goto the Temp view screen of living Expense
 And user click on First record in living Expense
+And user Pass the Exceldata value for Validation
 And user Enter Modify value in Description and verify it
 And user Enter Modify value in Description2 and verify it
 And user try to update the Modified Record
@@ -154,6 +156,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for Creation
 And user Enter value in Description and verify it
 And user Enter value in Description2 and verify it
 And user Enter value in Description3 and verify it
@@ -162,23 +165,27 @@ And user choose Calender Effective Date and verify it
 And user save the Record in Living Expenses
 And user Goto the Temp view screen of living Expense
 And user click on First record in living Expense
+And user Pass the Exceldata value for InvalidModify
 And user Enter Invalid value in Description and verify it
 And user Enter Invalid value in Description2 and verify it
 And user try to update the Modified Record
+And user Pass the Exceldata value for Invalid
 And Validate the Message and verify it
 And user click on List view Icon of  Living Expenses 
 And user click on First record in living Expense
+And user Pass the Exceldata value for InvalidModify
 And user Enter ApprovedModify value in Description and verify it
 And user Enter ApprovedModify value in Description2 and verify it
 And user try to update the Modified Record
-And user goto the Maker Inbox and store the Referance ID
+And user go Inbox and store the ReferanceID
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And verify submit button and submiting Record from Maker stage
 
 @AT_LE_008_Checker_Approve
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user launch kuls application checker
 And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for checker
 And user Search the respective reference id and click on Action button
 And user Click on Approve icon button
 And user Enter the remarks in Action confirmation popup screen
@@ -191,6 +198,7 @@ Given user log in as uls application maker
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
+And user Pass the Exceldata value for Validation
 Then User validate the Living Expense Modified approved record in list view
 
 @AT_LE_009_Reject_Valid_Modification
@@ -200,6 +208,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for Creation
 And user Enter value in Description and verify it
 And user Enter value in Description2 and verify it
 And user Enter value in Description3 and verify it
