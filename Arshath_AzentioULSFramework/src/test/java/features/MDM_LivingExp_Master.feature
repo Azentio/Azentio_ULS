@@ -217,17 +217,19 @@ And user choose Calender Effective Date and verify it
 And user save the Record in Living Expenses
 And user Goto the Temp view screen of living Expense
 And user click on First record in living Expense
+And user Pass the Exceldata value for ModifyRejection
 And user Enter Reject Modify value in Description and verify it
 And user Enter Reject Modify value in Description2 and verify it
 And user try to update the Modified Record
-And user goto the Maker Inbox and store the Referance ID
+And user goto Inbox and store the ReferanceID
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And verify submit button and submiting the Record from Maker stage
 
 @AT_LE_009_Reject
 Scenario: verify Checker user is able to Reject the record
-Given user log in as uls application checker
+Given user launching kuls application checker
 And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for ModifyRejection
 And user Search the respective reference id and click on Action button
 And user Click on Reject icon button
 And user Enter the remarks for Reject the Record in checker
@@ -240,6 +242,7 @@ Given user log in as uls application maker
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
+And user Pass the Exceldata value for ModifyRejection
 Then User validate the Living Expense Modified Rejected record in list view
 
 @AT_LE_010_Return_Valid_Modification
@@ -249,6 +252,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for Creation
 And user Enter value in Description and verify it
 And user Enter value in Description2 and verify it
 And user Enter value in Description3 and verify it
@@ -257,18 +261,19 @@ And user choose Calender Effective Date and verify it
 And user save the Record in Living Expenses
 And user Goto the Temp view screen of living Expense
 And user click on First record in living Expense
+And user Pass the Exceldata value for ModifyReturn
 And user Enter Return Modify value in Description and verify it
 And user Enter Return Modify value in Description2 and verify it
 And user try to update the Modified Record
-And user goto the Maker Inbox and store the Referance ID
+And user goto Maker Inbox and store the Referance ID
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And verify submit button and submit it from Maker stage
 
 @AT_LE_010_Return
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
-#And user Click on Chcker Menu icon
+Given login kuls application checker
 And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for ModifyReturn
 And user Search the respective reference id and click on Action button
 And user Click on Return icon button
 And user Enter the remarks for Return the Record in checker
@@ -281,6 +286,7 @@ Given user log in as uls application maker
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
+And user Pass the Exceldata value for ModifyReturn
 Then User validate the Living Expense Modify Returned record in list view
 
 @AT_LE_013_Parameter_Creation
