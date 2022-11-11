@@ -238,6 +238,28 @@ public class LivingExpense_Master extends BaseClass {
 		exceldata.updateTestData("AT_LR_T010_D10", "Reference ID", RefId);
 	}
 	
+	@And("^user goto the Maker Inbox and store the New Referance ID$")
+	public void user_goto_the_Maker_Inbox_and_store_the_New_Referance_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T014_D14", "Reference ID", RefId);
+	}
+	
+	@And("^user goto Maker Inbox and store the New Ref ID$")
+	public void user_goto_Maker_Inbox_and_store_the_New_Ref_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T015_D15", "Reference ID", RefId);
+	}
+	
 	@And("^user verify submit button and submit the Record from Maker stage$")
 	public void user_verify_submit_button_and_submit_the_record_from_maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -367,6 +389,50 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+	@And("^user verify the submit button and submit the New Record from Maker stage$")
+	public void user_verify_the_submit_button_and_submit_the_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T014_D14", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+	
+	@And("^user verify the submit Icon and submit the New Record from Maker stage$")
+	public void user_verify_the_submit_icon_and_submit_the_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T015_D15", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+	
 	// ******************AT_LE_002_Approve_ListView************************//
 	@Given("^user login as kuls application checker$")
 	public void user_login_as_kuls_application_checker() throws Throwable {
@@ -723,7 +789,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' LIVEXP ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("CodeValue")+" ']/parent::ion-item//ion-radio")).click();
 				break;
 			} catch (Exception e) {
 
@@ -737,11 +803,19 @@ public class LivingExpense_Master extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, LivexpObj.Liv_Exp_Living_Expense_Parameter_Value(), 60,
 				2);
 		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().click();
-		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().sendKeys(LivExpdata.value);
+		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().sendKeys(testData.get("Value"));
 	}
 
 	// ******************@AT_LE_014_Parameter_Listview***************//
-
+	@Given("^user log inas uls application checker$")
+	public void user_log_inas_uls_application_checker() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T014_D14");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
 	@And("^user Click on First Record Eye icon$")
 	public void user_click_on_first_record_eye_icon() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, LivexpObj.Liv_Exp_Temp_view(), 60, 2);
@@ -753,14 +827,14 @@ public class LivingExpense_Master extends BaseClass {
 		for (int i = 0; i < 50; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + LivExpdata.Description + "')]")).getText();
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]")).getText();
 				System.out.println(validate);
-				Assert.assertEquals(validate, LivExpdata.Description);
+				Assert.assertEquals(validate, testData.get("Description"));
 
-				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + LivExpdata.value + "')]"))
+				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + testData.get("Value") + "')]"))
 						.getText();
 				System.out.println(validate1);
-				Assert.assertEquals(validate1, LivExpdata.value);
+				Assert.assertEquals(validate1, testData.get("Value"));
 				break;
 			} catch (Exception e) {
 
@@ -777,7 +851,7 @@ public class LivingExpense_Master extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, LivexpObj.Liv_Exp_Living_Expense_Parameter_Value(), 60,
 				2);
 		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().click();
-		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().sendKeys(LivExpdata.Rejectvalue);
+		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().sendKeys(testData.get("Value"));
 	}
 
 	// **********************@AT_LE_015_Parameter_Reject_Listview*********************//
@@ -787,15 +861,15 @@ public class LivingExpense_Master extends BaseClass {
 		for (int i = 0; i < 50; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + LivExpdata.DescriptionReject + "')]"))
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]"))
 						.getText();
 				System.out.println(validate);
-				Assert.assertEquals(validate, LivExpdata.DescriptionReject);
+				Assert.assertEquals(validate, testData.get("Description"));
 
 				String validate1 = driver
-						.findElement(By.xpath("//span[contains(text(),'" + LivExpdata.Rejectvalue + "')]")).getText();
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Value") + "')]")).getText();
 				System.out.println(validate1);
-				Assert.assertEquals(validate1, LivExpdata.Rejectvalue);
+				Assert.assertEquals(validate1, testData.get("Value"));
 				break;
 			} catch (Exception e) {
 
@@ -880,5 +954,17 @@ public class LivingExpense_Master extends BaseClass {
 	@And("^user Pass the Exceldata value for ModifyReturn$")
 	public void user_Pass_the_Exceldata_value_for_ModifyReturn() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T010_D10");
+	}
+	@And("^user Pass the Exceldata value for ParaMeter Creation$")
+	public void user_Pass_the_Exceldata_value_for_parameter_Creation() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T013_D13");
+	}
+	@And("^user pass the Exceldata value for parameter checker$")
+	public void user_Pass_the_Exceldata_value_for_parameter_checker() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T014_D14");
+	}
+	@And("^user Pass the Exceldata value for ParaMeter Rejection$")
+	public void user_Pass_the_Exceldata_value_for_parameter_Rejection() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T015_D15");
 	}
 }

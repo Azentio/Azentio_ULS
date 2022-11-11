@@ -296,6 +296,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for Creation
 And user Enter value in Description and verify it
 And user Enter value in Description2 and verify it
 And user Enter value in Description3 and verify it
@@ -306,18 +307,20 @@ And user Goto the Temp view screen of living Expense
 And user click on First record in living Expense
 And user click on Living Expenses Parameter
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for ParaMeter Creation
 And user Enter value in Description and verify it
 And user select the code value
 And user Enter the value
 And user save the Record in Living Expenses
-And user goto the Maker Inbox and store the Referance ID
+And user goto the Maker Inbox and store the New Referance ID
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit button and submit the New Record from Maker stage
 
 @AT_LE_014_Parameter_Approve
 Scenario: verify Checker user is able to Approve the record
-Given user log in as uls application checker
+Given user log inas uls application checker
 And user Click on Checker Mailbox icon
+And user pass the Exceldata value for parameter checker
 And user Search the respective reference id and click on Action button
 And user Click on Approve icon button
 And user Enter the remarks in Action confirmation popup screen
@@ -332,6 +335,7 @@ When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
 And user Click on First Record Eye icon
 And user click on Living Expenses Parameter
+And user Pass the Exceldata value for ParaMeter Creation
 Then User validate the Living Expense Parameter approved record in list view
 
 @AT_LE_015_Parameter_creatin_for_Reject
@@ -341,6 +345,7 @@ Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for Rejection
 And user Enter value in Reject Description and verify it
 And user Enter value in Reject Description2 and verify it
 And user Enter value in Description3 and verify it
@@ -351,18 +356,20 @@ And user Goto the Temp view screen of living Expense
 And user click on First record in living Expense
 And user click on Living Expenses Parameter
 And user click on Add Icon for Living Expenses
+And user Pass the Exceldata value for ParaMeter Rejection
 And user Enter value in Reject Description and verify it
 And user select the code value
 And user Enter the Reject value
 And user save the Record in Living Expenses
-And user goto the Maker Inbox and store the Referance ID
+And user goto Maker Inbox and store the New Ref ID
 Then user Click on Action Icon
-And user verify the submit button and submit the Record from Maker stage
+And user verify the submit Icon and submit the New Record from Maker stage
 
 @AT_LE_015_Parameter_Reject
 Scenario: verify Checker user is able to Reject the record
 Given user log in as uls application checker
 And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for ParaMeter Rejection
 And user Search the respective reference id and click on Action button
 And user Click on Reject icon button
 And user Enter the remarks for Reject the Record in checker
@@ -377,6 +384,7 @@ When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
 And user Click on First Record Eye icon
 And user click on Living Expenses Parameter
+And user Pass the Exceldata value for ParaMeter Rejection
 Then User validate the Living Expense Parameter Rejected record in list view
 
 @AT_LE_016_Parameter_creatin_for_Return
