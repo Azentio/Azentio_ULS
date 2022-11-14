@@ -260,6 +260,17 @@ public class LivingExpense_Master extends BaseClass {
 		exceldata.updateTestData("AT_LR_T015_D15", "Reference ID", RefId);
 	}
 	
+	@And("^user goto MakerInbox and store the New Ref ID$")
+	public void user_goto_MakerInbox_and_store_the_New_Ref_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T015_D16", "Reference ID", RefId);
+	}
+	
 	@And("^user verify submit button and submit the Record from Maker stage$")
 	public void user_verify_submit_button_and_submit_the_record_from_maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -433,6 +444,27 @@ public class LivingExpense_Master extends BaseClass {
 		System.out.println("Checker ID : " + popupID);
 	}
 	
+	@And("^user verify the submitIcon and submit the New Record from Maker stage$")
+	public void user_verify_the_submiticon_and_submit_the_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T015_D16", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
 	// ******************AT_LE_002_Approve_ListView************************//
 	@Given("^user login as kuls application checker$")
 	public void user_login_as_kuls_application_checker() throws Throwable {
@@ -885,7 +917,7 @@ public class LivingExpense_Master extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, LivexpObj.Liv_Exp_Living_Expense_Parameter_Value(), 60,
 				2);
 		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().click();
-		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().sendKeys(LivExpdata.Returnvalue);
+		LivexpObj.Liv_Exp_Living_Expense_Parameter_Value().sendKeys(testData.get("Value"));
 	}
 
 	@And("^user Enter the Return value$")
@@ -908,7 +940,19 @@ public class LivingExpense_Master extends BaseClass {
 			}
 		}
 	}
-
+	
+	@Given("^user launching uls application checker$")
+	public void user_launching_uls_application_checker() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T016_D16");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
+	
+	
+	
 	@And("^user Pass the Exceldata value for Creation$")
 	public void user_Pass_the_Exceldata_value_for_Creation() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T001_D1");
@@ -955,6 +999,7 @@ public class LivingExpense_Master extends BaseClass {
 	public void user_Pass_the_Exceldata_value_for_ModifyReturn() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T010_D10");
 	}
+	
 	@And("^user Pass the Exceldata value for ParaMeter Creation$")
 	public void user_Pass_the_Exceldata_value_for_parameter_Creation() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T013_D13");
@@ -966,5 +1011,18 @@ public class LivingExpense_Master extends BaseClass {
 	@And("^user Pass the Exceldata value for ParaMeter Rejection$")
 	public void user_Pass_the_Exceldata_value_for_parameter_Rejection() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T015_D15");
+	}
+	@And("^user Pass the Exceldata value for ParaMeter Return$")
+	public void user_Pass_the_Exceldata_value_for_parameter_Return() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T016_D16");
+	}
+	@And("^user Pass the Exceldata value for ParaMeter Invalid$")
+	public void user_Pass_the_Exceldata_value_for_parameter_Invalid() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T017_D17");
+	}
+	 
+	@And("^user Pass the Exceldata value for Update Invalid input$")
+	public void user_Pass_the_Exceldata_value_for_Update_Invalid_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T018_D18");
 	}
 }
