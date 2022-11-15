@@ -268,8 +268,29 @@ public class LivingExpense_Master extends BaseClass {
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
 		System.out.println("Referance ID : " + RefId);
 		// json.addReferanceData(RefId);
-		exceldata.updateTestData("AT_LR_T015_D16", "Reference ID", RefId);
+		exceldata.updateTestData("AT_LR_T016_D16", "Reference ID", RefId);
 	}
+	@And("^user goto MakerInbox and stored the New Ref ID$")
+	public void user_goto_MakerInbox_and_stored_the_New_Ref_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T020_D20", "Reference ID", RefId);
+	}
+	@And("^user goto Inbox and stored the New Ref ID$")
+	public void user_goto_Inbox_and_stored_the_New_Ref_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T021_D21", "Reference ID", RefId);
+	}
+	
 	
 	@And("^user verify submit button and submit the Record from Maker stage$")
 	public void user_verify_submit_button_and_submit_the_record_from_maker_stage() throws Throwable {
@@ -461,7 +482,50 @@ public class LivingExpense_Master extends BaseClass {
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
 		// json.addData(popupID);
-		exceldata.updateTestData("AT_LR_T015_D16", "Checker id", popupID);
+		exceldata.updateTestData("AT_LR_T016_D16", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+	
+	@And("^user verify the submitIcon and submit New Record from Maker stage$")
+	public void user_verify_the_submiticon_and_submit_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T020_D20", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+	@And("^user verify the submit and submit New Record from Maker stage$")
+	public void user_verify_the_submit_and_submit_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T021_D21", "Checker id", popupID);
 
 		System.out.println("Checker ID : " + popupID);
 	}
@@ -1021,8 +1085,5 @@ public class LivingExpense_Master extends BaseClass {
 		testData = exceldata.getTestdata("AT_LR_T017_D17");
 	}
 	 
-	@And("^user Pass the Exceldata value for Update Invalid input$")
-	public void user_Pass_the_Exceldata_value_for_Update_Invalid_input() throws Throwable {
-		testData = exceldata.getTestdata("AT_LR_T018_D18");
-	}
+
 }

@@ -7,18 +7,20 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageobjects.ULS_LivingExpenseParameterObj;
 import pageobjects.Warehouse_MasterObj;
 import resources.BaseClass;
 import resources.ExcelData;
 import resources.JsonDataReaderWriter;
-import testDataType.ULS_LivingExpenseTestData;
+
 
 public class ULS_LivingExpenseSteps extends BaseClass {
 	WebDriver driver = BaseClass.driver;
@@ -26,8 +28,9 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 	WaitHelper waitHelper = new WaitHelper(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	JsonConfig jsonConfig = new JsonConfig();
+	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	//ULS_LivingExpenseTestData livingExpenseTestData = jsonConfig.getLivingExpenseTestDataByName("Maker");
-
+	ConfigFileReader configFileReader = new ConfigFileReader();
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx",
@@ -186,7 +189,7 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 			livingExpenseParameterObj.livingExpesneParameterDescription().sendKeys(Keys.BACK_SPACE);
 		}
 		livingExpenseParameterObj.livingExpesneParameterDescription()
-				.sendKeys(livingExpenseTestData.UpdatedDescription);
+				.sendKeys(testData.get("UpdatedDescription"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				livingExpenseParameterObj.livingExpesneParameterValueInputBoxdataHolder(), 10, 1);
 		String value = livingExpenseParameterObj.livingExpesneParameterValueInputBoxdataHolder()
@@ -194,11 +197,11 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 		for (int i = 0; i < description.length(); i++) {
 			livingExpenseParameterObj.livingExpesneParameterValueInputBox().sendKeys(Keys.BACK_SPACE);
 		}
-		livingExpenseParameterObj.livingExpesneParameterValueInputBox().sendKeys(livingExpenseTestData.UpdatedValue);
+		livingExpenseParameterObj.livingExpesneParameterValueInputBox().sendKeys(testData.get("UpdatedValue"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				livingExpenseParameterObj.livingExpesneParameterCodeDropDown(), 10, 1);
 		livingExpenseParameterObj.livingExpesneParameterCodeDropDown().click();
-		String xpath = "//ion-label[text()=' " + livingExpenseTestData.UpdatedCodeValue
+		String xpath = "//ion-label[text()=' " + testData.get("UpdatedCodeValue")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 15; i++) {
 			try {
@@ -231,7 +234,7 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 				livingExpenseParameterObj.livingExpenseSearchTextBoxInbox(), 5, 1);
 		clicksAndActionsHelper.moveToElement(livingExpenseParameterObj.livingExpenseSearchTextBoxInbox());
 		clicksAndActionsHelper.clickOnElement(livingExpenseParameterObj.livingExpenseSearchTextBoxInbox());
-		livingExpenseParameterObj.livingExpenseSearchTextBoxInbox().sendKeys(livingExpenseTestData.EventCode);
+		livingExpenseParameterObj.livingExpenseSearchTextBoxInbox().sendKeys("LIV_EXP");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, livingExpenseParameterObj.livingExpensereferenceID(),
 				5, 1);
 		livingExpenseParameterObj.livingExpensereferenceID().getText();
@@ -267,7 +270,59 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, livingExpenseParameterObj.livingExpensealertRemark(),
 				10, 1);
 		livingExpenseParameterObj.livingExpensealertRemark().click();
-		livingExpenseParameterObj.livingExpensealertRemark().sendKeys(livingExpenseTestData.submitAlertRemark);
+		livingExpenseParameterObj.livingExpensealertRemark().sendKeys("Approved from maker");
 		livingExpenseParameterObj.livingExpensealeralertSubmitButton().click();
 	}
+	@And("^user Pass the Exceldata value for Update Invalid input$")
+	public void user_Pass_the_Exceldata_value_for_Update_Invalid_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T018_D18");
+	}
+	@And("^user Pass the Exceldata value for Update input$")
+	public void user_Pass_the_Exceldata_value_for_Update_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T019_D19");
+	}
+	@And("^user Pass the Exceldata value for Update approve input$")
+	public void user_Pass_the_Exceldata_value_for_Update_approve_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T020_D20");
+	}
+	@And("^user Pass the Exceldata value for Update Rejet input$")
+	public void user_Pass_the_Exceldata_value_for_Update_reject_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T021_D21");
+	}
+	
+	@Given("^user login uls application checker$")
+	public void user_login_uls_application_checker() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T019_D19");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	@Then("^User validate Living Expense approved record in list view$")
+	public void user_validate_living_expense_approved_record_in_list_view() throws Throwable {
+
+		for (int i = 0; i < 50; i++) {
+			try {
+				String validate = driver
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("UpdatedDescription") + "')]"))
+						.getText();
+				System.out.println(validate);
+				Assert.assertEquals(validate, testData.get("UpdatedDescription"));
+
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+	}
+	
+	@Given("^user login uls application checkers$")
+	public void user_login_uls_application_checkers() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T021_D21");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
 }

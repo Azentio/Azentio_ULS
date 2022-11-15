@@ -476,8 +476,8 @@ And user click on Living Expenses Parameter
 And user click on Add Icon for Living Expenses
 And user Pass the Exceldata value for ParaMeter Invalid
 And user Enter Invalid value in Description and verify it
+And user save the Record in Living Expensess
 And Validate the Message and verify it
-And user save the Record in Living Expenses
 And user verify the Blank field in Living Expense
 
 @AT_LE_018
@@ -507,32 +507,69 @@ And click on view button in living expense module
 And select the approved record of living expense
 And go to living expese parameter tab
 And select the living expense parameter approved record
+And user Pass the Exceldata value for Update input
 And update the living expense paramater record
 And click on save button in living expense record
-And click on mail box and find the living expense record 
-And submit the living expese record
-Then give alert remark and click on submit in alert for living expense record
-Then store the checker id for living expense record
+And user goto MakerInbox and stored the New Ref ID
+Then user Click on Action Icon
+And user verify the submitIcon and submit New Record from Maker stage
 
 @AT_LE_020_Checker_Approve
 Scenario: verify Checker user is able to Approve the record
-Given user login as kuls application checker
+Given user login uls application checker
 And user Click on Checker Mailbox icon
-And user Pass the Exceldata value for Approve
+And user Pass the Exceldata value for Update approve input
 And user Search the respective reference id and click on Action button
 And user Click on Approve icon button
 And user Enter the remarks in Action confirmation popup screen
 Then user Click on Remarks button in Action confirmation popup screen
 Then user verify the Record got Approved in checker stage
 
-@AT_LE_021_Listview
+@AT_LE_020_Listview
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
-And user Pass the Exceldata value for Creation
-Then User validate the Living Expense approved record in list view
+And user Pass the Exceldata value for Update input
+Then User validate Living Expense approved record in list view
+
+@AT_LE_021
+Scenario: To verify maker user can able to update the living expense parameter Reject record
+Given user log in as uls application maker
+Then user click on configurations Tab
+When user click Config Manager menu
+And click on view button in living expense module 
+And select the approved record of living expense
+And go to living expese parameter tab
+And select the living expense parameter approved record
+And user Pass the Exceldata value for Update Rejet input
+And update the living expense paramater record
+And click on save button in living expense record
+And user goto Inbox and stored the New Ref ID
+Then user Click on Action Icon
+And user verify the submitIcon and submit New Record from Maker stage
+
+@AT_LE_021_Reject
+Scenario: verify Checker user is able to Reject the record
+Given user login uls application checkers
+And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for Update Rejet input
+And user Search the respective reference id and click on Action button
+And user Click on Reject icon button
+And user Enter the remarks for Reject the Record in checker
+Then user Click on Remarks button for Reject confirmation Alert
+Then user verify the Record got Rejected in checker stage
+
+@AT_LE_021_Reject_ListView
+Scenario: Record should get approved and display in the system under Reject List view
+Given user log in as uls application maker
+Then user click on configurations Tab
+When user click Config Manager menu
+And user click on List view Icon of  Living Expenses
+And user Pass the Exceldata value for Update Rejet input
+Then User validate Living Expense approved record in list view
+
 @AT-LE-022_Modification_Return
 Scenario: verify Checker user is able to Approve the record
 Given user log in as uls application checker
