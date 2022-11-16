@@ -51,6 +51,7 @@ public class KULS_CustomerDebt extends BaseClass{
     public void user_click_the_action_edit_icon_in_in_customer_debt() throws Throwable {
     	
     	//help.waitForElementToVisibleWithFluentWait(driver, Transaction.inboxediticon(), 60, 5);
+    	Thread.sleep(2000);
     	for(int i=0; i<20; i++) {
     		try {
     			Transaction.inboxediticon().click();

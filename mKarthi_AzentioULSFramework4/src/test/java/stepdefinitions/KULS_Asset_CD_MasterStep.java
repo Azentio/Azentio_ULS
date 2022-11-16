@@ -46,9 +46,11 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
 	@Given("^User login as uls maker in asset CD master$")
     public void user_login_as_uls_maker_in_asset_cd_master() throws Throwable {
 		
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentilas","Stage");
+		Map<String, String> testdata = excelData.getTestdata("Maker2");
 		String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 		driver.get(kulsApplicationUrl);
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username3, loginData.Password);
+		applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));
         
     }
 

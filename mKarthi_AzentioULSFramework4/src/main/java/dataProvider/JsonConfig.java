@@ -16,6 +16,7 @@ import testDataType.ApplicationDetailsOfferingTestDataType;
 import testDataType.ApplicationDetails_NEWAPPTestData;
 import testDataType.ApplicationDisbursementMakerTestData;
 import testDataType.AppropriationMasterTestDataType;
+import testDataType.AssetAutoMaster_TestData;
 import testDataType.Asset_CD_MasterTestDataType;
 import testDataType.BounceMasterTestDataType;
 import testDataType.CustomerPersonalDetailDisbursementCheckerTestDataType;
@@ -39,6 +40,10 @@ public class JsonConfig {
 	// ULS Login
 	
 	//Batch
+	
+	// assetauto master
+		private final String assetAutoMasterPath = configFileReader.getJsonPath() + "AssetAutoMaster.json";
+		private List<AssetAutoMaster_TestData> assetAutoMasterData;
 	
 	private final String AllocationMasterpath = configFileReader.getJsonPath() + "KULS_AllocationMasterjson.json";
 	private List<KULS_AllocationMasterTestdata> AllocationMaster1List;
@@ -144,8 +149,31 @@ public class JsonConfig {
 		AllocationMaster = getAllocationMasterList();
 		allocationMasterTestData=getAllocationMasterTestData();
 		AllocationMaster1List=getAllocationMaster1List();
+		assetAutoMasterData = getAssetAutoMaster();
 
 	}
+	
+	// asset auto master
+		private List<AssetAutoMaster_TestData> getAssetAutoMaster() {
+			Gson gson = new Gson();
+			JsonReader reader = new JsonReader(new StringReader(assetAutoMasterPath));
+			reader.setLenient(true);
+			BufferedReader bufferReader = null;
+			try {
+				bufferReader = new BufferedReader(new FileReader(assetAutoMasterPath));
+				AssetAutoMaster_TestData[] assetAutoMaster = gson.fromJson(bufferReader, AssetAutoMaster_TestData[].class);
+				return Arrays.asList(assetAutoMaster);
+			} catch (FileNotFoundException e) {
+				throw new RuntimeException("Json file not found at path : " + assetAutoMasterPath);
+			} finally {
+				try {
+					if (bufferReader != null)
+						bufferReader.close();
+				} catch (IOException ignore) {
+				}
+			}
+		}
+
 	
 	private List<KULS_AllocationMasterTestdata> getAllocationMaster1List() {
 		Gson gson = new Gson();
@@ -597,6 +625,12 @@ public class JsonConfig {
 	public final KULS_Login_TestDataType getKULSLoginCredentialsByName(String Username) {
 		return loginCredentials.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
 	}
+	
+	// asset auto master
+		public final AssetAutoMaster_TestData getAssetAutoMasterListByName(String Username) {
+			return assetAutoMasterData.stream().filter(x -> x.UserType.equalsIgnoreCase(Username)).findAny().get();
+		}
+
 	
 	// Project Master
 	

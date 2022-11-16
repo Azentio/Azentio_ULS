@@ -21,6 +21,7 @@ import resources.BaseClass;
 import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
+import testDataType.AssetAutoMaster_TestData;
 
 public class AssetAutoMaster {
 	WebDriver driver = BaseClass.driver;
@@ -30,7 +31,7 @@ public class AssetAutoMaster {
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	Asset_AutoMaster_Obj assetAutoMasterObj = new Asset_AutoMaster_Obj(driver);
 	FindFieldisMandatoryorNot verifyfield = new FindFieldisMandatoryorNot(driver);
-	//AssetAutoMaster_TestData assetAutoMasterData = jsonConfig.getAssetAutoMasterListByName("Maker");
+	AssetAutoMaster_TestData assetAutoMasterData = jsonConfig.getAssetAutoMasterListByName("Maker");
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","AssetAutoMasterTestData","Data Set ID");
 	Map<String, String> testData;

@@ -221,8 +221,16 @@ public class Appropriation_MasterStep {
     @And("^User click the action edit icon in Appropriation master$")
     public void user_click_the_action_edit_icon_in_appropriation_master() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, appropriation.listviewpencil(), 60, 5);
-		appropriation.listviewpencil().click(); 
+    	//help.waitForElementToVisibleWithFluentWait(driver, appropriation.listviewpencil(), 60, 5);
+    	for(int i=0; i<20; i++) {
+    		try {
+    			appropriation.listviewpencil().click();
+    			break;
+			} catch (Exception e) {
+				
+			}
+    	}
+		 
         
     }
 
