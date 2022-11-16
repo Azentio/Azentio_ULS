@@ -273,23 +273,6 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 		livingExpenseParameterObj.livingExpensealertRemark().sendKeys("Approved from maker");
 		livingExpenseParameterObj.livingExpensealeralertSubmitButton().click();
 	}
-	@And("^user Pass the Exceldata value for Update Invalid input$")
-	public void user_Pass_the_Exceldata_value_for_Update_Invalid_input() throws Throwable {
-		testData = exceldata.getTestdata("AT_LR_T018_D18");
-	}
-	@And("^user Pass the Exceldata value for Update input$")
-	public void user_Pass_the_Exceldata_value_for_Update_input() throws Throwable {
-		testData = exceldata.getTestdata("AT_LR_T019_D19");
-	}
-	@And("^user Pass the Exceldata value for Update approve input$")
-	public void user_Pass_the_Exceldata_value_for_Update_approve_input() throws Throwable {
-		testData = exceldata.getTestdata("AT_LR_T020_D20");
-	}
-	@And("^user Pass the Exceldata value for Update Rejet input$")
-	public void user_Pass_the_Exceldata_value_for_Update_reject_input() throws Throwable {
-		testData = exceldata.getTestdata("AT_LR_T021_D21");
-	}
-	
 	@Given("^user login uls application checker$")
 	public void user_login_uls_application_checker() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -324,5 +307,35 @@ public class ULS_LivingExpenseSteps extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
+	@Given("^user login uls application as checkers$")
+	public void user_login_uls_application_as_checkers() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T022_D22");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+	
+	@And("^user Pass the Exceldata value for Update Invalid input$")
+	public void user_Pass_the_Exceldata_value_for_Update_Invalid_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T018_D18");
+	}
+	@And("^user Pass the Exceldata value for Update input$")
+	public void user_Pass_the_Exceldata_value_for_Update_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T019_D19");
+	}
+	@And("^user Pass the Exceldata value for Update approve input$")
+	public void user_Pass_the_Exceldata_value_for_Update_approve_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T020_D20");
+	}
+	@And("^user Pass the Exceldata value for Update Rejet input$")
+	public void user_Pass_the_Exceldata_value_for_Update_reject_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T021_D21");
+	}
+	@And("^user Pass the Exceldata value for Update Return input$")
+	public void user_Pass_the_Exceldata_value_for_Update_return_input() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T022_D22");
+	}
+
 	
 }

@@ -291,6 +291,27 @@ public class LivingExpense_Master extends BaseClass {
 		exceldata.updateTestData("AT_LR_T021_D21", "Reference ID", RefId);
 	}
 	
+	@And("^user goto Inbox and stored the Ref ID$")
+	public void user_goto_Inbox_and_stored_the_Ref_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T022_D22", "Reference ID", RefId);
+	}
+	
+	@And("^user goto Inbox and than stored the Ref ID$")
+	public void user_goto_Inbox_and_than_stored_the_Ref_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T022_D25", "Reference ID", RefId);
+	}
 	
 	@And("^user verify submit button and submit the Record from Maker stage$")
 	public void user_verify_submit_button_and_submit_the_record_from_maker_stage() throws Throwable {
@@ -526,6 +547,49 @@ public class LivingExpense_Master extends BaseClass {
 		String popupID = Space.replaceAll("[/.]", "");
 		// json.addData(popupID);
 		exceldata.updateTestData("AT_LR_T021_D21", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+	@And("^user verify submit and submit New Record from Maker stage$")
+	public void user_verify_submit_and_submit_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T022_D22", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+	
+	@And("^user verify submit and than submit New Record from Maker stage$")
+	public void user_verify_submit_and_than_submit_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T025_D25", "Checker id", popupID);
 
 		System.out.println("Checker ID : " + popupID);
 	}
@@ -1084,6 +1148,6 @@ public class LivingExpense_Master extends BaseClass {
 	public void user_Pass_the_Exceldata_value_for_parameter_Invalid() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T017_D17");
 	}
-	 
+
 
 }
