@@ -283,6 +283,8 @@ public class KULS_LivingExpense_Step {
     	livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().sendKeys(testData.get("AreaFactorIncome"));
     }
 
+ 
+    
     @And("^Enter the value in Area factor expenditure of Living expense parameter$")
     public void enter_the_value_in_area_factor_expenditure_of_living_expense_parameter() throws Throwable {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,livingexpenseobj.LivingExpenseLocation_AreaFactorExpenditurefield(),60,2);
@@ -344,6 +346,14 @@ public class KULS_LivingExpense_Step {
 	@And("^user Pass the Exceldata value for Living expense Location approve$")
 	public void user_Pass_the_Exceldata_value_for_Living_expense_location_approve() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T025_D25");
+	}
+	@And("^user Pass the Exceldata value for Living expense Location Rejection$")
+	public void user_Pass_the_Exceldata_value_for_Living_expense_location_Rejection() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T026_D26");
+	}
+	@And("^user Pass the Exceldata value for Living expense Location Return$")
+	public void user_Pass_the_Exceldata_value_for_Living_expense_location_Return() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T027_D27");
 	}
 
 }

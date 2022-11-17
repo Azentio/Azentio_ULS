@@ -16,6 +16,7 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import pageobjects.LivingExpenseObj;
 import pageobjects.Living_Expenses_Obj;
 import pageobjects.Warehouse_MasterObj;
 import resources.BaseClass;
@@ -43,6 +44,7 @@ public class LivingExpense_Master extends BaseClass {
 			"LivingExpenseMasterTestdaa", "Data Set ID");
 	Map<String, String> testData;
 	Warehouse_MasterObj warehousrobj = new Warehouse_MasterObj(driver);
+	LivingExpenseObj livingexpenseobj = new LivingExpenseObj(driver);
 
 	@And("^user click on Other Masters Tab$")
 	public void user_click_on_other_masters_tab() throws Throwable {
@@ -215,7 +217,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T008_D8", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto Inbox and store the ReferanceID$")
 	public void user_goto_inbox_and_store_the_referanceid() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -226,7 +228,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T009_D9", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto Maker Inbox and store the Referance ID$")
 	public void user_goto_maker_inbox_and_store_the_referance_id() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -237,7 +239,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T010_D10", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto the Maker Inbox and store the New Referance ID$")
 	public void user_goto_the_Maker_Inbox_and_store_the_New_Referance_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -248,7 +250,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T014_D14", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto Maker Inbox and store the New Ref ID$")
 	public void user_goto_Maker_Inbox_and_store_the_New_Ref_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -259,7 +261,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T015_D15", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto MakerInbox and store the New Ref ID$")
 	public void user_goto_MakerInbox_and_store_the_New_Ref_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -270,6 +272,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T016_D16", "Reference ID", RefId);
 	}
+
 	@And("^user goto MakerInbox and stored the New Ref ID$")
 	public void user_goto_MakerInbox_and_stored_the_New_Ref_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -280,6 +283,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T020_D20", "Reference ID", RefId);
 	}
+
 	@And("^user goto Inbox and stored the New Ref ID$")
 	public void user_goto_Inbox_and_stored_the_New_Ref_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -290,7 +294,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T021_D21", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto Inbox and stored the Ref ID$")
 	public void user_goto_Inbox_and_stored_the_Ref_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -301,7 +305,7 @@ public class LivingExpense_Master extends BaseClass {
 		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT_LR_T022_D22", "Reference ID", RefId);
 	}
-	
+
 	@And("^user goto Inbox and than stored the Ref ID$")
 	public void user_goto_Inbox_and_than_stored_the_Ref_ID() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
@@ -310,9 +314,31 @@ public class LivingExpense_Master extends BaseClass {
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
 		System.out.println("Referance ID : " + RefId);
 		// json.addReferanceData(RefId);
-		exceldata.updateTestData("AT_LR_T022_D25", "Reference ID", RefId);
+		exceldata.updateTestData("AT_LR_T025_D25", "Reference ID", RefId);
 	}
-	
+
+	@And("^user goto Inbox and than stored the Refer ID$")
+	public void user_goto_Inbox_and_than_stored_the_Refer_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T026_D26", "Reference ID", RefId);
+	}
+
+	@And("^user go Inbox and than stored the Refer ID$")
+	public void user_go_Inbox_and_than_stored_the_Refer_ID() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
+		warehousrobj.Warehouse_Inbox().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
+		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
+		exceldata.updateTestData("AT_LR_T027_D27", "Reference ID", RefId);
+	}
+
 	@And("^user verify submit button and submit the Record from Maker stage$")
 	public void user_verify_submit_button_and_submit_the_record_from_maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -400,6 +426,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+
 	@And("^verify submit button and submiting the Record from Maker stage$")
 	public void verify_submit_button_and_submiting_the_record_from_maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -421,6 +448,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+
 	@And("^verify submit button and submit it from Maker stage$")
 	public void verify_submit_button_and_submit_it_from_maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -442,6 +470,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+
 	@And("^user verify the submit button and submit the New Record from Maker stage$")
 	public void user_verify_the_submit_button_and_submit_the_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -463,7 +492,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submit Icon and submit the New Record from Maker stage$")
 	public void user_verify_the_submit_icon_and_submit_the_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -485,7 +514,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submitIcon and submit the New Record from Maker stage$")
 	public void user_verify_the_submiticon_and_submit_the_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -507,7 +536,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submitIcon and submit New Record from Maker stage$")
 	public void user_verify_the_submiticon_and_submit_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -529,6 +558,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+
 	@And("^user verify the submit and submit New Record from Maker stage$")
 	public void user_verify_the_submit_and_submit_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -550,6 +580,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+
 	@And("^user verify submit and submit New Record from Maker stage$")
 	public void user_verify_submit_and_submit_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -571,7 +602,7 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify submit and than submit New Record from Maker stage$")
 	public void user_verify_submit_and_than_submit_New_Record_from_Maker_stage() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -593,6 +624,51 @@ public class LivingExpense_Master extends BaseClass {
 
 		System.out.println("Checker ID : " + popupID);
 	}
+
+	@And("^user verify the submit and than submit New Record from Maker stage$")
+	public void user_verify_the_submit_and_than_submit_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T026_D26", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+
+	@And("^user verify the submit than submit New Record from Maker stage$")
+	public void user_verify_the_submit_than_submit_New_Record_from_Maker_stage() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
+		warehousrobj.Warehouse_Submit().isDisplayed();
+		warehousrobj.Warehouse_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit_confirmation(), 50, 2);
+		warehousrobj.Warehouse_Submit_confirmation().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Maker_Submit(), 50, 2);
+		warehousrobj.Warehouse_Maker_Submit().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Checker_Id(), 50, 2);
+		String CheckerId = warehousrobj.Warehouse_Checker_Id().getText();
+		System.out.println(CheckerId);
+		String Space = " ";
+		String split[] = CheckerId.split(" ");
+		Space = split[split.length - 1];
+		String popupID = Space.replaceAll("[/.]", "");
+		// json.addData(popupID);
+		exceldata.updateTestData("AT_LR_T027_D27", "Checker id", popupID);
+
+		System.out.println("Checker ID : " + popupID);
+	}
+
 	// ******************AT_LE_002_Approve_ListView************************//
 	@Given("^user login as kuls application checker$")
 	public void user_login_as_kuls_application_checker() throws Throwable {
@@ -710,6 +786,7 @@ public class LivingExpense_Master extends BaseClass {
 
 	@And("^user verify the Blank field in Living Expense$")
 	public void user_verify_the_blank_field_in_living_expense() throws Throwable {
+
 		String nameErrorMessage = driver
 				.findElement(By.xpath("(//ion-badge[contains(text(),'" + testData.get("Field1") + "')])[1]")).getText();
 		String expectedErrorText = testData.get("Field1");
@@ -852,7 +929,7 @@ public class LivingExpense_Master extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@And("^user Enter Reject Modify value in Description and verify it$")
 	public void user_enter_reject_modify_value_in_description_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Description");
@@ -876,7 +953,8 @@ public class LivingExpense_Master extends BaseClass {
 		for (int i = 0; i < 50; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + testData.get("DescriptionRejectModify") + "')]"))
+						.findElement(
+								By.xpath("//span[contains(text(),'" + testData.get("DescriptionRejectModify") + "')]"))
 						.getText();
 				System.out.println(validate);
 				Assert.assertEquals(validate, testData.get("DescriptionRejectModify"));
@@ -897,6 +975,7 @@ public class LivingExpense_Master extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
+
 	@And("^user Enter Return Modify value in Description and verify it$")
 	public void user_enter_return_modify_value_in_description_and_verify_it() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Description");
@@ -920,7 +999,8 @@ public class LivingExpense_Master extends BaseClass {
 		for (int i = 0; i < 50; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + testData.get("DescriptionReturnModify") + "')]"))
+						.findElement(
+								By.xpath("//span[contains(text(),'" + testData.get("DescriptionReturnModify") + "')]"))
 						.getText();
 				System.out.println(validate);
 				Assert.assertEquals(validate, testData.get("DescriptionReturnModify"));
@@ -949,7 +1029,9 @@ public class LivingExpense_Master extends BaseClass {
 
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("CodeValue")+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By
+						.xpath("//ion-label[text()=' " + testData.get("CodeValue") + " ']/parent::ion-item//ion-radio"))
+						.click();
 				break;
 			} catch (Exception e) {
 
@@ -975,7 +1057,7 @@ public class LivingExpense_Master extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@And("^user Click on First Record Eye icon$")
 	public void user_click_on_first_record_eye_icon() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, LivexpObj.Liv_Exp_Temp_view(), 60, 2);
@@ -987,12 +1069,13 @@ public class LivingExpense_Master extends BaseClass {
 		for (int i = 0; i < 50; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]")).getText();
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]"))
+						.getText();
 				System.out.println(validate);
 				Assert.assertEquals(validate, testData.get("Description"));
 
-				String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + testData.get("Value") + "')]"))
-						.getText();
+				String validate1 = driver
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Value") + "')]")).getText();
 				System.out.println(validate1);
 				Assert.assertEquals(validate1, testData.get("Value"));
 				break;
@@ -1068,7 +1151,7 @@ public class LivingExpense_Master extends BaseClass {
 			}
 		}
 	}
-	
+
 	@Given("^user launching uls application checker$")
 	public void user_launching_uls_application_checker() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -1077,10 +1160,34 @@ public class LivingExpense_Master extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
-	
-	
-	
+
+	@Given("^user launching the uls application checker$")
+	public void user_launching_the_uls_application_checker() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T025_D25");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+
+	@Given("^user launch the uls application checker$")
+	public void user_launch_the_uls_application_checker() throws Throwable {
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		testData = exceldata.getTestdata("AT_LR_T026_D26");
+		System.out.println(testData.get("Checker id"));
+		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+
+	@And("^Enter the Invalid value in Area factor income of Living expense parameter$")
+	public void enter_the_invalid_value_in_area_factor_income_of_living_expense_parameter() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField(), 60, 2);
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().click();
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().sendKeys(testData.get("AreaFactorIncome"));
+		String Areafactor = livingexpenseobj.LivingExpenseLocation_AreaFactorIncome().getAttribute("ng-reflect-model");
+		Assert.assertFalse(Areafactor.contains("abcd"));
+	}
+
 	@And("^user Pass the Exceldata value for Creation$")
 	public void user_Pass_the_Exceldata_value_for_Creation() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T001_D1");
@@ -1115,39 +1222,50 @@ public class LivingExpense_Master extends BaseClass {
 	public void user_Pass_the_Exceldata_value_for_invalidmodify() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T007_D7");
 	}
+
 	@And("^user Pass the Exceldata value for checker$")
 	public void user_Pass_the_Exceldata_value_for_checker() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T008_D8");
 	}
+
 	@And("^user Pass the Exceldata value for ModifyRejection$")
 	public void user_Pass_the_Exceldata_value_for_ModifyRejection() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T009_D9");
 	}
+
 	@And("^user Pass the Exceldata value for ModifyReturn$")
 	public void user_Pass_the_Exceldata_value_for_ModifyReturn() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T010_D10");
 	}
-	
+
 	@And("^user Pass the Exceldata value for ParaMeter Creation$")
 	public void user_Pass_the_Exceldata_value_for_parameter_Creation() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T013_D13");
 	}
+
 	@And("^user pass the Exceldata value for parameter checker$")
 	public void user_Pass_the_Exceldata_value_for_parameter_checker() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T014_D14");
 	}
+
 	@And("^user Pass the Exceldata value for ParaMeter Rejection$")
 	public void user_Pass_the_Exceldata_value_for_parameter_Rejection() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T015_D15");
 	}
+
 	@And("^user Pass the Exceldata value for ParaMeter Return$")
 	public void user_Pass_the_Exceldata_value_for_parameter_Return() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T016_D16");
 	}
+
 	@And("^user Pass the Exceldata value for ParaMeter Invalid$")
 	public void user_Pass_the_Exceldata_value_for_parameter_Invalid() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T017_D17");
 	}
 
+	@And("^user Pass the Exceldata value for Living Expense Loccation Invalid$")
+	public void user_Pass_the_Exceldata_value_for_Living_expense_location_invalid() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T028_D28");
+	}
 
 }

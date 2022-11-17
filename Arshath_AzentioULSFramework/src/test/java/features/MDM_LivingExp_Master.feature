@@ -2,6 +2,7 @@ Feature: Check the functionality of Living Expenses Master
 @AT_LE_001_Creation
 Scenario: Creation of Living Expenses record with valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -31,6 +32,7 @@ Then user verify the Record got Approved in checker stage
 @AT_LE_002_Listview
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -40,6 +42,7 @@ Then User validate the Living Expense approved record in list view
 @AT_LE_003
 Scenario: Creation of Living Expenses record with valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -70,6 +73,7 @@ Then user verify the Record got Rejected in checker stage
 @AT_LE_003_Reject_ListView
 Scenario: Record should get approved and display in the system under Reject List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -78,6 +82,7 @@ Then User validate the Living Expense Rejected record in list view
 @AT_LE_004
 Scenario: Creation of Living Expenses record with valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -95,7 +100,7 @@ Then user Click on Action Icon
 And user verify submit button and submiting Record from Maker stage
 
 @AT_LE_004_Return
-Scenario: verify Checker user is able to Approve the record
+Scenario: verify Checker user is able to Return the record
 Given user log in as uls application checker
 #And user Click on Chcker Menu icon
 And user Click on Checker Mailbox icon
@@ -118,6 +123,7 @@ Then User validate the Living Expense Returned record in list view
 @AT_LE_005_Validation
 Scenario: Creation of Living Expenses record with invalid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -131,6 +137,7 @@ And Validate the Message and verify it
 @AT_LE_006_Valid_Modification
 Scenario: verify system allow user to modify the Living Expenses 
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -152,6 +159,7 @@ And user try to update the Modified Record
 @AT_LE_007_Invalid_Modification
 Scenario: verify while modification system enters the invalid data (Invalid data types)
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -195,6 +203,7 @@ Then user verify the Record got Approved in checker stage
 @AT_LE_008_Listview
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -204,6 +213,7 @@ Then User validate the Living Expense Modified approved record in list view
 @AT_LE_009_Reject_Valid_Modification
 Scenario: verify system allow user to modify the Living Expenses 
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -239,6 +249,7 @@ Then user verify the Record got Rejected in checker stage
 @AT_LE_009_Reject_ListView
 Scenario: Record should get approved and display in the system under Reject List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -248,6 +259,7 @@ Then User validate the Living Expense Modified Rejected record in list view
 @AT_LE_010_Return_Valid_Modification
 Scenario: verify system allow user to modify the Living Expenses 
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -283,6 +295,7 @@ Then user verify the Record got Returned in checker stage
 @AT_LE_010_Return_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker   
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -292,6 +305,7 @@ Then User validate the Living Expense Modify Returned record in list view
 @AT_LE_011
 Scenario: To verify list view functionality of approved records in living expense
 Given user log in as uls application maker   
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 Then Click the Eye icon of the living expense
@@ -307,6 +321,7 @@ Then To verify the functionality of Export to Excel button in Living Expense
 @AT_LE_012
 Scenario: To verify list view functionality of approved records in living expense
 Given user log in as uls application maker   
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -322,6 +337,7 @@ Then To verify the functionality of Export to Excel button in Living Expense
 @AT_LE_013_Parameter_Creation
 Scenario: Creation of Living Expense Parameter record with valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -360,6 +376,7 @@ Then user verify the Record got Approved in checker stage
 @AT_LE_014_Parameter_Listview
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -371,6 +388,7 @@ Then User validate the Living Expense Parameter approved record in list view
 @AT_LE_015_Parameter_creatin_for_Reject
 Scenario: Creation of Living Expense Parameter record with valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -409,6 +427,7 @@ Then user verify the Record got Rejected in checker stage
 @AT_LE_015_Parameter_Reject_ListView
 Scenario: Record should get approved and display in the system under Reject List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -420,6 +439,7 @@ Then User validate the Living Expense Parameter Rejected record in list view
 @AT_LE_016_Parameter_creatin_for_Return
 Scenario: Creation of Living Expense Parameter record with valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses 
@@ -457,6 +477,7 @@ Then user verify the Record got Returned in checker stage
 @AT_LE_016_Parameter_Return_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -468,6 +489,7 @@ Then User validate the Living Expense Parameter Returned record in list view
 @AT_LE_017_Parameter_Invalid
 Scenario: Creation of Living Expense Parameter record with invalid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -483,6 +505,7 @@ And user verify the Blank field in Living Expense
 @AT_LE_018
 Scenario: To verify user can able to update the living expense with invalid inputs
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -501,6 +524,7 @@ Then verify living expense parameter screen should get navigate to previous scre
 @AT_LE_019
 Scenario: To verify maker user can able to update the living expense parameter approved record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And click on view button in living expense module 
@@ -537,6 +561,7 @@ Then User validate Living Expense approved record in list view
 @AT_LE_021
 Scenario: To verify maker user can able to update the living expense parameter Reject record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And click on view button in living expense module 
@@ -564,6 +589,7 @@ Then user verify the Record got Rejected in checker stage
 @AT_LE_021_Reject_ListView
 Scenario: Record should get approved and display in the system under Reject List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click on List view Icon of  Living Expenses
@@ -573,6 +599,7 @@ Then User validate Living Expense approved record in list view
 @AT_LE_022_Modification_Return
 Scenario: To verify maker user can able to update the living expense parameter Return record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And click on view button in living expense module 
@@ -601,6 +628,7 @@ Then user verify the Record got Returned in checker stage
 @AT_LE_022_Modification_Return_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -610,6 +638,7 @@ Then User validate Living Expense approved record in list view
 @AT_LE_023
 Scenario: Validate the fields in Living expense parameter sub module
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -628,6 +657,7 @@ And Click on back button of lLiving expense parameter
 @AT_LE_024
 Scenario: Creation of Living expense location record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user Goto the Temp view screen of living Expense
@@ -644,13 +674,100 @@ And user goto Inbox and than stored the Ref ID
 Then user Click on Action Icon
 And user verify submit and than submit New Record from Maker stage
 
-@Living_Expense_M25
+@AT_LE_025
 Scenario: Validate that user can able to create a Living expense location record and approve by checker user
-Given Login into KULS for checker user
-And Click on Mail icon for Living expense 
-And Search the respective reference id and click on Action button for Living expense 
-And Click on Approve button for Living expense
-And Enter the remarks in action confirmation popup for Living expense
-And Click on Remarks button in action confirmation popup for Living expense
-Then Verify the record approved popup for Living expense
+Given user launching the uls application checker
+And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for Living expense Location approve
+And user Search the respective reference id and click on Action button
+And user Click on Approve icon button
+And user Enter the remarks in Action confirmation popup screen
+Then user Click on Remarks button in Action confirmation popup screen
+Then user verify the Record got Approved in checker stage
 
+@AT_LE_026
+Scenario: Rejection of Living expense location record
+Given user log in as uls application maker
+Then user change Application Type as Los
+Then user click on configurations Tab
+When user click Config Manager menu
+And user Goto the Temp view screen of living Expense
+And click on Pencil icon of existing record
+And Navigate to Living expense location page
+And Click on Add icon of Living expense parameter
+And user Pass the Exceldata value for Living expense Location Rejection
+And Select the value in Country field of Living expense parameter
+And Select the value in Province field of Living expense parameter
+And Enter the value in Area factor income of Living expense parameter
+And Enter the value in Area factor expenditure of Living expense parameter
+Then Click on Save button in Living expense parameter
+And user goto Inbox and than stored the Refer ID
+Then user Click on Action Icon
+And user verify the submit and than submit New Record from Maker stage
+
+@AT_LE_026_Reject
+Scenario: verify Checker user is able to Reject the record
+Given user launch the uls application checker
+And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for Living expense Location Rejection
+And user Search the respective reference id and click on Action button
+And user Click on Reject icon button
+And user Enter the remarks for Reject the Record in checker
+Then user Click on Remarks button for Reject confirmation Alert
+Then user verify the Record got Rejected in checker stage
+
+@AT_LE_027
+Scenario: Return of Living expense location record
+Given user log in as uls application maker
+Then user change Application Type as Los
+Then user click on configurations Tab
+When user click Config Manager menu
+And user Goto the Temp view screen of living Expense
+And click on Pencil icon of existing record
+And Navigate to Living expense location page
+And Click on Add icon of Living expense parameter
+And user Pass the Exceldata value for Living expense Location Return
+And Select the value in Country field of Living expense parameter
+And Select the value in Province field of Living expense parameter
+And Enter the value in Area factor income of Living expense parameter
+And Enter the value in Area factor expenditure of Living expense parameter
+Then Click on Save button in Living expense parameter
+And user go Inbox and than stored the Refer ID
+Then user Click on Action Icon
+And user verify the submit than submit New Record from Maker stage
+
+@AT_LE_027_Return
+Scenario: verify Checker user is able to Return the record
+Given user log in as uls application checker
+And user Click on Checker Mailbox icon
+And user Pass the Exceldata value for Living expense Location Return
+And user Search the respective reference id and click on Action button
+And user Click on Return icon button
+And user Enter the remarks for Return the Record in checker
+Then user Click on Remarks button for Return confirmation Alert
+Then user verify the Record got Returned in checker stage
+
+@AT_LE_028_Validation
+Scenario: Creation of Living Expenses Location record with invalid data
+Given user log in as uls application maker
+Then user change Application Type as Los
+Then user click on configurations Tab
+When user click Config Manager menu
+And user Goto the Temp view screen of living Expense
+And click on Pencil icon of existing record
+And Navigate to Living expense location page
+And Click on Add icon of Living expense parameter
+And user save the Record in Living Expensess
+And user Pass the Exceldata value for Living Expense Loccation Invalid
+And user verify the Blank field in Living Expense
+And Enter the Invalid value in Area factor income of Living expense parameter
+
+
+
+
+
+
+
+
+
+ 

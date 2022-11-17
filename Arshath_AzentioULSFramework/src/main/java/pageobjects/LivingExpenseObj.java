@@ -113,6 +113,11 @@ public class LivingExpenseObj {
 	public WebElement LivingExpenseLocation_AreaFactorIncomeField() {
 		return LivingExpenseLocation_AreaFactorIncomeField;
 	}
+	@FindBy(xpath="//ion-label[contains(text(),'  Area Factor Income ')]//following-sibling::ion-input")
+	private WebElement LivingExpenseLocation_AreaFactorIncome;
+	public WebElement LivingExpenseLocation_AreaFactorIncome() {
+		return LivingExpenseLocation_AreaFactorIncome;
+	}
 	
 	@FindBy(xpath="//ion-label[contains(text(),' Area Factor Expenditure ')]//following-sibling::ion-input/input")
 	private WebElement LivingExpenseLocation_AreaFactorExpenditurefield;

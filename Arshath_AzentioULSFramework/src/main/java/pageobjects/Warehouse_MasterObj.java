@@ -21,6 +21,19 @@ public class Warehouse_MasterObj {
 		return Configurations;
 	}
 	
+	@FindBy(xpath="//ion-select[@aria-label='Corporate']")
+	private WebElement Corporate;
+	public WebElement Corporate(){
+		return Corporate;
+	}
+	
+	@FindBy(xpath="//ion-label[contains(text(),'LOS')]/parent::ion-item//ion-radio")
+	private WebElement LOS;
+	
+	public WebElement LOS() {
+		return LOS;
+	}
+	
 	@FindBy(xpath = "//ion-card-content//ion-col[1]//div//ion-button")
 	private WebElement Menu;
 

@@ -48,10 +48,11 @@ public class WareHouseMaster extends BaseClass {
 	List<String> xlsList = new ArrayList<>();
 	List<String> pdfList = new ArrayList<>();
 	BrowserHelper browserHelper = new BrowserHelper(driver);
-	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx", "WarehouseMasterTestData", "Data Set ID") ;
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx",
+			"WarehouseMasterTestData", "Data Set ID");
 	Map<String, String> testData;
 	Map<String, String> testdata = new HashMap<>();
-	
+
 	@Given("^user login as uls application checker$")
 	public void user_log_in_as_uls_application_checker() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -59,6 +60,14 @@ public class WareHouseMaster extends BaseClass {
 		testData = exceldata.getTestdata("AT-WHM-T001_D1");
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
+	}
+
+	@Then("^user change Application Type as Los$")
+	public void user_change_Application_Type_as_Los() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Corporate(), 60, 2);
+		warehousrobj.Corporate().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.LOS(), 60, 2);
+		warehousrobj.LOS().click();
 	}
 
 	@Given("^user login as uls application checker l$")
@@ -69,7 +78,7 @@ public class WareHouseMaster extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@Given("^user login as uls application checker ll$")
 	public void user_log_in_as_uls_application_checker_ll() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -78,7 +87,7 @@ public class WareHouseMaster extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@Given("^user login as uls application checker lll$")
 	public void user_log_in_as_uls_application_checker_lll() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -87,7 +96,7 @@ public class WareHouseMaster extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@Given("^user login as uls application checker llll$")
 	public void user_log_in_as_uls_application_checker_llll() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -96,7 +105,7 @@ public class WareHouseMaster extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@Given("^user login as uls application checker lllll$")
 	public void user_log_in_as_uls_application_checker_lllll() throws Throwable {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
@@ -105,7 +114,7 @@ public class WareHouseMaster extends BaseClass {
 		System.out.println(testData.get("Checker id"));
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
 	}
-	
+
 	@Then("^user click on configurations Tab$")
 	public void user_click_on_configurations_tab() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Configurations(), 50, 2);
@@ -139,7 +148,7 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Description(), 50, 2);
 		warehousrobj.Warehouse_Description().isDisplayed();
 		warehousrobj.Warehouse_Description().click();
-		 testData = exceldata.getTestdata("AT-WHM-T001_D1");
+		testData = exceldata.getTestdata("AT-WHM-T001_D1");
 		warehousrobj.Warehouse_Description().sendKeys(testData.get("Description"));
 	}
 
@@ -162,8 +171,11 @@ public class WareHouseMaster extends BaseClass {
 		testData = exceldata.getTestdata("AT-WHM-T001_D1");
 		for (int i = 0; i < 500; i++) {
 			try {
-				javaHelper.scrollIntoView(driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Country") + "')]/following-sibling::ion-radio")));
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Country") + "')]/following-sibling::ion-radio")).click();
+				javaHelper.scrollIntoView(driver.findElement(By.xpath("//ion-label[contains(text(),'"
+						+ testData.get("Country") + "')]/following-sibling::ion-radio")));
+				driver.findElement(By.xpath(
+						"//ion-label[contains(text(),'" + testData.get("Country") + "')]/following-sibling::ion-radio"))
+						.click();
 				break;
 			} catch (Exception e) {
 
@@ -180,7 +192,9 @@ public class WareHouseMaster extends BaseClass {
 		testData = exceldata.getTestdata("AT-WHM-T001_D1");
 		for (int i = 0; i < 500; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("State") + "')]/following-sibling::ion-radio")).click();
+				driver.findElement(By.xpath(
+						"//ion-label[contains(text(),'" + testData.get("State") + "')]/following-sibling::ion-radio"))
+						.click();
 				break;
 			} catch (Exception e) {
 
@@ -197,7 +211,8 @@ public class WareHouseMaster extends BaseClass {
 		testData = exceldata.getTestdata("AT-WHM-T001_D1");
 		for (int i = 0; i < 500; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Location") + "')]/following-sibling::ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Location")
+						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
 
@@ -214,7 +229,9 @@ public class WareHouseMaster extends BaseClass {
 		testData = exceldata.getTestdata("AT-WHM-T001_D1");
 		for (int i = 0; i < 500; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("ZipCode") + "')]/following-sibling::ion-radio")).click();
+				driver.findElement(By.xpath(
+						"//ion-label[contains(text(),'" + testData.get("ZipCode") + "')]/following-sibling::ion-radio"))
+						.click();
 				break;
 			} catch (Exception e) {
 
@@ -277,8 +294,8 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println("Referance ID : " +RefId);
-		//json.addReferanceData(RefId);
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT-WHM-T001_D1", "Reference ID", RefId);
 
 	}
@@ -289,60 +306,60 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println("Referance ID : " +RefId);
-		//json.addReferanceData(RefId);
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT-WHM-T002_D1", "Reference ID", RefId);
 
 	}
-	
+
 	@And("^user goto the Maker Inbox and store the Referance ID ll$")
 	public void user_goto_the_maker_inbox_and_store_the_referance_id_ll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println("Referance ID : " +RefId);
-		//json.addReferanceData(RefId);
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT-WHM-T003_D1", "Reference ID", RefId);
 
 	}
-	
+
 	@And("^user goto the Maker Inbox and store the Referance ID lll$")
 	public void user_goto_the_maker_inbox_and_store_the_referance_id_lll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println("Referance ID : " +RefId);
-		//json.addReferanceData(RefId);
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT-WHM-T005_D1", "Reference ID", RefId);
 
 	}
-	
+
 	@And("^user goto the Maker Inbox and store the Referance ID llll$")
 	public void user_goto_the_maker_inbox_and_store_the_referance_id_llll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println("Referance ID : " +RefId);
-		//json.addReferanceData(RefId);
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT-WHM-T007_D1", "Reference ID", RefId);
 
 	}
-	
+
 	@And("^user goto the Maker Inbox and store the Referance ID lllll$")
 	public void user_goto_the_maker_inbox_and_store_the_referance_id_lllll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Inbox(), 50, 2);
 		warehousrobj.Warehouse_Inbox().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_ReferanceId(), 50, 2);
 		String RefId = warehousrobj.Warehouse_ReferanceId().getText();
-		System.out.println("Referance ID : " +RefId);
-		//json.addReferanceData(RefId);
+		System.out.println("Referance ID : " + RefId);
+		// json.addReferanceData(RefId);
 		exceldata.updateTestData("AT-WHM-T008_D1", "Reference ID", RefId);
 
 	}
-	
+
 	@Then("^user Click on Action Icon$")
 	public void user_click_on_action_icon() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Action(), 50, 2);
@@ -365,12 +382,12 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		//json.addData(popupID);
+		// json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T001_D1", "Checker id", popupID);
-		
-		System.out.println("Checker ID : " +popupID);
+
+		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submit button and submit the Record from Maker stage l$")
 	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_l() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -387,12 +404,12 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		//json.addData(popupID);
+		// json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T002_D1", "Checker id", popupID);
-		
-		System.out.println("Checker ID : " +popupID);
+
+		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submit button and submit the Record from Maker stage ll$")
 	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_ll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -409,10 +426,10 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		//json.addData(popupID);
+		// json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T003_D1", "Checker id", popupID);
-		
-		System.out.println("Checker ID : " +popupID);
+
+		System.out.println("Checker ID : " + popupID);
 	}
 
 	@And("^user verify the submit button and submit the Record from Maker stage lll$")
@@ -431,12 +448,12 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		//json.addData(popupID);
+		// json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T005_D1", "Checker id", popupID);
-		
-		System.out.println("Checker ID : " +popupID);
+
+		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submit button and submit the Record from Maker stage llll$")
 	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_llll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -453,12 +470,12 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		//json.addData(popupID);
+		// json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T007_D1", "Checker id", popupID);
-		
-		System.out.println("Checker ID : " +popupID);
+
+		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	@And("^user verify the submit button and submit the Record from Maker stage lllll$")
 	public void user_verify_the_submit_button_and_submit_the_record_from_maker_stage_lllll() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Warehouse_Submit(), 50, 2);
@@ -475,12 +492,12 @@ public class WareHouseMaster extends BaseClass {
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		//json.addData(popupID);
+		// json.addData(popupID);
 		exceldata.updateTestData("AT-WHM-T008_D1", "Checker id", popupID);
-		
-		System.out.println("Checker ID : " +popupID);
+
+		System.out.println("Checker ID : " + popupID);
 	}
-	
+
 	// *********************Checker Approve***********************//
 
 	@And("^user Click on Chcker Menu icon$")
@@ -530,8 +547,9 @@ public class WareHouseMaster extends BaseClass {
 	public void user_enter_the_remarks_in_action_confirmation_popup_screen() throws Throwable {
 		for (int i = 0; i < 50; i++) {
 			try {
-				 //waitHelper.waitForElementToVisibleWithFluentWait(driver,warehousrobj.Checker_Approve(), 50, 2);
-				//clicksAndActionsHelper.doubleClick(warehousrobj.Checker_Alert_Approve());
+				// waitHelper.waitForElementToVisibleWithFluentWait(driver,warehousrobj.Checker_Approve(),
+				// 50, 2);
+				// clicksAndActionsHelper.doubleClick(warehousrobj.Checker_Alert_Approve());
 				javaHelper.JSEClick(warehousrobj.Checker_Alert_Approve());
 				break;
 			} catch (Exception e) {
@@ -544,11 +562,12 @@ public class WareHouseMaster extends BaseClass {
 	public void user_click_on_remarks_button_in_action_confirmation_popup_screen() throws Throwable {
 		for (int i = 0; i < 50; i++) {
 			try {
-				//waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.Checker_Final_Approve(), 50, 2);
+				// waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				// warehousrobj.Checker_Final_Approve(), 50, 2);
 				javaHelper.JSEClick(warehousrobj.Checker_Final_Approve());
 				break;
-			}catch(Exception e) {
-				
+			} catch (Exception e) {
+
 			}
 		}
 
@@ -638,8 +657,8 @@ public class WareHouseMaster extends BaseClass {
 		testData = exceldata.getTestdata("AT-WHM-T002_D1");
 		try {
 
-			String validate = driver
-					.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]")).getText();
+			String validate = driver.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]"))
+					.getText();
 			System.out.println(validate);
 			Assert.assertEquals(validate, testData.get("Address"));
 		} catch (Exception e) {
@@ -648,8 +667,8 @@ public class WareHouseMaster extends BaseClass {
 
 		try {
 
-			String validate1 = driver
-					.findElement(By.xpath("//span[contains(text(),'" + testData.get("Email") + "')]")).getText();
+			String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + testData.get("Email") + "')]"))
+					.getText();
 			System.out.println(validate1);
 			Assert.assertEquals(validate1, testData.get("Email"));
 		} catch (Exception e) {
@@ -718,13 +737,13 @@ public class WareHouseMaster extends BaseClass {
 	public void user_validate_the_warehouse_retured_record_in_list_view() throws Throwable {
 		testData = exceldata.getTestdata("AT-WHM-T003_D1");
 		try {
-			String validate = driver
-					.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]")).getText();
+			String validate = driver.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]"))
+					.getText();
 			System.out.println(validate);
 			Assert.assertEquals(validate, testData.get("Address"));
 
-			String validate1 = driver
-					.findElement(By.xpath("//span[contains(text(),'" + testData.get("Email") + "')]")).getText();
+			String validate1 = driver.findElement(By.xpath("//span[contains(text(),'" + testData.get("Email") + "')]"))
+					.getText();
 			System.out.println(validate1);
 			Assert.assertEquals(validate1, testData.get("Email"));
 		} catch (Exception e) {
@@ -813,8 +832,7 @@ public class WareHouseMaster extends BaseClass {
 				Assert.assertEquals(validate, testData.get("Description"));
 
 				String validate1 = driver
-						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]"))
-						.getText();
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]")).getText();
 				System.out.println(validate1);
 				Assert.assertEquals(validate1, testData.get("Address"));
 				break;
@@ -852,14 +870,12 @@ public class WareHouseMaster extends BaseClass {
 		for (int i = 0; i < 500; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]"))
-						.getText();
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]")).getText();
 				System.out.println(validate);
 				Assert.assertEquals(validate, testData.get("Address"));
 
 				String validate1 = driver
-						.findElement(
-								By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]"))
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]"))
 						.getText();
 				System.out.println(validate1);
 				Assert.assertEquals(validate1, testData.get("Description"));
@@ -898,14 +914,12 @@ public class WareHouseMaster extends BaseClass {
 		for (int i = 0; i < 500; i++) {
 			try {
 				String validate = driver
-						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]"))
-						.getText();
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Address") + "')]")).getText();
 				System.out.println(validate);
 				Assert.assertEquals(validate, testData.get("Address"));
 
 				String validate1 = driver
-						.findElement(
-								By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]"))
+						.findElement(By.xpath("//span[contains(text(),'" + testData.get("Description") + "')]"))
 						.getText();
 				System.out.println(validate1);
 				Assert.assertEquals(validate1, testData.get("Description"));
@@ -926,21 +940,25 @@ public class WareHouseMaster extends BaseClass {
 		warehousrobj.Warehouse_Fax().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-			warehousrobj.Warehouse_Fax().sendKeys(Keys.BACK_SPACE);
-			
-			}catch (Exception e) {
-				
+				warehousrobj.Warehouse_Fax().sendKeys(Keys.BACK_SPACE);
+
+			} catch (Exception e) {
+
 			}
 		}
-		
-		//warehousrobj.Warehouse_Fax().sendKeys(testData.get("Fax"));
+
+		// warehousrobj.Warehouse_Fax().sendKeys(testData.get("Fax"));
 		warehousrobj.Warehouse_Fax().sendKeys("2136549876543216549873216549876543219874651324658654654654665495462154");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum allowed length is 50')]")), 50,2);
-		WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum allowed length is 50')]"));
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum allowed length is 50')]")), 50, 2);
+		WebElement errorPopUp = driver
+				.findElement(By.xpath("//ion-badge[contains(text(),'Maximum allowed length is 50')]"));
 		String expectedErrorText = "Maximum allowed length is 50";
 		String actualErrorText = errorPopUp.getText();
 		if (actualErrorText.equalsIgnoreCase(expectedErrorText)) {
-			System.out.println("The system was not allow the record to save as we enter the invalid details.The Popup validation message is"+ actualErrorText);
+			System.out.println(
+					"The system was not allow the record to save as we enter the invalid details.The Popup validation message is"
+							+ actualErrorText);
 		} else {
 			System.out.println(
 					"The actual and expected result are not same.The Popup validation message is" + actualErrorText);
@@ -1117,12 +1135,13 @@ public class WareHouseMaster extends BaseClass {
 		Assert.assertTrue(warehousrobj.wareHouseDescriptionTextBox().isDisplayed());
 		for (int i = 0; i < 50; i++) {
 			try {
-			//waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseBackButton(), 50, 1);
-			clicksAndActionsHelper.moveToElement(warehousrobj.wareHouseBackButton());
-			warehousrobj.wareHouseBackButton().click();
-			break;
-			}catch(Exception e) {
-				
+				// waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				// warehousrobj.wareHouseBackButton(), 50, 1);
+				clicksAndActionsHelper.moveToElement(warehousrobj.wareHouseBackButton());
+				warehousrobj.wareHouseBackButton().click();
+				break;
+			} catch (Exception e) {
+
 			}
 		}
 
@@ -1159,7 +1178,8 @@ public class WareHouseMaster extends BaseClass {
 		boolean status = false;
 		for (int i = 0; i <= 150; i++) {
 			try {
-				status = driver.findElement(By.xpath("//span[text()='" + testData.get("Search Data") + " ']")).isDisplayed();
+				status = driver.findElement(By.xpath("//span[text()='" + testData.get("Search Data") + " ']"))
+						.isDisplayed();
 				break;
 
 			} catch (Exception e) {
@@ -1178,7 +1198,8 @@ public class WareHouseMaster extends BaseClass {
 		boolean status = false;
 		for (int i = 0; i <= 150; i++) {
 			try {
-				status = driver.findElement(By.xpath("//span[text()='" + testData.get("Search Data") + " ']")).isDisplayed();
+				status = driver.findElement(By.xpath("//span[text()='" + testData.get("Search Data") + " ']"))
+						.isDisplayed();
 				break;
 
 			} catch (Exception e) {
@@ -1190,6 +1211,7 @@ public class WareHouseMaster extends BaseClass {
 		}
 		Assert.assertTrue(status);
 	}
+
 	@And("^enter invalid text inputin search box$")
 	public void enter_invalid_text_inputin_search_box() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseTextBoxCloseButton(), 50, 1);
@@ -1238,11 +1260,12 @@ public class WareHouseMaster extends BaseClass {
 	public void click_on_export_button() throws Throwable {
 		for (int i = 0; i < 50; i++) {
 			try {
-				//waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseExportButton(), 50, 1);
+				// waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				// warehousrobj.wareHouseExportButton(), 50, 1);
 				warehousrobj.wareHouseExportButton().click();
 				break;
-			}catch(Exception e) {
-				
+			} catch (Exception e) {
+
 			}
 		}
 
@@ -1361,7 +1384,8 @@ public class WareHouseMaster extends BaseClass {
 	public void verify_system_should_display_the_currect_description_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouse_ListViewDescription(), 50, 1);
 		warehousrobj.wareHouse_ListViewDescription().getText();
-		System.out.println("Description is" + warehousrobj.wareHouse_ListViewDescription().getText()+ "Summary Description is" + testdata.get("description"));
+		System.out.println("Description is" + warehousrobj.wareHouse_ListViewDescription().getText()
+				+ "Summary Description is" + testdata.get("description"));
 		Assert.assertEquals(testdata.get("description"), warehousrobj.wareHouse_ListViewDescription().getText());
 	}
 
@@ -1533,9 +1557,5 @@ public class WareHouseMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouseApprovedFirstRecord(), 50, 1);
 		warehousrobj.wareHouseApprovedFirstRecord().click();
 	}
-
-
-	
-
 
 }

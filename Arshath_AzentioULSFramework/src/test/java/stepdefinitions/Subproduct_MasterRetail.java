@@ -49,6 +49,7 @@ public class Subproduct_MasterRetail extends BaseClass {
 		String kulsApplicationUrl = configFileReader.getApplicationUrl();
 		driver.get(kulsApplicationUrl);
 		applicationLogin.loginUlsApplicationAsMaker(loginData.Username, loginData.Password);
+		
 	}
 
 	@When("^user click product set up menu$")
