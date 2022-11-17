@@ -1,0 +1,22 @@
+[{
+"User":"Maker",
+"BankName":"SBIN001",
+"BranchName":"007117",
+"AccountType":"Collection",
+"AccountType2":"Disbursement",
+"AccountTypeModification":"Disbursement",
+"ApprovedAccountTypeModification":"Collection",
+"SelectModification":"Select",
+"AccountNumber":"7720834143",
+"AccountCurrency":"INR",
+"PaymentAccountIndicator":"Payment Account Indicator",
+"ChartOfAccountMapingType":"Chart Ac",
+"AccountStatus":"Active",
+"Search":"DEPOSIT",
+"ListViewSearch":"57197",
+"ListViewSearchUnmatched":"aaaa",
+
+"AvailableCollection":"ABCD BRANCH",
+"ValidationNumericField":"123abcd",
+"ValidationSpeciaChar":"123$%^&"
+}]

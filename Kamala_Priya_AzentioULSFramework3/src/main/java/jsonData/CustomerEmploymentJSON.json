@@ -1,0 +1,11 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of AT_CE_006---//
+	"EditText"					:	"11",
+	"ReferenceID"				:	"506",
+	"CustomerFirstName"			:	"testerE",
+	"EmployeeID"				:	"652135"
+	
+ }
+]
