@@ -762,11 +762,24 @@ And user Pass the Exceldata value for Living Expense Loccation Invalid
 And user verify the Blank field in Living Expense
 And Enter the Invalid value in Area factor income of Living expense parameter
 
-
-
-
-
-
+@AT_LE_029_Modification
+Scenario: Modification of Living Expense Location record
+Given user log in as uls application maker
+Then user change Application Type as Los
+Then user click on configurations Tab
+When user click Config Manager menu
+And user Goto the Temp view screen of living Expense
+#And user click on List view Icon of  Living Expenses 
+And user click on First record in living Expense
+And Navigate to Living expense location page
+And click on Pencil icon of existing record
+And user Pass the Exceldata value for Living Expense Loccation Modified
+And Enter the Modified value in Area factor income of Living expense parameter
+And user save the Record in Living Expensess
+And click on Pencil icon of existing record
+And user Pass the Exceldata value for Living Expense Loccation ReModified
+And Enter the ReModified value in Area factor income of Living expense parameter
+And user save the Record in Living Expensess
 
 
 

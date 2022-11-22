@@ -209,13 +209,13 @@ public class Transactions_ScreenOBJ {
 	
 	//ApplicationDetails Disbursement checker
 	
-	@FindBy(xpath="(//ion-label[contains(text(),'Primary Product')]//following-sibling::ion-select)")
+	@FindBy(xpath="(//ion-label[contains(text(),'Classification')]//following-sibling::ion-select)")
 	private WebElement ApplicationDetails_PrimaryProduct;
 	public WebElement ApplicationDetails_PrimaryProduct()
 	{
 		return ApplicationDetails_PrimaryProduct;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Primary Sub Product')]//following-sibling::ion-select")
+	@FindBy(xpath="//ion-label[contains(text(),' Product')]//following-sibling::ion-select")
 	private WebElement ApplicationDetails_PrimarySubProduct;
 	public WebElement ApplicationDetails_PrimarySubProduct()
 	{
@@ -346,18 +346,18 @@ public class Transactions_ScreenOBJ {
 	{
 		return FacilityDetails_FacilityInfo;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Primary Product')]//following-sibling::ion-select")
-	private WebElement FacilityDetails_PrimaryProduct;
-	public WebElement FacilityDetails_PrimaryProduct()
+	@FindBy(xpath="//ion-label[contains(text(),'Classification')]//following-sibling::ion-select")
+	private WebElement FacilityDetails_Classification;
+	public WebElement FacilityDetails_Classification()
 	{
-		return FacilityDetails_PrimaryProduct;
+		return FacilityDetails_Classification;
 	
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Primary Sub Product')]//following-sibling::ion-select")
-	private WebElement FacilityDetails_PrimarySubProduct;
-	public WebElement FacilityDetails_PrimarySubProduct()
+	@FindBy(xpath="//ion-label[contains(text(),'Product')]//following-sibling::ion-select")
+	private WebElement FacilityDetails_Product;
+	public WebElement FacilityDetails_Product()
 	{
-		return FacilityDetails_PrimarySubProduct;
+		return FacilityDetails_Product;
 	
 	}
 	@FindBy(xpath="//ion-label[contains(text(),'Scheme')]//following-sibling::ion-select")
@@ -409,6 +409,13 @@ public class Transactions_ScreenOBJ {
 		return FacilityDetails_LoanTenure;
 	
 	}
+	@FindBy(xpath="//ion-label[contains(text(),'Moratorium Period')]//following-sibling::ion-input//child::input")
+	private WebElement FacilityDetails_Moratorium_Period;
+	public WebElement FacilityDetails_Moratorium_Period()
+	{
+		return FacilityDetails_Moratorium_Period;
+	
+	}
 	@FindBy(xpath="//ion-label[contains(text(),'Loan')]//following-sibling::ion-input")
 	private WebElement FacilityDetails_LoanTenure2;
 	public WebElement FacilityDetails_LoanTenure2()
@@ -416,7 +423,7 @@ public class Transactions_ScreenOBJ {
 		return FacilityDetails_LoanTenure2;
 	
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Declared Asset Value')]//parent::div//following-sibling::div//p-inputnumber//input")
+	@FindBy(xpath="//ion-label[contains(text(),'Declared Property Value')]//parent::div//following-sibling::div//p-inputnumber//input")
 	private WebElement FacilityDetails_DeclaredAssetValue;
 	public WebElement FacilityDetails_DeclaredAssetValue()
 	{
@@ -501,11 +508,11 @@ public class Transactions_ScreenOBJ {
 		return FacilityDetails_ActionEditIcon;
 	
 	}
-	@FindBy(xpath="")
-	private WebElement FacilityDetails_;
-	public WebElement FacilityDetails()
+	@FindBy(xpath="(//button[@ng-reflect-text='View']//child::span)[1]")
+	private WebElement FacilityDetails_ActionViewIcon;
+	public WebElement FacilityDetails_ActionViewIcon()
 	{
-		return FacilityDetails_;
+		return FacilityDetails_ActionViewIcon;
 	
 	}
 	@FindBy(xpath="//span[contains(text(),'Export')]")
@@ -556,11 +563,11 @@ public class Transactions_ScreenOBJ {
 	{
 		return FacilityDetails_ListViewProduct;
 	}
-	@FindBy(xpath="//span[contains(text(),' Sub product')]")
-	private WebElement FacilityDetails_ListViewSubProduct;
-	public WebElement FacilityDetails_ListViewSubProduct() 
+	@FindBy(xpath="//span[contains(text(),' Classification')]")
+	private WebElement FacilityDetails_ListViewClassification;
+	public WebElement FacilityDetails_ListViewClassification() 
 	{
-		return FacilityDetails_ListViewSubProduct;
+		return FacilityDetails_ListViewClassification;
 	}
 	@FindBy(xpath="//span[contains(text(),'Tenure')]")
 	private WebElement FacilityDetails_ListViewTenure;

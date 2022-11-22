@@ -1187,7 +1187,20 @@ public class LivingExpense_Master extends BaseClass {
 		String Areafactor = livingexpenseobj.LivingExpenseLocation_AreaFactorIncome().getAttribute("ng-reflect-model");
 		Assert.assertFalse(Areafactor.contains("abcd"));
 	}
-
+	@And("^Enter the Modified value in Area factor income of Living expense parameter$")
+	public void enter_the_modified_value_in_area_factor_income_of_living_expense_parameter() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField(), 60, 2);
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().click();
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().clear();
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().sendKeys(testData.get("AreaFactorIncome"));
+	}
+	@And("^Enter the ReModified value in Area factor income of Living expense parameter$")
+	public void enter_the_remodified_value_in_area_factor_income_of_living_expense_parameter() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField(), 60, 2);
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().click();
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().clear();
+		livingexpenseobj.LivingExpenseLocation_AreaFactorIncomeField().sendKeys(testData.get("AreaFactorIncome"));
+	}
 	@And("^user Pass the Exceldata value for Creation$")
 	public void user_Pass_the_Exceldata_value_for_Creation() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T001_D1");
@@ -1267,5 +1280,12 @@ public class LivingExpense_Master extends BaseClass {
 	public void user_Pass_the_Exceldata_value_for_Living_expense_location_invalid() throws Throwable {
 		testData = exceldata.getTestdata("AT_LR_T028_D28");
 	}
-
+	@And("^user Pass the Exceldata value for Living Expense Loccation Modified$")
+	public void user_Pass_the_Exceldata_value_for_Living_expense_location_Modified() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T029_D29");
+	}
+	@And("^user Pass the Exceldata value for Living Expense Loccation ReModified$")
+	public void user_Pass_the_Exceldata_value_for_Living_expense_location_reModified() throws Throwable {
+		testData = exceldata.getTestdata("AT_LR_T029_D29_1");
+	}
 }

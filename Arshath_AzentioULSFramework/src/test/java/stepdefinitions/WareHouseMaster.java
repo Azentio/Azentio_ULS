@@ -648,6 +648,7 @@ public class WareHouseMaster extends BaseClass {
 		Toast = warehousrobj.Warehouse_Checker_Id().getText();
 		System.out.println(Toast);
 		Assert.assertEquals(Toast, "Record REJECTED Successfully");
+		
 	}
 
 	// ********************@AT_WHM_T002_Reject_ListView*************************//

@@ -21,7 +21,7 @@
 		"FacilityDetails_Month": "Dec",
 		"FacilityDetails_Day": "25",
 		"FacilityDetails_LoanTenure": "18",
-		"FacilityDetails_Search": "CPUEXEC",
+		"FacilityDetails_Search": "Appdata",
 		"FacilityDetails_LoanTenureVerifyChar":"ABC16",
 		"FacilityDetails_LoanTenureVerifySpecial":"@#$%16",
 		"FacilityDetails_ProgramCodeBlank":"Select",

@@ -1,6 +1,8 @@
 package stepdefinitions;
 
 import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,6 +19,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
@@ -40,7 +43,8 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
 	String RequestedAmount;
 	String LoanTenure;
-	
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","FacilityDeailsTestDData", "Data Set ID");
+	Map<String, String> testdata;
 	
 	@Then("^User click the action edit icon in conventional facility details$")
     public void user_click_the_action_edit_icon_in_conventional_facility_details() throws Throwable {
@@ -49,6 +53,14 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	Transaction.FacilityDetails_ActionEditIcon().click();
         
     }
+	@Then("^User click the action View icon in conventional facility details$")
+    public void user_click_the_action_view_icon_in_conventional_facility_details() throws Throwable {
+		
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ActionViewIcon(), 60, 5);
+    	Transaction.FacilityDetails_ActionViewIcon().click();
+        
+    }
+	
 	@And("^User verify the status button is active stage in conventional facility details$")
     public void user_verify_the_status_button_is_active_stage_in_conventional_facility_details() throws Throwable {
         
@@ -110,21 +122,21 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 
     @And("^User click the back button in customer entity layout facility details$")
     public void user_click_the_back_button_in_customer_entity_layout_facility_details() throws Throwable {
-    	
+    	Thread.sleep(1000);
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.GoBack(), 60, 5);
     	Transaction.GoBack().click();
         
     }
 
-    @And("^User enter the primary product in customer entity layout facility details$")
-    public void user_enter_the_primary_product_in_customer_entity_layout_facility_details() throws Throwable {
+    @And("^User enter the Classification in customer entity layout facility details$")
+    public void user_enter_the_Classification_in_customer_entity_layout_facility_details() throws Throwable {
     	
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_PrimaryProduct(), 60, 5);
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Classification(), 60, 5);
     	Thread.sleep(2000);
-    	Transaction.FacilityDetails_PrimaryProduct().click();
+    	Transaction.FacilityDetails_Classification().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PrimaryProduct+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("Classification")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -139,16 +151,16 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 
     }
 
-    @And("^User enter the primary sub product in customer entity layout facility details$")
-    public void user_enter_the_primary_sub_product_in_customer_entity_layout_facility_details() throws Throwable {
+    @And("^User enter the product in customer entity layout facility details$")
+    public void user_enter_the_product_in_customer_entity_layout_facility_details() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_PrimarySubProduct(), 60, 5);
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Product(), 60, 5);
     	
-    	Transaction.FacilityDetails_PrimarySubProduct().click();
+    	Transaction.FacilityDetails_Product().click();
     	
     	Thread.sleep(1000);
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PrimarySubProduct+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("Product")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -173,7 +185,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Scheme");
     	Transaction.FacilityDetails_Scheme().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_Scheme+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("Scheme")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -196,7 +208,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ProgramCode(), 60, 5);
     	Transaction.FacilityDetails_ProgramCode().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_ProgramCode+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("ProgramCode")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -218,7 +230,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_FacilityType(), 60, 5);
     	Transaction.FacilityDetails_FacilityType().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_FacilityType+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("FacilityType")+"')]//following-sibling::ion-radio";
 		for (int i = 1; i < 60; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
@@ -254,7 +266,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	}
     	
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_PricingOrInterestIndicator+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("PricingORInterestIndicator")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -280,7 +292,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     		try {
 				
     			Transaction.FacilityDetails_DeclaredAssetValue().click();
-    	    	Transaction.FacilityDetails_DeclaredAssetValue().sendKeys(Transactionjson.FacilityDetails_DeclaredAssetValue);
+    	    	Transaction.FacilityDetails_DeclaredAssetValue().sendKeys(testdata.get("DeclaredPropertyValue"));
     	    	break;
     			
 			} catch (Exception e) {
@@ -300,7 +312,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     		try {
 				
     			Transaction.FacilityDetails_DeclaredDownPaymentAmount().click();
-    	    	Transaction.FacilityDetails_DeclaredDownPaymentAmount().sendKeys(Transactionjson.FacilityDetails_DeclaredDownPaymentAmount);
+    	    	Transaction.FacilityDetails_DeclaredDownPaymentAmount().sendKeys(testdata.get("DeclaredDownPaymentAmount"));
     	    	break;
     			
 			} catch (Exception e) {
@@ -321,7 +333,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     		try {
 				
     			Transaction.FacilityDetails_RequestedAmount().click();
-    	    	Transaction.FacilityDetails_RequestedAmount().sendKeys(Transactionjson.FacilityDetails_DeclaredRequestedAmount);
+    	    	Transaction.FacilityDetails_RequestedAmount().sendKeys(testdata.get("RequestedAmount"));
     	    	break;
     			
 			} catch (Exception e) {
@@ -340,7 +352,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	mandatoryornot.verifyGivenFieldisMandatoryOrNot("Currency");
     	Transaction.FacilityDetails_Currency().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_Currency+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("Currency")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -433,11 +445,17 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_LoanTenure(), 60, 5);
     	Transaction.FacilityDetails_LoanTenure().click();
-    	Transaction.FacilityDetails_LoanTenure().sendKeys(Transactionjson.FacilityDetails_LoanTenure);
- 
-        
+    	Transaction.FacilityDetails_LoanTenure().sendKeys(testdata.get("LoanTenure"));        
     }
 
+    @And("^User enter the Moratorium Period in customer entity layout facility details$")
+    public void user_enter_the_Moratorium_Period_in_customer_entity_layout_facility_details() throws Throwable {
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_Moratorium_Period(), 60, 5);
+    	Transaction.FacilityDetails_Moratorium_Period().click();
+    	Transaction.FacilityDetails_Moratorium_Period().sendKeys(testdata.get("MoratoriumPeriod"));        
+    }
+    
     @And("^User click the save icon in customer entity layout facility details$")
     public void user_click_the_save_icon_in_customer_entity_layout_facility_details() throws Throwable {
     	
@@ -509,9 +527,9 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_LoanTenure(), 60, 5);
     	Transaction.FacilityDetails_LoanTenure().click();
-    	Transaction.FacilityDetails_LoanTenure().sendKeys(Transactionjson.FacilityDetails_LoanTenureVerifyChar);
+    	Transaction.FacilityDetails_LoanTenure().sendKeys(testdata.get("LoanTenure"));
     	String attr= Transaction.FacilityDetails_LoanTenure().getAttribute("ng-reflect-model");
-    	Assert.assertNotEquals(attr, Transactionjson.FacilityDetails_LoanTenureVerifyChar);
+    	Assert.assertNotEquals(attr, testdata.get("LoanTenure"));
     	
         
     	
@@ -520,11 +538,11 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     @And("^User verify the impact when user enters only special characters value in any field in customer entity layout facility details$")
     public void user_verify_the_impact_when_user_enters_only_special_characters_value_in_any_field_in_customer_entity_layout_facility_details() throws Throwable {
         
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_LoanTenure(), 60, 5);
-    	Transaction.FacilityDetails_LoanTenure().click();
-    	Transaction.FacilityDetails_LoanTenure().sendKeys(Transactionjson.FacilityDetails_LoanTenureVerifySpecial);
-    	String attr1 = Transaction.FacilityDetails_LoanTenure2().getAttribute("ng-reflect-model");
-    	Assert.assertNotEquals(attr1, Transactionjson.FacilityDetails_LoanTenureVerifySpecial);
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_RequestedAmount(), 60, 5);
+		Transaction.FacilityDetails_RequestedAmount().click();
+    	Transaction.FacilityDetails_RequestedAmount().sendKeys(testdata.get("RequestedAmount"));
+    	String attr1 = Transaction.FacilityDetails_RequestedAmount2().getAttribute("ng-reflect-model");
+    	Assert.assertNotEquals(attr1, testdata.get("RequestedAmount"));
         
     }
 
@@ -563,9 +581,9 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	Transaction.FacilityDetails_ListViewProduct().isDisplayed();
     	System.out.println("Product is Displayed");
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewSubProduct(), 60, 5);
-    	Transaction.FacilityDetails_ListViewSubProduct().isDisplayed();
-    	System.out.println("SubProduct is Displayed");
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewClassification(), 60, 5);
+    	Transaction.FacilityDetails_ListViewClassification().isDisplayed();
+    	System.out.println("Classification is Displayed");
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewTenure(), 60, 5);
     	Transaction.FacilityDetails_ListViewTenure().isDisplayed();
@@ -612,8 +630,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	    	
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.GoBack(), 60, 5);
-    	Transaction.GoBack().click();
-    	
+    	Transaction.GoBack().click();  	
     
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewVerifyRequested(), 60, 5);
@@ -641,10 +658,11 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ProgramCode(), 60, 5);
     	Transaction.FacilityDetails_ProgramCode().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_ProgramCodeModify+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("ProgramCode")+"')]//following-sibling::ion-radio";
 
-		for (int i = 1; i < 60; i++) {
+		for (int i = 0; i <= 160; i++) {
 			try {
+				
 				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
@@ -659,10 +677,10 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     @And("^User modify the facility type in customer entity layout facility details$")
     public void user_modify_the_facility_type_in_customer_entity_layout_facility_details() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ProgramCode(), 60, 5);
-    	Transaction.FacilityDetails_ProgramCode().click();
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_FacilityType(), 60, 5);
+    	Transaction.FacilityDetails_FacilityType().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_FacilityTypeModify+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("FacilityType")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -731,7 +749,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ProgramCode(), 60, 5);
     	Transaction.FacilityDetails_ProgramCode().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_ProgramCodeBlank+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("ProgramCode")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -789,9 +807,9 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	Transaction.FacilityDetails_ListViewProduct().isDisplayed();
     	System.out.println("Product is Displayed");
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewSubProduct(), 60, 5);
-    	Transaction.FacilityDetails_ListViewSubProduct().isDisplayed();
-    	System.out.println("SubProduct is Displayed");
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewClassification(), 60, 5);
+    	Transaction.FacilityDetails_ListViewClassification().isDisplayed();
+    	System.out.println("Classificaion is Displayed");
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_ListViewTenure(), 60, 5);
     	Transaction.FacilityDetails_ListViewTenure().isDisplayed();
@@ -1030,4 +1048,25 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
         
     }
     
+    @And("^User update the excel data for Facility details creation$")
+    public void User_update_the_excel_data_for_Facility_details_creation() throws Throwable{
+    	testdata = exceldata.getTestdata("AT_FD_001_D1");
+    }
+    @And("^User update the excel data for Facility details Verification$")
+    public void User_update_the_excel_data_for_Facility_details_Verification() throws Throwable{
+    	testdata = exceldata.getTestdata("AT_FD_002_D1");
+    }
+    
+    @And("^User update the excel data for Facility details Modify$")
+    public void User_update_the_excel_data_for_Facility_details_Modify() throws Throwable{
+    	testdata = exceldata.getTestdata("AT_FD_004_D1");
+    }
+    @And("^User update the excel data for Facility details Modification$")
+    public void User_update_the_excel_data_for_Facility_details_Modification() throws Throwable{
+    	testdata = exceldata.getTestdata("AT_FD_005_D1");
+    }
+    @And("^User update the excel data for Facility details Verify$")
+    public void User_update_the_excel_data_for_Facility_details_Verify() throws Throwable{
+    	testdata = exceldata.getTestdata("AT_FD_006_D1");
+    }
 }

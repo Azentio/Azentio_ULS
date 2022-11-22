@@ -2,6 +2,7 @@ Feature: check the functionality of the Warehouse Master
 @AT_WHM_T001_creation
 Scenario: Creation of Warehouse Master record_ Add Template
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -35,6 +36,7 @@ Then user verify the Record got Approved in checker stage
 @AT_WHM_T001_Approve_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -43,6 +45,7 @@ Then User validate the WareHouse approved record in list view
 @AT_WHM_T002_Reject_Creation
 Scenario: Creation of Warehouse Master record_ Add Template
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -76,6 +79,7 @@ Then user verify the Record got Rejected in checker stage
 @AT_WHM_T002_Reject_ListView
 Scenario: Record should get approved and display in the system under Reject List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -84,6 +88,7 @@ Then User validate the WareHouse Rejected record in list view
 @AT_WHM_T003_Return_Creation
 Scenario: Creation of Warehouse Master record_ Add Template
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -117,6 +122,7 @@ Then user verify the Record got Returned in checker stage
 @AT_WHM_T003_Return_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click Temp view icon of Warehouse Master
@@ -125,6 +131,7 @@ Then User validate the WareHouse Retured record in list view
 @AT_WHM_T004_Validation
 Scenario: Creation of Warehouse Master record_ Add Template
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -137,6 +144,7 @@ And user verify the validation Message in warehouse Master
 @AT_WHM_T005_Modification
 Scenario: Modification of Warehouse Master record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -180,6 +188,7 @@ Then user verify the Record got Approved in checker stage
 @AT_WHM_T005_Modification_Approve_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -188,6 +197,7 @@ Then User validate the WareHouse Modify approved record in list view
 @AT_WHM_T006_Invalid
 Scenario: verify while modification system enters the invalid data (Invalid data types)
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -200,6 +210,7 @@ And user Enter Invalid Data in warehouse Master
 @AT_WHM_T007_Modification_Reject
 Scenario: Modification of Warehouse Master record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -238,6 +249,7 @@ Then user verify the Record got Rejected in checker stage
 @AT_WHM_T007_Modification_Checker_Reject_Listview
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -246,6 +258,7 @@ Then User validate the WareHouse Modify Rejected record in list view
 @AT_WHM_T008_Modification_Return
 Scenario: Modification of Warehouse Master record
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click list view icon of Warehouse Master
@@ -284,6 +297,7 @@ Then user verify the Record got Returned in checker stage
 @AT_WHM_T008_Modification_Checker_Return_Listview
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And user click Temp view icon of Warehouse Master
@@ -292,6 +306,7 @@ Then User validate the WareHouse Modify Retured record in list view
 @AT_WHM_T009_Active_Deactive
 Scenario: verify the functionality of Activate/Deactivate button
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 #And user click list view icon of Warehouse Master
@@ -307,6 +322,7 @@ And user verify the status is Deactive
 @AT_WHM_T010
 Scenario: To verify list view of wareHouse master
 Given user log in as uls application maker
+Then user change Application Type as Los
 And go to configuration main menu
 And Go to config manager main menu
 And click on view button in ware house master
@@ -316,6 +332,7 @@ Then verify user can able to add the record in to the ware house master screen
 @AT_WHM_T011
 Scenario:  TO verify user can able to serach the list view record with matching and un matching input and user can able to download the the xls and pdf format file
 Given user log in as uls application maker
+Then user change Application Type as Los
 And go to configuration main menu
 And Go to config manager main menu
 And click on view button in ware house master
@@ -334,6 +351,7 @@ Then verify pdf file is downloded in download section
 @AT_WHM_T012
 Scenario: To verify the list view data in wareHouse master
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 And click on view button in ware house master
@@ -354,6 +372,7 @@ Then verify system shoudl display the exact status of the record
 @AT_WHM_T013
 Scenario: To verify the list view of WIP Record
 Given user log in as uls application maker
+Then user change Application Type as Los
 And go to configuration main menu
 And Go to config manager main menu
 And click on view button in ware house master
