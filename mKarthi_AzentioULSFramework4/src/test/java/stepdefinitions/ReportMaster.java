@@ -699,6 +699,66 @@ public class ReportMaster {
             }
     	
     }
+    @And("^user verify the search results show matched data for report master$")
+    public void user_verify_the_search_results_show_matched_data_for_report_master() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-RA-042_D1");
+		for (int i = 0; i < 20; i++) {
+			try {
+				ReportMaster.searchIcon().click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,ReportMaster.assetAutoViewSearchText(), 30, 2);
+		ReportMaster.assetAutoViewSearchText().sendKeys(testData.get("SearchMatchData"));
+
+		String xpath = "//span[contains(text(),'"+testData.get("SearchMatchData")+"')]";
+		for (int i = 0; i < 20; i++) {
+            try {
+            	Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(), true);
+            	break;
+			} catch (NoSuchElementException e) {
+				
+			}
+			
+		}
+    	
+    }
+
+    @And("^user verify the search results shows no data for report master$")
+    public void user_verify_the_search_results_shows_no_data_for_report_master() throws Throwable {
+    	
+    	testData = excelData.getTestdata("AT-RA-042_D1");
+    	driver.findElement(By.xpath("//input[@mode='ios']//following-sibling::i")).click();
+		for (int i = 0; i < 20; i++) {
+			try {
+				ReportMaster.searchIcon().click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+				ReportMaster.assetAutoViewSearchText(), 30, 2);
+		ReportMaster.assetAutoViewSearchText().sendKeys(testData.get("SearchUnmatchedData"));
+		Thread.sleep(1000);
+		String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
+		for (int i = 0; i < 200; i++) {
+			try {
+				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), testData.get("UnmatchedDataError"));
+				break;
+			} catch (NoSuchElementException e) {
+
+			}
+		}
+
+		driver.findElement(By.xpath("//input[@mode='ios']//following-sibling::i")).click();
+
+        
+    }
+
 
     	
 

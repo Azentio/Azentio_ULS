@@ -95,6 +95,39 @@ And User click the report master eye icon
 Then User click the inboxmail icon in asset CD master
 And User verify the returned record removed from the system in report master
 
+@AT-RA-T019
+Scenario: To verify the user can able approve the record in checker stage
+Given User login as uls checker in report master
+And User click the inboxicon in asset CD master checker
+And User click the search icon in report master and get the reference id in report master
+And User search the respective reference id and click on Action button in report master
+And User click on Approve icon in asset CD master checker
+And User click the popup remarks in asset CD master checker
+Then User enter the popup remarks in asset CD master checker
+And User click the popup approve in asset CD master checker
+Then User verify the Record got Approved in asset CD checker
+
+@AT-RA-T020
+Scenario: To verify the user able to reject the record in Report master
+Given User login as uls checker in report master
+And User click the inboxicon in asset CD master checker
+And User click the search icon in report master and get the reference id in report master
+And User search the respective reference id and click on Action button in report master
+And User click the reject icon in asset CD master checker
+And User enter the reject remark in asset CD master checker
+And User click the final reject icon in asset CD master checker
+Then User verify the Record got Rejected in asset CD checker
+
+@AT-RA-T021
+Scenario: To verify the user able to reject the record in report master
+Given User login as uls checker in report master
+And User click the inboxicon in asset CD master checker
+And User click the search icon in report master and get the reference id in report master
+And User search the respective reference id and click on Action button in report master
+And User click the return icon in asset CD master checker
+And User enter the return remark in asset CD master checker
+And User click the final return icon in asset CD master checker
+Then User verify the Record got Returned in asset CD checker
 
 #RM_08_02, RM_09_01, RM_09_02, RM_09_03, RM_09_04, RM_09_05, RM_09_06, RM_09_07, RM_09_08, RM_09_09, RM_09_13
 @AT-RA-T022
@@ -122,6 +155,20 @@ And User click the submit icon in report master
 And User enter the popup remark and click the popup submit
 And user get the popup message and get the checker id in report master
 
+@AT-RA-T042
+Scenario: To verify the functionality of the report master
+Given User login as uls maker in asset CD master
+Then User click the Configurations in asset auto master
+And User click the config manager in Bounce master
+Then User click the report master list view icon
+And user verify search for record icon is displayed  for asset auto master
+And user verify export to pdf option is displayed  for asset auto master
+And user verify export to excel option is displayed for asset auto master
+And User verify the Values in List view should be non editable
+And User verify the functionality of Export to PDF button in asset auto master
+And User verify the functionality of Export to Excel button in asset auto master
+And user verify the search results show matched data for report master
+And user verify the search results shows no data for report masterl
 
 @AT-RA-T040
 Scenario: To verify the user can able approve the record in checker stage
@@ -245,7 +292,28 @@ Then search Report Group Master record
 Then checker user open the record from inbox
 Then checker user approve the record
 
+@AT-RA-T028
+Scenario: To verify the user can able approve the record in checker stage
+Given User login as uls checker in report master
+And User click the inboxicon in asset CD master checker
+And User click the search icon in report master and get the reference id in report master
+And User search the respective reference id and click on Action button in report master
+And User click on Approve icon in asset CD master checker
+And User click the popup remarks in asset CD master checker
+Then User enter the popup remarks in asset CD master checker
+And User click the popup approve in asset CD master checker
+Then User verify the Record got Approved in asset CD checker
 
+@AT-RA-T029
+Scenario: To verify the user able to reject the record in Report master
+Given User login as uls checker in report master
+And User click the inboxicon in asset CD master checker
+And User click the search icon in report master and get the reference id in report master
+And User search the respective reference id and click on Action button in report master
+And User click the reject icon in asset CD master checker
+And User enter the reject remark in asset CD master checker
+And User click the final reject icon in asset CD master checker
+Then User verify the Record got Rejected in asset CD checker
 
 
 

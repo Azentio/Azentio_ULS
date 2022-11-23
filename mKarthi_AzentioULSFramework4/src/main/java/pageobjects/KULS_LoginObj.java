@@ -41,5 +41,15 @@ public class KULS_LoginObj {
     public WebElement Menu() {
         return Menu;
     }
+    @FindBy(xpath="//ion-select[@ng-reflect-text='Module name']")
+    private WebElement ModuleName;
+    public WebElement ModuleName() {
+        return ModuleName;
+    }
+    @FindBy(xpath="//ion-label[contains(text(),'LOS')]//following-sibling::ion-radio")
+    private WebElement LOS;
+    public WebElement LOS() {
+        return LOS;
+    }
 	
 }

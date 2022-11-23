@@ -4,9 +4,11 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.Map;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import dataProvider.JsonConfig;
+import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
 import pageobjects.KULS_LoginObj;
@@ -18,6 +20,7 @@ public class KULS_Application_Login {
 	WaitHelper waithelper;
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper;
+	//ClicksAndActionsHelper click =new ClicksAndActionsHelper(driver);
 
 	public KULS_Application_Login(WebDriver driver) {
 		this.driver = driver;
@@ -41,10 +44,21 @@ public class KULS_Application_Login {
 		loginObj.password().sendKeys(password);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
+		
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.ModuleName(), 60, 2);
+		loginObj.ModuleName().click();
+		//click.doubleClick(loginObj.ModuleName());
+		
+		
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.LOS(), 60, 2);
+		loginObj.LOS().click();
+		
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 		loginObj.Menu().click();
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 		assertEquals(loginObj.configuration().isDisplayed(), true);
+		
+	
 
 	}
 
@@ -66,10 +80,13 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(testdata.get("Password"));
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 			loginObj.Menu().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
+			
+			
 			break;
 		case "in01589":
 			testdata = excelData.getTestdata("Checker2");
@@ -83,10 +100,14 @@ public class KULS_Application_Login {
 			loginObj.password().sendKeys(testdata.get("Password"));
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 			loginObj.Menu().click();
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
+			
+			
+			
 			break;
 		}
 

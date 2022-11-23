@@ -224,6 +224,11 @@ public class ReportMasterObj {
 	{
 		return CheckerApprove;
 	}
+	@FindBy(xpath = "//input[@mode='ios']") 
+    private WebElement assetAutoViewSearchText;
+    public WebElement assetAutoViewSearchText() {
+        return assetAutoViewSearchText;
+    }
 	@FindBy(xpath = "(//span[contains(text(),'Approve')])[2]")
 	private WebElement popupapprove;
 	public WebElement popupapprove() 

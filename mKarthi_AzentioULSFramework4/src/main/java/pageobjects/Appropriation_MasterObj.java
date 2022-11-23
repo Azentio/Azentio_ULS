@@ -28,6 +28,12 @@ public class Appropriation_MasterObj {
 	{
 		return appropriationEditIcon;
 	}
+	@FindBy(xpath="//ion-label[contains(text(),'Appropriation master')]//following-sibling::ion-buttons//child::ion-button[2]")
+	private WebElement appropriationEyeIcon;
+	public WebElement appropriationEyeIcon()
+	{
+		return appropriationEyeIcon;
+	}
 	@FindBy(xpath="//button[@ng-reflect-text='Add']")
 	private WebElement Addicon;
 	public WebElement Addicon()
@@ -94,6 +100,36 @@ public class Appropriation_MasterObj {
 	{
 		return DueType;
 	}
+	@FindBy(xpath = "//span[contains(text(),'Approve')]")
+	private WebElement CheckerApprove;
+	public WebElement CheckerApprove()
+	{
+		return CheckerApprove;
+	}
+	@FindBy(xpath = "(//span[contains(text(),'Approve')])[2]")
+	private WebElement popupapprove;
+	public WebElement popupapprove() 
+	{
+		return popupapprove;
+	}
+	@FindBy(xpath = "//div[contains(text(),' Record ')]")
+	private WebElement recordMsgChecker;
+	public WebElement recordMsgChecker() 
+	{
+		return recordMsgChecker;
+	}
+	@FindBy(xpath = "//span[contains(text(),'Reject')]")
+	private WebElement CheckerReject;
+	public WebElement CheckerReject() 
+	{
+		return CheckerReject;
+	}
+	@FindBy(xpath = "(//span[contains(text(),'Reject')])[2]")
+	private WebElement popupreject;
+	public WebElement popupreject() 
+	{
+		return popupreject;
+	}
 	@FindBy(xpath="(//ion-label[contains(text(),'Sequence No')]//following-sibling::ion-input//child::input)[1]")
 	private WebElement SequenceNo;
 	public WebElement SequenceNo() 
@@ -117,6 +153,12 @@ public class Appropriation_MasterObj {
 	public WebElement StatusDeactivation() 
 	{
 		return StatusDeactivation;
+	}
+	@FindBy(xpath="//button[@ng-reflect-text='Go Back']")
+	private WebElement Asset_BackArrow;
+	public WebElement Asset_BackArrow()
+	{
+		return Asset_BackArrow;
 	}
 	@FindBy(xpath="//button[@ng-reflect-text='Update']")
 	private WebElement UpdateSave;
@@ -154,6 +196,26 @@ public class Appropriation_MasterObj {
 	{
 		return searchIcon;
 	}
+	@FindBy(xpath="//span[@ng-reflect-ng-class='pi pi-chevron-down']")
+	private WebElement exportIcon;
+	public WebElement exportIcon() {
+		return exportIcon;
+	} 
+	@FindBy(xpath = "//input[@mode='ios']") 
+    private WebElement assetAutoViewSearchText;
+    public WebElement assetAutoViewSearchText() {
+        return assetAutoViewSearchText;
+    } 
+	@FindBy(xpath="//p-dropdownitem[@ng-reflect-label='PDF']//child::span")
+	private WebElement pdfOption;
+	public WebElement pdfOption() {
+		return pdfOption;
+	}
+	@FindBy(xpath="//p-dropdownitem[@ng-reflect-label='XLS']//child::span")
+	private WebElement xlsOption;
+	public WebElement xlsOption() {
+		return xlsOption;
+	}
 	@FindBy(xpath="//input[@mode='ios']")
 	private WebElement productViewSearchText;
 	public WebElement productViewSearchText() 
@@ -190,5 +252,44 @@ public class Appropriation_MasterObj {
 	{
 		return referenceid;
 	}
+	
+
+	@FindBy(xpath="//ion-icon[@aria-label='mail unread outline']")
+	private WebElement mailicon;
+	public WebElement mailicon() 
+	{
+		return mailicon;
+	}
+	@FindBy(xpath="//span[contains(text(),'Submit')]")
+	private WebElement submit;
+	public WebElement submit() 
+	{
+		return submit;
+	}
+	@FindBy(xpath="(//button[@ng-reflect-label='Submit'])[2]")
+	private WebElement popupsubmit;
+	public WebElement popupsubmit() 
+	{
+		return popupsubmit;
+	}
+	@FindBy(xpath="//div[@id='toast-container']/div[1]")
+	private WebElement ProductCheckerid;
+	public WebElement ProductCheckerid() 
+	{
+		return ProductCheckerid;
+	}
+	@FindBy(xpath = "//span[contains(text(),'Return')]")
+	private WebElement CheckerReturn;
+	public WebElement CheckerReturn()
+	{
+		return CheckerReturn;
+	}
+	@FindBy(xpath = "(//span[contains(text(),'Return')])[2]")
+	private WebElement popupReturn;
+	public WebElement popupReturn() 
+	{
+		return popupReturn;
+	}
+	
 
 }
