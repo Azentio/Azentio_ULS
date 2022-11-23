@@ -100,7 +100,7 @@ public class KULS_CommonWebElements {
     {
     	return uls_notificationSearchTextBox;
     }
-    @FindBy(xpath="//table//tr[5]//td[4]")
+    @FindBy(xpath="//table//tr[5]//td[8]")
     private WebElement uls_NotificationRecordStageCode;
     public WebElement ulsNotificationRecordStageCode()
     {

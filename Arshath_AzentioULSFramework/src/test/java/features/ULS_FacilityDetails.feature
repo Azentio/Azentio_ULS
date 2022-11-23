@@ -105,6 +105,7 @@ And User click the facility info tab in customer entity layout facility details
 And User verify the Values in List view should be non editable in customer entity layout facility details
 #And User verify the functionality of Add button in customer entity layout facility details
 #And User verify the functionality of edit button in customer entity layout facility details
+And User update the excel data for Facility details listview
 And User verify the functionality of Search box with mismatch data in customer entity layout facility details
 And User verify the functionality of Search box with matching data in customer entity layout facility details
 And User verify the functionality of Export to PDF button in customer entity layout facility details

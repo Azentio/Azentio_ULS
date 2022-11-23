@@ -31,7 +31,10 @@ public class PropertyDetails_Steps extends BaseClass {
 	TransactionScreen_PropertyDetailsObj propertyDetailsObj = new TransactionScreen_PropertyDetailsObj(driver);
 	SoftAssert softAssert = new SoftAssert();
 	KULS_CommonWebElements commenWebElementsObj = new KULS_CommonWebElements(driver);
-
+	
+	
+	
+	
 	@And("^click on mail box$")
 	public void click_on_mail_box() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsMailBox(), 20, 1);
@@ -54,9 +57,8 @@ public class PropertyDetails_Steps extends BaseClass {
 
 	@And("^select the app data entry first record$")
 	public void select_the_app_data_entry_first_record() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsNotificationRecordStageCode(),
-				10, 1);
-		for (int i = 0; i <= 10; i++) {
+		//waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonElementObj.ulsNotificationRecordStageCode(),10, 1);
+		for (int i = 0; i <= 100; i++) {
 			try {
 				if (ulsCommonElementObj.ulsNotificationRecordStageCode().getText()
 						.equals(propertyDetailsTestData.StageCode)) {
@@ -70,7 +72,7 @@ public class PropertyDetails_Steps extends BaseClass {
 
 					}
 				} else {
-					if (i == 10) {
+					if (i == 100) {
 						Assert.fail(propertyDetailsTestData.StageCode + " is not available ");
 					}
 				}

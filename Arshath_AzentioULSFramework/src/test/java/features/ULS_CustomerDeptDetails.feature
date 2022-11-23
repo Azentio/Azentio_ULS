@@ -9,6 +9,7 @@ And select the app data entry first record
 And user click on Customer Financials Tab
 And user click on First Record Edit Icon
 And Click on Add icon of Customer Debt section
+And user update the exceldata value for CustomerDept creation
 And Select the value in Finance type
 And Select the value in Financial Institution
 And Enter the value in Account Number

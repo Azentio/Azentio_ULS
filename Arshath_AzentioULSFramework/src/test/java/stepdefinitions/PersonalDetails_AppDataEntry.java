@@ -41,12 +41,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
 	PersonalaDetailsDataEntryTestdata personalData = jsonConfig.getPerDetailDataByName("Maker");
 	SoftAssert softassert = new SoftAssert();
 	
-    @Given("^User Launch the KULS url for Transaction$")
-    public void user_launch_the_kuls_url_for_transaction() throws Throwable {
-		String kulsApplicationUrl = configFileReader.getApplicationULSUrl();
-		driver.get(kulsApplicationUrl);
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username1, loginData.Password1);
-    }
+
 
     @Then("^user click on Transaction Module$")
     public void user_click_on_transaction_module() throws Throwable {

@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +20,7 @@ import io.cucumber.java.en.When;
 import pageobjects.SubProduct_Master_RetailOBJ;
 import pageobjects.Sub_Product_Master_Obj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
@@ -43,12 +46,23 @@ public class Subproduct_MasterRetail extends BaseClass {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	String Tab;
 	String Toast;
-
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx",
+			"WarehouseMasterTestData", "Data Set ID");
+	Map<String, String> testData;
+	
+	
+	
 	@Given("^user log in as uls application maker$")
 	public void user_log_in_as_uls_application_maker() throws Throwable {
-		String kulsApplicationUrl = configFileReader.getApplicationUrl();
-		driver.get(kulsApplicationUrl);
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username, loginData.Password);
+		//String kulsApplicationUrl = configFileReader.getApplicationUrl();
+		//driver.get(kulsApplicationUrl);
+		//applicationLogin.loginUlsApplicationAsMaker(loginData.Username, loginData.Password);
+		
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","Logincredentials","Stage");
+        Map<String, String> testdata = excelData.getTestdata("Maker1");
+        String kulsApplicationUrl = configFileReader.getApplicationUrl();
+        driver.get(kulsApplicationUrl);
+        applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));
 		
 	}
 

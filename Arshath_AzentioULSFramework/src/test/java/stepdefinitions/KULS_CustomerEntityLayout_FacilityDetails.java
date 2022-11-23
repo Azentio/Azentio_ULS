@@ -892,7 +892,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.productViewSearchText(),
 				30, 2);
-		Transaction.productViewSearchText().sendKeys("zzzzz");
+		Transaction.productViewSearchText().sendKeys(testdata.get("MisMatch"));
 		Thread.sleep(1000);
 		String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
 		for (int i = 0; i < 200; i++) {
@@ -925,7 +925,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, Transaction.productViewSearchText(),
 				30, 2);
-		Transaction.productViewSearchText().sendKeys(Transactionjson.FacilityDetailssearch);
+		Transaction.productViewSearchText().sendKeys(testdata.get("Match"));
 
 		String xpath = "//tr[1]/td[3]/p-celleditor[1]/span[1]";
 		String productcode = null;
@@ -1068,5 +1068,9 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     @And("^User update the excel data for Facility details Verify$")
     public void User_update_the_excel_data_for_Facility_details_Verify() throws Throwable{
     	testdata = exceldata.getTestdata("AT_FD_006_D1");
+    }
+    @And("^User update the excel data for Facility details listview$")
+    public void User_update_the_excel_data_for_Facility_details_listview() throws Throwable{
+    	testdata = exceldata.getTestdata("AT_FD_007_D1");
     }
 }
