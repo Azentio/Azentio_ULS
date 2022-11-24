@@ -1385,8 +1385,7 @@ public class WareHouseMaster extends BaseClass {
 	public void verify_system_should_display_the_currect_description_value() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, warehousrobj.wareHouse_ListViewDescription(), 50, 1);
 		warehousrobj.wareHouse_ListViewDescription().getText();
-		System.out.println("Description is" + warehousrobj.wareHouse_ListViewDescription().getText()
-				+ "Summary Description is" + testdata.get("description"));
+		System.out.println("Description is" + warehousrobj.wareHouse_ListViewDescription().getText()+ "Summary Description is" + testdata.get("description"));
 		Assert.assertEquals(testdata.get("description"), warehousrobj.wareHouse_ListViewDescription().getText());
 	}
 

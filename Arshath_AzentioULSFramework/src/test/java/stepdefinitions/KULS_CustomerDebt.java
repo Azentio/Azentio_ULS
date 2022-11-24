@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import java.io.File;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -16,6 +17,7 @@ import io.cucumber.java.en.And;
 import pageobjects.CustomerEntityLayoutDebtOBJ;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
@@ -34,7 +36,9 @@ public class KULS_CustomerDebt extends BaseClass {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	CustomerEntityLayoutDebtOBJ Transaction = new CustomerEntityLayoutDebtOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
-
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","CustomerDeptDetails","Data Set ID");
+	Map<String, String> testdata;
+	
 	@And("^User search the record from the system in customer debt$")
 	public void user_search_the_record_from_the_system_in_customer_debt() throws Throwable {
 
@@ -109,7 +113,7 @@ public class KULS_CustomerDebt extends BaseClass {
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.CustomerDebt_AccountNumber(), 60, 5);
 		Transaction.CustomerDebt_AccountNumber().click();
-		Transaction.CustomerDebt_AccountNumber().sendKeys("Account");
+		Transaction.CustomerDebt_AccountNumber().sendKeys(testdata.get("AccountNumber"));
 
 	}
 
@@ -118,7 +122,7 @@ public class KULS_CustomerDebt extends BaseClass {
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.CustomerDebt_InterestRate(), 60, 5);
 		Transaction.CustomerDebt_InterestRate().click();
-		Transaction.CustomerDebt_InterestRate().sendKeys("Interest");
+		Transaction.CustomerDebt_InterestRate().sendKeys(testdata.get("InterestRate"));
 
 	}
 
@@ -127,7 +131,7 @@ public class KULS_CustomerDebt extends BaseClass {
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.CustomerDebt_CurrentPrincipalBalance(), 60, 5);
 		Transaction.CustomerDebt_CurrentPrincipalBalance().click();
-		Transaction.CustomerDebt_CurrentPrincipalBalance().sendKeys("Current");
+		Transaction.CustomerDebt_CurrentPrincipalBalance().sendKeys(testdata.get("CurrentPrincipalBalance"));
 
 	}
 
@@ -463,4 +467,9 @@ public class KULS_CustomerDebt extends BaseClass {
 
 	}
 
+	@And("^user update the exceldata value for CustomerDept Verifying$")
+	public void user_update_the_exceldata_value_for_CustomerDept_Verifying() throws Throwable{
+		testdata=excelData.getTestdata("AT-CLCD-002_D1");
+	}
+	
 }

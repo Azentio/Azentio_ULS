@@ -80,7 +80,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFinanceType(), 30,
 				1);
 		customerDeptDetailsObj.customerDebtFinanceType().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.updatedFinanceType
+		String xpath = "//ion-label[text()=' " +  testData.get("FinanceType") 
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -101,7 +101,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerDeptDetailsObj.customerDebtFinancialInstitution(), 30, 1);
 		customerDeptDetailsObj.customerDebtFinancialInstitution().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.UpdatedFinancialInstitution
+		String xpath = "//ion-label[text()=' " + testData.get("FinancialInstitution") 
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -123,7 +123,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				1);
 		customerDeptDetailsObj.customerDebtAccountNumber().click();
 		customerDeptDetailsObj.customerDebtAccountNumber().clear();
-		customerDeptDetailsObj.customerDebtAccountNumber().sendKeys(customerDeptDetailsTestData.UpdatedAccountNumber);
+		customerDeptDetailsObj.customerDebtAccountNumber().sendKeys(testData.get("AccountNumber"));
 	}
 
 	@And("^update the sanction date calendar$")
@@ -134,9 +134,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDeptDetailsSansactionDateDataHolder().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.calendarYearField(), 30, 1);
 		ulsCommenElement.calendarYearField().click();
-		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedSanctionMonth + " ']";
-		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedSanctionYear + " ']";
-		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedSanctionday + "']";
+		String monthXpath = "//span[text()=' " + testData.get("SanctionMonth") + " ']";
+		String yearXpath = "//span[text()=' " + testData.get("SanctionYear") + " ']";
+		String dayXpath = "//span[text()='" + testData.get("SanctionDay") + "']";
 
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -193,7 +193,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		}
 		customerDeptDetailsObj.customerDebtSanctionAmount().click();
 		customerDeptDetailsObj.customerDebtSanctionAmount().clear();
-		customerDeptDetailsObj.customerDebtSanctionAmount().sendKeys(customerDeptDetailsTestData.UpdatedSanctionAmount);
+		customerDeptDetailsObj.customerDebtSanctionAmount().sendKeys(testData.get("SanctionAmount"));
 	}
 
 	@And("^update the interest rate percentage field$")
@@ -203,7 +203,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtInterestRate().click();
 		customerDeptDetailsObj.customerDebtInterestRate().clear();
 		customerDeptDetailsObj.customerDebtInterestRate()
-				.sendKeys(customerDeptDetailsTestData.UpdatedInterestratePercentage);
+				.sendKeys(testData.get("InterestRate"));
 	}
 
 	@And("^update the current principal balance field$")
@@ -213,7 +213,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtCurrentPrincipalBalance().click();
 		customerDeptDetailsObj.customerDebtCurrentPrincipalBalance().clear();
 		customerDeptDetailsObj.customerDebtCurrentPrincipalBalance()
-				.sendKeys(customerDeptDetailsTestData.UpdatedCurrentPrincipalBalance);
+				.sendKeys(testData.get("CurrentPrincipalBalance"));
 
 	}
 
@@ -223,7 +223,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				1);
 		customerDeptDetailsObj.customerDebtTenureMonths().click();
 		customerDeptDetailsObj.customerDebtTenureMonths().clear();
-		customerDeptDetailsObj.customerDebtTenureMonths().sendKeys(customerDeptDetailsTestData.UpdatedtenureMonths);
+		customerDeptDetailsObj.customerDebtTenureMonths().sendKeys(testData.get("TenureMonths"));
 	}
 
 	@And("^update the maturity date field$")
@@ -234,9 +234,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDeptDetailsMaturityDateDataHolder().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.calendarYearField(), 30, 1);
 		ulsCommenElement.calendarYearField().click();
-		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedMaturityMonth + " ']";
-		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedMaturityYear + " ']";
-		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedMaturityDay + "']";
+		String monthXpath = "//span[text()=' " + testData.get("month") + " ']";
+		String yearXpath = "//span[text()=' " + testData.get("year") + " ']";
+		String dayXpath = "//span[text()='" + testData.get("date") + "']";
 
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -284,7 +284,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtInstallmentAmount().click();
 		customerDeptDetailsObj.customerDebtInstallmentAmount().clear();
 		customerDeptDetailsObj.customerDebtInstallmentAmount()
-				.sendKeys(customerDeptDetailsTestData.UpdatedInstallmentAmount);
+				.sendKeys(testData.get("InstallmentAmount"));
 	}
 
 	@And("^update the amount considered field$")
@@ -294,14 +294,14 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtAmountConsidered().click();
 		customerDeptDetailsObj.customerDebtAmountConsidered().clear();
 		customerDeptDetailsObj.customerDebtAmountConsidered()
-				.sendKeys(customerDeptDetailsTestData.UpdatedInstallmentAmount);
+				.sendKeys(testData.get("AmountConsidered"));
 	}
 
 	@And("^update the currency field$")
 	public void update_the_currency_field() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtCurrency(), 30, 1);
 		customerDeptDetailsObj.customerDebtCurrency().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.UpdatedCurrency
+		String xpath = "//ion-label[text()=' " + testData.get("Currency")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -322,7 +322,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtRemarks(), 30, 1);
 		customerDeptDetailsObj.customerDebtRemarks().click();
 		customerDeptDetailsObj.customerDebtRemarks().clear();
-		customerDeptDetailsObj.customerDebtRemarks().sendKeys(customerDeptDetailsTestData.UpdatedRemarks);
+		customerDeptDetailsObj.customerDebtRemarks().sendKeys(testData.get("Remarks"));
 	}
 
 	@And("^update the next due date calander field$")
@@ -333,9 +333,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtNextDueDate().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.calendarYearField(), 30, 1);
 		ulsCommenElement.calendarYearField().click();
-		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedNextDueMonth + " ']";
-		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedNextDueYear + " ']";
-		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedNextDueDay + "']";
+		String monthXpath = "//span[text()=' " + testData.get("NextdueMonth") + " ']";
+		String yearXpath = "//span[text()=' " + testData.get("NextdueYear") + " ']";
+		String dayXpath = "//span[text()='" + testData.get("Nextduedate") + "']";
 
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -380,7 +380,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtCollateralType(),
 				30, 1);
 		customerDeptDetailsObj.customerDebtCollateralType().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.UpdatedCollateralType
+		String xpath = "//ion-label[text()=' " + testData.get("collateralType")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -783,9 +783,10 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@And("^save the updated record in customerfinancial commitment record$")
 	public void save_the_updated_record_in_customerfinancial_commitment_record() throws Throwable {
+		javascriptHelper.scrollIntoView(customerDeptDetailsObj.customerDeptDetailsSaveButton());
 		for (int i = 0; i <= 30; i++) {
 			try {
-				javascriptHelper.scrollIntoView(customerDeptDetailsObj.customerDeptDetailsSaveButton());
+				
 				customerDeptDetailsObj.customerDeptDetailsSaveButton().click();
 				break;
 			} catch (Exception e) {

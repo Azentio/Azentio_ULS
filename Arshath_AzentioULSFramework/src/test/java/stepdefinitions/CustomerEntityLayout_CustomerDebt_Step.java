@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import java.util.Map;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	KULS_CustomerEntityLayout_CustomerDebt_Testdata customerdebtData = jsonConfig.getCustomerDebtByName("Maker");
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","CustomerDeptDetails","Data Set ID");
+	Map<String, String> testdata;
 	
     @Given("^User Launch the KULS url for Transaction$")
     public void user_launch_the_kuls_url_for_transaction() throws Throwable {
@@ -50,7 +52,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		customerdebtobj.CustomerDebt_FinanceType().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.Financetype
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("FinanceType")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -60,12 +62,11 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 
 	@And("^Select the value in Financial Institution$")
 	public void select_the_value_in_financial_institution() throws Throwable {
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				customerdebtobj.CustomerDebt_FinancialInstitution(), 60, 2);
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,customerdebtobj.CustomerDebt_FinancialInstitution(), 60, 2);
 		customerdebtobj.CustomerDebt_FinancialInstitution().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.FinancialInstitution
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("FinancialInstitution")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -80,7 +81,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_AccountNumber());
-				customerdebtobj.CustomerDebt_AccountNumber().sendKeys(customerdebtData.AccountNumber);
+				customerdebtobj.CustomerDebt_AccountNumber().sendKeys(testdata.get("AccountNumber"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -111,7 +112,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_SanctionAmount());
-				customerdebtobj.CustomerDebt_SanctionAmount().sendKeys(customerdebtData.Sanctionamount);
+				customerdebtobj.CustomerDebt_SanctionAmount().sendKeys(testdata.get("SanctionAmount"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -126,7 +127,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_InterestRate());
-				customerdebtobj.CustomerDebt_InterestRate().sendKeys(customerdebtData.Interestrate);
+				customerdebtobj.CustomerDebt_InterestRate().sendKeys(testdata.get("InterestRate"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -142,7 +143,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_CurrentPrincipalBalance());
 				customerdebtobj.CustomerDebt_CurrentPrincipalBalance()
-						.sendKeys(customerdebtData.CurrentPrinciplebalance);
+						.sendKeys(testdata.get("CurrentPrincipalBalance"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -157,7 +158,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_TenureMonths());
-				customerdebtobj.CustomerDebt_TenureMonths().sendKeys(customerdebtData.TenureMonths);
+				customerdebtobj.CustomerDebt_TenureMonths().sendKeys(testdata.get("TenureMonths"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -188,7 +189,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_InstallmentAmount());
-				customerdebtobj.CustomerDebt_InstallmentAmount().sendKeys(customerdebtData.InstallmentAmount);
+				customerdebtobj.CustomerDebt_InstallmentAmount().sendKeys(testdata.get("InstallmentAmount"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -203,7 +204,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_AmountConsidered());
-				customerdebtobj.CustomerDebt_AmountConsidered().sendKeys(customerdebtData.AmountConsidered);
+				customerdebtobj.CustomerDebt_AmountConsidered().sendKeys(testdata.get("AmountConsidered"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -213,12 +214,13 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 
 	@And("^Select the value in Currency$")
 	public void select_the_value_in_currency() throws Throwable {
+		seleniumactions.getJavascriptHelper().scrollIntoView(customerdebtobj.CustomerDebt_Currency());
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				customerdebtobj.CustomerDebt_Currency(), 60, 2);
 		customerdebtobj.CustomerDebt_Currency().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.Currency
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Currency")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -235,7 +237,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 			try {
 
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_Remarks());
-				customerdebtobj.CustomerDebt_Remarks().sendKeys(customerdebtData.Remarks);
+				customerdebtobj.CustomerDebt_Remarks().sendKeys(testdata.get("Remarks"));
 				break;
 			} catch (Exception e) {
 
@@ -269,7 +271,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		customerdebtobj.CustomerDebt_CollateralType().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.CollateralType
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("collateralType")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -300,7 +302,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		customerdebtobj.CustomerDebt_Frequency().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.Frequency
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("frequency")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -315,7 +317,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_LastPaymentAmount());
-				customerdebtobj.CustomerDebt_LastPaymentAmount().sendKeys(customerdebtData.LastPaymentAmount);
+				customerdebtobj.CustomerDebt_LastPaymentAmount().sendKeys(testdata.get("Lastpaymentamount"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -346,7 +348,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_ProductName());
-				customerdebtobj.CustomerDebt_ProductName().sendKeys(customerdebtData.ProductName);
+				customerdebtobj.CustomerDebt_ProductName().sendKeys(testdata.get("productName"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -361,7 +363,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_Last24Cycle());
-				customerdebtobj.CustomerDebt_Last24Cycle().sendKeys(customerdebtData.Last24Cycle);
+				customerdebtobj.CustomerDebt_Last24Cycle().sendKeys(testdata.get("Last24cycle"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -391,7 +393,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		customerdebtobj.CustomerDebt_FacilityStatus().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.FacilityStatus
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Facilitystatus")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -406,7 +408,7 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		for (int i = 0; i < 20; i++) {
 			try {
 				seleniumactions.getJavascriptHelper().JSEClick(customerdebtobj.CustomerDebt_RemainingTenureMonths());
-				customerdebtobj.CustomerDebt_RemainingTenureMonths().sendKeys(customerdebtData.RemainingTenureMonths);
+				customerdebtobj.CustomerDebt_RemainingTenureMonths().sendKeys(testdata.get("RemainingTenure"));
 				break;
 			} catch (ElementNotInteractableException e) {
 
@@ -437,10 +439,13 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 		customerdebtobj.CustomerDebt_NPAClassification().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + customerdebtData.NPAClassification
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("NPAClassification")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
+				if (i==50) {
+					Assert.fail();
+				}
 			}
 		}
 	}
@@ -468,9 +473,9 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 	}
 	@And("^user update the exceldata value for CustomerDept creation$")
 	public void user_update_the_exceldata_value_for_CustomerDept_creation() throws Throwable{
-		
+		testdata=excelData.getTestdata("AT-CLCD-001_D1");
 	}
-
+	
 
 }
 

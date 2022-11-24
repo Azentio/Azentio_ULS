@@ -5,11 +5,11 @@ Scenario: Validate that user can able to create a Customer debt
 Given User Launch the KULS url for Transaction
 And click on mail box 
 And search for app data entry record
+And user update the exceldata value for CustomerDept creation
 And select the app data entry first record
 And user click on Customer Financials Tab
 And user click on First Record Edit Icon
 And Click on Add icon of Customer Debt section
-And user update the exceldata value for CustomerDept creation
 And Select the value in Finance type
 And Select the value in Financial Institution
 And Enter the value in Account Number
@@ -47,6 +47,7 @@ And select the app data entry first record
 And User click the customer financials tab in customer debt
 And User click the customer personal information action edit icon in customer debt
 And User click the financial commitment add icon in customer debt
+And user update the exceldata value for CustomerDept Verifying
 And User enter the Account Number in customer debt
 And User verify the impact when user enter characters value in numeric field in customer debt
 And User enter the currrent principal amount in customer debt

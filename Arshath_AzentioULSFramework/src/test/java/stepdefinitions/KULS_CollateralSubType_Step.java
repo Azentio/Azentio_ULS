@@ -39,9 +39,11 @@ public class KULS_CollateralSubType_Step {
 	
 	 @Given("^Launch the kuls application and Navigate to collateral subtype module view list$")
 	    public void launch_the_kuls_application_and_navigate_to_collateral_subtype_module_view_list() throws Throwable {
-		 String kulsApplicationUrl = configFileReader.getApplicationUrl();
-		    driver.get(kulsApplicationUrl);
-		    login.loginUlsApplicationAsMaker(loginData.Username,loginData.Password);		    
+			ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","Logincredentials","Stage");
+	        Map<String, String> testdata = excelData.getTestdata("Maker1");
+	        String kulsApplicationUrl = configFileReader.getApplicationUrl();
+	        driver.get(kulsApplicationUrl);
+	        login.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));		    
 		    seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.configurationInLeftPanel(),30,2);
 		    collateralsubtypeObj.configurationInLeftPanel().click();
 		    //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.AssetCollateralConfigInLeftPanel(),30,2);
@@ -151,8 +153,8 @@ public class KULS_CollateralSubType_Step {
 	    public void login_into_kuls_for_checker_user() throws Throwable {
 	    	String kulsApplicationUrl = configFileReader.getApplicationUrl();
 	        driver.get(kulsApplicationUrl);
-	        System.out.println(json.readdata());
-	        login.ulSApplicationLoginAsAChecker(json.readdata());
+	        System.out.println(testdata.get("Checker id"));
+	        login.ulSApplicationLoginAsAChecker(testdata.get("Checker id"));
 	    }
 	    @And("^Click on Menu icon for collateral sub type$")
 	    public void click_on_menu_icon_for_collateral_sub_type() throws Throwable {
@@ -240,6 +242,29 @@ public class KULS_CollateralSubType_Step {
             collateralsubtypeObj.assetAutoInboxView_SearchText().sendKeys(testdata.get("Searh Value in Inbox"));
 	    }
 
+	    @And("^Store reference number and click on first collateral subtype record$")
+	    public void store_reference_number_and_click_on_first_collateral_subtype_record() throws Throwable {
+	    	String reference = null;
+	        for (int i = 0; i < 200; i++) {
+				try {
+				 reference = collateralsubtypeObj.assetAutoReferanceId().getText();
+				 break;
+				} catch (Exception e) {
+					
+				}
+			}
+	        seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,collateralsubtypeObj.firstEditIconInMakerListView(),40, 2);
+	        collateralsubtypeObj.firstEditIconInMakerListView().click();
+	        
+	        //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Sub_Producr_Product_ReferanceId(),40, 2);
+	        
+	       // json.addReferanceData(reference);
+	        exceldata.updateTestData("AT-ACS-T001_D1", "Reference ID", reference);
+	        System.out.println(reference);
+	        
+	       
+	    }
+	    
 	    @And("^Store the reference number and click on first collateral subtype record$")
 	    public void store_the_reference_number_and_click_on_first_collateral_subtype_record() throws Throwable {
 	    	String reference = null;

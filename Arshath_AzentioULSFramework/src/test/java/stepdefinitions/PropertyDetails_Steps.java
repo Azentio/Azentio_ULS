@@ -52,7 +52,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		clicksAndActionsHelper.moveToElement(ulsCommonElementObj.ulsNotificationSearchTextBox());
 		clicksAndActionsHelper.clickUsingActionClass(ulsCommonElementObj.ulsNotificationSearchTextBox(),
 				ulsCommonElementObj.ulsNotificationSearchTextBox());
-		ulsCommonElementObj.ulsNotificationSearchTextBox().sendKeys(propertyDetailsTestData.StageCode);
+		ulsCommonElementObj.ulsNotificationSearchTextBox().sendKeys("2779");
 	}
 
 	@And("^select the app data entry first record$")
@@ -79,7 +79,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 
 			catch (Exception e) {
-				if (i == 10) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
