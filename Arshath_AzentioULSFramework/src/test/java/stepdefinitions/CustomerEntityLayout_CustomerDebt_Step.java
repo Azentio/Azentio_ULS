@@ -475,7 +475,6 @@ public class CustomerEntityLayout_CustomerDebt_Step extends BaseClass {
 	public void user_update_the_exceldata_value_for_CustomerDept_creation() throws Throwable{
 		testdata=excelData.getTestdata("AT-CLCD-001_D1");
 	}
-	
 
 }
 

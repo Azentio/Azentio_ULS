@@ -196,7 +196,7 @@ public class Property_Details extends BaseClass{
     
     @And("^user click the update button$")
     public void user_click_the_update_button() throws Throwable {
-        javaHelper.scrollIntoView(AppDataEntry.customerPersonalDetails_Update());
+        //javaHelper.scrollIntoView(AppDataEntry.customerPersonalDetails_Update());
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Update(), 60, 5);
         AppDataEntry.customerPersonalDetails_Update().isDisplayed();
         AppDataEntry.customerPersonalDetails_Update().click();      

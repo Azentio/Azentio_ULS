@@ -66,6 +66,7 @@ And user click on Customer Financials Tab
 And user click on First Record Edit Icon
 And click on pencil icon in financial commitment list view record
 #And click on add button in financial commitment
+And user update the exceldata value for CustomerDept updation
 And update the finance type dropdown fied
 And update the financial institution dropdown field
 And update the account number field
@@ -129,10 +130,11 @@ And select the app data entry first record
 And user click on Customer Financials Tab
 And user click on First Record Edit Icon
 And click on pencil icon in financial commitment list view record
+And user update the exceldata value for CustomerDept Validation
 And Reupdate the finance type dropdown fied
 And Reupdate the financial institution dropdown field
 And Reupdate the account number field
-And Reupdate the sanction amount
+And Reupdate the Tenure Month
 And user click the update button
 And user verify the validation Messgae for Blank Field
 And user click on back button
@@ -149,22 +151,17 @@ And search for app data entry record
 And select the app data entry first record
 And User click the customer financials tab in customer debt
 And User click the customer personal information action edit icon in customer debt
+And user update the exceldata value for CustomerDept Listview
 And User verify the Customer Debt details List view
 And User verify the Values in List view should be non editable in customer debt
 And User verify the functionality of Search box with matching data in customer debt
-And User verify the functionality of Export to PDF button in customer debt
-And User verify the functionality of Export to Excel button in customer debt
 And User verify the functionality of Search box with mismatch data in customer debt
-And user click on back button in Application
-#And User click the inbox mail icon in application detail offerings
-#And User click the action edit icon in in customer debt
-#And User click the customer financials tab in customer debt
-#And User click the customer personal information action edit icon in customer debt
+And User verify the functionality of Export to Excel button in customer debt
+And User verify the functionality of Export to PDF button in customer debt
 And User click the customer personal information action edit icon in customer debt
-And User click the Action edit icon under financial commitments in customer debt
 And Verify user is able to change the status of Debt record from Active to Inactive in customer debt
 And User click the save icon in customer debt
-And user click on back button in Application
+And User click the customer financials tab in customer debt
 And User click the customer personal information action edit icon in customer debt
 And User click the Action edit icon under financial commitments in customer debt
 And Verify user is able to change the status of Debt record from Inctive to Active in customer debt

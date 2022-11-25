@@ -246,6 +246,12 @@ public class CustomerEntityLayoutDebtOBJ {
 	{
 		return CustomerFinancialsTab;
 	}
+	@FindBy(xpath="(//ion-label[text()='Customer Financials']/parent::ion-segment-button)[2]")
+	private WebElement CustomerFinancialsTab1;
+	public WebElement CustomerFinancialsTab1() 
+	{
+		return CustomerFinancialsTab1;
+	}
 	@FindBy(xpath="//button[@ng-reflect-text='Edit']")
 	private WebElement CustomerDebtActionEditIcon;
 	public WebElement CustomerDebtActionEditIcon() 

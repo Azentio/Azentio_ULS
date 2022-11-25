@@ -21,6 +21,7 @@ import io.cucumber.java.en.Then;
 import pageobjects.KULS_CommonWebElements;
 import pageobjects.ULS_customerDeptDetailsObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.ULS_CustomerDeptDetailsTestData;
 
 public class ULS_CustomerDeptDetailsSteps extends BaseClass {
@@ -28,13 +29,14 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 	WaitHelper waitHelper = new WaitHelper(driver);
 	ULS_customerDeptDetailsObj customerDeptDetailsObj = new ULS_customerDeptDetailsObj(driver);
 	JsonConfig jsonConfig = new JsonConfig();
-	ULS_CustomerDeptDetailsTestData customerDeptDetailsTestData = jsonConfig
-			.getCustomerDeptDetailsTestDataByName("Maker");
+	//ULS_CustomerDeptDetailsTestData customerDeptDetailsTestData = jsonConfig.getCustomerDeptDetailsTestDataByName("Maker");
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	KULS_CommonWebElements ulsCommenElement = new KULS_CommonWebElements(driver);
-	Map<String, String> testData = new HashMap<>();
-
+	//Map<String, String> testdata = new HashMap<>();
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx","CustomerDeptDetails","Data Set ID");
+	Map<String, String> testData;
+	
 	@And("^click on pencil icon in financial commitment list view record$")
 	public void click_on_pencil_icon_in_financial_commitment_list_view_record() throws Throwable {
 
@@ -404,9 +406,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDeptDetailsClosedDate().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.calendarYearField(), 30, 1);
 		ulsCommenElement.calendarYearField().click();
-		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedClosedMonth + " ']";
-		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedClosedYear + " ']";
-		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedClosedDay + "']";
+		String monthXpath = "//span[text()=' " + testData.get("ClosedMonth") + " ']";
+		String yearXpath = "//span[text()=' " + testData.get("CloedYear") + " ']";
+		String dayXpath = "//span[text()='" + testData.get("ClosedDate") + "']";
 
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -460,7 +462,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				}
 			}
 		}
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.UpdatedFrequency
+		String xpath = "//ion-label[text()=' " + testData.get("frequency")
 				+ " ']/parent::ion-item/ion-radio";
 
 		for (int i = 0; i <= 50; i++) {
@@ -483,8 +485,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				30, 1);
 		customerDeptDetailsObj.customerDebtLastPaymentAmount().click();
 		customerDeptDetailsObj.customerDebtLastPaymentAmount().clear();
-		customerDeptDetailsObj.customerDebtLastPaymentAmount()
-				.sendKeys(customerDeptDetailsTestData.UpdatedLastPaymentAmount);
+		customerDeptDetailsObj.customerDebtLastPaymentAmount().sendKeys(testData.get("Lastpaymentamount"));
 	}
 
 	@And("^update the last payment date calander field$")
@@ -495,9 +496,9 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDeptDetailsLastPaymentDate().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.calendarYearField(), 30, 1);
 		ulsCommenElement.calendarYearField().click();
-		String monthXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedLastPaymentMonth + " ']";
-		String yearXpath = "//span[text()=' " + customerDeptDetailsTestData.UpdatedLastPaymentYear + " ']";
-		String dayXpath = "//span[text()='" + customerDeptDetailsTestData.UpdatedLastPaymentDay + "']";
+		String monthXpath = "//span[text()=' " + testData.get("Lastpaymentmonth") + " ']";
+		String yearXpath = "//span[text()=' " + testData.get("LastpaymentYear") + " ']";
+		String dayXpath = "//span[text()='" + testData.get("LastpaymentDate") + "']";
 
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -544,7 +545,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtProductName(), 30,1);
 		customerDeptDetailsObj.customerDebtProductName().click();
 		customerDeptDetailsObj.customerDebtProductName().clear();
-		customerDeptDetailsObj.customerDebtProductName().sendKeys(customerDeptDetailsTestData.UpdatedProductName);
+		customerDeptDetailsObj.customerDebtProductName().sendKeys(testData.get("productName"));
 	}
 
 	@And("^update the last 24 cycle field$")
@@ -553,7 +554,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				1);
 		customerDeptDetailsObj.customerDebtLast24Cycle().click();
 		customerDeptDetailsObj.customerDebtLast24Cycle().clear();
-		customerDeptDetailsObj.customerDebtLast24Cycle().sendKeys(customerDeptDetailsTestData.UpdatedLast24Cycle);
+		customerDeptDetailsObj.customerDebtLast24Cycle().sendKeys(testData.get("Last24cycle"));
 	}
 
 	@And("^update the facility status dropdown field$")
@@ -561,7 +562,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFacilityStatus(),
 				30, 1);
 		customerDeptDetailsObj.customerDebtFacilityStatus().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.UpdatedFacilityStatus
+		String xpath = "//ion-label[text()=' " + testData.get("Facilitystatus")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -584,7 +585,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtRemainingTenureMonths().click();
 		customerDeptDetailsObj.customerDebtRemainingTenureMonths().clear();
 		customerDeptDetailsObj.customerDebtRemainingTenureMonths()
-				.sendKeys(customerDeptDetailsTestData.UpdatedRemainingTenureMonths);
+				.sendKeys(testData.get("RemainingTenure"));
 	}
 
 	@And("^update the disbursement date alander field$")
@@ -655,7 +656,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 			}
 		}
 		customerDeptDetailsObj.customerDebtNPAClassification().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.UpdatedNPAClassification
+		String xpath = "//ion-label[text()=' " + testData.get("NPAClassification")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -797,7 +798,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		}
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.ulsToastAlert(), 60, 1);
 		clicksAndActionsHelper.moveToElement(ulsCommenElement.ulsToastAlert());
-		Assert.assertEquals(ulsCommenElement.ulsToastAlert().getText(), customerDeptDetailsTestData.SaveSuccessMessage);
+		Assert.assertEquals(ulsCommenElement.ulsToastAlert().getText(), "Success");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommenElement.ulsToastAlertClose(), 60, 1);
 		ulsCommenElement.ulsToastAlertClose().click();
 
@@ -806,7 +807,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 	@Then("^verify financial type field should get updated$")
 	public void verify_financial_type_field_should_get_updated() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFinanceType(), 30,1);
-		Assert.assertTrue(customerDeptDetailsObj.customerDebtFinanceType().getAttribute("aria-label").contains(customerDeptDetailsTestData.updatedFinanceType));
+		Assert.assertTrue(customerDeptDetailsObj.customerDebtFinanceType().getAttribute("aria-label").contains(testData.get("FinanceType")));
 	}
 
 	@Then("^verify financial institution field should get updated$")
@@ -815,7 +816,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				customerDeptDetailsObj.customerDebtFinancialInstitution(), 30, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtFinancialInstitution().getAttribute("aria-label")
-				.contains(customerDeptDetailsTestData.UpdatedFinancialInstitution));
+				.contains(testData.get("FinancialInstitution")));
 	}
 
 	@Then("^verify account number field should get updated$")
@@ -825,7 +826,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDeptDetailsAccountNumberDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedAccountNumber);
+				testData.get("AccountNumber"));
 	}
 
 	@Then("^verify sanction amount field should get updated$")
@@ -835,7 +836,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDeptDetailsSansactionAmountDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedSanctionAmount);
+				testData.get("SanctionAmount"));
 	}
 
 	@Then("^verify interest rate field should get updated$")
@@ -845,7 +846,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDebtInterestRatedateHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedInterestratePercentage);
+				testData.get("InterestRate"));
 	}
 
 	@Then("^verify current principal field should get updated$")
@@ -854,7 +855,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				customerDeptDetailsObj.customerDeptDetailsCurrentPrincipalBalanceDataHolder(), 30, 1);
 
 		Assert.assertEquals(customerDeptDetailsObj.customerDeptDetailsCurrentPrincipalBalanceDataHolder()
-				.getAttribute("ng-reflect-model"), customerDeptDetailsTestData.UpdatedCurrentPrincipalBalance);
+				.getAttribute("ng-reflect-model"), testData.get("CurrentPrincipalBalance"));
 	}
 
 	@Then("^verify tenure months field should get updated$")
@@ -864,7 +865,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDeptDetailsTenureMonthsDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedtenureMonths);
+				testData.get("TenureMonths"));
 	}
 
 	@Then("^verify installment field should get updated$")
@@ -873,7 +874,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				customerDeptDetailsObj.customerDeptDetailsInstallmentAmountDataHolder(), 30, 1);
 
 		Assert.assertEquals(customerDeptDetailsObj.customerDeptDetailsInstallmentAmountDataHolder()
-				.getAttribute("ng-reflect-model"), customerDeptDetailsTestData.UpdatedInstallmentAmount);
+				.getAttribute("ng-reflect-model"), testData.get("InstallmentAmount"));
 	}
 
 	@Then("^verify amount considered field should get updated$")
@@ -883,7 +884,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDeptDetailsAmountConsideredDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedAmountConsidered);
+				testData.get("AmountConsidered"));
 	}
 
 	@Then("^verify currency field should get updated$")
@@ -891,14 +892,14 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtCurrency(), 30, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtCurrency().getAttribute("aria-label")
-				.contains(customerDeptDetailsTestData.UpdatedCurrency));
+				.contains(testData.get("Currency")));
 	}
 
 	@Then("^verify remarks field should get updated$")
 	public void verify_remarks_field_should_get_updated() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtRemarks(), 30, 1);
 		Assert.assertEquals(customerDeptDetailsObj.customerDebtRemarks().getText(),
-				customerDeptDetailsTestData.UpdatedRemarks);
+				testData.get("Remarks"));
 	}
 
 	@Then("^verify next duedate field should get updated$")
@@ -929,7 +930,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				30, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtCollateralType().getAttribute("aria-label")
-				.contains(customerDeptDetailsTestData.UpdatedCollateralType));
+				.contains(testData.get("collateralType")));
 	}
 
 	@Then("^verify frequenc field should get updated$")
@@ -937,7 +938,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFrequency(), 30, 1);
 
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtFrequency().getAttribute("aria-label")
-				.contains(customerDeptDetailsTestData.UpdatedFrequency));
+				.contains(testData.get("frequency")));
 	}
 
 	@Then("^verify last payment amount field should get updated$")
@@ -946,7 +947,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				customerDeptDetailsObj.customerDeptDetailsLastPaymentAmountDataHolder(), 30, 1);
 
 		Assert.assertEquals(customerDeptDetailsObj.customerDeptDetailsLastPaymentAmountDataHolder()
-				.getAttribute("ng-reflect-model"), customerDeptDetailsTestData.UpdatedLastPaymentAmount);
+				.getAttribute("ng-reflect-model"), testData.get("Lastpaymentamount"));
 	}
 
 	@Then("^verify last payment date field should get updated$")
@@ -988,7 +989,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		}
 
 		Assert.assertEquals(customerDeptDetailsObj.customerDebtProductNameDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedProductName);
+				testData.get("productName"));
 	}
 
 	@Then("^verify last 24 field should get updated$")
@@ -997,7 +998,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				customerDeptDetailsObj.customerDebtLast24CycleDataHolder(), 30, 1);
 
 		Assert.assertEquals(customerDeptDetailsObj.customerDebtLast24CycleDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedLast24Cycle);
+				testData.get("Last24cycle"));
 	}
 
 	@Then("^verify facility status field should get updated$")
@@ -1005,7 +1006,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFacilityStatus(),
 				30, 1);
 		Assert.assertTrue(customerDeptDetailsObj.customerDebtFacilityStatus().getAttribute("aria-label")
-				.contains(customerDeptDetailsTestData.UpdatedFacilityStatus));
+				.contains(testData.get("Facilitystatus")));
 
 	}
 
@@ -1016,7 +1017,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 		Assert.assertEquals(
 				customerDeptDetailsObj.customerDebtRemainingTenureMonthsDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedRemainingTenureMonths);
+				testData.get("RemainingTenure"));
 	}
 
 	@Then("^verify disbursement date field should get updated$")
@@ -1048,8 +1049,8 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtNPAClassification(),
 				30, 1);
 
-		Assert.assertEquals(customerDeptDetailsObj.customerDebtLast24CycleDataHolder().getAttribute("ng-reflect-model"),
-				customerDeptDetailsTestData.UpdatedLast24Cycle);
+		Assert.assertEquals(customerDeptDetailsObj.customerDebtNPAClassification().getAttribute("ng-reflect-model"),
+				testData.get("NPAClassification"));
 	}
 
 	@Then("^verify sanctiondate field should get updated$")
@@ -1126,16 +1127,16 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtFinanceType(), 30,
 				1);
 		customerDeptDetailsObj.customerDebtFinanceType().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.ReupdatedFinanceType + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 20; i++) {
+		String xpath = "//ion-label[text()=' " + testData.get("FinanceType") + " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 200; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 //				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
-				driver.findElement(By.xpath("//ion-label[text()=' " + customerDeptDetailsTestData.ReupdatedFinanceType + " ']/parent::ion-item/ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' " + testData.get("FinanceType") + " ']/parent::ion-item/ion-radio")).click();
 				break;
 			} catch (Exception e) {
-				if (i == 20) {
+				if (i == 200) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1147,7 +1148,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				customerDeptDetailsObj.customerDebtFinancialInstitution(), 30, 1);
 		customerDeptDetailsObj.customerDebtFinancialInstitution().click();
-		String xpath = "//ion-label[text()=' " + customerDeptDetailsTestData.ReUpdatedFinancialInstitution
+		String xpath = "//ion-label[text()=' " + testData.get("FinancialInstitution")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 20; i++) {
 			try {
@@ -1169,17 +1170,17 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 				1);
 		customerDeptDetailsObj.customerDebtAccountNumber().click();
 		customerDeptDetailsObj.customerDebtAccountNumber().clear();
-		customerDeptDetailsObj.customerDebtAccountNumber().sendKeys(customerDeptDetailsTestData.ReUpdatedAccountNumber);
+		customerDeptDetailsObj.customerDebtAccountNumber().sendKeys(testData.get("AccountNumber"));
 	}
 
-	@And("^Reupdate the sanction amount$")
-	public void reupdate_the_sanction_amount() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtSanctionAmount(),
+	@And("^Reupdate the Tenure Month$")
+	public void reupdate_the_tenure_month() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDebtTenureMonths(),
 				30, 1);
-		customerDeptDetailsObj.customerDebtSanctionAmount().click();
+		customerDeptDetailsObj.customerDebtTenureMonths().click();
 		for (int i = 0; i < 30; i++) {
 			try {
-				customerDeptDetailsObj.customerDebtSanctionAmount().sendKeys(Keys.BACK_SPACE);
+				customerDeptDetailsObj.customerDebtTenureMonths().sendKeys(Keys.BACK_SPACE);
 
 			} catch (Exception e) {
 
@@ -1195,7 +1196,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		customerDeptDetailsObj.customerDebtInterestRate().click();
 		customerDeptDetailsObj.customerDebtInterestRate().clear();
 		customerDeptDetailsObj.customerDebtInterestRate()
-				.sendKeys(customerDeptDetailsTestData.InvalidUpdatedInterestratePercentage);
+				.sendKeys(testData.get("InterestRate"));
 	}
 
 	@And("^user verify the validation Messgae for Blank Field$")
@@ -1210,6 +1211,7 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 
 	@And("^user click on back button$")
 	public void user_click_on_back_button() throws Throwable {
+		javascriptHelper.scrollIntoView(customerDeptDetailsObj.customerDeptDetails_Backbtn());
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, customerDeptDetailsObj.customerDeptDetails_Backbtn(),
 				30, 1);
 		customerDeptDetailsObj.customerDeptDetails_Backbtn().click();
@@ -1223,5 +1225,14 @@ public class ULS_CustomerDeptDetailsSteps extends BaseClass {
 		String Result = customerDeptDetailsObj.customerDeptDetails_validate().getText();
 		Assert.assertEquals(validation, Result);
 
+	}
+	
+	@And("^user update the exceldata value for CustomerDept updation$")
+	public void user_update_the_exceldata_value_for_CustomerDept_updation() throws Throwable{
+		testData=excelData.getTestdata("AT-CLCD-003_D1");
+	}
+	@And("^user update the exceldata value for CustomerDept Validation$")
+	public void user_update_the_exceldata_value_for_CustomerDept_Validation() throws Throwable{
+		testData=excelData.getTestdata("AT-CLCD-004_D1");
 	}
 }

@@ -83,6 +83,22 @@ public class KULS_CustomerDebt extends BaseClass {
 			}
 		}
 	}
+	@And("^User click the customer financials tab in customer debt1$")
+	public void user_click_the_customer_financials_tab_in_customer_debt1() throws Throwable {
+
+		for (int i = 0; i < 50; i++) {
+			try {
+				// help.waitForElementToVisibleWithFluentWait(driver,
+				// Transaction.CustomerFinancialsTab(), 60, 5);
+				Transaction.CustomerFinancialsTab().click();
+				break;
+			} catch (Exception e) {
+				if (i == 50) {
+					e.getMessage();
+				}
+			}
+		}
+	}
 
 	@And("^User click the customer personal information action edit icon in customer debt$")
 	public void user_click_the_customer_personal_information_action_edit_icon_in_customer_debt() throws Throwable {
@@ -234,7 +250,7 @@ public class KULS_CustomerDebt extends BaseClass {
 				Transaction.searchIcon().click();
 				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 						Transaction.productViewSearchText(), 30, 2);
-				Transaction.productViewSearchText().sendKeys("1");
+				Transaction.productViewSearchText().sendKeys(testdata.get("SearchMatch"));
 
 				String xpath = "(//tr[1]/td[3]/p-celleditor[1]/span[1])[4]";
 				String FinancialInstitution = null;
@@ -250,6 +266,9 @@ public class KULS_CustomerDebt extends BaseClass {
 
 			}
 		}
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+				Transaction.productViewSearchTextCloseButton(), 30, 2);
+		Transaction.productViewSearchTextCloseButton().click();
 
 	}
 
@@ -266,7 +285,7 @@ public class KULS_CustomerDebt extends BaseClass {
 		}
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				Transaction.productViewSearchText(), 30, 2);
-		Transaction.productViewSearchText().sendKeys("zzzzz");
+		Transaction.productViewSearchText().sendKeys(testdata.get("SearchMismatch"));
 		Thread.sleep(1000);
 		String xpath = "//ion-title[contains(text(),'Financial Commitments')]//parent::ion-card-header//following-sibling::ion-card-content//child::kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span";
 		for (int i = 0; i < 200; i++) {
@@ -286,11 +305,12 @@ public class KULS_CustomerDebt extends BaseClass {
 
 	@And("^user click on back button in Application$")
 	public void user_click_on_back_button_in_application() throws Throwable {
-
+		Thread.sleep(1000);
 		seleniumactions.getJavascriptHelper().scrollIntoView(Transaction.customerDeptDetails_Backbtn());
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.customerDeptDetails_Backbtn(), 60, 5);
 		Transaction.customerDeptDetails_Backbtn().click();
+		
 	}
 
 	@And("^User click the inbox mail icon in application detail offerings$")
@@ -471,5 +491,8 @@ public class KULS_CustomerDebt extends BaseClass {
 	public void user_update_the_exceldata_value_for_CustomerDept_Verifying() throws Throwable{
 		testdata=excelData.getTestdata("AT-CLCD-002_D1");
 	}
-	
+	@And("^user update the exceldata value for CustomerDept Listview$")
+	public void user_update_the_exceldata_value_for_CustomerDept_listview() throws Throwable{
+		testdata=excelData.getTestdata("AT-CLCD-005_D1");
+	}
 }
