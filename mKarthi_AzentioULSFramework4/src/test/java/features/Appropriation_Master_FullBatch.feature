@@ -103,16 +103,41 @@ And User click the popup remarks in appropriation master checker
 And User click the popup approve in appropriation master checker
 Then User verify the Record got Approved in appropriation checker
 
+@AT-AM-007-Pre-Request
+Scenario: To verify the user able to create the Appropriation record in maker stage
+Given User login as uls maker in asset CD master
+Then User click the Configurations in asset auto master
+Then User click the config manager in Appropriation master
+And User click the Appropriation master edit icon
+And User click the add icon in Appropriation master
+And User enter the values in description for Appropriation master
+And User enter the values in Appropriation Type for Appropriation master
+And User enter the values in Remarks for Appropriation master
+And User click the save icon in Appropriation master
+And User get the save confirmation msg in Appropriation master
+And User click the action edit icon in Appropriation master
+And User click the add icon in list of Appropriation details for Appropriation master
+And User enter the values in due type for Appropriation master
+And User enter the values in sequence no for Appropriation master
+And User enter the values in parent sequence no for Appropriation master
+And User enter the values in list of appropriation remarks for Appropriation master
+And User click the save icon in Appropriation master
+And User get the save confirmation msg1 in Appropriation master
+
 @AT-AM-007
 Scenario: To verify while modification system allow user to save the record with valid data
 Given User login as uls maker in asset CD master
 Then User click the Configurations in asset auto master
 Then User click the config manager in Appropriation master
-And User click the Appropriation master eye icon
+#And User click the Appropriation master eye icon
+And User click the Appropriation master edit icon
 And User click the action edit icon in Appropriation master
 And User update the description for Appropriation master valitation
 And User click the update save icon in Appropriation master
 And User verify while modification, when user keep any mandatory field blank in appropriation master
+And User click the Appropriation master edit icon
+#And User click the Appropriation master eye icon
+And User click the action edit icon in Appropriation master
 And User update the values in description for Appropriation master
 And User update the values in Appropriation Type for Appropriation master valitation
 And User click the update save icon in Appropriation master
@@ -121,8 +146,35 @@ And User update the values in Appropriation Type for Appropriation master
 And User click the update save icon in Appropriation master
 And User get the success confirmation message in appropriation master
 
+@AT-AM-008-Pre-Request
+Scenario: To verify the user able to create the Appropriation record in maker stage
+Given User login as uls maker in asset CD master
+Then User click the Configurations in asset auto master
+Then User click the config manager in Appropriation master
+And User click the Appropriation master edit icon
+And User click the add icon in Appropriation master
+And User enter the values in description for Appropriation master
+And User enter the values in Appropriation Type for Appropriation master
+And User enter the values in Remarks for Appropriation master
+And User click the save icon in Appropriation master
+And User get the save confirmation msg in Appropriation master
+And User click the action edit icon in Appropriation master
+And User click the add icon in list of Appropriation details for Appropriation master
+And User enter the values in due type for Appropriation master
+And User enter the values in sequence no for Appropriation master
+And User enter the values in parent sequence no for Appropriation master
+And User enter the values in list of appropriation remarks for Appropriation master
+And User click the save icon in Appropriation master
+And User get the save confirmation msg1 in Appropriation master
+And User click the inbox icon in Appropriation master
+And User search the appropriation master record
+And User click the action edit icon and get the reference id in Appropriation master
+And User click the submit icon in appropriation master maker
+And User enter the popup remark and submit the appropriation master
+And User get confirmation message and checker id in appropriation master
+
 @AT-AM-008
-Scenario: To verify user can able to approve the record in checker stage
+Scenario: To verify user can able to Reject the record in checker stage
 And Get the test data for appropriation master test case8
 Given User login as uls checker in appropriation master
 And User click the inbox icon in Appropriation master
@@ -134,8 +186,36 @@ And User click the popup remarks in appropriation master checker
 And User click the popup reject in appropriation master checker
 Then User verify the Record got Rejected in appropriation checker
 
+@AT-AM-009-Pre-Request
+Scenario: To verify the user able to create the Appropriation record in maker stage
+Given User login as uls maker in asset CD master
+Then User click the Configurations in asset auto master
+Then User click the config manager in Appropriation master
+And User click the Appropriation master edit icon
+And User click the add icon in Appropriation master
+And User enter the values in description for Appropriation master
+And User enter the values in Appropriation Type for Appropriation master
+And User enter the values in Remarks for Appropriation master
+And User click the save icon in Appropriation master
+And User get the save confirmation msg in Appropriation master
+And User click the action edit icon in Appropriation master
+And User click the add icon in list of Appropriation details for Appropriation master
+And User enter the values in due type for Appropriation master
+And User enter the values in sequence no for Appropriation master
+And User enter the values in parent sequence no for Appropriation master
+And User enter the values in list of appropriation remarks for Appropriation master
+And User click the save icon in Appropriation master
+And User get the save confirmation msg1 in Appropriation master
+And User click the inbox icon in Appropriation master
+And User search the appropriation master record
+And User click the action edit icon and get the reference id in Appropriation master
+And User click the submit icon in appropriation master maker
+And User enter the popup remark and submit the appropriation master
+And User get confirmation message and checker id in appropriation master
+
+
 @AT-AM-009
-Scenario: To verify user can able to approve the record in checker stage
+Scenario: To verify user can able to Return the record in checker stage
 And Get the test data for appropriation master test case9
 Given User login as uls checker in appropriation master
 And User click the inbox icon in Appropriation master

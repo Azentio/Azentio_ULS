@@ -7,6 +7,7 @@ import java.util.Map;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
+import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
@@ -21,6 +22,7 @@ public class KULS_Application_Login {
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper;
 	//ClicksAndActionsHelper click =new ClicksAndActionsHelper(driver);
+	ConfigFileReader configFileReader = new ConfigFileReader();
 
 	public KULS_Application_Login(WebDriver driver) {
 		this.driver = driver;
@@ -42,11 +44,36 @@ public class KULS_Application_Login {
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
 		loginObj.password().click();
 		loginObj.password().sendKeys(password);
+		Thread.sleep(1000);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
 		
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.ModuleName(), 60, 2);
-		loginObj.ModuleName().click();
+		while(true) {
+			try {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+				assertEquals(loginObj.loginPage().isDisplayed(), true);
+				break;
+			} catch (Exception e) {
+				String kulsApplicationUrl = configFileReader.getApplicationUrl();
+				driver.get(kulsApplicationUrl);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+				loginObj.userId().click();
+				loginObj.userId().sendKeys(username);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+				loginObj.continueButton().click();
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+				loginObj.password().click();
+				loginObj.password().sendKeys(password);
+				Thread.sleep(1000);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+				loginObj.signIn().click();
+
+				
+			}
+		}
+		
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Corporate(), 60, 2);
+		loginObj.Corporate().click();
 		//click.doubleClick(loginObj.ModuleName());
 		
 		
@@ -61,8 +88,59 @@ public class KULS_Application_Login {
 	
 
 	}
+	public void loginUlsApplicationAsMaker1(String username, String password) throws InterruptedException {
+		waithelper = new WaitHelper(driver);
+		loginObj = new KULS_LoginObj(driver);
+		javaScriptHelper = new JavascriptHelper(driver);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+		loginObj.userId().click();
+		loginObj.userId().sendKeys(username);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+		loginObj.continueButton().click();
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+		loginObj.password().click();
+		loginObj.password().sendKeys(password);
+		Thread.sleep(1000);
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+		loginObj.signIn().click();
+		
+		while(true) {
+			try {
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+				assertEquals(loginObj.loginPage().isDisplayed(), true);
+				break;
+			} catch (Exception e) {
+				String kulsApplicationUrl = configFileReader.getApplicationUrl();
+				driver.get(kulsApplicationUrl);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+				loginObj.userId().click();
+				loginObj.userId().sendKeys(username);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+				loginObj.continueButton().click();
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+				loginObj.password().click();
+				loginObj.password().sendKeys(password);
+				Thread.sleep(1000);
+				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+				loginObj.signIn().click();
 
-	public void ulSApplicationLoginAsAChecker(String userID) {
+				
+			}
+		}
+		
+		
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
+		loginObj.Menu().click();
+		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+		assertEquals(loginObj.configuration().isDisplayed(), true);
+		
+	
+
+	}
+
+
+
+	public void ulSApplicationLoginAsAChecker(String userID) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
 		loginObj = new KULS_LoginObj(driver);
 		javaScriptHelper = new JavascriptHelper(driver);
@@ -78,8 +156,32 @@ public class KULS_Application_Login {
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
 			loginObj.password().click();
 			loginObj.password().sendKeys(testdata.get("Password"));
+			Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			while(true) {
+				try {
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+					assertEquals(loginObj.loginPage().isDisplayed(), true);
+					break;
+				} catch (Exception e) {
+					String kulsApplicationUrl = configFileReader.getApplicationUrl();
+					driver.get(kulsApplicationUrl);
+					testdata = excelData.getTestdata("Checker1");
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+					loginObj.userId().click();
+					loginObj.userId().sendKeys(testdata.get("Username"));
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+					loginObj.continueButton().click();
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+					loginObj.password().click();
+					loginObj.password().sendKeys(testdata.get("Password"));
+					Thread.sleep(1000);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+					loginObj.signIn().click();
+					
+				}
+			}
 			
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 			loginObj.Menu().click();
@@ -98,8 +200,31 @@ public class KULS_Application_Login {
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
 			loginObj.password().click();
 			loginObj.password().sendKeys(testdata.get("Password"));
+			Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 			loginObj.signIn().click();
+			while(true) {
+				try {
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+					assertEquals(loginObj.loginPage().isDisplayed(), true);
+					break;
+				} catch (Exception e) {
+					String kulsApplicationUrl = configFileReader.getApplicationUrl();
+					driver.get(kulsApplicationUrl);
+					testdata = excelData.getTestdata("Checker2");
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+					loginObj.userId().click();
+					loginObj.userId().sendKeys(testdata.get("Username"));
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+					loginObj.continueButton().click();
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+					loginObj.password().click();
+					loginObj.password().sendKeys(testdata.get("Password"));
+					Thread.sleep(1000);
+					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+					loginObj.signIn().click();
+				}
+			}
 			
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 			loginObj.Menu().click();

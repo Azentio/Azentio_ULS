@@ -2,6 +2,9 @@ package stepdefinitions;
 
 import static org.testng.Assert.fail;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +19,7 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
@@ -35,15 +39,20 @@ public class ApplicationDetailsDisbursementChecker {
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	SoftAssert softAssert = new SoftAssert();
 	TransactionScreenTestDataType Transactionjson = jsonConfig.getTransactionScreenListByName("Maker");
+	
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AppDetailsDisChkerTestData","Data Set ID");
+	Map<String, String> testData;
+	Map<String, String> AppDetailsDisChkerTestData = new HashMap<>();
 
 	@And("^User click the action edit icon in application detail disbursement checker$")
 	public void user_click_the_action_edit_icon_in_application_detail_disbursement_checker() throws Throwable {
 
+		testData = excelData.getTestdata("AT-ADC-001-D1");
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchiconreferenceid(), 60, 5);
 		Transaction.searchiconreferenceid().click();
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-		Transaction.searchsentkeys().sendKeys("DISBCKR");
+		Transaction.searchsentkeys().sendKeys(testData.get("Inbox Search"));
 
 		Thread.sleep(2000);
 
@@ -52,12 +61,12 @@ public class ApplicationDetailsDisbursementChecker {
 
 	}
 
-	@And("^User verify the primary product field in application detail disbursement checker$")
-	public void user_verify_the_primary_product_field_in_application_detail_disbursement_checker() throws Throwable {
+	@And("^User verify the classification field in application detail disbursement checker$")
+	public void user_verify_the_classification_field_in_application_detail_disbursement_checker() throws Throwable {
 
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_PrimaryProduct(), 60, 5);
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Classification(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_PrimaryProduct().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_Classification().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -67,13 +76,13 @@ public class ApplicationDetailsDisbursementChecker {
 
 	}
 
-	@And("^User verify the primary sub product field in application detail disbursement checker$")
-	public void user_verify_the_primary_sub_product_field_in_application_detail_disbursement_checker()
+	@And("^User verify the product field in application detail disbursement checker$")
+	public void user_verify_the_product_field_in_application_detail_disbursement_checker()
 			throws Throwable {
 
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_PrimarySubProduct(), 60, 5);
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Product(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_PrimarySubProduct().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_Product().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -89,7 +98,7 @@ public class ApplicationDetailsDisbursementChecker {
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_TotalFinanceAmountRequested(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_TotalFinanceAmountRequested().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_TotalFinanceAmountRequested().getAttribute("ng-reflect-readonly")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -105,7 +114,7 @@ public class ApplicationDetailsDisbursementChecker {
 		
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_DeclaredNetIncome(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_DeclaredNetIncome().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_DeclaredNetIncome().getAttribute("ng-reflect-readonly")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -122,7 +131,7 @@ public class ApplicationDetailsDisbursementChecker {
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_DeclaredCurrentObligations(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_DeclaredCurrentObligations().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_DeclaredCurrentObligations().getAttribute("ng-reflect-readonly")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -195,12 +204,12 @@ public class ApplicationDetailsDisbursementChecker {
 
 	}
 
-	@And("^User verify the servicing entity field in application detail disbursement checker$")
-	public void user_verify_the_servicing_entity_field_in_application_detail_disbursement_checker() throws Throwable {
+	@And("^User verify the region field in application detail disbursement checker$")
+	public void user_verify_the_region_field_in_application_detail_disbursement_checker() throws Throwable {
 
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_ServicingEntity(), 60, 5);
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Region(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_ServicingEntity().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_Region().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -397,9 +406,9 @@ public class ApplicationDetailsDisbursementChecker {
 	public void user_verify_the_values_in_list_view_should_be_non_editable_in_application_detail_disbursement_checker()
 			throws Throwable {
 
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_PrimaryProduct(), 60, 5);
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Classification(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_PrimaryProduct().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_Classification().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -407,9 +416,9 @@ public class ApplicationDetailsDisbursementChecker {
 		softAssert.assertTrue(status,
 				"Primary product field should be non eitable one but here it is editable hence failed");
 
-		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_PrimarySubProduct(), 60, 5);
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Product(), 60, 5);
 
-		boolean status1 = Transaction.ApplicationDetails_PrimarySubProduct().getAttribute("ng-reflect-is-disabled")
+		boolean status1 = Transaction.ApplicationDetails_Product().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status1);
@@ -453,6 +462,15 @@ public class ApplicationDetailsDisbursementChecker {
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.inboxediticon(), 60, 5);
 		Transaction.inboxediticon().click();
 
+    }
+	@And("^User get the test data for application details disbursemnt checker1$")
+    public void user_get_the_test_data_for_application_details_disbursemnt_checker1() throws Throwable {
+		AppDetailsDisChkerTestData = testData = excelData.getTestdata("AT-ADC-001-D1");
+    }
+
+    @And("^User get the test data for application details disbursemnt checker2$")
+    public void user_get_the_test_data_for_application_details_disbursemnt_checker2() throws Throwable {
+    	AppDetailsDisChkerTestData = testData = excelData.getTestdata("AT-ADC-002-D1");
     }
 	
 

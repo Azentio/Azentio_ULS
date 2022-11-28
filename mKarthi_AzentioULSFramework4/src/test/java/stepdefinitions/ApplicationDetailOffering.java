@@ -2,6 +2,9 @@ package stepdefinitions;
 
 import static org.testng.Assert.assertNotEquals;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +17,7 @@ import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 
@@ -31,6 +35,10 @@ public class ApplicationDetailOffering {
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AppDetailOfferingTestData","Data Set ID");
+	Map<String, String> testData;
+	Map<String, String> AppDetailOfferingTestData = new HashMap<>();
+	
 	
 	@And("^User click the inbox mail icon in application detail offering$")
     public void user_click_the_inbox_mail_icon_in_application_detail_offering() throws Throwable {
@@ -47,7 +55,7 @@ public class ApplicationDetailOffering {
     	Transaction.searchiconreferenceid().click();
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-    	Transaction.searchsentkeys().sendKeys("OFFERING");
+    	Transaction.searchsentkeys().sendKeys(testData.get("Inbox Search"));
     	
     	Thread.sleep(2000);
     	
@@ -133,6 +141,10 @@ public class ApplicationDetailOffering {
     	
     	
         
+    }
+    @And("^User get the test data for application detail offering test case2$")
+    public void user_get_the_test_data_for_application_detail_offering_test_case2() throws Throwable {
+    	AppDetailOfferingTestData = testData = excelData.getTestdata("AT-ADO-002-D1");
     }
 
 

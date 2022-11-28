@@ -107,6 +107,8 @@ public class KULS_Asset_CD_MasterStep extends BaseClass {
     @Then("^User click the inboxmail icon in asset CD master$")
     public void user_click_the_inboxmail_icon_in_asset_cd_master() throws Throwable {
     	
+    	Thread.sleep(2000);
+    	
 		for (int i = 0; i < 20; i++) {
 			try {
 				assetcd.mailicon().click();

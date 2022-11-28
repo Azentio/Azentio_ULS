@@ -232,31 +232,31 @@ public class Transactions_ScreenOBJ {
 	
 	//ApplicationDetails Disbursement checker
 	
-	@FindBy(xpath="(//ion-label[contains(text(),'Primary Product')]//following-sibling::ion-select)")
-	private WebElement ApplicationDetails_PrimaryProduct;
-	public WebElement ApplicationDetails_PrimaryProduct()
+	@FindBy(xpath="(//ion-label[contains(text(),'Class')]//following-sibling::ion-select)")
+	private WebElement ApplicationDetails_Classification;
+	public WebElement ApplicationDetails_Classification()
 	{
-		return ApplicationDetails_PrimaryProduct;
+		return ApplicationDetails_Classification;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Primary Sub Product')]//following-sibling::ion-select")
-	private WebElement ApplicationDetails_PrimarySubProduct;
-	public WebElement ApplicationDetails_PrimarySubProduct()
+	@FindBy(xpath="(//ion-label[contains(text(),'Product')]//following-sibling::ion-select)")
+	private WebElement ApplicationDetails_Product;
+	public WebElement ApplicationDetails_Product()
 	{
-		return ApplicationDetails_PrimarySubProduct;
+		return ApplicationDetails_Product;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Total Finance Amount Requested')]//parent::div//following-sibling::div//child::p-dropdown")
+	@FindBy(xpath="//ion-label[contains(text(),'Total Finance Amount Requested')]//parent::div//following-sibling::div//p-inputnumber")
 	private WebElement ApplicationDetails_TotalFinanceAmountRequested;
 	public WebElement ApplicationDetails_TotalFinanceAmountRequested()
 	{
 		return ApplicationDetails_TotalFinanceAmountRequested;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Declared Net Income')]//parent::div//following-sibling::div//child::p-dropdown")
+	@FindBy(xpath="//ion-label[contains(text(),'Declared Net')]//parent::div//following-sibling::div//p-inputnumber")
 	private WebElement ApplicationDetails_DeclaredNetIncome;
 	public WebElement ApplicationDetails_DeclaredNetIncome()
 	{
 		return ApplicationDetails_DeclaredNetIncome;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Declared Current Obligations')]//parent::div//following-sibling::div//child::p-dropdown")
+	@FindBy(xpath="//ion-label[contains(text(),'Declared Current Obligations')]//parent::div//following-sibling::div//p-inputnumber")
 	private WebElement ApplicationDetails_DeclaredCurrentObligations;
 	public WebElement ApplicationDetails_DeclaredCurrentObligations()
 	{
@@ -286,11 +286,11 @@ public class Transactions_ScreenOBJ {
 	{
 		return ApplicationDetails_ServicingType;
 	}
-	@FindBy(xpath="//ion-label[contains(text(),'Servicing Entity')]//following-sibling::ion-select")
-	private WebElement ApplicationDetails_ServicingEntity;
-	public WebElement ApplicationDetails_ServicingEntity()
+	@FindBy(xpath="//ion-label[contains(text(),'Region')]//following-sibling::ion-select")
+	private WebElement ApplicationDetails_Region;
+	public WebElement ApplicationDetails_Region()
 	{
-		return ApplicationDetails_ServicingEntity;
+		return ApplicationDetails_Region;
 	}
 	@FindBy(xpath="//ion-label[contains(text(),'Servicing Branch')]//following-sibling::ion-select")
 	private WebElement ApplicationDetails_ServicingBranch;

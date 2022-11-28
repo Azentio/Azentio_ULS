@@ -237,7 +237,7 @@ public class Appropriation_MasterStep {
 
     @And("^User click the action edit icon in Appropriation master$")
     public void user_click_the_action_edit_icon_in_appropriation_master() throws Throwable {
-    	
+    	Thread.sleep(2000);
     	//help.waitForElementToVisibleWithFluentWait(driver, appropriation.listviewpencil(), 60, 5);
     	for(int i=0; i<20; i++) {
     		try {
@@ -253,7 +253,7 @@ public class Appropriation_MasterStep {
 
     @And("^User click the add icon in list of Appropriation details for Appropriation master$")
     public void user_click_the_add_icon_in_list_of_appropriation_details_for_appropriation_master() throws Throwable {
-    	
+    	Thread.sleep(2000);
     	//help.waitForElementToVisibleWithFluentWait(driver, appropriation.Addicon(), 60, 5);
     	for(int i=0; i<20; i++) {
     		try {
@@ -355,6 +355,9 @@ public class Appropriation_MasterStep {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, appropriation.UpdateSave(), 60, 5);
     	appropriation.UpdateSave().click();
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, appropriation.successcancel(), 60, 5);
+	    appropriation.successcancel().click();
         
     }
     @And("^User click the cancel icon in appropriation master$")
@@ -581,6 +584,9 @@ public class Appropriation_MasterStep {
     	Thread.sleep(1000);
     	help.waitForElementToVisibleWithFluentWait(driver, appropriation.UpdateSave(), 60, 5);
     	appropriation.UpdateSave().click(); 
+    	
+    	help.waitForElementToVisibleWithFluentWait(driver, appropriation.successcancel(), 60, 5);
+	    appropriation.successcancel().click();
     	
     }
 

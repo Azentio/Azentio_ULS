@@ -466,9 +466,9 @@ public class KULS_CustomerEntityLayout_FacilityDetails extends BaseClass {
     @And("^User verify the primary product field should be non editable in customer entity layout facility details$")
     public void user_verify_the_primary_product_field_should_be_non_editable_in_customer_entity_layout_facility_details() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_PrimaryProduct(), 60, 5);
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Classification(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_PrimaryProduct().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_Classification().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status);
@@ -482,9 +482,9 @@ public class KULS_CustomerEntityLayout_FacilityDetails extends BaseClass {
     @And("^User verify the primary sub product field should be non editable in customer entity layout facility details$")
     public void user_verify_the_primary_sub_product_field_should_be_non_editable_in_customer_entity_layout_facility_de() throws Throwable {
     	
-    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_PrimarySubProduct(), 60, 5);
+    	help.waitForElementToVisibleWithFluentWait(driver, Transaction.ApplicationDetails_Product(), 60, 5);
 
-		boolean status = Transaction.ApplicationDetails_PrimarySubProduct().getAttribute("ng-reflect-is-disabled")
+		boolean status = Transaction.ApplicationDetails_Product().getAttribute("ng-reflect-is-disabled")
 				.equals("true");
 
 		System.out.println("System status is" + status);

@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 
 import dataProvider.ConfigFileReader;
@@ -11,6 +13,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
@@ -33,9 +36,11 @@ public class ApplicationDetailsNewApp {
 	@Given("^User login as uls maker in transaction$")
     public void user_login_as_uls_maker_in_transaction() throws Throwable {
 		
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","LoginCredentilas","Stage");
+		Map<String, String> testdata = excelData.getTestdata("Maker3");
 		String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 		driver.get(kulsApplicationUrl);
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username2, loginData.Password);
+		applicationLogin.loginUlsApplicationAsMaker1(testdata.get("Username"),testdata.get("Password"));
        
     }
 

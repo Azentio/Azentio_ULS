@@ -31,6 +31,11 @@ public class KULS_LoginObj {
 	public WebElement signIn() {
 		return signIn;
 	}
+	@FindBy(xpath="//ion-content[1]/div[1]/img[1]")
+	private WebElement loginPage;
+	public WebElement loginPage() {
+		return loginPage;
+	}
 	@FindBy(xpath="//span[contains(text(),'Configurations')]//following-sibling::ion-icon")
 	private WebElement configuration;
 	public WebElement configuration() {
@@ -41,10 +46,10 @@ public class KULS_LoginObj {
     public WebElement Menu() {
         return Menu;
     }
-    @FindBy(xpath="//ion-select[@ng-reflect-text='Module name']")
-    private WebElement ModuleName;
-    public WebElement ModuleName() {
-        return ModuleName;
+    @FindBy(xpath="//ion-select[@aria-label='Corporate']")
+    private WebElement Corporate;
+    public WebElement Corporate() {
+        return Corporate;
     }
     @FindBy(xpath="//ion-label[contains(text(),'LOS')]//following-sibling::ion-radio")
     private WebElement LOS;

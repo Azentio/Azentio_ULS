@@ -148,7 +148,7 @@ public class Asset_CD_MasterOBJ {
 	{
 		return successcancel;
 	}
-	@FindBy(xpath="//ion-icon[@aria-label='mail unread outline']")
+	@FindBy(xpath="//ion-header/ion-toolbar[1]/section[1]/ion-list[1]/ion-item[2]/div[1]/div[1]/ion-icon[1]")
 	private WebElement mailicon;
 	public WebElement mailicon() 
 	{

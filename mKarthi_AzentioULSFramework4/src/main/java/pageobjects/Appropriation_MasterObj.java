@@ -40,7 +40,7 @@ public class Appropriation_MasterObj {
 	{
 		return Addicon;
 	}
-	@FindBy(xpath="(//button[@ng-reflect-text='Add'])[2]")
+	@FindBy(xpath="//body/app-root[1]/ion-app[1]/ion-modal[1]/page-composer-parser[1]/ion-content[1]/ion-grid[1]/ion-row[1]/ion-col[2]/data-grid[1]/ion-grid[1]/ion-row[1]/ion-col[1]/ion-card[1]/ion-card-content[1]/kub-prime-table[1]/p-table[1]/div[1]/div[1]/div[1]/div[1]/button[1]")
 	private WebElement ListAddicon;
 	public WebElement ListAddicon()
 	{
@@ -142,7 +142,7 @@ public class Appropriation_MasterObj {
 	{
 		return ParentSequenceNo;
 	}
-	@FindBy(xpath="//span[text()='×']")
+	@FindBy(xpath="//div[@id='toast-container']//button") //span[text()='×']
 	private WebElement successcancel;
 	public WebElement successcancel() 
 	{
