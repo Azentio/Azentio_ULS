@@ -1,0 +1,19 @@
+[
+{
+"UserType":"Maker",
+"PhoneType":"Landline",
+"PhoneNumber":"7878787875",
+"ConsentForPhoneContact":"NO",
+"PreferedPhoneContactType":"Landline",
+"PreferedTimeForContact":"04:04",
+"EmailType":"Work Email",
+"EmailId":"aaa@aaa.com",
+"UpdatedPhoneType":"Mobile 1",
+"UpdatedPhoneNumber":"4545454554",
+"UpdatedConsentForPhoneContact":"YES",
+"UpdatedPreferedPhoneContactType":"Mobile 1",
+"UpdatedPreferedTimeForContact":"02:02",
+"UpdatedEmailType":"Personal Email",
+"UpdatedEmailId":"bbb@bbb.com"
+}
+]

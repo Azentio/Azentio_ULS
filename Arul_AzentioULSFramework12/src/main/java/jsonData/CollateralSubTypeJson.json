@@ -1,0 +1,25 @@
+[
+{
+"UserType":"Maker",
+"Description":"SSD",
+"Asset_CollateralSubtypeCode":"1029",
+"Asset_CollateralType":"Real Estate",
+"Exposure":"21",
+"Asset_CollateralValuationTolerance":"24",
+"Remarks":"ok",
+"SearchAssetAuto":"COLL_SUB_TYPE",
+"Asset_CollateralSubtypeCodeForReturn":"2029",
+"Asset_CollateralSubtypeCodeForReject":"3029",
+"UpdatedDescription":"UPD",
+"UpdatedAsset_CollateralSubtypeCode":"4029",
+"UpdatedAsset_CollateralType":"Type4",
+"updatedExposure":"42",
+"UpdatedAsset_CollateralValuationTolerance":"48",
+"UpdatedRemarks":"ok update",
+"updatedAsset_CollateralSubtypeCodeForReturn":"5029",
+"updatedAsset_CollateralSubtypeCodeForReject":"6029",
+"validateAsset_CollateralType":"Select",
+"UpdatedAsset_CollateralSubtypeCodeForApprove":"7029"
+
+}
+]
