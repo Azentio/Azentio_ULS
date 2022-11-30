@@ -144,7 +144,7 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_AddressLine1InputBox;
 	}
-	@FindBy(xpath="//ion-label[text()=' Address Line 1 ']//following-sibling::ion-input")
+	@FindBy(xpath="//ion-label[text()=' Flat/House No. /Shop No. Plot No. ']//following-sibling::ion-input")
 	private WebElement propertyDetails_AddressLine1DataHolder;
 	public WebElement propertyDetailsAddressLine1DataHolder()
 	{
@@ -249,7 +249,7 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_DistancefromBranchtoPropertyMandatoryCheck;
 	}
-	
+
 	
 	
 	
@@ -460,7 +460,9 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_AgreementValidityDateMandatoryCheck;
 	}
-	@FindBy(xpath="//button[@icon='pi pi-save']")
+	
+	
+	@FindBy(xpath="//button[@ng-reflect-icon='pi pi-save']")
 	private WebElement propertyDetails_SaveButton;
 	public WebElement propertyDetailsSaveButton()
 	{
@@ -610,6 +612,11 @@ public class TransactionScreen_PropertyDetailsObj {
 	{
 		return propertyDetails_BackButtonVerification;
 	}
-	
+	@FindBy(xpath="//ion-label[text()=' Construction Cost ']")
+	private WebElement propertyDetails_constructioncost;
+	public WebElement propertyDetails_constructioncost()
+	{
+		return propertyDetails_constructioncost;
+	}
 	
 }

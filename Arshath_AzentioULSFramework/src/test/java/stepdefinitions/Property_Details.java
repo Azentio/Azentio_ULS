@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,7 @@ import io.cucumber.java.en.Then;
 import pageobjects.PersonalDetails_AppDataEntry_Obj;
 import pageobjects.PropertyDetails_Obj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
@@ -32,15 +35,18 @@ public class Property_Details extends BaseClass{
 	JsonDataReaderWriter json = new JsonDataReaderWriter();	
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
-	PropertyDetails_TestData propertydata = jsonConfig.getPropertyDetailByName("Maker");
+	//PropertyDetails_TestData propertydata = jsonConfig.getPropertyDetailByName("Maker");
 	PropertyDetails_Obj PrpObj = new PropertyDetails_Obj(driver);
 	PersonalDetails_AppDataEntry_Obj AppDataEntry = new PersonalDetails_AppDataEntry_Obj(driver);
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx",
+			"PropertyDetailsTestdata", "Data Set ID");
+	Map<String, String> testdata;
 	
     @And("^user Enter Application ID$")
     public void user_enter_application_id() throws Throwable {
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Search_Input(), 60, 5);
     	AppDataEntry.Search_Input().click();
-    	AppDataEntry.Search_Input().sendKeys(propertydata.ApplicationID);
+    	//AppDataEntry.Search_Input().sendKeys(propertydata.ApplicationID);
     }
 
     @And("^user choose Property Details Tab$")
@@ -72,7 +78,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifySecurityType+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("SecurityType")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -86,7 +92,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyPropertyCity+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("PropertyCity")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -100,7 +106,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyPropertyType+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("PropertyType")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -114,7 +120,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyAPFstatus+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("APFStatus")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -128,7 +134,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyConstructionStatus+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("ConstructionStatus")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -142,7 +148,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyPropertyCategory+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("PropertyCategory")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -156,7 +162,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyNatureofProperty+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("NatureOfProperty")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -170,7 +176,7 @@ public class Property_Details extends BaseClass{
     	
     	for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyOccupancyStatus+" ']/parent::ion-item//ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("OccupancyStatus")+" ']/parent::ion-item//ion-radio")).click();
 			} catch (Exception e) {
 				
 			}
@@ -180,23 +186,11 @@ public class Property_Details extends BaseClass{
 	//*******************@AT-PD-005*******************//
     
 
-    @And("^user Blank fill the Mandatory field$")
-    public void user_blank_fill_the_mandatory_field() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Construction_Status(), 60, 5);
-    	PrpObj.Property_Details_Construction_Status().click();
-    	
-    	for (int i = 0; i < 50; i++) {
-			try {
-				driver.findElement(By.xpath("//ion-label[text()=' "+propertydata.ModifyBlank+" ']/parent::ion-item//ion-radio")).click();
-			} catch (Exception e) {
-				
-			}
-		}
-    }
+
     
     @And("^user click the update button$")
     public void user_click_the_update_button() throws Throwable {
-        //javaHelper.scrollIntoView(AppDataEntry.customerPersonalDetails_Update());
+        javaHelper.scrollIntoView(AppDataEntry.customerPersonalDetails_Update());
         waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.customerPersonalDetails_Update(), 60, 5);
         AppDataEntry.customerPersonalDetails_Update().isDisplayed();
         AppDataEntry.customerPersonalDetails_Update().click();      
@@ -211,7 +205,11 @@ public class Property_Details extends BaseClass{
 	
 	
 	
-	
+	@And("^user update the Excelsheet testdata for modification$")
+	public void user_update_the_Excelsheet_testdata_for_modification() throws Throwable
+	{
+		testdata = exceldata.getTestdata("AT_PD_004_D1");
+	}
 	
 	
 	

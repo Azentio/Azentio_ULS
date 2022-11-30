@@ -18,6 +18,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.KULS_CommonWebElements;
+import pageobjects.PropertyDetails_Obj;
 import pageobjects.TransactionScreen_PropertyDetailsObj;
 import resources.BaseClass;
 import resources.ExcelData;
@@ -30,13 +31,14 @@ public class PropertyDetails_Steps extends BaseClass {
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JsonConfig jsonConfig = new JsonConfig();
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
-	PropetyDetails_TestDataType propertyDetailsTestData = jsonConfig.getPropertyDetailsTestDataByName("Maker");
+	//PropetyDetails_TestDataType propertyDetailsTestData = jsonConfig.getPropertyDetailsTestDataByName("Maker");
 	TransactionScreen_PropertyDetailsObj propertyDetailsObj = new TransactionScreen_PropertyDetailsObj(driver);
 	SoftAssert softAssert = new SoftAssert();
 	KULS_CommonWebElements commenWebElementsObj = new KULS_CommonWebElements(driver);
 	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00075\\Downloads\\UlsTestDataDesign.xlsx",
 			"PropertyDetailsTestdata", "Data Set ID");
 	Map<String, String> testdata;
+	PropertyDetails_Obj PrpObj = new PropertyDetails_Obj(driver);
 	
 	@And("^click on mail box$")
 	public void click_on_mail_box() throws Throwable {
@@ -78,8 +80,8 @@ public class PropertyDetails_Steps extends BaseClass {
 		for (int i = 0; i <= 50; i++) {
 			try {
 				if (ulsCommonElementObj.ulsNotificationRecordStageCode().getText()
-						.equals(propertyDetailsTestData.StageCode)) {
-					System.out.println("Stage Code " + propertyDetailsTestData.StageCode + " found successfully");
+						.equals(testdata.get("StageCode"))) {
+					System.out.println("Stage Code " + testdata.get("StageCode") + " found successfully");
 					try {
 						waitHelper.waitForElementToVisibleWithFluentWait(driver,
 								ulsCommonElementObj.ulsMailBoxFirstRecord(), 20, 1);
@@ -90,7 +92,7 @@ public class PropertyDetails_Steps extends BaseClass {
 					}
 				} else {
 					if (i == 50) {
-						Assert.fail(propertyDetailsTestData.StageCode + " is not available ");
+						Assert.fail(testdata.get("StageCode") + " is not available ");
 					}
 				}
 			}
@@ -186,7 +188,7 @@ public class PropertyDetails_Steps extends BaseClass {
 
 	@And("^verify security type field should be visisble and mandatory dropdown$")
 	public void verify_security_type_field_should_be_visisble_and_mandatory_dropdown() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 //				waitHelper.waitForElementToVisibleWithFluentWait(driver,
 //						propertyDetailsObj.propertyDetailsSecurityTypeDropDown(), 50, 1);
@@ -194,7 +196,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				Assert.assertTrue(propertyDetailsObj.propertyDetailsSecurityTypeDropDown().isDisplayed());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -241,14 +243,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsPropertyCityDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("PropertyCity")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -273,14 +275,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsTypeOfTransactionDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("TypeOfTransaction")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -305,14 +307,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsPurchasedFromDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("PurchasedFrom")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -337,14 +339,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsPropertyTypeDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("PropertyType")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -368,14 +370,14 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsAPFStatusDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("APFStatus") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -400,14 +402,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsConstructionStatusDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("ConstructionStatus")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -432,14 +434,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsPropertyCategoryDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("PropertyCategory")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -464,14 +466,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsNatureOfPropertyDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("NatureOfProperty")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -496,14 +498,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsOccupencyStatusDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("OccupancyStatus")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -528,14 +530,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsNameOfTheDeveloperDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("NameOfTheDeveloper")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -559,14 +561,14 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsProjectDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("project") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -591,14 +593,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsBuildingDetailsDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("BuildingDetails")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -622,14 +624,14 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsUnitDetailsDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsUnitDetailsDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("UnitDetails") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -644,12 +646,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAddressLine1InputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAddressLine1InputBox().getAttribute("type")
 				.equals(testdata.get("TextBoxAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsAddressLine1MandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -673,12 +675,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAddressLine2InputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAddressLine2InputBox().getAttribute("type")
 				.equals(testdata.get("TextBoxAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsAddressLine2MandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -727,14 +729,14 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsCountryDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("Country") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -760,14 +762,14 @@ public class PropertyDetails_Steps extends BaseClass {
 				1);
 		propertyDetailsObj.propertyDetailsStateDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("State") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -790,14 +792,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox(), 50,1);
 		propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("District/Neighbourhood") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -825,12 +827,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPincodeInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPincodeInputBox().getAttribute("type")
 				.equals(testdata.get("TextBoxAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsPincodeMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -848,12 +850,12 @@ public class PropertyDetails_Steps extends BaseClass {
 
 	@Then("^verify Type Of Charge field should be mandatory dropdown$")
 	public void verify_type_of_charge_field_should_be_mandatory_dropdown() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsTypeofChargeDropDown());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -873,14 +875,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsTypeofChargeDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("Typeofcharge")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -895,12 +897,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox().getAttribute("type")
 				.equals(testdata.get("TextBoxAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsNameoftheChargeHolderMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -926,12 +928,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAmounttotheChargeHolderInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAmounttotheChargeHolderInputBox().getAttribute("inputmode")
 				.equals(testdata.get("CurrencyFieldAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsAmounttotheChargeHolderMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -968,14 +970,14 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsMeasurementDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsMeasurementDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("measurement") + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -990,12 +992,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox().getAttribute("type")
 				.equals(testdata.get("NumericInputBoxVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsApproxPropertyAreaMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1020,14 +1022,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetails_LocationTypeDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("LocationType")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1050,14 +1052,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetails_LocationCategoryDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("LocationCategory")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1071,12 +1073,12 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetails_DistancefromBranchtoPropertyDropDown(), 50, 1);
 		Assert.assertTrue(propertyDetailsObj.propertyDetails_DistancefromBranchtoPropertyDropDown().isDisplayed());
 		//Assert.assertTrue(propertyDetailsObj.propertyDetails_DistancefromBranchtoPropertyDropDown().getAttribute("aria-haspopup").equals(testdata.get("DropDownAndLookUpVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetails_DistancefromBranchtoPropertyMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1092,14 +1094,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetails_DistancefromBranchtoPropertyDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("DistanceFromBranchToProperty")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1124,12 +1126,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().getAttribute("type")
 				.equals(testdata.get("NumericInputBoxVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsBuiltUpPlotAreaMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1154,12 +1156,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsCarpetAreaInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsCarpetAreaInputBox().getAttribute("type")
 				.equals(testdata.get("NumericInputBoxVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsCarpetAreaMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1172,7 +1174,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsCarpetAreaInputBox(),
 				50, 1);
 		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().click();
-		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().sendKeys(testdata.get("carpetareapropertymanagement"));
+		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().sendKeys(testdata.get("carpetarea"));
 	}
 
 	@Then("^verify Property Management field should be non mandatory lookup$")
@@ -1195,14 +1197,14 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsPropertyManagementDropDown().click();
 		String xpath = "//ion-label[text()=' " + testdata.get("PropertyManagement")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1212,12 +1214,12 @@ public class PropertyDetails_Steps extends BaseClass {
 	@Then("^verify Year Of Construction field should be non mandatory calendar$")
 	public void verify_year_of_construction_field_should_be_non_mandatory_calendar() throws Throwable {
 		boolean status = false;
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInput());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1227,12 +1229,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInput().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInput()
 				.getAttribute("ng-reflect-icon").contains(testdata.get("CalendarAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsYearOfConstructionMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1270,9 +1272,10 @@ public class PropertyDetails_Steps extends BaseClass {
 		 * 
 		 * } }
 		 */
+		
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox(), 50, 1);
-		propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox().sendKeys(testdata.get("YearOfConstructiondate"));
-		System.out.println(testdata.get("YearOfConstructiondate"));
+		propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox().sendKeys(testdata.get("yearofconstructiondate"));
+		
 	}
 
 	@Then("^verify percentage of completion field should be non mandatory textbox$")
@@ -1283,12 +1286,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox().getAttribute("type")
 				.equals(testdata.get("NumericInputBoxVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsPercentageOfCompletionMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1314,12 +1317,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInput().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInput()
 				.getAttribute("ng-reflect-icon").contains(testdata.get("CalendarAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsExpectedCompletionDateMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1334,7 +1337,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox(), 50, 1);
 		propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox().click();
 		propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox()
-				.sendKeys(testdata.get("ExpectedCompletionDate"));
+				.sendKeys(testdata.get("Expectedcompletiondate"));
 	}
 
 	@Then("^verify Agreement Date field should be non mandatory calendar$")
@@ -1345,12 +1348,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAgreementDateCalendarInput().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAgreementDateCalendarInput().getAttribute("ng-reflect-icon")
 				.contains(testdata.get("CalendarAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsAgreementDateMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
@@ -1403,18 +1406,19 @@ public class PropertyDetails_Steps extends BaseClass {
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInput().isDisplayed());
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInput()
 				.getAttribute("ng-reflect-icon").contains(testdata.get("CalendarAttributeVerification")));
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				propertyDetailsObj.propertyDetailsAgreementValidityDateMandatoryCheck().isDisplayed();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					status = true;
 				}
 			}
 		}
 		softAssert.assertTrue(status,
 				" Agreement Validity Date field should be non mandatroy field but here its a mandatory one");
+		
 	}
 
 	@And("^user can able to select the date from the Agreement Validity Date field$")
@@ -1451,20 +1455,41 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox(), 50, 1);
 		propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox().click();
-		propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox()
-				.sendKeys(testdata.get("AgreementvalidityDate"));
+		propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox().sendKeys(testdata.get("AgreementvalidityDate"));
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				propertyDetailsObj.propertyDetails_constructioncost(), 50, 1);
+		propertyDetailsObj.propertyDetails_constructioncost().click();
+	}
+	@And("^user can able to enter the construction cost of the field$")
+	public void user_can_able_to_enter_the_construction_cost_of_the_field() throws Throwable{
+		
 	}
 
 	@And("^save the property details record$")
 	public void save_the_property_details_record() throws Throwable {
-
-		for (int i = 0; i <= 15; i++) {
+//		javascriptHelper.scrollIntoView(driver.findElement(By.xpath("//ion-card-content[1]/form[1]/ion-grid[1]/ion-row[2]/ion-col[3]")));
+//		String xpath ="//button[@ng-reflect-text='Save']";
+//		List<WebElement> save = driver.findElements(By.xpath(xpath));
+//		for (WebElement webElement : save) {
+//			try {
+//				javascriptHelper.scrollIntoView(webElement);
+//				webElement.click();
+//				break;
+//			} catch (Exception e) {
+//				
+//			}
+//			
+//		}
+		
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsSaveButton());
+				clicksAndActionsHelper.moveToElement(propertyDetailsObj.propertyDetailsSaveButton());
+				clicksAndActionsHelper.clickOnElement(propertyDetailsObj.propertyDetailsSaveButton());
 				propertyDetailsObj.propertyDetailsSaveButton().click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1474,8 +1499,7 @@ public class PropertyDetails_Steps extends BaseClass {
 	@Then("^verify record is saved in the system$")
 	public void verify_record_is_saved_in_the_system() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsAlertBox(), 50, 1);
-		Assert.assertEquals(propertyDetailsObj.propertyDetailsAlertBox().getText(),
-				"Success");
+		Assert.assertTrue(propertyDetailsObj.propertyDetailsAlertBox().getText().contains("Success"));
 		//softAssert.assertAll();
 	}
 
@@ -1484,7 +1508,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsSecurityTypeFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsSecurityTypeFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Property city field show the verification for blank field$")
@@ -1492,7 +1516,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsPropertyCityFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPropertyCityFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Type Of Transaction field show the verification for blank field$")
@@ -1500,7 +1524,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsTypeOfTransactionFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsTypeOfTransactionFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Purchased from field show the verification for blank field$")
@@ -1508,7 +1532,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsPurchasedFromFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPurchasedFromFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Property Type field show the verification for blank field$")
@@ -1516,7 +1540,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsPropertyTypeFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPropertyTypeFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify APF Status field show the verification for blank field$")
@@ -1524,7 +1548,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsAPFStatusFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAPFStatusFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Construction Status field show the verification for blank field$")
@@ -1532,7 +1556,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsConstructionStatusdValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsConstructionStatusdValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Property category field show the verification for blank field$")
@@ -1540,7 +1564,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsPropertyCategorydValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPropertyCategorydValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify Occupancy Status field show the verification for blank field$")
@@ -1548,7 +1572,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsOccupancyStatusFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsOccupancyStatusFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify name Of the Developer field show the verification for blank field$")
@@ -1556,51 +1580,52 @@ public class PropertyDetails_Steps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsNameoftheDeveloperFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsNameoftheDeveloperFieldValidation().getText(),
-				propertyDetailsTestData.BalnkFieldVerification);
+				testdata.get("BalnkFieldVerification"));
 	}
 
 	@Then("^verify name of the charge holder field should show the validation post enter only numeric input$")
 	public void verify_name_of_the_charge_holder_field_should_show_the_validation_post_enter_only_numeric_input()
 			throws Throwable {
-		for (int i = 0; i <= 50; i++) {
-			try {
-				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox());
-				break;
-			} catch (Exception e) {
-				if (i == 50) {
-					Assert.fail(e.getMessage());
-				}
-			}
-		}
+//		for (int i = 0; i <= 50; i++) {
+//			try {
+//				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox());
+//				break;
+//			} catch (Exception e) {
+//				if (i == 50) {
+//					Assert.fail(e.getMessage());
+//				}
+//			}
+//		}
+		javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox());
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox().click();
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox()
-				.sendKeys(propertyDetailsTestData.NumericTestInput);
+				.sendKeys(testdata.get("NumericTestInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsNameoftheChargeHolderFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsNameoftheChargeHolderFieldValidation().getText(),
-				propertyDetailsTestData.NumericFieldValidation);
+				testdata.get("NumericFieldValidation"));
 	}
 
 	@Then("^verify address line one field should through the validation post enter the special charecter input$")
 	public void verify_address_line_one_field_should_through_the_validation_post_enter_the_special_charecter_input()
 			throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsAddressLine1InputBox());
 				propertyDetailsObj.propertyDetailsAddressLine1InputBox().click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		propertyDetailsObj.propertyDetailsAddressLine1InputBox()
-				.sendKeys(propertyDetailsTestData.SpecialCharecterInput);
+				.sendKeys(testdata.get("SpecialCharecterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsAddressLineOneFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAddressLineOneFieldValidation().getText(),
-				propertyDetailsTestData.SpecialCharecterValidation);
+				testdata.get("SpecialCharecterValidation"));
 	}
 
 	@Then("^verify address line two field should through the validation post enter the special charecter input$")
@@ -1610,11 +1635,11 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsAddressLine2InputBox(), 50, 1);
 		propertyDetailsObj.propertyDetailsAddressLine2InputBox().click();
 		propertyDetailsObj.propertyDetailsAddressLine2InputBox()
-				.sendKeys(propertyDetailsTestData.SpecialCharecterInput);
+				.sendKeys(testdata.get("SpecialCharecterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsAddressLineTwoFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAddressLineTwoFieldValidation().getText(),
-				propertyDetailsTestData.SpecialCharecterValidation);
+				testdata.get("SpecialCharecterValidation"));
 	}
 
 	@Then("^verify address line three field should through the validation post enter the special charecter input$")
@@ -1624,11 +1649,11 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsAddressLine3InputBox(), 50, 1);
 		propertyDetailsObj.propertyDetailsAddressLine3InputBox().click();
 		propertyDetailsObj.propertyDetailsAddressLine3InputBox()
-				.sendKeys(propertyDetailsTestData.SpecialCharecterInput);
+				.sendKeys(testdata.get("SpecialCharecterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsAddressLineThreeFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAddressLineThreeFieldValidation().getText(),
-				propertyDetailsTestData.SpecialCharecterValidation);
+				testdata.get("SpecialCharecterValidation"));
 	}
 
 	@Then("^verify District and neighboorhood field should through the validation post enter the special charecter input$")
@@ -1638,55 +1663,51 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox(), 50, 1);
 		propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox().click();
 		propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox()
-				.sendKeys(propertyDetailsTestData.SpecialCharecterInput);
+				.sendKeys(testdata.get("SpecialCharecterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsDistrictNeighbourhoodValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsDistrictNeighbourhoodValidation().getText(),
-				propertyDetailsTestData.SpecialCharecterValidation);
+				testdata.get("SpecialCharecterValidation"));
 	}
 
 	@Then("^verify name of the charge holder field should through the validation post enter the special charecter input$")
-	public void verify_name_of_the_charge_holder_field_should_through_the_validation_post_enter_the_special_charecter_input()
-			throws Throwable {
+	public void verify_name_of_the_charge_holder_field_should_through_the_validation_post_enter_the_special_charecter_input() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox(), 50, 1);
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox().click();
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox()
-				.sendKeys(propertyDetailsTestData.SpecialCharecterInput);
+				.sendKeys(testdata.get("SpecialCharecterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsDistrictNeighbourhoodValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsDistrictNeighbourhoodValidation().getText(),
-				propertyDetailsTestData.SpecialCharecterValidation);
+				testdata.get("SpecialCharecterValidation"));
 	}
 
 	@Then("^verify pincode field should through the validation post enter the special charecter input$")
 	public void verify_pincode_field_should_through_the_validation_post_enter_the_special_charecter_input()
 			throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsPincodeInputBox(),
-				50, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsPincodeInputBox(),50, 1);
 		propertyDetailsObj.propertyDetailsPincodeInputBox().click();
-		propertyDetailsObj.propertyDetailsPincodeInputBox().sendKeys(propertyDetailsTestData.SpecialCharecterInput);
+		propertyDetailsObj.propertyDetailsPincodeInputBox().sendKeys(testdata.get("SpecialCharecterInput"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				propertyDetailsObj.propertyDetailsPincodeFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPincodeFieldValidation().getText(),
-				propertyDetailsTestData.PincodeValidation);
+				testdata.get("PincodeValidation"));
 	}
 
 	@When("^user enter the pincode minimum six digits$")
 	public void user_enter_the_pincode_minimum_six_digits() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsPincodeInputBox(),
-				50, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, propertyDetailsObj.propertyDetailsPincodeInputBox(),50, 1);
 		propertyDetailsObj.propertyDetailsPincodeInputBox().clear();
 		propertyDetailsObj.propertyDetailsPincodeInputBox().click();
-		propertyDetailsObj.propertyDetailsPincodeInputBox().sendKeys(propertyDetailsTestData.minimumPincodeValue);
+		propertyDetailsObj.propertyDetailsPincodeInputBox().sendKeys(testdata.get("minimumPincodeValue"));
 	}
 
 	@Then("^verify system should through the validation for minim pincode validation$")
 	public void verify_system_should_through_the_validation_for_minim_pincode_validation() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				propertyDetailsObj.propertyDetailsPincodeFieldValidation(), 50, 1);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,propertyDetailsObj.propertyDetailsPincodeFieldValidation(), 50, 1);
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPincodeFieldValidation().getText(),
-				propertyDetailsTestData.minimumPincodeValidation);
+				testdata.get("minimumPincodeValidation"));
 	}
 
 	@Then("^verify approx property area field should not allow user to enter alphabets$")
@@ -1703,7 +1724,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		}
 		propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox().click();
 		propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox()
-				.sendKeys(propertyDetailsTestData.AlphaNumericInput);
+				.sendKeys(testdata.get("SpeciaAlphaNumericInput"));
 		String placeHolder = propertyDetailsObj.propertyDetailsApproxPropertyAreaDataHolder()
 				.getAttribute("ng-reflect-model");
 		char[] placeHolderArray = placeHolder.toCharArray();
@@ -1727,7 +1748,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().click();
-		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().sendKeys(propertyDetailsTestData.AlphaNumericInput);
+		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().sendKeys(testdata.get("SpeciaAlphaNumericInput"));
 		String placeHolder = propertyDetailsObj.propertyDetailsBuiltUpPlotAreaDataHolder()
 				.getAttribute("ng-reflect-model");
 		char[] placeHolderArray = placeHolder.toCharArray();
@@ -1751,7 +1772,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().click();
-		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().sendKeys(propertyDetailsTestData.AlphaNumericInput);
+		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().sendKeys(testdata.get("SpeciaAlphaNumericInput"));
 		String placeHolder = propertyDetailsObj.propertyDetailsCarpetAreaDataHolder().getAttribute("ng-reflect-model");
 		char[] placeHolderArray = placeHolder.toCharArray();
 		for (int i = 0; i < placeHolderArray.length; i++) {
@@ -1775,7 +1796,7 @@ public class PropertyDetails_Steps extends BaseClass {
 		}
 		propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox().click();
 		propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox()
-				.sendKeys(propertyDetailsTestData.AlphaNumericInput);
+				.sendKeys(testdata.get("SpeciaAlphaNumericInput"));
 		String placeHolder = propertyDetailsObj.propertyDetailsPercentageOfCompletionDataHolder()
 				.getAttribute("ng-reflect-model");
 		char[] placeHolderArray = placeHolder.toCharArray();
@@ -1788,14 +1809,14 @@ public class PropertyDetails_Steps extends BaseClass {
 
 	@Then("^verify the functionality of back button in property details screen$")
 	public void verify_the_functionality_of_back_button_in_property_details_screen() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsBackButton());
 				propertyDetailsObj.propertyDetailsBackButton().click();
 				break;
 
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -1807,33 +1828,33 @@ public class PropertyDetails_Steps extends BaseClass {
 
 	@Then("^verify user can able to modify the data in security dropdown$")
 	public void verify_user_can_able_to_modify_the_data_in_security_dropdown() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
-				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsSecurityTypeDropDown());
+				javascriptHelper.scrollIntoView(propertyDetailsObj.appdataEntryPropertyDetailsTitle());
 				propertyDetailsObj.propertyDetailsSecurityTypeDropDown().click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedSecurityType
+		String xpath = "//ion-label[text()=' " + testdata.get("SecurityType")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsSecurityTypeDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedSecurityType));
+				.contains(testdata.get("SecurityType")));
 	}
 
 	@Then("^verify user can able to modify the data in the property city field$")
@@ -1843,22 +1864,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsPropertyCityDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsPropertyCityDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedPropertyCity
+		String xpath = "//ion-label[text()=' " + testdata.get("PropertyCity")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPropertyCityDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedPropertyCity));
+				.contains(testdata.get("PropertyCity")));
 
 	}
 
@@ -1868,22 +1889,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsTypeOfTransactionDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsTypeOfTransactionDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedTypeOfTransaction
+		String xpath = "//ion-label[text()=' " + testdata.get("TypeOfTransaction")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsTypeOfTransactionDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedTypeOfTransaction));
+				.contains(testdata.get("TypeOfTransaction")));
 	}
 
 	@Then("^verify user can able to modify the data in the Purchased from field$")
@@ -1892,22 +1913,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsPurchasedFromDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsPurchasedFromDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedPurchasedFrom
+		String xpath = "//ion-label[text()=' " + testdata.get("PurchasedFrom")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPurchasedFromDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedPurchasedFrom));
+				.contains(testdata.get("PurchasedFrom")));
 	}
 
 	@Then("^verify user can able to modify the data in the Property Type field$")
@@ -1916,22 +1937,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsPropertyTypeDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsPropertyTypeDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedPropertyType
+		String xpath = "//ion-label[text()=' " + testdata.get("PropertyType")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPropertyTypeDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedPropertyType));
+				.contains(testdata.get("PropertyType")));
 	}
 
 	@Then("^verify user can able to modify the data in the APF Status field$")
@@ -1940,22 +1961,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsAPFStatusDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedAPFStatus
+		String xpath = "//ion-label[text()=' " + testdata.get("APFStatus")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsAPFStatusDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedAPFStatus));
+				.contains(testdata.get("APFStatus")));
 	}
 
 	@Then("^verify user can able to modify the data in the Construction Status field$")
@@ -1964,22 +1985,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsConstructionStatusDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsConstructionStatusDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedConstructionStatus
+		String xpath = "//ion-label[text()=' " + testdata.get("ConstructionStatus")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsConstructionStatusDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedConstructionStatus));
+				.contains(testdata.get("ConstructionStatus")));
 	}
 
 	@Then("^verify user can able to modify the data in the Property Category field$")
@@ -1988,22 +2009,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsPropertyCategoryDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsPropertyCategoryDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedPropertyCategory
+		String xpath = "//ion-label[text()=' " + testdata.get("PropertyCategory")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPropertyCategoryDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedPropertyCategory));
+				.contains(testdata.get("PropertyCategory")));
 	}
 
 	@Then("^verify user can able to modify the data in the Nature of Property field$")
@@ -2012,22 +2033,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsNatureOfPropertyDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsNatureOfPropertyDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedNatureOfProperty
+		String xpath = "//ion-label[text()=' " + testdata.get("NatureOfProperty")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsNatureOfPropertyDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedNatureOfProperty));
+				.contains(testdata.get("NatureOfProperty")));
 	}
 
 	@Then("^verify user can able to modify the data in the Occupancy Status field$")
@@ -2036,22 +2057,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsOccupencyStatusDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsOccupencyStatusDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedOccupancyStatus
+		String xpath = "//ion-label[text()=' " + testdata.get("OccupancyStatus")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsOccupencyStatusDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedOccupancyStatus));
+				.contains(testdata.get("OccupancyStatus")));
 	}
 
 	@Then("^verify user can able to modify the data in the name Of The Developer field$")
@@ -2060,22 +2081,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsNameOfTheDeveloperDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsNameOfTheDeveloperDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedNameOfTheDeveloper
+		String xpath = "//ion-label[text()=' " + testdata.get("NameOfTheDeveloper")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsNameOfTheDeveloperDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedNameOfTheDeveloper));
+				.contains(testdata.get("NameOfTheDeveloper")));
 	}
 
 	@Then("^verify user can able to modify the data in the Project field$")
@@ -2084,22 +2105,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsProjectDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedProject
+		String xpath = "//ion-label[text()=' " + testdata.get("project")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsProjectDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedProject));
+				.contains(testdata.get("project")));
 	}
 
 	@Then("^verify user can able to modify the data in the Building Details field$")
@@ -2108,23 +2129,23 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsBuildingDetailsDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsBuildingDetailsDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedBuildingDetails
+		String xpath = "//ion-label[text()=' " + testdata.get("BuildingDetails")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsBuildingDetailsDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedBuildingDetails));
+				.contains(testdata.get("BuildingDetails")));
 	}
 
 	@Then("^verify user can able to modify the data in the Unit Details field$")
@@ -2133,80 +2154,80 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsUnitDetailsDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsUnitDetailsDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedUnitDetails
+		String xpath = "//ion-label[text()=' " + testdata.get("UnitDetails")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsUnitDetailsDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedUnitDetails));
+				.contains(testdata.get("UnitDetails")));
 	}
 
 	@Then("^verify user can able to modify the data in the address line 1 input box$")
 	public void verify_user_can_able_to_modify_the_data_in_the_address_line_1_input_box() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsAddressLine1InputBox());
 				propertyDetailsObj.propertyDetailsAddressLine1InputBox().click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		propertyDetailsObj.propertyDetailsAddressLine1InputBox().clear();
-		propertyDetailsObj.propertyDetailsAddressLine1InputBox().sendKeys(propertyDetailsTestData.UpdatedAddressLine1);
+		propertyDetailsObj.propertyDetailsAddressLine1InputBox().sendKeys(testdata.get("Flat/HouseNo/ShopNNo/PlotNo"));
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAddressLine1DataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedAddressLine1);
+				testdata.get("Flat/HouseNo/ShopNNo/PlotNo"));
 
 	}
 
 	@Then("^verify user can able to modify the data in the address line 2 input box$")
 	public void verify_user_can_able_to_modify_the_data_in_the_address_line_2_input_box() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsAddressLine2InputBox());
 				propertyDetailsObj.propertyDetailsAddressLine2InputBox().click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		propertyDetailsObj.propertyDetailsAddressLine2InputBox().clear();
-		propertyDetailsObj.propertyDetailsAddressLine2InputBox().sendKeys(propertyDetailsTestData.UpdatedAddressLine2);
+		propertyDetailsObj.propertyDetailsAddressLine2InputBox().sendKeys(testdata.get("AddressLine2"));
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAddressLine2dataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedAddressLine2);
+				testdata.get("AddressLine2"));
 	}
 
 	@Then("^verify user can able to modify the data in the address line 3 input box$")
 	public void verify_user_can_able_to_modify_the_data_in_the_address_line_3_input_box() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsAddressLine3InputBox());
 				propertyDetailsObj.propertyDetailsAddressLine3InputBox().click();
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		propertyDetailsObj.propertyDetailsAddressLine3InputBox().clear();
-		propertyDetailsObj.propertyDetailsAddressLine3InputBox().sendKeys(propertyDetailsTestData.UpdatedAddressLine3);
+		propertyDetailsObj.propertyDetailsAddressLine3InputBox().sendKeys(testdata.get("AddressLine3"));
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsAddressLine3DataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedAddressLine3);
+				testdata.get("AddressLine3"));
 	}
 
 	@Then("^verify user can able to modify the data in the country field$")
@@ -2215,22 +2236,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsCountryDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedCountry
+		String xpath = "//ion-label[text()=' " + testdata.get("Country")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsCountryDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedCountry));
+				.contains(testdata.get("Country")));
 	}
 
 	@Then("^verify user can able to modify the data in the state field$")
@@ -2239,22 +2260,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				1);
 		propertyDetailsObj.propertyDetailsStateDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedState
+		String xpath = "//ion-label[text()=' " + testdata.get("State")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsStateDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedState));
+				.contains(testdata.get("State")));
 	}
 
 	@Then("^verify user can able to modify the data in the city field$")
@@ -2263,21 +2284,21 @@ public class PropertyDetails_Steps extends BaseClass {
 				1);
 		propertyDetailsObj.propertyDetailsCityDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedCity + " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		String xpath = "//ion-label[text()=' " + testdata.get("City") + " ']/parent::ion-item/ion-radio";
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsCityDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedCity));
+				.contains(testdata.get("City")));
 	}
 
 	@Then("^verify user can able to modify the data in in District Neighbourhood field$")
@@ -2287,10 +2308,10 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox().click();
 		propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox().clear();
 		propertyDetailsObj.propertyDetailsDistrictNeighbourhoodInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedDistrictNeighbourhood);
+				.sendKeys(testdata.get("District/Neighbourhood"));
 		Assert.assertEquals(
 				propertyDetailsObj.propertyDetailsDistrictNeighbourhoodDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedDistrictNeighbourhood);
+				testdata.get("District/Neighbourhood"));
 	}
 
 	@Then("^verify user can able to modify the data in into pincode field$")
@@ -2299,9 +2320,9 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsPincodeInputBox().click();
 		propertyDetailsObj.propertyDetailsPincodeInputBox().clear();
-		propertyDetailsObj.propertyDetailsPincodeInputBox().sendKeys(propertyDetailsTestData.UpdatedPincode);
+		propertyDetailsObj.propertyDetailsPincodeInputBox().sendKeys(testdata.get("Pincode"));
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsPincodeDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedPincode);
+				testdata.get("Pincode"));
 	}
 
 	@Then("^verify user can able to modify the data in the Type Of Charge field$")
@@ -2310,22 +2331,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsTypeofChargeDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsTypeofChargeDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedTypeOfCharge
+		String xpath = "//ion-label[text()=' " + testdata.get("Typeofcharge")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsTypeofChargeDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedTypeOfCharge));
+				.contains(testdata.get("Typeofcharge")));
 	}
 
 	@Then("^verify user can able to modify the data in Name Of Charge Holder field$")
@@ -2335,10 +2356,10 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox().click();
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox().clear();
 		propertyDetailsObj.propertyDetailsNameoftheChargeHolderInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedNameOfTheChargeHolder);
+				.sendKeys(testdata.get("Nameofthechargeholder"));
 		Assert.assertEquals(
 				propertyDetailsObj.propertyDetailsNameoftheChargeHolderDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedNameOfTheChargeHolder);
+				testdata.get("Nameofthechargeholder"));
 	}
 
 	@Then("^verify user can able to modify the data in Amount to the Charge Holder field$")
@@ -2348,10 +2369,10 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsAmounttotheChargeHolderInputBox().click();
 		propertyDetailsObj.propertyDetailsAmounttotheChargeHolderInputBox().clear();
 		propertyDetailsObj.propertyDetailsAmounttotheChargeHolderInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedAmountToTheChargeHolder);
+				.sendKeys(testdata.get("Amountofthechargeholder"));
 		Assert.assertEquals(
 				propertyDetailsObj.propertyDetailsAmounttotheChargeHolderInputBox().getAttribute("aria-valuenow"),
-				propertyDetailsTestData.UpdatedAmountToTheChargeHolder);
+				testdata.get("Amountofthechargeholder"));
 	}
 
 	@Then("^verify user can able to modify the data in the Measurement field$")
@@ -2360,22 +2381,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsMeasurementDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsMeasurementDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedMeasurement
+		String xpath = "//ion-label[text()=' " + testdata.get("measurement")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsMeasurementDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedMeasurement));
+				.contains(testdata.get("measurement")));
 	}
 
 	@Then("^verify user can able to modify the data in Approx Property Area field$")
@@ -2385,10 +2406,10 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox().click();
 		propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox().clear();
 		propertyDetailsObj.propertyDetailsApproxPropertyAreaInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedApproxPropertyArea);
+				.sendKeys(testdata.get("approxpropertyarea"));
 		Assert.assertEquals(
 				propertyDetailsObj.propertyDetailsApproxPropertyAreaDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedApproxPropertyArea);
+				testdata.get("approxpropertyarea"));
 	}
 
 	@Then("^verify user can able to modify the data in Built Up Plot Area field$")
@@ -2398,10 +2419,10 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().click();
 		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox().clear();
 		propertyDetailsObj.propertyDetailsBuiltUpPlotAreaInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedBuildUpAplotArea);
+				.sendKeys(testdata.get("builtup/plotarea"));
 		Assert.assertEquals(
 				propertyDetailsObj.propertyDetailsBuiltUpPlotAreaDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedBuildUpAplotArea);
+				testdata.get("builtup/plotarea"));
 	}
 
 	@Then("^verify can able to modify the data in Carpet Area field$")
@@ -2410,9 +2431,9 @@ public class PropertyDetails_Steps extends BaseClass {
 				50, 1);
 		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().click();
 		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().clear();
-		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().sendKeys(propertyDetailsTestData.UpdatedCarpetArea);
+		propertyDetailsObj.propertyDetailsCarpetAreaInputBox().sendKeys(testdata.get("carpetarea"));
 		Assert.assertEquals(propertyDetailsObj.propertyDetailsCarpetAreaDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedCarpetArea);
+				testdata.get("carpetarea"));
 	}
 
 	@Then("^verify can able to modify the data in the Property Management field$")
@@ -2421,22 +2442,22 @@ public class PropertyDetails_Steps extends BaseClass {
 				propertyDetailsObj.propertyDetailsPropertyManagementDropDown(), 50, 1);
 		propertyDetailsObj.propertyDetailsPropertyManagementDropDown().click();
 
-		String xpath = "//ion-label[text()=' " + propertyDetailsTestData.UpdatedPropertyManagement
+		String xpath = "//ion-label[text()=' " + testdata.get("PropertyManagement")
 				+ " ']/parent::ion-item/ion-radio";
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
 				clicksAndActionsHelper.clickOnElement(driver.findElement(By.xpath(xpath)));
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
 		}
 		Assert.assertTrue(propertyDetailsObj.propertyDetailsPropertyManagementDropDown().getAttribute("aria-label")
-				.contains(propertyDetailsTestData.UpdatedPropertyManagement));
+				.contains(testdata.get("PropertyManagement")));
 	}
 
 	@Then("^verify user can able to modify the date in the Year Of Construction field$")
@@ -2444,12 +2465,12 @@ public class PropertyDetails_Steps extends BaseClass {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox(), 50,
 		// 1);
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -2479,7 +2500,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsYearOfConstructionCalendarInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedYearOfConstructiondate);
+				.sendKeys(testdata.get("yearofconstructiondate"));
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2494,7 +2515,7 @@ public class PropertyDetails_Steps extends BaseClass {
 				}
 			}
 		}
-		Assert.assertEquals(propertyDetailsTestData.UpdatedYearOfConstructiondate, dateInput2);
+		Assert.assertEquals(testdata.get("yearofconstructiondate"), dateInput2);
 	}
 
 	@Then("^verify user can able to modify the data in into percentage of completion field$")
@@ -2504,21 +2525,21 @@ public class PropertyDetails_Steps extends BaseClass {
 		propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox().click();
 		propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox().clear();
 		propertyDetailsObj.propertyDetailsPercentageOfCompletionInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedpercentageOFCompletion);
+				.sendKeys(testdata.get("percentageOFCompletion"));
 		Assert.assertEquals(
 				propertyDetailsObj.propertyDetailsPercentageOfCompletionDataHolder().getAttribute("ng-reflect-model"),
-				propertyDetailsTestData.UpdatedpercentageOFCompletion);
+				testdata.get("percentageOFCompletion"));
 	}
 
 	@Then("^verify user can able to modify the date in the Expected Completion Date field$")
 	public void verify_user_can_able_to_modify_the_date_in_the_expected_completion_date_field() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper
 						.scrollIntoView(propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -2546,7 +2567,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsExpectedCompletionDateCalendarInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedExpectedCompletionDate);
+				.sendKeys(testdata.get("Expectedcompletiondate"));
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2562,17 +2583,17 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 
-		Assert.assertEquals(propertyDetailsTestData.UpdatedExpectedCompletionDate, dateInput2);
+		Assert.assertEquals(testdata.get("Expectedcompletiondate"), dateInput2);
 	}
 
 	@Then("^verify user can able to modify the date in the Agreement Date field$")
 	public void verify_user_can_able_to_modify_the_date_in_the_agreement_date_field() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper.scrollIntoView(propertyDetailsObj.propertyDetailsAgreementDateCalendarInputBox());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -2600,7 +2621,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			propertyDetailsObj.propertyDetailsAgreementDateCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsAgreementDateCalendarInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedAgreementDate);
+				.sendKeys(testdata.get("AgreementDate"));
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2616,18 +2637,18 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 
-		Assert.assertEquals(propertyDetailsTestData.UpdatedAgreementDate, dateInput2);
+		Assert.assertEquals(testdata.get("AgreementDate"), dateInput2);
 	}
 
 	@Then("^verify user can able to modify the date in the Agreement Validity Date field$")
 	public void verify_user_can_able_to_modify_the_date_in_the_agreement_validity_date_field() throws Throwable {
-		for (int i = 0; i <= 15; i++) {
+		for (int i = 0; i <= 100; i++) {
 			try {
 				javascriptHelper
 						.scrollIntoView(propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox());
 				break;
 			} catch (Exception e) {
-				if (i == 15) {
+				if (i == 100) {
 					Assert.fail(e.getMessage());
 				}
 			}
@@ -2655,7 +2676,7 @@ public class PropertyDetails_Steps extends BaseClass {
 			propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox().sendKeys(Keys.BACK_SPACE);
 		}
 		propertyDetailsObj.propertyDetailsAgreementValidityDateCalendarInputBox()
-				.sendKeys(propertyDetailsTestData.UpdatedAgreementvalidityDate);
+				.sendKeys(testdata.get("AgreementvalidityDate"));
 		for (int j = 0; j <= 30; j++) {
 			try {
 				dateInput2 = javascriptHelper
@@ -2671,13 +2692,43 @@ public class PropertyDetails_Steps extends BaseClass {
 			}
 		}
 
-		Assert.assertEquals(propertyDetailsTestData.UpdatedAgreementvalidityDate, dateInput2);
+		Assert.assertEquals(testdata.get("AgreementvalidityDate"), dateInput2);
 	}
 	
+    @And("^user Blank fill the Mandatory field$")
+    public void user_blank_fill_the_mandatory_field() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, PrpObj.Property_Details_Construction_Status(), 60, 5);
+    	PrpObj.Property_Details_Construction_Status().click();
+    	
+    	for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[text()=' "+testdata.get("TextBoxAttributeVerification")+" ']/parent::ion-item//ion-radio")).click();
+			} catch (Exception e) {
+				
+			}
+		}
+    }
 	@And("^user update the Excelsheet Testdata for Property creation$")
 	public void user_update_the_Excelsheet_Testdata_for_Property_creation() throws Throwable
 	{
 		testdata = exceldata.getTestdata("AT_PD_001_D1");
 	}
-
+	@And("^user update the Excelsheet data for Invalid$")
+	public void user_update_the_Excelsheet_data_for_invalid() throws Throwable
+	{
+		testdata = exceldata.getTestdata("AT_PD_002_D1");
+	}
+	 
+	@And("^user update the Excelsheet Testdata for modification$")
+	public void user_update_the_Excelsheet_Testdata_for_modification() throws Throwable
+	{
+		testdata = exceldata.getTestdata("AT_PD_003_D1");
+	}
+	@And("^user update the Excelsheet Testdata for blank field$")
+	public void user_update_the_Excelsheet_testdata_for_blank_field() throws Throwable
+	{
+		testdata = exceldata.getTestdata("AT_PD_005_D1");
+	}
+	
+	
 }

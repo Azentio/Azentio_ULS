@@ -1,16 +1,16 @@
 [
 	{
-		"user":"Maker",
-		"ModifySecurityType":"Secondary Collateral",
-		"ModifyPropertyCity":"Beed",
-		"ModifyPropertyType":"House",
-		"ModifyAPFstatus":"NO",
-		"ApplicationID":"468",
-		"ModifyBlank":"Select",
-		"ModifyConstructionStatus":"Under construction",
-		"ModifyPropertyCategory":"Industrial",
-		"ModifyNatureofProperty":"Leasehold",
-		"ModifyOccupancyStatus":"Under construction"
+		//"user":"Maker",
+		//"ModifySecurityType":"Secondary Collateral",
+		//"ModifyPropertyCity":"Beed",
+		//"ModifyPropertyType":"House",
+		//"ModifyAPFstatus":"NO",
+	//	"ApplicationID":"468",
+	//	"ModifyBlank":"Select",
+	//	"ModifyConstructionStatus":"Under construction",
+		//"ModifyPropertyCategory":"Industrial",
+		//"ModifyNatureofProperty":"Leasehold",
+	//	"ModifyOccupancyStatus":"Under construction"
 		
 	
 	

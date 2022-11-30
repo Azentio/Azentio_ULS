@@ -41,5 +41,10 @@ public class KULS_LoginObj {
 	public WebElement configuration() {
 		return configuration;
 	}
+	@FindBy(xpath="//ion-content[1]/div[1]/img[1]")
+    private WebElement loginPage;
+    public WebElement loginPage() {
+        return loginPage;
+    }
 	
 }

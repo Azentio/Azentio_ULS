@@ -1,9 +1,27 @@
 Feature: verify the Beneficiary details screen with list view
+@AT_BD_011
+Scenario: To verify the fucntionality of activation and deactivation in benefifciary Details screen
+Given User Launch the KULS url for Transaction
+And user click on Inbox Icon
+And user click search icon
+And user update the Excelsheet Testdata for active deactive
+And user search Disbursement Maker
+And user click on First record of Beneficiary Entry
+And user click on Beneficiary Details Tab
+And select one list view record
+And check the status of the status button
+Then verify if the status is activate user can able to de activate if the status is de activate user can able to activate
+Then verify user can able to see the save and back button in the benificiary details screen
+And click on back button in beneficiary dettails screen
+And click on add button on beneficiary details screen
+Then verify user can able to see the save and back button in the benificiary details screen
+
 @AT_BD_012
 Scenario: verify system display the List view at bottom of the screen
 Given User Launch the KULS url for Transaction
 And user click on Inbox Icon
 And user click search icon
+And user update the Excelsheet Testdata for Listview
 And user search Disbursement Maker
 And user click on First record of Beneficiary Entry
 And user click on Beneficiary Details Tab
