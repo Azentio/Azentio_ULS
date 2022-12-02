@@ -35,7 +35,7 @@ public class CustomerEntityLayout_ContactDetails_Step {
 	@Given("^Launch the kuls application$")
     public void launch_the_kuls_application() throws Throwable {
 		ExcelData excelData = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign2511.xlsx","Logincredentials","Stage");
-        Map<String, String> testdata = excelData.getTestdata("Maker1");
+        Map<String, String> testdata = excelData.getTestdata("Maker2");
     	String kulsApplicationUrl = configFileReader.getApplicationcenbankUrl();
         driver.get(kulsApplicationUrl);
         applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));
