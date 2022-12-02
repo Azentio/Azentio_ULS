@@ -194,7 +194,7 @@ public class CustomerDocumentDetailsObj {
 	}
 	
 	//List View number value
-	@FindBy(xpath = "//kub-prime-table/descendant::td[2]")
+	@FindBy(xpath = "//kub-prime-table/descendant::td[1]")
 	private WebElement customerDocumentDetails_ListViewNumberValue;
 	
 	public WebElement customerDocumentDetails_ListViewNumberValue() {

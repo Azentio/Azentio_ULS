@@ -137,7 +137,7 @@ public class AppDocumentDetails_Obj {
 		return boxNumber;
 	}
 	//ion-label[text()=' Remark ']/following-sibling::ion-textarea
-	@FindBy(xpath = "//ion-label[text()=' Remark ']/following-sibling::ion-textarea//textarea")
+	@FindBy(xpath = "//ion-label[text()=' Remarks ']/following-sibling::ion-textarea//textarea")
 	private WebElement remarkInDocumentDetails;
 	public WebElement remarkInDocumentDetails() {
 		return remarkInDocumentDetails;
@@ -147,6 +147,11 @@ public class AppDocumentDetails_Obj {
     public WebElement documentDetailsSave() {
         return documentDetailsSave;
     } 
+    @FindBy(xpath="(//ion-title[contains(text(),' Document Details ')])[1]")
+    private WebElement Scroll;
+    public WebElement Scroll() {
+    	return Scroll;
+    }
     @FindBy(xpath="//div[@id='toast-container']//div[@role='alert']")
     private WebElement successMgs;
     public WebElement successMgs() {
@@ -312,7 +317,7 @@ public class AppDocumentDetails_Obj {
 	public WebElement backButtonInDocumentDetails() {
 		return backButtonInDocumentDetails;
 	} 
-	@FindBy(xpath = "(//td[text()=' APPDATAENT '])[1]/preceding-sibling::td[6]//button")
+	@FindBy(xpath = "//tbody/tr[1]/td[1]/button[1]")
 	private WebElement AppDataEntry_ActionIcon;
 	public WebElement AppDataEntry_ActionIcon() {
 		return AppDataEntry_ActionIcon;

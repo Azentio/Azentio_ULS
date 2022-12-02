@@ -1,5 +1,8 @@
 package stepdefinitions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,6 +16,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
@@ -32,6 +36,10 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","BeneficiaryDetailsTestData","Data Set ID");
+	Map<String, String> testData;
+	Map<String, String> BeneficiaryDetailsTestData = new HashMap<>();
+	
 	
 	
 	//Checker Reject
@@ -50,17 +58,30 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     	Transaction.searchiconreferenceid().click();
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-    	Transaction.searchsentkeys().sendKeys(Transactionjson.BeneficiaryDetails_Search);
+    	Transaction.searchsentkeys().sendKeys(testData.get("Inbox Search"));
         
     }
-	@And("^User Verification search the record from the system in Beneficiary details$")
-    public void user_verification_search_the_record_from_the_system_in_beneficiary_details() throws Throwable {
-        
-		for (int i = 0; i <200; i++) {
+	@And("^User click the action edit icon in Beneficiary details Return$")
+    public void user_click_the_action_edit_icon_in_beneficiary_details_return() throws Throwable {
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.referenceid(), 60, 5);
+    	System.out.println(Transaction.referenceid().getText());
+		String ref1 = Transaction.referenceid().getText();
+		String ref2 = ref1.substring(0);
+		//json.addReferanceData(ref2);
+		excelData.updateTestData("AT-BD-009-D1","Reference ID",ref2);
+		
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.inboxediticon(), 60, 5);
+    	Transaction.inboxediticon().click();
+    	
+    }
+
+    @And("^User Verification search the record from the system in Beneficiary details Return$")
+    public void user_verification_search_the_record_from_the_system_in_beneficiary_details_return() throws Throwable {
+    	for (int i = 0; i <200; i++) {
 			try {
 				Transaction.InboxSearchText().click();
 				Transaction.InboxSearchText().clear();
-				Transaction.InboxSearchText().sendKeys("DISBCKR");
+				Transaction.InboxSearchText().sendKeys(testData.get("VerifySearch"));
 				break;
 			} catch (Exception e) {
 				
@@ -72,7 +93,29 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
 		
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.InboxSearchText(), 60, 5);
 		Transaction.InboxSearchText().click();
-		Transaction.InboxSearchText().sendKeys(json.readReferancedata());
+		Transaction.InboxSearchText().sendKeys(testData.get("Reference ID"));
+
+    }
+	@And("^User Verification search the record from the system in Beneficiary details$")
+    public void user_verification_search_the_record_from_the_system_in_beneficiary_details() throws Throwable {
+        
+		for (int i = 0; i <200; i++) {
+			try {
+				Transaction.InboxSearchText().click();
+				Transaction.InboxSearchText().clear();
+				Transaction.InboxSearchText().sendKeys(testData.get("VerifySearch"));
+				break;
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,Transaction.InboxSearchButton(),30, 2);
+		Transaction.InboxSearchButton().click();
+		
+		help.waitForElementToVisibleWithFluentWait(driver, Transaction.InboxSearchText(), 60, 5);
+		Transaction.InboxSearchText().click();
+		Transaction.InboxSearchText().sendKeys(testData.get("Reference ID"));
     	
     }
 
@@ -84,7 +127,8 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     	System.out.println(Transaction.referenceid().getText());
 		String ref1 = Transaction.referenceid().getText();
 		String ref2 = ref1.substring(0);
-		json.addReferanceData(ref2);
+		//json.addReferanceData(ref2);
+		excelData.updateTestData("AT-BD-008-D1","Reference ID",ref2);
 		
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.inboxediticon(), 60, 5);
     	Transaction.inboxediticon().click();
@@ -114,7 +158,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     public void user_verify_the_rejected_record_removed_from_the_system_in_beneficiary_details() throws Throwable {
     	
     	
-    	String xpath ="//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button";
+    	String xpath ="//span[text()='" +testData.get("Reference ID")+ "']/ancestor::tr/td[1]/button";
     	
     	try {
     		
@@ -158,7 +202,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass{
     public void user_verify_the_return_record_shown_in_beneficiary_details_maker_stage() throws Throwable {
     	
     	
-    	String xpath ="//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button";
+    	String xpath ="//span[text()='" +testData.get("Reference ID")+ "']/ancestor::tr/td[1]/button";
     	
     	try {
     		

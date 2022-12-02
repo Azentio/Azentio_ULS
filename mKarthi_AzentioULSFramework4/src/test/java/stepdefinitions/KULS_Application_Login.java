@@ -54,7 +54,7 @@ public class KULS_Application_Login {
 				assertEquals(loginObj.loginPage().isDisplayed(), true);
 				break;
 			} catch (Exception e) {
-				String kulsApplicationUrl = configFileReader.getApplicationUrl();
+				String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 				driver.get(kulsApplicationUrl);
 				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
 				loginObj.userId().click();
@@ -110,7 +110,7 @@ public class KULS_Application_Login {
 				assertEquals(loginObj.loginPage().isDisplayed(), true);
 				break;
 			} catch (Exception e) {
-				String kulsApplicationUrl = configFileReader.getApplicationUrl();
+				String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 				driver.get(kulsApplicationUrl);
 				waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
 				loginObj.userId().click();
@@ -165,7 +165,7 @@ public class KULS_Application_Login {
 					assertEquals(loginObj.loginPage().isDisplayed(), true);
 					break;
 				} catch (Exception e) {
-					String kulsApplicationUrl = configFileReader.getApplicationUrl();
+					String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 					driver.get(kulsApplicationUrl);
 					testdata = excelData.getTestdata("Checker1");
 					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
@@ -209,7 +209,7 @@ public class KULS_Application_Login {
 					assertEquals(loginObj.loginPage().isDisplayed(), true);
 					break;
 				} catch (Exception e) {
-					String kulsApplicationUrl = configFileReader.getApplicationUrl();
+					String kulsApplicationUrl = configFileReader.getApplicationUrlTransactions();
 					driver.get(kulsApplicationUrl);
 					testdata = excelData.getTestdata("Checker2");
 					waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);

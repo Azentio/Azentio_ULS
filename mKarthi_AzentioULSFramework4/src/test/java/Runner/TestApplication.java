@@ -8,14 +8,16 @@ import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features",//Appropriation_Master_FullBatch.feature", 
+@CucumberOptions(features = "src/test/java/features",//DocumentLayoutDocumentDetails_FullBatch.feature", 
                  glue = "stepdefinitions",
 		         //monochrome=false, //to make steps in color
 		         plugin = { "pretty",
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"} 
 				//dryRun = false //to check compilation errors 
-				, tags="@AT-ADO-002-offer" 
+				, tags="@AT-DLDD-001"  //123
+						
+
 
 )
 public class TestApplication extends AbstractTestNGCucumberTests {

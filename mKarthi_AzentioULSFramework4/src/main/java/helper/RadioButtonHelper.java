@@ -34,7 +34,7 @@ public class RadioButtonHelper {
 	public void radioButton(String element) {
 		while (true) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + element + "')]/../ion-radio")).click();
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + element + "')]//following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
 

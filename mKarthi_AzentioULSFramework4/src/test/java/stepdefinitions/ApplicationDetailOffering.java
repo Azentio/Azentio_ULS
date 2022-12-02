@@ -45,6 +45,7 @@ public class ApplicationDetailOffering {
 		
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.mailicon(), 60, 5);
 		Transaction.mailicon().click();
+		
         
     }
 
@@ -53,6 +54,8 @@ public class ApplicationDetailOffering {
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchiconreferenceid(), 60, 5);
     	Transaction.searchiconreferenceid().click();
+    	
+    	
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
     	Transaction.searchsentkeys().sendKeys(testData.get("Inbox Search"));

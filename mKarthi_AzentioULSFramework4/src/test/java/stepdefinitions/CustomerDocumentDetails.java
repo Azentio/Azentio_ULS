@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
@@ -42,7 +43,7 @@ public class CustomerDocumentDetails {
 	CustomerDocumentDetailsObj documentDetailsObj = new CustomerDocumentDetailsObj(driver);
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AppDocumentDetailsTestData","Data Set ID");
 	Map<String, String> testData;
-	Map<String, String> AppDocumentDetailsTestData = new HashMap<>();
+	//Map<String, String> AppDocumentDetailsTestData;
 	//CustomerDocumentDetailsTestDataType documentDetailsTestDataType = jsonConfig.getCustomerDocumentDetailsByName("Maker");
 	SoftAssert softAssert = new SoftAssert();
 	
@@ -67,7 +68,7 @@ public class CustomerDocumentDetails {
     @Then("^enter the reference id of the Customer Document Details record$")
     public void enter_the_reference_id_of_the_Customer_Document_Details_record() throws Throwable {
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchInboxInputField());
-    	documentDetailsObj.customerDocumentDetails_SearchInboxInputField().sendKeys(documentDetailsTestDataType.ReferenceID);
+    	documentDetailsObj.customerDocumentDetails_SearchInboxInputField().sendKeys(testData.get("ReferenceID"));
 	
     }
 
@@ -94,36 +95,50 @@ public class CustomerDocumentDetails {
     
     @Then("^open the record of Customer Document Details to modify$")
     public void open_the_record_of_Customer_Document_Details_to_modify() throws Throwable {
+    	testData = excelData.getTestdata("AT-DLDD-004-D1");
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchButton());
     	documentDetailsObj.customerDocumentDetails_SearchButton().click();
     	
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchInputField());
-    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(documentDetailsTestDataType.Number);
+    	System.out.println(testData.get("Number"));
+    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(testData.get("Number"));
     	String beforexpath= "//span[contains(text(),'"; 
     	String afterxpath= "')]/../../../td[1]/span/button[1]";
     	Thread.sleep(500);
-    	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +documentDetailsTestDataType.Number+ afterxpath)));
-    	driver.findElement(By.xpath(beforexpath +documentDetailsTestDataType.Number+ afterxpath)).click();
+    	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +testData.get("Number")+ afterxpath)));
+    	driver.findElement(By.xpath(beforexpath +testData.get("Number")+ afterxpath)).click();
     }
     
 
     @Then("^verify system should allow user to do a modification of Customer Document Details record before approved$")
     public void verify_system_should_allow_user_to_do_a_modification_of_Customer_Document_Details_record_before_approved() throws Throwable {
+    	
+    	testData  = excelData.getTestdata("AT-DLDD-003-D1");
     	RadioButtonHelper radioButtonHelper = new  RadioButtonHelper(driver);
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_DocumentName());
     	documentDetailsObj.customerDocumentDetails_DocumentName().click();
-    	radioButtonHelper.radioButton(documentDetailsTestDataType.DocumentName);
+    	String beforexpath = "//ion-label[text()=' ";
+    	String afterxpath = " ']//following-sibling::ion-radio";
     	Thread.sleep(500);
+    	driver.findElement(By.xpath(beforexpath+ testData.get("DocumentName1") + afterxpath)).click();
+    	
+    	//radioButtonHelper.radioButton(testData.get("DocumentName"));
+    	Thread.sleep(1000);
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_MandatoryOrOptional());
     	documentDetailsObj.customerDocumentDetails_MandatoryOrOptional().click();
-    	radioButtonHelper.radioButton(documentDetailsTestDataType.MandatoryOrOptional);
+    	
+    	String beforexpath1 = "//ion-label[text()=' ";
+    	String afterxpath1 = " ']//following-sibling::ion-radio";
     	Thread.sleep(500);
+    	driver.findElement(By.xpath(beforexpath1+ testData.get("MandatoryOptional") + afterxpath1)).click();
+    	//radioButtonHelper.radioButton(testData.get("MandatoryOrOptional"));
+    	Thread.sleep(1000);
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_DocumentCategory());
     	documentDetailsObj.customerDocumentDetails_DocumentCategory().click();
-    	String beforexpath = "//ion-label[text()='";
-    	String afterxpath = "']/../ion-radio";
+    	String beforexpath2 = "//ion-label[text()=' ";
+    	String afterxpath2 = " ']//following-sibling::ion-radio";
     	Thread.sleep(500);
-    	driver.findElement(By.xpath(beforexpath+ documentDetailsTestDataType.DocumentCategory + afterxpath)).click();
+    	driver.findElement(By.xpath(beforexpath2+ testData.get("DocumentCategory") + afterxpath2)).click();
     }
     
     @Then("^verify system should allow user to do a modification with valid data$")
@@ -145,11 +160,11 @@ public class CustomerDocumentDetails {
     	documentDetailsObj.customerDocumentDetails_SearchButton().click();
     	
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchInputField());
-    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(documentDetailsTestDataType.Number);
+    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(testData.get("Number"));
     	String beforexpath= "//span[contains(text(),'"; 
     	String afterxpath= "')]/../../../td[1]/span/button[1]";
-    	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +documentDetailsTestDataType.Number+ afterxpath)));
-    	boolean status = driver.findElement(By.xpath(beforexpath +documentDetailsTestDataType.Number+ afterxpath)).isDisplayed();
+    	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +testData.get("Number")+ afterxpath)));
+    	boolean status = driver.findElement(By.xpath(beforexpath+testData.get("Number")+afterxpath)).isDisplayed();		
     	Assert.assertTrue(status);
     }
     
@@ -179,8 +194,8 @@ public class CustomerDocumentDetails {
     	Assert.assertTrue(status4);
     	boolean status5 = documentDetailsObj.customerDocumentDetails_ExportToXls().isDisplayed();
     	Assert.assertTrue(status5);
-    	boolean status6 = documentDetailsObj.customerDocumentDetails_ListViewFieldNumber().isDisplayed();
-    	Assert.assertTrue(status6);
+    	//boolean status6 = documentDetailsObj.customerDocumentDetails_ListViewFieldNumber().isDisplayed();
+    	//Assert.assertTrue(status6);
     	boolean status7 = documentDetailsObj.customerDocumentDetails_ListViewFieldDocumentName().isDisplayed();
     	Assert.assertTrue(status7);
     	boolean status8 = documentDetailsObj.customerDocumentDetails_ListViewFieldRequiredAtStage().isDisplayed();
@@ -199,49 +214,49 @@ public class CustomerDocumentDetails {
     @Then("^verify values in List view of Customer Documents details should be non editable$")
     public void verify_values_in_list_view_of_customer_documents_details_should_be_non_editable() throws Throwable {
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewNumberValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewNumberValue().sendKeys(testData.get("EditText"));
 			System.out.println("Number Field value is editable");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Number Field value is non editable");
 		}
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewDocumentNameValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewDocumentNameValue().sendKeys(testData.get("EditText"));
     		System.out.println("DocumentName Field value is editable");
     	} catch (Exception e) {
     		// TODO: handle exception
     		System.out.println("DocumentName Field value is non editable");
     	}
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewRequiredAtStageValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewRequiredAtStageValue().sendKeys(testData.get("EditText"));
     		System.out.println("RequiredAtStage Field value is editable");
     	} catch (Exception e) {
     		// TODO: handle exception
     		System.out.println("RequiredAtStage Field value is non editable");
     	}
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewDocumentStatusValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewDocumentStatusValue().sendKeys(testData.get("EditText"));
     		System.out.println("DocumentStatus Field value is editable");
     	} catch (Exception e) {
     		// TODO: handle exception
     		System.out.println("DocumentStatus Field value is non editable");
     	}
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewMandatoryOrOptionalValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewMandatoryOrOptionalValue().sendKeys(testData.get("EditText"));
     		System.out.println("MandatoryOrOptional Field value is editable");
     	} catch (Exception e) {
     		// TODO: handle exception
     		System.out.println("MandatoryOrOptional Field value is non editable");
     	}
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewDocumentCategoryValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewDocumentCategoryValue().sendKeys(testData.get("EditText"));
     		System.out.println("DocumentCategory Field value is editable");
     	} catch (Exception e) {
     		// TODO: handle exception
     		System.out.println("DocumentCategory Field value is non editable");
     	}
     	try {
-    		documentDetailsObj.customerDocumentDetails_ListViewDMSUploadStatusValue().sendKeys(documentDetailsTestDataType.EditText);
+    		documentDetailsObj.customerDocumentDetails_ListViewDMSUploadStatusValue().sendKeys(testData.get("EditText"));
     		System.out.println("DMSUploadStatus Field value is editable");
     	} catch (Exception e) {
     		// TODO: handle exception
@@ -255,7 +270,7 @@ public class CustomerDocumentDetails {
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchButton());
     	documentDetailsObj.customerDocumentDetails_SearchButton().click();
     	Thread.sleep(1000);
-    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(documentDetailsTestDataType.Number);
+    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(testData.get("Number"));
     	boolean status = documentDetailsObj.customerDocumentDetails_ListViewNumberValue().isDisplayed();
     	Assert.assertTrue(status);
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchCloseButton());
@@ -268,7 +283,7 @@ public class CustomerDocumentDetails {
     	waithelper.waitForElementwithFluentwait(driver, documentDetailsObj.customerDocumentDetails_SearchButton());
     	documentDetailsObj.customerDocumentDetails_SearchButton().click();
     	Thread.sleep(1000);
-    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(documentDetailsTestDataType.InvalidInput);
+    	documentDetailsObj.customerDocumentDetails_SearchInputField().sendKeys(testData.get("InvalidInput"));
     	Thread.sleep(500);
     	boolean status = documentDetailsObj.customerDocumentDetails_NoDataFoundInSearch().isDisplayed();
     	Assert.assertTrue(status);
@@ -327,6 +342,25 @@ public class CustomerDocumentDetails {
     	boolean status = documentDetailsObj.customerEmployment_SaveConfirmationMessage().isDisplayed();
     	Assert.assertTrue(status);
     }
+    
+    //TestData
+    
+   
+
+    @And("^Get the test data for Document Layout Document Details Test case3$")
+    public void get_the_test_data_for_document_layout_document_details_test_case3() throws Throwable {
+        
+    	testData  = excelData.getTestdata("AT-DLDD-003-D1");
+    }
+
+   
+
+    @And("^Get the test data for Document Layout Document Details Test case5$")
+    public void get_the_test_data_for_document_layout_document_details_test_case5() throws Throwable {
+        
+    	testData = excelData.getTestdata("AT-DLDD-005-D1");
+    }
+
     
     
 }
