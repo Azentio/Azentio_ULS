@@ -37,7 +37,7 @@ public class CustomerEntityLayout_Identification {
 	@Then("^Validate the Success popup$")
     public void validate_the_success_popup() throws Throwable {
 		String Toast;
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, identificationsobj.ContactDetailsSaveSuccessfulPopup(), 60, 2);
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, identificationsobj.ContactDetailsSaveSuccessfulPopup(), 10, 2);
 		Toast = identificationsobj.ContactDetailsSaveSuccessfulPopup().getText();
 		System.out.println(Toast);
 		Assert.assertTrue(Toast.contains("Success!"),"Suceess message is not populating");

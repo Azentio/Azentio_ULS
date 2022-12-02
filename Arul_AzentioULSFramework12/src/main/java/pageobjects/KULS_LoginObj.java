@@ -16,6 +16,11 @@ public class KULS_LoginObj {
 	public WebElement userId() {
 		return userId;
 	}
+	@FindBy(xpath="//ion-content[1]/div[1]/img[1]")
+    private WebElement loginPage;
+    public WebElement loginPage() {
+        return loginPage;
+    }
 	@FindBy(xpath="//ion-button[contains(text(),'Continue')]")
 	private WebElement continueButton;
 	public WebElement continueButton() {

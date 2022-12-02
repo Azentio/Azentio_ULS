@@ -34,12 +34,12 @@ public class CustomerEntityLayout_ContactDetails_Step {
 	
 	@Given("^Launch the kuls application$")
     public void launch_the_kuls_application() throws Throwable {
-		String kulsApplicationUrl = configFileReader.getApplicationcenbankUrl();
-		driver.get(kulsApplicationUrl);
-		System.out.println();
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username1, loginData.Password1);
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,contactdetailsobj.TransactionButtonInLeftPanel(), 60, 2);
-		Thread.sleep(2000);
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign2511.xlsx","Logincredentials","Stage");
+        Map<String, String> testdata = excelData.getTestdata("Maker1");
+    	String kulsApplicationUrl = configFileReader.getApplicationcenbankUrl();
+        driver.get(kulsApplicationUrl);
+        applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));
+		
     }
 
     @Then("^Validate the Success popup in contact detatils$")

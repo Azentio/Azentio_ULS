@@ -77,6 +77,7 @@ Then verify New Requested Amount field system should allow user to enter value m
 Then verify the field Original Requested Tenure should be in read only mode
 Then verify the field Original Requested Amount should be in read only mode
 Then verify the functionality of save button under section Appeal Request
+Then Validate the Success popup
 Then verify system should display validation message for invalid data post clicking on save button under section Appeal Request
 Then verify system display the confirmation message post clicking on save button under section Appeal Request
 Then verify system should display proper validation message to enter new requested amount and Tenure
