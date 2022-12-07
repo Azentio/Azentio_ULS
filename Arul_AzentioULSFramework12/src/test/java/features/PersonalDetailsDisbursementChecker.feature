@@ -4,6 +4,7 @@ Feature: To verify the personal details disbursement checker list view fuctional
 Scenario: To verify customer details list view
 Given Launch the kuls application
 And User Login as maker
+And update test data for Personal disbursement checker test case four
 And User click the inbox mail icon in personal details disbursement checker
 And User click the action edit icon in personal details disbursement checker
 And User click the customer details tab in personal details disbursement checker

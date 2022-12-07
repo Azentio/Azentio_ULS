@@ -441,5 +441,9 @@ public class PersonalDetails_DisbursementMakerObj {
 	public WebElement PDDM_CustomerDetails_BackButton() {
 		return PDDM_CustomerDetails_BackButton;
 	}
-
+	@FindBy(xpath = "//tbody/tr[1]/td[1]/button[1]") 
+    private WebElement ActionButtonOfFirstRecordInMailBox;
+    public WebElement ActionButtonOfFirstRecordInMailBox() {
+    return ActionButtonOfFirstRecordInMailBox;
+    }
 }

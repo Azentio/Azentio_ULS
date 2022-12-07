@@ -35,7 +35,7 @@ public class PersonalDetailsDisbursementChecker {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
-	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign2911.xlsx", "PDDCTestData", "Data Set ID") ;
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign0512.xlsx", "PDDCTestData", "Data Set ID") ;
 	Map<String, String> testdata;
 	
 	@And("^User click the inbox mail icon in personal details disbursement checker$")
@@ -54,7 +54,7 @@ public class PersonalDetailsDisbursementChecker {
     	Transaction.searchiconreferenceid().click();
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-    	Transaction.searchsentkeys().sendKeys(testdata.get("Mail Search Value"));
+    	Transaction.searchsentkeys().sendKeys(testdata.get("Mail Search value"));
     	
     	Thread.sleep(2000);
     	
@@ -134,7 +134,10 @@ public class PersonalDetailsDisbursementChecker {
     	Transaction.ActionEditIcon().isDisplayed();
     	Assert.assertEquals(false, Transaction.ActionEditIcon().isDisplayed());
     }
-
+    @And("^update test data for Personal disbursement checker test case four$")
+    public void update_test_data_for_personal_disbursement_checker_test_case_four() throws Throwable {
+    	testdata=exceldata.getTestdata("AT-PDC-004_D1");
+    }
 
 }
 

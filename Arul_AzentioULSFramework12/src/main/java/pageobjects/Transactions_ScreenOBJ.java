@@ -348,7 +348,7 @@ public class Transactions_ScreenOBJ {
 	{
 		return ApplicationDetails_ReferenceCode;
 	}
-	@FindBy(xpath="//button[@ng-reflect-text='View Summary']")
+	@FindBy(xpath="//button[@ng-reflect-text='View Summary']/child::span[1]")
 	private WebElement ViewSummary;
 	public WebElement ViewSummary()
 	{
@@ -807,6 +807,10 @@ public class Transactions_ScreenOBJ {
 	{
 		return FinalApproveButton;
 	}
-	
+	@FindBy(xpath = "//span[text()=' Inbox ']//parent::div//child::span[2]/input") 
+    private WebElement ApplicationDetailsInboxView_SearchText;
+    public WebElement ApplicationDetailsInboxView_SearchText() {
+        return ApplicationDetailsInboxView_SearchText;
+    }
 
 }

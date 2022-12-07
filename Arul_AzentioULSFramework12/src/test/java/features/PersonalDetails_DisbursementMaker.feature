@@ -2,12 +2,11 @@ Feature: Personal Details Disbursement Maker Functionality
 
 @PDDM01
  Scenario: To check the functionality of Personal Details Disbursement Maker
-Given User launch the kuls application
-And User Login as maker2
-Then click on inbox
-Then click on inbox search icon 
+Given Launch the kuls application
+And User Login as maker
+And Navigate to Mail box
 Then search Personal Details Disbursement Maker record
-And maker user open the record from inbox
+And Click on the first record from mail box
 Then click on Customer Details Segment button
 Then open Customer Details record
 Then verify the field Customer Type
@@ -36,12 +35,11 @@ Then verify the toggle BlackListed
 
 @PDDM02
  Scenario: To check the functionality of Personal Details Disbursement Maker List View
-Given User launch the kuls application
+Given Launch the kuls application
 And User Login as maker
-Then click on inbox
-Then click on inbox search icon 
+And Navigate to Mail box
 Then search Personal Details Disbursement Maker record
-And maker user open the record from inbox
+And Click on the first record from mail box
 Then click on Customer Details Segment button
 Then verify Personal Details Disbursement Maker List View should display all the fields
 Then values in Personal Details Disbursement Maker list view should not be editable
@@ -51,12 +49,11 @@ Then Personal Details Disbursement Maker export Excel file
 
 @PDDM03
  Scenario: Verify System should not allow user to modify record of customer details
- Given User launch the kuls application
+Given Launch the kuls application
 And User Login as maker
-Then click on inbox
-Then click on inbox search icon 
+And Navigate to Mail box
 Then search Personal Details Disbursement Maker record
-And maker user open the record from inbox
+And Click on the first record from mail box
 Then click on Customer Details Segment button
 Then open Customer Details record
 Then modification of Customer details record System should not allow
@@ -65,12 +62,11 @@ Then click on Back button of Customer Details record
 
 @PDDM04
  Scenario: Verify System should not allow user to add new record of customer details
- Given User launch the kuls application
+Given Launch the kuls application
 And User Login as maker
-Then click on inbox
-Then click on inbox search icon 
+And Navigate to Mail box
 Then search Personal Details Disbursement Maker record
-And maker user open the record from inbox
+And Click on the first record from mail box
 Then click on Customer Details Segment button
 Then verify the availability of Add button on customer details tab
 
