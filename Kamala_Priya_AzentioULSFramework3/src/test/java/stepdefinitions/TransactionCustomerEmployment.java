@@ -3,6 +3,7 @@ package stepdefinitions;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,6 +24,7 @@ import io.cucumber.java.en.Then;
 import pageobjects.KULS_LoginObj;
 import pageobjects.Trans_CustomerEmploymentObject;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.CustomerEmploymentTestData;
 import testDataType.KULS_Login_TestDataType;
@@ -44,6 +46,8 @@ ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(drive
 SoftAssert softAssert = new SoftAssert();
 String referenceID;
 JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
+ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","CustomerEmployment","Data Set ID");
+Map<String, String> testData;
 
 
         
@@ -55,19 +59,30 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 
 	    @And("^click the search button in customer employement$")
 	    public void click_the_search_button_in_customer_employement() throws Throwable {
-	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxEmplyObj_SearchButton(), 60, 2);
-			employementobj.Trans_CxEmplyObj_SearchButton().click();
+	    	//waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxEmplyObj_SearchButton(), 60, 2);
+	    	for (int i = 0; i < 60; i++) {
+				try {
+					employementobj.Trans_CxEmplyObj_SearchButton().click();
+break;
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+	    	}
+			
 	    }
 
 	    @Then("^Enter app data entry in the text bar$")
 	    public void enter_app_data_entry_in_the_text_bar() throws Throwable {
+	    	testData=excelData.getTestdata("AT-CE-006-D1");
+
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxEmplyObj_SearchBar(), 60, 2);
 			employementobj.Trans_CxEmplyObj_SearchBar().click();
-			employementobj.Trans_CxEmplyObj_SearchBar().sendKeys("APPDATAENT");
+			employementobj.Trans_CxEmplyObj_SearchBar().sendKeys(testData.get("SearchBar"));
 	    }
 	    
 	    @And("^click the first action icon in customer employement$")
 	    public void click_the_first_action_icon_in_customer_employement() throws Throwable {
+	 Thread.sleep(2000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxEmplyObj_ActionIcon(), 60, 2);
 			employementobj.Trans_CxEmplyObj_ActionIcon().click();
 	    }
@@ -98,7 +113,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	    	for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.NatureOfEmployment
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("NatureOfEmployment")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -118,7 +133,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 			for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.EmploymentPeriod
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("EmploymentPeriod")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -138,7 +153,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 			for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.EmployerName
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("EmployerName")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -164,9 +179,10 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	    @And("^Fill and verify the field employer id in customer employment$")
 	    public void fill_and_verify_the_field_employer_id_in_customer_employment() throws Throwable {
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmployeeID(), 60, 2);
+	    	testData=excelData.getTestdata("AT-CE-001-D1");
 			employementobj.Trans_CxFinancial_EmployeeID().isDisplayed();
 			employementobj.Trans_CxFinancial_EmployeeID().click();
-			employementobj.Trans_CxFinancial_EmployeeID().sendKeys(employmentdata.EmployeeID);
+			employementobj.Trans_CxFinancial_EmployeeID().sendKeys(testData.get("Selaried Emp ID"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_EmployeeID().getAttribute("type"),"text");
 	    }
 
@@ -175,7 +191,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_DateOfJoining(), 60, 2);
 	    	employementobj.Trans_CxFinancial_DateOfJoining().isDisplayed();
 			employementobj.Trans_CxFinancial_DateOfJoining().click();
-			String yearXpath ="//button[text()=' "+employmentdata.DOJYear+" ']";
+			String yearXpath ="//button[text()=' "+testData.get("DOJYear")+" ']";
 			for (int i = 0; i < 50; i++) {
 			try	
 			{
@@ -186,7 +202,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 				}
 			
 			}
-			  String yearXpath2 ="//span[text()=' "+employmentdata.DOJYear1+" ']";
+			  String yearXpath2 ="//span[text()=' "+testData.get("DOJYear1")+" ']";
 		      while (true) {
 		        try {
 					driver.findElement(By.xpath(yearXpath2)).click();
@@ -204,7 +220,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 		            }
 		        }
 		    }
-		      String monthXpath ="//span[text()=' "+employmentdata.DOJMonth+" ']";
+		      String monthXpath ="//span[text()=' "+testData.get("DOJMonth")+" ']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -214,7 +230,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 					catch(Exception e) {
 						}
 					}  
-		      String dateXpath ="//span[text()='"+employmentdata.DOJDate+"']";
+		      String dateXpath ="//span[text()='"+testData.get("DOJDate")+"']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -233,7 +249,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmploymentEndDate(), 60, 2);
 	    	employementobj.Trans_CxFinancial_EmploymentEndDate().isDisplayed();
 			employementobj.Trans_CxFinancial_EmploymentEndDate().click();
-			String yearXpath ="//button[text()=' "+employmentdata.EEDYear+" ']";
+			String yearXpath ="//button[text()=' "+testData.get("EEDYear")+" ']";
 			for (int i = 0; i < 50; i++) {
 			try	
 			{
@@ -244,7 +260,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 				}
 			
 			}
-			  String yearXpath2 ="//span[text()=' "+employmentdata.EEDYear1+" ']";
+			  String yearXpath2 ="//span[text()=' "+testData.get("EEDYear1")+" ']";
 		      while (true) {
 		        try {
 					driver.findElement(By.xpath(yearXpath2)).click();
@@ -262,7 +278,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 		            }
 		        }
 		    }
-		      String monthXpath ="//span[text()=' "+employmentdata.EEDMonth+" ']";
+		      String monthXpath ="//span[text()=' "+testData.get("EEDMonth")+" ']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -272,7 +288,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 					catch(Exception e) {
 						}
 					}  
-		      String dateXpath ="//span[text()='"+employmentdata.EEDDate+"']";
+		      String dateXpath ="//span[text()='"+testData.get("EEDDate")+"']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -292,7 +308,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 			for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.Department
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Department")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -310,7 +326,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 			for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.Designation
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Designation")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -329,7 +345,7 @@ JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 			for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.EmploymentType
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("EmploymentType")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -345,7 +361,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_DirectManagerNumExt(), 60, 2);
 	    	employementobj.Trans_CxFinancial_DirectManagerNumExt().isDisplayed();
 			employementobj.Trans_CxFinancial_DirectManagerNumExt().click();
-			employementobj.Trans_CxFinancial_DirectManagerNumExt().sendKeys(employmentdata.DirectManagerContactNumberExtension);
+			employementobj.Trans_CxFinancial_DirectManagerNumExt().sendKeys(testData.get("DirectManagerContactNumberExtension"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_DirectManagerNumExt().getAttribute("type"),"number");
 
 	    }
@@ -355,7 +371,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_TotalExperienceYears(), 60, 2);
 	    	employementobj.Trans_CxFinancial_TotalExperienceYears().isDisplayed();
 			employementobj.Trans_CxFinancial_TotalExperienceYears().click();
-			employementobj.Trans_CxFinancial_TotalExperienceYears().sendKeys(employmentdata.TotalExperience_Years_);
+			employementobj.Trans_CxFinancial_TotalExperienceYears().sendKeys(testData.get("TotalExperience_Years"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_TotalExperienceYears().getAttribute("type"),"number");
 
 	    }
@@ -365,7 +381,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_RetirementAge(), 60, 2);
 	    	employementobj.Trans_CxFinancial_RetirementAge().isDisplayed();
 			employementobj.Trans_CxFinancial_RetirementAge().click();
-			employementobj.Trans_CxFinancial_RetirementAge().sendKeys(employmentdata.RetirementAge_Years_);
+			employementobj.Trans_CxFinancial_RetirementAge().sendKeys(testData.get("RetirementAge_Years"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_RetirementAge().getAttribute("type"),"number");
 
 	    }
@@ -375,7 +391,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_ShareHolderPercentage(), 60, 2);
 	    	employementobj.Trans_CxFinancial_ShareHolderPercentage().isDisplayed();
 			employementobj.Trans_CxFinancial_ShareHolderPercentage().click();
-			employementobj.Trans_CxFinancial_ShareHolderPercentage().sendKeys(employmentdata.ShareHolderPercentage);
+			employementobj.Trans_CxFinancial_ShareHolderPercentage().sendKeys(testData.get("ShareHolderPercentage"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_ShareHolderPercentage().getAttribute("type"),"number");
 
 	    }
@@ -384,7 +400,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_RetirementAge(), 60, 2);
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber().isDisplayed();
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber().click();
-			employementobj.Trans_CxFinancial_EmployerPhoneNumber().sendKeys(employmentdata.EmployerPhoneNumber);
+			employementobj.Trans_CxFinancial_EmployerPhoneNumber().sendKeys(testData.get("EmployerPhoneNumber"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_EmployerPhoneNumber().getAttribute("type"),"text");
 
 	    }
@@ -394,7 +410,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmpCityCode(), 60, 2);
 			employementobj.Trans_CxFinancial_EmpCityCode().isDisplayed();
 			employementobj.Trans_CxFinancial_EmpCityCode().click();
-			employementobj.Trans_CxFinancial_EmpCityCode().sendKeys(employmentdata.EmployerCityCode);
+			employementobj.Trans_CxFinancial_EmpCityCode().sendKeys(testData.get("EmployerCityCode"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_EmpCityCode().getAttribute("type"),"text");
 
 	    }
@@ -403,7 +419,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmpPhoneExt(), 60, 2);
 			employementobj.Trans_CxFinancial_EmpPhoneExt().isDisplayed();
 			employementobj.Trans_CxFinancial_EmpPhoneExt().click();
-			employementobj.Trans_CxFinancial_EmpPhoneExt().sendKeys(employmentdata.EmployerPhoneExtension);
+			employementobj.Trans_CxFinancial_EmpPhoneExt().sendKeys(testData.get("EmployerPhoneExtension"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_EmpPhoneExt().getAttribute("type"),"text");
 
 	    }
@@ -416,17 +432,23 @@ Thread.sleep(1000);
 	    }
 	    @And("^Fill the nature of employment as self employed in customer employment$")
 	    public void fill_the_nature_of_employment_as_self_employed_in_customer_employment() throws Throwable {
+	    	Thread.sleep(2000);
+	    	testData=excelData.getTestdata("AT-CE-002-D1");
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_NatureOfEmployment(), 60, 2);
 			employementobj.Trans_CxFinancial_NatureOfEmployment().isDisplayed();
 			employementobj.Trans_CxFinancial_NatureOfEmployment().click();
-	    	for (int i = 0; i < 60; i++) {
+			String xpath ="//ion-label[contains(text(),'" + testData.get("NOESelfEmployed")
+			+ "')]/following-sibling::ion-radio";
+			System.out.println(xpath);
+					//"//ion-label[text()=' "+testData.get("NatureOfEmployment2")+" ']/following::ion-radio";
+	    	for (int i = 0; i < 200; i++) {
 				try {
-			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.NatureOfEmployment2
-					+ "')]/following-sibling::ion-radio")).click();
+					clicksAndActionsHelper.moveToElement(driver.findElement(By.xpath(xpath)));
+					driver.findElement(By.xpath(xpath)).click();
 	    	break;
 	    }
 				catch(Exception e) {
+					//Assert.fail(e.getMessage());
 				}
 				}
 	    	
@@ -437,11 +459,10 @@ Thread.sleep(1000);
 	    public void select_and_verify_the_company_type_field_in_customer_employment() throws Throwable {
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_CompanyType(), 60, 2);
 			employementobj.Trans_CxFinancial_CompanyType().isDisplayed();
-			employementobj.Trans_CxFinancial_CompanyType().click();
 	    	for (int i = 0; i < 60; i++) {
 				try {
-			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.CompanyType
+					employementobj.Trans_CxFinancial_CompanyType().click();
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("CompanyType")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -460,14 +481,18 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_Profession(), 60, 2);
 			employementobj.Trans_CxFinancial_Profession().isDisplayed();
 			employementobj.Trans_CxFinancial_Profession().click();
-	    	for (int i = 0; i < 60; i++) {
+			String xpath ="//ion-label[text()=' "+testData.get("Profession")+" ']/following::ion-radio";
+	    	for (int i = 0; i <200; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.Profession
-					+ "')]/following-sibling::ion-radio")).click();
+	    	driver.findElement(By.xpath(xpath)).click();
 	    	break;
 	    }
 				catch(Exception e) {
+					if (i==199) {
+						Assert.fail(e.getMessage());
+					}
+					
 				}
 				}
 	    	
@@ -482,7 +507,7 @@ Thread.sleep(1000);
 	    	for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.ProfessionType
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("ProfessionType")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -501,7 +526,7 @@ Thread.sleep(1000);
 	    	for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.StatutoryAuthority
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("StatutoryAuthority")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -517,7 +542,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmploymentEndDate(), 60, 2);
 	    	employementobj.Trans_CxFinancial_EmploymentEndDate().isDisplayed();
 			employementobj.Trans_CxFinancial_EmploymentEndDate().click();
-			String yearXpath ="//button[text()=' "+employmentdata.EEDYear+" ']";
+			String yearXpath ="//button[text()=' "+testData.get("EEDYear")+" ']";
 			for (int i = 0; i < 50; i++) {
 			try	
 			{
@@ -528,7 +553,7 @@ Thread.sleep(1000);
 				}
 			
 			}
-			  String yearXpath2 ="//span[text()=' "+employmentdata.EEDYear1+" ']";
+			  String yearXpath2 ="//span[text()=' "+testData.get("EEDYear1")+" ']";
 		      while (true) {
 		        try {
 					driver.findElement(By.xpath(yearXpath2)).click();
@@ -546,7 +571,7 @@ Thread.sleep(1000);
 		            }
 		        }
 		    }
-		      String monthXpath ="//span[text()=' "+employmentdata.EEDMonth+" ']";
+		      String monthXpath ="//span[text()=' "+testData.get("EEDMonth")+" ']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -556,7 +581,7 @@ Thread.sleep(1000);
 					catch(Exception e) {
 						}
 					}  
-		      String dateXpath ="//span[text()='"+employmentdata.EEDDate+"']";
+		      String dateXpath ="//span[text()='"+testData.get("EEDDate")+"']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -573,7 +598,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmpPhoneExt(), 60, 2);
 			employementobj.Trans_CxFinancial_EmpPhoneExt().isDisplayed();
 			employementobj.Trans_CxFinancial_EmpPhoneExt().click();
-			employementobj.Trans_CxFinancial_EmpPhoneExt().sendKeys(employmentdata.EmployerPhoneExtension);
+			employementobj.Trans_CxFinancial_EmpPhoneExt().sendKeys(testData.get("EmployerPhoneExtension"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_EmpPhoneExt().getAttribute("type"),"text");	
 	    }
 
@@ -582,7 +607,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_NoOFPartners(), 60, 2);
 			employementobj.Trans_CxFinancial_NoOFPartners().isDisplayed();
 			employementobj.Trans_CxFinancial_NoOFPartners().click();
-			employementobj.Trans_CxFinancial_NoOFPartners().sendKeys(employmentdata.EmployerPhoneNumber);
+			employementobj.Trans_CxFinancial_NoOFPartners().sendKeys(testData.get("NoOfPartners"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_NoOFPartners().getAttribute("type"),"number");
 	    }
 
@@ -594,7 +619,7 @@ Thread.sleep(1000);
 	    	for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.NatureOFBusiness
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("NatureOFBusiness")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -608,10 +633,12 @@ Thread.sleep(1000);
 
 	    @Then("^select and verify the field register business name in customer employment$")
 	    public void select_and_verify_the_field_register_business_name_in_customer_employment() throws Throwable {
+	    	Thread.sleep(2000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_RegisteredBusinessName(), 60, 2);
 			employementobj.Trans_CxFinancial_RegisteredBusinessName().isDisplayed();
+			clicksAndActionsHelper.moveToElement(employementobj.Trans_CxFinancial_RegisteredBusinessName());
 			employementobj.Trans_CxFinancial_RegisteredBusinessName().click();
-			employementobj.Trans_CxFinancial_RegisteredBusinessName().sendKeys(employmentdata.RegisteredBusinessName);
+			employementobj.Trans_CxFinancial_RegisteredBusinessName().sendKeys(testData.get("RegisteredBusinessName"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_RegisteredBusinessName().getAttribute("type"),"text");
   }
 
@@ -620,7 +647,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_RegisteredBusinessNumber(), 60, 2);
 			employementobj.Trans_CxFinancial_RegisteredBusinessNumber().isDisplayed();
 			employementobj.Trans_CxFinancial_RegisteredBusinessNumber().click();
-			employementobj.Trans_CxFinancial_RegisteredBusinessNumber().sendKeys(employmentdata.RegisteredBusinessNumber);
+			employementobj.Trans_CxFinancial_RegisteredBusinessNumber().sendKeys(testData.get("RegisteredBusinessNumber"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_RegisteredBusinessNumber().getAttribute("type"),"text");
 	    }
 
@@ -629,7 +656,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_BusinessRegistrationdate(), 60, 2);
 	    	employementobj.Trans_CxFinancial_BusinessRegistrationdate().isDisplayed();
 			employementobj.Trans_CxFinancial_BusinessRegistrationdate().click();
-			String yearXpath ="//button[text()=' "+employmentdata.BRDYear+" ']";
+			String yearXpath ="//button[text()=' "+testData.get("BRDYear")+" ']";
 			for (int i = 0; i < 50; i++) {
 			try	
 			{
@@ -640,7 +667,7 @@ Thread.sleep(1000);
 				}
 			
 			}
-			  String yearXpath2 ="//span[text()=' "+employmentdata.EEDYear1+" ']";
+			  String yearXpath2 ="//span[text()=' "+testData.get("BRDYear1")+" ']";
 		      while (true) {
 		        try {
 					driver.findElement(By.xpath(yearXpath2)).click();
@@ -658,7 +685,7 @@ Thread.sleep(1000);
 		            }
 		        }
 		    }
-		      String monthXpath ="//span[text()=' "+employmentdata.BRDMonth+" ']";
+		      String monthXpath ="//span[text()=' "+testData.get("BRDMonth")+" ']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -668,7 +695,7 @@ Thread.sleep(1000);
 					catch(Exception e) {
 						}
 					}  
-		      String dateXpath ="//span[text()='"+employmentdata.BRDDate+"']";
+		      String dateXpath ="//span[text()='"+testData.get("BRDDate")+"']";
 		      for (int i = 0; i < 50; i++) {
 					try	
 					{
@@ -688,7 +715,7 @@ Thread.sleep(1000);
 	    	for (int i = 0; i < 60; i++) {
 				try {
 			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.OfficePremisesType
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("OfficePremisesType")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -704,7 +731,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_ShareHolderPercentage(), 60, 2);
 			employementobj.Trans_CxFinancial_ShareHolderPercentage().isDisplayed();
 			employementobj.Trans_CxFinancial_ShareHolderPercentage().click();
-			employementobj.Trans_CxFinancial_ShareHolderPercentage().sendKeys(employmentdata.ShareHolderPercentage);
+			employementobj.Trans_CxFinancial_ShareHolderPercentage().sendKeys(testData.get("ShareHolderPercentage"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_ShareHolderPercentage().getAttribute("type"),"number");
 	    }
 
@@ -713,7 +740,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_NoOfEmployees(), 60, 2);
 			employementobj.Trans_CxFinancial_NoOfEmployees().isDisplayed();
 			employementobj.Trans_CxFinancial_NoOfEmployees().click();
-			employementobj.Trans_CxFinancial_NoOfEmployees().sendKeys(employmentdata.NoOfEmployees);
+			employementobj.Trans_CxFinancial_NoOfEmployees().sendKeys(testData.get("NoOfEmployees"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_NoOfEmployees().getAttribute("type"),"number");	
 	    }
 
@@ -722,7 +749,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_Remarks(), 60, 2);
 			employementobj.Trans_CxFinancial_Remarks().isDisplayed();
 			employementobj.Trans_CxFinancial_Remarks().click();
-			employementobj.Trans_CxFinancial_Remarks().sendKeys(employmentdata.Remarks);
+			employementobj.Trans_CxFinancial_Remarks().sendKeys(testData.get("Remarks"));
 	    }
 
 	    @Then("^save the record in customer employment$")
@@ -731,6 +758,7 @@ Thread.sleep(1000);
 	    	//helper.scrollIntoView(employementobj.Trans_CxFinancial_EmploymentPeriod());
 			employementobj.CustomerEmployment_SaveButton().isDisplayed();
 			employementobj.CustomerEmployment_SaveButton().click();	
+			Thread.sleep(2000);
 	
 	    }
 	    @And("^Fill and verify the field Direct Manager telephone in customer employment$")
@@ -738,7 +766,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_directManagerTelephone(), 60, 2);
 			employementobj.Trans_CxFinancial_directManagerTelephone().isDisplayed();
 			employementobj.Trans_CxFinancial_directManagerTelephone().click();
-			employementobj.Trans_CxFinancial_directManagerTelephone().sendKeys(employmentdata.DirectManagerTelephone);
+			employementobj.Trans_CxFinancial_directManagerTelephone().sendKeys(testData.get("DirectManagerTelephone"));
 			Assert.assertEquals(employementobj.Trans_CxFinancial_directManagerTelephone().getAttribute("type"),"text");	
 	    }
 
@@ -747,7 +775,7 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_DirectManager(), 60, 2);
 			employementobj.Trans_CxFinancial_DirectManager().isDisplayed();
 			employementobj.Trans_CxFinancial_DirectManager().click();
-			employementobj.Trans_CxFinancial_DirectManager().sendKeys(employmentdata.DirectManager);
+			employementobj.Trans_CxFinancial_DirectManager().sendKeys(testData.get("DirectManager"));
 	    }
 	  
 
@@ -755,11 +783,10 @@ Thread.sleep(1000);
 	    public void fill_the_state_in_customer_employment() throws Throwable {
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_cxFinancial_State(), 60, 2);
 			employementobj.Trans_cxFinancial_State().isDisplayed();
-			employementobj.Trans_cxFinancial_State().click();
 	    	for (int i = 0; i < 60; i++) {
 				try {
-			
-	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + employmentdata.State
+					employementobj.Trans_cxFinancial_State().click();
+	    	driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("State")
 					+ "')]/following-sibling::ion-radio")).click();
 	    	break;
 	    }
@@ -774,18 +801,19 @@ Thread.sleep(1000);
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_Pincode(), 60, 2);
 			employementobj.Trans_CxFinancial_Pincode().isDisplayed();
 			employementobj.Trans_CxFinancial_Pincode().click();
-			employementobj.Trans_CxFinancial_Pincode().sendKeys(employmentdata.Pincode);	    }
+			employementobj.Trans_CxFinancial_Pincode().sendKeys(testData.get("Pincode"));	    }
 
 	    @Then("^Fill the experience at current employment in customer employment$")
 	    public void fill_the_experience_at_current_employment_in_customer_employment() throws Throwable {
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_ExpCurrentEmp(), 60, 2);
 			employementobj.Trans_CxFinancial_ExpCurrentEmp().isDisplayed();
 			employementobj.Trans_CxFinancial_ExpCurrentEmp().click();
-			employementobj.Trans_CxFinancial_ExpCurrentEmp().sendKeys(employmentdata.ExperienceAtCurrentEmployment);	  
+			employementobj.Trans_CxFinancial_ExpCurrentEmp().sendKeys(testData.get("ExperienceAtCurrentEmployment"));	
+			Thread.sleep(2000);
 			}
 	    @Then("^verify field Employer name in listview of the customer employment$")
 	    public void verify_field_employer_name_in_listview_of_the_customer_employment() throws Throwable {
-
+Thread.sleep(2000);
 	    	String xpath = "(//table[1]/tbody[1]/tr[1]/td[3])[3]";
 			action.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, driver.findElement(By.xpath(xpath)), 60,
 					2);
@@ -837,7 +865,7 @@ Thread.sleep(1000);
 			//}
 
 			employementobj.CustomerEmployment_ListViewSearchtext().click();
-			employementobj.CustomerEmployment_ListViewSearchtext().sendKeys("Bank");
+			employementobj.CustomerEmployment_ListViewSearchtext().sendKeys(testData.get("MatchedData"));
 			employementobj.CustomerEmployment_MachedDataList().getText();
 			Assert.assertEquals(employementobj.CustomerEmployment_MachedDataList().isDisplayed(), true);
 
@@ -857,7 +885,7 @@ Thread.sleep(1000);
 				}
 			}
 			employementobj.CustomerEmployment_ListViewSearchtext().click();
-			employementobj.CustomerEmployment_ListViewSearchtext().sendKeys("###");
+			employementobj.CustomerEmployment_ListViewSearchtext().sendKeys(testData.get("UnMatchedData"));
 			Thread.sleep(1000);
 			String xpath = "//span[contains(text(),'Showing 0 to 0 of 0 entries')]";
 			for (int i = 0; i < 200; i++) {
@@ -940,10 +968,15 @@ Thread.sleep(1000);
 
 	    @Then("^save the record in customer employment as salaried$")
 	    public void save_the_record_in_customer_employment_as_salaried() throws Throwable {
+	    	helper.scrollIntoView(employementobj.Trans_CxFinancial_EmployerName());
+
+	    	Thread.sleep(2000);
 	    	helper.scrollIntoView(employementobj.Trans_CxFinancial_EmploymentPeriod());
+	    	Thread.sleep(1000);
 	    	helper.scrollIntoView(employementobj.CustomerEmployment_SaveButton());
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.CustomerEmployment_SaveButton(), 60, 2);
 			employementobj.CustomerEmployment_SaveButton().isDisplayed();
+			clicksAndActionsHelper.moveToElement(employementobj.CustomerEmployment_SaveButton());
 			employementobj.CustomerEmployment_SaveButton().click();	
 	
 	    }
@@ -966,7 +999,7 @@ Thread.sleep(1000);
 	    	helper.scrollIntoView(employementobj.Trans_CxFinancial_NoOFPartners());
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_NoOFPartners(), 60, 5);
 	    	employementobj.Trans_CxFinancial_NoOFPartners().click();
-	    	employementobj.Trans_CxFinancial_NoOFPartners().sendKeys(employmentdata.InvalidValue);
+	    	employementobj.Trans_CxFinancial_NoOFPartners().sendKeys(testData.get("InvalidValue"));
 	    	String attribute = employementobj.Trans_CxFinancial_NoOFPartners_verification().getAttribute("ng-reflect-model");
 	    	int number = Integer.parseInt(attribute);
 	    	System.out.println("This field pass Numeric value only" +attribute);
@@ -982,7 +1015,7 @@ Thread.sleep(1000);
 	    	helper.scrollIntoView(employementobj.Trans_CxFinancial_EmployeeID());
 	    	waithelper.waitForElementToVisibleWithFluentWait(driver, employementobj.Trans_CxFinancial_EmployeeID(), 60, 5);
 	    	employementobj.Trans_CxFinancial_EmployeeID().click();
-	    	employementobj.Trans_CxFinancial_EmployeeID().sendKeys(employmentdata.SpecialCharacter);
+	    	employementobj.Trans_CxFinancial_EmployeeID().sendKeys(testData.get("SpecialCharacter"));
 	    }
 	    @Then("^user verify the Required field proper validation message$")
 	    public void user_verify_the_required_field_proper_validation_message() throws Throwable {
@@ -1039,7 +1072,7 @@ Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.Trans_CxFinancial_EmploymentPeriod(), 10, 1);
 			employementobj.Trans_CxFinancial_EmploymentPeriod().click();
-			String xpath = "//ion-label[text()=' " + employmentdata.defaultSelectValue
+			String xpath = "//ion-label[text()=' " + testData.get("defaultSelectValue")
 					+ " ']/parent::ion-item/ion-radio";
 			for (int i = 0; i <= 15; i++) {
 				try {
@@ -1061,7 +1094,7 @@ Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.Trans_CxFinancial_NatureOfEmployment(), 10, 1);
 			employementobj.Trans_CxFinancial_NatureOfEmployment().click();
-			String xpath = "//ion-label[text()=' " + employmentdata.defaultSelectValue
+			String xpath = "//ion-label[text()=' " + testData.get("defaultSelectValue")
 					+ " ']/parent::ion-item/ion-radio";
 			for (int i = 0; i <= 15; i++) {
 				try {
@@ -1082,7 +1115,7 @@ Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.Trans_CxFinancial_EmployerName(), 10, 1);
 			employementobj.Trans_CxFinancial_EmployerName().click();
-			String xpath = "//ion-label[text()=' " + employmentdata.defaultSelectValue
+			String xpath = "//ion-label[text()=' " + testData.get("defaultSelectValue")
 					+ " ']/parent::ion-item/ion-radio";
 			for (int i = 0; i <= 15; i++) {
 				try {
@@ -1162,7 +1195,7 @@ Thread.sleep(1000);
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.Trans_CxFinancial_EmploymentType(), 10, 1);
 			employementobj.Trans_CxFinancial_EmploymentType().click();
-			String xpath = "//ion-label[text()=' " + employmentdata.defaultSelectValue
+			String xpath = "//ion-label[text()=' " + testData.get("defaultSelectValue")
 					+ " ']/parent::ion-item/ion-radio";
 			for (int i = 0; i <= 15; i++) {
 				try {
@@ -1205,7 +1238,7 @@ Thread.sleep(1000);
 
 		@And("^blank the total experience input field$")
 		public void blank_the_total_experience_input_field() throws Throwable {
-
+			helper.scrollIntoView(employementobj.Trans_CxFinancial_TotalExperienceYears());
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsTotalExperienceYearsDateInputBox(), 10, 1);
 			int length = employementobj.customerEmploymentDetailsTotalExperienceYearsDateInputBox()
@@ -1265,6 +1298,7 @@ Thread.sleep(1000);
 					}
 				}
 			}
+			clicksAndActionsHelper.moveToElement(employementobj.CustomerEmployment_SaveButton());
 			employementobj.CustomerEmployment_SaveButton().click();
 
 		}
@@ -1283,7 +1317,7 @@ Thread.sleep(1000);
 			}
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmploymentPeriodFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+				testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify nature of employment field should show the validation for required field$")
@@ -1300,7 +1334,7 @@ Thread.sleep(1000);
 			}
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsnatureOfEmploymentFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify employer name if other field should show the validation for required field$")
@@ -1319,7 +1353,7 @@ Thread.sleep(1000);
 					employementobj.customerEmploymentDetailsEmployerNameIfOtherFieldvalidation(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmployerNameIfOtherFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify employee ID field should show the validation for required field$")
@@ -1335,7 +1369,7 @@ Thread.sleep(1000);
 				}
 			}
 			Assert.assertEquals(employementobj.customerEmploymentDetailsEmployeeIDFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify Date of joining field should show the validation for required field$")
@@ -1353,7 +1387,7 @@ Thread.sleep(1000);
 			}
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsdateOfJoiningFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify employment type field should show the validation for required field$")
@@ -1370,7 +1404,7 @@ Thread.sleep(1000);
 			}
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmploymentTypeFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify total experience field should show the validation for required field$")
@@ -1388,7 +1422,7 @@ Thread.sleep(1000);
 			}
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsTotalExperienceYearsFieldvalidation().getText(),
-					employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 		}
 
 		@Then("^verify retirement age field should show the validation for required field$")
@@ -1407,7 +1441,7 @@ Thread.sleep(1000);
 			if (status == true) {
 				Assert.assertEquals(
 						employementobj.customerEmploymentDetailsretirementAgeYearsFieldvalidation().getText(),
-						employmentdata.mandatoryBlankFieldValidation);
+					testData.get("mandatoryBlankFieldValidation"));
 			} else {
 				softAssert.assertTrue(status,
 						" Retirement field is mandatory field but it not through the blank field validation while saving hence test step failed");
@@ -1429,12 +1463,12 @@ Thread.sleep(1000);
 				}
 			}
 			employementobj.Trans_CxFinancialEmployerNameIfOther()
-					.sendKeys(employmentdata.specialCharacterInput);
+					.sendKeys(testData.get("specialCharacterInput"));
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsEmployerNameIfOtherFieldvalidation(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmployerNameIfOtherFieldvalidation().getText(),
-					employmentdata.SpecialCharacterFieldValidation);
+					testData.get("SpecialCharacterFieldValidation"));
 		}
 
 		@Then("^verify employee ID field should through the validation for special character input$")
@@ -1443,12 +1477,12 @@ Thread.sleep(1000);
 					employementobj.Trans_CxFinancial_EmployeeID(), 10, 1);
 			employementobj.Trans_CxFinancial_EmployeeID().clear();
 			employementobj.Trans_CxFinancial_EmployeeID()
-					.sendKeys(employmentdata.specialCharacterInput);
+					.sendKeys(testData.get("specialCharacterInput"));
 
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsEmployeeIDFieldvalidation(), 10, 1);
 			Assert.assertEquals(employementobj.customerEmploymentDetailsEmployeeIDFieldvalidation().getText(),
-					employmentdata.SpecialCharacterFieldValidation);
+					testData.get("SpecialCharacterFieldValidation"));
 
 		}
 
@@ -1466,12 +1500,12 @@ Thread.sleep(1000);
 				}
 			}
 			employementobj.Trans_CxFinancial_directManagerTelephone()
-					.sendKeys(employmentdata.specialCharacterInput);
+					.sendKeys(testData.get("specialCharacterInput"));
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.Trans_CxFinancial_directManagerTelephone(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsDirectManagerTelePhoneFieldvalidation().getText(),
-					employmentdata.SpecialCharacterFieldValidation);
+					testData.get("SpecialCharacterFieldValidation"));
 		}
 
 		@Then("^verify employer phone number field should through the validation for special character input$")
@@ -1481,13 +1515,13 @@ Thread.sleep(1000);
 					employementobj.Trans_CxFinancial_EmployerPhoneNumber(), 10, 1);
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber().clear();
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber()
-					.sendKeys(employmentdata.specialCharacterInput);
+					.sendKeys(testData.get("specialCharacterInput"));
 
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsEmployerPhoneNumberFieldvalidation(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmployerPhoneNumberFieldvalidation().getText(),
-					employmentdata.MobileNumberValidation1);
+					testData.get("MobileNumberValidation1"));
 
 		}
 
@@ -1498,13 +1532,13 @@ Thread.sleep(1000);
 					employementobj.Trans_CxFinancial_DirectManager(), 10, 1);
 			employementobj.Trans_CxFinancial_DirectManager().clear();
 			employementobj.Trans_CxFinancial_DirectManager()
-					.sendKeys(employmentdata.specialCharacterInput);
+					.sendKeys(testData.get("specialCharacterInput"));
 
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsDirectManagerFieldvalidation(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsDirectManagerFieldvalidation().getText(),
-					employmentdata.SpecialCharacterFieldValidation);
+					testData.get("SpecialCharacterFieldValidation"));
 		}
 
 		@Then("^verify system should not allow user to enter more that 10 digit phone number and less than 10 digit phone number in employer phone number field$")
@@ -1514,20 +1548,20 @@ Thread.sleep(1000);
 					employementobj.Trans_CxFinancial_EmployerPhoneNumber(), 10, 1);
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber().clear();
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber()
-					.sendKeys(employmentdata.lessThanTenDigitPhoneNumber);
+					.sendKeys(testData.get("lessThanTenDigitPhoneNumber"));
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation().getText(),
-					employmentdata.MobileNumberValidation2);
+					testData.get("MobileNumberValidation2"));
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber().clear();
 			employementobj.Trans_CxFinancial_EmployerPhoneNumber()
-					.sendKeys(employmentdata.greaterThatTeonDigitPhoneNumber);
+					.sendKeys(testData.get("greaterThatTeonDigitPhoneNumber"));
 			waithelper.waitForElementToVisibleWithFluentWait(driver,
 					employementobj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation(), 10, 1);
 			Assert.assertEquals(
 					employementobj.customerEmploymentDetailsEmployerPhoneNumber2Fieldvalidation().getText(),
-					employmentdata.MobileNumberValidation2);
+					testData.get("MobileNumberValidation2"));
 		}
 
 		@Then("^verify the functionlaity of back button in customer EmploymentDetails screen$")
@@ -1549,8 +1583,30 @@ Thread.sleep(1000);
 			softAssert.assertAll();
 
 		}
+		@Then("^Choose the dataset id to verify field when nature of employment is Salaried$")
+	    public void choose_the_dataset_id_to_verify_field_when_nature_of_employment_is_salaried() throws Throwable {
+			testData=excelData.getTestdata("AT-CE-001-D1");
+	    }
 
+		 @Then("^Choose the data set id to verify nature of employment as self employed$")
+		    public void choose_the_data_set_id_to_verify_nature_of_employment_as_self_employed() throws Throwable {
+				testData=excelData.getTestdata("AT-CE-002-D1");
 
+		 }
+		 @And("^Choose the data set id for list view validation in customer employment$")
+		    public void choose_the_data_set_id_for_list_view_validation_in_customer_employment() throws Throwable {
+				testData=excelData.getTestdata("AT-CE-008-D1");
 
+		 }
+		 @Then("^choose the data set id for invalid data in customer employment$")
+		    public void choose_the_data_set_id_for_invalid_data_in_customer_employment() throws Throwable {
+				testData=excelData.getTestdata("AT-CE-004-D1");
+
+		 }
+		 @Then("^Choose the data set id for invalid input for updation in customer employment$")
+		    public void choose_the_data_set_id_for_invalid_input_for_updation_in_customer_employment() throws Throwable {
+				testData=excelData.getTestdata("AT-CE-005-D1");
+		    }
+		  
 	    
 }

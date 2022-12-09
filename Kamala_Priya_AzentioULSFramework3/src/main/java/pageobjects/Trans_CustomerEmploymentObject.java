@@ -19,7 +19,7 @@ private WebElement Trans_CxEmplyObj_InboxIcon1;
 public WebElement Trans_CxEmplyObj_InboxIcon() {
 	return Trans_CxEmplyObj_InboxIcon1;
 }
-@FindBy(xpath="(//button[@ng-reflect-text='Search'])[1]")
+@FindBy(xpath="//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]/span[1]")//(//button[@ng-reflect-text='Search'])[1]")
 private WebElement Trans_CxEmplyObj_SearchButton1;
 public WebElement Trans_CxEmplyObj_SearchButton() {
 	return Trans_CxEmplyObj_SearchButton1;
@@ -29,7 +29,7 @@ private WebElement Trans_CxEmplyObj_SearchBar1;
 public WebElement Trans_CxEmplyObj_SearchBar() {
 	return Trans_CxEmplyObj_SearchBar1;
 }
-@FindBy(xpath="(//td[text()=' APPDATAENT '])[1]//preceding-sibling::td[3]/button")
+@FindBy(xpath="//tbody/tr[1]/td[1]/button[1]")//(//td[contains(text(),'APPDATAENT')])[1]//preceding-sibling::td[7]/button")
 private WebElement Trans_CxEmplyObj_ActionIcon1;
 public WebElement Trans_CxEmplyObj_ActionIcon() {
 	return Trans_CxEmplyObj_ActionIcon1;
@@ -259,7 +259,7 @@ private WebElement CustomerEmployment_BackButtonButton1;
 public WebElement CustomerEmployment_BackButtonButton() {
     return CustomerEmployment_BackButtonButton1;
 }
-@FindBy(xpath = "(//span[text()='Bank of America '])[2]")
+@FindBy(xpath = "//span[contains(text(),'Bank')]")
 private WebElement CustomerEmployment_MachedDataList1;
 public WebElement CustomerEmployment_MachedDataList() {
     return CustomerEmployment_MachedDataList1;

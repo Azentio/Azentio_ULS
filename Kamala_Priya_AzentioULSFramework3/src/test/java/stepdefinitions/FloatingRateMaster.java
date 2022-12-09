@@ -106,7 +106,7 @@ public void to_verify_the_red_astriek_mark_on_all_the_mandatory_fields() throws 
 
 @And("^Select the Index Rate type$")
 public void select_the_index_rate_type() throws Throwable {
-	testData = excelData.getTestdata("AT-FRM-T001_D2");
+	testData = excelData.getTestdata("AT-FRM-T001_D1");
     
 	waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.floatingMaster_IndexRateTypeDropdown(), 60, 2);
 	clickAndAction.moveToElement(floatingMstObj.floatingMaster_IndexRateTypeDropdown());
@@ -342,7 +342,7 @@ public void print_the_validation_output_in_floating_rate_master() throws Throwab
 public void check_the_functionality_of_invalid_input() throws Throwable {
 	waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.floatingMaster_IndexRate(), 60, 2);
 	floatingMstObj.floatingMaster_IndexRate().click();
-	floatingMstObj.floatingMaster_IndexRate().sendKeys("1234567890");
+	floatingMstObj.floatingMaster_IndexRate().sendKeys(testData.get("Invalid Input"));
 	WebElement errorPopUp = driver.findElement(By.xpath("//ion-badge[contains(text(),'Maximum 8 characters are allowed')]"));
 	String expectedErrorText = "Maximum 8 characters are allowed";
 	String actualErrorText = errorPopUp.getText();
@@ -389,7 +389,7 @@ public void to_verify_the_functionality_of_search_box_with_matching_data_in_a_fl
 	}
 
 	floatingMstObj.FloatingMaster_ListViewSearchText().click();
-	floatingMstObj.FloatingMaster_ListViewSearchText().sendKeys("111");
+	floatingMstObj.FloatingMaster_ListViewSearchText().sendKeys(testData.get("Matched Record"));
 	floatingMstObj.floatingMaster_IndexRate().getText();
 	Assert.assertEquals(floatingMstObj.floatingMaster_IndexRate().isDisplayed(), true);
 }
@@ -406,7 +406,7 @@ public void to_verify_the_functionality_of_search_box_with_mismatch_data_in_floa
 		}
 	}
 	floatingMstObj.FloatingMaster_ListViewSearchText().click();
-	floatingMstObj.FloatingMaster_ListViewSearchText().sendKeys("###");
+	floatingMstObj.FloatingMaster_ListViewSearchText().sendKeys(testData.get("Unmatched value"));
 	Thread.sleep(1000);
 	String xpath = "//span[contains(text(),'Showing 0 to 0 of 0 entries')]";
 	for (int i = 0; i < 200; i++) {
@@ -502,6 +502,21 @@ public void get_the_reference_id_and_store_it_in_json_in_floating_rate_master() 
 		System.out.println(RefId);
 		testData = excelData.getTestdata("Reference ID");
 }
+@Then("^Get the reference id and store it in excel set2 in floating rate master$")
+public void get_the_reference_id_and_store_it_in_excel_set2_in_floating_rate_master() throws Throwable {
+	 waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.GetRefId(), 60, 2);
+	 String RefId = floatingMstObj.GetRefId().getText();
+		System.out.println(RefId);
+		testData = excelData.getTestdata("Reference ID");
+}
+
+@Then("^Get the reference id and store it in excel set3 in floating rate master$")
+public void get_the_reference_id_and_store_it_in_excel_set3_in_floating_rate_master() throws Throwable {
+	 waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.GetRefId(), 60, 2);
+	 String RefId = floatingMstObj.GetRefId().getText();
+		System.out.println(RefId);
+		testData = excelData.getTestdata("Reference ID");
+}
 
 @And("^Search the record in Floating rate master$")
 public void search_the_record_in_floating_rate_master() throws Throwable {
@@ -575,6 +590,48 @@ public void search_the_reference_id_and_click_the_respective_action_icon_in_floa
    // json.addReferanceData(reference);
     System.out.println(reference);
 }
+@And("^Search the reference id and click the respective action icon in floating rate master for checker reject$")
+public void search_the_reference_id_and_click_the_respective_action_icon_in_floating_rate_master_for_checker_reject() throws Throwable {
+	String reference = null;
+    for (int i = 0; i < 200; i++) {
+		try {
+		 reference = floatingMstObj.FloatingReferanceId().getText();
+		 break;
+		} catch (Exception e) {
+			
+		}
+	}
+    
+	waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.firstEditIconInListView(), 60, 2);
+
+	floatingMstObj.firstEditIconInListView().click();
+    
+  
+    excelData.updateTestData("AT-FRM-T002_D2","Reference ID",reference);
+   // json.addReferanceData(reference);
+    System.out.println(reference);
+}
+@And("^Search the reference id and click the respective action icon in floating rate master for checker return$")
+public void search_the_reference_id_and_click_the_respective_action_icon_in_floating_rate_master_for_checker_return() throws Throwable {
+	String reference = null;
+    for (int i = 0; i < 200; i++) {
+		try {
+		 reference = floatingMstObj.FloatingReferanceId().getText();
+		 break;
+		} catch (Exception e) {
+			
+		}
+	}
+    
+	waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.firstEditIconInListView(), 60, 2);
+
+	floatingMstObj.firstEditIconInListView().click();
+    
+  
+    excelData.updateTestData("AT-FRM-T002_D3","Reference ID",reference);
+   // json.addReferanceData(reference);
+    System.out.println(reference);
+}
 
 @And("^Select the remark to approve the record in floating rate master$")
 public void select_the_remark_to_approve_the_record_in_floating_rate_master() throws Throwable {
@@ -606,6 +663,36 @@ public void get_the_checker_id_and_store_it_in_a_excel() throws Throwable {
     System.out.println(popupID);
     //json.addData(popupID);
     
+}
+@Then("^Get the checker id and store it in a excel for set2 creation$")
+public void get_the_checker_id_and_store_it_in_a_excel_for_set2_creation() throws Throwable {
+	waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.Checker_Id(), 60, 2);
+    String sucessmgs = floatingMstObj.Checker_Id().getText();
+    System.out.println(sucessmgs);
+    String Space = " ";
+    String split[] = sucessmgs.split(" ");
+    Space=split[split.length-1];
+    String popupID = Space.replaceAll("[/.]", "");
+   Thread.sleep(1000);
+    excelData.updateTestData("AT-FRM-T001_D2","Checker id",popupID);
+    System.out.println(popupID);
+    //json.addData(popupID);
+    	
+}
+
+@Then("^Get the checker id and store it in a excel for set3 creation$")
+public void get_the_checker_id_and_store_it_in_a_excel_for_set3_creation() throws Throwable {
+	waitHelper.waitForElementToVisibleWithFluentWait(driver, floatingMstObj.Checker_Id(), 60, 2);
+    String sucessmgs = floatingMstObj.Checker_Id().getText();
+    System.out.println(sucessmgs);
+    String Space = " ";
+    String split[] = sucessmgs.split(" ");
+    Space=split[split.length-1];
+    String popupID = Space.replaceAll("[/.]", "");
+   Thread.sleep(1000);
+    excelData.updateTestData("AT-FRM-T001_D3","Checker id",popupID);
+    System.out.println(popupID);
+    //json.addData(popupID);
 }
 
 //*******************Checker reject***********************///
@@ -792,6 +879,23 @@ for (int i = 0; i < 40; i++) {
 	floatingMstObj.floatingMaster_Remarks().sendKeys(testData.get("Remark"));
 	}	
 
+@Then("^choose the data set id for checker approve in floating rate master$")
+public void choose_the_data_set_id_for_checker_approve_in_floating_rate_master() throws Throwable {
+	testData = excelData.getTestdata("AT-FRM-T001_D1");
+
+}
+@Then("^choose the data set id for creation of set2 for floating rate master$")
+public void choose_the_data_set_id_for_creation_of_set2_for_floating_rate_master() throws Throwable {
+	testData = excelData.getTestdata("AT-FRM-T001_D2");
+}
+@Then("^choose the data set id for creation of set3 for floating rate master$")
+public void choose_the_data_set_id_for_creation_of_set3_for_floating_rate_master() throws Throwable {
+	testData = excelData.getTestdata("AT-FRM-T001_D3");
+}
+@Then("^choose the data set id for checker return in floartig rate master$")
+public void choose_the_data_set_id_for_checker_return_in_floartig_rate_master() throws Throwable {
+
+}
 }
 
 

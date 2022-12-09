@@ -2,6 +2,7 @@ Feature: Verify the functionalities of policy check
 @PolicyCheck_001
 Scenario: To verify the Policy Check List view record validation
 Given Launch the kuls application and Navigate to Application details view list
+Then Choose the data set id for list view validation in policy check
 Then click the inbox in application
 And Search for app data entry record
 Then Click the action icon of the app data entry

@@ -68,7 +68,7 @@ public class Trans_PolicyCheckObject {
 	public WebElement PolicyCheckSummary_Count() {
 		return PolicyCheckSummary_Count1;
 	}
-	@FindBy(xpath = "//span[text()=' Result Id ']")
+	@FindBy(xpath = "//span[text()=' Result ']")
 	private WebElement CreditPolicy_ResultID1;
 	public WebElement CreditPolicy_ResultID() {
 		return CreditPolicy_ResultID1;

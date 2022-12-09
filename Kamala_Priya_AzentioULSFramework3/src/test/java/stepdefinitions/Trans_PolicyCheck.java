@@ -3,6 +3,7 @@ package stepdefinitions;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.Trans_PolicyCheckObject;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.KULS_Login_TestDataType;
 
 public class Trans_PolicyCheck {
@@ -28,7 +30,8 @@ public class Trans_PolicyCheck {
 	WaitHelper waithelper = new WaitHelper(driver);
 	List<String> xlsList = new ArrayList<>();
 	Trans_PolicyCheckObject policycheckobj=new Trans_PolicyCheckObject(driver);
-	
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","policyCheck","Data Set ID");
+	Map<String, String> testData;
 	
 	@Then("^click the inbox in application$")
     public void click_the_inbox_in_application() throws Throwable {
@@ -42,7 +45,7 @@ public class Trans_PolicyCheck {
 		policycheckobj.PolicyCheck_SearchButton().click();
 		waithelper.waitForElementToVisibleWithFluentWait(driver, policycheckobj.PolicyCheck_SearchText(), 60, 2);
 		policycheckobj.PolicyCheck_SearchText().click();
-		policycheckobj.PolicyCheck_SearchText().sendKeys("406");
+		policycheckobj.PolicyCheck_SearchText().sendKeys(testData.get("SearchText"));
     }
     
     @Then("^Click the action icon of the app data entry$")
@@ -167,7 +170,7 @@ public class Trans_PolicyCheck {
     	}
 
     	policycheckobj.Searchtext2().click();
-    	policycheckobj.Searchtext2().sendKeys("New Azentio");
+    	policycheckobj.Searchtext2().sendKeys(testData.get("MatchedData"));
     	policycheckobj.MatchedData().getText();
     	Assert.assertEquals(policycheckobj.MatchedData().isDisplayed(), true);
     }
@@ -185,7 +188,7 @@ public class Trans_PolicyCheck {
     		}
     	}
     	policycheckobj.Searchtext2().click();
-    	policycheckobj.Searchtext2().sendKeys("###");
+    	policycheckobj.Searchtext2().sendKeys(testData.get("UnMatchedData"));
     	Thread.sleep(1000);
     	String xpath = "//span[contains(text(),'Showing 0 to 0 of 0 entries')]";
     	for (int i = 0; i < 200; i++) {
@@ -272,7 +275,11 @@ public class Trans_PolicyCheck {
     	policycheckobj.CreditPolicy_Result().isDisplayed();
     }
 
-  
+
+    @Then("^Choose the data set id for list view validation in policy check$")
+    public void choose_the_data_set_id_for_list_view_validation_in_policy_check() throws Throwable {
+testData=excelData.getTestdata("AT-PC-001-D1");
+}
 
 
 

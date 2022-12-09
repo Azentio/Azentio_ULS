@@ -145,7 +145,6 @@ And Click the configuration
 Then Click the config Manager
 And Click the temp view of the alloction master
 And Verify the functionality of add button in allocation master
-Then Verify the values in the list view is not editable in allocation master
 Then To verify the functionality of Search box with matching data in alloction master list view
 And To verify the functionality of Search box with mismatch data in allocation master in list view
 Then To verify the functionality of Export to PDF button in allocation master in list view

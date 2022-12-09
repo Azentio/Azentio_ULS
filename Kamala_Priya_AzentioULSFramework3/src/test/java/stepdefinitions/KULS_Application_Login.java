@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 
+import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.JavascriptHelper;
 import helper.WaitHelper;
@@ -18,6 +19,7 @@ public class KULS_Application_Login {
 	WaitHelper waithelper;
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper;
+	ConfigFileReader configFileReader = new ConfigFileReader();
 
 	public KULS_Application_Login(WebDriver driver) {
 		this.driver = driver;
@@ -27,6 +29,7 @@ public class KULS_Application_Login {
 	KULS_Login_TestDataType ulsUserLoginCredentials;
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","LoginCredentilas","Stage");
 	Map<String, String> testdata;
+
 
 	public void loginUlsApplicationAsMaker(String username, String password) throws InterruptedException {
 		waithelper = new WaitHelper(driver);
@@ -42,6 +45,27 @@ public class KULS_Application_Login {
 		loginObj.password().sendKeys(password);
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
 		loginObj.signIn().click();
+		while(true) {
+            try {
+                waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.loginPage(), 3, 2);
+                assertEquals(loginObj.loginPage().isDisplayed(), true);
+                break;
+            } catch (Exception e) {
+                String kulsApplicationUrl = configFileReader.getApplicationTransactionUrl();
+                driver.get(kulsApplicationUrl);
+                waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+                loginObj.userId().click();
+                loginObj.userId().sendKeys(username);
+                waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+                loginObj.continueButton().click();
+                waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+                loginObj.password().click();
+                loginObj.password().sendKeys(password);
+                Thread.sleep(1000);
+                waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+                loginObj.signIn().click();
+            }
+		}
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.ModuleName(), 60, 5);
 		loginObj.ModuleName().click();
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.LOS(), 60, 5);

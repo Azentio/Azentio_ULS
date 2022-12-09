@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageobjects.ApplicationdetailDisbmtMakerObject;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.ApplicationDisbursementMakerTestData;
 import testDataType.KULS_Login_TestDataType;
 
@@ -28,13 +31,19 @@ public class ApplicationDetail_disbursmentMaker extends BaseClass {
 			.getApplication_DisbursementMakerListByName("Maker");
 	ApplicationdetailDisbmtMakerObject disbmtmaker = new ApplicationdetailDisbmtMakerObject(driver);
 	WaitHelper waithelper = new WaitHelper(driver);
-
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","CustomerEmployment","Data Set ID");
+	Map<String, String> testData;
+	
 	@Given("^Launch the kuls application and Navigate to Application details view list$")
 	public void launch_the_kuls_application_and_navigate_to_application_details_view_list() throws Throwable {
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","LoginCredentilas","Stage");
+        Map<String, String> testdata = excelData.getTestdata("Maker2");
 		String kulsApplicationUrl = configFileReader.getApplicationTransactionUrl();
 		driver.get(kulsApplicationUrl);
 		System.out.println();
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username1, loginData.Password1);
+		applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"),testdata.get("Password"));
+
+		//applicationLogin.loginUlsApplicationAsMaker(loginData.Username1, loginData.Password1);
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				disbmtmaker.TransactionButtonInLeftPanel(), 60, 2);
 		disbmtmaker.TransactionButtonInLeftPanel().click();

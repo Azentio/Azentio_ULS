@@ -267,7 +267,7 @@ Then Click the config Manager
 And Click the temp view icon of charge master
 Then verify the the returned record is in the list view in charge master
 
-@ChargeMaster_M2
+@ChargeMaster_M6
 Scenario: Validation of save with invalid and blank field in a Charge Master record
 Given Get the URL and login as maker
 And Click the configuration

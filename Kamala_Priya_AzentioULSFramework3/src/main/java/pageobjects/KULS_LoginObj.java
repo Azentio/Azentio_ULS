@@ -21,6 +21,11 @@ public class KULS_LoginObj {
 	public WebElement continueButton() {
 		return continueButton;
 	}
+	@FindBy(xpath="//ion-content[1]/div[1]/img[1]")
+    private WebElement loginPage;
+    public WebElement loginPage() {
+        return loginPage;
+    }
 	@FindBy(xpath="//ion-item/ion-input[@type='password']/input")
 	private WebElement password;
 	public WebElement password() {
