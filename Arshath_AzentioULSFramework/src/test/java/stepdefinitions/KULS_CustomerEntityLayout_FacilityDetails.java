@@ -33,7 +33,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 	JsonConfig jsonConfig = new JsonConfig();
 	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
-	TransactionScreenTestDataType Transactionjson = jsonConfig.getTransactionScreenListByName("Maker");
+	//TransactionScreenTestDataType Transactionjson = jsonConfig.getTransactionScreenListByName("Maker");
 	WaitHelper help = new WaitHelper(driver);
 	KULS_Login login = new KULS_Login();
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
@@ -86,7 +86,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	Transaction.searchiconreferenceid().click();
     	
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-    	Transaction.searchsentkeys().sendKeys(Transactionjson.FacilityDetails_Search);
+    	Transaction.searchsentkeys().sendKeys(testdata.get("Stagecode"));
     	
     	Thread.sleep(2000);
     	
@@ -391,7 +391,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	}
     	
     	
-    	String xpath = "//div[@class='p-yearpicker ng-tns-c230-18 ng-star-inserted']//child::span[contains(text(),'"+Transactionjson.FacilityDetails_Year+"')]";
+    	String xpath = "//div[@class='p-yearpicker ng-tns-c230-18 ng-star-inserted']//child::span[contains(text(),'"+testdata.get("FacilityDetails_Year")+"')]";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -407,7 +407,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 			}
 		}
 		
-    	String xpath1 = "//div[@class='p-monthpicker ng-tns-c230-18 ng-star-inserted']//child::span[contains(text(),'"+Transactionjson.FacilityDetails_Month+"')]";
+    	String xpath1 = "//div[@class='p-monthpicker ng-tns-c230-18 ng-star-inserted']//child::span[contains(text(),'"+testdata.get("FacilityDetails_Month")+"')]";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -421,7 +421,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
 			}
 		}
 		
-    	String xpath2 = "//table[@class='p-datepicker-calendar ng-tns-c230-18']//span[contains(text(),'"+Transactionjson.FacilityDetails_Day+"')]";
+    	String xpath2 = "//table[@class='p-datepicker-calendar ng-tns-c230-18']//span[contains(text(),'"+testdata.get("FacilityDetails_Day")+"')]";
 
 		for (int i = 1; i < 60; i++) {
 			try {
@@ -771,7 +771,7 @@ public class KULS_CustomerEntityLayout_FacilityDetails {
     	help.waitForElementToVisibleWithFluentWait(driver, Transaction.FacilityDetails_FacilityType(), 60, 5);
     	Transaction.FacilityDetails_ProgramCode().click();
     	
-    	String xpath = "//ion-label[contains(text(),'"+Transactionjson.FacilityDetails_FacilityTypeBlank+"')]//following-sibling::ion-radio";
+    	String xpath = "//ion-label[contains(text(),'"+testdata.get("ProgramCode")+"')]//following-sibling::ion-radio";
 
 		for (int i = 1; i < 60; i++) {
 			try {

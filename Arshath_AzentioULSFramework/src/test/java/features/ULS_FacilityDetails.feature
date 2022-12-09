@@ -4,12 +4,12 @@ Feature: To verify the functional flow for customer entity layout facility detai
 Scenario: To verify the functional flow for customer entity layout facility details
 Given User Launch the KULS url for Transaction
 And user click on Inbox Icon
+And User update the excel data for Facility details creation
 And User click the action edit icon in customer entity layout facility details
 And User click the facility info tab in customer entity layout facility details
 And User click the add icon in customer entity layout facility details
 And User click the back button in customer entity layout facility details
 And User click the add icon in customer entity layout facility details
-And User update the excel data for Facility details creation
 And User enter the Classification in customer entity layout facility details
 And User enter the product in customer entity layout facility details
 And User enter the scheme in customer entity layout facility details

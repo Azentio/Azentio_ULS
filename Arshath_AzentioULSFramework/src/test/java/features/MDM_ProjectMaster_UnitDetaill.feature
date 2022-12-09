@@ -2,6 +2,7 @@ Feature: Check the functionality of the Project Ubit Details
 @AT_PM_T015
 Scenario: verify the Unit details Parameter details List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 #When user click on Project set up menu
@@ -35,6 +36,7 @@ Then user verify the Record got Return
 @AT_PM_T022_1
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 #When user click product set up menu
@@ -44,6 +46,7 @@ Then User validate the Returned record in list view
 @AT_PM_T023
 Scenario: verify user is able to add new Unit details record in the system by entering valid data
 Given user log in as uls application maker
+Then user change Application Type as Los
 Then user click on configurations Tab
 When user click Config Manager menu
 #When user click on Project set up menu
@@ -58,11 +61,34 @@ And Enter the value in Unit No and verify it
 And Enter the value in Exposed No and verify it
 And user save the Record in unit Details and verify the Message
 
+@AT_PM_T024
+Scenario: verify user is able to modify Unit details record in the system
+Given user log in as uls application maker
+Then user change Application Type as Los
+Then user click on configurations Tab
+When user click Config Manager menu
+And user click on project master Temp view icon
+And user click on List view Edit Icon
+And user click on unit details Edit icon
+And user update the Excelsheet Testdata for modify 
+And Enter the Modify value in Building Name and verify it
+And Enter the Modify value in Unit No and verify it
+And Enter the Modify value in Floor and verify it
+And Enter the Modify value in Saleable Area sq ft and verify it
+And Enter the Modify value in Exposed No and verify it
+And user save the Record in unit Details and verify the Message
 
-
-
-
-
+@AT_PM_T024.1
+Scenario: verify user is able to modify Unit details record in the system
+Given user log in as uls application maker
+Then user change Application Type as Los
+Then user click on configurations Tab
+When user click Config Manager menu
+And user click on project master Temp view icon
+And user click on List view Edit Icon
+And user click on unit details Edit icon
+And Click the toggle button and change status
+And user save the Record in unit Details and verify the Message
 
 
 

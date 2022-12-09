@@ -29,7 +29,7 @@ And user verify the gender field
 And user verify the Education Level field
 And user verify the Marital status field
 And user verify the Nationality field
-And user verify the Ethinicity field
+#And user verify the Ethinicity field
 And user verify the Religion field
 And user verify the Residental status field
 And user verify the Language field
@@ -81,7 +81,7 @@ And user Enter the gender field
 And user Enter the Education Level field
 And user Enter the Marital status field
 And user Enter the Nationality field
-And user Enter the Ethinicity field
+#And user Enter the Ethinicity field
 And user Enter the Religion field
 And user Enter the Residental status field
 And user Enter the Language field

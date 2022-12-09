@@ -1136,7 +1136,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
         AppDataEntry.customerPersonalDetails_Save().isDisplayed();
         AppDataEntry.customerPersonalDetails_Save().click();
         Thread.sleep(1000);
-        Assert.assertEquals("Success", AppDataEntry.customerPersonalDetails_Alert().getText());
+        Assert.assertTrue(AppDataEntry.customerPersonalDetails_Alert().getText().contains("Success"));
         
     }
 	

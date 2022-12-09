@@ -133,7 +133,7 @@ public class ProjectMaster_Obj {
 		return Prd_Mst_Unitdetail_ExposedApplNo;
 	}
 
-	@FindBy(xpath = "//button[@ng-reflect-text='Save']")
+	@FindBy(xpath = "//button[@ng-reflect-icon='pi pi-save']")
 	private WebElement Prd_Mst_Unitdetail_Save;
 
 	public WebElement Prd_Mst_Unitdetail_Save() {
@@ -167,4 +167,12 @@ public class ProjectMaster_Obj {
 	public WebElement Unitdetails_Export() {
 		return Unitdetails_Export;
 	}
+	
+	@FindBy(xpath = "(//ion-title[contains(text(),'Unit Details')]/ancestor::ion-card//button[@icon=\"pi pi-pencil\"])[1]")
+	private WebElement Unitdetails_Edit_icon;
+	public WebElement Unitdetails_Edit_icon() {
+		return Unitdetails_Edit_icon;
+	}	
+			
+			
 }

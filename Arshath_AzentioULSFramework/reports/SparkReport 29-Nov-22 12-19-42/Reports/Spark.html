@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Automation Report HTML</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c43b89d03a7c43dae8bb8f0f078bad1997af6b3b/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Azentio Automation Suite Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Nov 29, 2022 12:19:42 pm</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@AT_PD_001</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">To test the property details tab</p>
+            <p class="text-sm">
+              <span>12:19:43 pm</span> / <span>31:37:711</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">To test the property details tab</h5>
+<span class='badge badge-success'>11.29.2022 12:19:43</span>
+<span class='badge badge-danger'>11.29.2022 12:21:21</span>
+<span class='badge badge-default'>31:37:711</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>To create the property details with valid data</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step fail-bg" title="stepdefinitions.CustomerEntityLayout_CustomerDebt_Step.user_launch_the_kuls_url_for_transaction()">
+                <span>Given User Launch the KULS url for Transaction</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=107.0.5304.121)
+Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
+System info: host: 'INMUVADP014547', ip: '10.1.47.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [318b8dd05ec7d47e253f467dbf6a929e, findElement {using=xpath, value=//ion-card-content//ion-col[1]//div//ion-button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57822/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 318b8dd05ec7d47e253f467dbf6a929e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:381)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:373)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy46.toString(Unknown Source)
+	at java.base/java.lang.String.valueOf(String.java:4215)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:169)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.toString(ExpectedConditions.java:298)
+	at java.base/java.lang.String.valueOf(String.java:4215)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:169)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
+	at stepdefinitions.KULS_Application_Login.loginUlsApplicationAsMaker(KULS_Application_Login.java:46)
+	at stepdefinitions.CustomerEntityLayout_CustomerDebt_Step.user_launch_the_kuls_url_for_transaction(CustomerEntityLayout_CustomerDebt_Step.java:38)
+	at ?.User Launch the KULS url for Transaction(file:///C:/Users/inindc00075/git/Arshath_ULS/Arshath_AzentioULSFramework/src/test/java/features/ULS_Property_Details.feature:4)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step fail-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=107.0.5304.121)
+Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
+System info: host: 'INMUVADP014547', ip: '10.1.47.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [318b8dd05ec7d47e253f467dbf6a929e, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57822/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 318b8dd05ec7d47e253f467dbf6a929e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:347)
+	at stepdefinitions.HooksClass.addScreenshot(HooksClass.java:42)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.click_on_mail_box()">
+                <span>And click on mail box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.search_for_app_data_entry_record()">
+                <span>And search for app data entry record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.select_the_app_data_entry_first_record()">
+                <span>And select the app data entry first record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.click_on_property_detail_record()">
+                <span>And click on property detail record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.click_on_add_button_in_property_details_tab()">
+                <span>And click on add button in property details tab</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_property_details_is_showing_in_the_screen()">
+                <span>Then verify property details is showing in the screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_address_details_is_showing_in_screen()">
+                <span>Then verify address details is showing in screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_charge_details_is_showing_in_the_screen()">
+                <span>Then verify charge details is showing in the screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_construction_details_is_showing_in_the_screen()">
+                <span>Then verify construction details is showing in the screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_update_the_Excelsheet_Testdata_for_Property_creation()">
+                <span>And user update the Excelsheet Testdata for Property creation</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_security_type_field_should_be_visisble_and_mandatory_dropdown()">
+                <span>Then verify security type field should be visisble and mandatory dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_security_dropdown()">
+                <span>And user can able to select the data from the security dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_property_city_field_should_be_mandatory_lookup()">
+                <span>Then verify property city field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_property_city_field()">
+                <span>And user can able to select the data from the property city field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_type_of_transaction_field_should_be_mandatory_lookup()">
+                <span>Then verify Type Of Transaction field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_type_of_transaction_field()">
+                <span>And user can able to select the data from the Type Of Transaction field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_purchased_from_field_should_be_mandatory_lookup()">
+                <span>Then verify Purchased from field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_purchased_from_field()">
+                <span>And user can able to select the data from the Purchased from field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_property_type_field_should_be_mandatory_lookup()">
+                <span>Then verify Property Type field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_property_type_field()">
+                <span>And user can able to select the data from the Property Type field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_apf_status_field_should_be_mandatory_dropdown()">
+                <span>Then verify APF Status field should be mandatory dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_apf_status_field()">
+                <span>And user can able to select the data from the APF Status field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_construction_status_field_should_be_mandatory_dropdown()">
+                <span>Then verify Construction Status field should be mandatory dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_construction_status_field()">
+                <span>And user can able to select the data from the Construction Status field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_property_category_field_should_be_mandatory_dropdown()">
+                <span>Then verify Property Category field should be mandatory dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_property_category_field()">
+                <span>And user can able to select the data from the Property Category field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_nature_of_property_field_should_be_mandatory_lookup()">
+                <span>Then verify Nature of Property field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_nature_of_property_field()">
+                <span>And user can able to select the data from the Nature of Property field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_occupancy_status_field_should_be_mandatory_lookup()">
+                <span>Then verify Occupancy Status field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_occupancy_status_field()">
+                <span>And user can able to select the data from the Occupancy Status field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_name_of_the_developer_field_should_be_mandatory_lookup()">
+                <span>Then verify name Of The Developer field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_name_of_the_developer_field()">
+                <span>And user can able to select the data from the name Of The Developer field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_project_field_should_be_mandatory_lookup()">
+                <span>Then verify Project field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_project_field()">
+                <span>And user can able to select the data from the Project field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_building_details_field_should_be_mandatory_lookup()">
+                <span>Then verify Building Details field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_building_details_field()">
+                <span>And user can able to select the data from the Building Details field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_unit_details_field_should_be_mandatory_lookup()">
+                <span>Then verify Unit Details field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_unit_details_field()">
+                <span>And user can able to select the data from the Unit Details field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_address_line_1_field_should_be_non_mendatory_text_box()">
+                <span>Then verify address line 1 field should be non mendatory text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_into_the_address_line_1_input_box()">
+                <span>And user can able to enter the data into the address line 1 input box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_address_line_2_field_should_be_non_mendatory_text_box()">
+                <span>Then verify address line 2 field should be non mendatory text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_into_the_address_line_2_input_box()">
+                <span>And user can able to enter the data into the address line 2 input box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_address_line_3_field_should_be_text_box()">
+                <span>Then verify address line 3 field should be text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_into_the_address_line_3_input_box()">
+                <span>And user can able to enter the data into the address line 3 input box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_country_field_should_be_non_mandatory_lookup()">
+                <span>Then verify country field should be non mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_country_field()">
+                <span>And user can able to select the data from the country field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_state_field_should_be_non_mandatory_lookup()">
+                <span>Then verify state field should be non mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_state_field()">
+                <span>And user can able to select the data from the state field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_district_neighbourhood_field_should_be_non_mandatory_textbox()">
+                <span>Then verify District Neighbourhood field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_district_neighbourhood_field()">
+                <span>And user can able to enter the data from into District Neighbourhood field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_city_field_should_be_non_mandatory_lookup()">
+                <span>Then verify city field should be non mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_city_field()">
+                <span>And user can able to select the data from the city field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_pincode_field_should_be_non_mandatory_textbox()">
+                <span>Then verify pincode field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_pincode_field()">
+                <span>And user can able to enter the data from into pincode field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_location_type_field_should_be_mandatory_lookup()">
+                <span>Then verify Location Type field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_location_type_field()">
+                <span>And user can able to enter the data from into Location Type field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_distance_from_branch_to_property_field_should_be_mandatory_lookup()">
+                <span>Then verify distance from branch to property field should be mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_distance_from_branch_to_property_field()">
+                <span>And user can able to enter the data from into distance from branch to property field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_type_of_charge_field_should_be_mandatory_dropdown()">
+                <span>Then verify Type Of Charge field should be mandatory dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_type_of_charge_field()">
+                <span>And user can able to select the data from the Type Of Charge field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_name_of_charge_holder_field_should_be_non_mandatory_textbox()">
+                <span>Then verify Name Of Charge Holder field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_name_of_charge_holder_field()">
+                <span>And user can able to enter the data from into Name Of Charge Holder field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_amount_to_the_charge_holder_field_should_be_non_mandatory_currency_field()">
+                <span>Then verify Amount to the Charge Holder field should be non mandatory currency field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_amount_to_the_charge_holder_field()">
+                <span>And user can able to enter the data from into Amount to the Charge Holder field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_measurement_field_should_be_mandatory_dropdown()">
+                <span>Then verify Measurement field should be mandatory dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_measurement_field()">
+                <span>And user can able to select the data from the Measurement field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_approx_property_area_field_should_be_non_mandatory_textbox()">
+                <span>Then verify Approx Property Area field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_approx_property_area_field()">
+                <span>And user can able to enter the data from into Approx Property Area field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_built_up_plot_area_field_should_be_non_mandatory_textbox()">
+                <span>Then verify Built Up Plot Area field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_built_up_plot_area_field()">
+                <span>And user can able to enter the data from into Built Up Plot Area field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_carpet_area_field_should_be_non_mandatory_textbox()">
+                <span>Then verify Carpet Area field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_carpet_area_field()">
+                <span>And user can able to enter the data from into Carpet Area field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_property_management_field_should_be_non_mandatory_lookup()">
+                <span>Then verify Property Management field should be non mandatory lookup</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_data_from_the_property_management_field()">
+                <span>And user can able to select the data from the Property Management field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_year_of_construction_field_should_be_non_mandatory_calendar()">
+                <span>Then verify Year Of Construction field should be non mandatory calendar</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_date_from_the_year_of_construction_field()">
+                <span>And user can able to select the date from the Year Of Construction field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_percentage_of_completion_field_should_be_non_mandatory_textbox()">
+                <span>Then verify percentage of completion field should be non mandatory textbox</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_enter_the_data_from_into_percentage_of_completion_field()">
+                <span>And user can able to enter the data from into percentage of completion field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_expected_completion_date_field_should_be_non_mandatory_calendar()">
+                <span>Then verify Expected Completion Date field should be non mandatory calendar</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_date_from_the_expected_completion_date_field()">
+                <span>And user can able to select the date from the Expected Completion Date field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_agreement_date_field_should_be_non_mandatory_calendar()">
+                <span>Then verify Agreement Date field should be non mandatory calendar</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_date_from_the_agreement_date_field()">
+                <span>And user can able to select the date from the Agreement Date field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_agreement_validity_date_field_should_be_non_mandatory_calendar()">
+                <span>Then verify Agreement Validity Date field should be non mandatory calendar</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.user_can_able_to_select_the_date_from_the_agreement_validity_date_field()">
+                <span>And user can able to select the date from the Agreement Validity Date field</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.save_the_property_details_record()">
+                <span>And save the property details record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.PropertyDetails_Steps.verify_record_is_saved_in_the_system()">
+                <span>Then verify record is saved in the system</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step fail-bg" title="AFTER">
+                <span>stepdefinitions.HooksClass.TearDown(io.cucumber.java.Scenario)</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.WebDriverException: disconnected: unable to connect to renderer
+  (failed to check if window was closed: disconnected: unable to connect to renderer)
+  (Session info: chrome=107.0.5304.121)
+Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
+System info: host: 'INMUVADP014547', ip: '10.1.47.111', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [318b8dd05ec7d47e253f467dbf6a929e, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.121, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57822/devtoo..., se:cdpVersion: 107.0.5304.121, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 318b8dd05ec7d47e253f467dbf6a929e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:432)
+	at stepdefinitions.HooksClass.TearDown(HooksClass.java:52)
+</textarea>
+      
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Nov 29, 2022 12:19:42 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Nov 29, 2022 12:21:21 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>1</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'><b>0</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='100%'><b>1</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'><b>0</b> steps passed</small></div>
+<div>
+<small data-tooltip='3%'><b>3</b> steps failed,
+<b>86</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"To test the property details tab":97.711
+};
+</script>
+<div class="row">
+<div class="col-md-4 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@AT_PD_001</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-md-4 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>version</td>
+<td>10</td>
+</tr>
+<tr>
+<td>os</td>
+<td>windows</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 1,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 1,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 3,
+warningGrandChild: 0,
+skipGrandChild: 86,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@AT_PD_001</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AT_PD_001</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:19:43 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>To create the property details with valid data</a>
+<div class="">
+<span class="badge badge-default">To test the property details tab.To create the property details with valid data</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.NoSuchWindowException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.NoSuchWindowException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:19:53 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='5'>Given User Launch the KULS url for Transaction</a>
+<div class="">
+<span class="badge badge-default">To test the property details tab.To create the property details with valid data.Given User Launch the KULS url for Transaction</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:20:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='6'>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</a>
+<div class="">
+<span class="badge badge-default">To test the property details tab.To create the property details with valid data.stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.WebDriverException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.WebDriverException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:20:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='179'>stepdefinitions.HooksClass.TearDown(io.cucumber.java.Scenario)</a>
+<div class="">
+<span class="badge badge-default">To test the property details tab.To create the property details with valid data.stepdefinitions.HooksClass.TearDown(io.cucumber.java.Scenario)</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@14e9bb345ef7e2ed3a102f271d84e9f0267c88e7/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

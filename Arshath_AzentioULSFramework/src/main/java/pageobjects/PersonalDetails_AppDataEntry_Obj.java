@@ -463,7 +463,7 @@ public class PersonalDetails_AppDataEntry_Obj {
 		return customerPersonalDetails_Update;
 	}
 	
-	@FindBy(xpath="//div[@aria-label='Success']")
+	@FindBy(xpath="(//div[@id='toast-container']/div/div)[1]")
 	private WebElement customerPersonalDetails_Alert;
 
 	public WebElement customerPersonalDetails_Alert() {

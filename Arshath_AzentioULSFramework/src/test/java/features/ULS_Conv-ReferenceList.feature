@@ -1,13 +1,15 @@
 Feature: check the functionality of Customer Entity Income
-@AT-CLID-002
+@AT_CLID_002
 Scenario: verify the Conventional Income Details List Parameter details List view
 Given User Launch the KULS url for Transaction
-And click on mail box 
-And search for app data entry record
-And select the app data entry first record
+And user click on Inbox Icon
+And user click search icon
+And user search Appdata Entry
+And user click on First record of Appdata Entry
 And user click on Additional customer Info Tab
 And user click on First Record Edit Icon
 And user click on Referance List view Add icon
+And user update the Excelsheet Testdata for Verification
 And user verify the Relationship type field and choose the value
 And user verify the Salutation field and choose the value
 And user verify the First Name field and choose the value
