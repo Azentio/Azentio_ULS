@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">85,826</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Runner.TestApplication</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1670246188269</td><td rowspan="1">73894</td></tr></tbody>
+</table>
+<h2>Default test</h2><h3 id="m0">Runner.TestApplication#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;To verify user can not able to create customer personal details record with invalid input&quot;</td><td>&quot;Optional[To Test the customer personal details Screen]&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: element click intercepted: Element &lt;button _ngcontent-gnv-c538=&quot;&quot; pbutton=&quot;&quot; type=&quot;button&quot; icon=&quot;pi pi-save&quot; iconpos=&quot;left&quot; tooltipposition=&quot;top&quot; class=&quot;p-element savecmnbtn p-button-info p-button-sm p-button-raised w-90 k-mx-2 p-button p-component p-button-icon-only ng-star-inserted&quot; ng-reflect-icon=&quot;pi pi-save&quot; ng-reflect-icon-pos=&quot;left&quot; ng-reflect-tooltip-position=&quot;top&quot; ng-reflect-text=&quot;Save&quot;&gt;...&lt;/button&gt; is not clickable at point (1360, 77). Other element would receive the click: &lt;ion-button _ngcontent-gnv-c542=&quot;&quot; ptooltip=&quot;Pin Tab&quot; tooltipposition=&quot;bottom&quot; class=&quot;p-element ios button button-clear in-toolbar button-has-icon-only ion-activatable ion-focusable hydrated&quot; ng-reflect-text=&quot;Pin Tab&quot; ng-reflect-tooltip-position=&quot;bottom&quot;&gt;...&lt;/ion-button&gt;
+  (Session info: chrome=100.0.4896.60)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;PG00X8KU&apos;, ip: &apos;10.1.47.121&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7b41569cd13f76c77fec139db924a99, clickElement {id=7907adc8-da20-4546-a0c4-eda799d08c9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.60, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60965}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60965/devtoo..., se:cdpVersion: 100.0.4896.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (f7b41569cd13f76c77fec139db924a99)] -&gt; xpath: //button[@ng-reflect-text=&apos;Save&apos;]]
+Session ID: f7b41569cd13f76c77fec139db924a99
+	at org.junit.Assert.fail(Assert.java:88)
+	at stepdefinitions.ULS_CustomerPersonalDetailsSteps.click_on_save_button_before_enter_the_mandatory_field(ULS_CustomerPersonalDetailsSteps.java:263)
+	at ✽.click on save button before enter the mandatory field(file:///C:/Users/inindc00091/eclipse-workspace/Devesh_AzentioULSFramework_ExcelTest/src/test/java/features/ULS_CustomerPersonalDetailsFEATURE.feature:27)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

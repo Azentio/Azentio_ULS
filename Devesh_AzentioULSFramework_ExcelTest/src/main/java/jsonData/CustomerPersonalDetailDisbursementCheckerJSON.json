@@ -1,0 +1,32 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of AT_RA_023---//
+	"ReferenceID"		:	"313",
+	"CustomerName"		:	"testerA",
+	"EditText"			:	"ok",
+	"DateOfBirth"		:	"29-Jan-1991",
+	"EducationLevel"	:	"Graduate",
+	"NoOfDependents"	:	"1",
+	"CustomerFirstName"	:	"testerA",
+	"Gender"			:	"MALE",
+"ExistingRelationship"	:	"false",
+	"CustomerType"		:	"Individual Customer",
+	"ApplicantType"		:	"Primary Applicant",
+	"LastName"			:	"lname",
+	"FirstName"			:	"testerA",
+	"MiddleName"		:	"mname",
+	"MothersMaidenName"	:	"mmname",
+	"BlackListed"		:	"false",
+	"Salutation"		:	"Mr",
+	"TypeOfResidence"	:	"Others",
+	"Language"			:	"Hindi",
+	"Religion"			:	"HINDU",
+	"CategoryOfClient"	:	"VIP",
+	"MaritalStatus"		:	"Single",
+	"CustomerCategory"	:	"General",
+	"ResidentStatus"	:	"Resident",
+	"Nationality"		:	"Indian"
+
+ }
+]

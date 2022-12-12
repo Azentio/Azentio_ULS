@@ -1,0 +1,37 @@
+[
+ {
+	"User":"Maker",
+	"Record1BeforeApproved"	:	"depo30",
+	"ProductDescription1"	:	"desc11",
+	
+	"Record1AfterApproved"	:	"test1",
+	"ProductDescription2"	:	"testTEST",
+	
+	"MakerSubmitRemark"		:	"ok",
+	"CheckerApproveRemark"	:	"Approve",
+	"CheckerRejectRemark"	:	"Reject",
+	"CheckerReturnRemark"	:	"Return",
+	
+	"Record2ForReject"		:	"test2",
+	"Record3ForReturn"		:	"test3",
+	
+	"ApproveReferenceID"	:	"6060",
+	"RejectReferenceID"		:	"6061",
+	"ReturnReferenceID"		:	"6062",
+	
+//	----------------------------------------   //
+
+	"ProductCode" 			: 	"PR91",
+	"DescriptionEnglish"	:	"English",
+	"DescriptionFrench"		:	"French",
+	"DescriptionGerman"		:	"German",
+	"DescriptionArabic"		:	"Arabic",
+	"DMCode"				:	"Loan",
+	"Remarks"				:	"HomeLoan",
+	"NumericRemark"			:	"123",
+	"SymbolicRemark"		:	"@#$&",
+	"ProductCodeReturn"		:	"PR92",
+	"ProductCodeReject"		:	"PR93",
+	"EventCode" 			:	"PRODUCT_MST"
+ }
+]

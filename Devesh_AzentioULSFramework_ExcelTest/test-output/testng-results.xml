@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-05T18:46:26 IST" name="Default suite" finished-at="2022-12-05T18:47:52 IST" duration-ms="85826">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2022-12-05T18:46:26 IST" name="Default test" finished-at="2022-12-05T18:47:52 IST" duration-ms="85826">
+      <class name="Runner.TestApplication">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-12-05T18:46:26 IST" name="beforeExecution" finished-at="2022-12-05T18:46:26 IST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeExecution -->
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-12-05T18:46:26 IST" name="setUpClass" finished-at="2022-12-05T18:46:28 IST" duration-ms="1719" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-12-05T18:46:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-12-05T18:47:42 IST" duration-ms="73894" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["To verify user can not able to create customer personal details record with invalid input"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[To Test the customer personal details Screen]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[element click intercepted: Element <button _ngcontent-gnv-c538="" pbutton="" type="button" icon="pi pi-save" iconpos="left" tooltipposition="top" class="p-element savecmnbtn p-button-info p-button-sm p-button-raised w-90 k-mx-2 p-button p-component p-button-icon-only ng-star-inserted" ng-reflect-icon="pi pi-save" ng-reflect-icon-pos="left" ng-reflect-tooltip-position="top" ng-reflect-text="Save">...</button> is not clickable at point (1360, 77). Other element would receive the click: <ion-button _ngcontent-gnv-c542="" ptooltip="Pin Tab" tooltipposition="bottom" class="p-element ios button button-clear in-toolbar button-has-icon-only ion-activatable ion-focusable hydrated" ng-reflect-text="Pin Tab" ng-reflect-tooltip-position="bottom">...</ion-button>
+  (Session info: chrome=100.0.4896.60)
+Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
+System info: host: 'PG00X8KU', ip: '10.1.47.121', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7b41569cd13f76c77fec139db924a99, clickElement {id=7907adc8-da20-4546-a0c4-eda799d08c9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.60, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60965}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60965/devtoo..., se:cdpVersion: 100.0.4896.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (f7b41569cd13f76c77fec139db924a99)] -> xpath: //button[@ng-reflect-text='Save']]
+Session ID: f7b41569cd13f76c77fec139db924a99]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: element click intercepted: Element <button _ngcontent-gnv-c538="" pbutton="" type="button" icon="pi pi-save" iconpos="left" tooltipposition="top" class="p-element savecmnbtn p-button-info p-button-sm p-button-raised w-90 k-mx-2 p-button p-component p-button-icon-only ng-star-inserted" ng-reflect-icon="pi pi-save" ng-reflect-icon-pos="left" ng-reflect-tooltip-position="top" ng-reflect-text="Save">...</button> is not clickable at point (1360, 77). Other element would receive the click: <ion-button _ngcontent-gnv-c542="" ptooltip="Pin Tab" tooltipposition="bottom" class="p-element ios button button-clear in-toolbar button-has-icon-only ion-activatable ion-focusable hydrated" ng-reflect-text="Pin Tab" ng-reflect-tooltip-position="bottom">...</ion-button>
+  (Session info: chrome=100.0.4896.60)
+Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
+System info: host: 'PG00X8KU', ip: '10.1.47.121', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7b41569cd13f76c77fec139db924a99, clickElement {id=7907adc8-da20-4546-a0c4-eda799d08c9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.60, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60965}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60965/devtoo..., se:cdpVersion: 100.0.4896.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (f7b41569cd13f76c77fec139db924a99)] -> xpath: //button[@ng-reflect-text='Save']]
+Session ID: f7b41569cd13f76c77fec139db924a99
+at org.junit.Assert.fail(Assert.java:88)
+at stepdefinitions.ULS_CustomerPersonalDetailsSteps.click_on_save_button_before_enter_the_mandatory_field(ULS_CustomerPersonalDetailsSteps.java:263)
+at ✽.click on save button before enter the mandatory field(file:///C:/Users/inindc00091/eclipse-workspace/Devesh_AzentioULSFramework_ExcelTest/src/test/java/features/ULS_CustomerPersonalDetailsFEATURE.feature:27)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-12-05T18:47:42 IST" name="tearDownClass" finished-at="2022-12-05T18:47:52 IST" duration-ms="10161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@35dab4eb]" started-at="2022-12-05T18:47:52 IST" name="afterExecution" finished-at="2022-12-05T18:47:52 IST" duration-ms="158" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterExecution -->
+      </class> <!-- Runner.TestApplication -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,39 @@
+[
+	{
+		"User"					: 	"Maker",
+		"ReferenceId"			:	"324",
+		"CustomerType"			:	"Individual Customer",
+		"ApplicantType"			:	"Primary Applicant",
+		"Salutation"			:	"Mr",
+		"FirstName"				:	"Mahesh",
+		"MiddleName"			:	"Kumar",
+		"LastName"				:	"Patra",
+		"DateOfBirth"			:	"20-Apr-1993",
+		"Gender"				:	"MALE",
+		"EdcuationLevel"		:	"Graduate",
+		"MaritalStatus"			:	"Single",
+		"Nationality"			:	"Indian",
+		"Category"				:	"General",
+		"Religion"				:	"HINDU",
+		"ResidentStatus"		:	"Resident",
+		"Language"				:	"English",
+		"NoOfDependents"		:	"2",
+		"MothersMaidenName"		:	"Ridhi",
+		"TypeOfResidence"		:	"With parents",
+		"IndustrySegmentation"		:	"Affiliated to bank",
+		"Editable"				:	"false",
+		
+		
+		"ReferenceIdChecker"  	:	"313",
+		
+		
+		"ReferenceIdCustomerAddressDetails":	"506",
+		"AddressLine1"				:	"Samta Colony",
+		"AddressLine2"				:	"Station Road",
+		"NeighbourhoodDistrictName" :	"Mumbai",
+		"MobileNumberprimary"		:	"9123423456",
+		"ZipCode"					:	"492001",
+		"OccupancyDate"				:	"20-Sep-2020"
+		
+	}
+]

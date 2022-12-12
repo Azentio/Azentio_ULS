@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Dec 05 18:46:26 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>85 seconds (85826 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user can not able to create customer personal details record with invalid input", "Optional[To Test the customer personal details Screen]"</td>
+<td><div><pre>java.lang.AssertionError: element click intercepted: Element &lt;button _ngcontent-gnv-c538=&quot;&quot; pbutton=&quot;&quot; type=&quot;button&quot; icon=&quot;pi pi-save&quot; iconpos=&quot;left&quot; tooltipposition=&quot;top&quot; class=&quot;p-element savecmnbtn p-button-info p-button-sm p-button-raised w-90 k-mx-2 p-button p-component p-button-icon-only ng-star-inserted&quot; ng-reflect-icon=&quot;pi pi-save&quot; ng-reflect-icon-pos=&quot;left&quot; ng-reflect-tooltip-position=&quot;top&quot; ng-reflect-text=&quot;Save&quot;&gt;...&lt;/button&gt; is not clickable at point (1360, 77). Other element would receive the click: &lt;ion-button _ngcontent-gnv-c542=&quot;&quot; ptooltip=&quot;Pin Tab&quot; tooltipposition=&quot;bottom&quot; class=&quot;p-element ios button button-clear in-toolbar button-has-icon-only ion-activatable ion-focusable hydrated&quot; ng-reflect-text=&quot;Pin Tab&quot; ng-reflect-tooltip-position=&quot;bottom&quot;&gt;...&lt;/ion-button&gt;
+  (Session info: chrome=100.0.4896.60)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;PG00X8KU&apos;, ip: &apos;10.1.47.121&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7b41569cd13f76c77fec139db924a99, clickElement {id=7907adc8-da20-4546-a0c4-eda799d08c9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.60, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60965}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60965/devtoo..., se:cdpVersion: 100.0.4896.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (f7b41569cd13f76c77fec139db924a99)] -&gt; xpath: //button[@ng-reflect-text=&apos;Save&apos;]]
+Session ID: f7b41569cd13f76c77fec139db924a99
+	at org.junit.Assert.fail(Assert.java:88)
+	at stepdefinitions.ULS_CustomerPersonalDetailsSteps.click_on_save_button_before_enter_the_mandatory_field(ULS_CustomerPersonalDetailsSteps.java:263)
+	at ?.click on save button before enter the mandatory field(file:///C:/Users/inindc00091/eclipse-workspace/Devesh_AzentioULSFramework_ExcelTest/src/test/java/features/ULS_CustomerPersonalDetailsFEATURE.feature:27)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1131725934", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1131725934'><pre>java.lang.AssertionError: element click intercepted: Element &lt;button _ngcontent-gnv-c538=&quot;&quot; pbutton=&quot;&quot; type=&quot;button&quot; icon=&quot;pi pi-save&quot; iconpos=&quot;left&quot; tooltipposition=&quot;top&quot; class=&quot;p-element savecmnbtn p-button-info p-button-sm p-button-raised w-90 k-mx-2 p-button p-component p-button-icon-only ng-star-inserted&quot; ng-reflect-icon=&quot;pi pi-save&quot; ng-reflect-icon-pos=&quot;left&quot; ng-reflect-tooltip-position=&quot;top&quot; ng-reflect-text=&quot;Save&quot;&gt;...&lt;/button&gt; is not clickable at point (1360, 77). Other element would receive the click: &lt;ion-button _ngcontent-gnv-c542=&quot;&quot; ptooltip=&quot;Pin Tab&quot; tooltipposition=&quot;bottom&quot; class=&quot;p-element ios button button-clear in-toolbar button-has-icon-only ion-activatable ion-focusable hydrated&quot; ng-reflect-text=&quot;Pin Tab&quot; ng-reflect-tooltip-position=&quot;bottom&quot;&gt;...&lt;/ion-button&gt;
+  (Session info: chrome=100.0.4896.60)
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;PG00X8KU&apos;, ip: &apos;10.1.47.121&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7b41569cd13f76c77fec139db924a99, clickElement {id=7907adc8-da20-4546-a0c4-eda799d08c9e}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.60, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60965}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:60965/devtoo..., se:cdpVersion: 100.0.4896.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (f7b41569cd13f76c77fec139db924a99)] -&gt; xpath: //button[@ng-reflect-text=&apos;Save&apos;]]
+Session ID: f7b41569cd13f76c77fec139db924a99
+	at org.junit.Assert.fail(Assert.java:88)
+	at stepdefinitions.ULS_CustomerPersonalDetailsSteps.click_on_save_button_before_enter_the_mandatory_field(ULS_CustomerPersonalDetailsSteps.java:263)
+	at ?.click on save button before enter the mandatory field(file:///C:/Users/inindc00091/eclipse-workspace/Devesh_AzentioULSFramework_ExcelTest/src/test/java/features/ULS_CustomerPersonalDetailsFEATURE.feature:27)
+</pre></div></td>
+<td>73</td>
+<td>Runner.TestApplication@35dab4eb</td></tr>
+</table><p>
+</body>
+</html>
