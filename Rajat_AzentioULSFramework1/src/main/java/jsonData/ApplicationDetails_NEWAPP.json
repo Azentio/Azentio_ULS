@@ -1,0 +1,25 @@
+[
+{
+"UserType":"Maker",
+"PrimaryProduct":"Home Loan",
+"PrimarySubProduct":"Home Loan-Plot Purchase Finance",
+"TotalFinanceAmount":"650200",
+"DeclaredNetAmount":"750200",
+"DeclaredCurrentObligation":"550200",
+"SpecialPromotionCampaign":"DDA Housing Scheme-2014",
+"SourcingChannel":"Sales Rep",
+"BusinessCenterCode":"Business Center-Retail Banking",
+"ServicingType":"Financier",
+"ServicingEntity":"Cent Bank Finance LTD.",
+"ServicingBranch":"West Zone",
+"ClosingStafforServicingStafforRM":"Pankaj Kumar",
+"SourcingType":"Developer",
+"SourcingStaff":"Pankaj Kumar",
+"SourcingEntity":"Cent Bank Finance LTD.",
+"SourcingOffice":"Dadar Branch",
+"ReferenceType":"Dealer",
+"ReferenceEntity":"Cent Bank Finance LTD.",
+"ReferenceCode":"89562"
+
+}
+]

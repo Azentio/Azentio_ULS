@@ -1,0 +1,22 @@
+[
+{
+   "UserType"                  :"Maker",  
+   "SearchStage"               :"DISBMKR",
+   "FacilityApplicationId"     :"Ready to move / Under construction Property from Builder/Society",
+   "BeneficiaryName"           :"GHR",
+   "BeneficiaryType"           :"Others",
+   "BeneficiaryKYC"            :"Yes",
+   "Beneficiaryaddress"        :"VNager15",
+   "AccountType"               :"Current Account",
+   "IBANAccountNo"             :"024587845120",
+   "MICRtype"                  :"MICR",
+   "BeneficiaryMICRcode"       :"400012079",
+   "Bankcode"                  :"BOB007",
+   "BranchName"                :"BOAVA Branch",
+   "IFSCcode"                  :"BOAV0012",
+   "Paymenttype"               :"Advance",
+   "paymentMode"               :"Cheque",
+   "BeneficiaryEmail"          :"ddm@gmail.com",
+   "Remark"                    :"Done"
+   }
+   ]

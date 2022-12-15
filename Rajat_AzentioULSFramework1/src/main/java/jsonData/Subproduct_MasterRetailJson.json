@@ -1,0 +1,51 @@
+[
+	{
+	//PRODUCT
+		"Username"	:"Maker",
+		"ProductGroup" : "Deposits",      //1
+		"ProductCode"  : "RMM",//2
+		"RejectProductCode"  : "test3",
+	// change product code for every run for parameter invalid
+	"ProductCodeParameter":"PR60", //3
+	"SubproductcodeParameter":"ParameterInvalidData2", //4
+	//SUBPRODUCT DEFINITION
+	
+		"Subproductcode":"Deposits2", //5
+		"RejectSubproductcode":"subprd127",
+		"Specialchar":"@#$%",
+		"SupproductDescription":"DepositslDescription15", //6
+		
+	//FACILITY
+		
+		"FacilityType":"Loan",
+		"Individual_Corporate":"Individual",
+		"LoanPurpose":"Construction Finance",
+		"InstallmentBased":"Yes",
+		"ContinueExistingLoanNumber":"YES",
+		"FinancingConcept":"Islamic",
+		"DisbursementLocking":"Current",
+		"TopupAllowed":"Yes",
+		
+	//ASSET FINANCED
+	
+		"Collateralized":"Yes",
+		"FinanceAgainstExistingAsset":"Yes",
+		"IsMultiAssetFinanceAllowed":"Yes",
+		
+	//FLOATING RATE
+	
+		"ImpactOn":"EMI",
+		"ResetLogic":"Immediate",
+		"FloatRateEffectiverDate":"12th of the month",
+		"FloatRateEffectiveFrequesncy":"Yearly",
+		"EMICap":"16",
+		"TenorTolerance":"8",
+		
+	//LEGACY CODES
+	
+		"LegacyCode1":"Tax legacy",
+		"LegacyCode2":"Tax legacy",
+		"DMCode":"DM Codes",
+		"AllocationSequenceNumber":"6"
+	}
+]

@@ -1,0 +1,14 @@
+[
+ {
+	"User":"Maker",
+												//---Test data of AT_CE_006---//
+	"EditText"					:	"11",
+	"InvalidInput"				:	"#@#@%^&",
+	"ReferenceID"				:	"506",
+	"Number"					:	"190",
+	"DocumentName"				:	"Pan Card",
+	"MandatoryOrOptional"		:	"Mandatory",
+	"DocumentCategory"			:	" KYC Document "
+	
+ }
+]
