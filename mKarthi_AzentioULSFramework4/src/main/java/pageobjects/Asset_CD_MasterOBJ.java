@@ -166,6 +166,12 @@ public class Asset_CD_MasterOBJ {
 	{
 		return searchsentkeys;
 	}
+	@FindBy(xpath="//button[@ng-reflect-text='View Summary']")
+	private WebElement View_Summary;
+	public WebElement View_Summary() 
+	{
+		return View_Summary;
+	}
 	@FindBy(xpath="//table[1]/tbody[1]/tr[1]/td[2]/span[1]")
 	private WebElement referenceid;
 	public WebElement referenceid() 
