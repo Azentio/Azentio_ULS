@@ -232,8 +232,21 @@ public class KULS_DueMaster_Step {
 
     @And("^Click on Pencil icon of the record$")
     public void click_on_pencil_icon_of_the_record() throws Throwable {
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,duemasterObj.pencilIconOfFirstRecord(),60,2);
-        duemasterObj.pencilIconOfFirstRecord().click();	        
+    	
+    	//seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,duemasterObj.pencilIconOfFirstRecord(),60,2);
+    	for (int i = 0; i < 200; i++) {
+    		try {
+    			duemasterObj.pencilIconOfFirstRecord().click();
+    			break;
+    		}
+			catch(Exception e) {
+				if(i==199){
+					Assert.fail(e.getMessage());
+				
+				}
+			}
+		}
+        //duemasterObj.pencilIconOfFirstRecord().click();	        
     }
 
     @And("^Update the status of the record$")

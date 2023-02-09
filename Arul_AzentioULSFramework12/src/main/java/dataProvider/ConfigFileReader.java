@@ -78,4 +78,11 @@ public String getApplicationcenbankUrl() {
 		else
 			throw new RuntimeException("jsonPath not specified in the Configuration.properties file.");
 	}
+	public String getApplicationTransactionUrl() {
+		String url = properties.getProperty("url2");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
 	}

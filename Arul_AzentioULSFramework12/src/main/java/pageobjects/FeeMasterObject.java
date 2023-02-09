@@ -32,22 +32,22 @@ public class FeeMasterObject {
  public WebElement FeeMaster_AddButton(){
 	 return FeeMaster_AddButton1;
  }
- @FindBy(xpath="//ion-select[@aria-label='Select,  Amort Tenure(Method) ']")
+ @FindBy(xpath="//ion-label[contains(text(),'Amort Tenure')]/following-sibling::ion-select")
  private WebElement FeeMaster_AmortTenure1;
  public WebElement FeeMaster_AmortTenure(){
 	 return FeeMaster_AmortTenure1;
  }
- @FindBy(xpath="//ion-select[@aria-label='Select,  Amort Rate Method ']")
+ @FindBy(xpath="//ion-label[contains(text(),'Amort Rate Method')]/following-sibling::ion-select")
  private WebElement FeeMaster_AmortRate1;
  public WebElement FeeMaster_AmortRate(){
 	 return FeeMaster_AmortRate1;
  }
- @FindBy(xpath="//ion-select[@aria-label='Select,  Amount Recovery ']")
+ @FindBy(xpath="//ion-label[contains(text(),'Amount Recovery')]/following-sibling::ion-select")
  private WebElement FeeMaster_ChargeAmountRecovery1;
  public WebElement FeeMaster_ChargeAmountRecovery(){
 	 return FeeMaster_ChargeAmountRecovery1;
  }
- @FindBy(xpath="//ion-select[@aria-label='Select,  Amort Frequency ']")
+ @FindBy(xpath="//ion-label[contains(text(),'Amort Frequency')]/following-sibling::ion-select")
  private WebElement FeeMaster_AmountFrequency1;
  public WebElement FeeMaster_AmountFrequency(){
 	 return FeeMaster_AmountFrequency1;
@@ -62,7 +62,7 @@ public class FeeMasterObject {
     public WebElement BackButton() {
 		return BackButton1;
 	}
-    @FindBy(xpath = "//ion-label[text()=' Charge Flag ']") //ChargeFlag Name
+    @FindBy(xpath = "//ion-label[contains(text(),'Charge Flag')]/following-sibling::ion-select") //ChargeFlag Name
 	private WebElement ChargeFlagName1;
     public WebElement ChargeFlagName() {
 		return ChargeFlagName1;
@@ -72,12 +72,12 @@ public class FeeMasterObject {
       public WebElement ChargeDescriptionName() {
   		return ChargeDescriptionName1;
   	}
-      @FindBy(xpath = "//ion-label[text()=' Charge Type ']") //Charge type Name
+      @FindBy(xpath = "//ion-label[contains(text(),'Charge Type')]/following-sibling::ion-select") //Charge type Name
     	private WebElement ChargeTypeName1;
         public WebElement ChargeTypeName() {
     		return ChargeTypeName1;
     	}
-        @FindBy(xpath = "//ion-label[text()=' Due Code  ']") //Due code Name
+        @FindBy(xpath = "//ion-label[contains(text(),'Due Code')]/following-sibling::ion-select") //Due code Name
     	private WebElement DueCodeName1;
         public WebElement DueCodeName() {
     		return DueCodeName1;
@@ -92,12 +92,12 @@ public class FeeMasterObject {
         public WebElement LegacyCode2Name() {
     		return LegacyCode2Name1;
     	}
-        @FindBy(xpath = "//ion-label[text()=' GST Applicable State ']") //GST Applicable State Name
+        @FindBy(xpath = "//ion-label[contains(text(),'GST Applicable State')]/following-sibling::ion-select") //GST Applicable State Name
     	private WebElement GSTApplicableStateName1;
         public WebElement GSTApplicableStateName() {
     		return GSTApplicableStateName1;
     	}
-        @FindBy(xpath = "//ion-label[text()=' Tax Calculation Method ']") //Tax Calculation Method Name
+        @FindBy(xpath = "//ion-label[contains(text(),'Tax Calculation Method')]/following-sibling::ion-select") //Tax Calculation Method Name
     	private WebElement TaxCalculationMethodName1;
         public WebElement TaxCalculationMethodName() {
     		return TaxCalculationMethodName1;
@@ -112,17 +112,17 @@ public class FeeMasterObject {
         public WebElement IncludeInAPRName() {
     		return IncludeInAPRName1;
     	}
-        @FindBy(xpath = "//ion-label[text()=' Amortize ']") //AmortizeName
+        @FindBy(xpath = "//ion-label[contains(text(),'Amortize')]/following-sibling::ion-select") //AmortizeName
     	private WebElement AmortizeName1;
         public WebElement AmortizeName() {
     		return AmortizeName1;
     	}
-        @FindBy(xpath = "//ion-label[text()=' Upfront ']") //Upfront
+        @FindBy(xpath = "//ion-label[contains(text(),'Upfront')]/following-sibling::ion-select") //Upfront
     	private WebElement UpfrontName1;
         public WebElement UpfrontName() {
     		return UpfrontName1;
     	}
-        @FindBy(xpath = "//ion-label[text()=' Deduct ']") // Deduct
+        @FindBy(xpath = "//ion-label[contains(text(),'Deduct')]/following-sibling::ion-select") // Deduct
     	private WebElement DeductName1;
         public WebElement DeductName() {
     		return DeductName1;
@@ -141,17 +141,17 @@ public class FeeMasterObject {
         public WebElement FeeMaster_ChargeDescription() {
     		return FeeMaster_ChargeDescription1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Charge Type *']")//(xpath = "//ion-col[2]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Charge Type')]/following-sibling::ion-select")//(xpath = "//ion-col[2]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_ChargeType1;
         public WebElement FeeMaster_ChargeType() {
     		return FeeMaster_ChargeType1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Charge Flag *']")//(xpath = "//ion-col[3]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Charge Flag')]/following-sibling::ion-select")//(xpath = "//ion-col[3]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_ChargeFlag1;
         public WebElement FeeMaster_ChargeFlag() {
     		return FeeMaster_ChargeFlag1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Due Code  ']")//(xpath = "//ion-col[4]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Due Code')]/following-sibling::ion-select")//(xpath = "//ion-col[4]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_DueCode1;
         public WebElement FeeMaster_DueCode() {
     		return FeeMaster_DueCode1;
@@ -166,22 +166,22 @@ public class FeeMasterObject {
         public WebElement FeeMaster_Legacy2Code() {
     		return FeeMaster_Legacy2Code1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  GST Applicable State ']")//(xpath = "//ion-col[7]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'GST Applicable State')]/following-sibling::ion-select")//(xpath = "//ion-col[7]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_GSTApplicableState1;
         public WebElement FeeMaster_GSTApplicableState() {
     		return FeeMaster_GSTApplicableState1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Tax Calculation Method ']")//(xpath = "//ion-col[9]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Tax Calculation Method')]/following-sibling::ion-select")//(xpath = "//ion-col[9]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_TaxCalculationMethod1;
         public WebElement FeeMaster_TaxCalculationMethod() {
     		return FeeMaster_TaxCalculationMethod1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Amortize ']")//(xpath = "//ion-col[11]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Amortize')]/following-sibling::ion-select")//(xpath = "//ion-col[11]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_Amortize1;
         public WebElement FeeMaster_Amortize() {
     		return FeeMaster_Amortize1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Upfront ']")//(xpath = "//ion-col[13]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Upfront')]/following-sibling::ion-select")//(xpath = "//ion-col[13]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_Upfront1;
         public WebElement FeeMaster_Upfront() {
     		return FeeMaster_Upfront1;
@@ -196,7 +196,7 @@ public class FeeMasterObject {
         public WebElement FeeMaster_IncludeARPButton() {
     		return FeeMaster_IncludeARPButton1;
     	}
-        @FindBy(xpath="//ion-select[@aria-label='Select,  Deduct ']")//(xpath = "//ion-col[12]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
+        @FindBy(xpath="//ion-label[contains(text(),'Deduct')]/following-sibling::ion-select")//(xpath = "//ion-col[12]/digital-select-layout[1]/ion-item[1]/ion-select[1]") 
     	private WebElement FeeMaster_Deduct1;
         public WebElement FeeMaster_Deduct() {
     		return FeeMaster_Deduct1;
@@ -211,6 +211,7 @@ public class FeeMasterObject {
         public WebElement FeeMaster_Save1() {
     		return FeeMaster_Save1;
     	}
+        		
         @FindBy(xpath = "//button[@ng-reflect-text='Update']") 
     	private WebElement FeeMaster_Update1;
         public WebElement FeeMaster_Update() {
@@ -346,5 +347,78 @@ public class FeeMasterObject {
     	private WebElement FeeMaster_Descriptiontick1;
         public WebElement FeeMaster_Descriptiontick() {
     		return FeeMaster_Descriptiontick1;
+    	}
+        @FindBy(xpath = "//ion-select[@ng-reflect-text='Module name']")
+        private WebElement ModuleName1;
+        public WebElement ModuleName() {
+            return ModuleName1;
+        }
+        @FindBy(xpath = "//ion-label[text()='LOS']/following-sibling::ion-radio")
+        private WebElement LOS;
+        public WebElement LOS() {
+            return LOS;
+        }
+        @FindBy(xpath = "//button/span[contains(text(),'Submit')]") 
+        private WebElement BounceMasterMaker_Submit;
+        public WebElement BounceMasterMaker_Submit() {
+            return BounceMasterMaker_Submit;
+        }
+
+        @FindBy(xpath = "//ion-label[contains(text(),'Please Enter Remarks')]//following-sibling::ion-textarea//child::textarea") 
+        private WebElement BounceMaster_EnterRemark;
+        public WebElement BounceMaster_EnterRemark() {
+            return BounceMaster_EnterRemark;
+        }
+
+        @FindBy(xpath="(//button[@ng-reflect-label='Submit'])[2]")
+        private WebElement BounceMasterRemarkSubmit;
+        public WebElement BounceMasterRemarkSubmit() {
+        	return BounceMasterRemarkSubmit;
+        }
+
+        @FindBy(xpath = "//ion-icon[@aria-label='mail unread outline']") 
+        private WebElement BounceMasterInbox;
+        public WebElement BounceMasterInbox() {
+            return BounceMasterInbox;
+        }
+
+        @FindBy(xpath = "//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]") 
+        private WebElement BounceMasterInboxView_Search;
+        public WebElement BounceMasterInboxView_Search() {
+            return BounceMasterInboxView_Search;
+        }  
+
+        @FindBy(xpath = "//span[text()=' Inbox ']//parent::div//child::span[2]/input") 
+        private WebElement BounceMasterInboxView_SearchText;
+        public WebElement BounceMasterInboxView_SearchText() {
+            return BounceMasterInboxView_SearchText;
+        }  
+
+        @FindBy(xpath = "//tbody/tr[1]/td[2]/span[1]") 
+        private WebElement BounceMasterReferanceId;
+        public WebElement BounceMasterReferanceId() {
+            return BounceMasterReferanceId;
+        } 
+
+        @FindBy(xpath = "//div[@id='toast-container']//div[@role='alert']") 
+        private WebElement BounceMaster_Checker_Id;
+        public WebElement BounceMaster_Checker_Id() {
+            return BounceMaster_Checker_Id;
+        } 
+        @FindBy(xpath="//ion-label[text()='Fee master']//following-sibling::ion-buttons//child::ion-button[1]")
+    	private WebElement tempViewOfFeeMaster;
+    	public WebElement tempViewOfFeeMaster() {
+    		return tempViewOfFeeMaster;
+    	}
+    	@FindBy(xpath="//button[@ng-reflect-text='View Summary']/child::span[1]")
+    	private WebElement viewSummaryIconOfBounceMaster;
+    	public WebElement viewSummaryIconOfBounceMaster() {
+    		return viewSummaryIconOfBounceMaster;
+    	}
+    	
+    	@FindBy(xpath="//ionic-title[contains(text(),'  Transaction summary ')]")
+    	private WebElement viewSummaryPageOfBounceMaster;
+    	public WebElement viewSummaryPageOfBounceMaster() {
+    		return viewSummaryPageOfBounceMaster;
     	}
 }
