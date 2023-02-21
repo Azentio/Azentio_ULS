@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,12 +14,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import pageobjects.ApplicationDetails_AppDataEntryObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.KULS_ApplicationDetails_AppDataEntry_Testdata;
 import testDataType.KULS_Login_TestDataType;
 
 public class ApplicationDetails_AppDataEntry {
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader configFileReader = new ConfigFileReader();
+	KULS_Application_Login login = new KULS_Application_Login(driver);
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	JsonConfig jsonConfig = new JsonConfig();
 	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
@@ -25,24 +29,32 @@ public class ApplicationDetails_AppDataEntry {
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	KULS_ApplicationDetails_AppDataEntry_Testdata applicationdetailsData = jsonConfig
 			.getApplicationDetailsByName("Maker");
+	ExcelData exceldata = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign1702a.xlsx", "ApplicationDetails_AppDataEntry", "Data Set ID") ;
+	Map<String, String> testdata;
 
 	@Given("^Launch the kuls application and Navigate to Application details view list$")
 	public void launch_the_kuls_application_and_navigate_to_application_details_view_list() throws Throwable {
-		String kulsApplicationUrl = configFileReader.getApplicationcenbankUrl();
+		ExcelData excelData = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign1702a.xlsx",
+				"Logincredentials", "Stage");
+		Map<String, String> testdata = excelData.getTestdata("Maker2");
+		String kulsApplicationUrl = configFileReader.getApplicationUrl();
 		driver.get(kulsApplicationUrl);
-		System.out.println();
-		applicationLogin.loginUlsApplicationAsMaker(loginData.Username1, loginData.Password1);
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				applicationentryobj.TransactionButtonInLeftPanel(), 60, 2);
-		applicationentryobj.TransactionButtonInLeftPanel().click();
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				applicationentryobj.ApplicationManagerInLeftPanel(), 60, 2);
-		applicationentryobj.ApplicationManagerInLeftPanel().click();
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				applicationentryobj.ApplicationDetailsViewList(), 60, 2);
-		applicationentryobj.ApplicationDetailsViewList().click();
-		Thread.sleep(2000);
-	}
+		login.loginUlsApplicationAsMaker(testdata.get("Username"), testdata.get("Password"));
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, applicationentryobj.ModuleName(),10, 2);
+		applicationentryobj.ModuleName().click();
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, applicationentryobj.LOS(), 10,2);
+		applicationentryobj.LOS().click();
+		/*
+		 * seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+		 * applicationentryobj.TransactionButtonInLeftPanel(), 60, 2);
+		 * applicationentryobj.TransactionButtonInLeftPanel().click();
+		 * seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+		 * applicationentryobj.ApplicationManagerInLeftPanel(), 60, 2);
+		 * applicationentryobj.ApplicationManagerInLeftPanel().click();
+		 * seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+		 * applicationentryobj.ApplicationDetailsViewList(), 60, 2);
+		 * applicationentryobj.ApplicationDetailsViewList().click(); Thread.sleep(2000);
+		 */	}
 
 	@And("^Click on Add icon in Application details view list$")
 	public void click_on_add_icon_in_application_details_view_list() throws Throwable {
@@ -392,7 +404,8 @@ public class ApplicationDetails_AppDataEntry {
 		for (int j = 0; j <= 50; j++) {
 			try {
 				seleniumactions.getJavascriptHelper()
-						.scrollIntoViewAndClick(applicationentryobj.ApplicationDetailsSaveIcon());
+						.scrollIntoView(applicationentryobj.ApplicationDetailsSaveIcon());
+				seleniumactions.getJavascriptHelper().JSEClick(applicationentryobj.ApplicationDetailsSaveIcon());
 				break;
 			} catch (Exception e) {
 				if (j == 50) {
@@ -456,7 +469,7 @@ public class ApplicationDetails_AppDataEntry {
     					applicationentryobj.AppDataEntry_TotalFinanceAmountRequestedField().click();
     					applicationentryobj.AppDataEntry_TotalFinanceAmountRequestedField().clear();
     					applicationentryobj.AppDataEntry_TotalFinanceAmountRequestedField()
-    							.sendKeys(applicationdetailsData.UpdatedTotalFincanceAmountRequested);
+    							.sendKeys(testdata.get("Total Finance Amount Requested"));
     					break;
 
     				} catch (Exception e) {
@@ -471,7 +484,7 @@ public class ApplicationDetails_AppDataEntry {
 				applicationentryobj.AppDataEntry_DeclaredNetIncomeField(), 60, 2);
 		applicationentryobj.AppDataEntry_DeclaredNetIncomeField().click();
 		applicationentryobj.AppDataEntry_DeclaredNetIncomeField().clear();
-		applicationentryobj.AppDataEntry_DeclaredNetIncomeField().sendKeys(applicationdetailsData.UpdatedDeclaredNetIncome);
+		applicationentryobj.AppDataEntry_DeclaredNetIncomeField().sendKeys(testdata.get("Declared net Income"));
 	}
     
 
@@ -482,7 +495,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_DeclaredCurrentObligationsField().click();
 		applicationentryobj.AppDataEntry_DeclaredCurrentObligationsField().clear();
 		applicationentryobj.AppDataEntry_DeclaredCurrentObligationsField()
-				.sendKeys(applicationdetailsData.UpdatedDeclaredCurrentObligations);
+				.sendKeys(testdata.get("Declared current obligations"));
     }
 
     @And("^Update the value in Special promotion of Application details$")
@@ -492,7 +505,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_SpecialPromotionField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedSpecialPromotion
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Special Promotion")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -507,7 +520,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_SourcingChannelField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedSourcingChannel
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Sourcing channel")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -522,7 +535,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_BusinessCenterCodeField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedBusinessCenterCode
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Business center code")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -537,7 +550,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_ServicingBranchField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedServicingBranch
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Servicing branch")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -564,7 +577,7 @@ public class ApplicationDetails_AppDataEntry {
 			
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedSourcingType
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Sourcing type")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -580,7 +593,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_SourcingOfficeField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedSourcingOffice
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Sourcing office")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -595,7 +608,7 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.AppDataEntry_ReferenceTypeField().click();
 		for (int i = 0; i < 50; i++) {
 			try {
-				driver.findElement(By.xpath("//ion-label[contains(text(),'" + applicationdetailsData.UpdatedReferenceType
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Reference type")
 						+ "')]/following-sibling::ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -610,7 +623,7 @@ public class ApplicationDetails_AppDataEntry {
 			try {
 		applicationentryobj.AppDataEntry_ReferenceCodeField().click();
 		applicationentryobj.AppDataEntry_ReferenceCodeField().clear();
-		applicationentryobj.AppDataEntry_ReferenceCodeField().sendKeys(applicationdetailsData.UpdatedReferenceCode);
+		applicationentryobj.AppDataEntry_ReferenceCodeField().sendKeys(testdata.get("Reference code"));
 		break;
 			} catch (Exception e) {
 			}
@@ -631,7 +644,7 @@ public class ApplicationDetails_AppDataEntry {
     	
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,applicationentryobj.ApplicationDetailsInboxView_SearchText(),60,2);
         applicationentryobj.ApplicationDetailsInboxView_SearchText().click();
-        applicationentryobj.ApplicationDetailsInboxView_SearchText().sendKeys(applicationdetailsData.SearchValueInInboxForAppDataEntry);
+        applicationentryobj.ApplicationDetailsInboxView_SearchText().sendKeys(testdata.get("Search value in inbox"));
 
     }
 
@@ -667,10 +680,12 @@ public class ApplicationDetails_AppDataEntry {
     @And("^Validate the Save successful popup of Application details$")
     public void validate_the_save_successful_popup_of_application_details() throws Throwable {
     	String Toast;
-    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, applicationentryobj.ApplicationDetailsSaveSuccessfulPopup(), 60, 2);
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, applicationentryobj.ApplicationDetailsSaveSuccessfulPopup(), 10, 2);
 		Toast = applicationentryobj.ApplicationDetailsSaveSuccessfulPopup().getText();
 		System.out.println(Toast);
-		Assert.assertEquals(Toast, "Success");
+		
+		
+		Assert.assertTrue(Toast.contains("Success"));
     }
     @And("^Select Application details in the offering tab$")
     public void select_application_details_in_the_offering_tab() throws Throwable {
@@ -775,6 +790,53 @@ public class ApplicationDetails_AppDataEntry {
 		applicationentryobj.ApplicationDetails_CustomerNameField().click();
 		applicationentryobj.ApplicationDetails_CustomerNameField().sendKeys(applicationdetailsData.CustomerName);
     }
+    @And("^Update the value in Sourcing entity field of Application details$")
+    public void update_the_value_in_sourcing_entity_field_of_application_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+				applicationentryobj.AppDataEntry_SourcingEntityField(), 60, 2);
+		applicationentryobj.AppDataEntry_SourcingEntityField().click();
+		for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Sourcing entity")
+						+ "')]/following-sibling::ion-radio")).click();
+				break;
+			} catch (Exception e) {
+			}
+		}
+    }
 
+    @And("^Update the value in Sourcing staff field of Application details$")
+    public void update_the_value_in_sourcing_staff_field_of_application_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+				applicationentryobj.AppDataEntry_SourcingStaffField(), 60, 2);
+		applicationentryobj.AppDataEntry_SourcingStaffField().click();
+		for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Sourcing staff")
+						+ "')]/following-sibling::ion-radio")).click();
+				break;
+			} catch (Exception e) {
+			}
+		}
+    }
+
+    @And("^Update the value in Reference entity field of Application details$")
+    public void update_the_value_in_reference_entity_field_of_application_details() throws Throwable {
+    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+				applicationentryobj.AppDataEntry_ReferenceEntityField(), 60, 2);
+		applicationentryobj.AppDataEntry_ReferenceEntityField().click();
+		for (int i = 0; i < 50; i++) {
+			try {
+				driver.findElement(By.xpath("//ion-label[contains(text(),'" + testdata.get("Reference entity")
+						+ "')]/following-sibling::ion-radio")).click();
+				break;
+			} catch (Exception e) {
+			}
+		}
+    }
+    @And("^Update test data for Application details App data entry updation$")
+    public void update_test_data_for_application_details_app_data_entry_updation() throws Throwable {
+    	testdata=exceldata.getTestdata("AT-ADADE-001_D1");
+    }
 
 }

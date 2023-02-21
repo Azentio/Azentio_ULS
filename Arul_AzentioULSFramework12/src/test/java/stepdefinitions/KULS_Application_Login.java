@@ -28,7 +28,7 @@ public class KULS_Application_Login {
 	KULS_Login_TestDataType ulsUserLoginCredentials;
 	ConfigFileReader configFileReader = new ConfigFileReader();
 
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00074\\Downloads\\TestDataDesignSampleNew2211.xlsx","LoginCredentilas","Stage");
+	ExcelData excelData = new ExcelData("C:\\Users\\inindc00074\\Downloads\\UlsTestDataDesign1702a.xlsx","LoginCredentilas","Stage");
 	Map<String, String> testdata;
 	public void loginUlsApplicationAsMaker(String username, String password) throws InterruptedException {
 		waithelper = new WaitHelper(driver);

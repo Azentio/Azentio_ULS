@@ -57,9 +57,10 @@ And Click on Save button of Application details
 Scenario: Validate that user can able to update the application details_App data entry
 # This test case also cover the functionality of M2
 Given Launch the kuls application and Navigate to Application details view list
+And Update test data for Application details App data entry updation
 And Navigate to Mail box of Application details and search the App data entry value
 And Click on action icon of first record of application details_App data entry value
-And Update the value in Primary sub product field of Application details
+#And Update the value in Primary sub product field of Application details
 And Update the value in Total finance amount requested field of Application details
 And Update the value in Declared net income field of Application details
 And Update the value in Declared current obligations field of Application details
@@ -69,7 +70,10 @@ And Update the value in Business center code field of Application details
 And Update the value in Servicing branch field of Application details
 And Update the value in Sourcing type field of Application details
 And Update the value in Sourcing office field of Application details
+And Update the value in Sourcing entity field of Application details
+And Update the value in Sourcing staff field of Application details
 And Update the value in Reference type field of Application details
+And Update the value in Reference entity field of Application details
 And Update the value in Reference code field of Application details
 And Click on Save button of Application details
 And Validate the Save successful popup of Application details

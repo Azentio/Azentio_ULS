@@ -208,7 +208,7 @@ public class ApplicationDetails_AppDataEntryObj {
     public WebElement ApplicationDetailsMailBoxActionButtonOfFirstRecord_Offering() {
     return ApplicationDetailsMailBoxActionButtonOfFirstRecord_Offering;
     } 
-    @FindBy(xpath = "//div[@aria-label='Success']") 
+    @FindBy(xpath = "//div[@id='toast-container']/div/div[1]") 
     private WebElement ApplicationDetailsSaveSuccessfulPopup;
     public WebElement ApplicationDetailsSaveSuccessfulPopup() {
     return ApplicationDetailsSaveSuccessfulPopup;
@@ -263,6 +263,17 @@ public class ApplicationDetails_AppDataEntryObj {
 	public WebElement ApplicationDetails_EmailIdField() {
 		return ApplicationDetails_EmailIdField;
 	}
+	@FindBy(xpath = "//ion-label[text()='LOS']/following-sibling::ion-radio")
+    private WebElement LOS;
+    public WebElement LOS() {
+        return LOS;
+    }
+    @FindBy(xpath = "//ion-select[@ng-reflect-text='Module name']")
+    private WebElement ModuleName1;
+    public WebElement ModuleName() {
+        return ModuleName1;
+    }
 }
+
 
 
