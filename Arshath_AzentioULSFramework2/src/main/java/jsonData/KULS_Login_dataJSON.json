@@ -1,0 +1,17 @@
+[
+{
+"UserType":"Maker",
+"Username":"in02256",
+"Password":"admin",
+"Username1":"in02040",
+"Password1":"admin"
+
+},
+{
+"UserType":"Checker",
+"CheckerUserName1":"in01589",
+"CheckerUserPassword1":"admin",
+"CheckerUserName2":"in01951",
+"CheckerUserPassword2":"admin"
+}
+]

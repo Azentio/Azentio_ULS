@@ -1,0 +1,36 @@
+[
+	{
+		"USername":"Maker",
+		"Description":"Expenses",
+		"Description2":"ExpensesExp",
+		"Description3":"ExpensesLivingExpenses",
+		
+		// Living Expenses InvalidModification
+		"DescriptionInvalidModify":"*&^%$#",
+		"DescriptionInvalidModify2":"@#$%^&",
+		"DescriptionInvalidModify3":"DescModifyExpp",
+		
+		// Living Expense Reject
+		"DescriptionReject":"RejectDesc1",
+		"DescriptionReject2":"RejectDesc2",
+		
+		// Living Expense Return
+		"DescriptionReturn":"ReturnDesc1",
+		"DescriptionReturn2":"ReturnDesc2",
+		
+		// Living Expense Modifications
+		"DescriptionModify":"ModifyDesc",
+		"DescriptionModify2":"ModifyDescExp",
+		"DescriptionApprovedModify":"ExpenseModify",
+		"DescriptionApprovedModify2":"ExpenseModify2",
+		"DescriptionRejectModify":"RejectExpenseModify",
+		"DescriptionRejectModify2":"RejectExpenseModify2",
+		"DescriptionReturnModify":"RejectExpenseModify",
+		"DescriptionReturnModify2":"RejectExpenseModify2",
+		
+		// Living Expense Parameter
+		"Value":"200",
+		"Rejectvalue":"500",
+		"Returnvalue":"1000"
+	}
+]

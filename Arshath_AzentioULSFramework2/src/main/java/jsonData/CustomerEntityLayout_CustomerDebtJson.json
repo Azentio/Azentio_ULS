@@ -1,0 +1,24 @@
+[
+{
+"UserType":"Maker",
+"Financetype":"Auto Loan",
+"FinancialInstitution":"Bank",
+"AccountNumber":"12345",
+"Sanctionamount":"200000",
+"Interestrate":"22",
+"CurrentPrinciplebalance":"5000",
+"TenureMonths":"15",
+"InstallmentAmount":"5000",
+"AmountConsidered":"2500",
+"Currency":"INR",
+"Remarks":"OK",
+"CollateralType":"Multiple",
+"Frequency":"Monthly",
+"LastPaymentAmount":"1500",
+"ProductName":"test",
+"Last24Cycle":"test",
+"FacilityStatus":"Active",
+"RemainingTenureMonths":"50",
+"NPAClassification":"Current"
+}
+]

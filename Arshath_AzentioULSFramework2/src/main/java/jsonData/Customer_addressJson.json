@@ -1,0 +1,45 @@
+[
+	{
+		"user": "Maker",
+		"ApplicationId":"506",
+		"Addresstype": "Home",
+		"AddressStatus": "Previous",
+		"Residentalstatus": "Financed",
+		"AddressLine1":"2B",
+		"AddressLine2":"ABCD",
+		"country":"INDIA",
+		"ProvinceID": "Maharastra",
+		"CityID": "Thane",
+		"ZipCode":"654321",
+		"POBoxNumber":"5006",
+		"DistrictName":"MUMBAI",
+		"MobileNumberprimary":"9876543210",
+		"MobileNumbersecondary":"9638527410",
+		"Durationofstay":"5",
+		"Latitudedetailsoftheaddress":"19075983",
+		"Longtitudedetailsoftheaddress":"72877655",
+		"LandMark":"NEAR MUMBAI",
+		"Occupancydate":"",
+		"Landlordname":"ARSHATH",
+		"LandlordNumber":"9865327410",
+		"Rentamount":"9000",
+		"FrequencyofRent":"Yearly",
+		"Year":"2022",
+		"Month":"Oct",
+		"Date":"20",
+		
+		
+		"MODIFYAddresstype": "Home", //"Office",
+		"MODIFYAddressStatus": "Current",//"Previous",
+		"MODIFYResidentalstatus": "Dormitory",//"Financed",
+		"MODIFYProvinceID": "",
+		"MODIFYCityID": "Thane",//"Yavatmal",
+		
+		"UpdateAddresstype":"Head Quarter Address",
+		"UpdateAddressStatus":"Previous",
+		"UpdateResidentalstatus":"Commercial rent",
+		"UpdateAddressLine1":"ABCHOME",
+		"UpdateAddressLine2":"ABCAREA"
+		
+		}
+]
