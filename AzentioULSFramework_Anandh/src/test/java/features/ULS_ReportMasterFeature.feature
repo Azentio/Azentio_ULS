@@ -98,5 +98,3 @@ And enter special charecter inputs in report parameter details
 Then verify system should through the validation for the special charecter inputs for special charecter 
 And click on template field and select the data from the drop down
 And click on is mendatory dropdown and select the value from the dropdown
-#And enter numeric inputs in all the charecter fields in report parameter details
-#Then verify system should allow user to save the parameter details record

@@ -3,6 +3,7 @@ package stepdefinitions;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -708,16 +709,16 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		boolean result = false;
 		for (int i = 0; i <= 15; i++) {
 			try {
-				underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert().isDisplayed();
+				result=underWriterOffSetControlObj.underWriterOffSetControlsubmitToastAlert().isDisplayed();
 				break;
 			} catch (NoSuchElementException e) {
 				if (i == 15) {
-					result = true;
+					result = false;
 
 				}
 			}
 		}
-		Assert.assertTrue(result);
+		Assert.assertFalse(result);
 	}
 
 	@Then("^click on save button after enter the alphabet input$")
@@ -751,7 +752,7 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		try {
 			Assert.assertEquals(
 					underWriterOffSetControlObj.underWriterOffSetControlMaximumValueValidationMessage().getText(),
-					"Alphanumeric characters allowed");
+					"no special charecter allowed");
 		} catch (Exception e) {
 			softAssert.fail("Maximum Value field didn't through the validation for Special Character Input");
 		}
@@ -828,6 +829,10 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 		underWriterOffSetControlObj.underWriterOffSetControlListViewFirstRecord().click();
 	}
 
+	@And("^get the test data for update the under writer record for checker return$")
+    public void get_the_test_data_for_update_the_under_writer_record_for_checker_return() throws Throwable {
+		underWriterTestData = excelData.getTestdata("AT_UOC_T010_D1");
+    }
 	@And("^get the test data  of validation screnario in updation screen$")
 	public void get_the_test_data_of_validation_screnario_in_updation_screen() throws Throwable {
 		underWriterTestData = excelData.getTestdata("AT_UOC_T011_D1");
@@ -1197,6 +1202,43 @@ public class ULS_UnderWriterOffSetControl extends BaseClass {
 
 		driver.findElement(By.xpath("//input[@mode='ios']/parent::span//i")).click();
 	}
+	@And("^search the invalid data in under writer offset control temp view$")
+    public void search_the_invalid_data_in_under_writer_offset_control_temp_view() throws Throwable {
+		Random random = new Random();
+		int int_random = random.nextInt(7); 
+		int int_random2 = random.nextInt(7); 
+		driver.findElement(By.xpath("//input[@mode='ios']/parent::span//i")).click();
+
+		for (int i = 0; i < 20; i++) {
+			try {
+				underWriterOffSetControlObj.searchIconOfUnderWriterOffsetControl().click();
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+		seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+				underWriterOffSetControlObj.searchTextFieldOfUnderWriterOffsetControl(), 30, 2);
+		System.out.println("Wip Invalid search"+underWriterTestData.get("InvalidSearchInWIp")+int_random+int_random2);
+		String searchWithInvalidText=underWriterTestData.get("InvalidSearchInWIp")+int_random+int_random2;
+		underWriterOffSetControlObj.searchTextFieldOfUnderWriterOffsetControl()
+				.sendKeys(searchWithInvalidText);
+		Thread.sleep(1000);
+		String xpath = "(//kub-prime-table[1]/p-table[1]/div[1]/p-paginator[1]/div[1]/span)[1]";
+		for (int i = 0; i < 200; i++) {
+			try {
+				seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+						driver.findElement(By.xpath(xpath)), 60, 2);
+				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Showing 0 to 0 of 0 entries");
+				// "Showing 0 to 0 of 0 entries"
+				break;
+			} catch (Exception e) {
+
+			}
+		}
+
+		driver.findElement(By.xpath("//input[@mode='ios']/parent::span//i")).click();
+    }
 
 	@And("^Validate Export to PDF functionality of under writer offset control$")
 	public void validate_export_to_pdf_functionality_of_under_writer_offset_control() throws Throwable {

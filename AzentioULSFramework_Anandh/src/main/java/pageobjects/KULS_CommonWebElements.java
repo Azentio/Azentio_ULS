@@ -178,5 +178,22 @@ public class KULS_CommonWebElements {
     {
     	return uls_AlertSubmitButton;
     }
-    
+    @FindBy(xpath="//ion-select[@aria-label='Corporate']")
+    private WebElement uls_CorporateToolBar;
+    public WebElement ulsCorporateToolBar()
+    {
+    	return uls_CorporateToolBar;
+    }
+    @FindBy(xpath="//ion-select[@aria-label='Configuration']")
+    private WebElement uls_ConfigurationToolBar;
+    public WebElement ulsConfigurationToolBar()
+    {
+    	return uls_ConfigurationToolBar;
+    }
+    @FindBy(xpath="//ion-label[contains(text(),'LOS')]//following-sibling::ion-radio")
+    private WebElement uls_toolBarLOSOption;
+    public WebElement ulsToolBarLOSOption()
+    {
+    	return uls_toolBarLOSOption;
+    }
 }

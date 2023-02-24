@@ -236,6 +236,7 @@ Then login with valid maker credentials
 And go to configuration main menu
 And click on config Manager main module
 And click on under writer off set control view button
+And get the test data for update the under writer record for checker return
 Then select the record to do updation which is approved from checker user
 Then update the already approved record for checker return
 And click on save button after update the approved one
@@ -251,7 +252,6 @@ And store the checker id of updated record for checker return purpose
 Scenario: To verify checker user can able to return the record
 Given Navigate to ULS application URL
 And login with checker id which is captured while submit the updated record for return purpose
-Then login with checker user for return the under writer record
 And click on menu button
 Then select the under writer record in checker stage
 And click on return button in checker stage to return the under writer off set control record
@@ -307,7 +307,7 @@ And Validate the fields are present in WIP of under writer offset control
 And Validate the functionalitiy of Add button of under writer offset control
 And Click on Back icon of under writer offset control
 And Search with valid data in under writer offset control
-And Search with Invalid data in under writer offset control
+And search the invalid data in under writer offset control temp view
 And Validate Export to PDF functionality of under writer offset control
 And Validate export to Excel functionality of under writer offset control
 When click on mail box after saving the under writer record
