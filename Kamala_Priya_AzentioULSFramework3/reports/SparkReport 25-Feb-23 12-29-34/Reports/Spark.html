@@ -1,0 +1,1291 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Automation Report HTML</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c43b89d03a7c43dae8bb8f0f078bad1997af6b3b/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Azentio Automation Suite Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Feb 25, 2023 12:29:34 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@AT-SM-T001</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">To verify the ULS master screen</p>
+            <p class="text-sm">
+              <span>12:29:36 PM</span> / <span>31:13:613</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">To verify the ULS master screen</h5>
+<span class='badge badge-success'>02.25.2023 12:29:36</span>
+<span class='badge badge-danger'>02.25.2023 12:30:50</span>
+<span class='badge badge-default'>31:13:613</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>To verify maker user can able to create and submit the scheme master record</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepdefinitions.SchemeMaster.get_the_url_and_login_as_maker()">
+                <span>Given Get the URL and login as maker</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded1.png' src="../Spark_Screenshots/embedded1.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.ULS_SchemeMasterSteps.get_the_test_data_of_first_test_case()">
+                <span>And get the test data of first test case</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded2.png' src="../Spark_Screenshots/embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.DepositAccountMaster.click_the_configuration()">
+                <span>And Click the configuration</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded3.png' src="../Spark_Screenshots/embedded3.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_config_Manager_main_module()">
+                <span>And click on config Manager main module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded4.png' src="../Spark_Screenshots/embedded4.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.ULS_SchemeMasterSteps.choose_scheme_master_view_button()">
+                <span>Then choose scheme master view button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded5.png' src="../Spark_Screenshots/embedded5.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_add_button_to_create_the_scheme_master_record()">
+                <span>And click on add button to create the scheme master record</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded6.png' src="../Spark_Screenshots/embedded6.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_back_and_save_buttons_are_visible()">
+                <span>Then verify back and save buttons are visible</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded7.png' src="../Spark_Screenshots/embedded7.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_description_field_should_be_mendatory_and_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify description field should be mendatory and user can able to pass the data in it</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded8.png' src="../Spark_Screenshots/embedded8.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type()">
+                <span>And verify product type should be non mendatory field and user can able to choose the product type</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: (//ion-select[@aria-label='Select,   Product Type *'])[1]' (tried for 10 second(s) with 3000 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:187)
+	at ✽.verify product type should be non mendatory field and user can able to choose the product type(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/ULS_SchemeMaster.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//ion-select[@aria-label='Select,   Product Type *'])[1]"}
+  (Session info: chrome=110.0.5481.177)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
+System info: host: 'DESKTOP-PSK9T3U', ip: '10.200.4.85', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [88444b32286c9de70e816f098b5fbc80, findElement {using=xpath, value=(//ion-select[@aria-label='Select,   Product Type *'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:50856}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50856/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 88444b32286c9de70e816f098b5fbc80
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:381)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:373)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy46.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:307)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:187)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:64)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:104)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$0(TestNGCucumberRunner.java:116)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:113)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepdefinitions.HooksClass.addScreenshot(io.cucumber.java.Scenario)</span>
+      <div>screenshot
+          <div class="row mb-3"><div class="col-md-3">
+    <img data-featherlight='../Spark_Screenshots/embedded9.png' src="../Spark_Screenshots/embedded9.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_product_sub_type_should_be_mendatory_field_and_user_can_able_to_choose_the_product_sub_type_dropdown()">
+                <span>And verify product sub type should be mendatory field and user can able to choose the product sub type dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_loan_currency_drop_down_shoudl_be_mendatory_and_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify loan currency drop down should be mendatory and user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_indexation_currency_field_should_be_non_mendatory_and_user_can_able_to_select_the_drop_down()">
+                <span>And verify Indexation Currency field should be non mendatory and user can able to select the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_valid_from_calendar_field_field_should_be_mendatory_and_user_can_able_to_slecet_the_date()">
+                <span>And verify valid from calendar field field should be mendatory and user can able to slecet the date</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_valid_to_date_calendar_field_should_be_mendatory_and_user_can_able_to_slecet_the_to_date()">
+                <span>And verify valid to date calendar field should be mendatory and user can able to slecet the to date</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_finance_amount_text_box_field_should_me_mendatory_and_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify min finance amount text box field should me mendatory and user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_finance_amount_text_box_field_should_be_mendatory_and_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify max finance amount text box field should be mendatory and user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_tenor_in_months_text_box_field_should_be_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify Min Tenor In months text box field should be mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_tenor_in_months_text_box_field_should_be_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify Max Tenor In months Text box field should be mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_repayment_type_field_should_be_mendatory_user_can_able_to_choose_the_data()">
+                <span>And Verify Repayment Type field should be mendatory user can able to choose the data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_flat_reducing_drop_down_field_should_be_mendatory_user_can_able_to_slecet_the_data()">
+                <span>And verify flat reducing drop down field should be mendatory user can able to slecet the data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_int_amortization_method_field_should_be_non_mendatory_and_user_can_able_to_select_the_data()">
+                <span>And verify int Amortization method field should be non mendatory and user can able to select the data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_compute_installment_on_field_should_be_mendatory_and_user_can_able_to_slecet_the_data_from_the_dropdown()">
+                <span>And verify compute installment on field should be mendatory and user can able to slecet the data from the dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_inst_due_method_field_should_be_mendatory_user_can_able_to_slect_the_data_in_drop_down()">
+                <span>And verify inst due method field should be mendatory user can able to slect the data in drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_verify_lpc_grace_period_field_should_be_non_mendatory_and_user_can_able_to_fill_the_data_in_it()">
+                <span>And verify verify LPC grace period field should be non mendatory and user can able to fill the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_principal_repayment_frequency_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify principal Repayment Frequency field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_intereset_repayment_frequency_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify intereset repayment frequency field should be non mendatory user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_inst_rounding_logic_field_should_be_mendatory_and_user_can_able_pass_the_data_in_it()">
+                <span>And verify inst rounding logic field should be mendatory and user can able pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_loan_eligibility_calc_field_should_be_mendatory_and_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify Loan Eligibility Calc field should be mendatory and user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_reamrk_field_should_be_non_mendatory_user_can_able_to_enter_the_reamrk_in_it()">
+                <span>And verify Reamrk field should be non mendatory user can able to enter the reamrk in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_include_co_applicant_inc_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify include co applicant INC field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_include_guarantorinc_field_should_be_mendatory_and_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify include GuarantorInc field should be mendatory and user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_due_period_required_field_should_be_mendatory_and_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify due period required field should be mendatory and user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_co_applicans_field_should_be_mendatory_and_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify max co applicans field should be non mendatory and user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_guarantors_field_should_be_non_mendatory_user_can_able_pass_the_data_in_it()">
+                <span>And verify max guarantors field should be non mendatory user can able pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_inst_commence_field_should_be_mendatory_user_can_able_to_slecet_the_data_from_the_drop_down()">
+                <span>And verify inst commence field should be mendatory user can able to slecet the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_days_in_year_field_should_be_mendatory_user_can_able_to_select_the_data_from_dropdown()">
+                <span>And verify days in year field should be mendatory user can able to select the data from dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_multiple_disburs_tranch_allowed_field_should_be_mendatory_and_user_can_able_to_slecet_the_data_from_the_dropdown()">
+                <span>And verify multiple disburs tranch allowed field should be mendatory and user can able to slecet the data from the dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_incluse_income_dedu_dept_field_should_be_non_mendatory_and_user_can_able_to_select_the_data_from_dropdown()">
+                <span>And verify incluse income Dedu dept field should be non mendatory and user can able to select the data from dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_round_off_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify Round off field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_round_off_value_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_the_text_box()">
+                <span>And verify round off value field should be non mendatory user can able to pass the data in the text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verfy_offer_validity_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_the_text_box()">
+                <span>And verfy offer validity field should be non mendatory user can able to pass the data in the text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_appropriation_code_field_should_be_mendatory_user_can_able_to_slecet_the_data_from_the_drop_down()">
+                <span>And verify appropriation code field should be mendatory user can able to slecet the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_baloon_allowed_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify baloon allowed field should be non mendatory user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_maximum_baloon_percentage_field_should_be_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify maximum Baloon percentage field should be mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_irr_field_should_be_non_mendatory_user_can_able_to_pass_the_dta_in_it()">
+                <span>And verify min IRR field should be non mendatory user can able to pass the dta in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_irr_field_should_be_non_mendatory_and_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify Max Irr field should be non mendatory and user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_pre_owned_asset_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify pre owned asset should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_day_count_for_bpi_field_should_be_non_mendatory_and_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify Day count for Bpi field should be non mendatory and user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_discount_factor_rounding_field_should_be_non_mendatory_and_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify discount factor Rounding field should be non mendatory and user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_interest_charging_starts_from_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify interest charging starts from field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_mi_recovery_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_dropdown()">
+                <span>And verify MI Recovery field should be non mendatory user can able to select the data from the dropdown</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_bpi_recovery_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify BPI Recovery field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_installment_recovery_type_field_should_be_non_mendatiry_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify installment recovery type field should be non mendatiry user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_rate_type_field_should_be_non_mendatory_user_can_able_to_select_the_dta_from_drop_down()">
+                <span>And verify rate type field should be non mendatory user can able to select the dta from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_initiate_disc_factory_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify initiate disc factory field should be non mendatory user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_resch_lockin_text_box_should_not_be_mendatory_user_can_able_to_pass_the_data_in_text_box()">
+                <span>And verify resch lockin text box should not be mendatory user can able to pass the data in text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_resch_in_a_year_text_box_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify Max Resch In a year text box should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_total_resch_allowed_text_box_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify total resch Allowed text box should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_reschedulement_lock_in_starts_field_should_be_non_mendatory_user_can_able_to_slect_the_data_from_the_drop_down()">
+                <span>And verify Reschedulement Lock in starts field should be non mendatory user can able to slect the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_bulk_payment_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify bulk payment field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_no_of_bulk_payment_in_year_field_should_be_non_mendatory_user_can_able_to_pass_the_data()">
+                <span>And verify No of Bulk payment in Year field should be non mendatory user can able to pass the data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_bulk_payment_lockin_period_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify bulk payment Lockin Period field should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_bulk_payment_time_interval_field_should_be_non_mendatory_user_can_able_to_enter_the_data()">
+                <span>And verify bulk payment time interval field should be non mendatory user can able to enter the data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_bulk_payment_lock_in_starts_from_field_should_be_non_mendatory_user_can_able_to_select_the_data_teh_data_from_drop_down()">
+                <span>And verify bulk payment Lock in starts from field should be non mendatory user can able to select the data teh data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_bulk_payment_value_field_should_be_non_mendatory_user_can_able_to_enter_the_data_in_it()">
+                <span>And verify max bulk payment value field should be non mendatory user can able to enter the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_bulkpayment_value_field_should_be_non_mandatory_user_can_able_to_enter_the_data_into_it()">
+                <span>And verify min bulkpayment value field should be non mandatory user can able to enter the data into it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_innediate_due_date_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify immediate due date field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_bulk_payment_parameter_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify Min Bulk Payment Parameter field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_bulk_payment_parameter_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify max bulk payment parameter field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_fore_closure_lockin_field_should_be_non_mendatory_user_can_able_to_enter_the_data_in_it()">
+                <span>And verify Fore closure Lockin field should be non mendatory user can able to enter the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_foreclosure_lock_in_starts_from_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify ForeClosure Lock in starts from field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_rebate_parameter_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify min Rebate Parameter field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_min_rebate_value_field_should_be_non_mendatory_user_can_able_to_fill_the_data_in_the_text_box()">
+                <span>And verify min Rebate Value field should be non mendatory user can able to fill the data in the text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_rebate_parameter_should_be_non_mendatory_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify max Rebate parameter should be non mendatory user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_rebate_value_field_should_be_non_mendatory_user_can_able_to_enter_the_data_in_it()">
+                <span>And verify max rebate value field should be non mendatory user can able to enter the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_interest_holiday_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify interest holiday field should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_principal_holiday_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify principal holiday field should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_recomputation_of_profit_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify Recomputation of profit field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_is_set_up_allowed_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify Is Set up allowed field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_max_step_up_field_should_be_non_mendatory_and_user_can_able_to_fill_the_data_in_it()">
+                <span>And verify max step up field should be non mendatory and user can able to fill the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_eligibility_type_field_should_be_non_mendatory_user_can_able_to_select_the_data_in_it()">
+                <span>And verify eligibility type field should be non mendatory user can able to select the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_preemi_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify PreEmi field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_no_of_pre_emi_installment_should_be_non_mendatory_user_can_able_to_enter_the_data_in_it()">
+                <span>And verify no of Pre EMI Installment should be non mendatory user can able to enter the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_is_loan_transfer_allower_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify is loan Transfer Allower field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_user_can_able_to_save_the_scheme_master_record()">
+                <span>Then verify user can able to save the scheme master record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_temp_view_of_scheme_master()">
+                <span>Then click on temp view of scheme master</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.select_the_first_record()">
+                <span>And select the first record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_charge_scheme_sub_screen()">
+                <span>And click on charge scheme sub screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_add_button_in_charge_scheme_sub_menu()">
+                <span>Then click on add button in charge scheme sub menu</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_master_charge_drop_down_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify master charge drop down should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_charge_dropdown_should_be_non_mendatory_user_can_able_to_select_the_dta_from_the_drop_down()">
+                <span>And verify charge dropdown should be non mendatory user can able to select the dta from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_calculation_type_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify calculation type field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_falt_amount_field_should_be_non_mendatory_user_can_able_to_enter_the_data_in_it()">
+                <span>And verify falt amount field should be non mendatory user can able to enter the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_percentage_text_box_should_be_non_mendatory_user_can_able_to_enter_the_data_in_it()">
+                <span>And verify percentage text box should be non mendatory user can able to enter the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_calculated_on_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify calculated on field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_recpay_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify RecPay field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_recfrom_payto_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify Recfrom PayTo field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_include_in_cust_irr_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify include in cust IRR field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_inc_in_bank_irr_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify inc in bank IRR field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_level_drop_down_should_be_non_mendatory_user_can_able_to_slect_the_data_from_the_drop_down()">
+                <span>And verify level drop down should be non mendatory user can able to slect the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_currency_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify currency field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_event_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify event field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_data_unit_dropdown_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify data unit dropdown should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_date_value_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify date value field should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_charge_count_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify charge count field should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_accounting_type_field_should_be_mendatory_field_should_be_mendaory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify accounting type field should be mendatory field should be mendaory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_stage_dropdown_field_should_be_non_mendatroy_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify stage dropdown field should be non mendatroy user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_module_dropdown_field_should_be_non_mendatroy_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify module dropdown field should be non mendatroy user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_remarks_field_should_be_non_mendatory_user_can_able_to_pass_the_data_in_it()">
+                <span>And verify remarks field should be non mendatory user can able to pass the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.save_the_charge_scheme_record()">
+                <span>And save the charge scheme record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_temp_view_of_scheme_master()">
+                <span>Then click on temp view of scheme master</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.select_the_first_record()">
+                <span>And select the first record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.goto_basic_eligibility_screen()">
+                <span>Then goto basic eligibility screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_add_button_in_basic_eligibility()">
+                <span>Then click on add button in basic eligibility</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_eligibility_type_field_should_be_non_mendatory_user_can_able_to_fill_the_data_in_it()">
+                <span>And verify Eligibility type field should be non mendatory user can able to fill the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_eligibility_field_should_be_mendatory_user_can_able_to_fill_the_data_in_it()">
+                <span>And verify Eligibility field should be mendatory user can able to fill the data in it</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_base_field_should_be_mendatory_and_user_can_able_to_fill_the_data_inside_the_text_box()">
+                <span>And verify Base field should be mendatory and user can able to fill the data inside the text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_income_to_be_used_field_should_be_mendatory_user_can_able_to_select_the_data_from_drop_down()">
+                <span>And verify Income To be Used field should be mendatory user can able to select the data from drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_rule_drop_down_field_should_be_non_mendatory_user_can_able_to_slect_the_datafrom_the_drop_down()">
+                <span>And verify Rule drop down field should be non mendatory user can able to slect the datafrom the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.save_the_eligibility_record()">
+                <span>Then save the eligibility record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_temp_view_of_scheme_master()">
+                <span>Then click on temp view of scheme master</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.select_the_first_record()">
+                <span>And select the first record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.goto_verification_screen()">
+                <span>Then goto verification screen</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_add_button_to_create_the_verification_record()">
+                <span>And click on add button to create the verification record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.veirfy_verification_stage_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And veirfy verification stage field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_rule_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify rule field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.save_the_verification_record()">
+                <span>Then save the verification Record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_temp_view_of_scheme_master()">
+                <span>Then click on temp view of scheme master</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.select_the_first_record()">
+                <span>And select the first record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.goto_valuation_screen_to_add_the_data()">
+                <span>Then goto valuation screen to add the data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_add_button_to_add_the_valuation_data()">
+                <span>Then click on add button to add the valuation data</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_asset_type_field_should_be_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify asset type field should be mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verify_valuation_rule_field_should_be_non_mendatory_user_can_able_to_select_the_data_from_the_drop_down()">
+                <span>And verify valuation rule field should be non mendatory user can able to select the data from the drop down</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.verifynumber_of_valuation_field_should_be_mendatory_user_can_able_to_fill_the_data_inside_the_text_box()">
+                <span>And verifynumber of valuation field should be mendatory user can able to fill the data inside the text box</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.save_the_valuation_record()">
+                <span>And save the valuation record</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.click_on_notification_in_schememaster_module()">
+                <span>Then click on notification in schemeMaster module</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.select_the_record_from_the_notification_list()">
+                <span>And select the record from the notification list</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepdefinitions.ULS_SchemeMasterSteps.submit_the_record_from_the_maker_stage()">
+                <span>Then submit the record from the maker stage</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Feb 25, 2023 12:29:34 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Feb 25, 2023 12:30:50 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>1</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'><b>0</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='100%'><b>1</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='11%'><b>17</b> steps passed</small></div>
+<div>
+<small data-tooltip='0%'><b>1</b> steps failed,
+<b>129</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"To verify the ULS master screen":73.613
+};
+</script>
+<div class="row">
+<div class="col-md-4 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@AT-SM-T001</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-md-4 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>version</td>
+<td>10</td>
+</tr>
+<tr>
+<td>os</td>
+<td>windows</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 1,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 1,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 17,
+failGrandChild: 1,
+warningGrandChild: 0,
+skipGrandChild: 129,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@AT-SM-T001</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AT-SM-T001</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:29:36 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>To verify maker user can able to create and submit the scheme master record</a>
+<div class="">
+<span class="badge badge-default">To verify the ULS master screen.To verify maker user can able to create and submit the scheme master record</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.TimeoutException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.TimeoutException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>12:30:37 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='21'>And verify product type should be non mendatory field and user can able to choose the product type</a>
+<div class="">
+<span class="badge badge-default">To verify the ULS master screen.To verify maker user can able to create and submit the scheme master record.And verify product type should be non mendatory field and user can able to choose the product type</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@14e9bb345ef7e2ed3a102f271d84e9f0267c88e7/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

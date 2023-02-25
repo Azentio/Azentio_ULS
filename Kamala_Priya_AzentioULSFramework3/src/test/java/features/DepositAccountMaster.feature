@@ -30,6 +30,8 @@ Then Search the record in serch field
 And Get the reference id and store it in json
 And Click the first action icon in deposit master
 Then Submit the record in deposit master
+#And Close the Alert Popoup
+And User Logout from application
 
 #AT-DAM-T001
 @DepositMaster_M1.1_2c
@@ -43,6 +45,8 @@ And Click the approve button in the deposit master
 Then Enter the alert approve remark in deposit master
 And Give the final approve in the deposit master
 Then Verify the record get approved in deposit master
+And Close the Alert Popoup
+And User Logout from application
 
 #AT-DAM-T001
 @DepositMaster_M1.2_3
@@ -52,6 +56,7 @@ And Click the configuration
 Then Click the config Manager
 And Click the eye icon of deposit master
 Then verify the approved record present in the list view
+And User Logout from application
 
 #AT-DAM-T002
 @DepositMaster_M1_4
@@ -82,6 +87,7 @@ Then Search the record in serch field
 And Get the reference id and store it in excel for checker reject in deposit account master
 And Click the first action icon in deposit master
 Then Submit the record in deposit master for checker reject
+And User Logout from application
 
 #AT-DAM-T002
 @DepositMaster_M2_5_3c
@@ -95,6 +101,8 @@ And Click the reject button in the deposit master
 Then Enter the alert reject remark in deposit master
 And Give the final reject in the deposit master
 Then Verify the record get rejected in deposit master
+And Close the Alert Popoup
+And User Logout from application
 
 #AT-DAM-T002
 @DepositMaster_M2.1_6
@@ -104,6 +112,7 @@ And Click the configuration
 Then Click the config Manager
 And Click the eye icon of deposit master
 Then verify the the rejected record in the list view
+And User Logout from application
 
 #AT-DAM-T003
 @DepositMaster_M1_7
@@ -134,6 +143,7 @@ Then Search the record in serch field
 And Get the reference id and store it in excel for checker return in deposit account master
 And Click the first action icon in deposit master
 Then Submit the record in deposit master for checker return
+And User Logout from application
 
 #AT-DAM-T003
 @DepositMaster_M3_8_4c
@@ -147,6 +157,8 @@ And Click the return button in the deposit master
 Then Enter the alert return remark in deposit master
 And Give the final return in the deposit master
 Then Verify the record get returned in deposit master
+And Close the Alert Popoup
+And User Logout from application
 
 #AT-DAM-T003
 @DepositMaster_M3.1_9
@@ -156,6 +168,7 @@ And Click the configuration
 Then Click the config Manager
 And Click the temp view icon of deposit master
 Then verify the the returned record is in the list view
+And User Logout from application
 
 #AT-DAM-T005-D1
 #Validation
@@ -174,6 +187,7 @@ Then save the record in branch mapping
 Then Validate the numeric field with special character value in deposit master
 Then save the record in branch mapping
 Then Verify the functionality of the back button
+And User Logout from application
 
 #AT-DAM-T006-D1
 #Modification Before Approve
@@ -190,6 +204,7 @@ And Modify the branch name in deposit master
 Then Modify the accounting type in deposit master
 And Modify the account number in depost master
 Then Save the record in deposit master
+And User Logout from application
 
 
 #Creation for modification by changing one field value
@@ -253,6 +268,8 @@ Then Search the record in serch field
 And Get the reference id and store it in excel for approved record modification
 And Click the first action icon in deposit master
 Then Submit the record in deposit master for modifing the approved record
+And User Logout from application
+
 #AT-DAM-T007-D1
 @DepositMaster_M1.1_14
 Scenario: To verify Checker user is able to Approve the record
@@ -265,6 +282,9 @@ And Click the approve button in the deposit master
 Then Enter the alert approve remark in deposit master
 And Give the final approve in the deposit master
 Then Verify the record get approved in deposit master
+And Close the Alert Popoup
+And User Logout from application
+
 
 #Modification Reject
 #Creation for modification by changing one field value
@@ -328,6 +348,7 @@ Then Search the record in serch field
 And Get the reference id and store it in excel to reject the modified record in deposit account master
 And Click the first action icon in deposit master
 Then Submit the record in deposit master for reject the approved record
+And User Logout from application
 
 #AT-DAM-T008-D1
 @DepositMaster_M7_18
@@ -341,6 +362,8 @@ And Click the reject button in the deposit master
 Then Enter the alert reject remark in deposit master
 And Give the final reject in the deposit master
 Then Verify the record get rejected in deposit master
+And Close the Alert Popoup
+And User Logout from application
 
 
 #Modification Return
@@ -386,7 +409,7 @@ Then Verify the record get rejected in deposit master
 #Then Verify the record get approved in deposit master
 
 #modification on already approved record
-#AT-DAM-T008-D1
+#AT-DAM-T009-D1
 @DepositMaster_M6_13
 Scenario: To verify system allow user to do a modification on already approved record
 Given Get the URL and login as maker
@@ -405,6 +428,7 @@ Then Search the record in serch field
 And Get the reference id and store it in excel to return the modified record in deposit account master
 And Click the first action icon in deposit master
 Then Submit the record in deposit master for return the approved record
+And User Logout from application
 
 @DepositMaster_M8_22
 Scenario: To verify Checker user is able to Return the record
@@ -416,6 +440,8 @@ And Click the return button in the deposit master
 Then Enter the alert return remark in deposit master
 And Give the final return in the deposit master
 Then Verify the record get returned in deposit master
+And Close the Alert Popoup
+And User Logout from application
 
 #Creation for modification by changing one field value
 #@DepositMaster_M1.11_23
@@ -477,6 +503,7 @@ And Modify the account number in depost master
 Then save the record in branch mapping
 And validate the record with blank field in deposit master
 Then Verify the functionality of the back button
+And User Logout from application
 
 #AT-DAM-T013-D1
 
@@ -495,6 +522,7 @@ Then To verify the functionality of Search box with matching data in deposit mas
 Then To verify the functionality of Search box with unmatching data in deposit master
 And To verify the functionality of Export to PDF button in deposit master
 Then To verify the functionality of Export to Excel button in deposit master
+And User Logout from application
 
 #AT-DAM-T013-D1
 # WIP List view validation
@@ -511,6 +539,7 @@ Then To verify the functionality of Search box with matching data in wip
 And To verify the functionality of Search box with mismatch data in wip
 Then To verify the functionality of Export to PDF button in wip
 And To verify the functionality of Export to Excel button in wip
+And User Logout from application
 
 
 #Modification before approval extra

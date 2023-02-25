@@ -7,14 +7,14 @@ import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features/CustomerEmployment.feature", 
+@CucumberOptions(features = "src/test/java/features", 
 glue = "stepdefinitions",
 //monochrome=false, //to make steps in color
 plugin = { "pretty",
            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
            "rerun:ReRunScenarios/FailedReRun.txt"}
-//dryRun = false //to check compilation errors
-//, tags="@CustomerEmployment_M1"
+//dryRun = false //to check compilation errors	
+, tags="@FeeMaster_M7"
 )
 public class TestApplication extends AbstractTestNGCucumberTests {
 /*
@@ -26,6 +26,7 @@ public class TestApplication extends AbstractTestNGCucumberTests {
 @BeforeSuite
 public void beforeExecution() {
 System.out.println("*** Test Execution started ***");
+
 }
 
 @AfterSuite

@@ -161,6 +161,11 @@ public class FeeMasterObject {
         public WebElement FeeMaster_Legacy1Code() {
     		return FeeMaster_Legacy1Code1;
     	}
+        @FindBy(xpath="//ion-label[text()=' Charge Type ']//following-sibling::ion-select") 
+    	private WebElement FeeMaster_ChargeType1Modification;
+        public WebElement FeeMaster_ChargeType1Modification() {
+    		return FeeMaster_ChargeType1Modification;
+    	}
         @FindBy(xpath="//ion-label[text()=' Legacy Code2 ']//following-sibling::ion-input/input")//(xpath = "//ion-col[6]/digital-text-box[1]/ion-item[1]/ion-input[1]/input[1]") 
     	private WebElement FeeMaster_Legacy2Code1;
         public WebElement FeeMaster_Legacy2Code() {
@@ -346,5 +351,41 @@ public class FeeMasterObject {
     	private WebElement FeeMaster_Descriptiontick1;
         public WebElement FeeMaster_Descriptiontick() {
     		return FeeMaster_Descriptiontick1;
+    	}
+        @FindBy(xpath="//span[text()='Export']/following-sibling::div/span")
+    	private WebElement exportIcon;
+    	public WebElement exportIcon() {
+    		return exportIcon;
+    	}	
+    	@FindBy(xpath="//li[@aria-label='PDF']")
+    	private WebElement exportToPDF;
+    	public WebElement exportToPDF() {
+    		return exportToPDF;
+    	}	
+    	@FindBy(xpath="//li[@aria-label='XLS']/span")
+    	private WebElement exportToExcel;
+    	public WebElement exportToExcel() {
+    		return exportToExcel;
+    }
+    	@FindBy(xpath="//kub-prime-table[1]/p-table[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[5]")
+    	private WebElement MatchedDatal;
+    	public WebElement MatchedData() {
+    		return MatchedDatal;
+    }
+
+    	@FindBy(xpath="//button[@ng-reflect-text='Search']")
+    	private WebElement SearchButton2l;
+    	public WebElement SearchButton2() {
+    		return SearchButton2l;
+    }
+    	@FindBy(xpath="//p-table[1]/div[1]/div[1]/div[1]/div[3]/span[1]/input[1]")
+    	private WebElement Searchtext2l;
+    	public WebElement Searchtext2() {
+    		return Searchtext2l;
+    }
+    	@FindBy(xpath="(//button[@ng-reflect-text='Edit'])[1]")
+    	private WebElement Temp_FirstEditRecord;
+    	public WebElement Temp_FirstEditRecord() {
+    		return Temp_FirstEditRecord;
     	}
 }

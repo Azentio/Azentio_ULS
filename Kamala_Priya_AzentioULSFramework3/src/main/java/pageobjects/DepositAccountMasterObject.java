@@ -308,4 +308,20 @@ public class DepositAccountMasterObject {
 		 public WebElement DepositAccount_Modification_AccountType(){
 			 return DepositAccount_Modification_AccountType1;
 		 }
+		 @FindBy(xpath="//ion-item[@ng-reflect-text='Profile']")
+		 private WebElement Profile_Logout;
+		 public WebElement Profile_Logout() {
+			 return Profile_Logout;
+		 }
+		 @FindBy(xpath="//span[contains(text(),'Logout')]")
+		 private WebElement Logout;
+		 public WebElement Logout() {
+			 return Logout;
+		 }
+		 @FindBy(xpath="//div[@id='toast-container']//button")
+		 private WebElement AlertPopup;
+		 public WebElement AlertPopup() {
+			 return AlertPopup;
+		 }
+		
 		}

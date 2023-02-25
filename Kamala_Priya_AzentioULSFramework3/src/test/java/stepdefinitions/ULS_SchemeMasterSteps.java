@@ -2841,58 +2841,58 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerDescriptionValue(), 10, 1);
 		String Description = ulsSchemeMasterObj.checkerDescriptionValue().getAttribute("ng-reflect-model");
-		Assert.assertTrue(Description.contains(ulSchemeMasterTestData.UlsDescription));
+		Assert.assertTrue(Description.contains(schemeMasterTestData.get("Description")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerProductTypeValue(), 10, 1);
 		String productType = ulsSchemeMasterObj.checkerProductTypeValue().getAttribute("aria-label");
-		Assert.assertTrue(productType.contains(ulSchemeMasterTestData.UlsProductType));
+		Assert.assertTrue(productType.contains(schemeMasterTestData.get("ProductType")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerSubProductTypeValue(), 10, 1);
 		String subProductType = ulsSchemeMasterObj.checkerSubProductTypeValue().getAttribute("aria-label");
-		Assert.assertTrue(subProductType.contains(ulSchemeMasterTestData.UlsSubProductType));
+		Assert.assertTrue(subProductType.contains(schemeMasterTestData.get("SubProductType")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerLoanCurrencyValueDropDown(),
 				10, 1);
 		String LoanCurrency = ulsSchemeMasterObj.checkerLoanCurrencyValueDropDown().getAttribute("aria-label");
-		Assert.assertTrue(LoanCurrency.contains(ulSchemeMasterTestData.LoanCurrency));
+		Assert.assertTrue(LoanCurrency.contains(schemeMasterTestData.get("LoanCurrency")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.checkerIndexationCurrencyValueDropDown(), 10, 1);
 		String IndexationCurrency = ulsSchemeMasterObj.checkerIndexationCurrencyValueDropDown()
 				.getAttribute("aria-label");
-		Assert.assertTrue(IndexationCurrency.contains(ulSchemeMasterTestData.IndexationCurrency));
+		Assert.assertTrue(IndexationCurrency.contains(schemeMasterTestData.get("IndexationCurrency")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerRepaymentTypeValueDropDown(),
 				10, 1);
 		String repaymentType = ulsSchemeMasterObj.checkerRepaymentTypeValueDropDown().getAttribute("aria-label");
-		Assert.assertTrue(repaymentType.contains(ulSchemeMasterTestData.RepaymentType));
+		Assert.assertTrue(repaymentType.contains(schemeMasterTestData.get("RepaymentType")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerFlatReducingValueDropDown(),
 				10, 1);
 		String faltReducing = ulsSchemeMasterObj.checkerFlatReducingValueDropDown().getAttribute("aria-label");
-		Assert.assertTrue(faltReducing.contains(ulSchemeMasterTestData.FlatReducing));
+		Assert.assertTrue(faltReducing.contains(schemeMasterTestData.get("FlatReducing")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.checker_INTAmortizationValueDropDownValue(), 10, 1);
 		String amortization = ulsSchemeMasterObj.checker_INTAmortizationValueDropDownValue().getAttribute("aria-label");
-		Assert.assertTrue(amortization.contains(ulSchemeMasterTestData.IntAmortizationMethod));
+		Assert.assertTrue(amortization.contains(schemeMasterTestData.get("IntAmortizationMethod")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.checker_ComputeInstallmentValueDropDown(), 10, 1);
 		String computeInstallment = ulsSchemeMasterObj.checker_ComputeInstallmentValueDropDown()
 				.getAttribute("aria-label");
-		Assert.assertTrue(computeInstallment.contains(ulSchemeMasterTestData.ComputeInstallmentOn));
+		Assert.assertTrue(computeInstallment.contains(schemeMasterTestData.get("ComputeInstallmentOn")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.checker_DueDateMethodValueDropDown(), 10, 1);
 		String dueDateMethod = ulsSchemeMasterObj.checker_DueDateMethodValueDropDown().getAttribute("aria-label");
-		Assert.assertTrue(dueDateMethod.contains(ulSchemeMasterTestData.InstDueDateMethod));
+		Assert.assertTrue(dueDateMethod.contains(schemeMasterTestData.get("InstDueDateMethod")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.checker_PrincipalRepaymentFrequencyDropDown(), 10, 1);
 		String principalRepaymentFrequency = ulsSchemeMasterObj.checker_PrincipalRepaymentFrequencyDropDown()
 				.getAttribute("aria-label");
-		Assert.assertTrue(principalRepaymentFrequency.contains(ulSchemeMasterTestData.PrincipalRepaymentFrom));
+	Assert.assertTrue(principalRepaymentFrequency.contains(schemeMasterTestData.get("PrincipalRepaymentFrom")));
 
 //		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 //				ulsSchemeMasterObj.checker_InterestRepaymentFrequencyDropDown(), 10, 1);
@@ -2900,13 +2900,13 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		javascriptHelper.scrollIntoView(ulsSchemeMasterObj.checker_InterestRepaymentFrequencyDropDown());
 		String intersetRepaymentFrequency = ulsSchemeMasterObj.checker_InterestRepaymentFrequencyDropDown()
 				.getAttribute("aria-label");
-		Assert.assertTrue(intersetRepaymentFrequency.contains(ulSchemeMasterTestData.InterestRepaymentFrequency));
+		Assert.assertTrue(intersetRepaymentFrequency.contains(schemeMasterTestData.get("InterestRepaymentFrequency")));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				ulsSchemeMasterObj.checker_LoanEligibilityValueDropDown(), 10, 1);
 		String loanEligibilityValue = ulsSchemeMasterObj.checker_LoanEligibilityValueDropDown()
 				.getAttribute("aria-label");
-		Assert.assertTrue(loanEligibilityValue.contains(ulSchemeMasterTestData.LoanEligibilityCalc));
+		Assert.assertTrue(loanEligibilityValue.contains(schemeMasterTestData.get("LoanEligibilityCalc")));
 
 	}
 
@@ -2925,7 +2925,6 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 
 		ulsSchemeMasterObj.checkerAlertApprove().click();
 	}
-
 	@Then("^verify checker user can able to see the successfull pop up after approving the record from checker end$")
 	public void verify_checker_user_can_able_to_see_the_successfull_pop_up_after_approving_the_record_from_checker_end()
 			throws Throwable {
@@ -2944,7 +2943,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	public void give_the_checker_remark_in_alert_pop_up() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerAlertRemark(), 10, 1);
 		ulsSchemeMasterObj.checkerAlertRemark().click();
-		ulsSchemeMasterObj.checkerAlertRemark().sendKeys(ulSchemeMasterTestData.checkerNegativeAlertRemark);
+		ulsSchemeMasterObj.checkerAlertRemark().sendKeys(schemeMasterTestData.get("checkerNegativeAlertRemark"));
 	}
 
 	@And("^click on reject button in alert pop up$")
@@ -2972,7 +2971,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	public void give_the_appropriate_remark_in_alert_pop_up() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.checkerAlertRemark(), 10, 1);
 		ulsSchemeMasterObj.checkerAlertRemark().click();
-		ulsSchemeMasterObj.checkerAlertRemark().sendKeys(ulSchemeMasterTestData.checkerRuturnAlertRemark);
+		ulsSchemeMasterObj.checkerAlertRemark().sendKeys(schemeMasterTestData.get("checkerRuturnAlertRemark"));
 	}
 
 	@And("^click on return button in remark pop up$")
@@ -3001,12 +3000,12 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterSearchTextBox(), 10, 1);
 		clicksAndActionsHelper.moveToElement(ulsSchemeMasterObj.schemeMasterSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(ulsSchemeMasterObj.schemeMasterSearchTextBox());
-		ulsSchemeMasterObj.schemeMasterSearchTextBox().sendKeys(ulSchemeMasterTestData.UlsDescription);
+		ulsSchemeMasterObj.schemeMasterSearchTextBox().sendKeys(schemeMasterTestData.get("Description"));
 		for (int i = 0; i <= 10; i++) {
 			try {
 				boolean displayed = driver
 						.findElement(
-								By.xpath("//span[contains(text(),'" + ulSchemeMasterTestData.UlsDescription + " ')]"))
+								By.xpath("//span[contains(text(),'" + schemeMasterTestData.get("Description") + " ')]"))
 						.isDisplayed();
 				Assert.assertTrue(displayed);
 			} catch (Exception e) {
@@ -3031,11 +3030,11 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		clicksAndActionsHelper.moveToElement(ulsSchemeMasterObj.schemeMasterSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(ulsSchemeMasterObj.schemeMasterSearchTextBox());
 		ulsSchemeMasterObj.schemeMasterSearchTextBox().clear();
-		ulsSchemeMasterObj.schemeMasterSearchTextBox().sendKeys(ulSchemeMasterTestData.UlsDescriptionForCheckerReject);
+		ulsSchemeMasterObj.schemeMasterSearchTextBox().sendKeys(schemeMasterTestData.get("UlsDescriptionForCheckerReturn"));
 		for (int i = 0; i <= 10; i++) {
 			try {
 				boolean displayed = driver.findElement(By.xpath(
-						"//span[contains(text(),'" + ulSchemeMasterTestData.UlsDescriptionForCheckerReject + " ')]"))
+						"//span[contains(text(),'" + schemeMasterTestData.get("UlsDescriptionForCheckerReturn") + " ')]"))
 						.isDisplayed();
 				Assert.assertFalse(displayed);
 			} catch (Exception e) {
@@ -3049,7 +3048,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 		for (int i = 0; i <= 20; i++) {
 			try {
 				boolean returnRecordStatus = driver.findElement(By.xpath(
-						"//span[contains(text(),'" + ulSchemeMasterTestData.UlsDescriptionForCheckerReturn + " ')]"))
+						"//span[contains(text(),'" + schemeMasterTestData.get("UlsDescriptionForCheckerReturn") + " ')]"))
 						.isDisplayed();
 				Assert.assertTrue(returnRecordStatus);
 				break;
@@ -3112,7 +3111,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 	}
 
 	@And("^change the record status active to inactive$")
-	public void change_the_record_status_active_to_inactive() throws Throwable {
+public void change_the_record_status_active_to_inactive() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsSchemeMasterObj.schemeMasterToggleButton(), 10, 1);
 		ulsSchemeMasterObj.schemeMasterToggleButton().click();
 	}

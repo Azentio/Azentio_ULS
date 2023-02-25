@@ -159,8 +159,8 @@ Then verify checker user can able to see the successfull pop up after approving 
 @AT-SM-T001.2
 Scenario: To verify maker user can able to create and submit the scheme master record
 Given Get the URL and login as maker
-Then login with valid maker credentials
-And go to configuration main menu
+#Then login with valid maker credentials
+#And go to configuration main menu
 And click on config Manager main module
 Then choose scheme master view button
 And click on add button to create the scheme master record
@@ -302,7 +302,7 @@ Then verify record is submitted from the maker end
 @AT-SM-T003
 
 Scenario: Verify checker user can able to reject the scheme master record which is submited by maker
-Given Navigate to ULS application URL
+#Given Navigate to ULS application URL
 Then login with checker user
 And click on menu bar the click on inbox 
 Then select the scheme record which is submitted by maker
@@ -313,8 +313,8 @@ Then verify checker user can able to see the reject pop up after rejecting the r
 @AT-SM-T001.3
 Scenario: To verify maker user can able to create and submit the scheme master record
 Given Get the URL and login as maker
-Then login with valid maker credentials
-And go to configuration main menu
+#Then login with valid maker credentials
+#And go to configuration main menu
 And click on config Manager main module
 Then choose scheme master view button
 And click on add button to create the scheme master record
@@ -455,7 +455,7 @@ Then verify record is submitted from the maker end
 #SM_01_08
 @AT-SM-T004
 Scenario: verify checker user can able to return the record in checker stage
-Given Navigate to ULS application URL
+#Given Navigate to ULS application URL
 Then login with checker user
 And click on menu bar the click on inbox 
 Then select the scheme record which is submitted by maker
@@ -466,9 +466,10 @@ When checker user return the record checker user can able to see the confirmatio
 #SM_01_06
 @AT-SM-T001.1
 Scenario: Verify the user can able to validate the approved rejected and returned records in maker stage
-Given Navigate to ULS application URL
-Then login with valid maker credentials
-And click on product defenition main module
+#Given Navigate to ULS application URL
+#Then login with valid maker credentials
+#And click on product defenition main module
+Given Get the URL and login as maker
 Then choose scheme master view button
 Then verify user can able to see the approved record in list view
 Then verify user can not able to see the rejected record in list view

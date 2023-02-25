@@ -426,7 +426,7 @@ public class DepositAccountMaster extends BaseClass {
 		System.out.println(popupID);
 		// json.addData(popupID);
 		excelData.updateTestData("AT-DAM-T001-D1", "Checker id", popupID);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 	//Modification submit
 
@@ -1439,4 +1439,18 @@ public class DepositAccountMaster extends BaseClass {
 	    public void choose_the_data_set_id_for_negavite_validation_in_deposit_account_masters() throws Throwable {
 		 testData=excelData.getTestdata("AT-DAM-T010-D1");
 	    }
+	 @And("^User Logout from application$")
+public void user_logout_from_application() throws Throwable {
+		 Thread.sleep(1000);
+		 action.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, depositMstObj.Profile_Logout(), 60, 2);
+depositMstObj.Profile_Logout().click();
+action.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, depositMstObj.Logout(), 60, 2);
+depositMstObj.Logout().click();
+}
+	 @And("^Close the Alert Popoup$")
+	    public void close_the_alert_popoup() throws Throwable {
+		 action.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, depositMstObj.AlertPopup(), 60, 2);
+depositMstObj.AlertPopup().click();
+	 }
+
 }

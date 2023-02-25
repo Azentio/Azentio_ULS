@@ -38,6 +38,9 @@ Then Save the record in charge tab
 #Then save the record in tax master detail
 #And Verify the back button in tax fee master
 
+
+
+
 #(Fee_02_01,Fee_02_02,Fee_02_03,Fee_02_04)
 @FeeMaster_M2
 Scenario: To verify user is able save the record with invalid and blank field in Fee Master
@@ -70,4 +73,86 @@ Then update the record in fee master
 And Click the tempview pencil icon in fee master
 #And Verify the back button
 
+@FeeMaster_M12
+Scenario: To verify the list view validation of fee master
+Given Get the URL and login as maker
+And Click the configuration
+Then Click the config Manager
+And Click the eyeicon of the fee master
+Then Choose the data set id in fee master
+Then verify the fields under list view in fee master
+And Verify the values in the fee master list view is non editable
+Then Verify the functionality of search box with matching data in fee master list view
+And Verify the functionality of search box with not matching data in fee master list view
+Then Verify the functionality of Export to PDF button in fee master list view
+And Verify the functionality of Export to Excel file in fee master list view
+
+@FeeMaster_M8
+Scenario: To verify Checker user is able to Approve the record
+And choose the data set id for checker approval in Fee master
+Given Get the URL and login as Checker to approve the record in charge master
+#Then Click the menu icon in deposit account
+And Click  the inbox in checker
+Then Search the record in serch field in checker stage for approve
+Then search the reference id and click the respective action icon in fee master
+And Click the approve button
+Then Enter the alert approve remark
+And Give the final approve
+Then Verify the record get approved
+
+@FeeMaster_M9
+Scenario: To verify Checker user is able to Return the record
+Then Choose the data set id to return in charge master
+Given Get the URL and login as Checker to return the record in Fee master
+#Then Click the menu icon in deposit account
+And Click  the inbox in checker deposit account
+Then Search the record in serch field in checker stage for return in Fee master
+And Click the return button 
+Then Enter the alert return remark 
+And Give the final return 
+Then Verify the record get returned
+
+@FeeMaster_M10
+Scenario: To verify Checker user is able to Reject the record   
+And choose the data set id for checker approval in Fee master
+Given Get the URL and login as Checker to reject the record in charge master
+#Then Click the menu icon in deposit account
+And Click  the inbox in checker deposit account
+Then Search the record in serch field in checker stage for rejection
+Then search the reference id and click the respective action icon in fee master
+And Click the reject button
+Then Enter the alert reject remark
+And Give the final reject
+Then Verify the record get rejected
+
+@FeeMaster_M7
+Scenario: To verify user able to save the modified record with blank and invalid details
+Given Get the URL and login as maker
+And Click the configuration
+Then Click the config Manager
+And Click the temp view in the fee master
+Then Choose the data set id for fee master negative vlaidation
+Then Chooose the First record in the fee master for modification
+And Click the legacy code1 and pass the invalid details
+Then Verify the invalid field validation popup in the fee master
+And Click the charge type and make that field as blank in fee master
+Then Verify the balank field validation popup in the fee master
+
+@AT-FM-T011
+Scenario: To verify user can navigate to view workflow functionality
+Given Get the URL and login as maker
+And Update test data for fee master test case no5
+And Click the configuration
+Then Click the config Manager
+Then Click the temp view button in fee master
+And Click on Pencil icon of the record
+Then Change the status in a fee master
+And Click on Save icon to update Fee master record
+And Click on Pencil icon of the record
+Then Change the status in a fee master
+And Click on Save icon to update Fee master record
+And Click on Pencil icon of the record
+And Verify the back button
+And Click on Pencil icon of the record
+And Validate the view summary of Fee master
  
