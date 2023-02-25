@@ -196,4 +196,16 @@ public class KULS_CommonWebElements {
     {
     	return uls_toolBarLOSOption;
     }
+    @FindBy(xpath="//button[@ng-reflect-text='Go Back']")
+    private WebElement uls_TransactionBackButton;
+    public WebElement ulsTransactionBackButton()
+    {
+    	return uls_TransactionBackButton;
+    }
+    @FindBy(xpath="//span[contains(text(),' Inbox ')]")
+    private WebElement uls_InboxText;
+    public WebElement ulsInboxText()
+    {
+    	return uls_InboxText;
+    }
 }

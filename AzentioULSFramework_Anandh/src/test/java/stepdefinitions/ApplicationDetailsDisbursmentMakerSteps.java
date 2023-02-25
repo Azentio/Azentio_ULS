@@ -8,8 +8,10 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import helper.ClicksAndActionsHelper;
+import helper.JavascriptHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import pageobjects.ApplicationDetailsAppDataEntryObj;
 import pageobjects.KULS_CommonWebElements;
 import resources.BaseClass;
@@ -29,6 +31,7 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 	ApplicationDetailsAppDataEntryObj applicationDetailsDisbursmentMakerObj = new ApplicationDetailsAppDataEntryObj(
 			driver);
 	SoftAssert softAssert = new SoftAssert();
+	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 
 	@And("^login with transaction maker credentials$")
 	public void login_with_transaction_maker_credentials() throws Throwable {
@@ -36,6 +39,7 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 		loginTestData = ExcelDataForMakerLogin.getTestdata("Maker2");
 		kulsLogin.loginUlsApplicationAsMaker(loginTestData.get("Username"), loginTestData.get("Password"));
 	}
+
 	@And("^get the test data for application details disbursment maker test data$")
 	public void get_the_test_data_for_application_details_disbursment_maker_test_data() throws Throwable {
 		applicationDetailsDisbMkrTestData = ExcelDataForApplicationDetailsDisbursmentMaker.getTestdata("AT_ADM_002_D1");
@@ -51,7 +55,6 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 				.sendKeys(applicationDetailsDisbMkrTestData.get("Stage Code"));
 	}
 
-	
 	@And("^verify Topup Type should be non editable and read only in disbursment maker$")
 	public void verify_topup_type_should_be_non_editable_and_read_only_in_disbursment_maker() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
@@ -102,11 +105,12 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 		boolean status = false;
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				applicationDetailsDisbursmentMakerObj.applicationDetailsTotalFinanceAmmountRequested(), 20, 1);
-		for (int i = 0; i <= 500; i++) {
+		for (int i = 0; i <= 10; i++) {
 			try {
 				applicationDetailsDisbursmentMakerObj.applicationDetailsTotalFinanceAmmountRequested().click();
+				break;
 			} catch (Exception e) {
-				if (i == 500) {
+				if (i == 10) {
 					status = true;
 					Assert.fail(e.getMessage());
 				}
@@ -125,6 +129,7 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 		for (int i = 0; i <= 500; i++) {
 			try {
 				applicationDetailsDisbursmentMakerObj.applicationDetailsDeclaredetMonthlyIncomeTextBox().click();
+				break;
 			} catch (Exception e) {
 				if (i == 500) {
 					status = true;
@@ -145,6 +150,7 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 		for (int i = 0; i <= 500; i++) {
 			try {
 				applicationDetailsDisbursmentMakerObj.applicationDetailsDeclaredeCurrentObligationTextBox().click();
+				break;
 			} catch (Exception e) {
 				if (i == 500) {
 					status = true;
@@ -247,6 +253,7 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 		for (int i = 0; i <= 500; i++) {
 			try {
 				applicationDetailsDisbursmentMakerObj.applicationDetailsTopupApplicationNoInputBox().click();
+				break;
 			} catch (Exception e) {
 				if (i == 500) {
 					status = true;
@@ -256,6 +263,131 @@ public class ApplicationDetailsDisbursmentMakerSteps extends BaseClass {
 			}
 		}
 		softAssert.assertTrue(status, " Application number field might be non editable but here editable");
+	}
+
+	@And("^verify sourcing type field should be non editable and real only mode in disbursment maker$")
+	public void verify_sourcing_type_field_should_be_non_editable_and_real_only_mode_in_disbursment_maker()
+			throws Throwable {
+		javascriptHelper.scrollIntoView(applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingTypeDropdown());
+		String validation = applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingTypeDropdown()
+				.getAttribute("ng-reflect-disabled");
+		softAssert.assertEquals(validation, "true",
+				" Sourcing Staff should be non editable but here it is editable hence failed");
+	}
+
+	@And("^verify sourcing office field should be non editable and read only mode in disbursment maker$")
+	public void verify_sourcing_office_field_should_be_non_editable_and_read_only_mode_in_disbursment_maker()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingOfficeDropdown(), 20, 1);
+		String validation = applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingOfficeDropdown()
+				.getAttribute("ng-reflect-disabled");
+		softAssert.assertEquals(validation, "true",
+				" Sourcing Office should be non editable but here it is editable hence failed");
+	}
+
+	@And("^verify sourcing entity field should be non editable and read only mode in disbursment maker$")
+	public void verify_sourcing_entity_field_should_be_non_editable_and_read_only_mode_in_disbursment_maker()
+			throws Throwable {
+		javascriptHelper
+				.scrollIntoView(applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingEntityDropdown());
+		String validation = applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingEntityDropdown()
+				.getAttribute("ng-reflect-disabled");
+		softAssert.assertEquals(validation, "true",
+				" Sourcing Entity should be non editable but here it is editable hence failed");
+	}
+
+	@And("^verify sourcing staff field should be non editable and read only mode in disbursment maker$")
+	public void verify_sourcing_staff_field_should_be_non_editable_and_read_only_mode_in_disbursment_maker()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingStaffDropdown(), 20, 1);
+		String validation = applicationDetailsDisbursmentMakerObj.applicationDetailsSourcingStaffDropdown()
+				.getAttribute("ng-reflect-disabled");
+		softAssert.assertEquals(validation, "true",
+				" Sourcing staff should be non editable but here it is editable hence failed");
+	}
+
+	@And("^verify reference type field should be non editable and read only mode in disbursment maker$")
+	public void verify_reference_type_field_should_be_non_editable_and_read_only_mode_in_disbursment_maker()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				applicationDetailsDisbursmentMakerObj.applicationDetailsReferenceTypeDropdown(), 20, 1);
+		String validation = applicationDetailsDisbursmentMakerObj.applicationDetailsReferenceTypeDropdown()
+				.getAttribute("ng-reflect-disabled");
+		softAssert.assertEquals(validation, "true",
+				" Reference type should be non editable but here it is editable hence failed");
+	}
+
+	@And("^verify reference entity field should be non editable and read only mode in disbursment maker$")
+	public void verify_reference_entity_field_should_be_non_editable_and_read_only_mode_in_disbursment_maker()
+			throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				applicationDetailsDisbursmentMakerObj.applicationDetailsReferenceEntityDropdown(), 20, 1);
+		String validation = applicationDetailsDisbursmentMakerObj.applicationDetailsReferenceEntityDropdown()
+				.getAttribute("ng-reflect-disabled");
+		softAssert.assertEquals(validation, "true",
+				" Reference entity should be non editable but here it is editable hence failed");
+	}
+
+	@And("^verify refereence code field should be non editable and read only mode in disbursment maker$")
+	public void verify_refereence_code_field_should_be_non_editable_and_read_only_mode_in_disbursment_maker()
+			throws Throwable {
+		boolean status = false;
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,
+				applicationDetailsDisbursmentMakerObj.applicationDetailsReferenceCodeInputBox(), 20, 1);
+		for (int i = 0; i <= 500; i++) {
+			try {
+				applicationDetailsDisbursmentMakerObj.applicationDetailsReferenceCodeInputBox().click();
+				break;
+			} catch (Exception e) {
+				if (i == 500) {
+					status = true;
+					Assert.fail(e.getMessage());
+				}
+
+			}
+		}
+		softAssert.assertTrue(status, " refernce Code field might be non editable but here editable");
+	}
+
+	@Then("^verify add button is not available in personal details disbursment maker screen$")
+	public void verify_add_button_is_not_available_in_personal_details_disbursment_maker_screen() throws Throwable {
+		boolean status = false;
+		for (int i = 0; i <= 10; i++) {
+			try {
+				kulsCommonWebElements.ulsNotificationAddButton().isDisplayed();
+			} catch (Exception e) {
+				if (i == 10) {
+					status = true;
+				}
+			}
+
+		}
+		Assert.assertTrue(status);
+
+	}
+
+	@Then("^verify the fucnctionality of back button in disbursment maker screen$")
+	public void verify_the_fucnctionality_of_back_button_in_disbursment_maker_screen() throws Throwable {
+		
+		for (int i = 0; i <= 10; i++) {
+			try {
+				javascriptHelper.scrollIntoView(kulsCommonWebElements.ulsTransactionBackButton());
+				javascriptHelper.JSEClick(kulsCommonWebElements.ulsTransactionBackButton());
+				
+				break;
+			} catch (Exception e) {
+				if (i == 10) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, kulsCommonWebElements.ulsInboxText(), 20, 1);
+		Assert.assertTrue(kulsCommonWebElements.ulsInboxText().isDisplayed());
+		softAssert.assertAll();
+
 	}
 
 }
