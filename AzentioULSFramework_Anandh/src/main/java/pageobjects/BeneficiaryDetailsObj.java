@@ -128,7 +128,7 @@ public class BeneficiaryDetailsObj {
 	public WebElement remarksText() {
 		return remarksText;
 	}
-	@FindBy(xpath="//ion-segment-button[@id='seg3']")
+	@FindBy(xpath="//ion-label[contains(text(),'Beneficiary Details')]//parent::ion-segment-button")
 	private WebElement BeneficiaryDetailTab1;
 	public WebElement BeneficiaryDetailTab() {
 		return BeneficiaryDetailTab1;
@@ -148,7 +148,7 @@ public class BeneficiaryDetailsObj {
 	public WebElement SearchBar() {
 		return SearchBar1;
 	}
-	@FindBy(xpath="//tr[1]//td[text()=' DISBMKR ']/preceding-sibling::td[3]//button")
+	@FindBy(xpath="//tr[1]//td[contains(text(),' Disbursment Maker ')]//preceding-sibling::td[8]//button")
 	private WebElement ActionIcon1;
 	public WebElement ActionIcon() {
 		return ActionIcon1;
@@ -158,7 +158,7 @@ public class BeneficiaryDetailsObj {
 	public WebElement AddButton() {
 		return AddButton1;
 	}
-	@FindBy(xpath="//div[@aria-label='Success']")
+	@FindBy(xpath="(//div[@id=\"toast-container\"]/div//div)[1]")
     private WebElement successMgs;
     public WebElement successMgs() {
     	return successMgs;

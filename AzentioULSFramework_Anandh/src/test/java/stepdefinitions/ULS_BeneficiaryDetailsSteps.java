@@ -1,5 +1,8 @@
 package stepdefinitions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,6 +16,7 @@ import io.cucumber.java.en.Then;
 import pageobjects.KULS_CommonWebElements;
 import pageobjects.ULS_BeneficiaryDetailsObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.ULS_BeneficiaryDetailsTestData;
 
 public class ULS_BeneficiaryDetailsSteps extends BaseClass {
@@ -26,7 +30,13 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 	KULS_CommonWebElements commonWebObj = new KULS_CommonWebElements(driver);
 	JsonConfig jsonConfig = new JsonConfig();
 	ULS_BeneficiaryDetailsTestData beneficiaryDetailsTestdata = jsonConfig.getBeneficiaryDetailsTestDataByName("Maker");
-
+	String path = System.getProperty("user.dir") + "\\Test-data\\ULSTestData.xlsx";
+	ExcelData excelDataforBeneficiaryDetials = new ExcelData(path, "BeneficiaryDetails", "Data Set ID");
+	Map<String, String> beneficiaryDetailsTestData = new HashMap<>();
+	@And("^get the test data for activation and de activation of the beneficiary record$")
+    public void get_the_test_data_for_activation_and_de_activation_of_the_beneficiary_record() throws Throwable {
+		beneficiaryDetailsTestData=excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D11");
+    }
 	@And("^search the disbursement maker record$")
 	public void search_the_disbursement_maker_record() throws Throwable {
 //        waitHelper.waitForElementToVisibleWithFluentWait(driver, ulsCommonWebElementObj.ulsNotificationSerachButton(), 10, 1);
@@ -35,7 +45,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 				10, 1);
 		clicksAndActionsHelper.moveToElement(ulsCommonWebElementObj.ulsNotificationSearchTextBox());
 		clicksAndActionsHelper.clickOnElement(ulsCommonWebElementObj.ulsNotificationSearchTextBox());
-		ulsCommonWebElementObj.ulsNotificationSearchTextBox().sendKeys(beneficiaryDetailsTestdata.StageCode);
+		ulsCommonWebElementObj.ulsNotificationSearchTextBox().sendKeys(beneficiaryDetailsTestData.get("Stage Code"));
 	}
 
 	@And("^select the first record of disbursment maker stage$")
@@ -69,12 +79,17 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		}
 	}
 
+	@And("^get the test data for update the record before save$")
+	public void get_the_test_data_for_update_the_record_before_save() throws Throwable {
+		beneficiaryDetailsTestData = excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D3");
+	}
+
 	@Then("^verify user can able to update the facility application ID field$")
 	public void verify_user_can_able_to_update_the_facility_application_id_field() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsFacilityApplicationIDDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsFacilityApplicationIDDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedFacilityApplicationID
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Facility Appliation ID")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -89,7 +104,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsFacilityApplicationIDDropDown()
-				.getAttribute("aria-label").contains(beneficiaryDetailsTestdata.UpdatedFacilityApplicationID));
+				.getAttribute("aria-label").contains(beneficiaryDetailsTestData.get("Facility Appliation ID")));
 	}
 
 	@Then("^verify user can able to update beneficiary name field$")
@@ -99,12 +114,12 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryNameInputBox().click();
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryNameInputBox().clear();
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryNameInputBox()
-				.sendKeys(beneficiaryDetailsTestdata.UpdatedBeneficiaryName);
+				.sendKeys(beneficiaryDetailsTestData.get("Beneficiary Name"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryNameDataHolder(), 10, 1);
 		Assert.assertEquals(
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryNameDataHolder().getAttribute("ng-reflect-model"),
-				beneficiaryDetailsTestdata.UpdatedBeneficiaryName);
+				beneficiaryDetailsTestData.get("Beneficiary Name"));
 	}
 
 	@Then("^verify user can able to update beneficiary type field$")
@@ -112,7 +127,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryTypeDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedBeneficiaryType
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Beneficiary Type")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -127,7 +142,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryTypeDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedBeneficiaryType));
+				.contains(beneficiaryDetailsTestData.get("Beneficiary Type")));
 	}
 
 	@Then("^verify user can able to update beneficiary KYC field$")
@@ -137,12 +152,12 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryKYCInputBox().click();
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryKYCInputBox().clear();
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryKYCInputBox()
-				.sendKeys(beneficiaryDetailsTestdata.UpdatedBeneficiaryKYC);
+				.sendKeys(beneficiaryDetailsTestData.get("Beneficiary KYC"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryKYCdataHolder(), 10, 1);
 		Assert.assertEquals(
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryKYCdataHolder().getAttribute("ng-reflect-model"),
-				beneficiaryDetailsTestdata.UpdatedBeneficiaryKYC);
+				beneficiaryDetailsTestData.get("Beneficiary KYC"));
 	}
 
 	@Then("^verify user can able to update the beneficiary address field$")
@@ -152,12 +167,12 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryAddressInputBox().click();
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryAddressInputBox().clear();
 		beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryAddressInputBox()
-				.sendKeys(beneficiaryDetailsTestdata.UpdatedBeneficiaryAddress);
+				.sendKeys(beneficiaryDetailsTestData.get("Beneficiary Address"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryAddressDataHolder(), 10, 1);
 		Assert.assertEquals(
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryAddressDataHolder().getAttribute("ng-reflect-model"),
-				beneficiaryDetailsTestdata.UpdatedBeneficiaryAddress);
+				beneficiaryDetailsTestData.get("Beneficiary Address"));
 	}
 
 	@Then("^verify user can able to update the account type field$")
@@ -165,7 +180,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsAccountTypeDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsAccountTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedAccountType
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Account Type")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -180,7 +195,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsAccountTypeDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedAccountType));
+				.contains(beneficiaryDetailsTestData.get("Account Type")));
 	}
 
 	@Then("^verify user can able to update the IBAN account no field$")
@@ -190,12 +205,12 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		beneficiaryDetailsObj.beneficiaryDetailsIBANAccountNoInputBox().click();
 		beneficiaryDetailsObj.beneficiaryDetailsIBANAccountNoInputBox().clear();
 		beneficiaryDetailsObj.beneficiaryDetailsIBANAccountNoInputBox()
-				.sendKeys(beneficiaryDetailsTestdata.UpdatedIBANAccountNumber);
+				.sendKeys(beneficiaryDetailsTestData.get("IBAN Account No"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsIBANAccountNoDataHolder(), 10, 1);
 		Assert.assertEquals(
 				beneficiaryDetailsObj.beneficiaryDetailsIBANAccountNoDataHolder().getAttribute("ng-reflect-model"),
-				beneficiaryDetailsTestdata.UpdatedIBANAccountNumber);
+				beneficiaryDetailsTestData.get("IBAN Account No"));
 	}
 
 	@Then("^verify user can able to update the MICR Type field$")
@@ -203,7 +218,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsMICRTypeDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsMICRTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedMICRType
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("MICR Type")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -218,11 +233,13 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsMICRTypeDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedMICRType));
+				.contains(beneficiaryDetailsTestData.get("MICR Type")));
 	}
 
 	@Then("^verify user can able to update the beneficiary MICR Code field$")
 	public void verify_user_can_able_to_update_the_beneficiary_micr_code_field() throws Throwable {
+		double beneficiaryMICRCode = Double.valueOf(beneficiaryDetailsTestData.get("Beneficiary MICR Code"));
+		String strbeneficiaryMICRCode = String.format("%.0f", beneficiaryMICRCode);
 		if (beneficiaryDetailsTestdata.UpdatedMICRType.equals("NON-MICR")) {
 			System.out.println("Non MICr No need to update the Micr code");
 		} else
@@ -231,7 +248,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			waitHelper.waitForElementToVisibleWithFluentWait(driver,
 					beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryMICRCodeDropDown(), 10, 1);
 			beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryMICRCodeDropDown().click();
-			String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedBeneficiaryMICRCode
+			String xpath = "//ion-label[text()=' " + strbeneficiaryMICRCode
 					+ " ']/parent::ion-item/ion-radio";
 			for (int i = 0; i <= 50; i++) {
 				try {
@@ -246,7 +263,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 				}
 			}
 			Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryMICRCodeDropDown()
-					.getAttribute("aria-label").contains(beneficiaryDetailsTestdata.UpdatedBeneficiaryMICRCode));
+					.getAttribute("aria-label").contains(strbeneficiaryMICRCode));
 		}
 	}
 
@@ -255,7 +272,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBankCodeDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsBankCodeDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedBankCode
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Bank Code")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -270,7 +287,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsBankCodeDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedBankCode));
+				.contains(beneficiaryDetailsTestData.get("Bank Code")));
 	}
 
 	@Then("^verify user can able to update the branch name field$")
@@ -278,7 +295,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBranchNameDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsBranchNameDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedBranchName
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Branch Name")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -293,7 +310,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsBranchNameDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedBranchName));
+				.contains(beneficiaryDetailsTestData.get("Branch Name")));
 	}
 
 	@Then("^verify user can able to update the IFSC Code$")
@@ -302,12 +319,13 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 				beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeInputBox(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeInputBox().click();
 		beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeInputBox().clear();
-		beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeInputBox().sendKeys(beneficiaryDetailsTestdata.UpdatedIFSCCode);
+		beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeInputBox()
+				.sendKeys(beneficiaryDetailsTestData.get("IFSC Code"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeDataHolder(), 10, 1);
 		Assert.assertEquals(
 				beneficiaryDetailsObj.beneficiaryDetailsIFSCCodeDataHolder().getAttribute("ng-reflect-model"),
-				beneficiaryDetailsTestdata.UpdatedIFSCCode);
+				beneficiaryDetailsTestData.get("IFSC Code"));
 	}
 
 	@Then("^verify user can able to update the payment type field$")
@@ -315,7 +333,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsPaymentTypeDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsPaymentTypeDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedPaymentType
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Payment Type")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -330,7 +348,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsPaymentTypeDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedPaymentType));
+				.contains(beneficiaryDetailsTestData.get("Payment Type")));
 	}
 
 	@Then("^verify user can able to update the payment mode field$")
@@ -338,7 +356,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsPaymentModeDropDown(), 10, 1);
 		beneficiaryDetailsObj.beneficiaryDetailsPaymentModeDropDown().click();
-		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestdata.UpdatedPaymentMode
+		String xpath = "//ion-label[text()=' " + beneficiaryDetailsTestData.get("Payment Mode")
 				+ " ']/parent::ion-item/ion-radio";
 		for (int i = 0; i <= 50; i++) {
 			try {
@@ -353,7 +371,7 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 			}
 		}
 		Assert.assertTrue(beneficiaryDetailsObj.beneficiaryDetailsPaymentModeDropDown().getAttribute("aria-label")
-				.contains(beneficiaryDetailsTestdata.UpdatedPaymentMode));
+				.contains(beneficiaryDetailsTestData.get("Payment Mode")));
 	}
 
 	@Then("^verify user can able to update the beneficiary email field$")
@@ -363,12 +381,12 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 		beneficiaryDetailsObj.beneficiaryDetails_BeneficiaryEmailInputBox().click();
 		beneficiaryDetailsObj.beneficiaryDetails_BeneficiaryEmailInputBox().clear();
 		beneficiaryDetailsObj.beneficiaryDetails_BeneficiaryEmailInputBox()
-				.sendKeys(beneficiaryDetailsTestdata.UpdatedBeneficiaryEmail);
+				.sendKeys(beneficiaryDetailsTestData.get("Beneficiary eMail"));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryEmailDataHolder(), 10, 1);
 		Assert.assertEquals(
 				beneficiaryDetailsObj.beneficiaryDetailsBeneficiaryEmailDataHolder().getAttribute("ng-reflect-model"),
-				beneficiaryDetailsTestdata.UpdatedBeneficiaryEmail);
+				beneficiaryDetailsTestData.get("Beneficiary eMail"));
 	}
 
 	@Then("^verify user can able to update the remarks field$")
@@ -377,9 +395,9 @@ public class ULS_BeneficiaryDetailsSteps extends BaseClass {
 				1);
 		beneficiaryDetailsObj.beneficiaryDetailsRemarks().click();
 		beneficiaryDetailsObj.beneficiaryDetailsRemarks().clear();
-		beneficiaryDetailsObj.beneficiaryDetailsRemarks().sendKeys(beneficiaryDetailsTestdata.UpdatedBeneficiaryEmail);
+		beneficiaryDetailsObj.beneficiaryDetailsRemarks().sendKeys(beneficiaryDetailsTestData.get("Remarks"));
 		Assert.assertEquals(beneficiaryDetailsObj.beneficiaryDetailsRemarks().getText(),
-				beneficiaryDetailsTestdata.UpdatedBeneficiaryEmail);
+				beneficiaryDetailsTestData.get("Remarks"));
 	}
 
 	@And("^click on save button to save the updated beneficiary details record$")

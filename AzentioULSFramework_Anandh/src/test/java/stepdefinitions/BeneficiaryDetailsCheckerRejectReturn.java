@@ -1,5 +1,8 @@
 package stepdefinitions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,6 +16,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.Transactions_ScreenOBJ;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.KULS_Login_TestDataType;
 import testDataType.TransactionScreenTestDataType;
@@ -25,13 +29,15 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 	JsonConfig jsonConfig = new JsonConfig();
 	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
-	TransactionScreenTestDataType Transactionjson = jsonConfig.getTransactionScreenListByName("Maker");
+	//TransactionScreenTestDataType Transactionjson = jsonConfig.getTransactionScreenListByName("Maker");
 	WaitHelper help = new WaitHelper(driver);
 	KULS_Login login = new KULS_Login();
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
-
+	String path = System.getProperty("user.dir") + "\\Test-data\\ULSTestData.xlsx";
+	ExcelData excelDataforBeneficiaryDetials = new ExcelData(path, "BeneficiaryDetails", "Data Set ID");
+	Map<String,String> beneficiaryDetailsTestData= new HashMap<>();
 	// Checker Reject
 	@Then("^User enter the reject popup message in Beneficiary details$")
 	public void user_enter_the_reject_popup_message_in_beneficiary_details() throws Throwable {
@@ -40,7 +46,14 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 		Transaction.Popup_Mistake().click();
 
 	}
-
+	@And("^get the test data for checker rejecting scenario$")
+    public void get_the_test_data_for_checker_rejecting_scenario() throws Throwable {
+		beneficiaryDetailsTestData=excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D8");
+    }
+	@And("^get the test data for checker return scenario in beneficiary details$")
+    public void get_the_test_data_for_checker_return_scenario_in_beneficiary_details() throws Throwable {
+		beneficiaryDetailsTestData=excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D9");
+    }
 	@And("^User search the record from the system in Beneficiary details$")
 	public void user_search_the_record_from_the_system_in_beneficiary_details() throws Throwable {
 
@@ -48,7 +61,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 		Transaction.searchiconreferenceid().click();
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.searchsentkeys(), 60, 5);
-		Transaction.searchsentkeys().sendKeys(Transactionjson.BeneficiaryDetails_Search);
+		Transaction.searchsentkeys().sendKeys(beneficiaryDetailsTestData.get("Stage Code"));
 
 	}
 
@@ -59,7 +72,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 			try {
 				Transaction.InboxSearchText().click();
 				Transaction.InboxSearchText().clear();
-				Transaction.InboxSearchText().sendKeys("DISBCKR");
+				Transaction.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Stage Code"));
 				break;
 			} catch (Exception e) {
 
@@ -72,7 +85,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 
 		help.waitForElementToVisibleWithFluentWait(driver, Transaction.InboxSearchText(), 60, 5);
 		Transaction.InboxSearchText().click();
-		Transaction.InboxSearchText().sendKeys(json.readReferancedata());
+		Transaction.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Reference ID"));
 
 	}
 
@@ -126,7 +139,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 	@And("^User verify the rejected record removed from the system in Beneficiary details$")
 	public void user_verify_the_rejected_record_removed_from_the_system_in_beneficiary_details() throws Throwable {
 
-		String xpath = "//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button";
+		String xpath = "//span[text()='" + beneficiaryDetailsTestData.get("Reference ID") + "']/ancestor::tr/td[1]/button";
 
 		try {
 
@@ -168,7 +181,7 @@ public class BeneficiaryDetailsCheckerRejectReturn extends BaseClass {
 	@And("^User verify the return record shown in Beneficiary details maker stage$")
 	public void user_verify_the_return_record_shown_in_beneficiary_details_maker_stage() throws Throwable {
 
-		String xpath = "//span[text()='" + json.readReferancedata() + "']/ancestor::tr/td[1]/button";
+		String xpath = "//span[text()='" + beneficiaryDetailsTestData.get("Reference ID") + "']/ancestor::tr/td[1]/button";
 
 		try {
 

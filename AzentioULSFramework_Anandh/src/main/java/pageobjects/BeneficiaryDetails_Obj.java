@@ -274,7 +274,7 @@ public class BeneficiaryDetails_Obj {
 	public WebElement beneficiaryDetailsFirstEditIcon1() {
 		return beneficiaryDetailsFirstEditIcon1;
 	}
-	@FindBy(xpath = "(//td[text()=' DISBMKR '])[1]//preceding-sibling::td[3]/button")
+	@FindBy(xpath = "//tr[1]//td[contains(text(),' Disbursment Maker ')]//preceding-sibling::td[8]//button")
 	private WebElement AppDISBMKR_ActionIcon;
 	public WebElement AppDISBMKR_ActionIcon() {
 		return AppDISBMKR_ActionIcon;
@@ -307,7 +307,7 @@ public class BeneficiaryDetails_Obj {
 	{
 		return referenceIdForDisbursementChecker;
 	}
-	@FindBy(xpath="(//td[text()=' DISBMKR '])[1]/preceding-sibling::td[2]/span")
+	@FindBy(xpath="//tr[1]//td[contains(text(),' Disbursment Maker ')]//preceding-sibling::td[7]//span")
 	private WebElement referenceIdForDisbursementMaker;
 	public WebElement referenceIdForDisbursementMaker() 
 	{

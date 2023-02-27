@@ -1,5 +1,8 @@
 package stepdefinitions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +15,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageobjects.BeneficiaryDetails_Obj;
 import resources.BaseClass;
+import resources.ExcelData;
 import resources.JsonDataReaderWriter;
 import testDataType.BeneficiaryDetailsTestData;
 
@@ -21,15 +25,26 @@ JsonConfig jsonConfig = new JsonConfig();
 ConfigFileReader configFileReader = new ConfigFileReader();
 Selenium_Actions seleniumActions = new Selenium_Actions(driver);
 BeneficiaryDetails_Obj beneficiaryDetailsObj = new BeneficiaryDetails_Obj(driver);
-BeneficiaryDetailsTestData beneficiaryDetailsTestData = jsonConfig.getBeneficiaryDetailsDataListByName("Maker");
+//BeneficiaryDetailsTestData beneficiaryDetailsTestData = jsonConfig.getBeneficiaryDetailsDataListByName("Maker");
 JsonDataReaderWriter json = new JsonDataReaderWriter();
+String path = System.getProperty("user.dir") + "\\Test-data\\ULSTestData.xlsx";
+ExcelData excelDataforBeneficiaryDetials = new ExcelData(path, "BeneficiaryDetails", "Data Set ID");
+Map<String, String> beneficiaryDetailsTestData = new HashMap<>();
+@And("^get the test data for update the already saved record$")
+public void get_the_test_data_for_update_the_already_saved_record() throws Throwable {
+	beneficiaryDetailsTestData=excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D4");
+}
+@And("^get the test data for approve the disbrsment maker test case$")
+public void get_the_test_data_for_approve_the_disbrsment_maker_test_case() throws Throwable {
+	beneficiaryDetailsTestData=excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D6");
+}
 @And("^User search Disbursement Maker Stage in inbox list view$")
 public void user_search_disbursement_maker_stage_in_inbox_list_view() throws Throwable {
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchButton(),30, 2);
 	 beneficiaryDetailsObj.InboxSearchButton().click();
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchText(),30, 2);
 	 beneficiaryDetailsObj.InboxSearchText().click();
-	 beneficiaryDetailsObj.InboxSearchText().sendKeys(beneficiaryDetailsTestData.SearchStage);
+	 beneficiaryDetailsObj.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Stage Code"));
 }
 
 @And("^User click the first edit icon of Disbursement Maker Stage record$")
@@ -54,7 +69,7 @@ public void user_click_the_first_edit_icon_of_beneficiary_details_list_data() th
 public void user_select_and_update_facility_application_id() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.facilityApplicationId(),30, 2);
 	beneficiaryDetailsObj.facilityApplicationId().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.FacilityApplicationId+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Facility Appliation ID")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -72,7 +87,7 @@ public void user_update_beneficiary_name() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.BeneficiaryName().clear();
-			beneficiaryDetailsObj.BeneficiaryName().sendKeys(beneficiaryDetailsTestData.BeneficiaryName);
+			beneficiaryDetailsObj.BeneficiaryName().sendKeys(beneficiaryDetailsTestData.get("Beneficiary Name"));
 			break;
 		} catch (Exception e) {
 			
@@ -84,7 +99,7 @@ public void user_update_beneficiary_name() throws Throwable {
 public void user_select_and_update_beneficiary_type() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.beneficiaryType(),30, 2);
 	beneficiaryDetailsObj.beneficiaryType().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.BeneficiaryType+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Beneficiary Type")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -102,7 +117,7 @@ public void user_update_beneficiary_kyc() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.beneficiaryKYC().clear();
-			beneficiaryDetailsObj.beneficiaryKYC().sendKeys(beneficiaryDetailsTestData.BeneficiaryKYC);
+			beneficiaryDetailsObj.beneficiaryKYC().sendKeys(beneficiaryDetailsTestData.get("Beneficiary KYC"));
 			break;
 		} catch (Exception e) {
 			
@@ -117,7 +132,7 @@ public void user_update_beneficiary_address() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.beneficiaryAddress().clear();
-			beneficiaryDetailsObj.beneficiaryAddress().sendKeys(beneficiaryDetailsTestData.Beneficiaryaddress);
+			beneficiaryDetailsObj.beneficiaryAddress().sendKeys(beneficiaryDetailsTestData.get("Beneficiary Address"));
 			break;
 		} catch (Exception e) {
 			
@@ -129,7 +144,7 @@ public void user_update_beneficiary_address() throws Throwable {
 public void user_select_and_update_account_type() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.accountType(),30, 2);
 	beneficiaryDetailsObj.accountType().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.AccountType+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Account Type")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -147,7 +162,7 @@ public void user_update_iban_or_account_number() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.IBANorAccountNo().clear();
-			beneficiaryDetailsObj.IBANorAccountNo().sendKeys(beneficiaryDetailsTestData.IBANAccountNo);
+			beneficiaryDetailsObj.IBANorAccountNo().sendKeys(beneficiaryDetailsTestData.get("IBAN Account No"));
 			break;
 		} catch (Exception e) {
 			
@@ -159,7 +174,7 @@ public void user_update_iban_or_account_number() throws Throwable {
 public void user_select_and_update_micr_type() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.MICRType(),30, 2);
 	beneficiaryDetailsObj.MICRType().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.MICRtype+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("MICR Type")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -174,7 +189,7 @@ public void user_select_and_update_micr_type() throws Throwable {
 public void user_select_and_update_beneficiary_micr_code() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.beneficiaryMICRCode(),30, 2);
 	beneficiaryDetailsObj.beneficiaryMICRCode().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.BeneficiaryMICRcode+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Beneficiary MICR Code")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -189,7 +204,7 @@ public void user_select_and_update_beneficiary_micr_code() throws Throwable {
 public void user_select_and_update_bank_code() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.bankCode(),30, 2);
 	beneficiaryDetailsObj.bankCode().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.Bankcode+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Bank Code")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -204,7 +219,7 @@ public void user_select_and_update_bank_code() throws Throwable {
 public void user_select_and_update_branch_name() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.branchName(),30, 2);
 	beneficiaryDetailsObj.branchName().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.BranchName+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Branch Name")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -222,7 +237,7 @@ public void user_update_ifsc_code() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.IFSCCode().clear();
-			beneficiaryDetailsObj.IFSCCode().sendKeys(beneficiaryDetailsTestData.IFSCcode);
+			beneficiaryDetailsObj.IFSCCode().sendKeys(beneficiaryDetailsTestData.get("IFSC Code"));
 			break;
 		} catch (Exception e) {
 			
@@ -234,7 +249,7 @@ public void user_update_ifsc_code() throws Throwable {
 public void user_select_and_update_payment_type() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.paymentType(),30, 2);
 	beneficiaryDetailsObj.paymentType().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.Paymenttype+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Payment Type")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -249,7 +264,7 @@ public void user_select_and_update_payment_type() throws Throwable {
 public void user_select_and_update_payment_mode() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.paymentMode(),30, 2);
 	beneficiaryDetailsObj.paymentMode().click();
-	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.paymentMode+" ']//following-sibling::ion-radio";
+	String xpath ="//ion-label[text()=' "+beneficiaryDetailsTestData.get("Payment Mode")+" ']//following-sibling::ion-radio";
 	for (int i = 0; i <30; i++) {
 		try {
 			driver.findElement(By.xpath(xpath)).click();
@@ -267,7 +282,7 @@ public void user_update_beneficiary_email() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.beneficiaryEmail().clear();
-			beneficiaryDetailsObj.beneficiaryEmail().sendKeys(beneficiaryDetailsTestData.BeneficiaryEmail);
+			beneficiaryDetailsObj.beneficiaryEmail().sendKeys(beneficiaryDetailsTestData.get("Beneficiary eMail"));
 			break;
 		} catch (Exception e) {
 			
@@ -282,7 +297,7 @@ public void user_update_remarks_in_beneficiary_details() throws Throwable {
 	for (int i = 0; i < 30; i++) {
 		try {
 			beneficiaryDetailsObj.remarks().clear();
-			beneficiaryDetailsObj.remarks().sendKeys(beneficiaryDetailsTestData.Remark);
+			beneficiaryDetailsObj.remarks().sendKeys(beneficiaryDetailsTestData.get("Remarks"));
 			break;
 		} catch (Exception e) {
 			
@@ -327,14 +342,14 @@ public void user_verify_the_label_on_button_if_the_status_of_record_is_active() 
 public void user_save_the_reference_number_for_the_beneficiary_details_record_disbursement_maker_stage() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.referenceIdForDisbursementMaker(), 30, 2);
 	String referenceId = beneficiaryDetailsObj.referenceIdForDisbursementMaker().getText();
+	excelDataforBeneficiaryDetials.updateTestData(beneficiaryDetailsTestData.get("Data Set ID"), "Reference ID", referenceId);
 	System.out.println(referenceId);
-	json.addReferanceData(referenceId);
 }
 @And("^User Save the Reference Number for the Beneficiary Details Record Disbursement Checker Stage$")
 public void user_save_the_reference_number_for_the_beneficiary_details_record_disbursement_checker_stage() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.referenceIdForDisbursementChecker(), 30, 2);
 	String referenceId = beneficiaryDetailsObj.referenceIdForDisbursementChecker().getText();
-	System.out.println(referenceId);
+	excelDataforBeneficiaryDetials.updateTestData(beneficiaryDetailsTestData.get("Data Set ID"), "Reference ID", referenceId);
 	json.addReferanceData(referenceId);
 }
 
@@ -364,7 +379,7 @@ public void user_verify_record_got_approved_and_moved_to_disbursement_checker_st
 		try {
 			 beneficiaryDetailsObj.InboxSearchText().click();
 			beneficiaryDetailsObj.InboxSearchText().clear();
-			beneficiaryDetailsObj.InboxSearchText().sendKeys("DISBCKR");
+			beneficiaryDetailsObj.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Next Stage Code"));
 			break;
 		} catch (Exception e) {
 			
@@ -377,7 +392,7 @@ public void user_verify_record_got_approved_and_moved_to_disbursement_checker_st
 	 beneficiaryDetailsObj.InboxSearchText().sendKeys(json.readReferancedata());
 	 for (int i = 0; i <200; i++) {
 			try {
-				String xpath ="//td[text()=' DISBCKR ']";
+				String xpath ="//td[text()=' "+beneficiaryDetailsTestData.get("Next Stage Code")+" ']";
 				Assert.assertEquals(true, driver.findElement(By.xpath(xpath)).isDisplayed());
 				break;
 			} catch (NoSuchElementException e) {
@@ -388,13 +403,17 @@ public void user_verify_record_got_approved_and_moved_to_disbursement_checker_st
 	
 	 }
 }
+@And("^get the test data for disbursment checker approval$")
+public void get_the_test_data_for_disbursment_checker_approval() throws Throwable {
+	beneficiaryDetailsTestData= excelDataforBeneficiaryDetials.getTestdata("AT-BD-001_D7"); 
+}
 @And("^User search Disbursement Checker Stage in inbox list view$")
 public void user_search_disbursement_checker_stage_in_inbox_list_view() throws Throwable {
 	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchButton(),30, 2);
 	 beneficiaryDetailsObj.InboxSearchButton().click();
 	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchText(),30, 2);
 	 beneficiaryDetailsObj.InboxSearchText().click();
-	 beneficiaryDetailsObj.InboxSearchText().sendKeys(json.readReferancedata());
+	 beneficiaryDetailsObj.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Next Stage Code"));
 }
 @And("^User click the first edit icon of Disbursement Checker Stage record$")
 public void user_click_the_first_edit_icon_of_disbursement_checker_stage_record() throws Throwable {
@@ -407,17 +426,17 @@ public void user_verify_record_got_approved_and_moved_to_checker_print_stage() t
 		try {
 			 beneficiaryDetailsObj.InboxSearchText().click();
 			beneficiaryDetailsObj.InboxSearchText().clear();
-			beneficiaryDetailsObj.InboxSearchText().sendKeys("DISBCKR");
+			beneficiaryDetailsObj.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Next Stage Code"));
 			break;
 		} catch (Exception e) {
 			
 		}
 	}
-	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchButton(),30, 2);
+	seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchButton(),10, 2);
 	 beneficiaryDetailsObj.InboxSearchButton().click();
-	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchText(),30, 2);
+	 seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,beneficiaryDetailsObj.InboxSearchText(),10, 2);
 	 beneficiaryDetailsObj.InboxSearchText().click();
-	 beneficiaryDetailsObj.InboxSearchText().sendKeys(json.readReferancedata());
+	 beneficiaryDetailsObj.InboxSearchText().sendKeys(beneficiaryDetailsTestData.get("Reference ID"));
 	 for (int i = 0; i <200; i++) {
 			try {
 				String xpath ="//td[text()=' CHQPRT ']";

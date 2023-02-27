@@ -4,6 +4,7 @@ Feature: To test the beneficiary details screen
 Scenario: Creation of Beneficiary Details record with valid data
 Given navigate to uls application 
 And login with maker credentials
+And get the test data for beneficiary Detials creation
 Then  Click the inbox in in beneficiary details
 And Click the search button in beneficiary detail
 Then Enter as disbursement maker in the search bar in beneficiary detail
@@ -34,27 +35,42 @@ And Validate the save popup in beneficiary details
 Scenario: Creation of Beneficiary Details record with valid data
 Given navigate to uls application 
 And login with maker credentials
+And get the test data for beneficiary Detials creation with valid data
 Then  Click the inbox in in beneficiary details
 And Click the search button in beneficiary detail
 Then Enter as disbursement maker in the search bar in beneficiary detail
 And Click the disbursement maker first action icon in beneficiary detail
 Then Click the beneficiary detail tab
 And Click the add button in the beneficiary detail
+Then To verify the field Application Id in beneficiary details
+And To verify the field Beneficiary Name in beneficiary details
+Then To verify the field Beneficiary Type in beneficiary details 
+And To verify the field Beneficiary KYC in beneficiary details
+Then To verify the field Beneficiary address in beneficiary details  
+And To verify the field Account Type in beneficiary details 
+Then To verify the field IBAN Account Number in beneficiary details 
+And To verify the field MICR Type in beneficiary details 
+Then To verify the field Beneficiary MICR code in beneficiary details 
+And To verify the field Bank code in beneficiary details 
+Then To verify the field Branch Name in beneficiary details 
+And To verify the field IFSC code in beneficiary details 
+Then To verify the field Payment Type in beneficiary details 
+And To verify the field Payment Mode in beneficiary details 
+Then To verify the field Beneficiary email in beneficiary details 
+And To verify the field remark in beneficiary details 
 Then save the record in beneficiary details
-And Verify the bank field in beneficiary detail
-Then verify the impact when user enters only special characters value in any field in beneficiary details
-And verify the impact when user enter numeric value in character field in beneficiary detail
-Then verify the impact when user enter characters  value in numeric field in beneficiary detail
-Then save the record in beneficiary details
+And Validate the save popup in beneficiary details
 @AT-BD-003
 Scenario: To verify maker user can able to update the beneficiary record before save
 Given navigate to uls application 
 And login with maker credentials
-And click on mail box
-And search the disbursement maker record
-And select the first record of disbursment maker stage
-And go to beneficiary details tab
-And click on add button on beneficiary details screen
+And get the test data for beneficiary Detials creation
+Then  Click the inbox in in beneficiary details
+And Click the search button in beneficiary detail
+Then Enter as disbursement maker in the search bar in beneficiary detail
+And Click the disbursement maker first action icon in beneficiary detail
+Then Click the beneficiary detail tab
+And Click the add button in the beneficiary detail
 Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
@@ -71,6 +87,7 @@ Then To verify the field Payment Type in beneficiary details
 And To verify the field Payment Mode in beneficiary details 
 Then To verify the field Beneficiary email in beneficiary details 
 And To verify the field remark in beneficiary details
+And get the test data for update the record before save
 Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field
@@ -93,6 +110,7 @@ Scenario: To Verify System should allow user to do a modification on already sav
 Given navigate to uls application 
 And login with maker credentials
 And click on the mail box button
+And get the test data for update the already saved record
 And User search Disbursement Maker Stage in inbox list view
 And User click the first edit icon of Disbursement Maker Stage record
 And user click the Beneficiary details tab
@@ -118,11 +136,13 @@ And User upadte and save the Beneficiary Details record
 Scenario: To verify maker user can able to update the beneficiary record before save
 Given navigate to uls application 
 And login with maker credentials
-And click on mail box
-And search the disbursement maker record
-And select the first record of disbursment maker stage
-And go to beneficiary details tab
-And click on add button on beneficiary details screen
+And get the test data for beneficiary Detials creation
+Then  Click the inbox in in beneficiary details
+And Click the search button in beneficiary detail
+Then Enter as disbursement maker in the search bar in beneficiary detail
+And Click the disbursement maker first action icon in beneficiary detail
+Then Click the beneficiary detail tab
+And Click the add button in the beneficiary detail
 Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
@@ -139,6 +159,7 @@ Then To verify the field Payment Type in beneficiary details
 And To verify the field Payment Mode in beneficiary details 
 Then To verify the field Beneficiary email in beneficiary details 
 And To verify the field remark in beneficiary details
+And get the test data for update the record before save
 Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field
@@ -156,14 +177,15 @@ Then verify user can able to update the payment mode field
 Then verify user can able to update the beneficiary email field
 Then verify user can able to update the remarks field
 And click on save button to save the updated beneficiary details record
-
 @AT-BD-005
 Scenario: Validate that user can able to Update Beneficiary Details record with negative validation
-Given navigate to uls application
+Given navigate to uls application 
 And login with maker credentials
-And Navigate to Mail box of Application details and search the DISBMKR value
-And Click on action icon of first record of application details_DISBMKR
-And Navigate to Beneficiary Details section
+And click on the mail box button
+And get the test data for update the already saved record
+And User search Disbursement Maker Stage in inbox list view
+And Click the disbursement maker first action icon in beneficiary detail
+Then Click the beneficiary detail tab
 And Click on Pencil Icon of existing Beneficiary details record
 And Remove values from required fields in Beneficiary Details
 And Click on Save button and validate field is required popup in Beneficiary Details
@@ -175,6 +197,7 @@ Scenario: To verify the functionality of Approved button in side application det
 Given navigate to uls application 
 And login with maker credentials
 And click on the mail box button
+And get the test data for approve the disbrsment maker test case
 And User search Disbursement Maker Stage in inbox list view
 And User Save the Reference Number for the Beneficiary Details Record Disbursement Maker Stage
 And User click the first edit icon of Disbursement Maker Stage record
@@ -187,6 +210,7 @@ Scenario: To verify the functionality of Approved button in side application det
 Given navigate to uls application 
 And login with maker credentials
 And click on the mail box button
+And get the test data for disbursment checker approval
 And User search Disbursement Checker Stage in inbox list view
 And User Save the Reference Number for the Beneficiary Details Record Disbursement Checker Stage
 And User click the first edit icon of Disbursement Checker Stage record
@@ -202,6 +226,7 @@ Scenario: To verify Checker user is able to Reject the record
 Given navigate to uls application 
 And login with maker credentials
 And User click the inbox mail icon in application detail offering
+And get the test data for checker rejecting scenario
 And User search the record from the system in Beneficiary details
 And User click the action edit icon in Beneficiary details
 And User click the Reject button in Beneficiary details
@@ -217,6 +242,7 @@ Scenario: To verify Checker user is able to Return the record
 Given navigate to uls application 
 And login with maker credentials
 And User click the inbox mail icon in application detail offering
+And get the test data for checker return scenario in beneficiary details
 And User search the record from the system in Beneficiary details
 And User click the action edit icon in Beneficiary details
 And User click the return button in Beneficiary details
@@ -260,10 +286,12 @@ And Validate the save popup in beneficiary details
 Scenario: To verify the functionality of Activate/Deactivate button and  verify the Label on button if the status of record is Active
 Given navigate to uls application 
 And login with maker credentials
-And click on the mail box button
-And User search Disbursement Maker Stage in inbox list view
-And User click the first edit icon of Disbursement Maker Stage record
-And user click the Beneficiary details tab
+And get the test data for beneficiary Detials creation
+Then  Click the inbox in in beneficiary details
+And Click the search button in beneficiary detail
+Then Enter as disbursement maker in the search bar in beneficiary detail
+And Click the disbursement maker first action icon in beneficiary detail
+Then Click the beneficiary detail tab
 And User click the first edit icon of beneficiary details list data
 Then User verify the functionality of active and deactive toggle
 Then User verify the Label on button if the status of record is Active
@@ -272,6 +300,7 @@ Scenario: To verify the fucntionality of activation and deactivation in benefifc
 Given navigate to uls application 
 And login with maker credentials
 And click on mail box
+And get the test data for activation and de activation of the beneficiary record
 And search the disbursement maker record
 And select the first record of disbursment maker stage
 And go to beneficiary details tab
@@ -286,11 +315,13 @@ Then verify user can able to see the save and back button in the benificiary det
 Scenario: To verify maker user can able to update the beneficiary record before save
 Given navigate to uls application 
 And login with maker credentials
-And click on mail box
-And search the disbursement maker record
-And select the first record of disbursment maker stage
-And go to beneficiary details tab
-And click on add button on beneficiary details screen
+And get the test data for beneficiary Detials creation
+Then  Click the inbox in in beneficiary details
+And Click the search button in beneficiary detail
+Then Enter as disbursement maker in the search bar in beneficiary detail
+And Click the disbursement maker first action icon in beneficiary detail
+Then Click the beneficiary detail tab
+And Click the add button in the beneficiary detail
 Then To verify the field Application Id in beneficiary details
 And To verify the field Beneficiary Name in beneficiary details
 Then To verify the field Beneficiary Type in beneficiary details 
@@ -307,6 +338,7 @@ Then To verify the field Payment Type in beneficiary details
 And To verify the field Payment Mode in beneficiary details 
 Then To verify the field Beneficiary email in beneficiary details 
 And To verify the field remark in beneficiary details
+And get the test data for update the record before save
 Then verify user can able to update the facility application ID field
 Then verify user can able to update beneficiary name field
 Then verify user can able to update beneficiary type field
@@ -326,9 +358,11 @@ Then verify user can able to update the remarks field
 And click on save button to save the updated beneficiary details record
 @AT-BD-012
 Scenario: verify system display the List view at bottom of the screen
-Given User Launch the KULS url for Transaction
+Given navigate to uls application 
+And login with maker credentials
 And user click on Inbox Icon
 And user click search icon
+And get the test data for beneficiary details list view validation
 And user search Disbursement Maker
 And user click on First record of Beneficiary Entry
 And user click on Beneficiary Details Tab

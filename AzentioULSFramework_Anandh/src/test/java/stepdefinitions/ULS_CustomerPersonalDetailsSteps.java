@@ -22,6 +22,7 @@ import io.cucumber.java.en.Then;
 import pageobjects.KULS_CommonWebElements;
 import pageobjects.ULSTransaction_CustomerPersonalDetailsObj;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.CustomerPerssonalDetailsTestData;
 import testDataType.KULS_Login_TestDataType;
 
@@ -40,15 +41,19 @@ public class ULS_CustomerPersonalDetailsSteps extends BaseClass {
 	ClicksAndActionsHelper clicksAndActionsHelper = new ClicksAndActionsHelper(driver);
 	JavascriptHelper javascriptHelper = new JavascriptHelper(driver);
 	Map<String, String> testData = new HashMap<>();
-
+	Map<String, String> loginTestData = new HashMap<>();
+	String path = System.getProperty("user.dir") + "\\Test-data\\ULSTestData.xlsx";
+	ExcelData excelDataForLogin = new ExcelData(path, "LoginCredentials", "Stage");
 	@Given("^navigate to uls application$")
 	public void navigate_to_uls_application() throws Throwable {
+		
 		driver.get(configFileReader.getULSApplicationCenBankUrl());
 	}
 
 	@And("^login with maker credentials$")
 	public void login_with_maker_credentials() throws Throwable {
-		kulsLogin.loginUlsApplicationAsMaker(kulsLoginTestData.Username, kulsLoginTestData.Password);
+		loginTestData=excelDataForLogin.getTestdata("Maker2");
+		kulsLogin.loginUlsApplicationAsMaker(loginTestData.get("Username"), loginTestData.get("Password"));
 	}
 
 	@And("^click on mail box icon$")
