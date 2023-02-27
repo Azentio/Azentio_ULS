@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Feb 25 14:08:40 IST 2023</td>
+<td>Started on:</td><td>Mon Feb 27 12:09:48 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>89 seconds (89619 ms)</td>
+<tr><td>Total time:</td><td>70 seconds (70547 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,22 +75,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user able to save the modified record with blank and invalid details", "Optional[To verify the functionality of fee master]"</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]&apos; (tried for 30 second(s) with 5000 milliseconds interval)
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify maker user can able to create and submit the scheme master record", "Optional[To verify the ULS master screen]"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]&apos; (tried for 10 second(s) with 3000 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
-	at ✽.Click the charge type and make that field as blank in fee master(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/FeeMaster.feature:138)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]&quot;}
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
+	at ✽.verify product type should be non mendatory field and user can able to choose the product type(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/ULS_SchemeMaster.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]&quot;}
   (Session info: chrome=110.0.5481.177)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
-System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.85&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.133&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f2bff2a0bb5a4fff1b0dd27bf2f7613a, findElement {using=xpath, value=//ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51171}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51171/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
+Command: [8b81743f70a8b563673b2c9974c3a285, findElement {using=xpath, value=(//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54451}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54451/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8b81743f70a8b563673b2c9974c3a285
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
@@ -114,7 +114,7 @@ Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
@@ -159,22 +159,22 @@ Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace292536990", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace292536990'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]&apos; (tried for 30 second(s) with 5000 milliseconds interval)
+</pre></div><a href='#' onClick='toggleBox("stack-trace466010637", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace466010637'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]&apos; (tried for 10 second(s) with 3000 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
-	at ✽.Click the charge type and make that field as blank in fee master(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/FeeMaster.feature:138)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]&quot;}
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
+	at ✽.verify product type should be non mendatory field and user can able to choose the product type(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/ULS_SchemeMaster.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]&quot;}
   (Session info: chrome=110.0.5481.177)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
-System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.85&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.133&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f2bff2a0bb5a4fff1b0dd27bf2f7613a, findElement {using=xpath, value=//ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51171}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51171/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
+Command: [8b81743f70a8b563673b2c9974c3a285, findElement {using=xpath, value=(//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54451}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54451/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8b81743f70a8b563673b2c9974c3a285
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
@@ -198,7 +198,7 @@ Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
@@ -244,7 +244,7 @@ Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>77</td>
+<td>58</td>
 <td>Runner.TestApplication@1c5920df</td></tr>
 </table><p>
 </body>

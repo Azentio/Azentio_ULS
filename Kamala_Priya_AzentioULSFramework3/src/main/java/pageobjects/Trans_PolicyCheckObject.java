@@ -18,7 +18,7 @@ public class Trans_PolicyCheckObject {
 	public WebElement PolicyCheck_Inbox() {
 		return PolicyCheck_Inbox1;
 	}
-	@FindBy(xpath = "//button[@ng-reflect-text='Search']")
+	@FindBy(xpath = "//p-table[1]/div[1]/div[1]/div[1]/span[2]/button[1]")//"//button[@ng-reflect-text='Search']")
 	private WebElement PolicyCheck_SearchButton1;
 	public WebElement PolicyCheck_SearchButton() {
 		return PolicyCheck_SearchButton1;

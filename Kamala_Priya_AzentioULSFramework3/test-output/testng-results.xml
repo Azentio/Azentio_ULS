@@ -2,55 +2,55 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-25T14:08:40 IST" name="Default suite" finished-at="2023-02-25T14:10:09 IST" duration-ms="89619">
+  <suite started-at="2023-02-27T12:09:48 IST" name="Default suite" finished-at="2023-02-27T12:10:59 IST" duration-ms="70547">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@1c5920df]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-02-25T14:08:40 IST" name="Default test" finished-at="2023-02-25T14:10:09 IST" duration-ms="89619">
+    <test started-at="2023-02-27T12:09:48 IST" name="Default test" finished-at="2023-02-27T12:10:59 IST" duration-ms="70547">
       <class name="Runner.TestApplication">
-        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-25T14:08:40 IST" name="beforeExecution" finished-at="2023-02-25T14:08:40 IST" duration-ms="12" status="PASS">
+        <test-method is-config="true" signature="beforeExecution()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-27T12:09:48 IST" name="beforeExecution" finished-at="2023-02-27T12:09:48 IST" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeExecution -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-25T14:08:40 IST" name="setUpClass" finished-at="2023-02-25T14:08:41 IST" duration-ms="1423" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-27T12:09:48 IST" name="setUpClass" finished-at="2023-02-27T12:09:50 IST" duration-ms="1624" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-25T14:08:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-02-25T14:09:58 IST" duration-ms="77097" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-27T12:09:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-02-27T12:10:49 IST" duration-ms="58912" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To verify user able to save the modified record with blank and invalid details"]]>
+                <![CDATA["To verify maker user can able to create and submit the scheme master record"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[To verify the functionality of fee master]"]]>
+                <![CDATA["Optional[To verify the ULS master screen]"]]>
               </value>
             </param>
           </params>
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //ion-select[@aria-label='Select,  Charge Type *']' (tried for 30 second(s) with 5000 milliseconds interval)]]>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: (//ion-select[@aria-label='Select,   Product Type *'])[1]' (tried for 10 second(s) with 3000 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //ion-select[@aria-label='Select,  Charge Type *']' (tried for 30 second(s) with 5000 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: (//ion-select[@aria-label='Select,   Product Type *'])[1]' (tried for 10 second(s) with 3000 milliseconds interval)
 at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
-at ✽.Click the charge type and make that field as blank in fee master(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/FeeMaster.feature:138)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//ion-select[@aria-label='Select,  Charge Type *']"}
+at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
+at ✽.verify product type should be non mendatory field and user can able to choose the product type(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/ULS_SchemeMaster.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//ion-select[@aria-label='Select,   Product Type *'])[1]"}
   (Session info: chrome=110.0.5481.177)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.0.0-rc-1', revision: 'bc5511cbda'
-System info: host: 'DESKTOP-PSK9T3U', ip: '10.200.4.85', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
+System info: host: 'DESKTOP-PSK9T3U', ip: '10.200.4.133', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f2bff2a0bb5a4fff1b0dd27bf2f7613a, findElement {using=xpath, value=//ion-select[@aria-label='Select,  Charge Type *']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51171}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51171/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
+Command: [8b81743f70a8b563673b2c9974c3a285, findElement {using=xpath, value=(//ion-select[@aria-label='Select,   Product Type *'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54451}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54451/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8b81743f70a8b563673b2c9974c3a285
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
@@ -74,7 +74,7 @@ at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
+at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
@@ -125,11 +125,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-25T14:09:58 IST" name="tearDownClass" finished-at="2023-02-25T14:10:09 IST" duration-ms="11039" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-27T12:10:49 IST" name="tearDownClass" finished-at="2023-02-27T12:10:59 IST" duration-ms="9940" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-25T14:10:09 IST" name="afterExecution" finished-at="2023-02-25T14:10:10 IST" duration-ms="191" status="PASS">
+        <test-method is-config="true" signature="afterExecution()[pri:0, instance:Runner.TestApplication@1c5920df]" started-at="2023-02-27T12:10:59 IST" name="afterExecution" finished-at="2023-02-27T12:10:59 IST" duration-ms="148" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterExecution -->

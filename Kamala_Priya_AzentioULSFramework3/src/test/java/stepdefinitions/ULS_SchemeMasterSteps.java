@@ -179,6 +179,7 @@ public class ULS_SchemeMasterSteps extends BaseClass {
 				10, 3);
 		ulsSchemeMasterObj.schemeMasterDescriptionTextBox().click();
 		ulsSchemeMasterObj.schemeMasterDescriptionTextBox().sendKeys(schemeMasterTestData.get("Description"));
+		Thread.sleep(1000);
 	}
 
 	@And("^verify product type should be non mendatory field and user can able to choose the product type$")

@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\ININDC00073\AppData\Local\Temp\testng-eclipse-33232786\testng-customsuite.xml</span>
+                    <span>C:\Users\ININDC00073\AppData\Local\Temp\testng-eclipse-648885843\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Runner.TestApplication" class="method navigator-link" hash-for-method="runScenario(&quot;To verify user able to save the modified record with blank and invalid details&quot;, &quot;Optional[To verif...)">runScenario("To verify user able to save the modified record with blank and invalid details", "Optional[To verif...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Runner.TestApplication" class="method navigator-link" hash-for-method="runScenario(&quot;To verify maker user can able to create and submit the scheme master record&quot;, &quot;Optional[To verify t...)">runScenario("To verify maker user can able to create and submit the scheme master record", "Optional[To verify t...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -127,25 +127,25 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;To verify user able to save the modified record with blank and invalid details&quot;, &quot;Optional[To verif...)">
-                  </a> <!-- runScenario("To verify user able to save the modified record with blank and invalid details", "Optional[To verif...) -->
+                  <a name="runScenario(&quot;To verify maker user can able to create and submit the scheme master record&quot;, &quot;Optional[To verify t...)">
+                  </a> <!-- runScenario("To verify maker user can able to create and submit the scheme master record", "Optional[To verify t...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("To verify user able to save the modified record with blank and invalid details", "Optional[To verify the functionality of fee master]")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]&apos; (tried for 30 second(s) with 5000 milliseconds interval)
+                  <span class="parameters">("To verify maker user can able to create and submit the scheme master record", "Optional[To verify the ULS master screen]")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: (//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]&apos; (tried for 10 second(s) with 3000 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:263)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
-	at ✽.Click the charge type and make that field as blank in fee master(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/FeeMaster.feature:138)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]&quot;}
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
+	at ✽.verify product type should be non mendatory field and user can able to choose the product type(file:///C:/Users/ININDC00073/git/Azentio_ULS/Kamala_Priya_AzentioULSFramework3/src/test/java/features/ULS_SchemeMaster.feature:16)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]&quot;}
   (Session info: chrome=110.0.5481.177)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
-System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.85&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.133&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f2bff2a0bb5a4fff1b0dd27bf2f7613a, findElement {using=xpath, value=//ion-select[@aria-label=&apos;Select,  Charge Type *&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51171}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51171/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
+Command: [8b81743f70a8b563673b2c9974c3a285, findElement {using=xpath, value=(//ion-select[@aria-label=&apos;Select,   Product Type *&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.177, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54451}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54451/devtoo..., se:cdpVersion: 110.0.5481.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8b81743f70a8b563673b2c9974c3a285
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
@@ -169,7 +169,7 @@ Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at helper.WaitHelper.waitForElementToVisibleWithFluentWait(WaitHelper.java:91)
-	at stepdefinitions.FeeMaster.click_the_charge_type_and_make_that_field_as_blank_in_fee_master(FeeMaster.java:848)
+	at stepdefinitions.ULS_SchemeMasterSteps.verify_product_type_should_be_non_mendatory_field_and_user_can_able_to_choose_the_product_type(ULS_SchemeMasterSteps.java:188)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
@@ -225,7 +225,7 @@ Session ID: f2bff2a0bb5a4fff1b0dd27bf2f7613a
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\ININDC00073\AppData\Local\Temp\testng-eclipse-33232786\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\ININDC00073\AppData\Local\Temp\testng-eclipse-648885843\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -286,12 +286,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'Runner.TestApplication')
-data.setCell(0, 3, 77097);
+data.setCell(0, 3, 58912);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 58 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -324,21 +324,21 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">setUpClass</span>
-                <span class="method-start">34 ms</span>
+                <span class="method-start">39 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("To verify user able to save the modified record with blank and invalid details", "Optional[To verif...)</span>
-                <span class="method-start">1482 ms</span>
+                <span class="method-name">runScenario("To verify maker user can able to create and submit the scheme master record", "Optional[To verify t...)</span>
+                <span class="method-start">1692 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">78591 ms</span>
+                <span class="method-start">60618 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterExecution</span>
-                <span class="method-start">89704 ms</span>
+                <span class="method-start">70640 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
