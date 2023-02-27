@@ -1,0 +1,22 @@
+[{
+"User":"Maker",
+"ChargeDescription":"Processing Fee1",
+"ChargeType":"First",
+"ChargeFlag":"Manually Generated Charges",
+"DueCode":"Future Interest",
+"Legacy1":"Lcode123",
+"Legacy2":"Lcode456",
+"GSTApplicableState":"Transaction State",
+"TaxCalculationMethod":"On Payment",
+"Amortize":"YES",
+"Deduct":"YES",
+"Upfront":"YES",
+"Remark":"Processing Fee",
+"TaxRemark":"Done", 
+"AvailableTax":"GST",
+"AmortTenure":"Loan Tenure",
+"AmortRateMethod":"Loan Rate",
+"ChargeAmountRecovery":"Amortize Charge",
+"AmortFrequency":"Monthly" 
+
+}]
