@@ -5,6 +5,7 @@ Feature: Check the functionality of Customer Address Details screen
 Scenario: verify post clicking on Add button, the Customer Address Information screen is getting open with all valid fields
 Given User launch the kuls application
 And User Login as maker for transaction screen
+And user change the module to LOS
 Then select data set ID for customer address details testcase001
 And user click on Inbox Icon
 And user click search icon

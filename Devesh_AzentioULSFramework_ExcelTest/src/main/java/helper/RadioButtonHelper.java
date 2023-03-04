@@ -24,12 +24,13 @@ public class RadioButtonHelper {
 	private WebDriver driver;
 	Logger Log = LogManager.getLogger(RadioButtonHelper.class.getName());
 	// wait helper constrcutor
+	JavascriptHelper javaScriptHelper = new JavascriptHelper(driver);
 	public RadioButtonHelper(WebDriver driver) {
 		this.driver = driver;
 	}
 	// RadioButton 
-	public void radioButton(String element) {
-		for (int i = 0; i < 10; i++) {
+	public void radioButton(String element){
+		for (int i = 0; i < 50; i++) {
 			try {
 				driver.findElement(By.xpath("//ion-label[contains(text(),'" + element + "')]/../ion-radio")).click();
 				break;
@@ -42,10 +43,10 @@ public class RadioButtonHelper {
 						driver.findElement(By.xpath("//ion-label[text()='" + element + " ']/../ion-radio")).click();
 						break;
 					} catch (Exception e2) {
-				
+
 					}
 				}
-		
+
 			}
 		}
 	}

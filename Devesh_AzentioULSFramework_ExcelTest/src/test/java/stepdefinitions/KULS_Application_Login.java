@@ -72,7 +72,7 @@ public class KULS_Application_Login {
 		loginObj = new KULS_LoginObj(driver);
 		javaScriptHelper = new JavascriptHelper(driver);
 		ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
-		ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","LoginCredentials","Stage");
+		ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","LoginCredentials","Stage");
 		Map<String, String> testData;
 		switch (userID) {
 		case "in01951":

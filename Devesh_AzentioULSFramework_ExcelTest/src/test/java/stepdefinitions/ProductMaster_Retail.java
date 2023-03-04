@@ -47,7 +47,7 @@ public class ProductMaster_Retail {
 	ProductMaster_RetailObj productMaster_RetailObj = new ProductMaster_RetailObj(driver);
 	ProductMaster_RetailTestDataType productMaster_RetailTestDataType=jsonConfig.getProductMasterRetailByName("Maker");
 //	ExcelData excelData = new ExcelData(System.getProperty("user.dir")+"\\Test-data\\TestDataDesignSample3.xlsx","ProductMasterTestData","TestCaseUnique ID");
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","ProductMasterTestData","Data Set ID");
+	ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\ULS_TestDataForTesting.xlsx","ProductMasterTestData","Data Set ID");
 	Map<String, String> testData;
 	String reference_id;
 	String dataSetID;
@@ -891,6 +891,9 @@ public class ProductMaster_Retail {
     
     @Then("^click on Product Setup$")
     public void click_on_product_setup()  {
+    waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_ModuleName());
+    productMaster_RetailObj.productMaster_ModuleName().click();
+	radioButtonHelper.radioButton("LOS");
     waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productMaster_MenuToggle());
 	productMaster_RetailObj.productMaster_MenuToggle().click();
 	waithelper.waitForElementwithFluentwait(driver, productMaster_RetailObj.productmaster_Configuration());
@@ -965,17 +968,17 @@ public class ProductMaster_Retail {
     waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_ProductCode(), 60, 2);
     productMaster_RetailObj.productMaster_ProductCode().isDisplayed();
     findFieldisMandatoryorNot.verifyGivenFieldisMandatoryOrNot("Product Code");
-    for (int i = 0; i<20; i++)
-    {
-    	try {
+//    for (int i = 0; i<20; i++)
+//    {
+//    	try {
     		productMaster_RetailObj.productMaster_ProductCode().click();
     		productMaster_RetailObj.productMaster_ProductCode().sendKeys(testData.get("Product Code"));
-    	      break;
-    	    }
-    	catch(Exception e) { 
-    		
-    	}
-    }
+//    	      break;
+//    	    }
+//    	catch(Exception e) { 
+//    		
+//    	}
+//    }
     
     }
     
@@ -1217,7 +1220,7 @@ public class ProductMaster_Retail {
     }
     @Then("^validate the impact of special characters value in any field$")
     public void validate_the_impact_of_special_characters_value_in_any_field()  {
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ValidationAlphanumeric(), 60, 2);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ValidationAlphanumeric(), 10, 2);
     productMaster_RetailObj.productMaster_Product_ValidationAlphanumeric().isDisplayed();  
     }
     
@@ -1241,7 +1244,7 @@ public class ProductMaster_Retail {
     @Then("^click on Menu$")
     public void click_on_menu()  {
     //Menu
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Menu(), 60, 2);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Menu(), 10, 2);
     productMaster_RetailObj.productMaster_Product_Menu().click();  
     	    
     }
@@ -1300,11 +1303,11 @@ public class ProductMaster_Retail {
 	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_SubmitRemark(), 60, 2);
 	productMaster_RetailObj.productMaster_Product_SubmitRemark().click();
         
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_SubmitRemark(), 60, 2);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_SubmitRemark(), 20, 2);
     productMaster_RetailObj.productMaster_Product_FinalSubmit().click();  
     
     
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 60, 5);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Checker_Id(), 20, 5);
     String message = productMaster_RetailObj.productMaster_Product_Checker_Id().getText();
 	System.out.println(message);
 	String emptystring = "";
@@ -1314,16 +1317,16 @@ public class ProductMaster_Retail {
 	System.out.println(checkerID);
 	excelData.updateTestData(dataSetID, "Checker id", checkerID);
 	testData = excelData.getTestdata(dataSetID);
-	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton(), 60, 2);
+	waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton(), 20, 2);
 	productMaster_RetailObj.productMaster_Product_ConfirmationMessageCloseButton().click();
 	
     }
    
     @Then("^user logout from the application$")
     public void user_logout_from_the_application()  {
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Profile(), 60, 2);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Profile(), 20, 2);
     productMaster_RetailObj.productMaster_Product_Profile().click();
-    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Logout(), 60, 2);
+    waithelper.waitForElementToVisibleWithFluentWait(driver, productMaster_RetailObj.productMaster_Product_Logout(), 20, 2);
     productMaster_RetailObj.productMaster_Product_Logout().click();     
     }
 
@@ -1498,73 +1501,73 @@ public class ProductMaster_Retail {
     
     @Then("^select data set ID for product master retail testcase001$")
     public void select_data_set_id_for_product_master_retail_testcase001() throws Throwable {
-    	dataSetID = "AT_PMR_01_D6";
+    	dataSetID = "AT_PMR_01_D1";
         testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase002$")
     public void select_data_set_id_for_product_master_retail_testcase002() throws Throwable {
-    	dataSetID = "AT_PMR_02_D6";
+    	dataSetID = "AT_PMR_02_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase003$")
     public void select_data_set_id_for_product_master_retail_testcase003() throws Throwable {
-    	dataSetID = "AT_PMR_03_D6";
+    	dataSetID = "AT_PMR_03_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase004$")
     public void select_data_set_id_for_product_master_retail_testcase004() throws Throwable {
-    	dataSetID = "AT_PMR_04_D6";
+    	dataSetID = "AT_PMR_04_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase005$")
     public void select_data_set_id_for_product_master_retail_testcase005() throws Throwable {
-    	dataSetID = "AT_PMR_05_D6";
+    	dataSetID = "AT_PMR_05_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase006$")
     public void select_data_set_id_for_product_master_retail_testcase006() throws Throwable {
-    	dataSetID = "AT_PMR_06_D6";
+    	dataSetID = "AT_PMR_06_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase007$")
     public void select_data_set_id_for_product_master_retail_testcase007() throws Throwable {
-    	dataSetID = "AT_PMR_07_D6";
+    	dataSetID = "AT_PMR_07_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase008$")
     public void select_data_set_id_for_product_master_retail_testcase008() throws Throwable {
-    	dataSetID = "AT_PMR_08_D6";
+    	dataSetID = "AT_PMR_08_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase009$")
     public void select_data_set_id_for_product_master_retail_testcase009() throws Throwable {
-    	dataSetID = "AT_PMR_09_D6";
+    	dataSetID = "AT_PMR_09_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase010$")
     public void select_data_set_id_for_product_master_retail_testcase010() throws Throwable {
-    	dataSetID = "AT_PMR_010_D6";
+    	dataSetID = "AT_PMR_010_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
 
     @Then("^select data set ID for product master retail testcase011$")
     public void select_data_set_id_for_product_master_retail_testcase011() throws Throwable {
-    	dataSetID = "AT_PMR_011_D6";
+    	dataSetID = "AT_PMR_011_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
     
     @Then("^select data set ID for product master retail testcase012$")
     public void select_data_set_id_for_product_master_retail_testcase012() throws Throwable {
-    	dataSetID = "AT_PMR_012_D6";
+    	dataSetID = "AT_PMR_012_D1";
     	testData = excelData.getTestdata(dataSetID);
     }
     

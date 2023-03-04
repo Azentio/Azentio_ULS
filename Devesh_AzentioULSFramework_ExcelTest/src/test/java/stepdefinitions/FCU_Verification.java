@@ -51,7 +51,7 @@ public class FCU_Verification {
 	BrowserHelper browserHelper = new BrowserHelper(driver);
 	RadioButtonHelper radioButtonHelper = new RadioButtonHelper(driver);
 	FindFieldisMandatoryorNot findFieldisMandatoryorNot = new FindFieldisMandatoryorNot(driver);
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","FCU_VerificationTestData","Data Set ID");
+	ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","FCU_VerificationTestData","Data Set ID");
 	Map<String, String> testData;
 	String dataSetID;
 	SoftAssert softAssert = new SoftAssert();
@@ -73,12 +73,15 @@ public class FCU_Verification {
     	waithelper.waitForElementwithFluentwait(driver, fcuVerificationObj.fcuVerification_SearchInbox());
     	fcuVerificationObj.fcuVerification_SearchInbox().click();
     	waithelper.waitForElementwithFluentwait(driver, fcuVerificationObj.fcuVerification_SearchInputField());
-    	fcuVerificationObj.fcuVerification_SearchInputField().sendKeys(testData.get("Reference ID"));
-    	String beforexpath = "//span[text()='";
-		String afterxpath = "']/../../td/button";
-		Thread.sleep(1000);
+    	fcuVerificationObj.fcuVerification_SearchInputField().sendKeys(testData.get("Stage Code"));
+//    	String beforexpath = "//span[text()='";
+//		String afterxpath = "']/../../td/button";
 //		//span[text()='1345']/../../td/button
-		driver.findElement(By.xpath(beforexpath + testData.get("Reference ID") + afterxpath)).click();
+		String beforexpath = "//tr[1]/td[text()=' ";
+		String afterxpath = " ']/../td/button";
+		//tr[1]/td[text()=' App Data Entry ']/../td/button
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(beforexpath + testData.get("Stage Code") + afterxpath)).click();
     
     }
 
@@ -871,7 +874,7 @@ public class FCU_Verification {
     
     @Then("^select data set ID for fcu verification testcase001$")
     public void select_data_set_id_for_fcu_verification_testcase001() throws Throwable {
-    	dataSetID = "AT_FC_01_D1";
+    	dataSetID = "AT_FCU_001_D1";
         testData = excelData.getTestdata(dataSetID);
     }
 

@@ -4,6 +4,7 @@ Feature: Check the functionality of FCU verification screen
   Scenario: Verify the functionality of FCU Verification screen
 		Given User launch the kuls application
 		And User Login as maker for transaction screen
+		And user change the module to LOS
 		Then select data set ID for fcu verification testcase001
   	Then user should click on the menu toggle
   	Then click on inbox button for fcu verification

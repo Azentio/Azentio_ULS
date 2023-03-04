@@ -13,6 +13,7 @@ import dataProvider.JsonConfig;
 import freemarker.core._SortedArraySet;
 import helper.ClicksAndActionsHelper;
 import helper.JavascriptHelper;
+import helper.RadioButtonHelper;
 import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -30,6 +31,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
 	WebDriver driver = BaseClass.driver;
 	WaitHelper waitHelper = new WaitHelper(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
+	RadioButtonHelper radioButtonHelper = new RadioButtonHelper(driver);
 	ConfigFileReader configFileReader = new ConfigFileReader();
 	JsonConfig jsonConfig = new JsonConfig();
 	FindFieldisMandatoryorNot verifyfield = new FindFieldisMandatoryorNot(driver);
@@ -62,6 +64,14 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Application_Details_Icon(), 60, 5);
     	AppDataEntry.Application_Details_Icon().click(); 
     }
+    
+    @And("^user change the module to LOS$")
+    public void user_change_the_module_to_los() throws Throwable {
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Application_ModuleName(), 60, 5);
+    	AppDataEntry.Application_ModuleName().click();
+    	radioButtonHelper.radioButton("LOS");
+    	
+    }
 
     @And("^user click on Inbox Icon$")
     public void user_click_on_inbox_icon() throws Throwable {
@@ -86,7 +96,7 @@ public class PersonalDetails_AppDataEntry extends BaseClass{
     public void user_click_on_first_record_of_appdata_entry() throws Throwable {
     	for (int i = 0; i < 20; i++) {
 			try {
-				waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Inbox_Edit(), 60, 5);
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, AppDataEntry.Inbox_Edit(), 20, 2);
 				AppDataEntry.Inbox_Edit().click();
 				break;
 			} catch (Exception e) {

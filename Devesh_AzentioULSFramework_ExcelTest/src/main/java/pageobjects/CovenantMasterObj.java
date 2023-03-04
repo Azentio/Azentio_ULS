@@ -269,7 +269,8 @@ public class CovenantMasterObj {
 //	}
 
 	// inbox
-	@FindBy(xpath = "//ion-list[1]/ion-item[1]/div[1]")
+//	@FindBy(xpath = "//ion-list[1]/ion-item[1]/div[1]")
+	@FindBy(xpath = "//div[@ng-reflect-text='Inbox']")
 	private WebElement covenantMaster_Inbox;
 
 	public WebElement covenantMaster_Inbox() {
@@ -295,7 +296,7 @@ public class CovenantMasterObj {
 	}
 
 	// Profile
-	@FindBy(xpath = "//ion-list[1]/ion-item[6]/img[1]")
+	@FindBy(xpath = "//ion-item[@ng-reflect-text='Profile']/img")
 	private WebElement covenantMaster_Profile;
 
 	public WebElement covenantMaster_Profile() {

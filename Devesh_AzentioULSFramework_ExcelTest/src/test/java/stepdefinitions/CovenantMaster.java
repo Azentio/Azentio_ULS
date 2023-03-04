@@ -50,15 +50,15 @@ public class CovenantMaster {
 	CovenantMasterObj covenantMasterObj = new CovenantMasterObj(driver);
 	CovenantMasterTestDataType covenantMasterTestDataType = jsonConfig.getCovenantMasterByName("Maker");
 	Selenium_Actions action = new Selenium_Actions(driver);
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","CovenantMasterTestData","Data Set ID");
+	ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","CovenantMasterTestData","Data Set ID");
 	Map<String , String> testData;
 	String dataSetID;
 
 	@Then("^user should navigate to covenant master$")
 	public void user_should_navigate_to_covenant_master() throws Throwable {
-		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_ModuleName());
-		covenantMasterObj.covenantMaster_ModuleName().click();
-		radioButtonHelper.radioButton("LOS");
+//		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_ModuleName());
+//		covenantMasterObj.covenantMaster_ModuleName().click();
+//		radioButtonHelper.radioButton("LOS");
 		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_Maker_MenuToggle());
 		covenantMasterObj.covenantMaster_Maker_MenuToggle().click();;
 		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMasterConfigurations());
@@ -499,6 +499,14 @@ public class CovenantMaster {
 			 
 			 waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_Frequency());
 			 covenantMasterObj.covenantMaster_Frequency().click();
+			 for(int i=0;i<=10;i++) {
+				 try {
+					 javaScriptHelper.scrollIntoView(driver.findElement(By.xpath("//ion-label[contains(text(),'" + testData.get("Frequency") + "')]")));
+					 break;
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			 }
 			 radioButtonHelper.radioButton(testData.get("Frequency"));
 	    }
 	    

@@ -37,7 +37,7 @@ public class Customer_Address_Information extends BaseClass{
 	Customer_address_detail_Obj addressObj = new Customer_address_detail_Obj(driver);
 	PersonalDetails_AppDataEntry_Obj AppDataEntry = new PersonalDetails_AppDataEntry_Obj(driver);
 	Customer_address_Testdata custaddressdata = jsonConfig.getCustaddressByName("Maker");
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","CustomerAddressDetailsTestData","Data Set ID");
+	ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","CustomerAddressDetailsTestData","Data Set ID");
 	Map<String, String> testData;
 	String dataSetID;
 	
@@ -86,8 +86,16 @@ public class Customer_Address_Information extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Residential_or_Occupancy_Status(), 60, 2);
     	Assert.assertTrue(addressObj.Address_Residential_or_Occupancy_Status().isDisplayed());
     	addressObj.Address_Residential_or_Occupancy_Status().click();
+//    	 for(int i=0;i<=50;i++) {
+//			 try {
+//				 break;
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//			}
+//		 }
     	for (int i = 0; i < 50; i++) {
 			try {
+				javaHelper.scrollIntoView(driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("Residential Status")+" ']")));
 				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("Residential Status")+" ']/parent::ion-item//ion-radio")).click();
 				break;
 			} catch (Exception e) {
@@ -136,7 +144,7 @@ public class Customer_Address_Information extends BaseClass{
      	
      	for (int i = 0; i < 50; i++) {
  			try {
- 				javaHelper.scrollIntoView(driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("Country")+" ']/parent::ion-item//ion-radio")));
+ 				javaHelper.scrollIntoView(driver.findElement(By.xpath("//ion-label[text()=' ICELAND ']/parent::ion-item//ion-radio")));
  				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("Country")+" ']/parent::ion-item//ion-radio")).click();
  				break;
  			} catch (Exception e) {
@@ -147,7 +155,8 @@ public class Customer_Address_Information extends BaseClass{
 
     @And("^user verify the Province Id field and choose the value$")
     public void user_verify_the_province_id_field_and_choose_the_value() throws Throwable {
-        waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Province_id(), 60, 2);
+    	javaHelper.scrollIntoView(addressObj.Address_Country());
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_Province_id(), 60, 2);
      	Assert.assertTrue(addressObj.Address_Province_id().isDisplayed());
      	addressObj.Address_Province_id().click();
      	for (int i = 0; i < 50; i++) {
@@ -169,7 +178,8 @@ public class Customer_Address_Information extends BaseClass{
      	for (int i = 0; i < 50; i++) {
  			try {
  				
- 				addressObj.Address_Neighbourhood_District_Name().sendKeys(testData.get("District Name"));
+// 				addressObj.Address_Neighbourhood_District_Name().sendKeys(testData.get("District Name"));
+ 				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("District Name")+" ']/parent::ion-item//ion-radio")).click();
  				break;
  			} catch (Exception e) {
  				
@@ -182,15 +192,16 @@ public class Customer_Address_Information extends BaseClass{
         waitHelper.waitForElementToVisibleWithFluentWait(driver, addressObj.Address_City_id(), 60, 2);
      	Assert.assertTrue(addressObj.Address_City_id().isDisplayed());
      	addressObj.Address_City_id().click();
-     	for (int i = 0; i < 50; i++) {
- 			try {
- 				
- 				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("City Id")+" ']/parent::ion-item//ion-radio")).click();
- 				break;
- 			} catch (Exception e) {
- 				
- 			}
- 		}
+     	addressObj.Address_City_id().sendKeys(testData.get("City Id"));
+//     	for (int i = 0; i < 50; i++) {
+// 			try {
+// 				
+// 				driver.findElement(By.xpath("//ion-label[text()=' "+testData.get("City Id")+" ']/parent::ion-item//ion-radio")).click();
+// 				break;
+// 			} catch (Exception e) {
+// 				
+// 			}
+// 		}
     }
 
     @And("^user verify the Zip code field and Enter the value$")

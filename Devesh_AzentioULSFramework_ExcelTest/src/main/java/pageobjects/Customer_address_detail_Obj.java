@@ -76,7 +76,7 @@ public class Customer_address_detail_Obj {
 		return Address_Province_id;
 	}
 	
-	@FindBy(xpath="//ion-label[text()=' City id ']/parent::ion-item//ion-select")
+	@FindBy(xpath="//ion-label[text()=' City ']/parent::ion-item//input")
 	private WebElement Address_City_id;
 	public WebElement Address_City_id() {
 		return Address_City_id;
@@ -94,7 +94,8 @@ public class Customer_address_detail_Obj {
 		return Address_PO_BOX_number;
 	}
 	 
-	@FindBy(xpath="//ion-label[text()=' Neighbourhood/District Name ']/parent::ion-item//input")
+	@FindBy(xpath="//ion-label[text()=' Neighbourhood/District Name ']/parent::ion-item//ion-select")
+//	@FindBy(xpath="//ion-label[text()=' Neighbourhood/District Name ']/parent::ion-item//input")
 	private WebElement Address_Neighbourhood_District_Name ;
 	public WebElement Address_Neighbourhood_District_Name() {
 		return Address_Neighbourhood_District_Name;

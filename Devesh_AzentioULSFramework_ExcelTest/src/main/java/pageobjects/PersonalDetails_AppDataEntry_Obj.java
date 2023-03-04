@@ -33,6 +33,13 @@ public class PersonalDetails_AppDataEntry_Obj {
 		return Application_Details;
 	}
 	
+	@FindBy(xpath = "//ion-select[@aria-label='Corporate']")
+	private WebElement Application_ModuleName;
+	
+	public WebElement Application_ModuleName() {
+		return Application_ModuleName;
+	}
+	
 	@FindBy(xpath="//ion-icon[@ng-reflect-name='mail-unread-outline']")
 	private WebElement Inbox;
 	public WebElement Inbox_Icon()

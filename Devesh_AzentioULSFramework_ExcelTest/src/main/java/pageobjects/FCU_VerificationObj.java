@@ -503,7 +503,7 @@ public class FCU_VerificationObj {
 	}
 
 	// search input field
-	@FindBy(xpath = "//div[3]/span/input")
+	@FindBy(xpath = "//div[1]/span[2]/input[1]")
 	private WebElement fcuVerification_SearchInputField;
 
 	public WebElement fcuVerification_SearchInputField() {

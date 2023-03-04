@@ -34,7 +34,7 @@ public class OwnershipDetails {
 	BrowserHelper browserHelper = new BrowserHelper(driver);
 	OwnershipDetailsObj ownershipDetailsObj = new OwnershipDetailsObj(driver);
 	SoftAssert softAssert = new SoftAssert();
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","OwnershipLayoutTestData","Data Set ID");
+	ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","OwnershipLayoutTestData","Data Set ID");
 	Map<String, String> testData;
 	String dataSetID;
 	

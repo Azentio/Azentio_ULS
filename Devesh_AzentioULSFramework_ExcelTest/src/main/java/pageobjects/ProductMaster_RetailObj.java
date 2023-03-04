@@ -37,6 +37,13 @@ public class ProductMaster_RetailObj {
 	public WebElement productMaster_MenuToggle() {
 		return productMaster_MenuToggle;
 	}
+	
+	@FindBy(xpath = "//ion-select[@aria-label='Corporate']")
+	private WebElement productMaster_ModuleName;
+	
+	public WebElement productMaster_ModuleName() {
+		return productMaster_ModuleName;
+	}
 
 	@FindBy(xpath = "//ion-label[contains(text(),'Product Setup')]")
 	private WebElement product_Setup;
@@ -926,7 +933,8 @@ public class ProductMaster_RetailObj {
 	}
 	
 	//Change_Language 
-	@FindBy(xpath = "//ion-header/ion-toolbar[1]/section[1]/ion-list[1]/ion-item[3]/ion-select[1]") 
+//	@FindBy(xpath = "//ion-header/ion-toolbar[1]/section[1]/ion-list[1]/ion-item[3]/ion-select[1]") 
+	@FindBy(xpath = "//ion-item[@ng-reflect-text='Language']//ion-select") 
 	private WebElement Language; 
 
 	public WebElement Language() { 
