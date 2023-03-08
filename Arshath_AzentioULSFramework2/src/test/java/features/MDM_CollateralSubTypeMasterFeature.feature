@@ -78,7 +78,7 @@ And Update test data for collateral sub type creation and checker reject
 And Click on Add icon of collateral sub type
 And Enter the value in Asset_CollateralSubtypeCode field
 And Enter the value in Description field of collateral sub type
-And Enter the value in Asset_CollateralSubtypeCode field for checker return
+And Enter the value in Asset_CollateralSubtypeCode field
 And Select the value in Asset_CollateralType field
 And Enter the value in Exposure field
 And Enter the value in Asset_CollateralValuationTolerance field
@@ -139,7 +139,7 @@ Given Launch the kuls application and Navigate to collateral subtype module view
 And Select the existing record in collateral sub type
 And Update test data for collateral sub type update
 And Update the value in Description field of collateral sub type
-And Update the value in Asset_CollateralSubtypeCode field for checker approve
+And Update the value in Asset_CollateralSubtypeCode field
 And Update the value in Asset_CollateralType field
 And Update the value in Exposure field
 And Update the value in Asset_CollateralValuationTolerance field
@@ -190,7 +190,7 @@ Given Launch the kuls application and Navigate to collateral subtype module view
 And Select the existing record in collateral sub type
 And Update test data for collateral sub type update
 And Update the value in Description field of collateral sub type
-And Update the value in Asset_CollateralSubtypeCode field for checker reject
+And Update the value in Asset_CollateralSubtypeCode field
 And Update the value in Asset_CollateralType field
 And Update the value in Exposure field
 And Update the value in Asset_CollateralValuationTolerance field
@@ -222,7 +222,7 @@ Given Launch the kuls application and Navigate to collateral subtype module view
 And Select the existing record in collateral sub type
 And Update test data for collateral sub type update
 And Update the value in Description field of collateral sub type
-And Update the value in Asset_CollateralSubtypeCode field for chcker return
+And Update the value in Asset_CollateralSubtypeCode field
 And Update the value in Asset_CollateralType field
 And Update the value in Exposure field
 And Update the value in Asset_CollateralValuationTolerance field
@@ -268,7 +268,7 @@ And Click on Add icon of collateral sub type
 And Update test data for collateral sub type creation and checker approve
 And Enter the value in Description field of collateral sub type
 And Update test data for collateral sub type creation and checker reject
-And Enter the value in Asset_CollateralSubtypeCode field for checker reject
+And Enter the value in Asset_CollateralSubtypeCode field
 And Select the value in Asset_CollateralType field
 And Enter the value in Exposure field
 And Enter the value in Asset_CollateralValuationTolerance field

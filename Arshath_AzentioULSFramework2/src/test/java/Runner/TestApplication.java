@@ -17,7 +17,7 @@ import utilities.ExtentTestManager;
 				//dryRun = false //to check compilation errors			
 					//, tags="@AT_LE_007_Invalid_Modification"
 								
-				, tags="@Collaterel_SubType_M3.2" 
+				//, tags="@Collaterel_SubType_M3.2" 
 				
 )
 public class TestApplication extends AbstractTestNGCucumberTests {

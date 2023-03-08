@@ -546,12 +546,22 @@ public class KULS_CollateralSubType_Step {
 
 	@And("^Update the value in Asset_CollateralSubtypeCode field$")
 	public void update_the_value_in_assetcollateralsubtypecode_field() throws Throwable {
+//		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
+//				collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField(), 30, 2);
+//		collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().click();
+//		collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().clear();
+//		collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField()
+//				.sendKeys(testdata.get("Asset/Collateral subtype code"));
+		
+		Random random = new Random();
+		int randomNumber = random.nextInt(999999 - 100000) + 100000;
+		exceldata.updateTestData(testdata.get("Data Set ID"), "Asset/Collateral subtype code",String.valueOf(randomNumber));
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 				collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField(), 30, 2);
 		collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().click();
 		collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField().clear();
 		collateralsubtypeObj.CollateralSubTypeCollateralSubTypeCodeField()
-				.sendKeys(testdata.get("Asset/Collateral subtype code"));
+				.sendKeys(String.valueOf(randomNumber));
 	}
 
 	@And("^Update the value in Asset_CollateralType field$")

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>13/6/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 24 12:41:23 IST 2023</td>
+<td>Started on:</td><td>Wed Mar 08 11:53:18 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>42 seconds (42651 ms)</td>
+<tr><td>Total time:</td><td>1215 seconds (1215782 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,176 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record and approve by checker", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td><div><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button&quot;}
+  (Session info: chrome=110.0.5481.178)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.174&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5c953ea1829f1ff8b2b55b547bd28d87, findElement {using=xpath, value=//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:50820}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50820/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5c953ea1829f1ff8b2b55b547bd28d87
+	at org.testng.Assert.fail(Assert.java:99)
+	at stepdefinitions.KULS_CollateralSubType_Step.search_the_respective_reference_id_and_click_on_action_button_for_collatral_sub_type(KULS_CollateralSubType_Step.java:218)
+	at ✽.Search the respective reference id and click on Action button for collatral sub type(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:161)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1282890644", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1282890644'><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button&quot;}
+  (Session info: chrome=110.0.5481.178)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.174&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5c953ea1829f1ff8b2b55b547bd28d87, findElement {using=xpath, value=//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:50820}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50820/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 5c953ea1829f1ff8b2b55b547bd28d87
+	at org.testng.Assert.fail(Assert.java:99)
+	at stepdefinitions.KULS_CollateralSubType_Step.search_the_respective_reference_id_and_click_on_action_button_for_collatral_sub_type(KULS_CollateralSubType_Step.java:218)
+	at ✽.Search the respective reference id and click on Action button for collatral sub type(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:161)
+</pre></div></td>
+<td>45</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td><div><pre>java.lang.AssertionError: expected [88560] but found [571341]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdefinitions.KULS_CollateralSubType_Step.validate_the_record_in_mail_box_with_updated_record_for_checker_return(KULS_CollateralSubType_Step.java:985)
+	at ✽.Validate the record in mail box with updated record for checker return(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:234)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1292495775", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1292495775'><pre>java.lang.AssertionError: expected [88560] but found [571341]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdefinitions.KULS_CollateralSubType_Step.validate_the_record_in_mail_box_with_updated_record_for_checker_return(KULS_CollateralSubType_Step.java:985)
+	at ✽.Validate the record in mail box with updated record for checker return(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:234)
+</pre></div></td>
+<td>82</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td><div><pre>java.lang.AssertionError: expected [88558] but found [571341]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdefinitions.KULS_CollateralSubType_Step.validate_the_record_in_mail_box_with_updated_record_for_checker_approve(KULS_CollateralSubType_Step.java:952)
+	at ✽.Validate the record in mail box with updated record for checker approve(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:151)
+</pre></div><a href='#' onClick='toggleBox("stack-trace805786128", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace805786128'><pre>java.lang.AssertionError: expected [88558] but found [571341]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdefinitions.KULS_CollateralSubType_Step.validate_the_record_in_mail_box_with_updated_record_for_checker_approve(KULS_CollateralSubType_Step.java:952)
+	at ✽.Validate the record in mail box with updated record for checker approve(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:151)
+</pre></div></td>
+<td>62</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td><div><pre>java.lang.AssertionError: expected [88559] but found [571341]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdefinitions.KULS_CollateralSubType_Step.validate_the_record_in_mail_box_with_updated_record_for_checker_reject(KULS_CollateralSubType_Step.java:1004)
+	at ✽.Validate the record in mail box with updated record for checker reject(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:202)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1302746218", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1302746218'><pre>java.lang.AssertionError: expected [88559] but found [571341]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at stepdefinitions.KULS_CollateralSubType_Step.validate_the_record_in_mail_box_with_updated_record_for_checker_reject(KULS_CollateralSubType_Step.java:1004)
+	at ✽.Validate the record in mail box with updated record for checker reject(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:202)
+</pre></div></td>
+<td>81</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record and return by checker", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td><div><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button&quot;}
+  (Session info: chrome=110.0.5481.178)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.174&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1adf5bd98dc3b91123c4004ab3a79bde, findElement {using=xpath, value=//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51044}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51044/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1adf5bd98dc3b91123c4004ab3a79bde
+	at org.testng.Assert.fail(Assert.java:99)
+	at stepdefinitions.KULS_CollateralSubType_Step.search_the_respective_reference_id_and_click_on_action_button_for_collatral_sub_type(KULS_CollateralSubType_Step.java:218)
+	at ✽.Search the respective reference id and click on Action button for collatral sub type(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:244)
+</pre></div><a href='#' onClick='toggleBox("stack-trace504326867", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace504326867'><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button&quot;}
+  (Session info: chrome=110.0.5481.178)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.174&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1adf5bd98dc3b91123c4004ab3a79bde, findElement {using=xpath, value=//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51044}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51044/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1adf5bd98dc3b91123c4004ab3a79bde
+	at org.testng.Assert.fail(Assert.java:99)
+	at stepdefinitions.KULS_CollateralSubType_Step.search_the_respective_reference_id_and_click_on_action_button_for_collatral_sub_type(KULS_CollateralSubType_Step.java:218)
+	at ✽.Search the respective reference id and click on Action button for collatral sub type(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:244)
+</pre></div></td>
+<td>34</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record and reject by checker", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td><div><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button&quot;}
+  (Session info: chrome=110.0.5481.178)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.174&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [aa2b4fa373263a8ceb9dfd6b3a0d58ca, findElement {using=xpath, value=//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:50957}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50957/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa2b4fa373263a8ceb9dfd6b3a0d58ca
+	at org.testng.Assert.fail(Assert.java:99)
+	at stepdefinitions.KULS_CollateralSubType_Step.search_the_respective_reference_id_and_click_on_action_button_for_collatral_sub_type(KULS_CollateralSubType_Step.java:218)
+	at ✽.Search the respective reference id and click on Action button for collatral sub type(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:212)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1816080177", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1816080177'><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button&quot;}
+  (Session info: chrome=110.0.5481.178)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-rc-1&apos;, revision: &apos;bc5511cbda&apos;
+System info: host: &apos;DESKTOP-PSK9T3U&apos;, ip: &apos;10.200.4.174&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [aa2b4fa373263a8ceb9dfd6b3a0d58ca, findElement {using=xpath, value=//span[text()=&apos;615&apos;]/ancestor::tr/td[1]/button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.178, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\ININDC~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:50957}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50957/devtoo..., se:cdpVersion: 110.0.5481.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa2b4fa373263a8ceb9dfd6b3a0d58ca
+	at org.testng.Assert.fail(Assert.java:99)
+	at stepdefinitions.KULS_CollateralSubType_Step.search_the_respective_reference_id_and_click_on_action_button_for_collatral_sub_type(KULS_CollateralSubType_Step.java:218)
+	at ✽.Search the respective reference id and click on Action button for collatral sub type(file:///C:/Users/ININDC00074/git/collateralsubtype/Arshath_AzentioULSFramework2/src/test/java/features/MDM_CollateralSubTypeMasterFeature.feature:212)
+</pre></div></td>
+<td>50</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,9 +245,69 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the collateral sub type view list", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>81</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the user can able to update collateral sub type record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>47</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that user can able to create a collateral subtype master record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>65</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that user can able to create a collateral subtype master record and approve by checker user", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>52</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that approved collateral subtype master record is present in the view list", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>37</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that user can able to create a collateral subtype master record and return by checker user", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>28</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
 <td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that returned record is present in the view list", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
 <td></td>
-<td>35</td>
+<td>48</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that user can able to create a collateral subtype master record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>64</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate all fiedls of collateral sub type master", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>50</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that user can able to create a collateral subtype master record and reject by checker user", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>41</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that rejected record is present in the view list", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>37</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate that user can able to create a collateral subtype master record", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>85</td>
+<td>Runner.TestApplication@1c5920df</td></tr>
+<tr>
+<td title='Runner.TestApplication.runScenario()'><b>runScenario</b><br>Test class: Runner.TestApplication<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the updation of collateral sub type record with all field validation", "Optional[Verify the functionalities of  Collateral subtype master Module]"</td>
+<td></td>
+<td>82</td>
 <td>Runner.TestApplication@1c5920df</td></tr>
 </table><p>
 </body>
