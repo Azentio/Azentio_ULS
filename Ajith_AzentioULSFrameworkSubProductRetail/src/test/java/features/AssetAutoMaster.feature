@@ -3,6 +3,7 @@ Feature: Check the functionality of Asset auto master
 @T1
 Scenario: creation of Asset Auto with valid details
 Given user log in as uls application maker 
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation
 And User click the Configuration Manager option
 And user click asset auto edit icon
@@ -27,6 +28,7 @@ And user capture checker id for checker submit
 @T2
 Scenario: Checker approve and verify maker saved should reflect in checker
 Given user log in as uls application checker for asset auto record
+And user change Module name from Corporate to LOS for Asset Auto Master
 #And user Click on Menu icon for asset auto record
 And user Click on Mailbox icon for asset auto record
 And user search asset auto records
@@ -41,8 +43,9 @@ Then user verify the Record got Approved for asset auto record
 @T13
 Scenario: Creation of Asset Model Master record
 Given user log in as uls application maker 
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
 And user click asset model master
@@ -71,9 +74,10 @@ And user capture checker id for checker submit
 @T3.1
 Scenario: creation of Asset Auto with valid details
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
 And User click the Configuration Manager option
-#And User enter the product setup menu for asset auto creation
+#And User click the Configuration Manager option
 And user click asset auto edit icon
 And User click add icon for asset auto master
 And User Update Test data for Asset Auto Master creation checker return
@@ -97,6 +101,7 @@ And user capture checker id for checker submit
 @T3.2
 Scenario: Checker return submitted record from maker
 Given user log in as uls application checker for asset auto record
+And user change Module name from Corporate to LOS for Asset Auto Master
 #And user Click on Menu icon for asset auto record
 And user Click on Mailbox icon for asset auto record
 And Search the respective reference id and click on Action button for asset auto record
@@ -104,11 +109,20 @@ And user Click on return icon for asset auto record
 And user Enter the remarks in Action confirmation popup for asset auto record return
 Then user Click on Remarks button in Action confirmation popup for asset auto record return
 Then user verify the Record got Approved for asset auto record return
+@T3.3
+Scenario: User verify returned record reflected in Maker
+Given user log in as uls application maker
+And User Update Test data for Asset Auto Master creation checker return
+And user click inbox to approve record for asset auto
+And user search asset auto records
+And User Update test data to check returned record reflected in Maker
+And User Verify the asset auto master returned in Maker stage
 @T4.1
 Scenario: creation of Asset Auto with valid details
 Given user log in as uls application maker 
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation
-#And User enter the product setup menu for asset auto creation
+#And User click the Configuration Manager option
 And User click the Configuration Manager option
 And user click asset auto edit icon
 And User click add icon for asset auto master
@@ -143,19 +157,22 @@ Then user verify the Record got Approved for asset auto record reject
 @T5
 Scenario: Validation of asset auto master
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
 And User click the Configuration Manager option
-#And User enter the product setup menu for asset auto creation
+#And User click the Configuration Manager option
 And user click asset auto edit icon
 And User click add icon for asset auto master
+And User Update testdata set id for validation of asset auto master
 Then User verify the impact when user keep any mandatory field blank and click on save button
 # AAM_03_001,AAM_03_003,AAM_03_004,AAM_03_005,AAM_03_006,AAM_03_007
 # AAM_03_008,AAM_03_009,AAM_03_010,AAM_03_011
 @T6.1
 Scenario: updation of asset auto created record
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
-#And User enter the product setup menu for asset auto creation
+#And User click the Configuration Manager option
 And User click the Configuration Manager option
 And user click asset auto edit icon
 #Wip
@@ -187,6 +204,7 @@ And user capture checker id for checker submit
 @T7
 Scenario: Checker approve and verify maker saved should reflect in checker
 Given user log in as uls application checker for asset auto record
+And user change Module name from Corporate to LOS for Asset Auto Master
 #And user Click on Menu icon for asset auto record
 And user Click on Mailbox icon for asset auto record
 And Search the respective reference id and click on Action button for asset auto record
@@ -197,8 +215,9 @@ Then user verify the Record got Approved for asset auto record
 @T6.2
 Scenario: validation for updation of asset auto created record
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
 And user verify the functionality of back button
@@ -209,8 +228,9 @@ Then user verify System should show the proper validation message for blank fiel
 @T10
 Scenario: Validation for Modification of asset auto master record
 Given user log in as uls application maker 
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
 And user verify the functionality of Activate and Deactivate button for asset auto
@@ -218,9 +238,11 @@ Then user verify the label status active deactive  for asset auto
 And user verify the functionality of back button
 @T8.1
 Scenario: updation of asset auto created record
-Given user log in as uls application maker 
+Given user log in as uls application maker
+#And user change Module name from Corporate to LOS 
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
+And user update test data set id for modification scenario checker reject
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
 And user Select and modify the asset category in asset auto master
@@ -247,11 +269,13 @@ Then user Click on Remarks button in Action confirmation popup for asset auto re
 Then user verify the Record got Approved for asset auto record reject
 @T9.1
 Scenario: updation of asset auto created record
-Given user log in as uls application maker 
+Given user log in as uls application maker
+#And user change Module name from Corporate to LOS 
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user click the first edit icon for asset auto created record
+And user update test data set id for modification scenario checker return
 And user Select and modify the asset category in asset auto master
 And user select and update the brand field in asset auto master
 And user select and update the asset type in asset auto master
@@ -279,8 +303,9 @@ Then user verify the Record got Approved for asset auto record return
 @T11
 Scenario: To verify the Product Master List view of records
 Given user log in as uls application maker 
+#And user change Module name from Corporate to LOS
 When user click the configuration menu for asset auto creation 
-And User enter the product setup menu for asset auto creation
+And User click the Configuration Manager option
 And user click the list view in asset auto master
 And user verify add button is displayed for asset auto master
 And user verify search for record icon is displayed  for asset auto master

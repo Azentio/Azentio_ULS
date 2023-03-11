@@ -12,11 +12,13 @@ import org.testng.Assert;
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.Selenium_Actions;
+import helper.WaitHelper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Asset_AutoMaster_Obj;
+import pageobjects.SubProductMasterRetail_Obj;
 import resources.BaseClass;
 import resources.ExcelData;
 import resources.FindFieldisMandatoryorNot;
@@ -30,11 +32,23 @@ public class AssetAutoMaster {
 	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
 	KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	Asset_AutoMaster_Obj assetAutoMasterObj = new Asset_AutoMaster_Obj(driver);
+	SubProductMasterRetail_Obj subMasterRetailObj = new SubProductMasterRetail_Obj(driver);
+	WaitHelper waitHelper = new WaitHelper(driver);
 	FindFieldisMandatoryorNot verifyfield = new FindFieldisMandatoryorNot(driver);
 	AssetAutoMaster_TestData assetAutoMasterData = jsonConfig.getAssetAutoMasterListByName("Maker");
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00482\\Downloads\\TestDataDesignSampleNew.xlsx","AssetAutoMasterTestData","Data Set ID");
 	Map<String, String> testData;
+	@And("^user change Module name from Corporate to LOS for Asset Auto Master$")
+    public void user_change_module_name_from_corporate_to_los_for_asset_auto_master() throws Throwable {
+		if (testData.get("Checker id").equals("ssk")) {
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.moduleChangeOption(),30, 2);
+			subMasterRetailObj.moduleChangeOption().click();
+			waitHelper.waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.LOSoption(),30, 2);
+			subMasterRetailObj.LOSoption().click();
+		}
+		
+    }
 	@And("^User enter the product setup menu for asset auto creation$")
     public void user_enter_the_product_setup_menu_for_asset_auto_creation() throws Throwable {
         seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.productSetup(), 30, 2);
@@ -215,7 +229,9 @@ public class AssetAutoMaster {
 			 reference = assetAutoMasterObj.assetAutoReferanceId().getText();
 			 break;
 			} catch (Exception e) {
-				
+				if (i==199) {
+					Assert.fail(e.getMessage());
+				}
 			}
 		}
         
@@ -224,7 +240,6 @@ public class AssetAutoMaster {
         
         //seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.Sub_Producr_Product_ReferanceId(),40, 2);
         excelData.updateTestData("AT_RM_02_D1","Reference ID",reference);
-        json.addReferanceData(reference);
         System.out.println(reference);
         
         
@@ -259,7 +274,6 @@ public class AssetAutoMaster {
     public void user_log_in_as_uls_application_checker_for_asset_auto_record() throws Throwable {
     	String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
 		driver.get(kulsApplicationUrl);
-		System.out.println(json.readdata());
 		testData = excelData.getTestdata("AT_RM_02_D1");
 		applicationLogin.ulSApplicationLoginAsAChecker(testData.get("Checker id"));
     }
@@ -337,6 +351,19 @@ public class AssetAutoMaster {
 		Assert.assertEquals(true,assetAutoMasterObj.checkerApproveMgs().getText().contains("Record RETURNED Successfully"));
 		
     }
+    @And("^User Verify the asset auto master returned in Maker stage$")
+    public void user_verify_the_asset_auto_master_returned_in_maker_stage() throws Throwable {
+    	String xpath ="//span[text()='"+testData.get("Reference ID")+"']";
+        for (int i = 0; i <200; i++) {
+			try {
+				Assert.assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed());
+			} catch (Exception e) {
+				if (i==199) {
+					Assert.fail("Returned Asset auto Master Reference id not reflected in maker");
+				}
+			}
+		}
+    }
 
     @And("^user Click on return icon for asset auto record$")
     public void user_click_on_return_icon_for_asset_auto_record() throws Throwable {
@@ -387,15 +414,19 @@ public class AssetAutoMaster {
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, assetAutoMasterObj.Checker_Alert_Reject(), 60, 2);
     	assetAutoMasterObj.Checker_Alert_Reject().click();
     }
+    @And("^User Update testdata set id for validation of asset auto master$")
+    public void user_update_testdata_set_id_for_validation_of_asset_auto_master() throws Throwable {
+    	testData = excelData.getTestdata("AT-AAM-T006-D1");
+    }
     @Then("^User verify the impact when user keep any mandatory field blank and click on save button$")
     public void user_verify_the_impact_when_user_keep_any_mandatory_field_blank_and_click_on_save_button() throws Throwable {
-    	testData = excelData.getTestdata("AT_RM_06_D1");
+//    	testData = excelData.getTestdata("AT_RM_06_D1");
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.assetAutoMasterSave(),30, 2);
         assetAutoMasterObj.assetAutoMasterSave().click();
     	String xpath ="//ion-label[text()=' Asset Category ']//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
         for (int i = 0; i <30; i++) {
 			try {
-				 Assert.assertEquals( driver.findElement(By.xpath(xpath)).getText(),testData.get("BlankFieldValidation"));
+				 Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(),testData.get("BlankFieldValidation"));
 				 break;
 			} catch (NoSuchElementException e) {
 				
@@ -433,6 +464,15 @@ public class AssetAutoMaster {
     public void user_update_test_data_set_id_for_modification_scenario_checker_approve() throws Throwable {
        testData = excelData.getTestdata("AT_RM_05_D1");
     }
+    @And("^user update test data set id for modification scenario checker reject$")
+    public void user_update_test_data_set_id_for_modification_scenario_checker_reject() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_05_D2");
+    }
+    @And("^user update test data set id for modification scenario checker return$")
+    public void user_update_test_data_set_id_for_modification_scenario_checker_return() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_05_D3");
+    }
+
 
     @And("^user Select and modify the asset category in asset auto master$")
     public void user_select_and_modify_the_asset_category_in_asset_auto_master() throws Throwable {
@@ -661,12 +701,14 @@ public class AssetAutoMaster {
 
     @And("^user verify export to excel option is displayed for asset auto master$")
     public void user_verify_export_to_excel_option_is_displayed_for_asset_auto_master() throws Throwable {
-    	for (int i = 0; i < 50; i++) {
+    	for (int i = 0; i <200; i++) {
 			try {
 				assetAutoMasterObj.exportIcon().click();
 				break;
 			} catch (Exception e) {
-
+				if (i==199) {
+					Assert.fail(e.getMessage());
+				}
 			}
 		}
     	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,assetAutoMasterObj.xlsOption(),30, 2);
@@ -1067,6 +1109,12 @@ public class AssetAutoMaster {
     public void user_update_test_data_for_asset_auto_master_creation_checker_reject() throws Throwable {
     	testData = excelData.getTestdata("AT_RM_01_D3");
     }
+    @And("^User Update test data to check returned record reflected in Maker$")
+    public void user_update_test_data_to_check_returned_record_reflected_in_maker() throws Throwable {
+    	testData = excelData.getTestdata("AT_RM_02_D1");
+    }
+
+    
 
     
 }

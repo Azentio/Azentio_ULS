@@ -23,6 +23,18 @@ public class SubProductMasterRetail_Obj {
 	{
 		return uls_ConfigManagerMainMenu;
 	}
+	@FindBy(xpath="//ion-select[@ng-reflect-text='Module name']")
+	private WebElement moduleChangeOption;
+	public WebElement moduleChangeOption()
+	{
+		return moduleChangeOption;
+	}
+	@FindBy(xpath="//ion-label[text()='LOS']/following-sibling::ion-radio")
+	private WebElement LOSoption;
+	public WebElement LOSoption()
+	{
+		return LOSoption;
+	}
 	@FindBy(xpath="//button[@ng-reflect-text='Add']")
 	private WebElement addIcon;
 	public WebElement addIcon() {
@@ -300,7 +312,7 @@ public class SubProductMasterRetail_Obj {
     public WebElement Sub_Product_Inbox() {
         return Sub_Product_Inbox;
     }  
-    @FindBy(xpath = "(//td[contains(text(),'SUB_PRD_MAST')])[1]//preceding-sibling::td[1]//child::span") 
+    @FindBy(xpath = "//tbody/tr[1]/td[2]//span") 
     private WebElement Sub_Product_ReferanceId;
     public WebElement Sub_Producr_Product_ReferanceId() {
         return Sub_Product_ReferanceId;

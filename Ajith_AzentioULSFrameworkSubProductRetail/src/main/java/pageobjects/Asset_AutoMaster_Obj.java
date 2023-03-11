@@ -147,12 +147,12 @@ public class Asset_AutoMaster_Obj {
         return assetAutoInboxView_SearchText;
     }  
     
-    @FindBy(xpath = "(//td[contains(text(),'ASSET_AUTO_MST')])[1]//preceding-sibling::td[1]//child::span") 
+    @FindBy(xpath = "//tr/td[2]/span") 
     private WebElement assetAutoReferanceId;
     public WebElement assetAutoReferanceId() {
         return assetAutoReferanceId;
     } 
-    @FindBy(xpath="(//td[text()=' ASSET_AUTO_MST '])[1]//parent::tr//child::td[1]/button")
+    @FindBy(xpath="//tr[1]/td[1]/button[1]")
     private WebElement firstEditIconInMakerListView;
     public WebElement firstEditIconInMakerListView() {
     	return firstEditIconInMakerListView;

@@ -1,7 +1,9 @@
 Feature: To check the functionalities of sub product retail master
-@M1_SubPrdMst_Creation
+#AT-SPR-T001
+@AT-SPR-T001_01
 Scenario: Creation of Sub product retail master with valid data
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
@@ -33,39 +35,42 @@ And user enter legacy code 2 under Legacy Codes details and verify fields
 And user enter dm code under Legacy Codes details and verify fields
 And user enetr Allocation sequence number under Legacy Codes details and verify fields
 And user verify and save the Record with Valid data
-And user goto the Maker Inbox
 And store the record reference number for checker approval
+And user goto the Maker Inbox
+And get the test data for the first test case
+And user click action action in Inbox view
 #Then user store the Referance Id in Maker stage and Click on Action Icon
 And user click Back button icon and Click on Action Icon
 #And  user verify the submit button and submit from Maker stage
 And store the checker id of sub product master for checker approval
-
-@M1.1_SubPrdMst_Approve1
+#AT-SPR-T001
+@AT-SPR-T001_02
 Scenario: verify Checker user is able to Approve the record in subproduct Master Retail
 And get the test data for checker approval scenario
 Given user log in as uls application checker
 And user Click on Menu icon
 And user Click on Mailbox icon
-
 And Search the respective reference id and click on Action button
 And user Click on Approve icon
 And user Enter the remarks in Action confirmation popup
 Then user Click on Remarks button in Action confirmation popup
 Then user verify the Record got Approved 
-
-@M1.2_SubPrdMst_ListView
+#AT-SPR-T001
+@AT-SPR-T001_03
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
 And get the test data for the first test case
 And user click list view icon of sub product retail
 Then User validate the approved record in list view
-
-@M2_SubPrdMst_CreateRecordforRejection
+#AT-SPR-T002
+@AT-SPR-T002_01
 Scenario: Creation of Sub product retail master with valid data
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
@@ -73,7 +78,7 @@ And user click add icon for create record in sub product retail
 And get the test datafor creation of record which is going to reject by maker
 And user select Product group under product details and verify fields 
 And user select Product codes under product details and verify fields
-And user enter sub product codes under sub product definition details and verify fields
+And user enter sub product code under sub product definition details and verify fields
 And user enter sub product code description under sub product definition details and verify fields
 And user select facility type under facility details  
 And user select individual or corporate under facility details and verify fields
@@ -102,11 +107,12 @@ Then user store the Referance Id in Maker stage and Click on Action Icon which i
 #Then user store the Referance Id in Maker stage and Click on Action Icon
 And user click Back button icon and Click on Action Icon
 And  user verify the submit button and submit from Maker stage
-
-@M2.1_SubPrdMst_Reject
+#AT-SPR-T002
+@AT-SPR-T002_02
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 And get the test data of checker reject scenario
 Given user log in as uls application checker
+And user change Module name from Corporate to LOS
 And user Click on Menu icon
 And user Click on Mailbox icon
 And Search the respective reference id and click on Action button
@@ -114,20 +120,22 @@ And user Click on Reject icon
 And user Enter the remarks for Reject the Record
 Then user Click on Remarks button for Reject confirmation
 Then user verify the Record got Rejected 
-
-@M2.2_SubPrdMst_ListView
+#AT-SPR-T002
+@AT-SPR-T002_03
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
 #And user click list view icon of sub product retail
 And get the test datafor creation of record which is going to reject by maker
 Then User validate the Rejected record in list view
-
-@M3_SubPrdMst_CreateRecordforReturn
+#AT-SPR-T003
+@AT-SPR-T003_01
 Scenario: Creation of Sub product retail master with valid data
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
@@ -164,9 +172,9 @@ Then user store the Referance Id in Maker stage for checker return purpose and C
 And user click Back button icon and Click on Action Icon
 And submit the record from maker and store the checker ID for return purpose
 
-
-@M3.1_SubPrdMst_Return
-Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
+#AT-SPR-T003
+@AT-SPR-T003_02
+Scenario: verify Checker user is able to Return the record in subproduct Master Retail
 Given Navigate to uls application and for checker return
 And user Click on Menu icon
 And user Click on Mailbox icon
@@ -175,19 +183,20 @@ And user Click on Return icon
 And user Enter the remarks for Return the Record
 Then user Click on Remarks button for Return confirmation
 Then user verify the Record got Return 
-
-@M3.2_SubPrdMst_ListView
+#AT-SPR-T003
+@AT-SPR-T003_03
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And click on temp view of sub product retail master
 And get the test data of creation of sub product record whcih is going to return in checker stage
 Then User validate the Returned record in list view
-
-@M4_SubPrdMst_InvalidCreation
+@AT-SPR-T004
 Scenario: Creation of Sub product retail master with Invalid data
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
@@ -199,9 +208,12 @@ And user enter sub product code as special characters
 Then user verify the Special characters field proper validation message
 And user verify and save the Record with InValid data
 Then user verify the Required field proper validation message
+#AT-SPR-T004
+#AT-SPR-T005
 @M5M6
 Scenario: Modification of Sub-product Master record
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 #WIP record
@@ -251,14 +263,17 @@ Then user verify the Record got Approved
 @M5.2_SubPrdMst_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view icon of sub product retail
 And get the test data for Updation scenario for checker approval
 Then User validate the updated record in list view
-@m7.1
+#AT-SPR-T007
+@AT-SPR-T007_01
 Scenario: Modification of Sub-product Master record
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 #updation
@@ -278,7 +293,8 @@ And user click the inbox icon
 And select the modified record and store the reference number for checker reject purpose
 #And user submit the modified record and verify the sucess message
 And store the updated record checker ID for rejection purpose
-@7.2
+#AT-SPR-T007
+@AT-SPR-T007_02
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 And get the test data of checker reject for updation scenario
 Given user log in as uls application checker
@@ -289,9 +305,11 @@ And user Click on Reject icon
 And user Enter the remarks for Reject the Record
 Then user Click on Remarks button for Reject confirmation
 Then user verify the Record got Rejected 
-@M8.1
+#AT-SPR-T008
+@AT-SPR-T008_01
 Scenario: Modification of Sub-product Master record
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 #updation
@@ -309,9 +327,9 @@ And user click the edit icon for the record which saved in maker
 And user verify all modified details are present on post save the record
 And user click the inbox icon
 And user click the modified record in the list view and store the reference number
-
 And user submit the modified record and verify the sucess message
-@m8.2
+#AT-SPR-T008
+@AT-SPR-T008_02
 Scenario: Verify that checker user can abe to return the updated sub product master record
 And get the test data of checker return for updation scenario 
 Given user log in as uls application checker
@@ -322,13 +340,15 @@ And click on Action button
 And Click on Return icon
 And Enter the remarks in Action confirmation popup
 Then Click on Remarks button in Action confirmation popup
-@m9
+#AT-SPR-T009
+@AT-SPR-T009
 Scenario: Validate the view list in Sub product master page
 # This test cases also covers the functionalities of M18
 # SPM_09_01, SPM_09_02, SPM_09_03, SPM_09_08, SPM_09_09, SPM_09_10, 
 #SPM_09_11, SPM_10_01, SPM_10_02, SPM_10_03, SPM_10_04, SPM_10_05, SPM_10_06, 
 #SPM_10_07, SPM_10_08, SPM_10_09, SPM_10_10, SPM_10_11, SPM_10_12
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And user click list view in sub product menu
@@ -347,9 +367,11 @@ And Search with valid data in view list of WIP
 And Search with Invalid data in view list of WIP
 And Export to PDF functionality in WIP
 And Export to Excel functionality in WIP
-@m10.1
+#AT-SPR-T010
+@AT-SPR-T010_01
 Scenario: To verify post clicking on Add button, the Parameter screen is getting open with all valid fields
 Given Launch the kuls application and login as maker
+And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click list view icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -391,7 +413,8 @@ And Enter the required moratorium/Grace period month in maker
 Then Enter the required pre-EMI fields in maker
 Then Click the save button get the confirmation messege
 Then Get the respective reference id and submit in maker
-@M10.2_SubPrdMst_Approve
+#AT-SPR-T010
+@AT-SPR-T010_02
 Scenario: verify Checker user is able to Approve the record in subproduct Parameter Master Record
 And get the test data for subproduct parameter checker approval scenario
 Given user log in as uls application checker
@@ -405,13 +428,16 @@ Then user verify the Record got Approved
 @M10.3_SubPrdMst_ListView
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click list view icon of sub product retail
 And get the test data of sub product parameter creation test data
 Then User validate the parameter created record in list view
-@m11.1
+#AT-SPR-T011
+@AT-SPR-T011_01
 Scenario: To verify post clicking on Add button, the Parameter screen is getting open with all valid fields
 Given Launch the kuls application and login as maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click list view icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -457,7 +483,8 @@ And search for sub product master record in mail box area
 And select the sub product master record and store the reference number for checker reject purpose
 And submit the record from maker stage 
 And store the checker id for cheker id for checker reject purpose 
-@11.2
+#AT-SPR-T011
+@AT-SPR-T011_02
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 #Given user log in as uls application checker
 Given navigate the uls application along with parameter creation record test data
@@ -468,14 +495,18 @@ And user Click on Reject icon
 And user Enter the remarks for Reject the Record
 Then user Click on Remarks button for Reject confirmation
 Then user verify the Record got Rejected 
-@11.3_SubPrdMst_ListView
+#AT-SPR-T011
+@AT-SPR-T011_03
 Scenario: Record should get approved and display in the system under Approved List view
 Given user log in as uls application maker
+And user change Module name from Corporate to LOS
 And user click the inbox icon
 And user verify the rejected record removed from the system
-@m12.1
+#AT-SPR-T012
+@AT-SPR-T012_01
 Scenario: To verify post clicking on Add button, the Parameter screen is getting open with all valid fields
 Given Launch the kuls application and login as maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click list view icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -520,7 +551,8 @@ And search for sub product master record in mail box area
 And select the sub product parameter master record and store the reference number for checker return purpose
 And submit the record from maker stage 
 And store the checker id for cheker id for checker return purpose in sub product parameter
-@M12.2_SubPrdMst_Return
+#AT-SPR-T012
+@AT-SPR-T012_02
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 Given Navigate to uls application as checker along with parameter checker rekect test data
 And user Click on Menu icon
@@ -530,17 +562,19 @@ And user Click on Return icon
 And user Enter the remarks for Return the Record
 Then user Click on Remarks button for Return confirmation
 Then user verify the Record got Return 
-
-@M12.3_SubPrdMst_ListView
+#AT-SPR-T012
+@AT-SPR-T012_03
 Scenario: Record should get approved and display in the system under Approved List view
 Given Navigate to uls application for verify returned parameter record is visible under temp of sub product retail
+#And user change Module name from Corporate to LOS
 When click on configuration main menu
 And click on config manager sub menu
 And click on temp view of sub product retail master
 Then User validate the Returned record in list view
-@m13
+@AT-SPR-T013
 Scenario: To verify post clicking on Add button, the Parameter screen is getting open with all valid fields
 Given Launch the kuls application and login as maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click list view icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -577,10 +611,11 @@ And user Enter the Remark value as special character
 Then user verify the Special characters field proper validation message
 And user verify and save the Records with InValid data
 Then user verify the Required field proper validation message
-
-@m14.1
+#AT-SPR-T014
+@AT-SPR-T014_01
 Scenario: Modification of Parameter tab details in Sub-product Retail Master screen
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click edit icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -677,7 +712,8 @@ And user click the inbox icon
 And user click the modified record in the list view and store the reference number
 And user verify the functionality of View Workflow button
 And user submit the modified record and verify the sucess message
-@M14.2_SubPrdMst_Approve
+#AT-SPR-T014
+@AT-SPR-T014_02
 Scenario: verify Checker user is able to Approve the record in subproduct Master Retail
 Given user log in as uls application checker
 And user Click on Menu icon
@@ -689,9 +725,10 @@ Then user Click on Remarks button in Action confirmation popup
 Then user verify the Record got Approved 
 
 #Modification of Parameter record
-@m15
+@AT-SPR-T015
 Scenario: To verify while modification, when user keep any mandatory field blank and click on save button
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 Then Click the subproductretail master
 And Click the parameter
 And Update the parameter fields in maker
@@ -700,6 +737,7 @@ Then Get the validation message in maker
 @m14.3
 Scenario: Modification of Parameter tab details in Sub-product Retail Master screen in approved list
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 #Approved Record
 And user click edit icon of sub product retail
@@ -753,10 +791,11 @@ And User select and Modify Tds applicable
 And user verify the functionality of Activate and Deactivate button
 And User save the record for parameter updation
 Then verify success message in parameter tab
-
-@m16.1
+#AT-SPR-T016
+@AT-SPR-T016_01
 Scenario: Modification of Parameter tab details in Sub-product Retail Master screen
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 #WIP Record
 And user click edit icon of sub product retail
@@ -815,7 +854,8 @@ And user click the inbox icon
 And user click the modified record in the list view and store the reference number
 And user verify the functionality of View Workflow button
 And user submit the modified record and verify the sucess message
-@M16.2_SubPrdMst_Reject
+#AT-SPR-T016
+@AT-SPR-T016_02
 Scenario: verify Checker user is able to Reject the record in subproduct Master Retail
 Given user log in as uls application checker
 And user Click on Menu icon
@@ -825,9 +865,11 @@ And user Click on Reject icon
 And user Enter the remarks for Reject the Record
 Then user Click on Remarks button for Reject confirmation
 Then user verify the Record got Rejected 
-@m17.1
+#AT-SPR-T017
+@AT-SPR-T017_01
 Scenario: Modification of Parameter tab details in Sub-product Retail Master screen
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 #WIP Record
 And user click edit icon of sub product retail
@@ -886,7 +928,8 @@ And user click the inbox icon
 And user click the modified record in the list view and store the reference number
 And user verify the functionality of View Workflow button
 And user submit the modified record and verify the sucess message
-@M17.2_SubPrdMst_Return
+#AT-SPR-T017
+@AT-SPR-T017_02
 Scenario: verify Checker user is able to Return the record in subproduct Master Retail
 Given user log in as uls application checker
 And user Click on Menu icon
@@ -899,6 +942,7 @@ Then user verify the Record got Return
 @M1.0_SubPrdMst_Creation
 Scenario: Creation of Sub product retail master with valid data
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 And user click list view icon of sub product retail
 And user click add icon for create record in sub product retail
@@ -941,10 +985,12 @@ And Search the respective reference id and click on Action button
 And user Click on Approve icon
 And user Enter the remarks in Action confirmation popup
 Then user Click on Remarks button in Action confirmation popup
-Then user verify the Record got Approved 
-@m14.4
+Then user verify the Record got Approved
+#AT-SPR-T014 
+@AT-SPR-T014
 Scenario: Validation of Parameter tab details in Sub-product Retail Master screen in approved list
 Given user log in as uls application maker
+#And user change Module name from Corporate to LOS
 When user click product set up menu
 #Approved Record
 And user click edit icon of sub product retail

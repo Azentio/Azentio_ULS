@@ -89,6 +89,23 @@ public class KULS_Application_Login {
 			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
 			assertEquals(loginObj.configuration().isDisplayed(), true);
 			break;
+		case"ssk":
+			testdata = excelData.getTestdata("Checker3");
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.userId(), 60, 5);
+			loginObj.userId().click();
+			loginObj.userId().sendKeys(testdata.get("Username"));
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.continueButton(), 60, 5);
+			loginObj.continueButton().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.password(), 60, 2);
+			loginObj.password().click();
+			loginObj.password().sendKeys(testdata.get("Password"));
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.signIn(), 60, 5);
+			loginObj.signIn().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.menu(), 60, 2);
+			loginObj.menu().click();
+			waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.configuration(), 60, 2);
+			assertEquals(loginObj.configuration().isDisplayed(), true);
+			break;
 		}
 
 	}

@@ -8,21 +8,21 @@ import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features/SubProductRetailMasterAll.feature", 
+@CucumberOptions(features = "src/test/java/features/AssetAutoMaster.feature", 
                  glue = "stepdefinitions",
 		         //monochrome=false, //to make steps in color
 		         plugin = { "pretty",
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"}
 				//dryRun = false //to check compilation errors
-				, tags="@m9"
+				, tags="@T13"
 
 )
 public class TestApplication extends AbstractTestNGCucumberTests {
 	/*
 	 * @Override
 	 * 
-	 * @DataProvider(parallel = true) p ublic Object[][] scenarios() { return
+	 * @DataProvider(parallel = true) public Object[][] scenarios() { return
 	 * super.scenarios(); }
 	 */
 	@BeforeSuite

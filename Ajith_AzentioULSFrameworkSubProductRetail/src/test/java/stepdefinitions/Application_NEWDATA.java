@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,27 +10,32 @@ import org.testng.Assert;
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
 import helper.Selenium_Actions;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import pageobjects.ApplicationdetailNEWAPP_Obj;
 import resources.BaseClass;
+import resources.ExcelData;
 import testDataType.ApplicationDetails_NEWAPPTestData;
-import testDataType.KULS_Login_TestDataType;
 
 public class Application_NEWDATA extends BaseClass{
 	  WebDriver driver = BaseClass.driver;
 	  KULS_Application_Login login = new KULS_Application_Login(driver);
 	  JsonConfig jsonConfig = new JsonConfig();
 	  ConfigFileReader configFileReader = new ConfigFileReader();
-	  KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
+	  KULS_Application_Login applicationLogin = new KULS_Application_Login(driver);
 	  ApplicationdetailNEWAPP_Obj appNewObj = new ApplicationdetailNEWAPP_Obj(driver);
 	  ApplicationDetails_NEWAPPTestData applicationDetailsNEWAPPTestData = jsonConfig.getApplicationDetailsNEWAPPListByName("Maker");
 	  Selenium_Actions seleniumActions = new Selenium_Actions(driver);
+	  String path = System.getProperty("user.dir") + "\\Test-data\\ULSTestData.xlsx";
 	@Given("^user login as a cent bank uls application$")
 	public void user_login_as_a_cent_bank_uls_application() throws Throwable {
 		
-	    String loanTransactionApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
-	    driver.get(loanTransactionApplicationUrl);
-	    login.loginUlsApplicationAsMaker(loginData.Username2,loginData.Password2);
+		ExcelData excelData = new ExcelData(path, "LoginCredentials", "Stage");
+		Map<String, String> testdata = excelData.getTestdata("Maker2");
+		String kulsApplicationUrl = configFileReader.getLoanTransactionApplicationUrl();
+		driver.get(kulsApplicationUrl);
+		applicationLogin.loginUlsApplicationAsMaker(testdata.get("Username"), testdata.get("Password"));
 	}
 	@When("^user click the inbox icon for application new app$")
 	public void user_click_the_inbox_icon_for_application_new_app() throws Throwable {

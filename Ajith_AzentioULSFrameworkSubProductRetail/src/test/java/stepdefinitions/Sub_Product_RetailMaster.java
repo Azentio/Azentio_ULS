@@ -3,6 +3,7 @@ package stepdefinitions;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -88,6 +89,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
     public void get_the_test_data_of_sub_product_parameter_creation_test_data() throws Throwable {
 		subProductMasterTestData = excelData.getTestdata("AT-SPR-010_D1");
     }
+	
 
 //    @When("^user click product set up menu$")
 //    public void user_click_product_set_up_menu() throws Throwable {
@@ -105,6 +107,13 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void click_on_config_manager_sub_menu() throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ulsConfigManagerMainMenu(), 10, 1);
 		subMasterRetailObj.ulsConfigManagerMainMenu().click();
+	}
+	@And("^user change Module name from Corporate to LOS$")
+    public void user_change_module_name_from_corporate_to_los() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.moduleChangeOption(),30, 2);
+		subMasterRetailObj.moduleChangeOption().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.LOSoption(),30, 2);
+		subMasterRetailObj.LOSoption().click();
 	}
 
 	@And("^user click edit icon of sub product retail$")
@@ -1975,10 +1984,14 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		System.out.println("System should display The Tab as " + Tab);
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// subMasterRetailObj.subProductCode(), 60, 2);
+		Random random = new Random();
+		int randomNumber1 = random.nextInt(500 - 100) + 100;
+		String subproductCode =subProductMasterTestData.get("PrefixCode")+randomNumber1;
+		excelData.updateTestData(subProductMasterTestData.get("Data Set ID"),"SubproductCode" , subproductCode);
 		for (int i = 0; i < 30; i++) {
 			try {
 				subMasterRetailObj.subProductCode().click();
-				subMasterRetailObj.subProductCode().sendKeys(subProductMasterTestData.get("SubproductCode"));
+				subMasterRetailObj.subProductCode().sendKeys(subproductCode);
 				break;
 			} catch (Exception e) {
 
@@ -2017,8 +2030,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("subProduct Description");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductDescription(), 60, 2);
+		Random random = new Random();
+		int randomNumber1 = random.nextInt(500 - 100) + 100;
+		String subproductCodeDescription =subProductMasterTestData.get("PrefixDescription")+randomNumber1;
+		excelData.updateTestData(subProductMasterTestData.get("Data Set ID"),"SubProductDescription" , subproductCodeDescription);
 		subMasterRetailObj.subProductDescription().click();
-		subMasterRetailObj.subProductDescription().sendKeys(subProductMasterTestData.get("SubProductDescription"));
+		subMasterRetailObj.subProductDescription().sendKeys(subproductCodeDescription);
 	}
 
 	@And("^user select facility type under facility details$")
@@ -2363,11 +2380,15 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enetr Allocation sequence number under Legacy Codes details and verify fields$")
 	public void user_enetr_allocation_sequence_number_under_legacy_codes_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Allocation Sequence Number");
+		Random random = new Random();
+		int allocationSequence = random.nextInt(99 - 10) + 10;
+		excelData.updateTestData(subProductMasterTestData.get("Data Set ID"),"AllocationSequenceNumber", String.valueOf(allocationSequence));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 				subMasterRetailObj.Sub_Product_Alloation_Sequence_Number(), 60, 2);
 		subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().click();
 		subMasterRetailObj.Sub_Product_Alloation_Sequence_Number()
-				.sendKeys(subProductMasterTestData.get("AllocationSequenceNumber"));
+				.sendKeys(String.valueOf(allocationSequence));
+		
 
 	}
 
@@ -2377,11 +2398,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product_Save(), 60, 2);
 		subMasterRetailObj.Sub_Product_Product_Save().isDisplayed();
 		subMasterRetailObj.Sub_Product_Product_Save().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_SaveSuccess_alert(), 60,
-				2);
-		Toast = subMasterRetailObj.Subproduct_SaveSuccess_alert().getText();
-		System.out.println("Toast alert message " + Toast);
-		Assert.assertTrue(Toast.contains("Success"));
+		
 	}
 
 	@And("^user goto the Maker Inbox$")
@@ -2396,8 +2413,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 				60, 2);
 		String RefId = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
 		System.out.println(RefId);
-		json.addReferanceData(RefId);
-		excelData.updateTestData("AT-SPR-T004_D1", "Reference ID", RefId);
+		
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 60, 2);
 		subMasterRetailObj.Sub_Product_Action().click();
 	}
@@ -2430,14 +2446,29 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^store the record reference number for checker approval$")
 	public void store_the_record_reference_number_for_checker_approval() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Producr_Product_ReferanceId(),
-				60, 2);
-		String RefId = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
-		System.out.println(RefId);
-		excelData.updateTestData("AT-SPR-T002_D1", "Reference ID", RefId);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 60, 2);
-		subMasterRetailObj.Sub_Product_Action().click();
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_SaveSuccess_alert(), 60,
+				2);
+		Toast = subMasterRetailObj.Subproduct_SaveSuccess_alert().getText();
+		//System.out.println("Toast alert message " + Toast);
+		Assert.assertTrue(Toast.contains("Success"));
+		excelData.updateTestData(subProductMasterTestData.get("Data Set ID"), "Reference ID", Toast.substring(37).trim());
+		excelData.updateTestData("AT-SPR-T002_D1", "Reference ID", Toast.substring(37).trim());
 	}
+
+    @And("^user click action action in Inbox view$")
+    public void user_click_action_action_in_inbox_view() throws Throwable {
+    	String xpath = "//span[text()='"+subProductMasterTestData.get("Reference ID")+"']/parent::td/preceding-sibling::td/button";
+		for (int i = 0; i <200; i++) {
+			try {
+				driver.findElement(By.xpath(xpath)).click();
+				break;
+			} catch (Exception e) {
+				if (i==199) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+    }
 
 	@And("^user verify the submit button and submit from Maker stage$")
 	public void user_verify_the_submit_button_and_submit_from_maker_stage() throws Throwable {
@@ -2639,7 +2670,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'"+subprdMstData.ProductCode+"')]")),
 		// 60, 2);
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 200; i++) {
 			try {
 				String validate = driver
 						.findElement(By.xpath(
@@ -2650,24 +2681,28 @@ public class Sub_Product_RetailMaster extends BaseClass {
 				break;
 
 			} catch (NoSuchElementException e) {
-
+				if (i==199) {
+					Assert.fail("Subproduct Code not Visibile in List view");
+				}
 			}
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'" +
 		// subprdMstData.Subproductcode + "')]")), 60, 2);
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 200; i++) {
 			try {
 				String validate1 = driver
-						.findElement(By.xpath("//span[contains(text(),'" + subprdMstData.Subproductcode + "')]"))
+						.findElement(By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("SubproductCode") + "')]"))
 						.getText();
 				System.out.println(validate1);
-				Assert.assertEquals(validate1, subprdMstData.Subproductcode);
+				Assert.assertEquals(validate1, subProductMasterTestData.get("SubproductCode"));
 				break;
 
 			} catch (NoSuchElementException e) {
-
+				if (i==199) {
+					Assert.fail("Subproduct code not visible in List view");
+				}
 			}
 		}
 
@@ -2705,33 +2740,41 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@Then("^User validate the Rejected record in list view$")
 	public void user_validate_the_rejected_record_in_list_view() throws Throwable {
-		try {
-			waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 60,
-					2);
-			String validate = driver
-					.findElement(
-							By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("ProductCode") + "')]"))
-					.getText();
-			// System.out.println(validate);
-			Assert.assertEquals(validate, subProductMasterTestData.get("ProductCode"));
-		} catch (Exception e) {
-			System.out
-					.println("The Rejected Record Not in the List view " + subProductMasterTestData.get("ProductCode"));
+		for (int i = 0; i <100; i++) {
+			try {
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 60,
+						2);
+				String validate = driver
+						.findElement(
+								By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("ProductCode") + "')]"))
+						.getText();
+				Assert.assertEquals(validate, subProductMasterTestData.get("ProductCode"));
+			} catch (Exception e) {
+				if (i==99) {
+					System.out
+					.println("The Rejected Product Code - "+ subProductMasterTestData.get("ProductCode")+" Record Not in the List view " );
+	
+				}
+						}
 		}
-
-		try {
-			waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_subPrdcode(), 60,
-					2);
-			String validate1 = driver
-					.findElement(
-							By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("ProductCode") + "')]"))
-					.getText();
-			// System.out.println(validate1);
-			Assert.assertEquals(validate1, subProductMasterTestData.get("ProductCode"));
-		} catch (Exception e) {
-			System.out
-					.println("The Rejected Record Not in the List view " + subProductMasterTestData.get("ProductCode"));
+		for (int i = 0; i <100; i++) {
+			try {
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 60,
+						2);
+				String validate = driver
+						.findElement(
+								By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("SubproductCode") + "')]"))
+						.getText();
+				Assert.assertEquals(validate, subProductMasterTestData.get("SubproductCode"));
+			} catch (Exception e) {
+				if (i==99) {
+					System.out
+					.println("The Rejected Sub Product Code - "+ subProductMasterTestData.get("SubproductCode")+" Record Not in the List view " );
+	
+				}
+						}
 		}
+		
 	}
 
 	/// *******************@M4_SubPrdMst_Return*******************///
