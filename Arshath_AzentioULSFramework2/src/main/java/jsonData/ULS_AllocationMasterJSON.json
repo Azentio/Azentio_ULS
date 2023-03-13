@@ -1,0 +1,13 @@
+[
+{
+"UserType":"Maker",
+"Description":"DescU1",
+"AllocationCode":"098",
+"SaveVerificationMessage":"Success",
+"EventCode":"ALLOCATION_MST",
+"submitAlertRemark":"Submit from maker",
+"BlankFieldVerificationMessage":"Required field",
+"SpecialCharacterVerification":"Alphanumeric characters allowed",
+"SpecialCharacterInput":"!@#$"
+}
+]

@@ -1,0 +1,16 @@
+[
+{
+"UserType":"Maker",
+"DueCode":"ASD55",
+"Description":"test",
+"WaiverAllowed":"No",
+"LegalCode1":"test1",
+"LegalCode2":"test2",
+"LegalCode3":"test3",
+"RepaymentFlag":"Dues",
+"FutureAdjustmentFlag":"No",
+"IsTaxDue":"No",
+"TaxCalculationMethod":"In Advance",
+"Remarks":"Done"
+}
+]

@@ -1,0 +1,31 @@
+[
+	{
+		"UserType": "Maker",
+		"Charge": " Individual charges ",
+		"Description": "Charge",
+		"CalculationType": "Percentage",
+		"FlatAmount": "1000",
+		"Percentage": "10",
+		"CalculatedOn": "Commitment fees",
+		"Rec_Pay": "Pay",
+		"IncludeInCustIRR": "YES",
+		"IncludeInBankIRR": "NO",
+		"Level": "Charge Level",
+		"Currency": "INR",
+		"Event": "Account Status Change Event",
+		"DateUnit": "Year",
+		"DateValue": "2",
+		"ChargeCount": "3",
+		"AllowEdit": "NO",
+		"AccountingType": "Cash Accounting",
+		"Rule": "Application Level",
+		"Remark": "Done",
+		"Slab_CalculatedType": "Flat Amount",
+		"Slab_MinSlabAmount": "100",
+		"Slab_MaxSlabAmount": "1000",
+		"Slab_Amount": "10000",
+		"Slab_Rate": "100",
+		"Slab_Currency": "INR",
+		"Slab_Remark": "OK"
+	}
+]

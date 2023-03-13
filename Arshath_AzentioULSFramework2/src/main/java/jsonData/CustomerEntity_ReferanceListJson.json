@@ -1,0 +1,22 @@
+[
+	{
+		"User": "Referance",
+		"ReferanceType": "BRO",
+		"Salutation": "Mr",
+		"ReferencesFirstName": "A",
+		"ReferencesMiddleName": "S",
+		"ReferencesLastName": "AS",
+		"CustomerFullName": "Arshath",
+		"IdentificationType": "PANCARD",
+		"ReferencesIdentificationNumber": "654321897563",
+		"ReferencesResidenceAddress": "Mumbai to Navi Mumbai",
+		"ReferencesOfficeAddress": "Navi Mumbai to Mumbai",
+		"ReferencesContactNumber": "9876543210",
+		"ReferencesOfficePhoneNumber": "9876543210",
+		"ReferencesPrimaryMobileNumber": "9876543210",
+		"ReferencesPrimaryAlternativeNumber": "9876543210",
+		"ReferencesEmailId": "as@gmail.com",
+		"ReferencesNoofYearsKnown": "10",
+		"ReferencesCIFNumber": "2134"
+	}
+]
