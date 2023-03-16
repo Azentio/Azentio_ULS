@@ -1,0 +1,16 @@
+[
+	{
+		"User"					: 	"Maker",
+		"ReportNameForApproved"	:	"AssetReport",
+		"ReportNameForReject"	:	"FixedAsset",
+		"ReportNameForReturn"	:	"AssetReport",
+		"GroupName"				:	"Reports",
+		"GroupDescription"		:	"Report Group",
+		"MinParametersRequired"	:	"4",
+		"EventCode"				:	"MST_REPORT"
+		
+		
+		
+		}
+		
+]

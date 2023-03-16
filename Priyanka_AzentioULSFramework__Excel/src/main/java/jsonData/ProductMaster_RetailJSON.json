@@ -1,0 +1,18 @@
+[
+	{
+		"User"					: 	"Maker",
+		"ProductCode" 			: 	"PR22",
+		"DescriptionEnglish"	:	"Loan",
+		"DescriptionFrench"		:	"d'accord",
+		"DescriptionGerman"		:	"OK",
+		"DescriptionArabic"		:	"موافق",
+		"DMCode"				:	"Loan",
+		"Remarks"				:	"HomeLoan",
+		"NumericRemark"			:	"123",
+		"SymbolicRemark"		:	"@#$&",
+		"ProductCodeReturn"		:	"PR24",
+		"ProductCodeReject"		:	"PR23",
+		"EventCode" 			:	"PRODUCT_MST"
+		
+	}
+]

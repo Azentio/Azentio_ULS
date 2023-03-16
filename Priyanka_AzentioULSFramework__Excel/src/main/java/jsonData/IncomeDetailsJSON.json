@@ -1,0 +1,14 @@
+[
+	{
+		"User"					: 	"Maker",
+		"ReferenceId"			:	"457",
+		"Amount"				:	"50000",
+		"AdjustedPercent"		:	"80",
+		"TotalIncomeConsidered" :	"40000",
+		"DeductionAmount"		:	"5000",
+		"DeductionAdjustedPercent" : "100",
+		"ValidIncomeAmount"		:	"80000",
+		"SearchInvalid"			:	"111",
+		"SearchValid"			:	"278"
+		}
+]

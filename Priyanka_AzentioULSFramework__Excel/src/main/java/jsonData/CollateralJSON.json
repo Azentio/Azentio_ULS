@@ -1,0 +1,21 @@
+[
+	{
+		"User"							: 	"Maker",
+		"Description"					:	"FixedDepo",
+		"AssetcollateralCategoryCode"	:	"FD40",
+		"collateralCategoryCodeReturn"	:	"FD37",
+		"Remarks"						:	"OK",
+		"SpecialChar"					:	"!@#$",
+		"SearchValidCode"				:	"FD40",
+		"SearchInvalidCode"				:	"00000000",
+		"SearchWIPValidPCode"			:	"LoanRequest",
+		"SearchWIPInvalidPCode"			:	"1234",
+		"EventCode"						:	"COLLATERAL",
+		
+		
+		"MinimumValue"					:	"9000",
+		"MinimumValueModify"			:	"8999",
+		"EvtCode"						:	"UW_OFFSET_CONTROL"
+		
+	}
+]
