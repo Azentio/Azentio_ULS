@@ -22,7 +22,8 @@ public class KULS_Login {
 	KULS_Application_Login kulsLogin = new KULS_Application_Login(driver);
 	JsonDataReaderWriter jsonDataReaderWriter=  new  JsonDataReaderWriter();
 //	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","LoginCredentials","Stage");
-	ExcelData excelData = new ExcelData("C:\\Users\\ININDC00091\\git\\Azentio_ULS\\ULS_NewExcel23022023\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\ULS_TestDataForTesting.xlsx","LoginCredentials","Stage");
+	String path = System.getProperty("user.dir") +"\\Test-data\\TestDataDesignSample.xlsx";
+	ExcelData excelData = new ExcelData(path,"LoginCredentials","Stage");
 	Map<String, String> testData;
 
 	@Given("^User launch the kuls application$")

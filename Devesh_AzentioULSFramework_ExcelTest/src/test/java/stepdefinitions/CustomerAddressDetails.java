@@ -46,7 +46,8 @@ public class CustomerAddressDetails {
 	CustomerAddressDetailsObj customerAddressDetailsObj = new CustomerAddressDetailsObj(driver);
 	CustomerAddressDetailsTestDataType customerAddressDetailsTestDataType = jsonConfig.getCustomerAddressDetailsByName("Maker");
 	SoftAssert softAssert = new SoftAssert();
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","CustomerAddressDetailsTestData","Data Set ID");
+	String path = System.getProperty("user.dir") +"\\Test-data\\TestDataDesignSample.xlsx";
+	ExcelData excelData = new ExcelData(path,"CustomerAddressDetailsTestData","Data Set ID");
 	Map<String, String> testData;
 	String dataSetID;
 	
@@ -84,7 +85,7 @@ public class CustomerAddressDetails {
 				driver.findElement(By.xpath(beforexpath + testData.get("Application id") + afterxpath)).click();
 				break;
 			} catch (Exception e) {
-				// TODO: handle exception
+				
 			}
 		}
     }

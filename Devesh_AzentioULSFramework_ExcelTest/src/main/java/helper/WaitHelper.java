@@ -82,7 +82,7 @@ public class WaitHelper {
 	}
 	
 	//Fluent wait
-	public static WebElement waitForElementwithFluentwait(WebDriver driver, WebElement element) 
+	public  WebElement waitForElementwithFluentwait(WebDriver driver, WebElement element) 
 	{ 	
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(10)) 
