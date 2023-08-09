@@ -37,11 +37,11 @@ And user enetr Allocation sequence number under Legacy Codes details and verify 
 And user verify and save the Record with Valid data
 And store the record reference number for checker approval
 And user goto the Maker Inbox
+And user click first record in Inbox view
+And user click Back button icon in sub product retail
 And get the test data for the first test case
-And user click action action in Inbox view
-#Then user store the Referance Id in Maker stage and Click on Action Icon
-And user click Back button icon and Click on Action Icon
-#And  user verify the submit button and submit from Maker stage
+And user click first record in Inbox view
+And  user verify the submit button and submit from Maker stage
 And store the checker id of sub product master for checker approval
 #AT-SPR-T001
 @AT-SPR-T001_02

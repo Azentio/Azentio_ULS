@@ -93,7 +93,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 //    @When("^user click product set up menu$")
 //    public void user_click_product_set_up_menu() throws Throwable {
-//    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.productSetup(),60,2);
+//    	seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.productSetup(),10,2);
 //        subMasterRetailObj.productSetup().click();
 //    }
 	@When("^click on configuration main menu$")
@@ -119,14 +119,14 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user click edit icon of sub product retail$")
 	public void user_click_edit_icon_of_sub_product_retail() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductEditIcon(), 60, 2);
+				subMasterRetailObj.subProductEditIcon(), 10, 2);
 		subMasterRetailObj.subProductEditIcon().click();
 	}
 
 	@And("^user click the edit icon for the record which saved in maker$")
 	public void user_click_the_edit_icon_for_the_record_which_saved_in_maker() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.firstEditIcon(), 60, 3);
+				subMasterRetailObj.firstEditIcon(), 10, 3);
 		subMasterRetailObj.firstEditIcon().click();
 	}
 
@@ -159,7 +159,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user Select and modify the project group$")
 	public void user_select_and_modify_the_project_group() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productGroup(),
-				60, 3);
+				10, 3);
 		subMasterRetailObj.productGroup().click();
 		String xpath = "//ion-label[contains(text(),'" + subProductMasterTestData.get("ProductGroup")
 				+ "')]//following-sibling::ion-radio";
@@ -195,7 +195,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		System.out.println("Product Code " + subProductMasterTestData.get("ProductCode"));
 		String xpath = "//ion-label[contains(text(),'" + subProductMasterTestData.get("ProductCode")
 				+ "')]//following-sibling::ion-radio";
-		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),60,
+		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,driver.findElement(By.xpath(xpath)),10,
 		// 3);
 
 		for (int i = 0; i < 50; i++) {
@@ -218,7 +218,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user enter and modify sub product code$")
 	public void user_enter_and_modify_sub_product_code() throws Throwable {
-		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.subProductCode(),60,
+		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.subProductCode(),10,
 		// 2);
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -236,7 +236,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter and modify sub product description$")
 	public void user_enter_and_modify_sub_product_description() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductDescription(), 60, 2);
+				subMasterRetailObj.subProductDescription(), 10, 2);
 		subMasterRetailObj.subProductDescription().click();
 		subMasterRetailObj.subProductDescription().clear();
 		subMasterRetailObj.subProductDescription().sendKeys(subProductMasterTestData.get("SubProductDescription"));
@@ -289,7 +289,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user click list view in sub product menu$")
 	public void user_click_list_view_in_sub_product_menu() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductViewIcon(), 60, 3);
+				subMasterRetailObj.subProductViewIcon(), 10, 3);
 		subMasterRetailObj.subProductViewIcon().click();
 	}
 
@@ -314,7 +314,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_InboxView_SearchText(), 60, 2);
+				subMasterRetailObj.Subproduct_InboxView_SearchText(), 10, 2);
 		subMasterRetailObj.Subproduct_InboxView_SearchText().click();
 		subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(subProductMasterTestData.get("Module Code"));
 		String reference = null;
@@ -354,7 +354,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_InboxView_SearchText(), 60, 2);
+				subMasterRetailObj.Subproduct_InboxView_SearchText(), 10, 2);
 		subMasterRetailObj.Subproduct_InboxView_SearchText().click();
 		subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(subProductMasterRetailData.SearchSubProductInbox);
 		String reference = null;
@@ -392,7 +392,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_InboxView_SearchText(), 60, 2);
+				subMasterRetailObj.Subproduct_InboxView_SearchText(), 10, 2);
 		subMasterRetailObj.Subproduct_InboxView_SearchText().click();
 		subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(subProductMasterRetailData.SearchSubProductInbox);
 		String reference = null;
@@ -430,7 +430,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 				subMasterRetailObj.makerFinalSubmit(), 30, 2);
 		subMasterRetailObj.makerFinalSubmit().click();
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_Checker_Id(), 60, 3);
+				subMasterRetailObj.Subproduct_Checker_Id(), 10, 3);
 		String sucessmgs = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(sucessmgs);
 		String Space = " ";
@@ -456,7 +456,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 				subMasterRetailObj.makerFinalSubmit(), 30, 2);
 		subMasterRetailObj.makerFinalSubmit().click();
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_Checker_Id(), 60, 3);
+				subMasterRetailObj.Subproduct_Checker_Id(), 10, 3);
 		String sucessmgs = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(sucessmgs);
 		String Space = " ";
@@ -481,7 +481,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 				subMasterRetailObj.makerFinalSubmit(), 30, 2);
 		subMasterRetailObj.makerFinalSubmit().click();
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_Checker_Id(), 60, 3);
+				subMasterRetailObj.Subproduct_Checker_Id(), 10, 3);
 		String sucessmgs = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(sucessmgs);
 		String Space = " ";
@@ -497,7 +497,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_validate_the_updated_record_in_list_view() throws Throwable {
 		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'" +
-		// subProductMasterRetailData.ProductCode + "')]")), 60, 2);
+		// subProductMasterRetailData.ProductCode + "')]")), 10, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
 				String validate = driver
@@ -514,7 +514,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'" +
-		// subProductMasterRetailData.SubProductCode + "')]")), 60, 2);
+		// subProductMasterRetailData.SubProductCode + "')]")), 10, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
 				String validate1 = driver
@@ -537,7 +537,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		String xpath = "//ion-select[@aria-label=' " + subProductMasterTestData.get("ProductGroup").trim()
 				+ " ,  Product Group *']";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		Assert.assertEquals(driver.findElement(By.xpath(xpath)).isDisplayed(), true);
 		// product code
 		for (int i = 0; i < 50; i++) {
@@ -553,14 +553,14 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		// sub poduct code
 		String xpath2 = "//ion-label[contains(text(),'Subproduct Code')]//following-sibling::ion-input";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath2)), 60, 2);
+				driver.findElement(By.xpath(xpath2)), 10, 2);
 		String subProductCode = driver.findElement(By.xpath(xpath2)).getAttribute("ng-reflect-model");
 		Assert.assertEquals(subProductCode, subProductMasterTestData.get("SubproductCode"));
 		System.out.println(subProductCode);
 		// sub product description
 		String xpath3 = "//ion-label[contains(text(),'Subproduct Description')]//following-sibling::ion-input";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath3)), 60, 2);
+				driver.findElement(By.xpath(xpath3)), 10, 2);
 		String subProductDescription = driver.findElement(By.xpath(xpath3)).getAttribute("ng-reflect-model");
 		Assert.assertEquals(subProductDescription, subProductMasterTestData.get("SubProductDescription"));
 		System.out.println(subProductDescription);
@@ -576,13 +576,13 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user verify enter invalid data should not be allowed on save the record$")
 	public void user_verify_enter_invalid_data_should_not_be_allowed_on_save_the_record() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductCode(), 60, 2);
+				subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().clear();
 		subMasterRetailObj.subProductCode().sendKeys(subProductMasterTestData.get("SpecialCharacterInput"));
 		String xpath = "//digital-form-error//ion-badge";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		String error = driver.findElement(By.xpath(xpath)).getText();
 		System.out.println(error);
 		seleniumactions.getJavascriptHelper()
@@ -599,7 +599,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.SubProductUpdate());
 		subMasterRetailObj.SubProductUpdate().click();
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.tagName("ion-toast")), 60, 2);
+				driver.findElement(By.tagName("ion-toast")), 10, 2);
 		WebElement Root = driver.findElement(By.tagName("ion-toast"));
 		for (int i = 0; i < 50; i++) {
 			try {
@@ -620,12 +620,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_verify_while_modification_when_user_keep_any_mandatory_field_blank_and_click_on_save_button_system_should_not_allow_to_save_the_record()
 			throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductCode(), 60, 2);
+				subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().clear();
 		String xpath = "//ion-label[contains(text(),' Subproduct Code ')]//ancestor::digital-text-box//following-sibling::div//child::ion-badge";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		System.out.println(driver.findElement(By.xpath(xpath)).getText());
 		seleniumactions.getJavascriptHelper()
 				.scrollIntoView(subMasterRetailObj.Sub_Product_Alloation_Sequence_Number());
@@ -643,12 +643,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getAttribute("value"),
 				subProductMasterRetailData.StatusSwitchToggle);
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.statusSwitchButton(), 60, 3);
+				subMasterRetailObj.statusSwitchButton(), 10, 3);
 		subMasterRetailObj.statusSwitchButton().click();
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.SubProductUpdate());
 		subMasterRetailObj.SubProductUpdate().click();
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.tagName("ion-toast")), 60, 2);
+				driver.findElement(By.tagName("ion-toast")), 10, 2);
 		WebElement Root = driver.findElement(By.tagName("ion-toast"));
 		for (int i = 0; i < 50; i++) {
 			try {
@@ -1620,7 +1620,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user verify the functionality of Activate and Deactivate button$")
 	public void user_verify_the_functionality_of_activate_and_deactivate_button() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.statusSwitchButton(), 60, 3);
+				subMasterRetailObj.statusSwitchButton(), 10, 3);
 		subMasterRetailObj.statusSwitchButton().click();
 		subMasterRetailObj.statusSwitchButton().click();
 
@@ -1662,7 +1662,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@Then("^verify success message in parameter tab$")
 	public void verify_success_message_in_parameter_tab() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.successMgs(),
-				60, 2);
+				10, 2);
 		Assert.assertEquals(subMasterRetailObj.successMgs().isDisplayed(), true);
 	}
 
@@ -1680,7 +1680,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.successMgs(),
-				60, 2);
+				10, 2);
 		Assert.assertEquals(subMasterRetailObj.successMgs().isDisplayed(), true);
 	}
 
@@ -1694,25 +1694,25 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.principalRepaymentFrequency());
 		String xpath = "//ion-label[contains(text(),'Principal Repayment Frequency')]//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		// System.out.println(driver.findElement(By.xpath(xpath)).getText());
 		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Required field");
 		// Interest Repayment Frequency
 		String xpath1 = "//ion-label[contains(text(),' Interest Repayment Frequency ')]//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath1)), 60, 2);
+				driver.findElement(By.xpath(xpath1)), 10, 2);
 		// System.out.println(driver.findElement(By.xpath(xpath1)).getText());
 		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Required field");
 		// Loan Eligibility Calc
 		String xpath2 = "//ion-label[contains(text(),' Loan Eligibility Calc. ')]//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath2)), 60, 2);
+				driver.findElement(By.xpath(xpath2)), 10, 2);
 		// System.out.println(driver.findElement(By.xpath(xpath2)).getText());
 		Assert.assertEquals(driver.findElement(By.xpath(xpath2)).getText(), "Required field");
 		// Include Guarantor Inc.
 		String xpath3 = "//ion-label[contains(text(),'Include Guarantor Inc.')]//ancestor::digital-select-layout//following-sibling::div//child::ion-badge";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath3)), 60, 2);
+				driver.findElement(By.xpath(xpath3)), 10, 2);
 		// System.out.println(driver.findElement(By.xpath(xpath3)).getText());
 		Assert.assertEquals(driver.findElement(By.xpath(xpath3)).getText(), "Required field");
 		System.out.println("System does not allow to save the record with bank fields");
@@ -1732,7 +1732,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_InboxView_SearchText(), 60, 2);
+				subMasterRetailObj.Subproduct_InboxView_SearchText(), 10, 2);
 		subMasterRetailObj.Subproduct_InboxView_SearchText().click();
 		subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(json.readReferancedata());
 		String xpath = "//span[contains(text(),'" + subProductMasterTestData.get("Reference ID") + "')]";
@@ -1759,7 +1759,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Subproduct_InboxView_SearchText(), 60, 2);
+				subMasterRetailObj.Subproduct_InboxView_SearchText(), 10, 2);
 		subMasterRetailObj.Subproduct_InboxView_SearchText().click();
 		subMasterRetailObj.Subproduct_InboxView_SearchText().sendKeys(json.readReferancedata());
 		String xpath = "//span[contains(text(),'" + json.readReferancedata() + "')]";
@@ -1776,7 +1776,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Product code under product details for parameter Updation$")
 	public void user_select_product_code_under_product_details_for_parameter_updation() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.productCode().click();
 		System.out.println(subProductMasterRetailData.ProductCodecParameterUpdation);
 		for (int i = 0; i < 200; i++) {
@@ -1799,7 +1799,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Product code under product details for parameter Validation$")
 	public void user_select_product_code_under_product_details_for_parameter_validation() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.productCode().click();
 		System.out.println(subProductMasterRetailData.ProductCodecParameterValidation);
 		for (int i = 0; i < 200; i++) {
@@ -1822,7 +1822,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter sub product code under sub product for parameter Validation$")
 	public void user_enter_sub_product_code_under_sub_product_for_parameter_validation() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductCode(), 60, 2);
+				subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().sendKeys(subProductMasterRetailData.SubProductCodeParameterValidation);
 	}
@@ -1830,14 +1830,14 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter sub product code under sub product for parameter Updation$")
 	public void user_enter_sub_product_code_under_sub_product_for_parameter_updation() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.subProductCode(), 60, 2);
+				subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().sendKeys(subProductMasterRetailData.SubProductCodeParameterUpdation);
 	}
 
 	@When("^user click product set up menu$")
 	public void user_click_product_set_up_menu() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productSetup(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productSetup(), 10, 2);
 		subMasterRetailObj.productSetup().click();
 	}
 
@@ -1849,28 +1849,26 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user click list view icon of sub product retail$")
 	public void user_click_list_view_icon_of_sub_product_retail() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductViewIcon(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductViewIcon(), 10, 2);
 		subMasterRetailObj.subProductViewIcon().click();
 	}
 
 	@And("^click on temp view of sub product retail master$")
 	public void click_on_temp_view_of_sub_product_retail_master() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductRetailTempView(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductRetailTempView(), 10, 2);
 		subMasterRetailObj.subProductRetailTempView().click();
 	}
 
 	@And("^user click add icon for create record in sub product retail$")
 	public void user_click_add_icon_for_create_record_in_sub_product_retail() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.addIcon(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.addIcon(), 10, 2);
 		subMasterRetailObj.addIcon().click();
 	}
 
-	@And("^user click Back button icon and Click on Action Icon$")
-	public void user_click_back_button_icon_and_click_on_action_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Back(), 60, 2);
+	@And("^user click Back button icon in sub product retail$")
+	public void user_click_back_button_icon_in_sub_product_retail() throws Throwable {
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Back(), 10, 2);
 		subMasterRetailObj.Subproduct_Back().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 60, 2);
-		subMasterRetailObj.Sub_Product_Action().click();
 	}
 
 	@And("^get the test datafor creation of record which is going to reject by maker$")
@@ -1899,10 +1897,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Product group under product details and verify fields$")
 	public void user_select_product_group_under_product_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Product Group");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product(), 10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Product().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productGroup(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productGroup(), 10, 2);
 		subMasterRetailObj.productGroup().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -1918,7 +1916,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Product code under product details for verify parameter field invalid$")
 	public void user_select_product_code_under_product_details_for_verify_parameter_field_invalid() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Product Code");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 10, 2);
 		subMasterRetailObj.productCode().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -1936,7 +1934,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Product code under product details and verify fields$")
 	public void user_select_product_code_under_product_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Product Code");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 10, 2);
 		System.out.println("Product Code : " + subProductMasterTestData.get("ProductCode"));
 		subMasterRetailObj.productCode().click();
 		for (int i = 0; i < 30; i++) {
@@ -1962,7 +1960,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Product codes under product details and verify fields$")
 	public void user_select_product_codes_under_product_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Product Code");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 10, 2);
 		subMasterRetailObj.productCode().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -1979,11 +1977,11 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_enter_sub_product_code_under_sub_product_definition_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Subproduct Code");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Subproduct_Definition(),
-				60, 2);
+				10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Subproduct_Definition().getText();
 		System.out.println("System should display The Tab as " + Tab);
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.subProductCode(), 60, 2);
+		// subMasterRetailObj.subProductCode(), 10, 2);
 		Random random = new Random();
 		int randomNumber1 = random.nextInt(500 - 100) + 100;
 		String subproductCode =subProductMasterTestData.get("PrefixCode")+randomNumber1;
@@ -2004,10 +2002,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_enter_sub_product_codes_under_sub_product_definition_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Subproduct Code");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Subproduct_Definition(),
-				60, 2);
+				10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Subproduct_Definition().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().sendKeys(subProductMasterTestData.get("SubproductCode"));
 	}
@@ -2017,10 +2015,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Subproduct Code");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Subproduct_Definition(),
-				60, 2);
+				10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Subproduct_Definition().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().sendKeys(subprdMstData.SubproductcodeParameter);
 	}
@@ -2029,7 +2027,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_enter_sub_product_code_description_under_sub_product_definition_details_and_verify_fields()
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("subProduct Description");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductDescription(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductDescription(), 10, 2);
 		Random random = new Random();
 		int randomNumber1 = random.nextInt(500 - 100) + 100;
 		String subproductCodeDescription =subProductMasterTestData.get("PrefixDescription")+randomNumber1;
@@ -2041,10 +2039,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select facility type under facility details$")
 	public void user_select_facility_type_under_facility_details() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Facility Type");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Facility(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Facility(), 10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Facility().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.facilityType(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.facilityType(), 10, 2);
 		subMasterRetailObj.facilityType().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2078,7 +2076,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_select_loan_purpose_under_facility_details_and_verify_fields() throws Throwable {
 		javascriptHelper.scrollIntoView(subMasterRetailObj.loanPurpose());
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Loan Purpose");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanPurpose(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanPurpose(), 10, 2);
 		subMasterRetailObj.loanPurpose().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2094,7 +2092,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Installed Based under facility details and verify fields$")
 	public void user_select_installed_based_under_facility_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Installment Based");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.installmentBased(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.installmentBased(), 10, 2);
 		subMasterRetailObj.installmentBased().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2112,7 +2110,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_select_continue_with_existing_loan_number_under_facility_details_and_verify_fields()
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Continue Existing Loan Number");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.continueExistingLoanNumber(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.continueExistingLoanNumber(), 10,
 				2);
 		subMasterRetailObj.continueExistingLoanNumber().click();
 		for (int i = 0; i < 200; i++) {
@@ -2132,7 +2130,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_select_financial_concept_under_facility_details_and_verify_fields() throws Throwable {
 		javascriptHelper.scrollIntoView(subMasterRetailObj.financialConcept());
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Financing Concept");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.financialConcept(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.financialConcept(), 10, 2);
 		subMasterRetailObj.financialConcept().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2149,7 +2147,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Disbursement locking under facility details and verify fields$")
 	public void user_select_disbursement_locking_under_facility_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Disbursement Locking");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.disbursementLocking(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.disbursementLocking(), 10, 2);
 		subMasterRetailObj.disbursementLocking().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2166,7 +2164,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Top Up Allowed under facility details and verify fields$")
 	public void user_select_top_up_allowed_under_facility_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Top Up Allowed");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.topUpAllowed(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.topUpAllowed(), 10, 2);
 		subMasterRetailObj.topUpAllowed().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2187,7 +2185,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 				2);
 		Tab = subMasterRetailObj.Sub_Product_Asset_Financed().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Collateralized(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Collateralized(), 10,
 				2);
 		subMasterRetailObj.Sub_Product_Collateralized().click();
 		for (int i = 0; i < 200; i++) {
@@ -2206,7 +2204,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Finance Against Existing Asset");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Sub_Product_Finance_Against_Existing_Asset(), 60, 2);
+				subMasterRetailObj.Sub_Product_Finance_Against_Existing_Asset(), 10, 2);
 		subMasterRetailObj.Sub_Product_Finance_Against_Existing_Asset().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2226,7 +2224,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Is Multi Asset Finance Allowed");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Sub_Product_Multi_Asset_Finance_Allowed(), 60, 2);
+				subMasterRetailObj.Sub_Product_Multi_Asset_Finance_Allowed(), 10, 2);
 		subMasterRetailObj.Sub_Product_Multi_Asset_Finance_Allowed().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2245,10 +2243,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_select_impact_on_under_floating_rate_details_and_verify_fields() throws Throwable {
 		javascriptHelper.scrollIntoView(subMasterRetailObj.Sub_Product_ImpactOn());
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Impact On");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Floating_Rate(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Floating_Rate(), 10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Floating_Rate().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_ImpactOn(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_ImpactOn(), 10, 2);
 		subMasterRetailObj.Sub_Product_ImpactOn().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2264,7 +2262,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user select Reset Logic under Floating Rate details and verify fields$")
 	public void user_select_reset_logic_under_floating_rate_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Reset Logic");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_ResetLogic(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_ResetLogic(), 10, 2);
 		subMasterRetailObj.Sub_Product_ResetLogic().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2282,7 +2280,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Float Rate Effective Date");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Sub_Product_Float_Rate_Effective_Date(), 60, 2);
+				subMasterRetailObj.Sub_Product_Float_Rate_Effective_Date(), 10, 2);
 		subMasterRetailObj.Sub_Product_Float_Rate_Effective_Date().click();
 		System.out.println("Effective Date " + subProductMasterTestData.get("FloatRateEffectiverDate"));
 		String xpath = "//ion-label[text()=' " + subProductMasterTestData.get("FloatRateEffectiverDate")
@@ -2310,7 +2308,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Float Rate Effective Frequency");
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Sub_Product_Float_Rate_Effective_Frequency(), 60, 2);
+				subMasterRetailObj.Sub_Product_Float_Rate_Effective_Frequency(), 10, 2);
 		subMasterRetailObj.Sub_Product_Float_Rate_Effective_Frequency().click();
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2344,7 +2342,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter tenor tolerance in months under Floating Rate details and verify fields$")
 	public void user_enter_tenor_tolerance_in_months_under_floating_rate_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Tenor Tolerance (In months)");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_tenorTolerance(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_tenorTolerance(), 10,
 				2);
 		subMasterRetailObj.Sub_Product_tenorTolerance().click();
 		subMasterRetailObj.Sub_Product_tenorTolerance().sendKeys(subProductMasterTestData.get("TenorTolerance"));
@@ -2353,10 +2351,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter legacy code 1 under Legacy Codes details and verify fields$")
 	public void user_enter_legacy_code_1_under_legacy_codes_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Legacy Code 1");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Legacy_Codes(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Legacy_Codes(), 10, 2);
 		Tab = subMasterRetailObj.Sub_Product_Legacy_Codes().getText();
 		System.out.println("System should display The Tab as " + Tab);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Legacy_Codes1(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Legacy_Codes1(), 10, 2);
 		subMasterRetailObj.Sub_Product_Legacy_Codes1().click();
 		subMasterRetailObj.Sub_Product_Legacy_Codes1().sendKeys(subProductMasterTestData.get("LegacyCode1"));
 	}
@@ -2364,7 +2362,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter legacy code 2 under Legacy Codes details and verify fields$")
 	public void user_enter_legacy_code_2_under_legacy_codes_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Legacy Code 2");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Legacy_Codes2(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Legacy_Codes2(), 10, 2);
 		subMasterRetailObj.Sub_Product_Legacy_Codes2().click();
 		subMasterRetailObj.Sub_Product_Legacy_Codes2().sendKeys(subProductMasterTestData.get("LegacyCode2"));
 	}
@@ -2372,7 +2370,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user enter dm code under Legacy Codes details and verify fields$")
 	public void user_enter_dm_code_under_legacy_codes_details_and_verify_fields() throws Throwable {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("DM Code");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_DM_Code(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_DM_Code(), 10, 2);
 		subMasterRetailObj.Sub_Product_DM_Code().click();
 		subMasterRetailObj.Sub_Product_DM_Code().sendKeys(subProductMasterTestData.get("DMCode"));
 	}
@@ -2384,7 +2382,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		int allocationSequence = random.nextInt(99 - 10) + 10;
 		excelData.updateTestData(subProductMasterTestData.get("Data Set ID"),"AllocationSequenceNumber", String.valueOf(allocationSequence));
 		waitHelper.waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.Sub_Product_Alloation_Sequence_Number(), 60, 2);
+				subMasterRetailObj.Sub_Product_Alloation_Sequence_Number(), 10, 2);
 		subMasterRetailObj.Sub_Product_Alloation_Sequence_Number().click();
 		subMasterRetailObj.Sub_Product_Alloation_Sequence_Number()
 				.sendKeys(String.valueOf(allocationSequence));
@@ -2395,7 +2393,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user verify and save the Record with Valid data$")
 	public void user_verify_and_save_the_record_with_valid_data() throws Throwable {
 		javascriptHelper.scrollIntoView(subMasterRetailObj.Sub_Product_Product_Save());
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product_Save(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product_Save(), 10, 2);
 		subMasterRetailObj.Sub_Product_Product_Save().isDisplayed();
 		subMasterRetailObj.Sub_Product_Product_Save().click();
 		
@@ -2403,18 +2401,28 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user goto the Maker Inbox$")
 	public void user_goto_the_maker_inbox() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Inbox(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Inbox(), 10, 2);
 		subMasterRetailObj.Sub_Product_Inbox().click();
 	}
 
 	@Then("^user store the Referance Id in Maker stage and Click on Action Icon$")
 	public void user_store_the_referance_id_in_maker_stage_and_click_on_action_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Producr_Product_ReferanceId(),
-				60, 2);
-		String RefId = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
-		System.out.println(RefId);
+		String RefId =null;
+		for (int i = 0; i <200; i++) {
+			try {
+				RefId = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
+				break;
+			} catch (Exception e) {
+				if (i==199) {
+					Assert.fail(e.getMessage());
+				}
+				
+			}
+		}
 		
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 60, 2);
+		System.out.println(RefId);
+		excelData.updateTestData("AT-SPR-T001_D1", "Reference ID", RefId);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 10, 2);
 		subMasterRetailObj.Sub_Product_Action().click();
 	}
 
@@ -2422,12 +2430,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_store_the_referance_id_in_maker_stage_for_checker_return_purpose_and_click_on_action_icon()
 			throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Producr_Product_ReferanceId(),
-				60, 2);
+				10, 2);
 		String RefId = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
 		System.out.println(RefId);
 		json.addReferanceData(RefId);
 		excelData.updateTestData("AT-SPR-T004_D1", "Reference ID", RefId);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 10, 2);
 		subMasterRetailObj.Sub_Product_Action().click();
 	}
 
@@ -2435,28 +2443,31 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_store_the_referance_id_in_maker_stage_and_click_on_action_icon_which_is_going_to_reject_in_checker()
 			throws Throwable {
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Producr_Product_ReferanceId(),
-				60, 2);
+				10, 2);
 		String RefId = subMasterRetailObj.Sub_Producr_Product_ReferanceId().getText();
 		System.out.println(RefId);
 		// json.addReferanceData(RefId);
 		excelData.updateTestData("AT-SPR-T003_D1", "Reference ID", RefId);
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Action(), 10, 2);
 		subMasterRetailObj.Sub_Product_Action().click();
 	}
 
 	@And("^store the record reference number for checker approval$")
 	public void store_the_record_reference_number_for_checker_approval() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_SaveSuccess_alert(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_SaveSuccess_alert(), 10,
 				2);
 		Toast = subMasterRetailObj.Subproduct_SaveSuccess_alert().getText();
-		//System.out.println("Toast alert message " + Toast);
+		System.out.println("Toast alert message " + Toast);
+		System.out.println(Toast.substring(37).trim());
 		Assert.assertTrue(Toast.contains("Success"));
+		System.err.println(subProductMasterTestData.get("Data Set ID"));
 		excelData.updateTestData(subProductMasterTestData.get("Data Set ID"), "Reference ID", Toast.substring(37).trim());
-		excelData.updateTestData("AT-SPR-T002_D1", "Reference ID", Toast.substring(37).trim());
+		
+		
 	}
 
-    @And("^user click action action in Inbox view$")
-    public void user_click_action_action_in_inbox_view() throws Throwable {
+    @And("^user click first record in Inbox view$")
+    public void user_click_first_record_in_inbox_view() throws Throwable {
     	String xpath = "//span[text()='"+subProductMasterTestData.get("Reference ID")+"']/parent::td/preceding-sibling::td/button";
 		for (int i = 0; i <200; i++) {
 			try {
@@ -2473,37 +2484,37 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user verify the submit button and submit from Maker stage$")
 	public void user_verify_the_submit_button_and_submit_from_maker_stage() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit(), 10, 2);
 		subMasterRetailObj.Subproduct_Submit().isDisplayed();
 		subMasterRetailObj.Subproduct_Submit().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit_confirmation(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.Subproduct_Submit_confirmation().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Maker_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Maker_Submit(), 10, 2);
 		subMasterRetailObj.Subproduct_Maker_Submit().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 10, 2);
 		String CheckerId = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(CheckerId);
 		String Space = " ";
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		json.addData(popupID);
+	//	json.addData(popupID);
 		System.out.println(popupID);
-		excelData.updateTestData("AT-SPR-T003_D1", "Checker id", popupID);
+		excelData.updateTestData("AT-SPR-T001_D1", "Checker id", popupID);
 	}
 
 	@And("^submit the record from maker and store the checker ID for return purpose$")
 	public void submit_the_record_from_maker_and_store_the_checker_id_for_return_purpose() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit(), 10, 2);
 		subMasterRetailObj.Subproduct_Submit().isDisplayed();
 		subMasterRetailObj.Subproduct_Submit().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit_confirmation(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.Subproduct_Submit_confirmation().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Maker_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Maker_Submit(), 10, 2);
 		subMasterRetailObj.Subproduct_Maker_Submit().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 10, 2);
 		String CheckerId = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(CheckerId);
 		String Space = " ";
@@ -2517,22 +2528,22 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^store the checker id of sub product master for checker approval$")
 	public void store_the_checker_id_of_sub_product_master_for_checker_approval() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit(), 10, 2);
 		subMasterRetailObj.Subproduct_Submit().isDisplayed();
 		subMasterRetailObj.Subproduct_Submit().click();
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Submit_confirmation(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.Subproduct_Submit_confirmation().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Maker_Submit(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Maker_Submit(), 10, 2);
 		subMasterRetailObj.Subproduct_Maker_Submit().click();
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 10, 2);
 		String CheckerId = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(CheckerId);
 		String Space = " ";
 		String split[] = CheckerId.split(" ");
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
-		excelData.updateTestData("AT-SPR-T002_D1", "Checker id", popupID);
+		excelData.updateTestData("AT-SPR-T001_D1", "Checker id", popupID);
 		System.out.println(popupID);
 	}
 
@@ -2593,27 +2604,27 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user Click on Menu icon$")
 	public void user_click_on_menu_icon() throws Throwable {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.Checker_toggle(), 60, 2);
+		// subMasterRetailObj.Checker_toggle(), 10, 2);
 		// subMasterRetailObj.Checker_toggle().click();
 		javascriptHelper.JSEClick(subMasterRetailObj.Checker_toggle());
 	}
 
 	@And("^user Click on Mailbox icon$")
 	public void user_click_on_mailbox_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Inbox(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Inbox(), 10, 2);
 		subMasterRetailObj.Checker_Inbox().click();
 	}
 
 	@And("^get the test data for checker approval scenario$")
 	public void get_the_test_data_for_checker_approval_scenario() throws Throwable {
-		subProductMasterTestData = excelData.getTestdata("AT-SPR-T002_D1");
+		subProductMasterTestData = excelData.getTestdata("AT-SPR-T001_D1");
 	}
 
 	@And("^Search the respective reference id and click on Action button$")
 	public void search_the_respective_reference_id_and_click_on_action_button() throws Throwable {
 //		waitHelper.waitForElementToVisibleWithFluentWait(driver,
 //						By.xpath("//span[text()='" +json.readReferancedata() + "']/ancestor::tr/td[1]/button")),
-//				60, 2);
+//				10, 2);
 		for (int i = 0; i <= 20; i++) {
 			try {
 				driver.findElement(By.xpath("//span[text()='" + subProductMasterTestData.get("Reference ID")
@@ -2630,14 +2641,14 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user Click on Approve icon$")
 	public void user_click_on_approve_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Approve(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Approve(), 10, 2);
 		subMasterRetailObj.Checker_Approve().click();
 	}
 
 	@And("^user Enter the remarks in Action confirmation popup$")
 	public void user_enter_the_remarks_in_action_confirmation_popup() throws Throwable {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.Checker_Approve(), 60, 2);
+		// subMasterRetailObj.Checker_Approve(), 10, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.Checker_Alert_Approve().click();
@@ -2651,13 +2662,13 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@Then("^user Click on Remarks button in Action confirmation popup$")
 	public void user_click_on_remarks_button_in_action_confirmation_popup() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Final_Approve(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Final_Approve(), 10, 2);
 		subMasterRetailObj.Checker_Final_Approve().click();
 	}
 
 	@Then("^user verify the Record got Approved$")
 	public void user_verify_the_record_got_approved() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 10, 2);
 		Toast = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(Toast);
 		Assert.assertEquals(Toast, "Record APPROVED Successfully");
@@ -2669,7 +2680,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_validate_the_approved_record_in_list_view() throws Throwable {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'"+subprdMstData.ProductCode+"')]")),
-		// 60, 2);
+		// 10, 2);
 		for (int i = 0; i < 200; i++) {
 			try {
 				String validate = driver
@@ -2689,7 +2700,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'" +
-		// subprdMstData.Subproductcode + "')]")), 60, 2);
+		// subprdMstData.Subproductcode + "')]")), 10, 2);
 		for (int i = 0; i < 200; i++) {
 			try {
 				String validate1 = driver
@@ -2712,25 +2723,25 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user Click on Reject icon$")
 	public void user_click_on_reject_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Reject(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Reject(), 10, 2);
 		subMasterRetailObj.Checker_Reject().click();
 	}
 
 	@And("^user Enter the remarks for Reject the Record$")
 	public void user_enter_the_remarks_for_reject_the_record() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Alert_Reject(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Alert_Reject(), 10, 2);
 		subMasterRetailObj.Checker_Alert_Reject().click();
 	}
 
 	@Then("^user Click on Remarks button for Reject confirmation$")
 	public void user_click_on_remarks_button_for_reject_confirmation() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Final_Reject(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Final_Reject(), 10, 2);
 		subMasterRetailObj.Checker_Final_Reject().click();
 	}
 
 	@Then("^user verify the Record got Rejected$")
 	public void user_verify_the_record_got_rejected() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 10, 2);
 		Toast = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(Toast);
 		Assert.assertEquals(Toast, "Record REJECTED Successfully");
@@ -2742,7 +2753,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_validate_the_rejected_record_in_list_view() throws Throwable {
 		for (int i = 0; i <100; i++) {
 			try {
-				waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 60,
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 10,
 						2);
 				String validate = driver
 						.findElement(
@@ -2759,7 +2770,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		for (int i = 0; i <100; i++) {
 			try {
-				waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 60,
+				waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 10,
 						2);
 				String validate = driver
 						.findElement(
@@ -2781,25 +2792,25 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user Click on Return icon$")
 	public void user_click_on_return_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Return(), 10, 2);
 		subMasterRetailObj.Checker_Return().click();
 	}
 
 	@And("^user Enter the remarks for Return the Record$")
 	public void user_enter_the_remarks_for_return_the_record() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Alert_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Alert_Return(), 10, 2);
 		subMasterRetailObj.Checker_Alert_Return().click();
 	}
 
 	@Then("^user Click on Remarks button for Return confirmation$")
 	public void user_click_on_remarks_button_for_return_confirmation() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Final_Return(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Checker_Final_Return(), 10, 2);
 		subMasterRetailObj.Checker_Final_Return().click();
 	}
 
 	@Then("^user verify the Record got Return$")
 	public void user_verify_the_record_got_return() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Subproduct_Checker_Id(), 10, 2);
 		Toast = subMasterRetailObj.Subproduct_Checker_Id().getText();
 		System.out.println(Toast);
 		Assert.assertTrue(Toast.contains("Record RETURNED Successfully"));
@@ -2809,19 +2820,19 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user click Edit view icon of sub product retail$")
 	public void user_click_edit_view_icon_of_sub_product_retail() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductEditIcon(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductEditIcon(), 10, 2);
 		subMasterRetailObj.subProductEditIcon().click();
 	}
 
 	@Then("^User validate the Returned record in list view$")
 	public void user_validate_the_returned_record_in_list_view() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_Prdcode(), 10, 2);
 		String validate = driver
 				.findElement(By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("ProductCode") + "')]"))
 				.getText();
 		System.out.println(validate.trim());
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_subPrdcode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Maker_Listview_subPrdcode(), 10, 2);
 		String validate1 = driver
 				.findElement(By.xpath("//span[contains(text(),'" + subProductMasterTestData.get("ProductCode") + "')]"))
 				.getText();
@@ -2833,14 +2844,14 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user verify and save the Record with InValid data$")
 	public void user_verify_and_save_the_record_with_invalid_data() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product_Save(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Sub_Product_Product_Save(), 10, 2);
 		subMasterRetailObj.Sub_Product_Product_Save().isDisplayed();
 		subMasterRetailObj.Sub_Product_Product_Save().click();
 	}
 
 	@And("^user enter sub product code as special characters$")
 	public void user_enter_sub_product_code_as_special_characters() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 
 		System.out.println("Special Character Input " + subProductMasterTestData.get("SpecialCharacterInput"));
@@ -2882,20 +2893,20 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user click on the first Edit Icon$")
 	public void user_click_on_the_first_edit_icon() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.pencil(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.pencil(), 10, 5);
 		subMasterRetailObj.pencil().click();
 
 	}
 
 	@And("^user goto the parameter subTab$")
 	public void user_goto_the_parameter_subtab() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 10, 5);
 		subMasterRetailObj.parameter().click();
 	}
 
 	@And("^user Enter the loan currency value$")
 	public void user_enter_the_loan_currency_value() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanCurrency(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanCurrency(), 10, 5);
 		subMasterRetailObj.loanCurrency().click();
 		for (int i = 0; i < 50; i++) {
 			try {
@@ -2924,7 +2935,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.remarks(), 60, 5);
+		// subMasterRetailObj.remarks(), 10, 5);
 
 		for (int i = 0; i < 200; i++) {
 			try {
@@ -2940,7 +2951,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^user verify and save the Records with InValid data$")
 	public void user_verify_and_save_the_records_with_invalid_data() throws Throwable {
 		javascriptHelper.scrollIntoView(subMasterRetailObj.Save());
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Save(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Save(), 10, 5);
 		subMasterRetailObj.Save().click();
 	}
 
@@ -2963,10 +2974,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Click the parameter$")
 	public void click_the_parameter() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.pencil(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.pencil(), 10, 5);
 		subMasterRetailObj.pencil().click();
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 10, 5);
 		subMasterRetailObj.parameter().click();
 
 	}
@@ -2974,7 +2985,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Update the parameter fields in maker$")
 	public void update_the_parameter_fields_in_maker() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanCurrencyUpdate(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanCurrencyUpdate(), 10, 5);
 		subMasterRetailObj.loanCurrencyUpdate().click();
 
 		for (int i = 0; i < 50; i++) {
@@ -2991,7 +3002,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subretail.minTenorInMonths(), 60, 5);
+		// subretail.minTenorInMonths(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.minTenorInMonths().click();
@@ -3008,7 +3019,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Click the save icon$")
 	public void click_the_save_icon() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Save(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.Save(), 10, 5);
 		subMasterRetailObj.Save().click();
 
 	}
@@ -3016,10 +3027,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@Then("^Click the subproductretail master$")
 	public void click_the_subproductretail_master() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productsetup(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productsetup(), 10, 5);
 		subMasterRetailObj.productsetup().click();
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.eyeicon(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.eyeicon(), 10, 5);
 		subMasterRetailObj.eyeicon().click();
 	}
 
@@ -3027,7 +3038,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void verify_the_back_arrow_function() throws Throwable {
 
 		// waitHelper.waitForElementToVisibleWithFluentWaitElementToBeClickable(driver,
-		// subretail.pencil(),60, 5);
+		// subretail.pencil(),10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.pencil().click();
@@ -3037,11 +3048,11 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 10, 5);
 		subMasterRetailObj.parameter().click();
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver, subretail.back(),
-		// 60, 5);
+		// 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.back().click();
@@ -3051,10 +3062,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.pencil(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.pencil(), 10, 5);
 		subMasterRetailObj.pencil().click();
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.parameter(), 10, 5);
 		subMasterRetailObj.parameter().click();
 	}
     @And("^get the test dta of parameter test case which is going to approve in checker$")
@@ -3063,7 +3074,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
     }
 	@Then("^Enter the required sub product parameters fields in maker$")
 	public void enter_the_required_sub_product_parameters_fields_in_maker() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanCurrency(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanCurrency(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Loan Currency");
 		subMasterRetailObj.loanCurrency().click();
 
@@ -3086,7 +3097,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.indexationCurrency(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.indexationCurrency(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Indexation Currency");
 		subMasterRetailObj.indexationCurrency().click();
 
@@ -3103,7 +3114,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Minimum Finance Amount");
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.minimumFinanceAmount(), 60, 5);
+		// subMasterRetailObj.minimumFinanceAmount(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.minimumFinanceAmount();
@@ -3114,22 +3125,22 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maximumFinanceAmount(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maximumFinanceAmount(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Maximum Finance Amount");
 		subMasterRetailObj.maximumFinanceAmount().click();
 		subMasterRetailObj.maximumFinanceAmount().sendKeys(subProductMasterTestData.get("MaxFinanceAmount"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minTenorInMonths(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minTenorInMonths(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Min Tenor In Months");
 		subMasterRetailObj.minTenorInMonths().click();
 		subMasterRetailObj.minTenorInMonths().sendKeys(subProductMasterTestData.get("MinTenorInMonths"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxTenorInMonths(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxTenorInMonths(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Tenor In Months");
 		subMasterRetailObj.maxTenorInMonths().click();
 		subMasterRetailObj.maxTenorInMonths().sendKeys(subProductMasterTestData.get("MaxTenorInMonths"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.repaymentType(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.repaymentType(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Repayment Type");
 		subMasterRetailObj.repaymentType().click();
 
@@ -3146,7 +3157,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.flatReducing(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.flatReducing(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Flat/Reducing");
 		subMasterRetailObj.flatReducing().click();
 
@@ -3162,7 +3173,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.intAmortizationMethod(), 60, 5);
+		// subMasterRetailObj.intAmortizationMethod(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Int. Amortization Method");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3185,7 +3196,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.computeInstallmentOn(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.computeInstallmentOn(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Compute Installment on");
 		subMasterRetailObj.computeInstallmentOn().click();
 
@@ -3201,7 +3212,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.instDueDateMethod(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.instDueDateMethod(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Inst. due date method");
 		subMasterRetailObj.instDueDateMethod().click();
 
@@ -3219,7 +3230,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.lpcGracePeriod());
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.lpcGracePeriod(), 60, 5);
+		// subMasterRetailObj.lpcGracePeriod(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("LPC grace period (days)");
 
 		for (int i = 0; i < 20; i++) {
@@ -3232,7 +3243,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.principalRepaymentFrequency(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.principalRepaymentFrequency(), 10,
 				5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Principal Repayment Frequency");
 		subMasterRetailObj.principalRepaymentFrequency().click();
@@ -3249,7 +3260,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestRepaymentFrequency(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestRepaymentFrequency(), 10,
 				5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Interest Repayment Frequency");
 		subMasterRetailObj.interestRepaymentFrequency().click();
@@ -3267,7 +3278,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.instRoundingLogic(), 60, 5);
+		// subMasterRetailObj.instRoundingLogic(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Inst. Rounding Logic");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3279,7 +3290,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanElegibilityCalc(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.loanElegibilityCalc(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Loan Eligibility Calc.");
 		subMasterRetailObj.loanElegibilityCalc().click();
 
@@ -3296,7 +3307,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.remarks(), 60,
+		// subMasterRetailObj.remarks(), 10,
 		// 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Remarks");
 		for (int i = 0; i < 20; i++) {
@@ -3309,7 +3320,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.includeGuarantorInc(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.includeGuarantorInc(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Include Guarantor Inc.");
 		subMasterRetailObj.includeGuarantorInc().click();
 
@@ -3325,7 +3336,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.duePeriodRequired());
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.duePeriodRequired(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.duePeriodRequired(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Due Period Required");
 		subMasterRetailObj.duePeriodRequired().click();
 
@@ -3342,7 +3353,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.maxCoapplicants(), 60, 5);
+		// subMasterRetailObj.maxCoapplicants(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Coapplicants");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3354,12 +3365,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxGuarantors(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxGuarantors(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Guarantors");
 		subMasterRetailObj.maxGuarantors().click();
 		subMasterRetailObj.maxGuarantors().sendKeys(subProductMasterTestData.get("MaxGuarantors"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.instCommenceFrom(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.instCommenceFrom(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Inst. Commence From");
 		subMasterRetailObj.instCommenceFrom().click();
 
@@ -3376,7 +3387,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.daysInYear());
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.daysInYear(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.daysInYear(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Days In Year");
 		subMasterRetailObj.daysInYear().click();
 
@@ -3391,7 +3402,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.multipleDisbursTranchAllowed(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.multipleDisbursTranchAllowed(), 10,
 				5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Multiple Disburs. Tranch Allowed");
 		subMasterRetailObj.multipleDisbursTranchAllowed().click();
@@ -3408,7 +3419,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.includeIncomeDeduDebt(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.includeIncomeDeduDebt(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Include Income Dedu. Debt");
 		subMasterRetailObj.includeIncomeDeduDebt().click();
 
@@ -3424,7 +3435,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.roundOff(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.roundOff(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Round Off");
 		subMasterRetailObj.roundOff().click();
 
@@ -3441,7 +3452,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// subMasterRetailObj.roundOffValue(),
-		// 60, 5);
+		// 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("RoundOff Value");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3453,12 +3464,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.offerValidityDays(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.offerValidityDays(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Offer Validity (Days)");
 		subMasterRetailObj.offerValidityDays().click();
 		subMasterRetailObj.offerValidityDays().sendKeys(subProductMasterTestData.get("OfferValidityDays"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.appropriationCode(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.appropriationCode(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Appropriation Code");
 		subMasterRetailObj.appropriationCode().click();
 
@@ -3475,7 +3486,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.balloonAllowed());
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.balloonAllowed(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.balloonAllowed(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Balloon Allowed");
 		subMasterRetailObj.balloonAllowed().click();
 
@@ -3492,7 +3503,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.maximumBalloonPercentage(), 60, 5);
+		// subMasterRetailObj.maximumBalloonPercentage(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Maximum Balloon Percentage");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3504,17 +3515,17 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minIRR(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minIRR(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Min IRR");
 		subMasterRetailObj.minIRR().click();
 		subMasterRetailObj.minIRR().sendKeys(subProductMasterTestData.get("MinIRR"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxIRR(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxIRR(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max IRR");
 		subMasterRetailObj.maxIRR().click();
 		subMasterRetailObj.maxIRR().sendKeys(subProductMasterTestData.get("MaxIRR"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.preOwnedAsset(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.preOwnedAsset(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Pre-owned Asset");
 		subMasterRetailObj.preOwnedAsset().click();
 
@@ -3532,7 +3543,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Discounting Factor Rounding");
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.discountingFactorRounding(), 60, 5);
+		// subMasterRetailObj.discountingFactorRounding(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.discountingFactorRounding().click();
@@ -3543,7 +3554,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.dayCountConventionForBPI(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.dayCountConventionForBPI(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Day Count Convention for BPI");
 		for (int i = 1; i < 20; i++) {
 			try {
@@ -3567,7 +3578,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestChargingStartsFrom(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestChargingStartsFrom(), 10,
 				5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Interest Charging Starts From");
 		subMasterRetailObj.interestChargingStartsFrom().click();
@@ -3584,7 +3595,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bpiRecovery(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bpiRecovery(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("BPI Recovery");
 		subMasterRetailObj.bpiRecovery().click();
 
@@ -3599,7 +3610,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.installmentRecoveryType(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.installmentRecoveryType(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Installment Recovery Type");
 		subMasterRetailObj.installmentRecoveryType().click();
 
@@ -3615,7 +3626,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.isStepupAllowed(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.isStepupAllowed(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Is Step-Up Allowed");
 		subMasterRetailObj.isStepupAllowed().click();
 
@@ -3631,7 +3642,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.rateType(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.rateType(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Rate Type");
 		subMasterRetailObj.rateType().click();
 
@@ -3647,7 +3658,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.initiateDiscFactor());
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.initiateDiscFactor(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.initiateDiscFactor(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Initiate Disc. Factor");
 		subMasterRetailObj.initiateDiscFactor().click();
 
@@ -3668,7 +3679,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@Then("^Enter the required pre-EMI fields in maker$")
 	public void enter_the_required_preemi_fields_in_maker() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.preEMI(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.preEMI(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Pre-EMI");
 		subMasterRetailObj.preEMI().click();
 
@@ -3684,7 +3695,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.preEMIInstallment(), 60, 5);
+		// subMasterRetailObj.preEMIInstallment(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("No. Of Pre-EMI Installment");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3696,7 +3707,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.miRecoveryToBeRenamedAs(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.miRecoveryToBeRenamedAs(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("MI_RECOVERY_TO_BE_RENAMED_AS");
 		subMasterRetailObj.miRecoveryToBeRenamedAs().click();
 
@@ -3714,7 +3725,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.bpiRepaymentTenureMethod());
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.bpiRepaymentTenureMethod(), 60, 5);
+		// subMasterRetailObj.bpiRepaymentTenureMethod(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("BPI_REPAYMENT_TENURE_METHOD");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3737,7 +3748,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bpiRateMethod(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bpiRateMethod(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("BPI_RATE_METHOD");
 		subMasterRetailObj.bpiRateMethod().click();
 
@@ -3752,7 +3763,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bpiRepaymentFrequency(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bpiRepaymentFrequency(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("BPI_REPAYMENT_FREQUENCY");
 		subMasterRetailObj.bpiRepaymentFrequency().click();
 
@@ -3768,7 +3779,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.tdsApplicable(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.tdsApplicable(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("TDS_APPLICABLE");
 		subMasterRetailObj.tdsApplicable().click();
 
@@ -3783,7 +3794,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.moratoriumTenureType(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.moratoriumTenureType(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("MORATORIUM_TENURE_TYPE");
 		subMasterRetailObj.moratoriumTenureType().click();
 
@@ -3803,7 +3814,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^Click the approve icon in checker$")
 	public void click_the_approve_icon_in_checker() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.CheckerApprove(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.CheckerApprove(), 10, 5);
 		subMasterRetailObj.CheckerApprove().click();
 	}
 
@@ -3825,7 +3836,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.makerconfirmmsg(), 60, 5);
+		// subMasterRetailObj.makerconfirmmsg(), 10, 5);
 
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3836,7 +3847,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 			}
 		}
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.successcancel(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.successcancel(), 10, 5);
 		subMasterRetailObj.successcancel().click();
 
 	}
@@ -3875,7 +3886,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		excelData.updateTestData("AT-SPR-0011_D1", "Reference ID", ref2);
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.inboxediticon(), 60, 5);
+		// subMasterRetailObj.inboxediticon(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.inboxediticon().click();
@@ -3900,7 +3911,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// subMasterRetailObj.popupremark(),
-		// 60, 5);
+		// 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.popupremark().click();
@@ -3910,13 +3921,13 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 			}
 		}
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.popupsubmit(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.popupsubmit(), 10, 5);
 		subMasterRetailObj.popupsubmit().click();
     }
 
     @And("^store the checker id for cheker id for checker reject purpose$")
     public void store_the_checker_id_for_cheker_id_for_checker_reject_purpose() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ProductCheckerid(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ProductCheckerid(), 10, 5);
 		String Success = subMasterRetailObj.ProductCheckerid().getText();
 		System.out.println(Success);
 		String Space = " ";
@@ -3936,7 +3947,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		excelData.updateTestData("AT-SPR-0013_D1", "Reference ID", ref2);
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.inboxediticon(), 60, 5);
+		// subMasterRetailObj.inboxediticon(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.inboxediticon().click();
@@ -3949,7 +3960,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
     @And("^store the checker id for cheker id for checker return purpose in sub product parameter$")
     public void store_the_checker_id_for_cheker_id_for_checker_return_purpose_in_sub_product_parameter() throws Throwable {
-    	waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ProductCheckerid(), 60, 5);
+    	waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ProductCheckerid(), 10, 5);
 		String Success = subMasterRetailObj.ProductCheckerid().getText();
 		System.out.println(Success);
 		String Space = " ";
@@ -3972,7 +3983,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@Then("^Get the respective reference id and submit in maker$")
 	public void get_the_respective_reference_id() throws Throwable {
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.mailicon(), 60,
+		// subMasterRetailObj.mailicon(), 10,
 		// 5);
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -3984,7 +3995,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.searchiconreferenceid(), 60, 5);
+		// subMasterRetailObj.searchiconreferenceid(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.searchiconreferenceid().click();
@@ -4002,7 +4013,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		excelData.updateTestData("AT-SPR-0011_D1", "Reference ID", ref2);
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.inboxediticon(), 60, 5);
+		// subMasterRetailObj.inboxediticon(), 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.inboxediticon().click();
@@ -4023,7 +4034,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// subMasterRetailObj.popupremark(),
-		// 60, 5);
+		// 10, 5);
 		for (int i = 0; i < 20; i++) {
 			try {
 				subMasterRetailObj.popupremark().click();
@@ -4034,18 +4045,18 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.popupsubmit(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.popupsubmit(), 10, 5);
 		subMasterRetailObj.popupsubmit().click();
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
 		// subMasterRetailObj.ApprovedMSG(),
-		// 60, 5);
+		// 10, 5);
 		/*
 		 * System.out.println(subMasterRetailObj.ApprovedMSG().getText()); String mak =
 		 * subMasterRetailObj.ApprovedMSG().getText(); String mak1 = mak.substring(86,
 		 * 94); jsonRW.addReferanceData(mak1);
 		 */
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ProductCheckerid(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.ProductCheckerid(), 10, 5);
 		String Success = subMasterRetailObj.ProductCheckerid().getText();
 		System.out.println(Success);
 		String Space = " ";
@@ -4070,7 +4081,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Enter the required bulk payment fields in maker$")
 	public void enter_the_required_bulk_payment_fields_in_maker() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPayment1(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPayment1(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Bulk Payment");
 		subMasterRetailObj.bulkPayment1().click();
 
@@ -4099,17 +4110,17 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.bulkPaymentLockinPeriod());
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPaymentLockinPeriod(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPaymentLockinPeriod(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Bulk payment LockIn Period");
 		subMasterRetailObj.bulkPaymentLockinPeriod().click();
 		subMasterRetailObj.bulkPaymentLockinPeriod().sendKeys(subProductMasterTestData.get("BulkPaymentLockinPeriod"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPaymentTimeInterval(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPaymentTimeInterval(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Bulk Payment Time Interval");
 		subMasterRetailObj.bulkPaymentTimeInterval().click();
 		subMasterRetailObj.bulkPaymentTimeInterval().sendKeys(subProductMasterTestData.get("BulkPaymentTimeInterval"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.immediateDueDate(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.immediateDueDate(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Immediate/Due date");
 		subMasterRetailObj.immediateDueDate().click();
 
@@ -4125,7 +4136,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPaymentLockinStartsFrom(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.bulkPaymentLockinStartsFrom(), 10,
 				5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Bulk Payment Lock-In starts From");
 		subMasterRetailObj.bulkPaymentLockinStartsFrom().click();
@@ -4142,7 +4153,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minBulkPaymentParameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minBulkPaymentParameter(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Min Bulk Payment Parameter");
 		subMasterRetailObj.minBulkPaymentParameter().click();
 
@@ -4159,7 +4170,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.minBulkPaymentValue(), 60, 5);
+		// subMasterRetailObj.minBulkPaymentValue(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Min Bulk Payment Value");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4171,7 +4182,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxBulkPaymentparameters(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxBulkPaymentparameters(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Bulk Payment Parameter");
 		subMasterRetailObj.maxBulkPaymentparameters().click();
 
@@ -4189,7 +4200,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.maxBulkPaymentvalue());
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.maxBulkPaymentvalue(), 60, 5);
+		// subMasterRetailObj.maxBulkPaymentvalue(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Bulk Payment Value");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4206,12 +4217,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Enter the required foreclosure fields in maker$")
 	public void enter_the_required_foreclosure_fields_in_maker() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.foreClosureLockin(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.foreClosureLockin(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Foreclosure Lockin");
 		subMasterRetailObj.foreClosureLockin().click();
 		subMasterRetailObj.foreClosureLockin().sendKeys(subProductMasterTestData.get("ForeClosureLockin"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.foreClosureLockInStartsFrom(), 60,
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.foreClosureLockInStartsFrom(), 10,
 				5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Foreclosure Lock-In starts From");
 		subMasterRetailObj.foreClosureLockInStartsFrom().click();
@@ -4228,7 +4239,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minRebateParameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.minRebateParameter(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Min Rebate Parameter");
 		subMasterRetailObj.minRebateParameter().click();
 
@@ -4245,7 +4256,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.minRebatevalue(), 60, 5);
+		// subMasterRetailObj.minRebatevalue(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Min Rebate Value");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4257,7 +4268,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxRebateParameter(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxRebateParameter(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Rebate Parameter");
 		subMasterRetailObj.maxRebateParameter().click();
 
@@ -4275,7 +4286,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.maxRebatevalue());
 
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.maxRebatevalue(), 60, 5);
+		// subMasterRetailObj.maxRebatevalue(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Rebate Value");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4292,23 +4303,23 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Enter the required reschedulement fields in maker$")
 	public void enter_the_required_reschedulement_fields_in_maker() throws Throwable {
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.reschLockin(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.reschLockin(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Resch Lockin");
 		subMasterRetailObj.reschLockin().click();
 		subMasterRetailObj.reschLockin().sendKeys(subProductMasterTestData.get("ReschLockin"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxReschInaYear(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.maxReschInaYear(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Max Resch in a year");
 		subMasterRetailObj.maxReschInaYear().click();
 		subMasterRetailObj.maxReschInaYear().sendKeys(subProductMasterTestData.get("MaxReschInAYear"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.totalReschAllowed(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.totalReschAllowed(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Total Resch Allowed");
 		subMasterRetailObj.totalReschAllowed().click();
 		subMasterRetailObj.totalReschAllowed().sendKeys(subProductMasterTestData.get("TotalReachAllowed"));
 
 		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.reschedulementLockInStartsFrom(),
-				60, 5);
+				10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Reschedulement Lock-In starts From");
 		subMasterRetailObj.reschedulementLockInStartsFrom().click();
 
@@ -4330,7 +4341,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void enter_the_required_moratoriumgrace_period_month_in_maker() throws Throwable {
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.interestHoliday());
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestHoliday(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestHoliday(), 10, 5);
 		subMasterRetailObj.interestHoliday().click();
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4342,12 +4353,12 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Interest Holiday");
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.principalHoliday(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.principalHoliday(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Principal Holiday");
 		subMasterRetailObj.principalHoliday().click();
 		subMasterRetailObj.principalHoliday().sendKeys(subProductMasterTestData.get("PrincipalHoliday"));
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestComputed(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.interestComputed(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Interest Computed");
 		subMasterRetailObj.interestComputed().click();
 
@@ -4364,7 +4375,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		seleniumactions.getJavascriptHelper().scrollIntoView(subMasterRetailObj.moratoriumStartMonthorInstallment());
 		// waitHelper.waitForElementToVisibleWithFluentWait(driver,
-		// subMasterRetailObj.moratoriumStartMonthorInstallment(), 60, 5);
+		// subMasterRetailObj.moratoriumStartMonthorInstallment(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("MORATORIUM_START_MONTH_OR_INSTALLMENT");
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4377,7 +4388,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 			}
 		}
 
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.recomputationofProfit(), 60, 5);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.recomputationofProfit(), 10, 5);
 		verifyfield.verifyGivenFieldisMandatoryOrNot("Recomputation of Profit");
 		subMasterRetailObj.recomputationofProfit().click();
 
@@ -4397,7 +4408,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user select Product code under product details for parameter creation$")
 	public void user_select_product_code_under_product_details_for_parameter_creation() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.productCode(), 10, 2);
 		subMasterRetailObj.productCode().click();
 		System.out.println(paradata.ProductCode);
 		for (int i = 0; i < 200; i++) {
@@ -4416,7 +4427,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^user enter sub product code under sub product for parameter creation$")
 	public void user_enter_sub_product_code_under_sub_product_for_parameter_creation() throws Throwable {
-		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 60, 2);
+		waitHelper.waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.subProductCode(), 10, 2);
 		subMasterRetailObj.subProductCode().click();
 		subMasterRetailObj.subProductCode().sendKeys(paradata.SubProductCode);
 	}
@@ -4425,7 +4436,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void user_validate_the_parameter_created_record_in_list_view() throws Throwable {
 		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'"+ paradata.ProductCode
-		// +"')]")), 60, 2);
+		// +"')]")), 10, 2);
 		for (int i = 0; i < 20; i++) {
 			try {
 				String validate = driver
@@ -4440,7 +4451,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
 		// driver.findElement(By.xpath("//span[contains(text(),'"
-		// +paradata.SubProductCode +"')]")), 60, 2);
+		// +paradata.SubProductCode +"')]")), 10, 2);
 
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -4467,10 +4478,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Navigate to Sub Product Master module view list$")
 	public void navigate_to_sub_product_master_module_view_list() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.productSetupInLeftPanel(), 60, 2);
+				subMasterRetailObj.productSetupInLeftPanel(), 10, 2);
 		subMasterRetailObj.productSetupInLeftPanel().click();
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.viewIconofSubProductMaster(), 60, 2);
+				subMasterRetailObj.viewIconofSubProductMaster(), 10, 2);
 		subMasterRetailObj.viewIconofSubProductMaster().click();
 		Thread.sleep(3000);
 
@@ -4483,10 +4494,10 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^Verify that records present in view list are non editable$")
 	public void verify_that_records_present_in_view_list_are_non_editable() throws Throwable {
-		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.productSetupInLeftPanel(),60,2);
+		// seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,subMasterRetailObj.productSetupInLeftPanel(),10,2);
 		String xpath = "//tbody/tr[1]/td[6]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		try {
 			driver.findElement(By.xpath(xpath)).click();
 		} catch (Exception e) {
@@ -4497,7 +4508,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 
 	@And("^Verify the Add button fuctionality$")
 	public void verify_the_add_button_fuctionality() throws Throwable {
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.addIcon(), 60,
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.addIcon(), 10,
 				2);
 		Assert.assertEquals(subMasterRetailObj.addIcon().isDisplayed(), true);
 
@@ -4507,37 +4518,37 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	public void verify_that_all_records_are_present_in_view_list_while_click_on_view_icon() throws Throwable {
 		String xpath = "//span[contains(text(),'Action')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		WebElement Action = driver.findElement(By.xpath(xpath));
 		System.out.println(Action);
 		String xpath1 = "//span[contains(text(),'Product Group')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath1)), 60, 2);
+				driver.findElement(By.xpath(xpath1)), 10, 2);
 		WebElement productgroup = driver.findElement(By.xpath(xpath1));
 		System.out.println(productgroup);
 		String xpath2 = "//thead/tr[1]/th[4]/span[1]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath2)), 60, 2);
+				driver.findElement(By.xpath(xpath2)), 10, 2);
 		WebElement Productcode = driver.findElement(By.xpath(xpath2));
 		System.out.println(Productcode);
 		String xpath3 = "//span[contains(text(),'Product Description')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath3)), 60, 2);
+				driver.findElement(By.xpath(xpath3)), 10, 2);
 		WebElement productDescription = driver.findElement(By.xpath(xpath3));
 		System.out.println(productDescription);
 		String xpath4 = "//span[contains(text(),'Sub-Product Code')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath4)), 60, 2);
+				driver.findElement(By.xpath(xpath4)), 10, 2);
 		WebElement Subproductcode = driver.findElement(By.xpath(xpath4));
 		System.out.println(Subproductcode);
 		String xpath5 = "//span[contains(text(),'Retail/Corporate')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath5)), 60, 2);
+				driver.findElement(By.xpath(xpath5)), 10, 2);
 		WebElement retailcorporate = driver.findElement(By.xpath(xpath5));
 		System.out.println(retailcorporate);
 		String xpath6 = "//thead/tr[1]/th[8]/span[1]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath6)), 60, 2);
+				driver.findElement(By.xpath(xpath6)), 10, 2);
 		WebElement status = driver.findElement(By.xpath(xpath6));
 		System.out.println(status);
 
@@ -4559,7 +4570,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		String xpath = "//span[contains(text(),'Product Group')]";
 		String productgroup = null;
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		for (int i = 0; i < 20; i++) {
 
 			productgroup = driver.findElement(By.xpath(xpath)).getText();
@@ -4588,7 +4599,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		for (int i = 0; i < 200; i++) {
 			try {
 				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-						driver.findElement(By.xpath(xpath)), 60, 2);
+						driver.findElement(By.xpath(xpath)), 10, 2);
 				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Showing 0 to 0 of 0 entries");
 				// "Showing 0 to 0 of 0 entries"
 				break;
@@ -4612,7 +4623,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.exportToPDF(),
-				60, 3);
+				10, 3);
 		subMasterRetailObj.exportToPDF().click();
 		// seleniumactions.getBrowserHelper().SwitchToWindow(1);
 		String UserDirectory = System.getProperty("user.dir");
@@ -4676,7 +4687,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		try
 		{
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		WebElement Action = driver.findElement(By.xpath(xpath));
 		System.out.println(Action);
 		}
@@ -4690,44 +4701,44 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 		String xpath1 = "//span[contains(text(),'Product Group')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath1)), 60, 2);
+				driver.findElement(By.xpath(xpath1)), 10, 2);
 		WebElement productgroup = driver.findElement(By.xpath(xpath1));
 		System.out.println(productgroup);
 		String xpath2 = "//thead/tr[1]/th[4]/span[1]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath2)), 60, 2);
+				driver.findElement(By.xpath(xpath2)), 10, 2);
 		WebElement Productcode = driver.findElement(By.xpath(xpath2));
 		System.out.println(Productcode);
 		String xpath3 = "//span[contains(text(),'Product Description')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath3)), 60, 2);
+				driver.findElement(By.xpath(xpath3)), 10, 2);
 		WebElement productDescription = driver.findElement(By.xpath(xpath3));
 		System.out.println(productDescription);
 		String xpath4 = "//span[contains(text(),'Sub-Product Code')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath4)), 60, 2);
+				driver.findElement(By.xpath(xpath4)), 10, 2);
 		WebElement Subproductcode = driver.findElement(By.xpath(xpath4));
 		System.out.println(Subproductcode);
 		String xpath5 = "//span[contains(text(),'Retail/Corporate')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath5)), 60, 2);
+				driver.findElement(By.xpath(xpath5)), 10, 2);
 		WebElement retailcorporate = driver.findElement(By.xpath(xpath5));
 		System.out.println(retailcorporate);
 		String xpath6 = "//thead/tr[1]/th[8]/span[1]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath6)), 60, 2);
+				driver.findElement(By.xpath(xpath6)), 10, 2);
 		WebElement status = driver.findElement(By.xpath(xpath6));
 		System.out.println(status);
 		String xpath7 = "//span[contains(text(),'Authorization Status')]";
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath7)), 60, 2);
+				driver.findElement(By.xpath(xpath7)), 10, 2);
 		WebElement authrizationstatus = driver.findElement(By.xpath(xpath7));
 		System.out.println(authrizationstatus);
 	}
 
 	@And("^Verify the Add button fuctionality in WIP$")
 	public void verify_the_add_button_fuctionality_in_wip() throws Throwable {
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.addIcon(), 60,
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.addIcon(), 10,
 				2);
 		Assert.assertEquals(subMasterRetailObj.addIcon().isDisplayed(), true);
 
@@ -4749,7 +4760,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		String xpath = "//span[contains(text(),'Product Group')]";
 		String productgroup = null;
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				driver.findElement(By.xpath(xpath)), 60, 2);
+				driver.findElement(By.xpath(xpath)), 10, 2);
 		for (int i = 0; i < 20; i++) {
 
 			productgroup = driver.findElement(By.xpath(xpath)).getText();
@@ -4777,7 +4788,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		for (int i = 0; i < 200; i++) {
 			try {
 				seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-						driver.findElement(By.xpath(xpath)), 60, 2);
+						driver.findElement(By.xpath(xpath)), 10, 2);
 				Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), "Showing 0 to 0 of 0 entries");
 				// "Showing 0 to 0 of 0 entries"
 				break;
@@ -4802,7 +4813,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 		}
 
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.exportToPDF(),
-				60, 3);
+				10, 3);
 		subMasterRetailObj.exportToPDF().click();
 
 		String UserDirectory = System.getProperty("user.dir");
@@ -4859,13 +4870,13 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@Then("^Click on Remarks button in Action confirmation popup$")
 	public void click_on_remarks_button_in_action_confirmation_popup() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver,
-				subMasterRetailObj.returnButtonInRemarks(), 60, 2);
+				subMasterRetailObj.returnButtonInRemarks(), 10, 2);
 		subMasterRetailObj.returnButtonInRemarks().click();
 	}
 
 	@And("^Click on Menu icon$")
 	public void click_on_menu_icon() throws Throwable {
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.menuIcon(), 60,
+		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.menuIcon(), 10,
 				2);
 		subMasterRetailObj.menuIcon().click();
 
@@ -4874,7 +4885,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Click on Mailbox icon$")
 	public void click_on_mailbox_icon() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.checkerInbox(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.checkerInbox().click();
 
 	}
@@ -4887,7 +4898,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^click on Action button$")
 	public void click_on_action_button() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.actionIcon(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.actionIcon().click();
 
 	}
@@ -4895,7 +4906,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Click on Return icon$")
 	public void click_on_return_icon() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.returnIcon(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.returnIcon().click();
 
 	}
@@ -4903,7 +4914,7 @@ public class Sub_Product_RetailMaster extends BaseClass {
 	@And("^Enter the remarks in Action confirmation popup$")
 	public void enter_the_remarks_in_action_confirmation_popup() throws Throwable {
 		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, subMasterRetailObj.remarksText(),
-				60, 2);
+				10, 2);
 		subMasterRetailObj.remarksText().click();
 
 	}

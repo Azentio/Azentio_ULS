@@ -25,10 +25,9 @@ public class BaseClass {
 	
 	if(browserName.equalsIgnoreCase("chrome")) {
 		System.setProperty("webdriver.chrome.driver","Drivers/chromedriver.exe");
-		//WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");
-		driver = new ChromeDriver(options);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
 		
 	}else if(browserName.equalsIgnoreCase("firefox")) {
 		
