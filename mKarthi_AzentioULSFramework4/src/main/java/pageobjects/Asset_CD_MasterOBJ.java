@@ -328,6 +328,22 @@ public class Asset_CD_MasterOBJ {
 	{
 		return xlsOption;
 	}
+	///  Logout  //////////
+	
+	
+	@FindBy(xpath="//ion-item[@ng-reflect-text='Profile']")
+	private WebElement Profile_Logout;
+	public WebElement Profile_Logout() 
+	{
+		return Profile_Logout;
+	}
+	
+	@FindBy(xpath="//span[contains(text(),'Logout')]")
+	private WebElement Logout;
+	public WebElement Logout() 
+	{
+		return Logout;
+	}
 
 	
 }

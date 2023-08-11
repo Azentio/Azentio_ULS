@@ -25,4 +25,4 @@ Then validate Success pop up
 #Then search Incentive Master record
 #And maker user open the record from inbox
 #Then maker user submit the Record
-#Then user logout from the application
+Then user logout from the application

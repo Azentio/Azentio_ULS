@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import dataProvider.ConfigFileReader;
 import dataProvider.JsonConfig;
@@ -362,6 +363,22 @@ public class ProjectMaster {
 	    	Project.UpdateSave().click();
 	        
 	    }
+	    @And("^User verify the unit details search box visible or not$")
+	    public void user_verify_the_unit_details_search_box_visible_or_not() throws Throwable {
+	        
+	    	help.waitForElementToVisibleWithFluentWait(driver, Project.UnitDetails_Search(), 60, 5);
+	    	boolean UnitSearch = Project.UnitDetails_Search().isDisplayed();
+	    	
+	    		if(UnitSearch==true) {
+	    			System.out.println("Unit Search box is visible");
+	    		}
+	    		else {
+	    			System.out.println("Unit Search box is Not visible");
+	    		}
+	    	}
+	    	
+	    	
+	   
 
 	
 

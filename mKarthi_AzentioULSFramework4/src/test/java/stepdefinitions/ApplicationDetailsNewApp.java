@@ -32,7 +32,7 @@ public class ApplicationDetailsNewApp {
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	TransactionScreenTestDataType Transactionjson = jsonConfig.getTransactionScreenListByName("Maker");
-	
+	//
 	@Given("^User login as uls maker in transaction$")
     public void user_login_as_uls_maker_in_transaction() throws Throwable {
 		

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -24,8 +25,10 @@ public class BaseClass {
 	
 	if(browserName.equalsIgnoreCase("chrome")) {
 		System.setProperty("webdriver.chrome.driver","Drivers/chromedriver.exe");
+		ChromeOptions ops = new ChromeOptions();
+		ops.addArguments("--remote-allow-origins=*");
 		//WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(ops);
 		
 	}else if(browserName.equalsIgnoreCase("firefox")) {
 		

@@ -14,7 +14,6 @@ import io.cucumber.java.en.And;
 import pageobjects.IncomeDetailsOBJ;
 import resources.BaseClass;
 import resources.ExcelData;
-import resources.JsonDataReaderWriter;
 
 public class IncomeDetails_Self_Employed extends BaseClass {
 
@@ -22,8 +21,8 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 	ConfigFileReader configFileRead = new ConfigFileReader();
 	KULS_Application_Login login = new KULS_Application_Login(driver);
 	WaitHelper help = new WaitHelper(driver);
-	Selenium_Actions seleniumactions = new Selenium_Actions(driver);
-	JsonDataReaderWriter json = new JsonDataReaderWriter();
+	Selenium_Actions seleniumActions = new Selenium_Actions(driver);
+	//JsonDataReaderWriter json = new JsonDataReaderWriter();
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
 	IncomeDetailsOBJ income = new IncomeDetailsOBJ(driver);
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx",
@@ -37,8 +36,8 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 		help.waitForElementToVisibleWithFluentWait(driver, income.InboxSearchIcon(), 60, 5);
 		income.InboxSearchIcon().click();
 
-		help.waitForElementToVisibleWithFluentWait(driver, income.searchsentkeys(), 60, 5);
-		income.searchsentkeys().sendKeys(testData.get("Inbox Search"));
+		help.waitForElementToVisibleWithFluentWait(driver, income.SearchSentKeys(), 60, 5);
+		income.SearchSentKeys().sendKeys(testData.get("Inbox Search"));
 
 	}
 
@@ -54,10 +53,10 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 	@And("^User verify the Income screen under customer financials section in income details$")
 	public void user_verify_the_income_screen_under_customer_financials_section_in_income_details() throws Throwable {
 
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, income.NewSave(), 30, 2);
+		seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, income.NewSave(), 30, 2);
 		Assert.assertTrue(income.NewSave().isDisplayed(), "Save icon displayed not in income details screen");
 
-		seleniumactions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, income.BackArrow(), 30, 2);
+		seleniumActions.getWaitHelper().waitForElementToVisibleWithFluentWait(driver, income.BackArrow(), 30, 2);
 		Assert.assertTrue(income.BackArrow().isDisplayed(), "Back button icon displayed not in income details screen");
 
 	}
@@ -82,7 +81,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -114,7 +113,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -267,7 +266,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -299,7 +298,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -378,7 +377,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		testData = excelData.getTestdata("AT-RSE-005_D1");
 
-		seleniumactions.getJavascriptHelper().scrollToElemet(income.Deduction());
+		seleniumActions.getJavascriptHelper().scrollToElemet(income.Deduction());
 
 		for (int i = 0; i < 20; i++) {
 			try {
@@ -396,7 +395,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -428,7 +427,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -507,7 +506,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -539,7 +538,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 
 		for (int i = 1; i < 60; i++) {
 			try {
-				seleniumactions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
+				seleniumActions.getJavascriptHelper().scrollIntoView(driver.findElement(By.xpath(xpath)));
 				driver.findElement(By.xpath(xpath)).click();
 				break;
 
@@ -591,7 +590,7 @@ public class IncomeDetails_Self_Employed extends BaseClass {
 			throws Throwable {
 
 		help.waitForElementToVisibleWithFluentWait(driver, income.Deduction_Considered1(), 60, 5);
-		seleniumactions.getJavascriptHelper().scrollIntoView(income.Deduction_Considered1());
+		seleniumActions.getJavascriptHelper().scrollIntoView(income.Deduction_Considered1());
 		income.Deduction_Considered1().click();
 		String DeductionConsidered1 = income.Deduction_Considered1().getAttribute("ng-reflect-model");
 		System.out.println(DeductionConsidered1);

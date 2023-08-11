@@ -38,7 +38,7 @@ public class Appropriation_MasterStep {
 	KULS_Login_TestDataType loginData = jsonConfig.getKULSLoginCredentialsByName("Checker");
 	WaitHelper help = new WaitHelper(driver);
 	KULS_Login login = new KULS_Login();
-	JsonDataReaderWriter json = new JsonDataReaderWriter();
+	//JsonDataReaderWriter json = new JsonDataReaderWriter();
 	Appropriation_MasterObj appropriation = new Appropriation_MasterObj(driver);
 	FindFieldisMandatoryorNot mandatoryornot = new FindFieldisMandatoryorNot(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
@@ -47,7 +47,13 @@ public class Appropriation_MasterStep {
 	Map<String, String> testData;
 	Map<String, String> AppropriationMasterTestData = new HashMap<>();
 	
-	
+	@And("^User change module options from configuration to los$")
+    public void user_change_module_options_from_configuration_to_los() throws Throwable {
+		help.waitForElementToVisibleWithFluentWait(driver, appropriation.Module(), 60, 5);
+		appropriation.Module().click();
+		help.waitForElementToVisibleWithFluentWait(driver, appropriation.Los(), 60, 5);
+		appropriation.Los().click();
+    }
 	@Then("^User click the config manager in Appropriation master$")
     public void user_click_the_config_manager_in_appropriation_master() throws Throwable {
 		
@@ -74,7 +80,7 @@ public class Appropriation_MasterStep {
 		String ref1 = appropriation.referenceid().getText();
 		String ref2 = ref1.substring(0);
 		excelData.updateTestData("AT-AM-002-D4","Reference ID",ref2);
-		json.addReferanceData(ref2);
+		//json.addReferanceData(ref2);
 		testData = excelData.getTestdata("AT-ACD-T001_D1");
 
 
@@ -629,7 +635,7 @@ public class Appropriation_MasterStep {
 		String ref1 = appropriation.referenceid().getText();
 		String ref2 = ref1.substring(0);
 		excelData.updateTestData("AT-AM-T005-D1","Reference ID",ref2);
-		json.addReferanceData(ref2);
+		//json.addReferanceData(ref2);
 		testData = excelData.getTestdata("AT-AM-T005-D1");
 		
 		for(int i=0; i<20; i++) {
@@ -690,7 +696,7 @@ public class Appropriation_MasterStep {
 		Space = split[split.length - 1];
 		String popupID = Space.replaceAll("[/.]", "");
 		excelData.updateTestData("AT-AM-T005-D1","Checker id",popupID);
-		json.addData(popupID);
+		//json.addData(popupID);
 		System.out.println(popupID);
 		testData = excelData.getTestdata("AT-AM-T005-D1");
         

@@ -16,6 +16,18 @@ public class Appropriation_MasterObj {
 		PageFactory.initElements(driver, this);
        
 	}
+	@FindBy(xpath="//ion-select[@aria-label='Accounting And Billing Hub']")
+	private WebElement Module;
+	public WebElement Module()
+	{
+		return Module;
+	}
+	@FindBy(xpath="//ion-label[text()='LOS']//following-sibling::ion-radio")
+	private WebElement Los;
+	public WebElement Los()
+	{
+		return Los;
+	}
 	@FindBy(xpath="//ion-label[contains(text(),'Config Manager')]")
 	private WebElement ConfigManager;
 	public WebElement ConfigManager()

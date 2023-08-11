@@ -3,6 +3,7 @@ Feature: To verify the Appropriation master full flow
 @AT-AM-001
 Scenario: To verify the user able to create the Appropriation record in maker stage
 Given User login as uls maker in asset CD master
+And User change module options from configuration to los
 Then User click the Configurations in asset auto master
 Then User click the config manager in Appropriation master
 And User click the Appropriation master edit icon
@@ -25,6 +26,7 @@ And User get the save confirmation msg1 in Appropriation master
 @AT-AM-002
 Scenario: To verify the user can able to deactivate the record and the record should removed the record from the system
 Given User login as uls maker in asset CD master
+And User change module options from configuration to los
 Then User click the Configurations in asset auto master
 Then User click the config manager in Appropriation master
 And User click the Appropriation master edit icon
@@ -46,6 +48,7 @@ And User verify the record removed from the system
 @AT-AM-003
 Scenario: To verify the user enter the invalid details in appropriation master
 Given User login as uls maker in asset CD master
+And User change module options from configuration to los
 Then User click the Configurations in asset auto master
 Then User click the config manager in Appropriation master
 And User click the Appropriation master edit icon
@@ -63,6 +66,7 @@ And User verify the invalid field popup confirmation in appropriation
 @AT-AM-004
 Scenario: To verify system display the proper validation message when user  keep any mandatory fields blank and clicks on save button
 Given User login as uls maker in asset CD master
+And User change module options from configuration to los
 Then User click the Configurations in asset auto master
 Then User click the config manager in Appropriation master
 And User click the Appropriation master edit icon
@@ -75,6 +79,7 @@ And User verify the invalid field popup confirmation in appropriation
 @AT-AM-005
 Scenario: To verify user can able to update the before approve record
 Given User login as uls maker in asset CD master
+And User change module options from configuration to los
 Then User click the Configurations in asset auto master
 Then User click the config manager in Appropriation master
 And User click the Appropriation master edit icon

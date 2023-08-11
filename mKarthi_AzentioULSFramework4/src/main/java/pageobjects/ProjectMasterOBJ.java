@@ -441,6 +441,12 @@ public class ProjectMasterOBJ {
 	public WebElement UpdateSave() {
 		return UpdateSave;
 	}
+	@FindBy(xpath="//ion-title[contains(text(),'Unit Details')]//parent::ion-card-header//following-sibling::ion-card-content/kub-prime-table/p-table/div/div/div/div[3]/span/button")
+	private WebElement UnitDetails_Search;
+
+	public WebElement UnitDetails_Search() {
+		return UnitDetails_Search;
+	}
 
 
 }

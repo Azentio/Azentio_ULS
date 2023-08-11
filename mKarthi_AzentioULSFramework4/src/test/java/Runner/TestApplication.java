@@ -8,14 +8,14 @@ import io.cucumber.testng.CucumberOptions;
 import utilities.ExtentManager;
 import utilities.ExtentTestManager;
 
-@CucumberOptions(features = "src/test/java/features/DepositAccountMaster.feature", 
+@CucumberOptions(features = "src/test/java/features/Asset_CD_Master_FullBatch.feature",//Appropriation_Master_FullBatch.feature" 
                  glue = "stepdefinitions",
 		         //monochrome=false, //to make steps in color
 		         plugin = { "pretty",
 				            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				            "rerun:ReRunScenarios/FailedReRun.txt"} 
 				//dryRun = false //to check compilation errors 
-				//, tags="@DepositMaster_M11_27_14c"  //123
+				, tags="@AT-ACD-T001"  //123
 						
 
 

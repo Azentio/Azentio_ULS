@@ -38,5 +38,16 @@ And User update the Building Name in project master
 And User update the Total Floors in project master
 And User update the Total Flats in project master
 And User save the record in project master
+
+@AT-PM-TC001
+Scenario: To verify the updation flow of Project Master
+Given User login as uls maker in asset CD master
+Then User click the Configurations in asset auto master
+And User click the config manager in Bounce master
+And User click the project master edit icon in project master
+And User click the action edit icon in project master
+And User verify the unit details search box visible or not
+
+
  
 

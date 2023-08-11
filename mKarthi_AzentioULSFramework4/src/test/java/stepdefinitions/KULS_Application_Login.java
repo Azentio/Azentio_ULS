@@ -72,13 +72,13 @@ public class KULS_Application_Login {
 			}
 		}
 		
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Corporate(), 60, 2);
-		loginObj.Corporate().click();
+		//waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Corporate(), 60, 2);
+		//loginObj.Corporate().click();
 		//click.doubleClick(loginObj.ModuleName());
 		
 		
-		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.LOS(), 60, 2);
-		loginObj.LOS().click();
+		//waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.LOS(), 60, 2);
+		//loginObj.LOS().click();
 		
 		waithelper.waitForElementToVisibleWithFluentWait(driver, loginObj.Menu(), 60, 2);
 		loginObj.Menu().click();

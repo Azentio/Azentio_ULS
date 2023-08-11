@@ -22,10 +22,10 @@ public class IncomeDetailsOBJ {
 		return InboxSearchIcon;
 	}
 	@FindBy(xpath="//span[text()=' Inbox ']//parent::div//child::span[2]/input")
-	private WebElement searchsentkeys;
-	public WebElement searchsentkeys() 
+	private WebElement SearchSentKeys;
+	public WebElement SearchSentKeys() 
 	{
-		return searchsentkeys;
+		return SearchSentKeys;
 	}
 	@FindBy(xpath="(//button[@ng-reflect-text='Entitle'])[1]")
 	private WebElement inboxediticon;

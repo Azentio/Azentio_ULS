@@ -34,6 +34,7 @@ public class ApplicationDetailOffering {
 	JsonDataReaderWriter json = new JsonDataReaderWriter();
 	Transactions_ScreenOBJ Transaction = new Transactions_ScreenOBJ(driver);
 	JavascriptHelper javaHelper = new JavascriptHelper(driver);
+	//S
 	
 	ExcelData excelData = new ExcelData("C:\\Users\\inindc00071\\Downloads\\TestDataDesignSampleNew.xlsx","AppDetailOfferingTestData","Data Set ID");
 	Map<String, String> testData;
