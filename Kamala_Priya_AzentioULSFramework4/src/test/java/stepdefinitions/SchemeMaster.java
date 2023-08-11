@@ -37,7 +37,7 @@ public class SchemeMaster extends BaseClass {
 	public void get_the_url_and_login_as_maker() throws Throwable {
 		//String kulsApplicationUrl = configFileRead.getApplicationUrl();
 		//driver.get(kulsApplicationUrl);
-		ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","LoginCredentilas","Stage");
+		ExcelData excelData = new ExcelData("C:\\Users\\ININDC00072\\git\\Azentio_ULS_001\\Kamala_Priya_AzentioULSFramework4\\Test-data\\UlsTestDataDesign.xlsx","FloatingRateMaster","Stage");
         Map<String, String> testdata = excelData.getTestdata("Maker1");
         String kulsApplicationUrl = configFileRead.getApplicationTransactionUrl();
         driver.get(kulsApplicationUrl);

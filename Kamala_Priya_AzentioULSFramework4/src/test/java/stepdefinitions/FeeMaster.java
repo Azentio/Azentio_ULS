@@ -45,7 +45,7 @@ public class FeeMaster extends BaseClass {
 	ChargeMasterObject chargeObj = new ChargeMasterObject(driver);
 
 	List<String> xlsList = new ArrayList<>();
-	ExcelData excelData = new ExcelData("C:\\Users\\inindc00073\\Downloads\\UlsTestDataDesign.xlsx","FeeMaster","Data Set ID");
+	ExcelData excelData = new ExcelData("C:\\Users\\ININDC00072\\git\\Azentio_ULS_001\\Kamala_Priya_AzentioULSFramework4\\Test-data\\UlsTestDataDesign.xlsx","FeeMaster","Stage");
 	Map<String, String> testData;
 
 
