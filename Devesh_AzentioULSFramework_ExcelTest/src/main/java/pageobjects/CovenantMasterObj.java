@@ -78,7 +78,15 @@ public class CovenantMasterObj {
 		return covenantMaster_ListOfCovenantMasterTitle;
 	}
 	
-	@FindBy(xpath = "//ion-row[2]/ion-col[1]/button[1]/span[1]")
+	@FindBy(xpath = "//span[text()=' Inbox ']")
+	private WebElement inboxTitle;
+	
+	public WebElement inboxTitle() {
+		return inboxTitle;
+	}
+	
+	@FindBy(xpath = "//button[@ng-reflect-text='Go Back']")
+//	@FindBy(xpath = "//ion-row[2]/ion-col[1]/button[1]")
 	private WebElement covenantMaster_BackButton;
 	
 	public WebElement covenantMaster_BackButton() {
@@ -601,7 +609,9 @@ public class CovenantMasterObj {
 		return covenantMaster_EndTime;
 	}
 
-	@FindBy(xpath = "//ion-toolbar[1]/ion-buttons[1]/ion-button[1]")
+//	@FindBy(xpath = "//ion-toolbar[1]/ion-buttons[1]/ion-button[1]")
+//	@FindBy(xpath = "//ion-icon[@name='close']")
+	@FindBy(xpath = "//ion-buttons/ion-button")
 	private WebElement covenantMaster_Close;
 
 	public WebElement covenantMaster_Close() {

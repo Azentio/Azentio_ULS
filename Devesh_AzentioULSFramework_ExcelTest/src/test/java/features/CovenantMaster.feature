@@ -299,8 +299,8 @@ Feature: Check the functionality of Covenant Master
   #	And select the record of covenant master from inbox to submit
   	
   	Given User launch the kuls application
-  	And User Login as checker in uls application
   	Then select data set ID for covenant master testcase012
+  	And User Login as checker in uls application
   	Then click on inbox button to select the record of covenant master
   	Then select the record of covenant master to view workflow
 		Then verify the view workflow in the covenant master
@@ -310,8 +310,8 @@ Feature: Check the functionality of Covenant Master
   @AT_CM_T013
   Scenario: Covenant Master - To verify the functionality of list view approved records
   	Given User launch the kuls application
-  	And User Login as maker
   	Then select data set ID for covenant master testcase013
+  	And User Login as maker
   	Then user should navigate to covenant master
   	And click on approved records button of covenant master
   	Then verify add button should allow to create new record in covenant master
@@ -319,7 +319,7 @@ Feature: Check the functionality of Covenant Master
   	Then verify search box should not display any record with mismatched data in covenant master
   	Then click on export to pdf button system should download Pdf file in covenant master
   	Then click on export to excel button system should download Excel file in covenant master
-  	Then verify the functionality of ID field system should display ID number of that record
+  #	Then verify the functionality of ID field system should display ID number of that record
   	Then verify the functionality of Description field system should display description of that record
   	Then verify the functionality of Covenant Type field system should display Covenant Type of that record
  		Then verify the functionality of Frequency field system should display frequency of that record

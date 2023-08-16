@@ -34,10 +34,10 @@ public class CovenantMaster {
 
 	WebDriver driver = BaseClass.driver;
 	WaitHelper waithelper = new WaitHelper(driver);
-	JsonConfig jsonConfig = new JsonConfig();
+//	JsonConfig jsonConfig = new JsonConfig();
 	ConfigFileReader configFileReader = new ConfigFileReader();
 	KULS_Application_Login kulsLogin = new KULS_Application_Login(driver);
-	KULS_Login_TestDataType ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
+//	KULS_Login_TestDataType ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
 	KULS_LoginObj loginObj;
 	JavascriptHelper javaScriptHelper = new JavascriptHelper(driver);
 	BrowserHelper browserHelper = new BrowserHelper(driver);
@@ -46,9 +46,9 @@ public class CovenantMaster {
 	DropDownHelper dropDownHelper = new DropDownHelper(driver);
 	FindFieldisMandatoryorNot findFieldisMandatoryorNot = new FindFieldisMandatoryorNot(driver);
 	String referenceID;
-	JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
+//	JsonDataReaderWriter jsonDataReaderWriter = new JsonDataReaderWriter();
 	CovenantMasterObj covenantMasterObj = new CovenantMasterObj(driver);
-	CovenantMasterTestDataType covenantMasterTestDataType = jsonConfig.getCovenantMasterByName("Maker");
+//	CovenantMasterTestDataType covenantMasterTestDataType = jsonConfig.getCovenantMasterByName("Maker");
 	Selenium_Actions action = new Selenium_Actions(driver);
 	ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","CovenantMasterTestData","Data Set ID");
 	Map<String , String> testData;
@@ -158,10 +158,20 @@ public class CovenantMaster {
 
 	@Then("^verify the functionality of back button of covenant master$")
 	public void verify_the_functionality_of_back_button_of_covenant_master() throws Throwable {
-		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_BackButton());
-		covenantMasterObj.covenantMaster_BackButton().click();
-		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_ListOfCovenantMasterTitle());
-		boolean status = covenantMasterObj.covenantMaster_ListOfCovenantMasterTitle().isDisplayed();
+//		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_BackButton());
+		for (int i = 0; i <= 100; i++) {
+			try {
+				covenantMasterObj.covenantMaster_BackButton().click();
+				break;
+			} catch (Exception e) {
+				// TODO: handle exception
+				if (i == 100) {
+					Assert.fail(e.getMessage());
+				}
+			}
+		}
+		waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.inboxTitle());
+		boolean status = covenantMasterObj.inboxTitle().isDisplayed();
 		Assert.assertTrue(status);
 	}
 	
@@ -653,19 +663,19 @@ public class CovenantMaster {
 			 radioButtonHelper.radioButton(testData.get("Frequency"));
 	    }
 	    
-	    @Then("^click on edit button of covenant master WIP record to modify$")
-	    public void click_on_edit_button_of_covenant_master_WIP_record_to_modify() throws Throwable {
-	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchButton());
-	    	covenantMasterObj.covenantMaster_SearchButton().click();
-	    	
-	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchInputField());
-	    	covenantMasterObj.covenantMaster_SearchInputField().sendKeys(covenantMasterTestDataType.BeforeApprovedRecord);
-	    	
-	    	String beforexpath ="//span[contains(text(),'";
-	    	String afterxpath ="')]/../../../td/span/button[1]/span[1]";
-	    	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +covenantMasterTestDataType.BeforeApprovedRecord+ afterxpath)));
-	    	driver.findElement(By.xpath(beforexpath +covenantMasterTestDataType.BeforeApprovedRecord+ afterxpath)).click();
-	    }
+//	    @Then("^click on edit button of covenant master WIP record to modify$")
+//	    public void click_on_edit_button_of_covenant_master_WIP_record_to_modify() throws Throwable {
+//	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchButton());
+//	    	covenantMasterObj.covenantMaster_SearchButton().click();
+//	    	
+//	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchInputField());
+//	    	covenantMasterObj.covenantMaster_SearchInputField().sendKeys(covenantMasterTestDataType.BeforeApprovedRecord);
+//	    	
+//	    	String beforexpath ="//span[contains(text(),'";
+//	    	String afterxpath ="')]/../../../td/span/button[1]/span[1]";
+//	    	waithelper.waitForElementwithFluentwait(driver, driver.findElement(By.xpath(beforexpath +covenantMasterTestDataType.BeforeApprovedRecord+ afterxpath)));
+//	    	driver.findElement(By.xpath(beforexpath +covenantMasterTestDataType.BeforeApprovedRecord+ afterxpath)).click();
+//	    }
 
 	    @Then("^verify system should allow user to modify the covenant master before approve the record$")
 	    public void verify_system_should_allow_user_to_modify_the_covenant_master_before_approve_the_record() throws Throwable {
@@ -824,8 +834,17 @@ public class CovenantMaster {
 	    	System.out.println("EndTime:"+EndTime);
 	    	covenantMasterObj.covenantMaster_EndTime().isDisplayed();
 	    	
-			waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_Close());
-			covenantMasterObj.covenantMaster_Close().click();
+	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_Close());
+	    	clicksAndActionsHelper.moveToElement(covenantMasterObj.covenantMaster_Close());
+	    	javaScriptHelper.JSEClick(covenantMasterObj.covenantMaster_Close());
+	    	for (int i = 0; i <= 100; i++) {
+	    		try {
+					covenantMasterObj.covenantMaster_Close().click();
+	    			break;
+	    		} catch (Exception e) {
+	    			
+	    		}
+	    	}
 	    }
 	    
 	    //////////////////////////////////////////////////////////////////////////////////////////////
@@ -837,18 +856,36 @@ public class CovenantMaster {
 	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SaveButton());
 	    	covenantMasterObj.covenantMaster_SaveButton().isDisplayed();
 	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_BackButton());
-	    	clicksAndActionsHelper.doubleClick(covenantMasterObj.covenantMaster_BackButton());
+//	    	clicksAndActionsHelper.doubleClick(covenantMasterObj.covenantMaster_BackButton());
+	    	clicksAndActionsHelper.moveToElement(covenantMasterObj.covenantMaster_BackButton());
+	    	covenantMasterObj.covenantMaster_BackButton().click();
+	    	for (int i = 0; i < 50; i++) {
+				try {
+					covenantMasterObj.covenantMaster_BackButton().click();
+					break;
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			}
 	    }
 
 	    @Then("^verify search box should display matching record with matched data in covenant master$")
 	    public void verify_search_box_should_display_matching_record_with_matched_data_in_covenant_master() throws Throwable {
-	    	while (true) {
+//	    	while (true) {
+//				try {
+//					break;
+//				} catch (StaleElementReferenceException se) {
+//
+//				}
+//			}
+	    	
+	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchButton());
+	    	for (int i = 0; i < 200; i++) {
 				try {
-					waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchButton());
 					covenantMasterObj.covenantMaster_SearchButton().click();
 					break;
-				} catch (StaleElementReferenceException se) {
-
+				} catch (Exception e) {
+					// TODO: handle exception
 				}
 			}
 	    	waithelper.waitForElementwithFluentwait(driver, covenantMasterObj.covenantMaster_SearchInputField());

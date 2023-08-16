@@ -17,10 +17,10 @@ public class KULS_Login {
 	WebDriver driver = BaseClass.driver;
 	ConfigFileReader configFileReader = new ConfigFileReader();
 	Selenium_Actions seleniumActions = new Selenium_Actions(driver);
-	JsonConfig jsonConfig = new JsonConfig();
-	KULS_Login_TestDataType kulsLoginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
+//	JsonConfig jsonConfig = new JsonConfig();
+//	KULS_Login_TestDataType kulsLoginData = jsonConfig.getKULSLoginCredentialsByName("Maker");
 	KULS_Application_Login kulsLogin = new KULS_Application_Login(driver);
-	JsonDataReaderWriter jsonDataReaderWriter=  new  JsonDataReaderWriter();
+//	JsonDataReaderWriter jsonDataReaderWriter=  new  JsonDataReaderWriter();
 //	ExcelData excelData = new ExcelData("C:\\Users\\inindc00091\\eclipse-workspace\\Devesh_AzentioULSFramework_ExcelTest\\Test-data\\TestDataDesignSample.xlsx","LoginCredentials","Stage");
 	String path = System.getProperty("user.dir") +"\\Test-data\\TestDataDesignSample.xlsx";
 	ExcelData excelData = new ExcelData(path,"LoginCredentials","Stage");

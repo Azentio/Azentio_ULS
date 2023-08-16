@@ -22,7 +22,7 @@ public class PropertyDetailsObj {
 	}
 	
 	// inbox
-	@FindBy(xpath = "//ion-list[1]/ion-item[1]/div[1]")
+	@FindBy(xpath = "//ion-list[1]/ion-item[2]/div[1]")
 	private WebElement propertyDetails_Inbox;
 
 	public WebElement propertyDetails_Inbox() {
@@ -38,7 +38,8 @@ public class PropertyDetailsObj {
 	}
 
 	// search inbox input fields
-	@FindBy(xpath = "//p-table/div/div/div/span/input")
+//	@FindBy(xpath = "//p-table/div/div/div/span/input")
+	@FindBy(xpath = "//span/input")
 	private WebElement propertyDetails_SearchInboxInputField;
 
 	public WebElement propertyDetails_SearchInboxInputField() {
@@ -84,6 +85,22 @@ public class PropertyDetailsObj {
 	{
 		return appdataEntry_PropertyDetailsTab;
 	}
+	
+//	@FindBy(xpath="(//button[text()=' Next'])[2]")
+	@FindBy(xpath="//ion-modal/page-composer-parser/descendant::button[text()=' Next']")
+	private WebElement appdataEntry_NextSlides;
+	public WebElement appdataEntry_NextSlides()
+	{
+		return appdataEntry_NextSlides;
+	}
+	
+	@FindBy(xpath="//td[1]/span/button[1]")
+	private WebElement propertyDetails_FirstRecordEditButton;
+	public WebElement propertyDetails_FirstRecordEditButton()
+	{
+		return propertyDetails_FirstRecordEditButton;
+	}
+	
 	@FindBy(xpath="//ion-label[text()=' Security Type ']//following-sibling::ion-select")
 	private WebElement propertyDetails_SecurityTypeDropDown;
 	public WebElement propertyDetailsSecurityTypeDropDown()
@@ -296,9 +313,52 @@ public class PropertyDetailsObj {
 	}
 	@FindBy(xpath="//ion-toggle")
 	private WebElement propertyDetails_StatusToggleButton;	
-	public WebElement propertyDetailsStatusToggleButton()
+	public WebElement propertyDetails_StatusToggleButton()
 	{
 		return propertyDetails_StatusToggleButton;
+	}
+	
+	@FindBy(xpath="//button[@ng-reflect-text='Update']")
+	private WebElement propertyDetails_UpdateButton;	
+	public WebElement propertyDetails_UpdateButton()
+	{
+		return propertyDetails_UpdateButton;
+	}
+	
+	@FindBy(xpath="//body/div/div[@id='toast-container']/div/div[1]")
+	private WebElement propertyDetails_UpdateSuccessMessage;	
+	public WebElement propertyDetails_UpdateSuccessMessage()
+	{
+		return propertyDetails_UpdateSuccessMessage;
+	}
+	
+	@FindBy(xpath="//body/div/div[@id='toast-container']/div/button")
+	private WebElement propertyDetails_UpdateSuccessMessageCloseButton;	
+	public WebElement propertyDetails_UpdateSuccessMessageCloseButton()
+	{
+		return propertyDetails_UpdateSuccessMessageCloseButton;
+	}
+	
+	@FindBy(xpath="//button[@ng-reflect-text='Go Back']")
+	private WebElement propertyDetails_BackButton;	
+	public WebElement propertyDetails_BackButton()
+	{
+		return propertyDetails_BackButton;
+	}
+	
+	@FindBy(xpath="//ion-modal/descendant::ion-title[text()=' Property Details ']")
+//	@FindBy(xpath="//ion-title[text()=' Property Details ']")
+	private WebElement propertyDetails_Title;	
+	public WebElement propertyDetails_Title()
+	{
+		return propertyDetails_Title;
+	}
+	
+	@FindBy(xpath="//td[8]/p-celleditor")
+	private WebElement propertyDetails_FirstRecordStatus;	
+	public WebElement propertyDetails_FirstRecordStatus()
+	{
+		return propertyDetails_FirstRecordStatus;
 	}
 	
 }

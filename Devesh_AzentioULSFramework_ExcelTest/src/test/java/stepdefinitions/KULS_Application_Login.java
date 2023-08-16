@@ -26,7 +26,7 @@ public class KULS_Application_Login {
 		this.driver = driver;
 	}
 
-	JsonConfig jsonConfig = new JsonConfig();
+//	JsonConfig jsonConfig = new JsonConfig();
 	KULS_Login_TestDataType ulsUserLoginCredentials;
 
 	public void loginUlsApplicationAsMaker(String username, String password) throws InterruptedException {
@@ -71,7 +71,7 @@ public class KULS_Application_Login {
 		waithelper = new WaitHelper(driver);
 		loginObj = new KULS_LoginObj(driver);
 		javaScriptHelper = new JavascriptHelper(driver);
-		ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
+//		ulsUserLoginCredentials = jsonConfig.getKULSLoginCredentialsByName("Checker");
 		ExcelData excelData = new ExcelData(System.getProperty("user.dir") + "\\Test-data\\TestDataDesignSample.xlsx","LoginCredentials","Stage");
 		Map<String, String> testData;
 		switch (userID) {
